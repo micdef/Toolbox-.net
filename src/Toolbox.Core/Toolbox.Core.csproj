@@ -17,6 +17,8 @@
     <PackageReference Include="OpenTelemetry.Api" />
     <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
     <PackageReference Include="OpenTelemetry.Exporter.Console" />
+    <PackageReference Include="FluentFTP" />
+    <PackageReference Include="SSH.NET" />
   </ItemGroup>
 
 </Project>

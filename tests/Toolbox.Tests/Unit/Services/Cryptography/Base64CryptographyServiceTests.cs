@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Toolbox.Core.Options;
 using Toolbox.Core.Services.Cryptography;
+using MsOptions = Microsoft.Extensions.Options.Options;
 
 namespace Toolbox.Tests.Unit.Services.Cryptography;
 
@@ -103,7 +104,7 @@ public class Base64CryptographyServiceTests
     public void Encrypt_WithNoPadding_ShouldOmitPaddingCharacters()
     {
         // Arrange
-        var options = Options.Create(new Base64CryptographyOptions
+        var options = MsOptions.Create(new Base64CryptographyOptions
         {
             EncodingTable = Base64EncodingTable.Standard,
             IncludePadding = false
@@ -122,7 +123,7 @@ public class Base64CryptographyServiceTests
     public void Decrypt_WithoutPadding_ShouldStillDecodeCorrectly()
     {
         // Arrange
-        var options = Options.Create(new Base64CryptographyOptions
+        var options = MsOptions.Create(new Base64CryptographyOptions
         {
             EncodingTable = Base64EncodingTable.Standard,
             IncludePadding = false
