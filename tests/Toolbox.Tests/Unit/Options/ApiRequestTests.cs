@@ -1,4 +1,3 @@
-using System.Text.Json;
 using Toolbox.Core.Options;
 
 namespace Toolbox.Tests.Unit.Options;
