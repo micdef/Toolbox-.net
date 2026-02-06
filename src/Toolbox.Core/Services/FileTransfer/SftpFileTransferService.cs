@@ -9,6 +9,7 @@ using Renci.SshNet.Common;
 using Toolbox.Core.Abstractions.Services;
 using Toolbox.Core.Base;
 using Toolbox.Core.Options;
+using Toolbox.Core.Telemetry;
 
 namespace Toolbox.Core.Services.FileTransfer;
 
@@ -126,10 +127,12 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
             }
 
             using var fileStream = File.OpenRead(localPath);
+            var fileSize = fileStream.Length;
             _client.UploadFile(fileStream, remotePath, overwrite);
 
             _logger.LogDebug("Uploaded {LocalPath} to {RemotePath}", localPath, remotePath);
             RecordOperation("UploadOne", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordFileUpload(ServiceName, "SFTP", _options.Host, fileSize);
         }
         catch (SftpPathNotFoundException ex)
         {
@@ -181,10 +184,12 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
             }
 
             await using var fileStream = File.OpenRead(localPath);
+            var fileSize = fileStream.Length;
             await Task.Run(() => _client.UploadFile(fileStream, remotePath, overwrite), cancellationToken);
 
             _logger.LogDebug("Uploaded {LocalPath} to {RemotePath}", localPath, remotePath);
             RecordOperation("UploadOneAsync", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordFileUpload(ServiceName, "SFTP", _options.Host, fileSize);
         }
         catch (SftpPathNotFoundException ex)
         {
@@ -328,9 +333,11 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
 
             using var fileStream = File.Create(localPath);
             _client.DownloadFile(remotePath, fileStream);
+            var fileSize = fileStream.Length;
 
             _logger.LogDebug("Downloaded {RemotePath} to {LocalPath}", remotePath, localPath);
             RecordOperation("DownloadOne", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordFileDownload(ServiceName, "SFTP", _options.Host, fileSize);
         }
         catch (SftpPathNotFoundException ex)
         {
@@ -380,9 +387,11 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
 
             await using var fileStream = File.Create(localPath);
             await Task.Run(() => _client.DownloadFile(remotePath, fileStream), cancellationToken);
+            var fileSize = fileStream.Length;
 
             _logger.LogDebug("Downloaded {RemotePath} to {LocalPath}", remotePath, localPath);
             RecordOperation("DownloadOneAsync", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordFileDownload(ServiceName, "SFTP", _options.Host, fileSize);
         }
         catch (SftpPathNotFoundException ex)
         {

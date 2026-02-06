@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Toolbox.Core.Abstractions.Services;
 using Toolbox.Core.Base;
 using Toolbox.Core.Options;
+using Toolbox.Core.Telemetry;
 
 namespace Toolbox.Core.Services.FileTransfer;
 
@@ -140,6 +141,8 @@ public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTr
                 throw new IOException($"Failed to upload file to {remotePath}");
             }
 
+            var fileSize = new FileInfo(localPath).Length;
+
             _logger.LogDebug(
                 "Uploaded {LocalPath} to {RemotePath} (status: {Status})",
                 localPath,
@@ -147,6 +150,7 @@ public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTr
                 status);
 
             RecordOperation("UploadOne", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordFileUpload(ServiceName, _options.Protocol.ToString(), _options.Host, fileSize);
         }
         catch (Exception ex) when (ex is not ArgumentNullException and not FileNotFoundException and not OperationCanceledException and not ObjectDisposedException)
         {
@@ -260,6 +264,8 @@ public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTr
                 throw new IOException($"Failed to download file from {remotePath}");
             }
 
+            var fileSize = new FileInfo(localPath).Length;
+
             _logger.LogDebug(
                 "Downloaded {RemotePath} to {LocalPath} (status: {Status})",
                 remotePath,
@@ -267,6 +273,7 @@ public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTr
                 status);
 
             RecordOperation("DownloadOne", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordFileDownload(ServiceName, _options.Protocol.ToString(), _options.Host, fileSize);
         }
         catch (Exception ex) when (ex.Message.Contains("not found", StringComparison.OrdinalIgnoreCase) ||
                                     ex.Message.Contains("doesn't exist", StringComparison.OrdinalIgnoreCase) ||

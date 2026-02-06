@@ -9,6 +9,7 @@ using System.Text;
 using Toolbox.Core.Abstractions.Services;
 using Toolbox.Core.Base;
 using Toolbox.Core.Options;
+using Toolbox.Core.Telemetry;
 
 namespace Toolbox.Core.Services.Cryptography;
 
@@ -319,6 +320,7 @@ public sealed class RsaCryptographyService : BaseAsyncDisposableService, ICrypto
                 result.Length);
 
             RecordOperation("Encrypt", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordEncryption(ServiceName, "RSA", plainBytes.Length, _rsa.KeySize);
             return result;
         }
         catch (Exception ex) when (ex is not ArgumentNullException and not CryptographicException)
@@ -369,6 +371,7 @@ public sealed class RsaCryptographyService : BaseAsyncDisposableService, ICrypto
                 decryptedBytes.Length);
 
             RecordOperation("Decrypt", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordDecryption(ServiceName, "RSA", decryptedBytes.Length, _rsa.KeySize);
             return result;
         }
         catch (FormatException)

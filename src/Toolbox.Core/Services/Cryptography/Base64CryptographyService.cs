@@ -8,6 +8,7 @@ using System.Text;
 using Toolbox.Core.Abstractions.Services;
 using Toolbox.Core.Base;
 using Toolbox.Core.Options;
+using Toolbox.Core.Telemetry;
 
 namespace Toolbox.Core.Services.Cryptography;
 
@@ -101,6 +102,7 @@ public sealed class Base64CryptographyService : BaseAsyncDisposableService, ICry
                 result.Length);
 
             RecordOperation("Encrypt", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordEncryption(ServiceName, "Base64", bytes.Length);
             return result;
         }
         catch (Exception ex)
@@ -143,6 +145,7 @@ public sealed class Base64CryptographyService : BaseAsyncDisposableService, ICry
                 result.Length);
 
             RecordOperation("Decrypt", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordDecryption(ServiceName, "Base64", bytes.Length);
             return result;
         }
         catch (FormatException)

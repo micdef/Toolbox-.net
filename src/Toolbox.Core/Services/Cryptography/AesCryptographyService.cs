@@ -8,6 +8,7 @@ using System.Text;
 using Toolbox.Core.Abstractions.Services;
 using Toolbox.Core.Base;
 using Toolbox.Core.Options;
+using Toolbox.Core.Telemetry;
 
 namespace Toolbox.Core.Services.Cryptography;
 
@@ -134,6 +135,7 @@ public sealed class AesCryptographyService : BaseAsyncDisposableService, ICrypto
                 result.Length);
 
             RecordOperation("Encrypt", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordEncryption(ServiceName, "AES", plainBytes.Length, _key.Length * 8);
             return result;
         }
         catch (Exception ex) when (ex is not ArgumentNullException)
@@ -178,6 +180,7 @@ public sealed class AesCryptographyService : BaseAsyncDisposableService, ICrypto
                 result.Length);
 
             RecordOperation("EncryptAsync", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordEncryption(ServiceName, "AES", plainBytes.Length, _key.Length * 8);
             return result;
         }
         catch (Exception ex) when (ex is not ArgumentNullException and not OperationCanceledException)
@@ -215,6 +218,7 @@ public sealed class AesCryptographyService : BaseAsyncDisposableService, ICrypto
                 result.Length);
 
             RecordOperation("Decrypt", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordDecryption(ServiceName, "AES", decryptedBytes.Length, _key.Length * 8);
             return result;
         }
         catch (FormatException)
@@ -269,6 +273,7 @@ public sealed class AesCryptographyService : BaseAsyncDisposableService, ICrypto
                 result.Length);
 
             RecordOperation("DecryptAsync", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordDecryption(ServiceName, "AES", outputStream.ToArray().Length, _key.Length * 8);
             return result;
         }
         catch (FormatException)

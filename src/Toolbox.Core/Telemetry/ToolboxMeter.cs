@@ -56,6 +56,62 @@ public static class ToolboxMeter
             description: "Number of active Toolbox service instances"),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
+    // Lazy initializer for crypto encrypt counter
+    private static readonly Lazy<Counter<long>> LazyCryptoEncryptCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.CryptoEncryptCount,
+            unit: "{operations}",
+            description: "Number of encryption operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for crypto decrypt counter
+    private static readonly Lazy<Counter<long>> LazyCryptoDecryptCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.CryptoDecryptCount,
+            unit: "{operations}",
+            description: "Number of decryption operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for crypto data size histogram
+    private static readonly Lazy<Histogram<long>> LazyCryptoDataSize = new(
+        () => Instance.CreateHistogram<long>(
+            TelemetryConstants.Metrics.CryptoDataSize,
+            unit: "By",
+            description: "Size of encrypted/decrypted data in bytes"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for file transfer upload counter
+    private static readonly Lazy<Counter<long>> LazyFileTransferUploadCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.FileTransferUploadCount,
+            unit: "{files}",
+            description: "Number of file upload operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for file transfer download counter
+    private static readonly Lazy<Counter<long>> LazyFileTransferDownloadCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.FileTransferDownloadCount,
+            unit: "{files}",
+            description: "Number of file download operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for file transfer size histogram
+    private static readonly Lazy<Histogram<long>> LazyFileTransferSize = new(
+        () => Instance.CreateHistogram<long>(
+            TelemetryConstants.Metrics.FileTransferSize,
+            unit: "By",
+            description: "Size of transferred files in bytes"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for file transfer error counter
+    private static readonly Lazy<Counter<long>> LazyFileTransferErrorCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.FileTransferErrorCount,
+            unit: "{errors}",
+            description: "Number of file transfer errors"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
     /// <summary>
     /// Gets the shared <see cref="Meter"/> instance for Toolbox services.
     /// </summary>
@@ -149,5 +205,117 @@ public static class ToolboxMeter
         };
 
         ActiveInstances.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an encryption operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the cryptography service.</param>
+    /// <param name="algorithm">The encryption algorithm used.</param>
+    /// <param name="dataSize">The size of encrypted data in bytes.</param>
+    /// <param name="keySize">The key size in bits (optional).</param>
+    public static void RecordEncryption(string serviceName, string algorithm, long dataSize, int? keySize = null)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.CryptoAttributes.Algorithm, algorithm }
+        };
+
+        if (keySize.HasValue)
+        {
+            tags.Add(TelemetryConstants.CryptoAttributes.KeySize, keySize.Value);
+        }
+
+        LazyCryptoEncryptCounter.Value.Add(1, tags);
+        LazyCryptoDataSize.Value.Record(dataSize, tags);
+    }
+
+    /// <summary>
+    /// Records a decryption operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the cryptography service.</param>
+    /// <param name="algorithm">The encryption algorithm used.</param>
+    /// <param name="dataSize">The size of decrypted data in bytes.</param>
+    /// <param name="keySize">The key size in bits (optional).</param>
+    public static void RecordDecryption(string serviceName, string algorithm, long dataSize, int? keySize = null)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.CryptoAttributes.Algorithm, algorithm }
+        };
+
+        if (keySize.HasValue)
+        {
+            tags.Add(TelemetryConstants.CryptoAttributes.KeySize, keySize.Value);
+        }
+
+        LazyCryptoDecryptCounter.Value.Add(1, tags);
+        LazyCryptoDataSize.Value.Record(dataSize, tags);
+    }
+
+    /// <summary>
+    /// Records a file upload operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the file transfer service.</param>
+    /// <param name="protocol">The transfer protocol used.</param>
+    /// <param name="host">The remote host.</param>
+    /// <param name="fileSize">The size of the uploaded file in bytes.</param>
+    public static void RecordFileUpload(string serviceName, string protocol, string host, long fileSize)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.FileTransferAttributes.Protocol, protocol },
+            { TelemetryConstants.FileTransferAttributes.Host, host },
+            { TelemetryConstants.FileTransferAttributes.Direction, "upload" }
+        };
+
+        LazyFileTransferUploadCounter.Value.Add(1, tags);
+        LazyFileTransferSize.Value.Record(fileSize, tags);
+    }
+
+    /// <summary>
+    /// Records a file download operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the file transfer service.</param>
+    /// <param name="protocol">The transfer protocol used.</param>
+    /// <param name="host">The remote host.</param>
+    /// <param name="fileSize">The size of the downloaded file in bytes.</param>
+    public static void RecordFileDownload(string serviceName, string protocol, string host, long fileSize)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.FileTransferAttributes.Protocol, protocol },
+            { TelemetryConstants.FileTransferAttributes.Host, host },
+            { TelemetryConstants.FileTransferAttributes.Direction, "download" }
+        };
+
+        LazyFileTransferDownloadCounter.Value.Add(1, tags);
+        LazyFileTransferSize.Value.Record(fileSize, tags);
+    }
+
+    /// <summary>
+    /// Records a file transfer error.
+    /// </summary>
+    /// <param name="serviceName">The name of the file transfer service.</param>
+    /// <param name="protocol">The transfer protocol used.</param>
+    /// <param name="host">The remote host.</param>
+    /// <param name="direction">The transfer direction (upload/download).</param>
+    /// <param name="errorType">The type of error.</param>
+    public static void RecordFileTransferError(string serviceName, string protocol, string host, string direction, string errorType)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.FileTransferAttributes.Protocol, protocol },
+            { TelemetryConstants.FileTransferAttributes.Host, host },
+            { TelemetryConstants.FileTransferAttributes.Direction, direction },
+            { TelemetryConstants.Attributes.ErrorType, errorType }
+        };
+
+        LazyFileTransferErrorCounter.Value.Add(1, tags);
     }
 }
