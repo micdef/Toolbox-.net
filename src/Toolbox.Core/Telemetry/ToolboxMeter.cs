@@ -112,6 +112,22 @@ public static class ToolboxMeter
             description: "Number of file transfer errors"),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
+    // Lazy initializer for email sent counter
+    private static readonly Lazy<Counter<long>> LazyEmailSentCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.EmailSentCount,
+            unit: "{emails}",
+            description: "Number of emails sent"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for API request counter
+    private static readonly Lazy<Counter<long>> LazyApiRequestCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.ApiRequestCount,
+            unit: "{requests}",
+            description: "Number of API requests"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
     /// <summary>
     /// Gets the shared <see cref="Meter"/> instance for Toolbox services.
     /// </summary>
@@ -317,5 +333,47 @@ public static class ToolboxMeter
         };
 
         LazyFileTransferErrorCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an email sent operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the mailing service.</param>
+    /// <param name="host">The SMTP host.</param>
+    /// <param name="recipientCount">The number of recipients.</param>
+    /// <param name="hasAttachments">Whether the email has attachments.</param>
+    /// <param name="isHtml">Whether the email body is HTML.</param>
+    public static void RecordEmailSent(string serviceName, string host, int recipientCount, bool hasAttachments, bool isHtml)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.MailingAttributes.Host, host },
+            { TelemetryConstants.MailingAttributes.Recipients, recipientCount },
+            { TelemetryConstants.MailingAttributes.HasAttachments, hasAttachments },
+            { TelemetryConstants.MailingAttributes.IsHtml, isHtml }
+        };
+
+        LazyEmailSentCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an API request operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the API service.</param>
+    /// <param name="httpMethod">The HTTP method used.</param>
+    /// <param name="statusCode">The HTTP status code.</param>
+    /// <param name="isSuccess">Whether the request was successful.</param>
+    public static void RecordApiRequest(string serviceName, string httpMethod, int statusCode, bool isSuccess)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.ApiAttributes.HttpMethod, httpMethod },
+            { TelemetryConstants.ApiAttributes.HttpStatusCode, statusCode },
+            { TelemetryConstants.ApiAttributes.HttpSuccess, isSuccess }
+        };
+
+        LazyApiRequestCounter.Value.Add(1, tags);
     }
 }

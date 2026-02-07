@@ -524,14 +524,10 @@ public sealed class HttpApiService : BaseAsyncDisposableService, IApiService
     /// <param name="response">The response.</param>
     private void RecordApiRequest(ApiRequest request, ApiResponse response)
     {
-        var tags = new TagList
-        {
-            { TelemetryConstants.Attributes.ServiceName, ServiceName },
-            { "http.method", request.Method },
-            { "http.status_code", response.StatusCodeValue },
-            { "http.success", response.IsSuccess }
-        };
-
-        ToolboxMeter.OperationCounter.Add(1, tags);
+        ToolboxMeter.RecordApiRequest(
+            ServiceName,
+            request.Method,
+            response.StatusCodeValue,
+            response.IsSuccess);
     }
 }

@@ -137,11 +137,13 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
         catch (SftpPathNotFoundException ex)
         {
             _logger.LogError(ex, "Remote path not found: {RemotePath}", remotePath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "upload", ex.GetType().Name);
             throw new IOException($"Remote path not found: {remotePath}", ex);
         }
         catch (SshException ex)
         {
             _logger.LogError(ex, "Failed to upload {LocalPath} to {RemotePath}", localPath, remotePath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "upload", ex.GetType().Name);
             throw new IOException($"Failed to upload file: {ex.Message}", ex);
         }
     }
@@ -194,11 +196,13 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
         catch (SftpPathNotFoundException ex)
         {
             _logger.LogError(ex, "Remote path not found: {RemotePath}", remotePath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "upload", ex.GetType().Name);
             throw new IOException($"Remote path not found: {remotePath}", ex);
         }
         catch (SshException ex)
         {
             _logger.LogError(ex, "Failed to upload {LocalPath} to {RemotePath}", localPath, remotePath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "upload", ex.GetType().Name);
             throw new IOException($"Failed to upload file: {ex.Message}", ex);
         }
     }
@@ -341,11 +345,13 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
         }
         catch (SftpPathNotFoundException ex)
         {
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "download", ex.GetType().Name);
             throw new FileNotFoundException($"Remote file not found: {remotePath}", remotePath, ex);
         }
         catch (SshException ex)
         {
             _logger.LogError(ex, "Failed to download {RemotePath} to {LocalPath}", remotePath, localPath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "download", ex.GetType().Name);
             throw new IOException($"Failed to download file: {ex.Message}", ex);
         }
     }
@@ -395,11 +401,13 @@ public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileT
         }
         catch (SftpPathNotFoundException ex)
         {
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "download", ex.GetType().Name);
             throw new FileNotFoundException($"Remote file not found: {remotePath}", remotePath, ex);
         }
         catch (SshException ex)
         {
             _logger.LogError(ex, "Failed to download {RemotePath} to {LocalPath}", remotePath, localPath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, "SFTP", _options.Host, "download", ex.GetType().Name);
             throw new IOException($"Failed to download file: {ex.Message}", ex);
         }
     }

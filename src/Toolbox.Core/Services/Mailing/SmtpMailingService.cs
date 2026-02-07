@@ -446,15 +446,11 @@ public sealed class SmtpMailingService : BaseAsyncDisposableService, IMailingSer
     /// <param name="message">The sent message.</param>
     private void RecordEmailSent(EmailMessage message)
     {
-        var tags = new TagList
-        {
-            { TelemetryConstants.Attributes.ServiceName, ServiceName },
-            { "toolbox.mailing.host", _options.Host },
-            { "toolbox.mailing.recipients", message.TotalRecipients },
-            { "toolbox.mailing.has_attachments", message.Attachments.Count > 0 },
-            { "toolbox.mailing.is_html", message.IsBodyHtml }
-        };
-
-        ToolboxMeter.OperationCounter.Add(1, tags);
+        ToolboxMeter.RecordEmailSent(
+            ServiceName,
+            _options.Host,
+            message.TotalRecipients,
+            message.Attachments.Count > 0,
+            message.IsBodyHtml);
     }
 }

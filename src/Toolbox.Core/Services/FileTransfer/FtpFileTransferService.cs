@@ -155,6 +155,7 @@ public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTr
         catch (Exception ex) when (ex is not ArgumentNullException and not FileNotFoundException and not OperationCanceledException and not ObjectDisposedException)
         {
             _logger.LogError(ex, "Failed to upload {LocalPath} to {RemotePath}", localPath, remotePath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, _options.Protocol.ToString(), _options.Host, "upload", ex.GetType().Name);
             throw new IOException($"Failed to upload file: {ex.Message}", ex);
         }
     }
@@ -284,6 +285,7 @@ public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTr
         catch (Exception ex) when (ex is not ArgumentNullException and not FileNotFoundException and not OperationCanceledException and not ObjectDisposedException)
         {
             _logger.LogError(ex, "Failed to download {RemotePath} to {LocalPath}", remotePath, localPath);
+            ToolboxMeter.RecordFileTransferError(ServiceName, _options.Protocol.ToString(), _options.Host, "download", ex.GetType().Name);
             throw new IOException($"Failed to download file: {ex.Message}", ex);
         }
     }

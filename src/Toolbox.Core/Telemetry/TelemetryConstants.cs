@@ -88,6 +88,12 @@ public static class TelemetryConstants
 
         /// <summary>Counter for file transfer errors.</summary>
         public const string FileTransferErrorCount = "toolbox.filetransfer.errors.count";
+
+        /// <summary>Counter for email sent operations.</summary>
+        public const string EmailSentCount = "toolbox.mailing.sent.count";
+
+        /// <summary>Counter for API request operations.</summary>
+        public const string ApiRequestCount = "toolbox.api.requests.count";
     }
 
     /// <summary>
@@ -142,5 +148,20 @@ public static class TelemetryConstants
 
         /// <summary>Attribute name for HTML body indicator.</summary>
         public const string IsHtml = "toolbox.mailing.is_html";
+    }
+
+    /// <summary>
+    /// Additional attribute names for API services.
+    /// </summary>
+    public static class ApiAttributes
+    {
+        /// <summary>Attribute name for HTTP method.</summary>
+        public const string HttpMethod = "toolbox.api.http_method";
+
+        /// <summary>Attribute name for HTTP status code.</summary>
+        public const string HttpStatusCode = "toolbox.api.status_code";
+
+        /// <summary>Attribute name for success indicator.</summary>
+        public const string HttpSuccess = "toolbox.api.success";
     }
 }
