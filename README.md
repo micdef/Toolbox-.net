@@ -4,10 +4,14 @@ A .NET 10 library providing base services, telemetry, and dependency injection e
 
 ## Features
 
+- **Cryptography Services**: AES, RSA, and Base64 encoding/decoding
+- **File Transfer Services**: FTP, FTPS, and SFTP with batch operations
+- **Mailing Services**: SMTP with TLS/SSL, OAuth2, and attachment support
+- **API Services**: HTTP client with multiple authentication modes and retry policies
 - **Disposable Services**: Thread-safe base classes for synchronous and asynchronous disposal
 - **OpenTelemetry Integration**: Built-in distributed tracing and metrics collection
 - **Dependency Injection**: Fluent extensions for easy service registration
-- **Comprehensive Documentation**: Full Doxygen documentation support
+- **Comprehensive Documentation**: Full Doxygen documentation (HTML, LaTeX, XML, DocBook, RTF, Man)
 
 ## Requirements
 
@@ -49,8 +53,20 @@ app.Run();
 
 ## Documentation
 
-- [Usage Guide](USAGE.md) - Detailed usage instructions
-- [API Documentation](docs/html/index.html) - Generated Doxygen documentation
+- [Usage Guide](USAGE.md) - Detailed usage instructions and examples
+- [API Documentation (HTML)](docs/html/index.html) - Web-based API reference
+- [API Documentation (PDF)](docs/latex/refman.pdf) - PDF reference manual (requires LaTeX compilation)
+
+### Available Documentation Formats
+
+| Format | Location | Description |
+|--------|----------|-------------|
+| HTML | `docs/html/` | Web-based documentation |
+| LaTeX | `docs/latex/` | PDF generation source |
+| XML | `docs/xml/` | Structured XML for tooling |
+| DocBook | `docs/docbook/` | Technical documentation format |
+| RTF | `docs/rtf/` | Rich Text Format |
+| Man | `docs/man/` | Unix manual pages |
 
 ### Generating Documentation
 
@@ -64,16 +80,28 @@ doxygen Doxyfile
 Toolbox/
 ├── src/
 │   └── Toolbox.Core/           # Core library
-│       ├── Abstractions/       # Interfaces
-│       ├── Base/               # Base classes
-│       ├── Extensions/         # DI extensions
-│       ├── Options/            # Configuration options
+│       ├── Abstractions/       # Service interfaces
+│       │   └── Services/       # ICryptographyService, IFileTransferService, etc.
+│       ├── Base/               # Base classes for services
+│       ├── Extensions/         # DI extension methods
+│       ├── Options/            # Configuration options and DTOs
+│       ├── Services/           # Service implementations
+│       │   ├── Api/            # HTTP API service
+│       │   ├── Cryptography/   # AES, RSA, Base64 services
+│       │   ├── FileTransfer/   # FTP, SFTP services
+│       │   └── Mailing/        # SMTP service
 │       └── Telemetry/          # OpenTelemetry infrastructure
 ├── tests/
 │   └── Toolbox.Tests/          # Unit and integration tests
 ├── samples/
 │   └── Toolbox.Sample/         # Sample application
-└── docs/                       # Generated documentation
+└── docs/                       # Generated Doxygen documentation
+    ├── html/                   # Web documentation
+    ├── latex/                  # PDF source
+    ├── xml/                    # Structured XML
+    ├── docbook/                # DocBook format
+    ├── rtf/                    # Rich Text Format
+    └── man/                    # Unix manual pages
 ```
 
 ## Building

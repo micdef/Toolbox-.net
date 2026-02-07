@@ -13,10 +13,11 @@ This guide provides detailed instructions for using the Toolbox library.
    - [FTP/FTPS](#ftpftps)
    - [SFTP](#sftp)
 4. [Mailing Services](#mailing-services)
-5. [Creating Custom Services](#creating-custom-services)
-6. [OpenTelemetry Integration](#opentelemetry-integration)
-7. [Configuration Options](#configuration-options)
-8. [Best Practices](#best-practices)
+5. [API Services](#api-services)
+6. [Creating Custom Services](#creating-custom-services)
+7. [OpenTelemetry Integration](#opentelemetry-integration)
+8. [Configuration Options](#configuration-options)
+9. [Best Practices](#best-practices)
 
 ## Getting Started
 
@@ -602,6 +603,209 @@ await _mailing.SendMailAsync(message);
 
 ---
 
+## API Services
+
+HTTP API client service with multiple authentication modes and automatic retry.
+
+### Registration
+
+```csharp
+using Toolbox.Core.Extensions;
+using Toolbox.Core.Options;
+
+// Anonymous API
+services.AddHttpApiAnonymous("https://api.example.com");
+
+// Bearer token authentication
+services.AddHttpApiWithBearerToken(
+    "https://api.example.com",
+    "your-bearer-token");
+
+// Basic authentication
+services.AddHttpApiWithBasicAuth(
+    "https://api.example.com",
+    "username",
+    "password");
+
+// API key authentication (header)
+services.AddHttpApiWithApiKey(
+    "https://api.example.com",
+    "your-api-key",
+    "X-API-Key",
+    ApiKeyLocation.Header);
+
+// API key authentication (query string)
+services.AddHttpApiWithApiKey(
+    "https://api.example.com",
+    "your-api-key",
+    "api_key",
+    ApiKeyLocation.QueryString);
+
+// Client certificate authentication
+services.AddHttpApiWithCertificate(
+    "https://api.example.com",
+    new X509Certificate2("client.pfx", "password"));
+
+// OAuth2 client credentials
+services.AddHttpApiWithOAuth2(
+    "https://api.example.com",
+    "https://auth.example.com/oauth/token",
+    "client-id",
+    "client-secret",
+    "read write");
+
+// Full configuration
+services.AddHttpApi(options =>
+{
+    options.BaseUrl = "https://api.example.com";
+    options.AuthenticationMode = ApiAuthenticationMode.BearerToken;
+    options.BearerToken = "your-token";
+    options.Timeout = TimeSpan.FromSeconds(30);
+    options.MaxRetries = 3;
+    options.UseExponentialBackoff = true;
+});
+
+// From configuration
+services.AddHttpApi(configuration.GetSection("Api"));
+```
+
+### Usage
+
+```csharp
+public class DataService
+{
+    private readonly IApiService _api;
+
+    public DataService(IApiService api)
+    {
+        _api = api;
+    }
+
+    public async Task<User?> GetUserAsync(int id)
+    {
+        // Simple GET request
+        var request = ApiRequest.Get($"/users/{id}");
+        var response = await _api.SendAsync(request);
+
+        response.EnsureSuccess();
+        return response.Deserialize<User>();
+    }
+
+    public async Task<User?> CreateUserAsync(User user)
+    {
+        // POST with JSON body
+        var request = ApiRequest.Post("/users", user);
+        return await _api.SendAsync<User>(request);
+    }
+
+    public async Task UpdateUserAsync(int id, User user)
+    {
+        // PUT with JSON body
+        var request = ApiRequest.Put($"/users/{id}", user);
+        await _api.SendAsync(request);
+    }
+
+    public async Task PatchUserAsync(int id, object partialData)
+    {
+        // PATCH with JSON body
+        var request = ApiRequest.Patch($"/users/{id}", partialData);
+        await _api.SendAsync(request);
+    }
+
+    public async Task DeleteUserAsync(int id)
+    {
+        // DELETE request
+        var request = ApiRequest.Delete($"/users/{id}");
+        await _api.SendAsync(request);
+    }
+}
+```
+
+### Advanced Usage
+
+```csharp
+public class AdvancedApiService
+{
+    private readonly IApiService _api;
+
+    public AdvancedApiService(IApiService api)
+    {
+        _api = api;
+    }
+
+    public async Task<SearchResult> SearchAsync(string query, int page)
+    {
+        // Request with query parameters and headers
+        var request = ApiRequest.Get("/search")
+            .WithQuery("q", query)
+            .WithQuery("page", page.ToString())
+            .WithHeader("X-Request-ID", Guid.NewGuid().ToString())
+            .WithTimeout(TimeSpan.FromSeconds(60));
+
+        var response = await _api.SendAsync(request);
+
+        if (response.IsSuccess)
+        {
+            return response.Deserialize<SearchResult>()!;
+        }
+
+        if (response.IsClientError)
+        {
+            throw new InvalidOperationException($"Client error: {response.ReasonPhrase}");
+        }
+
+        throw new HttpRequestException($"Server error: {response.StatusCode}");
+    }
+
+    public async Task UploadFileAsync(byte[] fileData, string fileName)
+    {
+        // Binary content
+        var request = ApiRequest.Post("/upload")
+            .SetBinaryContent(fileData, "application/octet-stream")
+            .WithHeader("X-File-Name", fileName);
+
+        await _api.SendAsync(request);
+    }
+
+    public async Task SubmitFormAsync(Dictionary<string, string> formData)
+    {
+        // Form URL-encoded content
+        var request = ApiRequest.Post("/form")
+            .SetFormContent(formData);
+
+        await _api.SendAsync(request);
+    }
+}
+```
+
+### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `BaseUrl` | string? | null | Base URL for all requests |
+| `AuthenticationMode` | ApiAuthenticationMode | Anonymous | Authentication method |
+| `Timeout` | TimeSpan | 30s | Request timeout |
+| `MaxRetries` | int | 3 | Maximum retry attempts |
+| `RetryDelay` | TimeSpan | 1s | Delay between retries |
+| `UseExponentialBackoff` | bool | true | Use exponential backoff |
+| `ValidateCertificate` | bool | true | Validate SSL certificates |
+| `FollowRedirects` | bool | true | Follow HTTP redirects |
+| `MaxRedirects` | int | 10 | Maximum redirects to follow |
+| `UserAgent` | string | "Toolbox..." | Default User-Agent header |
+
+### Authentication Modes
+
+| Mode | Description |
+|------|-------------|
+| `Anonymous` | No authentication |
+| `BearerToken` | Bearer token in Authorization header |
+| `Basic` | Basic authentication (username:password) |
+| `ApiKey` | API key in header or query string |
+| `Certificate` | Client certificate authentication |
+| `OAuth2ClientCredentials` | OAuth2 client credentials flow |
+
+---
+
 ## Creating Custom Services
 
 ### Synchronous Disposal
@@ -724,12 +928,17 @@ ToolboxMeter.RecordOperation("MyService", "CustomOp", elapsedMs);
 |--------|------|-------------|
 | `toolbox.operations.count` | Counter | Total operations |
 | `toolbox.operations.duration` | Histogram | Operation duration (ms) |
+| `toolbox.disposals.count` | Counter | Service disposal events |
+| `toolbox.instances.active` | UpDownCounter | Active service instances |
 | `toolbox.crypto.encrypt.count` | Counter | Encryption operations |
 | `toolbox.crypto.decrypt.count` | Counter | Decryption operations |
 | `toolbox.crypto.data.size` | Histogram | Data size (bytes) |
 | `toolbox.filetransfer.upload.count` | Counter | File uploads |
 | `toolbox.filetransfer.download.count` | Counter | File downloads |
 | `toolbox.filetransfer.size` | Histogram | File size (bytes) |
+| `toolbox.filetransfer.errors.count` | Counter | File transfer errors |
+| `toolbox.mailing.sent.count` | Counter | Emails sent |
+| `toolbox.api.requests.count` | Counter | API requests |
 
 ---
 
