@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a8a17cfc821acc65824a623d4be2a08fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithConfigureAction_ShouldRegisterService</definition>
+        <argsstring>()</argsstring>
+        <name>AddSmtpMailing_WithConfigureAction_ShouldRegisterService</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithConfigureAction_ShouldRegisterService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="15" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="15" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1aa3ad399a900e8f40c126080859608133" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithOptions_ShouldRegisterService</definition>
+        <argsstring>()</argsstring>
+        <name>AddSmtpMailing_WithOptions_ShouldRegisterService</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithOptions_ShouldRegisterService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="36" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="36" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a40980ee4e1d56f943b84bc0e0dbca81e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullServices_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddSmtpMailing_WithNullServices_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullServices_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="57" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="57" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a4edd5eaaad88c1dfe3d1bb12d4fc83a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullConfigureAction_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddSmtpMailing_WithNullConfigureAction_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullConfigureAction_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="70" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="70" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a011105e9247c20e5a25d675b8dee72fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullOptions_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddSmtpMailing_WithNullOptions_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullOptions_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="83" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="83" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a83d225e38fea01b1b4ac451558ded193" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_ShouldConfigureCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>AddGmailMailing_ShouldConfigureCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_ShouldConfigureCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="96" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="96" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a793783e4aa56c68dd7edf11fd9d20bd3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_WithNullEmail_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddGmailMailing_WithNullEmail_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_WithNullEmail_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="112" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="112" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1abc45a8c45da031fde087e1658bab1d5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_WithNullPassword_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddGmailMailing_WithNullPassword_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_WithNullPassword_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="125" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="125" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a400e69071dfff575d1a1cf43e86a76df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_ShouldConfigureCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>AddOutlookMailing_ShouldConfigureCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_ShouldConfigureCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="138" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="138" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a7ae6b7da5097cfcdf135532163867681" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_WithNullEmail_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddOutlookMailing_WithNullEmail_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_WithNullEmail_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="154" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="154" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1ac065c58ecd16ca3db13e9941d6f2bdac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_WithNullPassword_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>AddOutlookMailing_WithNullPassword_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_WithNullPassword_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="167" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="167" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a2b0d944712729b842574a3b9efb54bbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</definition>
+        <argsstring>()</argsstring>
+        <name>AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</name>
+        <qualifiedname>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="180" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="180" bodyend="193"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for MailingServiceCollectionExtensions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" line="12" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/MailingServiceCollectionExtensionsTests.cs" bodystart="13" bodyend="194"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a83d225e38fea01b1b4ac451558ded193" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddGmailMailing_ShouldConfigureCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a793783e4aa56c68dd7edf11fd9d20bd3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddGmailMailing_WithNullEmail_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1abc45a8c45da031fde087e1658bab1d5e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddGmailMailing_WithNullPassword_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a400e69071dfff575d1a1cf43e86a76df" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddOutlookMailing_ShouldConfigureCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a7ae6b7da5097cfcdf135532163867681" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddOutlookMailing_WithNullEmail_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1ac065c58ecd16ca3db13e9941d6f2bdac" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddOutlookMailing_WithNullPassword_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a2b0d944712729b842574a3b9efb54bbb" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a8a17cfc821acc65824a623d4be2a08fa" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddSmtpMailing_WithConfigureAction_ShouldRegisterService</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a4edd5eaaad88c1dfe3d1bb12d4fc83a3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddSmtpMailing_WithNullConfigureAction_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a011105e9247c20e5a25d675b8dee72fc" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddSmtpMailing_WithNullOptions_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a40980ee4e1d56f943b84bc0e0dbca81e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddSmtpMailing_WithNullServices_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1aa3ad399a900e8f40c126080859608133" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</scope><name>AddSmtpMailing_WithOptions_ShouldRegisterService</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

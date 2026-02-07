@@ -1,0 +1,89 @@
+\doxysection{Api\+Options.\+cs}
+\hypertarget{_api_options_8cs_source}{}\label{_api_options_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs}}
+\doxymbox{\hyperlink{_api_options_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ ApiOptions.cs}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Configuration\ options\ for\ the\ API\ service}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Contains\ HTTP\ client\ and\ authentication\ settings}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Supports\ multiple\ authentication\ modes}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Security.Cryptography.X509Certificates;}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00030}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{00030}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{ApiOptions}}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00036}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_ab7fbf158825dcfdab7fdb56edd8eb652}{00036}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_ab7fbf158825dcfdab7fdb56edd8eb652}{BaseUrl}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00042}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{00042}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{AuthenticationMode}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}.Anonymous;}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ \ \#region\ Bearer\ Token\ Authentication}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00051}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_adaa7ce66c1939d638d19244193f26837}{00051}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_adaa7ce66c1939d638d19244193f26837}{BearerToken}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00053}00053\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00055}00055\ \textcolor{preprocessor}{\ \ \ \ \#region\ Basic\ Authentication}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00062}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a97a7365ec0769e038aaeea4be4b0bb50}{00062}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a97a7365ec0769e038aaeea4be4b0bb50}{Username}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00069}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a58e0a0c3c1f54b81fd8d8f406a684869}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a58e0a0c3c1f54b81fd8d8f406a684869}{Password}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00073}00073\ \textcolor{preprocessor}{\ \ \ \ \#region\ API\ Key\ Authentication}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00080}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_aab45300e4a1a09f2fd4d830a25999006}{00080}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_aab45300e4a1a09f2fd4d830a25999006}{ApiKey}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00086}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a07786e9a5413d5a9c9556c2c45e06c90}{00086}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a07786e9a5413d5a9c9556c2c45e06c90}{ApiKeyName}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}X-\/API-\/Key"{}};}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00092}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a494b64c3abe07a88097daa454855e6f4}{00092}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a494b64c3abe07a88097daa454855e6f4}{ApiKeyLocation}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a494b64c3abe07a88097daa454855e6f4}{ApiKeyLocation}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30}{ApiKeyLocation}}.Header;}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00096}00096\ \textcolor{preprocessor}{\ \ \ \ \#region\ Certificate\ Authentication}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00103}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a52c2418d08cd8e2abd3ac18007f0b062}{00103}}\ \ \ \ \ \textcolor{keyword}{public}\ X509Certificate2?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a52c2418d08cd8e2abd3ac18007f0b062}{ClientCertificate}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00109}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a091dc62a1f1c8c73993c8e023e385b40}{00109}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a091dc62a1f1c8c73993c8e023e385b40}{CertificatePath}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00115}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fbbdeb293875a6794fd8d14f6f8f491}{00115}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fbbdeb293875a6794fd8d14f6f8f491}{CertificatePassword}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00117}00117\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00119}00119\ \textcolor{preprocessor}{\ \ \ \ \#region\ OAuth2\ Client\ Credentials}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00125}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a5e8fb0aa4595eafad53d1eb80dfe3757}{00125}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a5e8fb0aa4595eafad53d1eb80dfe3757}{OAuth2TokenUrl}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00131}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4c490b62f0b75becbfa4245d6f1f0d5a}{00131}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4c490b62f0b75becbfa4245d6f1f0d5a}{OAuth2ClientId}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00137}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_af3c6ddb9688e27881baff0c41ddcb37f}{00137}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_af3c6ddb9688e27881baff0c41ddcb37f}{OAuth2ClientSecret}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00143}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a6413ef1fa1ac2f837dcded107d180e49}{00143}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a6413ef1fa1ac2f837dcded107d180e49}{OAuth2Scopes}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00145}00145\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00147}00147\ \textcolor{preprocessor}{\ \ \ \ \#region\ HTTP\ Client\ Settings}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00153}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a60ec33964b858f8522f6fc41e7d1d20e}{00153}}\ \ \ \ \ \textcolor{keyword}{public}\ TimeSpan\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a60ec33964b858f8522f6fc41e7d1d20e}{Timeout}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ TimeSpan.FromSeconds(30);}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00159}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a57f0285af6fe846c5613690aa42ffa04}{00159}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a57f0285af6fe846c5613690aa42ffa04}{MaxRetries}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00165}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_af7b1d566cbbe3694b5584abf7ba797bc}{00165}}\ \ \ \ \ \textcolor{keyword}{public}\ TimeSpan\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_af7b1d566cbbe3694b5584abf7ba797bc}{RetryDelay}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ TimeSpan.FromSeconds(1);}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00171}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a9c9db36422b7f6f98c438a22a5b8869a}{00171}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a9c9db36422b7f6f98c438a22a5b8869a}{UseExponentialBackoff}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00177}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fa72ff5b9e293a649c6c567e71fa98f}{00177}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fa72ff5b9e293a649c6c567e71fa98f}{ValidateCertificate}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00183}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a0033c861e010757102e58400ea48c00c}{00183}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a0033c861e010757102e58400ea48c00c}{FollowRedirects}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00189}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1b349cf42ca14eb0d4da7fa2ed1217d8}{00189}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1b349cf42ca14eb0d4da7fa2ed1217d8}{MaxRedirects}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00195}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a75f953ecee87a17859cebaa00fdd4bcc}{00195}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a75f953ecee87a17859cebaa00fdd4bcc}{UserAgent}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{stringliteral}{"{}Toolbox.Core.HttpApiService/1.0"{}};}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00201}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a330e944f0f05473cd9636241ad7a1d85}{00201}}\ \ \ \ \ \textcolor{keyword}{public}\ IDictionary<string,\ string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a330e944f0f05473cd9636241ad7a1d85}{DefaultHeaders}}\ \{\ \textcolor{keyword}{get};\ \}\ =\ \textcolor{keyword}{new}\ Dictionary<string,\ string>();}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00203}00203\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_api_options_8cs_source_l00204}00204\ \}}
+
+\end{DoxyCode}

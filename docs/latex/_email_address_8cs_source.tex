@@ -1,0 +1,24 @@
+\doxysection{Email\+Address.\+cs}
+\hypertarget{_email_address_8cs_source}{}\label{_email_address_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs}}
+\doxymbox{\hyperlink{_email_address_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ EmailAddress.cs}}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Email\ address\ representation}}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Contains\ an\ email\ address\ with\ optional\ display\ name}}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Immutable\ record\ type\ for\ thread\ safety}}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00028}\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{00028}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ record\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{keywordtype}{string}\ Address,\ \textcolor{keywordtype}{string}?\ DisplayName\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ Address\ \{\ \textcolor{keyword}{get};\ init;\ \}\ =\ Address\ ??\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentNullException(nameof(Address));}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ implicit\ \textcolor{keyword}{operator}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{keywordtype}{string}\ address)\ =>\ \textcolor{keyword}{new}(address);}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{string}\ ToString()\ =>}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}.IsNullOrEmpty(DisplayName)}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ Address}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \$\textcolor{stringliteral}{"{}\(\backslash\)"{}\{DisplayName\}\(\backslash\)"{}\ <\{Address\}>"{}};}
+\DoxyCodeLine{\Hypertarget{_email_address_8cs_source_l00048}00048\ \}}
+
+\end{DoxyCode}

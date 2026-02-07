@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants::Attributes</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1a398a602286d3f7e871d92b153c20fc84" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Attributes.ServiceName</definition>
+        <argsstring></argsstring>
+        <name>ServiceName</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Attributes.ServiceName</qualifiedname>
+        <initializer>= &quot;toolbox.service.name&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for the service name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="42" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1af23f263fc974afe99cde7be20e778981" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Attributes.OperationName</definition>
+        <argsstring></argsstring>
+        <name>OperationName</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Attributes.OperationName</qualifiedname>
+        <initializer>= &quot;toolbox.operation.name&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for operation names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="45" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1ae3ae0039b77e3b1b0c5535f46cfa87ec" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Attributes.ErrorType</definition>
+        <argsstring></argsstring>
+        <name>ErrorType</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Attributes.ErrorType</qualifiedname>
+        <initializer>= &quot;toolbox.error.type&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for error types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="48" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1a7bd5edf8dbd12ead20fc6bf7ad2ade3c" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Attributes.DisposalReason</definition>
+        <argsstring></argsstring>
+        <name>DisposalReason</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Attributes.DisposalReason</qualifiedname>
+        <initializer>= &quot;toolbox.disposal.reason&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for disposal reasons. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="51" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Standard attribute names for service telemetry. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="39" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="40" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1a7bd5edf8dbd12ead20fc6bf7ad2ade3c" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Attributes</scope><name>DisposalReason</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1ae3ae0039b77e3b1b0c5535f46cfa87ec" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Attributes</scope><name>ErrorType</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1af23f263fc974afe99cde7be20e778981" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Attributes</scope><name>OperationName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes_1a398a602286d3f7e871d92b153c20fc84" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Attributes</scope><name>ServiceName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

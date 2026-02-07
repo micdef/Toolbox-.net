@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_1f70f0d5adfd7e13f30a8c7643fb206b" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography</compoundname>
+    <innerfile refid="_aes_cryptography_service_tests_8cs">AesCryptographyServiceTests.cs</innerfile>
+    <innerfile refid="_base64_cryptography_service_tests_8cs">Base64CryptographyServiceTests.cs</innerfile>
+    <innerfile refid="_rsa_cryptography_service_tests_8cs">RsaCryptographyServiceTests.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/"/>
+  </compounddef>
+</doxygen>

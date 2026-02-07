@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_options_schema_tests_8cs" kind="file" language="C#">
+    <compoundname>OptionsSchemaTests.cs</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests" prot="public">Toolbox::Tests::Regression::OptionsSchemaTests</innerclass>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests">Toolbox::Tests</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_regression">Toolbox::Tests::Regression</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="namespace_toolbox_1_1_tests_1_1_regression" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_tests_1_1_regression" kindref="compound">Toolbox.Tests.Regression</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests" kindref="compound">OptionsSchemaTests</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="11" refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a14b1200bb842289fb5d9b450d50352b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a14b1200bb842289fb5d9b450d50352b9" kindref="member">ToolboxOptions_SectionName_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" kindref="compound">ToolboxOptions</ref>.<ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a04306cd36618f56804e8622e6700dea2" kindref="member">SectionName</ref>.Should().Be(</highlight><highlight class="stringliteral">&quot;Toolbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="17" refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1ab58f78b6f30351406b7c657e0954543d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1ab58f78b6f30351406b7c657e0954543d" kindref="member">ToolboxOptions_DefaultValues_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>options<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" kindref="compound">ToolboxOptions</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.EnableDetailedTelemetry.Should().BeFalse();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.ServicePrefix.Should().BeNull();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.AsyncDisposalTimeout.Should().Be(TimeSpan.FromSeconds(30));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="27" refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a50c4672587592be45780a97e33079ae6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a50c4672587592be45780a97e33079ae6" kindref="member">ToolboxTelemetryOptions_SectionName_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options" kindref="compound">ToolboxTelemetryOptions</ref>.<ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1ad376b2327064c73e8ce4baf2410836c5" kindref="member">SectionName</ref>.Should().Be(</highlight><highlight class="stringliteral">&quot;Toolbox:Telemetry&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="33" refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a951b544a7a764ca7c793dd00a5f218c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a951b544a7a764ca7c793dd00a5f218c5" kindref="member">ToolboxTelemetryOptions_DefaultValues_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>options<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options" kindref="compound">ToolboxTelemetryOptions</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.EnableTracing.Should().BeTrue();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.EnableMetrics.Should().BeTrue();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.EnableConsoleExport.Should().BeFalse();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.OtlpEndpoint.Should().BeNull();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.ServiceName.Should().Be(</highlight><highlight class="stringliteral">&quot;Toolbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options.ServiceVersion.Should().Be(</highlight><highlight class="stringliteral">&quot;1.0.0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/OptionsSchemaTests.cs"/>
+  </compounddef>
+</doxygen>

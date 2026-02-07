@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a6ddb27e753d07830beb4205ac5a5238e" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service" kindref="compound">SmtpMailingService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;SmtpMailingService&gt; &gt; Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="18" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1aeae79c79a05e3875c656625b6a5b5b8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SmtpMailingServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>SmtpMailingServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SmtpMailingServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="20" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a48cb868c2b2be78a4a74debfcc24edb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="37" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="37" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a1973d275befbddb084e6d13f6151972b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="49" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="49" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a430643fc6c6a955de9306bfcd40ffc15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithEmptyHost_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="62" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="62" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a8e043ad3b58d4b49b254fdd247e87e5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithValidOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithValidOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithValidOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="79" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="79" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a5b97f024969e91aa33aacc02a3eb8454" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithDirectOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithDirectOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithDirectOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="92" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="92" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1abe457abae7afec7e9fbbe3f5495845e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithAnonymousAuth_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithAnonymousAuth_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithAnonymousAuth_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="105" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="105" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1ae02aa7b934059630091662e7507100a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WithNullMessage_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>SendMail_WithNullMessage_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WithNullMessage_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="127" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="127" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a0a7c3797ea46ab93884580f4b3d20e42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WithNoRecipients_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>SendMail_WithNoRecipients_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WithNoRecipients_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="142" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="142" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a248c7556bd578d71735daf45fe3c0e7a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="165" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="165" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a91a2af1eede0d05e815513fea8f720f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="180" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="180" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1acfb8c80baedc93743b5c8a52b0fa3129" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>SendMail_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="209" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="209" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1af597aadf53f52229f6cd46a9562000ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.DisposeAsync_ShouldDisposeResources</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldDisposeResources</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.DisposeAsync_ShouldDisposeResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="233" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="233" bodyend="254"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a6247594dc6333c4e26db99edb6fdbaff" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options" kindref="compound">MailingOptions</ref></type>
+        <definition>static MailingOptions Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.CreateValidOptions</definition>
+        <argsstring>()</argsstring>
+        <name>CreateValidOptions</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.CreateValidOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="25" column="35" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="25" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service" kindref="compound">SmtpMailingService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These tests verify argument validation and configuration. <ref refid="namespace_toolbox_1_1_tests_1_1_integration" kindref="compound">Integration</ref> tests with a real SMTP server would be in a separate test project. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" line="16" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/SmtpMailingServiceTests.cs" bodystart="17" bodyend="257"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a6ddb27e753d07830beb4205ac5a5238e" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1abe457abae7afec7e9fbbe3f5495845e6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>Constructor_WithAnonymousAuth_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a5b97f024969e91aa33aacc02a3eb8454" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>Constructor_WithDirectOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a430643fc6c6a955de9306bfcd40ffc15" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>Constructor_WithEmptyHost_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a1973d275befbddb084e6d13f6151972b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a48cb868c2b2be78a4a74debfcc24edb6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a8e043ad3b58d4b49b254fdd247e87e5a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>Constructor_WithValidOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a6247594dc6333c4e26db99edb6fdbaff" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>CreateValidOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1af597aadf53f52229f6cd46a9562000ba" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>DisposeAsync_ShouldDisposeResources</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1acfb8c80baedc93743b5c8a52b0fa3129" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>SendMail_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a0a7c3797ea46ab93884580f4b3d20e42" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>SendMail_WithNoRecipients_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1ae02aa7b934059630091662e7507100a3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>SendMail_WithNullMessage_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a91a2af1eede0d05e815513fea8f720f2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a248c7556bd578d71735daf45fe3c0e7a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1aeae79c79a05e3875c656625b6a5b5b8a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Mailing::SmtpMailingServiceTests</scope><name>SmtpMailingServiceTests</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

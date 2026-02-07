@@ -1,0 +1,112 @@
+\doxysection{File\+Transfer\+Options\+Tests.\+cs}
+\hypertarget{_file_transfer_options_tests_8cs_source}{}\label{_file_transfer_options_tests_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs@{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs}}
+\doxymbox{\hyperlink{_file_transfer_options_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00003}00003\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_unit_1_1_options}{Toolbox.Tests.Unit.Options}};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00008}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests}{00008}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests}{FileTransferOptionsTests}}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00010}00010\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00011}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a242dcaa6e6b95e8f9876e6f5bc97b49b}{00011}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a242dcaa6e6b95e8f9876e6f5bc97b49b}{GetDefaultPort\_ForFtp\_ShouldReturn21}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}\ \{\ Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb}{FileTransferProtocol.Ftp}}\ \};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ var\ port\ =\ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a04947fbfcad2d865623906c932e4472b}{GetDefaultPort}}();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ port.Should().Be(21);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00023}00023\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00024}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a550e5b1193017ee318c15eaac3176b93}{00024}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a550e5b1193017ee318c15eaac3176b93}{GetDefaultPort\_ForFtps\_ShouldReturn990}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}\ \{\ Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f}{FileTransferProtocol.Ftps}}\ \};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ var\ port\ =\ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a04947fbfcad2d865623906c932e4472b}{GetDefaultPort}}();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ port.Should().Be(990);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00036}00036\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00037}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a7dace05bd04ed530f0add10903380ff6}{00037}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a7dace05bd04ed530f0add10903380ff6}{GetDefaultPort\_ForSftp\_ShouldReturn22}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}\ \{\ Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484}{FileTransferProtocol.Sftp}}\ \};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ var\ port\ =\ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a04947fbfcad2d865623906c932e4472b}{GetDefaultPort}}();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ port.Should().Be(22);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00049}00049\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00050}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_ad1ef6f6860000e9330af768e05aa3bb8}{00050}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_ad1ef6f6860000e9330af768e05aa3bb8}{GetEffectivePort\_WhenPortIsSet\_ShouldReturnSetPort}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{FileTransferProtocol}}.Sftp,}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ Port\ =\ 2222}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ var\ port\ =\ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a2c798a4aab8c3364a81a0913747bb6db}{GetEffectivePort}}();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ port.Should().Be(2222);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00066}00066\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00067}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_adfca657bbb6111496f5e47b3b9f2df85}{00067}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_adfca657bbb6111496f5e47b3b9f2df85}{GetEffectivePort\_WhenPortIsNotSet\_ShouldReturnDefaultPort}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00068}00068\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{FileTransferProtocol}}.Sftp,}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ Port\ =\ 0}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ var\ port\ =\ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a2c798a4aab8c3364a81a0913747bb6db}{GetEffectivePort}}();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ port.Should().Be(22);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00083}00083\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00084}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_aeda7b00391282acfeb1ba09823aee7e9}{00084}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_aeda7b00391282acfeb1ba09823aee7e9}{DefaultValues\_ShouldBeCorrect}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ options.Host.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ options.Username.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ options.Password.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ options.PrivateKeyPath.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ options.PrivateKeyContent.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ options.PrivateKeyPassphrase.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ options.Protocol.Should().Be(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{FileTransferProtocol}}.Sftp);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ options.ConnectionTimeout.Should().Be(TimeSpan.FromSeconds(30));}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ options.OperationTimeout.Should().Be(TimeSpan.FromSeconds(60));}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ options.AutoCreateDirectory.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ options.BufferSize.Should().Be(32\ *\ 1024);}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00103}00103\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00104}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a77b597b15191d70e048b7db668cee4c0}{00104}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_a77b597b15191d70e048b7db668cee4c0}{SectionName\_ShouldBeCorrect}}()}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ada6c9c5bc36991f94f147061b3dd922a}{SectionName}}.Should().Be(\textcolor{stringliteral}{"{}Toolbox:FileTransfer"{}});}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_transfer_options_tests_8cs_source_l00109}00109\ \}}
+
+\end{DoxyCode}

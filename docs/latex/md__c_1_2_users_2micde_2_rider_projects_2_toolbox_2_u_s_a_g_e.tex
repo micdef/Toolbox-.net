@@ -1,0 +1,816 @@
+\chapter{Toolbox Usage Guide }
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e}{}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e}\index{Toolbox Usage Guide@{Toolbox Usage Guide}}
+\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md11}%
+\Hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md11}%
+
+
+This guide provides detailed instructions for using the \doxylink{namespace_toolbox}{Toolbox} library.\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md12}{}\doxysection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item Getting Started
+\item Cryptography Services
+\begin{DoxyItemize}
+\item Base64 Encoding
+\item AES Encryption
+\item RSA Encryption
+\end{DoxyItemize}
+\item File Transfer Services
+\begin{DoxyItemize}
+\item FTP/\+\+FTPS
+\item SFTP
+\end{DoxyItemize}
+\item Mailing Services
+\item Creating Custom Services
+\item Open\+Telemetry Integration
+\item Configuration Options
+\item Best Practices
+\end{DoxyEnumerate}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md13}{}\doxysection{\texorpdfstring{Getting Started}{Getting Started}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md13}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{Basic Setup}{Basic Setup}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md14}
+Add \doxylink{namespace_toolbox}{Toolbox} to your application:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =\ Host.CreateApplicationBuilder(args);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Register\ Toolbox\ core\ services}}
+\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxCore();}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}\ =\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Build();}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Configuration via appsettings.\+json}{Configuration via appsettings.\+json}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md15}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}Toolbox"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}EnableDetailedTelemetry"{}:\ false,}
+\DoxyCodeLine{\ \ \ \ "{}ServicePrefix"{}:\ "{}MyApp"{},}
+\DoxyCodeLine{\ \ \ \ "{}AsyncDisposalTimeout"{}:\ "{}00:00:30"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}Toolbox:Telemetry"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}EnableTracing"{}:\ true,}
+\DoxyCodeLine{\ \ \ \ "{}EnableMetrics"{}:\ true,}
+\DoxyCodeLine{\ \ \ \ "{}EnableConsoleExport"{}:\ false,}
+\DoxyCodeLine{\ \ \ \ "{}ServiceName"{}:\ "{}MyApplication"{},}
+\DoxyCodeLine{\ \ \ \ "{}ServiceVersion"{}:\ "{}1.0.0"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxCore(\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Configuration);}
+\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxOpenTelemetry(\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Configuration);}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md17}{}\doxysection{\texorpdfstring{Cryptography Services}{Cryptography Services}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md17}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md18}{}\doxysubsection{\texorpdfstring{Base64 Encoding}{Base64 Encoding}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md18}
+Base64 encoding/\+decoding service for text obfuscation (not encryption).\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{Registration}{Registration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md19}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Standard\ Base64}}
+\DoxyCodeLine{services.AddBase64Cryptography();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ URL-\/safe\ Base64}}
+\DoxyCodeLine{services.AddBase64Cryptography(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.UrlSafe);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ With\ full\ options}}
+\DoxyCodeLine{services.AddBase64Cryptography(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.EncodingTable\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.UrlSafe;}
+\DoxyCodeLine{\ \ \ \ options.IncludePadding\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md20}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md20}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }MyService}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ ICryptographyService\ \_crypto;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ MyService(ICryptographyService\ crypto)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_crypto\ =\ crypto;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ ProcessAsync()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Encode}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ encoded\ =\ \_crypto.Encrypt(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Result:\ "{}SGVsbG8sIFdvcmxkIQ=="{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decode}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ decoded\ =\ \_crypto.Decrypt(encoded);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Result:\ "{}Hello,\ World!"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Async\ versions}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ encodedAsync\ =\ await\ \_crypto.EncryptAsync(\textcolor{stringliteral}{"{}Hello"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ decodedAsync\ =\ await\ \_crypto.DecryptAsync(encodedAsync);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md22}{}\doxysubsection{\texorpdfstring{AES Encryption}{AES Encryption}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md22}
+Secure symmetric encryption using AES (CBC mode with PKCS7 padding).\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{Registration}{Registration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md23}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ new\ key\ and\ IV}}
+\DoxyCodeLine{var\ (key,\ iv)\ =\ AesCryptographyService.GenerateKey(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{AesKeySize}}.Aes256);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Register\ with\ generated\ key}}
+\DoxyCodeLine{services.AddAesCryptography(key,\ iv);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Or\ with\ key\ size\ enum}}
+\DoxyCodeLine{services.AddAesCryptography(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{AesKeySize}}.Aes256);}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md24}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md24}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }SecureService}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ ICryptographyService\ \_crypto;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ SecureService(ICryptographyService\ crypto)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_crypto\ =\ crypto;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ EncryptDataAsync(\textcolor{keywordtype}{string}\ sensitiveData)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Encrypt\ (returns\ Base64-\/encoded\ ciphertext)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ encrypted\ =\ await\ \_crypto.EncryptAsync(sensitiveData);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decrypt}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ decrypted\ =\ await\ \_crypto.DecryptAsync(encrypted);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ encrypted;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{Key Generation}{Key Generation}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md25}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ AES-\/128\ key}}
+\DoxyCodeLine{var\ (key128,\ iv128)\ =\ AesCryptographyService.GenerateKey(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{AesKeySize}}.Aes128);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ AES-\/192\ key}}
+\DoxyCodeLine{var\ (key192,\ iv192)\ =\ AesCryptographyService.GenerateKey(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{AesKeySize}}.Aes192);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ AES-\/256\ key\ (recommended)}}
+\DoxyCodeLine{var\ (key256,\ iv256)\ =\ AesCryptographyService.GenerateKey(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{AesKeySize}}.Aes256);}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md27}{}\doxysubsection{\texorpdfstring{RSA Encryption}{RSA Encryption}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md27}
+Asymmetric encryption using RSA with various key sizes and padding modes.\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md28}{}\doxysubsubsection{\texorpdfstring{Registration}{Registration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md28}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ key\ pair}}
+\DoxyCodeLine{var\ keyPair\ =\ RsaCryptographyService.GenerateKeyPair(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Register\ with\ full\ key\ pair\ (encrypt\ +\ decrypt)}}
+\DoxyCodeLine{services.AddRsaCryptography(}
+\DoxyCodeLine{\ \ \ \ keyPair.PublicKey!,}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}.OaepSha256,}
+\DoxyCodeLine{\ \ \ \ keyPair.PrivateKey);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Register\ with\ public\ key\ only\ (encrypt\ only)}}
+\DoxyCodeLine{services.AddRsaCryptography(}
+\DoxyCodeLine{\ \ \ \ keyPair.PublicKey!,}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}.OaepSha256);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Register\ with\ X.509\ certificate}}
+\DoxyCodeLine{var\ cert\ =\ \textcolor{keyword}{new}\ X509Certificate2(\textcolor{stringliteral}{"{}certificate.pfx"{}},\ \textcolor{stringliteral}{"{}password"{}});}
+\DoxyCodeLine{services.AddRsaCryptography(cert,\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}.OaepSha256);}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md29}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md29}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }AsymmetricService}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ ICryptographyService\ \_crypto;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ AsymmetricService(ICryptographyService\ crypto)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_crypto\ =\ crypto;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task<(\textcolor{keywordtype}{string}\ encrypted,\ \textcolor{keywordtype}{string}\ decrypted)>\ ProcessAsync(\textcolor{keywordtype}{string}\ data)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Encrypt\ with\ public\ key}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ encrypted\ =\ await\ \_crypto.EncryptAsync(data);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decrypt\ with\ private\ key\ (requires\ private\ key)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ decrypted\ =\ await\ \_crypto.DecryptAsync(encrypted);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (encrypted,\ decrypted);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md30}{}\doxysubsubsection{\texorpdfstring{Key Generation}{Key Generation}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md30}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ key\ pair\ (bytes)}}
+\DoxyCodeLine{var\ keyPair\ =\ RsaCryptographyService.GenerateKeyPair(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048);}
+\DoxyCodeLine{\textcolor{keywordtype}{byte}[]\ publicKey\ =\ keyPair.PublicKey!;}
+\DoxyCodeLine{\textcolor{keywordtype}{byte}[]\ privateKey\ =\ keyPair.PrivateKey!;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ self-\/signed\ certificate}}
+\DoxyCodeLine{var\ certKeyPair\ =\ RsaCryptographyService.GenerateCertificate(}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa4096,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}CN=MyApplication"{}},}
+\DoxyCodeLine{\ \ \ \ TimeSpan.FromDays(365));}
+\DoxyCodeLine{X509Certificate2\ certificate\ =\ certKeyPair.Certificate!;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Public\ key\ only\ (for\ sharing)}}
+\DoxyCodeLine{var\ publicOnly\ =\ RsaCryptographyService.GenerateKeyPair(}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048,}
+\DoxyCodeLine{\ \ \ \ includePrivateKey:\ \textcolor{keyword}{false});}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md31}{}\doxysubsubsection{\texorpdfstring{Padding Modes}{Padding Modes}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md31}
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Mode  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily Pkcs1}  &PKCS\#1 v1.\+5 padding (legacy)  \\
+{\ttfamily Oaep\+Sha1}  &OAEP with SHA-\/1  \\
+{\ttfamily Oaep\+Sha256}  &OAEP with SHA-\/256 (recommended)  \\
+{\ttfamily Oaep\+Sha384}  &OAEP with SHA-\/384  \\
+{\ttfamily Oaep\+Sha512}  &OAEP with SHA-\/512  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md33}{}\doxysection{\texorpdfstring{File Transfer Services}{File Transfer Services}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md33}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md34}{}\doxysubsection{\texorpdfstring{FTP/\+\+FTPS}{FTP/\+\+FTPS}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md34}
+File transfer service for FTP and FTPS (FTP over TLS) protocols.\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md35}{}\doxysubsubsection{\texorpdfstring{Registration}{Registration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md35}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Basic\ FTP}}
+\DoxyCodeLine{services.AddFtpFileTransfer(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}ftp.example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Port\ =\ 21;}
+\DoxyCodeLine{\ \ \ \ options.Username\ =\ \textcolor{stringliteral}{"{}user"{}};}
+\DoxyCodeLine{\ \ \ \ options.Password\ =\ \textcolor{stringliteral}{"{}password"{}};}
+\DoxyCodeLine{\ \ \ \ options.Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{FileTransferProtocol}}.Ftp;}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Secure\ FTPS}}
+\DoxyCodeLine{services.AddFtpFileTransfer(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}ftp.example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Port\ =\ 21;}
+\DoxyCodeLine{\ \ \ \ options.Username\ =\ \textcolor{stringliteral}{"{}user"{}};}
+\DoxyCodeLine{\ \ \ \ options.Password\ =\ \textcolor{stringliteral}{"{}password"{}};}
+\DoxyCodeLine{\ \ \ \ options.Protocol\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{FileTransferProtocol}}.Ftps;}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ From\ configuration}}
+\DoxyCodeLine{services.AddFtpFileTransfer(configuration.GetSection(\textcolor{stringliteral}{"{}Ftp"{}}));}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md36}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md36}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }FileService}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ IFileTransferService\ \_ftp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ FileService(IFileTransferService\ ftp)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_ftp\ =\ ftp;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ TransferFilesAsync()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upload\ single\ file}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_ftp.UploadOneAsync(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ localPath:\ \textcolor{stringliteral}{@"{}C:\(\backslash\)local\(\backslash\)file.txt"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ remotePath:\ \textcolor{stringliteral}{"{}/remote/file.txt"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ overwrite:\ \textcolor{keyword}{true});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Download\ single\ file}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_ftp.DownloadOneAsync(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ remotePath:\ \textcolor{stringliteral}{"{}/remote/file.txt"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ localPath:\ \textcolor{stringliteral}{@"{}C:\(\backslash\)local\(\backslash\)downloaded.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Batch\ upload}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ uploads\ =\ \textcolor{keyword}{new}[]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{@"{}C:\(\backslash\)local\(\backslash\)file1.txt"{}},\ \textcolor{stringliteral}{"{}/remote/file1.txt"{}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{@"{}C:\(\backslash\)local\(\backslash\)file2.txt"{}},\ \textcolor{stringliteral}{"{}/remote/file2.txt"{}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ successCount\ =\ await\ \_ftp.UploadBatchAsync(uploads);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Batch\ download}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ downloads\ =\ \textcolor{keyword}{new}[]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{"{}/remote/file1.txt"{}},\ \textcolor{stringliteral}{@"{}C:\(\backslash\)local\(\backslash\)file1.txt"{}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{"{}/remote/file2.txt"{}},\ \textcolor{stringliteral}{@"{}C:\(\backslash\)local\(\backslash\)file2.txt"{}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ downloaded\ =\ await\ \_ftp.DownloadBatchAsync(downloads);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md38}{}\doxysubsection{\texorpdfstring{SFTP}{SFTP}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md38}
+Secure file transfer over SSH (SFTP protocol).\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md39}{}\doxysubsubsection{\texorpdfstring{Registration}{Registration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md39}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Password\ authentication}}
+\DoxyCodeLine{services.AddSftpFileTransfer(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}sftp.example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Port\ =\ 22;}
+\DoxyCodeLine{\ \ \ \ options.Username\ =\ \textcolor{stringliteral}{"{}user"{}};}
+\DoxyCodeLine{\ \ \ \ options.Password\ =\ \textcolor{stringliteral}{"{}password"{}};}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Private\ key\ authentication}}
+\DoxyCodeLine{services.AddSftpFileTransfer(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}sftp.example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Port\ =\ 22;}
+\DoxyCodeLine{\ \ \ \ options.Username\ =\ \textcolor{stringliteral}{"{}user"{}};}
+\DoxyCodeLine{\ \ \ \ options.PrivateKeyPath\ =\ \textcolor{stringliteral}{@"{}C:\(\backslash\)keys\(\backslash\)id\_rsa"{}};}
+\DoxyCodeLine{\ \ \ \ options.PrivateKeyPassphrase\ =\ \textcolor{stringliteral}{"{}passphrase"{}};\ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Private\ key\ from\ string}}
+\DoxyCodeLine{services.AddSftpFileTransfer(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}sftp.example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Username\ =\ \textcolor{stringliteral}{"{}user"{}};}
+\DoxyCodeLine{\ \ \ \ options.PrivateKeyContent\ =\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/BEGIN\ RSA\ PRIVATE\ KEY-\/-\/-\/-\/-\/\(\backslash\)n..."{}};}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md40}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md40}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }SecureFileService}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ IFileTransferService\ \_sftp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ SecureFileService(IFileTransferService\ sftp)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_sftp\ =\ sftp;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ TransferAsync(CancellationToken\ ct)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upload\ with\ cancellation\ support}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_sftp.UploadOneAsync(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{@"{}C:\(\backslash\)data\(\backslash\)report.pdf"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/uploads/report.pdf"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ overwrite:\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ct);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Download}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_sftp.DownloadOneAsync(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/downloads/data.csv"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{@"{}C:\(\backslash\)data\(\backslash\)data.csv"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ cancellationToken:\ ct);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md41}{}\doxysubsubsection{\texorpdfstring{Configuration Options}{Configuration Options}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md41}
+
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Option  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Type  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Default  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily Host}  &string  &-\/  &Server hostname  \\
+{\ttfamily Port}  &int  &21/\+22  &Server port  \\
+{\ttfamily Username}  &string  &-\/  &Login username  \\
+{\ttfamily Password}  &string?  &null  &Password (if using password auth)  \\
+{\ttfamily Private\+Key\+Path}  &string?  &null  &Path to private key file  \\
+{\ttfamily Private\+Key\+Content}  &string?  &null  &Private key as string  \\
+{\ttfamily Private\+Key\+Passphrase}  &string?  &null  &Private key passphrase  \\
+{\ttfamily Protocol}  &File\+Transfer\+Protocol  &Ftp  &Ftp, Ftps, or Sftp  \\
+{\ttfamily Connection\+Timeout}  &Time\+Span  &30s  &Connection timeout  \\
+{\ttfamily Operation\+Timeout}  &Time\+Span  &5min  &Operation timeout  \\
+{\ttfamily Buffer\+Size}  &int  &32KB  &Transfer buffer size  \\
+{\ttfamily Auto\+Create\+Directory}  &bool  &true  &Auto-\/create remote directories  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md43}{}\doxysection{\texorpdfstring{Mailing Services}{Mailing Services}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md43}
+SMTP email sending service with TLS/\+\+SSL, OAuth2, and attachment support.\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md44}{}\doxysubsection{\texorpdfstring{Registration}{Registration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md44}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generic\ SMTP}}
+\DoxyCodeLine{services.AddSmtpMailing(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}smtp.example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Port\ =\ 587;}
+\DoxyCodeLine{\ \ \ \ options.SecurityMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{SmtpSecurityMode}}.StartTls;}
+\DoxyCodeLine{\ \ \ \ options.Username\ =\ \textcolor{stringliteral}{"{}user@example.com"{}};}
+\DoxyCodeLine{\ \ \ \ options.Password\ =\ \textcolor{stringliteral}{"{}password"{}};}
+\DoxyCodeLine{\ \ \ \ options.DefaultFrom\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}noreply@example.com"{}},\ \textcolor{stringliteral}{"{}My\ App"{}});}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Gmail\ shortcut}}
+\DoxyCodeLine{services.AddGmailMailing(}
+\DoxyCodeLine{\ \ \ \ email:\ \textcolor{stringliteral}{"{}myapp@gmail.com"{}},}
+\DoxyCodeLine{\ \ \ \ appPassword:\ \textcolor{stringliteral}{"{}xxxx-\/xxxx-\/xxxx-\/xxxx"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Outlook/Office\ 365\ shortcut}}
+\DoxyCodeLine{services.AddOutlookMailing(}
+\DoxyCodeLine{\ \ \ \ email:\ \textcolor{stringliteral}{"{}myapp@outlook.com"{}},}
+\DoxyCodeLine{\ \ \ \ password:\ \textcolor{stringliteral}{"{}password"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Anonymous\ relay\ (internal\ servers)}}
+\DoxyCodeLine{services.AddSmtpMailing(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}mail.internal.local"{}};}
+\DoxyCodeLine{\ \ \ \ options.Port\ =\ 25;}
+\DoxyCodeLine{\ \ \ \ options.SecurityMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{SmtpSecurityMode}}.None;}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ From\ configuration}}
+\DoxyCodeLine{services.AddSmtpMailing(configuration.GetSection(\textcolor{stringliteral}{"{}Mailing"{}}));}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md45}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md45}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }NotificationService}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ IMailingService\ \_mailing;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ NotificationService(IMailingService\ mailing)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_mailing\ =\ mailing;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ SendWelcomeEmailAsync(\textcolor{keywordtype}{string}\ userEmail,\ \textcolor{keywordtype}{string}\ userName)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}noreply@example.com"{}},\ \textcolor{stringliteral}{"{}My\ Application"{}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Welcome\ to\ Our\ Service!"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Body\ =\ \$\textcolor{stringliteral}{"{}<h1>Welcome,\ \{userName\}!</h1><p>Thank\ you\ for\ joining\ us.</p>"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ IsBodyHtml\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ To\ =\ \{\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(userEmail,\ userName)\ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_mailing.SendMailAsync(message);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ SendReportAsync(\textcolor{keywordtype}{string}[]\ recipients,\ \textcolor{keywordtype}{byte}[]\ pdfReport)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}reports@example.com"{}},\ \textcolor{stringliteral}{"{}Report\ System"{}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Monthly\ Report"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Body\ =\ \textcolor{stringliteral}{"{}Please\ find\ the\ monthly\ report\ attached."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ IsBodyHtml\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Attachments\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EmailAttachment.FromBytes(pdfReport,\ \textcolor{stringliteral}{"{}report.pdf"{}},\ \textcolor{stringliteral}{"{}application/pdf"{}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Multiple\ recipients}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ recipient\ \textcolor{keywordflow}{in}\ recipients)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ message.To.Add(recipient);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_mailing.SendMailAsync(message);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ SendBccEmailAsync(\textcolor{keywordtype}{string}[]\ bccRecipients)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Email\ with\ BCC\ only\ (no\ visible\ recipients)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}newsletter@example.com"{}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Newsletter"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Body\ =\ \textcolor{stringliteral}{"{}<h1>Monthly\ Newsletter</h1>"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ IsBodyHtml\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ bcc\ \textcolor{keywordflow}{in}\ bccRecipients)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ message.Bcc.Add(bcc);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_mailing.SendMailAsync(message);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md46}{}\doxysubsection{\texorpdfstring{Email with Inline Images}{Email with Inline Images}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md46}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ logoBytes\ =\ File.ReadAllBytes(\textcolor{stringliteral}{"{}logo.png"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}noreply@example.com"{}}),}
+\DoxyCodeLine{\ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Email\ with\ Logo"{}},}
+\DoxyCodeLine{\ \ \ \ Body\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ <html>}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ <body>}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ <img\ src='cid:company-\/logo'\ alt='Logo'\ />}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ <h1>Welcome!</h1>}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ </body>}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ </html>"{}},}
+\DoxyCodeLine{\ \ \ \ IsBodyHtml\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ To\ =\ \{\ \textcolor{stringliteral}{"{}recipient@example.com"{}}\ \},}
+\DoxyCodeLine{\ \ \ \ Attachments\ =}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a62b587e360cc79b519da2568a8b0f6f5}{CreateInline}}(logoBytes,\ \textcolor{stringliteral}{"{}logo.png"{}},\ \textcolor{stringliteral}{"{}company-\/logo"{}})}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ \_mailing.SendMailAsync(message);}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md47}{}\doxysubsection{\texorpdfstring{Configuration Options}{Configuration Options}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md47}
+
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Option  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Type  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Default  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily Host}  &string  &"{}localhost"{}  &SMTP server hostname  \\
+{\ttfamily Port}  &int  &25  &SMTP port (25, 587, 465)  \\
+{\ttfamily Security\+Mode}  &Smtp\+Security\+Mode  &Auto  &Security mode  \\
+{\ttfamily Username}  &string?  &null  &SMTP username  \\
+{\ttfamily Password}  &string?  &null  &SMTP password  \\
+{\ttfamily OAuth2\+Access\+Token}  &string?  &null  &OAuth2 token (Gmail, O365)  \\
+{\ttfamily Connection\+Timeout}  &Time\+Span  &30s  &Connection timeout  \\
+{\ttfamily Operation\+Timeout}  &Time\+Span  &2min  &Send timeout  \\
+{\ttfamily Validate\+Certificate}  &bool  &true  &Validate SSL certificate  \\
+{\ttfamily Default\+From}  &Email\+Address?  &null  &Default sender address  \\
+{\ttfamily Default\+Reply\+To}  &Email\+Address?  &null  &Default reply-\/to address  \\
+\end{DoxyTable}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md48}{}\doxysubsection{\texorpdfstring{Security Modes}{Security Modes}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md48}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Mode  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Port  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily Auto}  &-\/  &Automatic detection  \\
+{\ttfamily None}  &25  &No encryption (internal only)  \\
+{\ttfamily Start\+Tls}  &587  &Upgrade to TLS (recommended)  \\
+{\ttfamily Start\+Tls\+When\+Available}  &587  &TLS if available  \\
+{\ttfamily Ssl\+On\+Connect}  &465  &Implicit SSL/\+\+TLS  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md50}{}\doxysection{\texorpdfstring{Creating Custom Services}{Creating Custom Services}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md50}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md51}{}\doxysubsection{\texorpdfstring{Synchronous Disposal}{Synchronous Disposal}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md51}
+For services with synchronous cleanup:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }MyService\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{BaseDisposableService}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ SomeResource\ \_resource;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ MyService(ILogger<MyService>\ logger)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}MyService"{}},\ logger)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_resource\ =\ \textcolor{keyword}{new}\ SomeResource();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ DoWork()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ThrowIfDisposed();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ StartActivity();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ sw\ =\ Stopwatch.StartNew();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_resource.Process();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ RecordOperation(\textcolor{stringliteral}{"{}DoWork"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ Dispose(\textcolor{keywordtype}{bool}\ disposing)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (disposing)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \_resource?.Dispose();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ base.Dispose(disposing);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md52}{}\doxysubsection{\texorpdfstring{Asynchronous Disposal}{Asynchronous Disposal}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md52}
+For services with async resources:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keyword}{class\ }MyAsyncService\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{BaseAsyncDisposableService}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}\ readonly\ Stream\ \_stream;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ MyAsyncService(ILogger<MyAsyncService>\ logger)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}MyAsyncService"{}},\ logger)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_stream\ =\ \textcolor{keyword}{new}\ FileStream(\textcolor{stringliteral}{"{}data.bin"{}},\ FileMode.OpenOrCreate);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ async\ Task\ ProcessAsync(CancellationToken\ ct\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ThrowIfDisposed();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ StartActivity();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ sw\ =\ Stopwatch.StartNew();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_stream.WriteAsync(data,\ ct);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ RecordOperation(\textcolor{stringliteral}{"{}ProcessAsync"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ async\ ValueTask\ DisposeAsyncCore(CancellationToken\ ct)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ \_stream.DisposeAsync();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md54}{}\doxysection{\texorpdfstring{Open\+Telemetry Integration}{Open\+Telemetry Integration}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md54}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md55}{}\doxysubsection{\texorpdfstring{Basic Tracing and Metrics}{Basic Tracing and Metrics}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md55}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxOpenTelemetry(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.EnableTracing\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ options.EnableMetrics\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ options.ServiceName\ =\ \textcolor{stringliteral}{"{}MyApplication"{}};}
+\DoxyCodeLine{\ \ \ \ options.ServiceVersion\ =\ \textcolor{stringliteral}{"{}1.0.0"{}};}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md56}{}\doxysubsection{\texorpdfstring{OTLP Export}{OTLP Export}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md56}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxOpenTelemetry(options\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ options.OtlpEndpoint\ =\ \textcolor{stringliteral}{"{}http://localhost:4317"{}};}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md57}{}\doxysubsection{\texorpdfstring{Custom Instrumentation}{Custom Instrumentation}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md57}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Start\ a\ custom\ activity}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }var\ activity\ =\ ToolboxActivitySource.StartActivity(\textcolor{stringliteral}{"{}CustomOperation"{}});}
+\DoxyCodeLine{activity?.SetTag(\textcolor{stringliteral}{"{}custom.tag"{}},\ \textcolor{stringliteral}{"{}value"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Record\ metrics}}
+\DoxyCodeLine{ToolboxMeter.RecordOperation(\textcolor{stringliteral}{"{}MyService"{}},\ \textcolor{stringliteral}{"{}CustomOp"{}},\ elapsedMs);}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md58}{}\doxysubsection{\texorpdfstring{Available Metrics}{Available Metrics}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md58}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Metric  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Type  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily toolbox.\+operations.\+count}  &Counter  &Total operations  \\
+{\ttfamily toolbox.\+operations.\+duration}  &Histogram  &Operation duration (ms)  \\
+{\ttfamily toolbox.\+crypto.\+encrypt.\+count}  &Counter  &Encryption operations  \\
+{\ttfamily toolbox.\+crypto.\+decrypt.\+count}  &Counter  &Decryption operations  \\
+{\ttfamily toolbox.\+crypto.\+data.\+size}  &Histogram  &Data size (bytes)  \\
+{\ttfamily toolbox.\+filetransfer.\+upload.\+count}  &Counter  &File uploads  \\
+{\ttfamily toolbox.\+filetransfer.\+download.\+count}  &Counter  &File downloads  \\
+{\ttfamily toolbox.\+filetransfer.\+size}  &Histogram  &File size (bytes)  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md60}{}\doxysection{\texorpdfstring{Configuration Options}{Configuration Options}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md60}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md61}{}\doxysubsection{\texorpdfstring{Toolbox\+Options}{Toolbox\+Options}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md61}
+
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Option  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Type  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Default  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily Enable\+Detailed\+Telemetry}  &bool  &false  &Enable detailed telemetry  \\
+{\ttfamily Service\+Prefix}  &string?  &null  &Prefix for service names  \\
+{\ttfamily Async\+Disposal\+Timeout}  &Time\+Span  &30s  &Timeout for async disposal  \\
+\end{DoxyTable}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md62}{}\doxysubsection{\texorpdfstring{Toolbox\+Telemetry\+Options}{Toolbox\+Telemetry\+Options}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md62}
+
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Option  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Type  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Default  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily Enable\+Tracing}  &bool  &true  &Enable distributed tracing  \\
+{\ttfamily Enable\+Metrics}  &bool  &true  &Enable metrics collection  \\
+{\ttfamily Enable\+Console\+Export}  &bool  &false  &Export to console  \\
+{\ttfamily Otlp\+Endpoint}  &string?  &null  &OTLP collector endpoint  \\
+{\ttfamily Service\+Name}  &string  &"{}\+Toolbox"{}  &Service name for telemetry  \\
+{\ttfamily Service\+Version}  &string  &"{}1.\+0.\+0"{}  &Service version  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md64}{}\doxysection{\texorpdfstring{Best Practices}{Best Practices}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md64}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md65}{}\doxysubsection{\texorpdfstring{1. Always Check Disposal State}{1. Always Check Disposal State}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md65}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ DoWork()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ ThrowIfDisposed();\ \ \textcolor{comment}{//\ Call\ this\ first}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ ...\ rest\ of\ method}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md66}{}\doxysubsection{\texorpdfstring{2. Use Activity Scopes for Tracing}{2. Use Activity Scopes for Tracing}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md66}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ async\ Task\ DoWorkAsync()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ StartActivity();}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Activity\ automatically\ ends\ when\ scope\ exits}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md67}{}\doxysubsection{\texorpdfstring{3. Record Metrics for Performance}{3. Record Metrics for Performance}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md67}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ sw\ =\ Stopwatch.StartNew();}
+\DoxyCodeLine{\textcolor{comment}{//\ ...\ operation}}
+\DoxyCodeLine{RecordOperation(\textcolor{stringliteral}{"{}OperationName"{}},\ sw.ElapsedMilliseconds);}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md68}{}\doxysubsection{\texorpdfstring{4. Handle Cancellation in Async Operations}{4. Handle Cancellation in Async Operations}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md68}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}\ async\ Task\ ProcessAsync(CancellationToken\ ct\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ ct.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\ \ \ \ await\ \_service.DoWorkAsync(ct);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md69}{}\doxysubsection{\texorpdfstring{5. Use Appropriate Service Lifetimes}{5. Use Appropriate Service Lifetimes}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md69}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Singleton\ for\ stateless\ services}}
+\DoxyCodeLine{services.AddSingleton<ICryptographyService,\ AesCryptographyService>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Scoped\ for\ per-\/request\ services}}
+\DoxyCodeLine{services.AddScoped<IFileTransferService,\ SftpFileTransferService>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Transient\ for\ lightweight\ services}}
+\DoxyCodeLine{services.AddTransient<IMailingService,\ SmtpMailingService>();}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md70}{}\doxysubsection{\texorpdfstring{6. Secure Credential Management}{6. Secure Credential Management}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_autotoc_md70}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Use\ configuration/secrets,\ not\ hardcoded\ values}}
+\DoxyCodeLine{services.AddSmtpMailing(configuration.GetSection(\textcolor{stringliteral}{"{}Mailing"{}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Or\ use\ Azure\ Key\ Vault,\ AWS\ Secrets\ Manager,\ etc.}}
+\DoxyCodeLine{var\ password\ =\ await\ secretsClient.GetSecretAsync(\textcolor{stringliteral}{"{}smtp-\/password"{}});}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" kind="interface" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Abstractions::Services::IMailingService</compoundname>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IInstrumentedService</basecompoundref>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IAsyncDisposableService</basecompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service" prot="public" virt="non-virtual">Toolbox.Core.Services.Mailing.SmtpMailingService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Abstractions.Services.IMailingService.SendMail</definition>
+        <argsstring>(EmailMessage message)</argsstring>
+        <name>SendMail</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IMailingService.SendMail</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_1a6196953505265e87710fe85710c77c03">SendMail</reimplementedby>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" kindref="compound">EmailMessage</ref></type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Sends an email synchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The email message to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>message</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the message has no recipients (To or BCC).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InvalidOperationException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the SMTP connection fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>From<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;sender@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Sender<sp/>Name&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hello&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Body<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hello,<sp/>World!&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>To<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;recipient@example.com&quot;</highlight><highlight class="normal">)<sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">mailingService.SendMail(message);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IMailingService.cs" line="46" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task</type>
+        <definition>Task Toolbox.Core.Abstractions.Services.IMailingService.SendMailAsync</definition>
+        <argsstring>(EmailMessage message, CancellationToken cancellationToken=default)</argsstring>
+        <name>SendMailAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IMailingService.SendMailAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_1aa946d4ab1fd7abe6fd5ec78ee2a5998b">SendMailAsync</reimplementedby>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" kindref="compound">EmailMessage</ref></type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Sends an email asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The email message to send.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task representing the asynchronous operation.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>message</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the message has no recipients (To or BCC).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InvalidOperationException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the SMTP connection fails.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OperationCanceledException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the operation is cancelled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>From<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;sender@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Sender<sp/>Name&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hello&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Body<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Hello,<sp/>World!&lt;/h1&gt;&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>To<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;recipient@example.com&quot;</highlight><highlight class="normal">)<sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">await<sp/>mailingService.SendMailAsync(message);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IMailingService.cs" line="71" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Defines the contract for email sending services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface provides methods for sending emails with support for: </para>
+<para><itemizedlist>
+<listitem>
+<para>Single or multiple recipients (To, CC, BCC) </para>
+</listitem>
+<listitem>
+<para>File attachments </para>
+</listitem>
+<listitem>
+<para>HTML or plain text content </para>
+</listitem>
+</itemizedlist>
+</para>
+<para><simplesect kind="see"><para><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" kindref="compound">IInstrumentedService</ref>, <ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" kindref="compound">IAsyncDisposableService</ref></para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.IMailingService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Services.Mailing.SmtpMailingService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.IMailingService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IMailingService.cs" line="25" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IMailingService.cs" bodystart="26" bodyend="72"/>
+    <listofallmembers>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>ActivitySource</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>DisposeAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>IsDisposed</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>Meter</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>SendMail</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>SendMailAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IMailingService</scope><name>ServiceName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

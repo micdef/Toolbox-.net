@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_options" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Options</compoundname>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" prot="public">Toolbox::Core::Options::ApiOptions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" prot="public">Toolbox::Core::Options::ApiRequest</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" prot="public">Toolbox::Core::Options::ApiResponse</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options" prot="public">Toolbox::Core::Options::Base64CryptographyOptions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" prot="public">Toolbox::Core::Options::EmailAttachment</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" prot="public">Toolbox::Core::Options::EmailMessage</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" prot="public">Toolbox::Core::Options::FileTransferOptions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options" prot="public">Toolbox::Core::Options::MailingOptions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" prot="public">Toolbox::Core::Options::RsaKeyPair</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" prot="public">Toolbox::Core::Options::ToolboxOptions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options" prot="public">Toolbox::Core::Options::ToolboxTelemetryOptions</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>AesKeySize</name>
+        <qualifiedname>Toolbox.Core.Options.AesKeySize</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94" prot="public">
+          <name>Aes128</name>
+          <initializer>= 128</initializer>
+          <briefdescription>
+<para>128-bit key (16 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Provides good security and is the fastest option. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495" prot="public">
+          <name>Aes192</name>
+          <initializer>= 192</initializer>
+          <briefdescription>
+<para>192-bit key (24 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Provides stronger security than 128-bit. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14" prot="public">
+          <name>Aes256</name>
+          <initializer>= 256</initializer>
+          <briefdescription>
+<para>256-bit key (32 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Provides the strongest security. Recommended for highly sensitive data. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the AES key size in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Larger key sizes provide stronger encryption but may have slightly higher performance overhead. AES-256 is recommended for most security-sensitive applications. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/AesKeySize.cs" line="15" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/AesKeySize.cs" bodystart="16" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ApiAuthenticationMode</name>
+        <qualifiedname>Toolbox.Core.Options.ApiAuthenticationMode</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0" prot="public">
+          <name>Anonymous</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No authentication required. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30" prot="public">
+          <name>BearerToken</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Bearer token authentication. Uses the Authorization header with &quot;Bearer {token}&quot; format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94" prot="public">
+          <name>Basic</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Basic authentication with username and password. Uses the Authorization header with Base64-encoded credentials. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac" prot="public">
+          <name>ApiKey</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>API key authentication. Can be sent as a header or query parameter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6" prot="public">
+          <name>Certificate</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Client certificate authentication. Uses X.509 certificate for mutual TLS (mTLS). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1" prot="public">
+          <name>OAuth2ClientCredentials</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>OAuth2 client credentials flow. Automatically obtains and refreshes access tokens. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the authentication mode for API requests. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Choose the appropriate authentication mode based on the API requirements. Each mode requires specific configuration in <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiAuthenticationMode.cs" line="17" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiAuthenticationMode.cs" bodystart="18" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ApiKeyLocation</name>
+        <qualifiedname>Toolbox.Core.Options.ApiKeyLocation</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7" prot="public">
+          <name>Header</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Send API key in a header. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477" prot="public">
+          <name>QueryString</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Send API key as a query parameter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies where to send the API key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiAuthenticationMode.cs" line="58" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiAuthenticationMode.cs" bodystart="59" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Base64EncodingTable</name>
+        <qualifiedname>Toolbox.Core.Options.Base64EncodingTable</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b" prot="public">
+          <name>Standard</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Standard Base64 alphabet as defined in RFC 4648. Uses &apos;+&apos; and &apos;/&apos; characters, with &apos;=&apos; padding. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Alphabet: A-Z, a-z, 0-9, +, / </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8" prot="public">
+          <name>UrlSafe</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>URL and filename safe Base64 alphabet as defined in RFC 4648 Section 5. Uses &apos;-&apos; and &apos;_&apos; characters instead of &apos;+&apos; and &apos;/&apos;. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Alphabet: A-Z, a-z, 0-9, -, _ This variant is safe for use in URLs and filenames. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the Base64 encoding table to use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Different encoding tables are suitable for different use cases. The URL-safe variant is recommended for use in URLs and filenames. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64EncodingTable.cs" line="15" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64EncodingTable.cs" bodystart="16" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>EmailPriority</name>
+        <qualifiedname>Toolbox.Core.Options.EmailPriority</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef" prot="public">
+          <name>Low</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Low priority. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0" prot="public">
+          <name>Normal</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Normal priority (default). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35" prot="public">
+          <name>High</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>High priority. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the priority of an email message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="140" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="141" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FileTransferProtocol</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferProtocol</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb" prot="public">
+          <name>Ftp</name>
+          <briefdescription>
+<para>File Transfer Protocol (unencrypted). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><bold>Warning:</bold> FTP transfers data in plain text. Use FTPS or SFTP for sensitive data. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f" prot="public">
+          <name>Ftps</name>
+          <briefdescription>
+<para>FTP over TLS/SSL (encrypted). </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Provides encryption for FTP connections using TLS/SSL. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484" prot="public">
+          <name>Sftp</name>
+          <briefdescription>
+<para>SSH File Transfer Protocol (encrypted). </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Provides secure file transfer over SSH. Recommended for sensitive data. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the file transfer protocol to use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>SFTP provides encrypted transfers and is recommended for sensitive data. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferProtocol.cs" line="14" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferProtocol.cs" bodystart="15" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>RsaKeySize</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeySize</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21" prot="public">
+          <name>Rsa512</name>
+          <initializer>= 512</initializer>
+          <briefdescription>
+<para>512-bit key. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><bold>Warning:</bold> This key size is considered insecure and should only be used for testing. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395" prot="public">
+          <name>Rsa1024</name>
+          <initializer>= 1024</initializer>
+          <briefdescription>
+<para>1024-bit key. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><bold>Warning:</bold> This key size is considered weak and not recommended for production use. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a" prot="public">
+          <name>Rsa2048</name>
+          <initializer>= 2048</initializer>
+          <briefdescription>
+<para>2048-bit key. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Minimum recommended key size for production use. Provides good balance between security and performance. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433" prot="public">
+          <name>Rsa4096</name>
+          <initializer>= 4096</initializer>
+          <briefdescription>
+<para>4096-bit key. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Recommended for highly sensitive data. Provides stronger security with moderate performance impact. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3" prot="public">
+          <name>Rsa8192</name>
+          <initializer>= 8192</initializer>
+          <briefdescription>
+<para>8192-bit key. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Very strong security with significant performance impact. Use only when maximum security is required. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d" prot="public">
+          <name>Rsa16384</name>
+          <initializer>= 16384</initializer>
+          <briefdescription>
+<para>16384-bit key. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Maximum security with very high performance impact. Key generation and operations can be very slow. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the RSA key size in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Larger key sizes provide stronger security but have significantly higher performance overhead. </para>
+<para>RSA-2048 is the minimum recommended for production use. RSA-4096 is recommended for highly sensitive data. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeySize.cs" line="20" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeySize.cs" bodystart="21" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>RsaPaddingMode</name>
+        <qualifiedname>Toolbox.Core.Options.RsaPaddingMode</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387" prot="public">
+          <name>Pkcs1</name>
+          <briefdescription>
+<para>PKCS#1 v1.5 padding. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Legacy padding mode. Compatible with older systems but vulnerable to certain attacks. Not recommended for new applications. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003" prot="public">
+          <name>OaepSha1</name>
+          <briefdescription>
+<para>OAEP with SHA-1 hash. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>More secure than PKCS#1 v1.5. SHA-1 is considered weak; prefer SHA-256 or SHA-384 for new applications. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c" prot="public">
+          <name>OaepSha256</name>
+          <briefdescription>
+<para>OAEP with SHA-256 hash. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Recommended padding mode for most applications. Provides good security with reasonable performance. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe" prot="public">
+          <name>OaepSha384</name>
+          <briefdescription>
+<para>OAEP with SHA-384 hash. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Stronger than SHA-256 with slightly higher overhead. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3" prot="public">
+          <name>OaepSha512</name>
+          <briefdescription>
+<para>OAEP with SHA-512 hash. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Strongest OAEP variant. Recommended for highly sensitive data. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the RSA encryption padding mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The padding mode affects both security and compatibility. OAEP (Optimal Asymmetric Encryption Padding) is more secure than PKCS#1 v1.5. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaPaddingMode.cs" line="17" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaPaddingMode.cs" bodystart="18" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SmtpSecurityMode</name>
+        <qualifiedname>Toolbox.Core.Options.SmtpSecurityMode</qualifiedname>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb" prot="public">
+          <name>Auto</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Automatically determine the best security mode. Will attempt STARTTLS if available, otherwise use implicit SSL/TLS. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>No encryption (not recommended for production). Use only for local development or internal networks. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1" prot="public">
+          <name>StartTls</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Use STARTTLS to upgrade an unencrypted connection. Standard for port 587. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377" prot="public">
+          <name>StartTlsWhenAvailable</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>Use STARTTLS if available, otherwise continue unencrypted. Less secure than StartTls but more compatible. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1" prot="public">
+          <name>SslOnConnect</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Use implicit SSL/TLS from the start. Standard for port 465. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies the security mode for SMTP connections. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Choose the appropriate mode based on your SMTP server&apos;s requirements. When in doubt, use Auto for automatic negotiation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/SmtpSecurityMode.cs" line="17" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/SmtpSecurityMode.cs" bodystart="18" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" prot="public" static="no" const="no" explicit="no" inline="no" sealed="yes" virt="non-virtual">
+        <type>record</type>
+        <definition>record Toolbox.Core.Options.EmailAddress</definition>
+        <argsstring>(string Address, string? DisplayName=null)</argsstring>
+        <name>EmailAddress</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAddress</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>Address</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>DisplayName</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Represents an email address with an optional display name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is an immutable record type that combines an email address with an optional human-readable display name. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>With<sp/>display<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>sender<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;john.doe@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;John<sp/>Doe&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Without<sp/>display<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>recipient<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;jane@example.com&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting> </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The email address (e.g., &quot;user@example.com&quot;).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>DisplayName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The optional display name (e.g., &quot;John Doe&quot;).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Gets the email address.</para>
+<para>The email address string.</para>
+<para>Implicitly converts a string to an <ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The email address string.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An <ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref> with no display name.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs" line="28" column="14" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs" bodystart="28" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/AesKeySize.cs" line="6" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,589 @@
+\doxysection{Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}{}\label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+
+
+\doxylink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Cryptography} service implementation using RSA asymmetric encryption.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.231310cm]{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{Rsa\+Cryptography\+Service}} (byte\+[$\,$]\+ public\+Key, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{Rsa\+Padding\+Mode}} padding\+Mode, ILogger$<$ Rsa\+Cryptography\+Service $>$ logger, byte\+[$\,$]\+? private\+Key=null)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}{Rsa\+Cryptography\+Service} class using raw key bytes. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a1ce02ac159386c5dcd90c5f688affa55}{Rsa\+Cryptography\+Service}} (X509\+Certificate2 certificate, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{Rsa\+Padding\+Mode}} padding\+Mode, ILogger$<$ Rsa\+Cryptography\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}{Rsa\+Cryptography\+Service} class using an X.\+509 certificate. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca}{Encrypt}} (string plain\+Text)
+\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a8d65b30e83ed3be8cb39bfa1d9cd2227}{Encrypt\+Async}} (string plain\+Text, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Asynchronously encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c}{Decrypt}} (string encrypted\+Text)
+\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a12dc875ff5bd879d7b5ccbe17413ec7e}{Decrypt\+Async}} (string encrypted\+Text, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Asynchronously decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{Dispose\+Async}} ()
+\item 
+async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous disposal operation.
+\end{DoxyReturn}
+
+
+This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Releases all resources used by this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a25fe7a8c713f3c467f87a0a3fd0f92fb}{Generate\+Key\+Pair}} (\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{Rsa\+Key\+Size}} key\+Size, bool include\+Private\+Key=true)
+\begin{DoxyCompactList}\small\item\em Generates a new RSA key pair. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a01b384be723c2fa81134191f316861a2}{Generate\+Key\+Pair}} (int key\+Size, bool include\+Private\+Key=true)
+\begin{DoxyCompactList}\small\item\em Generates a new RSA key pair. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_aeba578a09d400cfa0431ffdbd2e27aba}{Generate\+Certificate}} (\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{Rsa\+Key\+Size}} key\+Size, string subject\+Name, Time\+Span validity\+Period, bool include\+Private\+Key=true)
+\begin{DoxyCompactList}\small\item\em Generates a self-\/signed X.\+509 certificate containing an RSA key pair. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0a56928eef9957cec54185e332770a55}{Generate\+Certificate}} (int key\+Size, string subject\+Name, Time\+Span validity\+Period, bool include\+Private\+Key=true)
+\begin{DoxyCompactList}\small\item\em Generates a self-\/signed X.\+509 certificate containing an RSA key pair. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a681b435f226e69b0c06d134af2b7bff7}{Dispose\+Async\+Core}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{Base\+Async\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Base\+Async\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+override void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Dispose}} (bool disposing)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{Base\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{Throw\+If\+Disposed}} ()
+\begin{DoxyCompactList}\small\item\em Throws an Object\+Disposed\+Exception if this service has been disposed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{Record\+Operation}} (string operation\+Name, double duration\+Ms)
+\begin{DoxyCompactList}\small\item\em Records an operation metric with the specified name and duration. \end{DoxyCompactList}\item 
+Activity? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{Start\+Activity}} (\+[Caller\+Member\+Name]\+ string operation\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Starts a new activity for the specified operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. \end{DoxyCompactList}\item 
+Activity\+Source \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Cryptography} service implementation using RSA asymmetric encryption. 
+
+This service provides secure text encryption and decryption using the RSA algorithm. It supports various key sizes and padding modes. 
+
+Encryption requires only the public key, while decryption requires the private key. 
+
+The encrypted output is Base64-\/encoded for safe text transmission. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}{ICryptography\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00032}{32}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!RsaCryptographyService@{RsaCryptographyService}}
+\index{RsaCryptographyService@{RsaCryptographyService}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{RsaCryptographyService()}{RsaCryptographyService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373} 
+Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Rsa\+Cryptography\+Service (\begin{DoxyParamCaption}\item[{byte\+[$\,$]\+}]{public\+Key}{, }\item[{\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{Rsa\+Padding\+Mode}}}]{padding\+Mode}{, }\item[{ILogger$<$ Rsa\+Cryptography\+Service $>$}]{logger}{, }\item[{byte?\+[$\,$]\+}]{private\+Key}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}{Rsa\+Cryptography\+Service} class using raw key bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em public\+Key} & The public key in Subject\+Public\+Key\+Info format.\\
+\hline
+{\em padding\+Mode} & The padding mode to use for encryption/\+decryption.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+{\em private\+Key} & The private key in PKCS\#8 format, or {\ttfamily null} if decryption is not needed.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape public\+Key}  or {\itshape logger}  is {\ttfamily null}. \\
+\hline
+{\em Cryptographic\+Exception} & Thrown when the key format is invalid.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ keyPair\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}.GenerateKeyPair(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048);}
+\DoxyCodeLine{\textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}(}
+\DoxyCodeLine{\ \ \ \ keyPair.PublicKey!,}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}.OaepSha256,}
+\DoxyCodeLine{\ \ \ \ logger,}
+\DoxyCodeLine{\ \ \ \ keyPair.PrivateKey);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00067}{67}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a1ce02ac159386c5dcd90c5f688affa55}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!RsaCryptographyService@{RsaCryptographyService}}
+\index{RsaCryptographyService@{RsaCryptographyService}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{RsaCryptographyService()}{RsaCryptographyService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a1ce02ac159386c5dcd90c5f688affa55} 
+Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Rsa\+Cryptography\+Service (\begin{DoxyParamCaption}\item[{X509\+Certificate2}]{certificate}{, }\item[{\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{Rsa\+Padding\+Mode}}}]{padding\+Mode}{, }\item[{ILogger$<$ Rsa\+Cryptography\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}{Rsa\+Cryptography\+Service} class using an X.\+509 certificate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em certificate} & The X.\+509 certificate containing the RSA key(s).\\
+\hline
+{\em padding\+Mode} & The padding mode to use for encryption/\+decryption.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape certificate}  or {\itshape logger}  is {\ttfamily null}. \\
+\hline
+{\em Argument\+Exception} & Thrown when the certificate does not contain an RSA key.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ cert\ =\ \textcolor{keyword}{new}\ X509Certificate2(\textcolor{stringliteral}{"{}certificate.pfx"{}},\ \textcolor{stringliteral}{"{}password"{}});}
+\DoxyCodeLine{\textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}(cert,\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}.OaepSha256,\ logger);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00120}{120}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!Decrypt@{Decrypt}}
+\index{Decrypt@{Decrypt}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{Decrypt()}{Decrypt()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c} 
+string Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Decrypt (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text}{}\end{DoxyParamCaption})}
+
+Decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ 
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Operation\+Exception} & Thrown when private key is not available.\\
+\hline
+{\em Format\+Exception} & Thrown when decryption fails due to invalid data.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a013a7019090a0e9fe9ce39604993d04f}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00348}{348}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a12dc875ff5bd879d7b5ccbe17413ec7e}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!DecryptAsync@{DecryptAsync}}
+\index{DecryptAsync@{DecryptAsync}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{DecryptAsync()}{DecryptAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a12dc875ff5bd879d7b5ccbe17413ec7e} 
+async Task$<$ string $>$ Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Decrypt\+Async (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Asynchronously decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a5b20b3deb70835815fd7dcd53ea4b36a}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00395}{395}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a681b435f226e69b0c06d134af2b7bff7}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!DisposeAsyncCore@{DisposeAsyncCore}}
+\index{DisposeAsyncCore@{DisposeAsyncCore}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{DisposeAsyncCore()}{DisposeAsyncCore()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a681b435f226e69b0c06d134af2b7bff7} 
+override Value\+Task Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Dispose\+Async\+Core (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00407}{407}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!Encrypt@{Encrypt}}
+\index{Encrypt@{Encrypt}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{Encrypt()}{Encrypt()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca} 
+string Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Encrypt (\begin{DoxyParamCaption}\item[{string}]{plain\+Text}{}\end{DoxyParamCaption})}
+
+Encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ 
+\begin{DoxyExceptions}{Exceptions}
+{\em Cryptographic\+Exception} & Thrown when encryption fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+RSA can only encrypt data smaller than the key size minus padding overhead. For larger data, consider using hybrid encryption (RSA + AES). 
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_af7d5a5001f53ab7db2bee41b919e8b59}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00294}{294}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a8d65b30e83ed3be8cb39bfa1d9cd2227}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!EncryptAsync@{EncryptAsync}}
+\index{EncryptAsync@{EncryptAsync}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{EncryptAsync()}{EncryptAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a8d65b30e83ed3be8cb39bfa1d9cd2227} 
+async Task$<$ string $>$ Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Encrypt\+Async (\begin{DoxyParamCaption}\item[{string}]{plain\+Text}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Asynchronously encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a05ababf7768be976af8ab8b6b96e60bf}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00334}{334}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0a56928eef9957cec54185e332770a55}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!GenerateCertificate@{GenerateCertificate}}
+\index{GenerateCertificate@{GenerateCertificate}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{GenerateCertificate()}{GenerateCertificate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0a56928eef9957cec54185e332770a55} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Generate\+Certificate (\begin{DoxyParamCaption}\item[{int}]{key\+Size}{, }\item[{string}]{subject\+Name}{, }\item[{Time\+Span}]{validity\+Period}{, }\item[{bool}]{include\+Private\+Key}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a self-\/signed X.\+509 certificate containing an RSA key pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Size} & The key size in bits.\\
+\hline
+{\em subject\+Name} & The certificate subject name.\\
+\hline
+{\em validity\+Period} & The certificate validity period.\\
+\hline
+{\em include\+Private\+Key} & Whether to include the private key in the certificate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} containing the generated certificate.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00278}{278}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_aeba578a09d400cfa0431ffdbd2e27aba}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!GenerateCertificate@{GenerateCertificate}}
+\index{GenerateCertificate@{GenerateCertificate}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{GenerateCertificate()}{GenerateCertificate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_aeba578a09d400cfa0431ffdbd2e27aba} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Generate\+Certificate (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{Rsa\+Key\+Size}}}]{key\+Size}{, }\item[{string}]{subject\+Name}{, }\item[{Time\+Span}]{validity\+Period}{, }\item[{bool}]{include\+Private\+Key}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a self-\/signed X.\+509 certificate containing an RSA key pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Size} & The key size to generate.\\
+\hline
+{\em subject\+Name} & The certificate subject name (e.\+g., "{}\+CN=\+My\+App"{}).\\
+\hline
+{\em validity\+Period} & The certificate validity period.\\
+\hline
+{\em include\+Private\+Key} & Whether to include the private key in the certificate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} containing the generated certificate.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape subject\+Name}  is {\ttfamily null}.\\
+\hline
+{\em Argument\+Exception} & Thrown when {\itshape key\+Size}  is not valid.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ keyPair\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}.GenerateCertificate(}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}CN=MyApplication"{}},}
+\DoxyCodeLine{\ \ \ \ TimeSpan.FromDays(365));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00231}{231}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a01b384be723c2fa81134191f316861a2}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!GenerateKeyPair@{GenerateKeyPair}}
+\index{GenerateKeyPair@{GenerateKeyPair}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{GenerateKeyPair()}{GenerateKeyPair()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a01b384be723c2fa81134191f316861a2} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Generate\+Key\+Pair (\begin{DoxyParamCaption}\item[{int}]{key\+Size}{, }\item[{bool}]{include\+Private\+Key}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a new RSA key pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Size} & The key size in bits (512, 1024, 2048, 4096, 8192, or 16384).\\
+\hline
+{\em include\+Private\+Key} & Whether to include the private key in the result.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} containing the generated keys.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown when {\itshape key\+Size}  is not valid.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00201}{201}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a25fe7a8c713f3c467f87a0a3fd0f92fb}\index{Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}!GenerateKeyPair@{GenerateKeyPair}}
+\index{GenerateKeyPair@{GenerateKeyPair}!Toolbox.Core.Services.Cryptography.RsaCryptographyService@{Toolbox.Core.Services.Cryptography.RsaCryptographyService}}
+\doxysubsubsection{\texorpdfstring{GenerateKeyPair()}{GenerateKeyPair()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a25fe7a8c713f3c467f87a0a3fd0f92fb} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}} Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service.\+Generate\+Key\+Pair (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{Rsa\+Key\+Size}}}]{key\+Size}{, }\item[{bool}]{include\+Private\+Key}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a new RSA key pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Size} & The key size to generate.\\
+\hline
+{\em include\+Private\+Key} & Whether to include the private key in the result.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} containing the generated keys.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown when {\itshape key\+Size}  is not a valid RSA key size.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ full\ key\ pair}}
+\DoxyCodeLine{var\ keyPair\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}.GenerateKeyPair(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Generate\ public\ key\ only\ (useful\ for\ sharing)}}
+\DoxyCodeLine{var\ publicOnly\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}.GenerateKeyPair(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}.Rsa2048,\ includePrivateKey:\ \textcolor{keyword}{false});}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source_l00182}{182}} of file \doxymbox{\hyperlink{_rsa_cryptography_service_8cs_source}{Rsa\+Cryptography\+Service.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Services/\+\+Cryptography/\+\doxymbox{\hyperlink{_rsa_cryptography_service_8cs}{Rsa\+Cryptography\+Service.\+cs}}\end{DoxyCompactItemize}

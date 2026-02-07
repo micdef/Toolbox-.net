@@ -1,0 +1,356 @@
+\doxysection{Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests Class Reference}
+\hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests}{}\label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+
+
+\doxylink{namespace_toolbox_1_1_tests_1_1_unit}{Unit} tests for \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service}{Aes\+Cryptography\+Service}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a910962a858913f34b34eb0166d142524}{Aes\+Cryptography\+Service\+Tests}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a84eef0da88771aed048ede1d870a4964}{Generate\+Key\+\_\+\+With\+Aes128\+\_\+\+Should\+Return16\+Byte\+Key}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a28c91aa5187dccada8327844bdbb5719}{Generate\+Key\+\_\+\+With\+Aes192\+\_\+\+Should\+Return24\+Byte\+Key}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_abad8ffe514a61b2708bfdf27cda85049}{Generate\+Key\+\_\+\+With\+Aes256\+\_\+\+Should\+Return32\+Byte\+Key}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a9e4b6b19effe32e744a6cb78d3f99100}{Generate\+Key\+\_\+\+With\+Int\+Key\+Size\+\_\+\+Should\+Work}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ad6bbbfdec6de00f88ef5b39b40b4df3f}{Generate\+Key\+\_\+\+With\+Invalid\+Key\+Size\+\_\+\+Should\+Throw\+Argument\+Exception}} (int invalid\+Key\+Size)
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a997c471d42262a6025a93c937995383d}{Generate\+Key\+\_\+\+Should\+Generate\+Unique\+Keys}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a57f11279df1efac66945c49c803b0f67}{Constructor\+\_\+\+With\+Null\+Key\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_af4ea51f86d8eb14e4b184a5a64db404a}{Constructor\+\_\+\+With\+Null\+Iv\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a2ce4216157866472d8db1fece341a409}{Constructor\+\_\+\+With\+Invalid\+Key\+Size\+\_\+\+Should\+Throw\+Argument\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1b5f0a8a3f3913aad6737325598667ad}{Constructor\+\_\+\+With\+Invalid\+Iv\+Size\+\_\+\+Should\+Throw\+Argument\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ab4ba7356408aa0e1a185ef8385b07356}{Encrypt\+\_\+\+Should\+Return\+Base64\+String}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1a07704d88a1b618a360d1ee8b40d72f}{Encrypt\+\_\+\+Then\+Decrypt\+\_\+\+Should\+Return\+Original\+Text}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_aff428bbab44961c0a2dfc126880d315b}{Encrypt\+\_\+\+Then\+Decrypt\+\_\+\+With\+Different\+Key\+Sizes\+\_\+\+Should\+Work}} (\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{Aes\+Key\+Size}} key\+Size)
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_acaedc9e21d57ebd8691b015f05c2c3ac}{Encrypt\+\_\+\+With\+Same\+Input\+\_\+\+Should\+Produce\+Same\+Output}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a116877c143e329dc8d22195faf37573e}{Encrypt\+\_\+\+With\+Different\+Keys\+\_\+\+Should\+Produce\+Different\+Output}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_af446010a39f04d103be3940818b3b9d8}{Decrypt\+\_\+\+With\+Wrong\+Key\+\_\+\+Should\+Throw\+Format\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ad2b1fc1b8c886653bbd02a2f61da6019}{Encrypt\+\_\+\+With\+Null\+Text\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ae74e0b3d522295369bdc5669c5a426c8}{Decrypt\+\_\+\+With\+Null\+Text\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1debd900c8def91cbaa59c15e0833aee}{Decrypt\+\_\+\+With\+Invalid\+Base64\+\_\+\+Should\+Throw\+Format\+Exception}} ()
+\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a9f434f527a6b9b86525cb07d5ea6a6d2}{Encrypt\+Async\+\_\+\+Then\+Decrypt\+Async\+\_\+\+Should\+Return\+Original\+Text}} ()
+\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a618d102a6b358be51aceaaaed48f8630}{Encrypt\+Async\+\_\+\+With\+Cancellation\+\_\+\+Should\+Throw\+Operation\+Canceled\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a4f99578cb215ad129a90ed70efb56762}{Encrypt\+\_\+\+When\+Disposed\+\_\+\+Should\+Throw\+Object\+Disposed\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a0f6a48cbc0bcf5c3749936ebd5449acf}{Encrypt\+\_\+\+With\+Empty\+String\+\_\+\+Should\+Work}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ae0eaf0449f97c9174eb42365476d8dc5}{Encrypt\+\_\+\+With\+Unicode\+Text\+\_\+\+Should\+Handle\+Correctly}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a67da4707905842daac27a925caa8d49f}{Encrypt\+\_\+\+With\+Large\+Text\+\_\+\+Should\+Work}} ()
+\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a5bbd33bfa303231211f81d1ad7460c5d}{Dispose\+Async\+\_\+\+Should\+Clear\+Sensitive\+Data}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespace_toolbox_1_1_tests_1_1_unit}{Unit} tests for \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service}{Aes\+Cryptography\+Service}. 
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00010}{10}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a910962a858913f34b34eb0166d142524}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!AesCryptographyServiceTests@{AesCryptographyServiceTests}}
+\index{AesCryptographyServiceTests@{AesCryptographyServiceTests}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{AesCryptographyServiceTests()}{AesCryptographyServiceTests()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a910962a858913f34b34eb0166d142524} 
+Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Aes\+Cryptography\+Service\+Tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1b5f0a8a3f3913aad6737325598667ad}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Constructor\_WithInvalidIvSize\_ShouldThrowArgumentException@{Constructor\_WithInvalidIvSize\_ShouldThrowArgumentException}}
+\index{Constructor\_WithInvalidIvSize\_ShouldThrowArgumentException@{Constructor\_WithInvalidIvSize\_ShouldThrowArgumentException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithInvalidIvSize\_ShouldThrowArgumentException()}{Constructor\_WithInvalidIvSize\_ShouldThrowArgumentException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1b5f0a8a3f3913aad6737325598667ad} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Constructor\+\_\+\+With\+Invalid\+Iv\+Size\+\_\+\+Should\+Throw\+Argument\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00129}{129}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a2ce4216157866472d8db1fece341a409}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Constructor\_WithInvalidKeySize\_ShouldThrowArgumentException@{Constructor\_WithInvalidKeySize\_ShouldThrowArgumentException}}
+\index{Constructor\_WithInvalidKeySize\_ShouldThrowArgumentException@{Constructor\_WithInvalidKeySize\_ShouldThrowArgumentException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithInvalidKeySize\_ShouldThrowArgumentException()}{Constructor\_WithInvalidKeySize\_ShouldThrowArgumentException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a2ce4216157866472d8db1fece341a409} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Constructor\+\_\+\+With\+Invalid\+Key\+Size\+\_\+\+Should\+Throw\+Argument\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00115}{115}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_af4ea51f86d8eb14e4b184a5a64db404a}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Constructor\_WithNullIv\_ShouldThrowArgumentNullException@{Constructor\_WithNullIv\_ShouldThrowArgumentNullException}}
+\index{Constructor\_WithNullIv\_ShouldThrowArgumentNullException@{Constructor\_WithNullIv\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithNullIv\_ShouldThrowArgumentNullException()}{Constructor\_WithNullIv\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_af4ea51f86d8eb14e4b184a5a64db404a} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Constructor\+\_\+\+With\+Null\+Iv\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00102}{102}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a57f11279df1efac66945c49c803b0f67}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Constructor\_WithNullKey\_ShouldThrowArgumentNullException@{Constructor\_WithNullKey\_ShouldThrowArgumentNullException}}
+\index{Constructor\_WithNullKey\_ShouldThrowArgumentNullException@{Constructor\_WithNullKey\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithNullKey\_ShouldThrowArgumentNullException()}{Constructor\_WithNullKey\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a57f11279df1efac66945c49c803b0f67} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Constructor\+\_\+\+With\+Null\+Key\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00089}{89}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1debd900c8def91cbaa59c15e0833aee}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Decrypt\_WithInvalidBase64\_ShouldThrowFormatException@{Decrypt\_WithInvalidBase64\_ShouldThrowFormatException}}
+\index{Decrypt\_WithInvalidBase64\_ShouldThrowFormatException@{Decrypt\_WithInvalidBase64\_ShouldThrowFormatException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Decrypt\_WithInvalidBase64\_ShouldThrowFormatException()}{Decrypt\_WithInvalidBase64\_ShouldThrowFormatException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1debd900c8def91cbaa59c15e0833aee} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Decrypt\+\_\+\+With\+Invalid\+Base64\+\_\+\+Should\+Throw\+Format\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00274}{274}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ae74e0b3d522295369bdc5669c5a426c8}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Decrypt\_WithNullText\_ShouldThrowArgumentNullException@{Decrypt\_WithNullText\_ShouldThrowArgumentNullException}}
+\index{Decrypt\_WithNullText\_ShouldThrowArgumentNullException@{Decrypt\_WithNullText\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Decrypt\_WithNullText\_ShouldThrowArgumentNullException()}{Decrypt\_WithNullText\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ae74e0b3d522295369bdc5669c5a426c8} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Decrypt\+\_\+\+With\+Null\+Text\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00260}{260}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_af446010a39f04d103be3940818b3b9d8}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Decrypt\_WithWrongKey\_ShouldThrowFormatException@{Decrypt\_WithWrongKey\_ShouldThrowFormatException}}
+\index{Decrypt\_WithWrongKey\_ShouldThrowFormatException@{Decrypt\_WithWrongKey\_ShouldThrowFormatException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Decrypt\_WithWrongKey\_ShouldThrowFormatException()}{Decrypt\_WithWrongKey\_ShouldThrowFormatException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_af446010a39f04d103be3940818b3b9d8} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Decrypt\+\_\+\+With\+Wrong\+Key\+\_\+\+Should\+Throw\+Format\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00228}{228}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a5bbd33bfa303231211f81d1ad7460c5d}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!DisposeAsync\_ShouldClearSensitiveData@{DisposeAsync\_ShouldClearSensitiveData}}
+\index{DisposeAsync\_ShouldClearSensitiveData@{DisposeAsync\_ShouldClearSensitiveData}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{DisposeAsync\_ShouldClearSensitiveData()}{DisposeAsync\_ShouldClearSensitiveData()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a5bbd33bfa303231211f81d1ad7460c5d} 
+async Task Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Dispose\+Async\+\_\+\+Should\+Clear\+Sensitive\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00382}{382}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ab4ba7356408aa0e1a185ef8385b07356}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_ShouldReturnBase64String@{Encrypt\_ShouldReturnBase64String}}
+\index{Encrypt\_ShouldReturnBase64String@{Encrypt\_ShouldReturnBase64String}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_ShouldReturnBase64String()}{Encrypt\_ShouldReturnBase64String()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ab4ba7356408aa0e1a185ef8385b07356} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+Should\+Return\+Base64\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00143}{143}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1a07704d88a1b618a360d1ee8b40d72f}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_ThenDecrypt\_ShouldReturnOriginalText@{Encrypt\_ThenDecrypt\_ShouldReturnOriginalText}}
+\index{Encrypt\_ThenDecrypt\_ShouldReturnOriginalText@{Encrypt\_ThenDecrypt\_ShouldReturnOriginalText}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_ThenDecrypt\_ShouldReturnOriginalText()}{Encrypt\_ThenDecrypt\_ShouldReturnOriginalText()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a1a07704d88a1b618a360d1ee8b40d72f} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+Then\+Decrypt\+\_\+\+Should\+Return\+Original\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00159}{159}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_aff428bbab44961c0a2dfc126880d315b}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_ThenDecrypt\_WithDifferentKeySizes\_ShouldWork@{Encrypt\_ThenDecrypt\_WithDifferentKeySizes\_ShouldWork}}
+\index{Encrypt\_ThenDecrypt\_WithDifferentKeySizes\_ShouldWork@{Encrypt\_ThenDecrypt\_WithDifferentKeySizes\_ShouldWork}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_ThenDecrypt\_WithDifferentKeySizes\_ShouldWork()}{Encrypt\_ThenDecrypt\_WithDifferentKeySizes\_ShouldWork()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_aff428bbab44961c0a2dfc126880d315b} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+Then\+Decrypt\+\_\+\+With\+Different\+Key\+Sizes\+\_\+\+Should\+Work (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{Aes\+Key\+Size}}}]{key\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00178}{178}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a4f99578cb215ad129a90ed70efb56762}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException@{Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException}}
+\index{Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException@{Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException()}{Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a4f99578cb215ad129a90ed70efb56762} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+When\+Disposed\+\_\+\+Should\+Throw\+Object\+Disposed\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00320}{320}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a116877c143e329dc8d22195faf37573e}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WithDifferentKeys\_ShouldProduceDifferentOutput@{Encrypt\_WithDifferentKeys\_ShouldProduceDifferentOutput}}
+\index{Encrypt\_WithDifferentKeys\_ShouldProduceDifferentOutput@{Encrypt\_WithDifferentKeys\_ShouldProduceDifferentOutput}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WithDifferentKeys\_ShouldProduceDifferentOutput()}{Encrypt\_WithDifferentKeys\_ShouldProduceDifferentOutput()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a116877c143e329dc8d22195faf37573e} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+With\+Different\+Keys\+\_\+\+Should\+Produce\+Different\+Output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00210}{210}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a0f6a48cbc0bcf5c3749936ebd5449acf}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WithEmptyString\_ShouldWork@{Encrypt\_WithEmptyString\_ShouldWork}}
+\index{Encrypt\_WithEmptyString\_ShouldWork@{Encrypt\_WithEmptyString\_ShouldWork}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WithEmptyString\_ShouldWork()}{Encrypt\_WithEmptyString\_ShouldWork()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a0f6a48cbc0bcf5c3749936ebd5449acf} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+With\+Empty\+String\+\_\+\+Should\+Work (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00335}{335}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a67da4707905842daac27a925caa8d49f}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WithLargeText\_ShouldWork@{Encrypt\_WithLargeText\_ShouldWork}}
+\index{Encrypt\_WithLargeText\_ShouldWork@{Encrypt\_WithLargeText\_ShouldWork}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WithLargeText\_ShouldWork()}{Encrypt\_WithLargeText\_ShouldWork()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a67da4707905842daac27a925caa8d49f} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+With\+Large\+Text\+\_\+\+Should\+Work (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00366}{366}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ad2b1fc1b8c886653bbd02a2f61da6019}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WithNullText\_ShouldThrowArgumentNullException@{Encrypt\_WithNullText\_ShouldThrowArgumentNullException}}
+\index{Encrypt\_WithNullText\_ShouldThrowArgumentNullException@{Encrypt\_WithNullText\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WithNullText\_ShouldThrowArgumentNullException()}{Encrypt\_WithNullText\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ad2b1fc1b8c886653bbd02a2f61da6019} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+With\+Null\+Text\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00246}{246}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_acaedc9e21d57ebd8691b015f05c2c3ac}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WithSameInput\_ShouldProduceSameOutput@{Encrypt\_WithSameInput\_ShouldProduceSameOutput}}
+\index{Encrypt\_WithSameInput\_ShouldProduceSameOutput@{Encrypt\_WithSameInput\_ShouldProduceSameOutput}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WithSameInput\_ShouldProduceSameOutput()}{Encrypt\_WithSameInput\_ShouldProduceSameOutput()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_acaedc9e21d57ebd8691b015f05c2c3ac} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+With\+Same\+Input\+\_\+\+Should\+Produce\+Same\+Output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00194}{194}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ae0eaf0449f97c9174eb42365476d8dc5}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!Encrypt\_WithUnicodeText\_ShouldHandleCorrectly@{Encrypt\_WithUnicodeText\_ShouldHandleCorrectly}}
+\index{Encrypt\_WithUnicodeText\_ShouldHandleCorrectly@{Encrypt\_WithUnicodeText\_ShouldHandleCorrectly}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{Encrypt\_WithUnicodeText\_ShouldHandleCorrectly()}{Encrypt\_WithUnicodeText\_ShouldHandleCorrectly()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ae0eaf0449f97c9174eb42365476d8dc5} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+\_\+\+With\+Unicode\+Text\+\_\+\+Should\+Handle\+Correctly (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00350}{350}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a9f434f527a6b9b86525cb07d5ea6a6d2}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!EncryptAsync\_ThenDecryptAsync\_ShouldReturnOriginalText@{EncryptAsync\_ThenDecryptAsync\_ShouldReturnOriginalText}}
+\index{EncryptAsync\_ThenDecryptAsync\_ShouldReturnOriginalText@{EncryptAsync\_ThenDecryptAsync\_ShouldReturnOriginalText}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{EncryptAsync\_ThenDecryptAsync\_ShouldReturnOriginalText()}{EncryptAsync\_ThenDecryptAsync\_ShouldReturnOriginalText()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a9f434f527a6b9b86525cb07d5ea6a6d2} 
+async Task Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+Async\+\_\+\+Then\+Decrypt\+Async\+\_\+\+Should\+Return\+Original\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00288}{288}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a618d102a6b358be51aceaaaed48f8630}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException@{EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException}}
+\index{EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException@{EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException()}{EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a618d102a6b358be51aceaaaed48f8630} 
+async Task Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Encrypt\+Async\+\_\+\+With\+Cancellation\+\_\+\+Should\+Throw\+Operation\+Canceled\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00304}{304}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a997c471d42262a6025a93c937995383d}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!GenerateKey\_ShouldGenerateUniqueKeys@{GenerateKey\_ShouldGenerateUniqueKeys}}
+\index{GenerateKey\_ShouldGenerateUniqueKeys@{GenerateKey\_ShouldGenerateUniqueKeys}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateKey\_ShouldGenerateUniqueKeys()}{GenerateKey\_ShouldGenerateUniqueKeys()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a997c471d42262a6025a93c937995383d} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Generate\+Key\+\_\+\+Should\+Generate\+Unique\+Keys (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00077}{77}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a84eef0da88771aed048ede1d870a4964}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!GenerateKey\_WithAes128\_ShouldReturn16ByteKey@{GenerateKey\_WithAes128\_ShouldReturn16ByteKey}}
+\index{GenerateKey\_WithAes128\_ShouldReturn16ByteKey@{GenerateKey\_WithAes128\_ShouldReturn16ByteKey}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateKey\_WithAes128\_ShouldReturn16ByteKey()}{GenerateKey\_WithAes128\_ShouldReturn16ByteKey()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a84eef0da88771aed048ede1d870a4964} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Generate\+Key\+\_\+\+With\+Aes128\+\_\+\+Should\+Return16\+Byte\+Key (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a28c91aa5187dccada8327844bdbb5719}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!GenerateKey\_WithAes192\_ShouldReturn24ByteKey@{GenerateKey\_WithAes192\_ShouldReturn24ByteKey}}
+\index{GenerateKey\_WithAes192\_ShouldReturn24ByteKey@{GenerateKey\_WithAes192\_ShouldReturn24ByteKey}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateKey\_WithAes192\_ShouldReturn24ByteKey()}{GenerateKey\_WithAes192\_ShouldReturn24ByteKey()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a28c91aa5187dccada8327844bdbb5719} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Generate\+Key\+\_\+\+With\+Aes192\+\_\+\+Should\+Return24\+Byte\+Key (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00031}{31}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_abad8ffe514a61b2708bfdf27cda85049}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!GenerateKey\_WithAes256\_ShouldReturn32ByteKey@{GenerateKey\_WithAes256\_ShouldReturn32ByteKey}}
+\index{GenerateKey\_WithAes256\_ShouldReturn32ByteKey@{GenerateKey\_WithAes256\_ShouldReturn32ByteKey}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateKey\_WithAes256\_ShouldReturn32ByteKey()}{GenerateKey\_WithAes256\_ShouldReturn32ByteKey()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_abad8ffe514a61b2708bfdf27cda85049} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Generate\+Key\+\_\+\+With\+Aes256\+\_\+\+Should\+Return32\+Byte\+Key (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00042}{42}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a9e4b6b19effe32e744a6cb78d3f99100}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!GenerateKey\_WithIntKeySize\_ShouldWork@{GenerateKey\_WithIntKeySize\_ShouldWork}}
+\index{GenerateKey\_WithIntKeySize\_ShouldWork@{GenerateKey\_WithIntKeySize\_ShouldWork}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateKey\_WithIntKeySize\_ShouldWork()}{GenerateKey\_WithIntKeySize\_ShouldWork()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_a9e4b6b19effe32e744a6cb78d3f99100} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Generate\+Key\+\_\+\+With\+Int\+Key\+Size\+\_\+\+Should\+Work (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ad6bbbfdec6de00f88ef5b39b40b4df3f}\index{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}!GenerateKey\_WithInvalidKeySize\_ShouldThrowArgumentException@{GenerateKey\_WithInvalidKeySize\_ShouldThrowArgumentException}}
+\index{GenerateKey\_WithInvalidKeySize\_ShouldThrowArgumentException@{GenerateKey\_WithInvalidKeySize\_ShouldThrowArgumentException}!Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests@{Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests}}
+\doxysubsubsection{\texorpdfstring{GenerateKey\_WithInvalidKeySize\_ShouldThrowArgumentException()}{GenerateKey\_WithInvalidKeySize\_ShouldThrowArgumentException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_ad6bbbfdec6de00f88ef5b39b40b4df3f} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service\+Tests.\+Generate\+Key\+\_\+\+With\+Invalid\+Key\+Size\+\_\+\+Should\+Throw\+Argument\+Exception (\begin{DoxyParamCaption}\item[{int}]{invalid\+Key\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source_l00067}{67}} of file \doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs_source}{Aes\+Cryptography\+Service\+Tests.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+tests/\+\+Toolbox.\+Tests/\+\+Unit/\+\+Services/\+\+Cryptography/\+\doxymbox{\hyperlink{_aes_cryptography_service_tests_8cs}{Aes\+Cryptography\+Service\+Tests.\+cs}}\end{DoxyCompactItemize}

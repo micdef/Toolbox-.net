@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::ToolboxTelemetryOptions</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1ad376b2327064c73e8ce4baf2410836c5" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Options.ToolboxTelemetryOptions.SectionName</definition>
+        <argsstring></argsstring>
+        <name>SectionName</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.SectionName</qualifiedname>
+        <initializer>= &quot;Toolbox:Telemetry&quot;</initializer>
+        <briefdescription>
+<para>The configuration section name for telemetry options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="28" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a50f491773234e522517838b94454f336" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ToolboxTelemetryOptions.EnableTracing</definition>
+        <argsstring></argsstring>
+        <name>EnableTracing</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.EnableTracing</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets a value indicating whether distributed tracing is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to enable tracing; <computeroutput>false</computeroutput> to disable. Defaults to <computeroutput>true</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="36" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a973d6de7776d4c78425f263ff1c20caf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ToolboxTelemetryOptions.EnableMetrics</definition>
+        <argsstring></argsstring>
+        <name>EnableMetrics</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.EnableMetrics</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets a value indicating whether metrics collection is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to enable metrics; <computeroutput>false</computeroutput> to disable. Defaults to <computeroutput>true</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="44" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a77efdd55213c2072793143d52be3f6f4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ToolboxTelemetryOptions.EnableConsoleExport</definition>
+        <argsstring></argsstring>
+        <name>EnableConsoleExport</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.EnableConsoleExport</qualifiedname>
+        <briefdescription>
+<para>Gets or sets a value indicating whether console export is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to export telemetry to console; <computeroutput>false</computeroutput> to disable. Defaults to <computeroutput>false</computeroutput>. </para>
+<para>Enable this for debugging purposes only. Not recommended for production. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="55" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1aac1b83338d681be52bad44f03551b47b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ToolboxTelemetryOptions.OtlpEndpoint</definition>
+        <argsstring></argsstring>
+        <name>OtlpEndpoint</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.OtlpEndpoint</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the OTLP endpoint for telemetry export. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The OTLP endpoint URL. Defaults to <computeroutput>null</computeroutput> (OTLP export disabled). </para>
+<para>Example: <computeroutput><ulink url="http://localhost:4317">http://localhost:4317</ulink></computeroutput> for a local OTLP collector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="66" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a3046c1e387903245e09b85eb8a18d52f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.ToolboxTelemetryOptions.ServiceName</definition>
+        <argsstring></argsstring>
+        <name>ServiceName</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.ServiceName</qualifiedname>
+        <initializer>= &quot;Toolbox&quot;</initializer>
+        <briefdescription>
+<para>Gets or sets the service name for telemetry identification. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The service name used in telemetry. Defaults to <computeroutput>&quot;Toolbox&quot;</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="74" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a8310f9472b0b080ebb725f7f8a8d1889" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.ToolboxTelemetryOptions.ServiceVersion</definition>
+        <argsstring></argsstring>
+        <name>ServiceVersion</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxTelemetryOptions.ServiceVersion</qualifiedname>
+        <initializer>= &quot;1.0.0&quot;</initializer>
+        <briefdescription>
+<para>Gets or sets the service version for telemetry identification. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The service version string. Defaults to <computeroutput>&quot;1.0.0&quot;</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="82" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="82" bodyend="82"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration options for OpenTelemetry integration in <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These options can be configured via <computeroutput>appsettings.json</computeroutput>: <programlisting filename=".cs"><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;Toolbox:Telemetry&quot;</highlight><highlight class="normal">:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;EnableTracing&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;EnableMetrics&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;OtlpEndpoint&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;http://localhost:4317&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" line="23" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxTelemetryOptions.cs" bodystart="24" bodyend="83"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a77efdd55213c2072793143d52be3f6f4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>EnableConsoleExport</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a973d6de7776d4c78425f263ff1c20caf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>EnableMetrics</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a50f491773234e522517838b94454f336" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>EnableTracing</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1aac1b83338d681be52bad44f03551b47b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>OtlpEndpoint</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1ad376b2327064c73e8ce4baf2410836c5" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>SectionName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a3046c1e387903245e09b85eb8a18d52f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>ServiceName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1a8310f9472b0b080ebb725f7f8a8d1889" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxTelemetryOptions</scope><name>ServiceVersion</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

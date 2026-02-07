@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_282f86989ac6d3b849143b291e7ac116" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services</compoundname>
+    <innerdir refid="dir_8b676f34d1f33ed7d6491a017eb3f5ac">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api</innerdir>
+    <innerdir refid="dir_dac991427b0017bb80bc50f061ec8970">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography</innerdir>
+    <innerdir refid="dir_d9f70e076beb76cc182367308cf243ff">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/FileTransfer</innerdir>
+    <innerdir refid="dir_a57af30fd12488d14cd483d2e823eabe">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Mailing</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/"/>
+  </compounddef>
+</doxygen>

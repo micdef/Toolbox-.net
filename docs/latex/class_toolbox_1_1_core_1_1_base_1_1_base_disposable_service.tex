@@ -1,0 +1,299 @@
+\doxysection{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{}\label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+
+
+Abstract base class providing a thread-\/safe implementation of the dispose pattern with integrated telemetry support.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.600000cm]{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Releases all resources used by this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{Base\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_abe66f7a1e36466851f1a3df7ce2cc51c}{Dispose}} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Releases the unmanaged resources used by this service and optionally releases managed resources. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{Throw\+If\+Disposed}} ()
+\begin{DoxyCompactList}\small\item\em Throws an Object\+Disposed\+Exception if this service has been disposed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{Record\+Operation}} (string operation\+Name, double duration\+Ms)
+\begin{DoxyCompactList}\small\item\em Records an operation metric with the specified name and duration. \end{DoxyCompactList}\item 
+Activity? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{Start\+Activity}} (\+[Caller\+Member\+Name]\+ string operation\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Starts a new activity for the specified operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. \end{DoxyCompactList}\item 
+Activity\+Source \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class providing a thread-\/safe implementation of the dispose pattern with integrated telemetry support. 
+
+This class implements \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{IDisposable\+Service} and \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{IInstrumented\+Service}, providing a consistent foundation for building disposable services. 
+
+Derived classes should override \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_abe66f7a1e36466851f1a3df7ce2cc51c}{Dispose(bool)} to release their resources. The base implementation handles thread-\/safety and telemetry automatically. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{IDisposable\+Service}, \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{IInstrumented\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00027}{27}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!BaseDisposableService@{BaseDisposableService}}
+\index{BaseDisposableService@{BaseDisposableService}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{BaseDisposableService()}{BaseDisposableService()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0} 
+Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Base\+Disposable\+Service (\begin{DoxyParamCaption}\item[{string}]{service\+Name}{, }\item[{ILogger}]{logger}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+Name} & The name identifying this service instance.\\
+\hline
+{\em logger} & The logger for diagnostic output.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape service\+Name}  or {\itshape logger}  is {\ttfamily null}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00043}{43}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89} 
+void Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Dispose (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Releases all resources used by this service. 
+
+This method is thread-\/safe and can be called multiple times. Only the first call will release resources. 
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00071}{71}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_abe66f7a1e36466851f1a3df7ce2cc51c}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_abe66f7a1e36466851f1a3df7ce2cc51c} 
+virtual void Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Dispose (\begin{DoxyParamCaption}\item[{bool}]{disposing}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Releases the unmanaged resources used by this service and optionally releases managed resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & {\ttfamily true} to release both managed and unmanaged resources; {\ttfamily false} to release only unmanaged resources. \\
+\hline
+\end{DoxyParams}
+
+
+Override this method in derived classes to release resources. Always call the base implementation after releasing your resources. 
+
+This method is thread-\/safe. The {\itshape disposing}  parameter will only be {\ttfamily true} for the first caller when called concurrently. 
+
+Reimplemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00094}{94}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!RecordOperation@{RecordOperation}}
+\index{RecordOperation@{RecordOperation}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{RecordOperation()}{RecordOperation()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4} 
+void Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Record\+Operation (\begin{DoxyParamCaption}\item[{string}]{operation\+Name}{, }\item[{double}]{duration\+Ms}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Records an operation metric with the specified name and duration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em operation\+Name} & The name of the operation.\\
+\hline
+{\em duration\+Ms} & The duration in milliseconds.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00130}{130}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!StartActivity@{StartActivity}}
+\index{StartActivity@{StartActivity}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{StartActivity()}{StartActivity()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29} 
+Activity? Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Start\+Activity (\begin{DoxyParamCaption}\item[{\+[\+Caller\+Member\+Name]\+ string}]{operation\+Name}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Starts a new activity for the specified operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em operation\+Name} & The name of the operation. Defaults to the calling method name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The started Activity if tracing is enabled; otherwise, {\ttfamily null}. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00142}{142}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!ThrowIfDisposed@{ThrowIfDisposed}}
+\index{ThrowIfDisposed@{ThrowIfDisposed}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{ThrowIfDisposed()}{ThrowIfDisposed()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5} 
+void Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Throw\+If\+Disposed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Throws an Object\+Disposed\+Exception if this service has been disposed. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Object\+Disposed\+Exception} & Thrown when \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed} is {\ttfamily true}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Call this method at the beginning of public methods to ensure the service is still usable. 
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00120}{120}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!ActivitySource@{ActivitySource}}
+\index{ActivitySource@{ActivitySource}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{ActivitySource}{ActivitySource}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8} 
+Activity\+Source Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Activity\+Source\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}{Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00059}{59}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!IsDisposed@{IsDisposed}}
+\index{IsDisposed@{IsDisposed}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{IsDisposed}{IsDisposed}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7} 
+bool Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Is\+Disposed\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00056}{56}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!Meter@{Meter}}
+\index{Meter@{Meter}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{Meter}{Meter}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068} 
+Meter Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Meter\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}{Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00062}{62}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}\index{Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}!ServiceName@{ServiceName}}
+\index{ServiceName@{ServiceName}!Toolbox.Core.Base.BaseDisposableService@{Toolbox.Core.Base.BaseDisposableService}}
+\doxysubsubsection{\texorpdfstring{ServiceName}{ServiceName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe} 
+string Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service.\+Service\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base_disposable_service_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_base_disposable_service_8cs_source}{Base\+Disposable\+Service.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Base/\+\doxymbox{\hyperlink{_base_disposable_service_8cs}{Base\+Disposable\+Service.\+cs}}\end{DoxyCompactItemize}

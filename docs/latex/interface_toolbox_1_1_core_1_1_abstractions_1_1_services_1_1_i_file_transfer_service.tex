@@ -1,0 +1,339 @@
+\doxysection{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service Interface Reference}
+\hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service}{}\label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+
+
+Defines the contract for file transfer services supporting FTP and SFTP protocols.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.578269cm]{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a39493197015631afe633dbf737acb5b9}{Upload\+One}} (string local\+Path, string remote\+Path, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Uploads a single file to the remote server. \end{DoxyCompactList}\item 
+Task \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a50c1189a1e77238ef3c86bb7c3d641ef}{Upload\+One\+Async}} (string local\+Path, string remote\+Path, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Uploads a single file to the remote server asynchronously. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4dd51de7dcb5668082dc15073f6bb54}{Upload\+Batch}} (IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$ files, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Uploads multiple files to the remote server. \end{DoxyCompactList}\item 
+Task$<$ int $>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4da65114040f1cf522cef93f514fc1e}{Upload\+Batch\+Async}} (IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$ files, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Uploads multiple files to the remote server asynchronously. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a16448190399a0a2230f75c29dda1a851}{Download\+One}} (string remote\+Path, string local\+Path, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Downloads a single file from the remote server. \end{DoxyCompactList}\item 
+Task \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_aed1537898eecb5b9dc32c88a51525c38}{Download\+One\+Async}} (string remote\+Path, string local\+Path, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Downloads a single file from the remote server asynchronously. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a8fa36a9667eb5532d1e1490204d31966}{Download\+Batch}} (IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$ files, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Downloads multiple files from the remote server. \end{DoxyCompactList}\item 
+Task$<$ int $>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a9b2153d151943a376d3365ddfbfb4519}{Download\+Batch\+Async}} (IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$ files, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Downloads multiple files from the remote server asynchronously. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IAsync\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_a3bcb31cb213a921cbfc4b548b1571abb}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Activity\+Source \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the contract for file transfer services supporting FTP and SFTP protocols. 
+
+This interface provides methods for uploading and downloading files to/\+from remote servers using FTP or SFTP protocols. 
+
+All methods support both synchronous and asynchronous operations. 
+
+Definition at line \doxymbox{\hyperlink{_i_file_transfer_service_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_i_file_transfer_service_8cs_source}{IFile\+Transfer\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a8fa36a9667eb5532d1e1490204d31966}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!DownloadBatch@{DownloadBatch}}
+\index{DownloadBatch@{DownloadBatch}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadBatch()}{DownloadBatch()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a8fa36a9667eb5532d1e1490204d31966} 
+int Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Download\+Batch (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Downloads multiple files from the remote server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (remote\+Path, local\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of files successfully downloaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a633dc3abc6a6c476632f6275d7f91662}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a6a0c49174a00d2a33c09943f6b8cfeb7}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a9b2153d151943a376d3365ddfbfb4519}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!DownloadBatchAsync@{DownloadBatchAsync}}
+\index{DownloadBatchAsync@{DownloadBatchAsync}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadBatchAsync()}{DownloadBatchAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a9b2153d151943a376d3365ddfbfb4519} 
+Task$<$ int $>$ Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Download\+Batch\+Async (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Downloads multiple files from the remote server asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (remote\+Path, local\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the number of files successfully downloaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a0d45675ff5262c4ecff6aa08fb682aac}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a422d60e8663bf5c040832ddbf70d0221}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a16448190399a0a2230f75c29dda1a851}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!DownloadOne@{DownloadOne}}
+\index{DownloadOne@{DownloadOne}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadOne()}{DownloadOne()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a16448190399a0a2230f75c29dda1a851} 
+void Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Download\+One (\begin{DoxyParamCaption}\item[{string}]{remote\+Path}{, }\item[{string}]{local\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Downloads a single file from the remote server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em remote\+Path} & The remote file path to download.\\
+\hline
+{\em local\+Path} & The local destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when remote file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a97be6cecd8e7fbf0e15e048d5b381023}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a81aca18a4c2217ac7067f30266e62703}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_aed1537898eecb5b9dc32c88a51525c38}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!DownloadOneAsync@{DownloadOneAsync}}
+\index{DownloadOneAsync@{DownloadOneAsync}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadOneAsync()}{DownloadOneAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_aed1537898eecb5b9dc32c88a51525c38} 
+Task Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Download\+One\+Async (\begin{DoxyParamCaption}\item[{string}]{remote\+Path}{, }\item[{string}]{local\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Downloads a single file from the remote server asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em remote\+Path} & The remote file path to download.\\
+\hline
+{\em local\+Path} & The local destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when remote file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a40427bcf42493c48ea8f79f5495c46d6}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a94af0bd9271952109afff0a02aaeb284}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4dd51de7dcb5668082dc15073f6bb54}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!UploadBatch@{UploadBatch}}
+\index{UploadBatch@{UploadBatch}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadBatch()}{UploadBatch()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4dd51de7dcb5668082dc15073f6bb54} 
+int Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Upload\+Batch (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Uploads multiple files to the remote server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (local\+Path, remote\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of files successfully uploaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_af86e5e8c6e3d66009fd6c1fde825a8a0}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad9b93a94ca76bd432dd320daa124921e}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4da65114040f1cf522cef93f514fc1e}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!UploadBatchAsync@{UploadBatchAsync}}
+\index{UploadBatchAsync@{UploadBatchAsync}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadBatchAsync()}{UploadBatchAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4da65114040f1cf522cef93f514fc1e} 
+Task$<$ int $>$ Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Upload\+Batch\+Async (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Uploads multiple files to the remote server asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (local\+Path, remote\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the number of files successfully uploaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a63073cbaccb6aa0a9f247f42d0a1ea08}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbcbc55146b849a4d4918ffda0b827b5}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a39493197015631afe633dbf737acb5b9}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!UploadOne@{UploadOne}}
+\index{UploadOne@{UploadOne}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadOne()}{UploadOne()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a39493197015631afe633dbf737acb5b9} 
+void Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Upload\+One (\begin{DoxyParamCaption}\item[{string}]{local\+Path}{, }\item[{string}]{remote\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Uploads a single file to the remote server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+Path} & The local file path to upload.\\
+\hline
+{\em remote\+Path} & The remote destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when local file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a222a085f07cbcb05c1ea05c6f7ee6d52}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a8081b8c21e7bedd5486629282899028a}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a50c1189a1e77238ef3c86bb7c3d641ef}\index{Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}!UploadOneAsync@{UploadOneAsync}}
+\index{UploadOneAsync@{UploadOneAsync}!Toolbox.Core.Abstractions.Services.IFileTransferService@{Toolbox.Core.Abstractions.Services.IFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadOneAsync()}{UploadOneAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a50c1189a1e77238ef3c86bb7c3d641ef} 
+Task Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service.\+Upload\+One\+Async (\begin{DoxyParamCaption}\item[{string}]{local\+Path}{, }\item[{string}]{remote\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Uploads a single file to the remote server asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+Path} & The local file path to upload.\\
+\hline
+{\em remote\+Path} & The remote destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when local file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_ac8dd94083d2c5f9191c573fec7b3fd81}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Ftp\+File\+Transfer\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a005ac6db09ec98d03f12d0e18b095ef4}{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Abstractions/\+\+Services/\+\doxymbox{\hyperlink{_i_file_transfer_service_8cs}{IFile\+Transfer\+Service.\+cs}}\end{DoxyCompactItemize}

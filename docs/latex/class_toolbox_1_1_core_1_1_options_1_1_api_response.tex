@@ -1,0 +1,450 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Api\+Response Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response}{}\label{class_toolbox_1_1_core_1_1_options_1_1_api_response}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+
+
+Represents an HTTP API response.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_afdbd9b36f4c01a02208a13cb3a093d54}{Deserialize$<$ T $>$}} (Json\+Serializer\+Options? options=null)
+\begin{DoxyCompactList}\small\item\em Deserializes the response body as JSON. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_af16c8db6718baf251aa6453821b551d3}{Try\+Deserialize$<$ T $>$}} (out T? result, Json\+Serializer\+Options? options=null)
+\begin{DoxyCompactList}\small\item\em Tries to deserialize the response body as JSON. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a5337b5d30a7f6809016a8c622c46d1f7}{Get\+Header}} (string name)
+\begin{DoxyCompactList}\small\item\em Gets a header value. \end{DoxyCompactList}\item 
+IEnumerable$<$ string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a031f554c076f51b7130314ff4589d2d1}{Get\+Headers}} (string name)
+\begin{DoxyCompactList}\small\item\em Gets all values for a header. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_aae1b1269892d6c0d5199218cea0d9cb7}{Ensure\+Success}} ()
+\begin{DoxyCompactList}\small\item\em Throws an exception if the response indicates an error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3766c05d32ac54a7e02f483c0113ed54}{Success}} (string? body=null, Http\+Status\+Code status\+Code=Http\+Status\+Code.\+OK)
+\begin{DoxyCompactList}\small\item\em Creates a successful response. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_ad7295a5f46737289d5aa1e13506e793d}{Error}} (Http\+Status\+Code status\+Code, string? message=null)
+\begin{DoxyCompactList}\small\item\em Creates an error response. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Http\+Status\+Code \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3d0d03f1a691d1dcd7860def8714a74d}{Status\+Code}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the HTTP status code. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a939a87a416b603f0fe608377088908bd}{Status\+Code\+Value}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the status code as an integer. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3361b19eafefcff0f5390938a90ba683}{Reason\+Phrase}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the reason phrase. \end{DoxyCompactList}\item 
+IRead\+Only\+Dictionary$<$ string, IEnumerable$<$ string $>$ $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_acebf1624cbf9d398cf5456a92049e765}{Headers}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the response headers. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a6b20dee2b29798ce6af9e75c52420ce4}{Body}} = new Dictionary$<$string, IEnumerable$<$string$>$$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the response body as a string. \end{DoxyCompactList}\item 
+byte?\+[$\,$]\+ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a6cff539e246f1dc20045e97104ec8c22}{Body\+Bytes}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the response body as bytes. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a32b240cd491afbd67b4544f4ddbc4a8d}{Content\+Type}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the content type header value. \end{DoxyCompactList}\item 
+long? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a60a3edcd4c95e4eacc10b147968978e4}{Content\+Length}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the content length. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a9cc29f2892a97bda50bcc1cf11b7e4cc}{Duration}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the request duration. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_ad9882807aeabd1aeba8ccc0b57461e1a}{Is\+Success}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the response indicates success (2xx status). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a1b30956dc36228b7d56acd95e8ecd0c7}{Is\+Client\+Error}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the response indicates a client error (4xx status). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_a0d00fac5c1919222643ad826b2a90ccd}{Is\+Server\+Error}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the response indicates a server error (5xx status). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response_ac29ced7049c785ba83fa9c3455be5a08}{Is\+Redirect}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether the response is a redirect (3xx status). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an HTTP API response. 
+
+This class encapsulates all data from an HTTP response, including status code, headers, and body content. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ response\ =\ await\ apiService.SendAsync(request);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (response.IsSuccess)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ var\ user\ =\ response.Deserialize<User>();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ Console.WriteLine(\$\textcolor{stringliteral}{"{}Error:\ \{response.StatusCode\}"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00034}{34}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_afdbd9b36f4c01a02208a13cb3a093d54}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!Deserialize$<$ T $>$@{Deserialize$<$ T $>$}}
+\index{Deserialize$<$ T $>$@{Deserialize$<$ T $>$}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{Deserialize$<$ T $>$()}{Deserialize< T >()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_afdbd9b36f4c01a02208a13cb3a093d54} 
+T? Toolbox.\+Core.\+Options.\+Api\+Response.\+Deserialize$<$ T $>$ (\begin{DoxyParamCaption}\item[{Json\+Serializer\+Options?}]{options}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Deserializes the response body as JSON. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The target type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em options} & JSON serializer options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The deserialized object, or default if body is empty.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Json\+Exception} & Thrown when deserialization fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00122}{122}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_aae1b1269892d6c0d5199218cea0d9cb7}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!EnsureSuccess@{EnsureSuccess}}
+\index{EnsureSuccess@{EnsureSuccess}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{EnsureSuccess()}{EnsureSuccess()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_aae1b1269892d6c0d5199218cea0d9cb7} 
+void Toolbox.\+Core.\+Options.\+Api\+Response.\+Ensure\+Success (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Throws an exception if the response indicates an error. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Http\+Request\+Exception} & Thrown when response is not successful.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00187}{187}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_ad7295a5f46737289d5aa1e13506e793d}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!Error@{Error}}
+\index{Error@{Error}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{Error()}{Error()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_ad7295a5f46737289d5aa1e13506e793d} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} Toolbox.\+Core.\+Options.\+Api\+Response.\+Error (\begin{DoxyParamCaption}\item[{Http\+Status\+Code}]{status\+Code}{, }\item[{string?}]{message}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an error response. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+Code} & The status code.\\
+\hline
+{\em message} & The error message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00221}{221}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a5337b5d30a7f6809016a8c622c46d1f7}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!GetHeader@{GetHeader}}
+\index{GetHeader@{GetHeader}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{GetHeader()}{GetHeader()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a5337b5d30a7f6809016a8c622c46d1f7} 
+string? Toolbox.\+Core.\+Options.\+Api\+Response.\+Get\+Header (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Gets a header value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The header name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The first header value, or {\ttfamily null} if not found.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00164}{164}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a031f554c076f51b7130314ff4589d2d1}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!GetHeaders@{GetHeaders}}
+\index{GetHeaders@{GetHeaders}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{GetHeaders()}{GetHeaders()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a031f554c076f51b7130314ff4589d2d1} 
+IEnumerable$<$ string $>$ Toolbox.\+Core.\+Options.\+Api\+Response.\+Get\+Headers (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Gets all values for a header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The header name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+All header values, or empty if not found.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00176}{176}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3766c05d32ac54a7e02f483c0113ed54}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!Success@{Success}}
+\index{Success@{Success}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{Success()}{Success()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3766c05d32ac54a7e02f483c0113ed54} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} Toolbox.\+Core.\+Options.\+Api\+Response.\+Success (\begin{DoxyParamCaption}\item[{string?}]{body}{ = {\ttfamily null}, }\item[{Http\+Status\+Code}]{status\+Code}{ = {\ttfamily HttpStatusCode:\+:\+OK}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a successful response. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & The response body.\\
+\hline
+{\em status\+Code} & The status code.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00204}{204}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_af16c8db6718baf251aa6453821b551d3}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!TryDeserialize$<$ T $>$@{TryDeserialize$<$ T $>$}}
+\index{TryDeserialize$<$ T $>$@{TryDeserialize$<$ T $>$}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{TryDeserialize$<$ T $>$()}{TryDeserialize< T >()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_af16c8db6718baf251aa6453821b551d3} 
+bool Toolbox.\+Core.\+Options.\+Api\+Response.\+Try\+Deserialize$<$ T $>$ (\begin{DoxyParamCaption}\item[{out T?}]{result}{, }\item[{Json\+Serializer\+Options?}]{options}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Tries to deserialize the response body as JSON. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The target type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The deserialized object if successful.\\
+\hline
+{\em options} & JSON serializer options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if deserialization succeeded; otherwise, {\ttfamily false}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00139}{139}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a6b20dee2b29798ce6af9e75c52420ce4}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!Body@{Body}}
+\index{Body@{Body}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{Body}{Body}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a6b20dee2b29798ce6af9e75c52420ce4} 
+string? Toolbox.\+Core.\+Options.\+Api\+Response.\+Body = new Dictionary$<$string, IEnumerable$<$string$>$$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the response body as a string. 
+
+The body content, or {\ttfamily null} if no body.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00065}{65}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a6cff539e246f1dc20045e97104ec8c22}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!BodyBytes@{BodyBytes}}
+\index{BodyBytes@{BodyBytes}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{BodyBytes}{BodyBytes}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a6cff539e246f1dc20045e97104ec8c22} 
+byte? \+[$\,$]\+ Toolbox.\+Core.\+Options.\+Api\+Response.\+Body\+Bytes\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the response body as bytes. 
+
+The body bytes, or {\ttfamily null} if no body.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00071}{71}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a60a3edcd4c95e4eacc10b147968978e4}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!ContentLength@{ContentLength}}
+\index{ContentLength@{ContentLength}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{ContentLength}{ContentLength}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a60a3edcd4c95e4eacc10b147968978e4} 
+long? Toolbox.\+Core.\+Options.\+Api\+Response.\+Content\+Length\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the content length. 
+
+The content length in bytes, or {\ttfamily null} if not set.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00083}{83}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a32b240cd491afbd67b4544f4ddbc4a8d}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!ContentType@{ContentType}}
+\index{ContentType@{ContentType}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{ContentType}{ContentType}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a32b240cd491afbd67b4544f4ddbc4a8d} 
+string? Toolbox.\+Core.\+Options.\+Api\+Response.\+Content\+Type\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the content type header value. 
+
+The content type, or {\ttfamily null} if not set.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00077}{77}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a9cc29f2892a97bda50bcc1cf11b7e4cc}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!Duration@{Duration}}
+\index{Duration@{Duration}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{Duration}{Duration}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a9cc29f2892a97bda50bcc1cf11b7e4cc} 
+Time\+Span Toolbox.\+Core.\+Options.\+Api\+Response.\+Duration\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the request duration. 
+
+The time taken for the request.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00089}{89}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_acebf1624cbf9d398cf5456a92049e765}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!Headers@{Headers}}
+\index{Headers@{Headers}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{Headers}{Headers}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_acebf1624cbf9d398cf5456a92049e765} 
+IRead\+Only\+Dictionary$<$string, IEnumerable$<$string$>$ $>$ Toolbox.\+Core.\+Options.\+Api\+Response.\+Headers\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the response headers. 
+
+Dictionary of header names and values.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00058}{58}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a1b30956dc36228b7d56acd95e8ecd0c7}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!IsClientError@{IsClientError}}
+\index{IsClientError@{IsClientError}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{IsClientError}{IsClientError}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a1b30956dc36228b7d56acd95e8ecd0c7} 
+bool Toolbox.\+Core.\+Options.\+Api\+Response.\+Is\+Client\+Error\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the response indicates a client error (4xx status). 
+
+{\ttfamily true} if status code is 4xx; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00101}{101}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_ac29ced7049c785ba83fa9c3455be5a08}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!IsRedirect@{IsRedirect}}
+\index{IsRedirect@{IsRedirect}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{IsRedirect}{IsRedirect}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_ac29ced7049c785ba83fa9c3455be5a08} 
+bool Toolbox.\+Core.\+Options.\+Api\+Response.\+Is\+Redirect\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the response is a redirect (3xx status). 
+
+{\ttfamily true} if status code is 3xx; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00113}{113}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a0d00fac5c1919222643ad826b2a90ccd}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!IsServerError@{IsServerError}}
+\index{IsServerError@{IsServerError}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{IsServerError}{IsServerError}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a0d00fac5c1919222643ad826b2a90ccd} 
+bool Toolbox.\+Core.\+Options.\+Api\+Response.\+Is\+Server\+Error\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the response indicates a server error (5xx status). 
+
+{\ttfamily true} if status code is 5xx; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00107}{107}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_ad9882807aeabd1aeba8ccc0b57461e1a}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!IsSuccess@{IsSuccess}}
+\index{IsSuccess@{IsSuccess}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{IsSuccess}{IsSuccess}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_ad9882807aeabd1aeba8ccc0b57461e1a} 
+bool Toolbox.\+Core.\+Options.\+Api\+Response.\+Is\+Success\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether the response indicates success (2xx status). 
+
+{\ttfamily true} if status code is 2xx; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00095}{95}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3361b19eafefcff0f5390938a90ba683}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!ReasonPhrase@{ReasonPhrase}}
+\index{ReasonPhrase@{ReasonPhrase}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{ReasonPhrase}{ReasonPhrase}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3361b19eafefcff0f5390938a90ba683} 
+string? Toolbox.\+Core.\+Options.\+Api\+Response.\+Reason\+Phrase\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the reason phrase. 
+
+The reason phrase (e.\+g., "{}\+OK"{}, "{}\+Not Found"{}).
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00052}{52}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3d0d03f1a691d1dcd7860def8714a74d}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!StatusCode@{StatusCode}}
+\index{StatusCode@{StatusCode}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{StatusCode}{StatusCode}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a3d0d03f1a691d1dcd7860def8714a74d} 
+Http\+Status\+Code Toolbox.\+Core.\+Options.\+Api\+Response.\+Status\+Code\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the HTTP status code. 
+
+The status code.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00040}{40}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_response_a939a87a416b603f0fe608377088908bd}\index{Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}!StatusCodeValue@{StatusCodeValue}}
+\index{StatusCodeValue@{StatusCodeValue}!Toolbox.Core.Options.ApiResponse@{Toolbox.Core.Options.ApiResponse}}
+\doxysubsubsection{\texorpdfstring{StatusCodeValue}{StatusCodeValue}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_response_a939a87a416b603f0fe608377088908bd} 
+int Toolbox.\+Core.\+Options.\+Api\+Response.\+Status\+Code\+Value\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the status code as an integer. 
+
+The numeric status code.
+
+Definition at line \doxymbox{\hyperlink{_api_response_8cs_source_l00046}{46}} of file \doxymbox{\hyperlink{_api_response_8cs_source}{Api\+Response.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_api_response_8cs}{Api\+Response.\+cs}}\end{DoxyCompactItemize}

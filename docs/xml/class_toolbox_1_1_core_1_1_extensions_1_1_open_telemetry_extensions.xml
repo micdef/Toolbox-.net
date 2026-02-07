@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Extensions::OpenTelemetryExtensions</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1aa12f33144952ec1b8cb70379c29df8ba" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TracerProviderBuilder</type>
+        <definition>static TracerProviderBuilder Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxInstrumentation</definition>
+        <argsstring>(this TracerProviderBuilder builder)</argsstring>
+        <name>AddToolboxInstrumentation</name>
+        <qualifiedname>Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxInstrumentation</qualifiedname>
+        <param>
+          <type>this TracerProviderBuilder</type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> instrumentation to the TracerProviderBuilder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>builder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The tracer provider builder.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The builder for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>builder</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>This method adds the <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> activity source to the tracer provider, enabling distributed tracing for all <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" line="43" column="41" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" bodystart="43" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a62cb110bec987dcce791a287a8b65594" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>MeterProviderBuilder</type>
+        <definition>static MeterProviderBuilder Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxInstrumentation</definition>
+        <argsstring>(this MeterProviderBuilder builder)</argsstring>
+        <name>AddToolboxInstrumentation</name>
+        <qualifiedname>Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxInstrumentation</qualifiedname>
+        <param>
+          <type>this MeterProviderBuilder</type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> instrumentation to the MeterProviderBuilder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>builder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The meter provider builder.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The builder for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>builder</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>This method adds the <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> meter to the meter provider, enabling metrics collection for all <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" line="62" column="40" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" bodystart="62" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a53444981a418b3f37421e000a1ed6aaf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxOpenTelemetry</definition>
+        <argsstring>(this IServiceCollection services)</argsstring>
+        <name>AddToolboxOpenTelemetry</name>
+        <qualifiedname>Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxOpenTelemetry</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> OpenTelemetry configuration to the service collection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+</para>
+<para>This method registers telemetry options with default values. Use the overload with Action&lt;T&gt; to customize options. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" line="78" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a431f5d11e64d62a26b1883512df26ea9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxOpenTelemetry</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; ToolboxTelemetryOptions &gt; configureOptions)</argsstring>
+        <name>AddToolboxOpenTelemetry</name>
+        <qualifiedname>Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxOpenTelemetry</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options" kindref="compound">ToolboxTelemetryOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> OpenTelemetry configuration to the service collection with custom options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An action to configure telemetry options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configureOptions</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableTracing<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableMetrics<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.OtlpEndpoint<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;http://localhost:4317&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" line="102" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" bodystart="102" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a5a5b400c50097c5ef75ca55fe5967479" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxOpenTelemetry</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddToolboxOpenTelemetry</name>
+        <qualifiedname>Toolbox.Core.Extensions.OpenTelemetryExtensions.AddToolboxOpenTelemetry</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> OpenTelemetry configuration from IConfiguration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration to bind options from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configuration</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>This method binds options from the <computeroutput><ref refid="namespace_toolbox" kindref="compound">Toolbox</ref>:<ref refid="namespace_toolbox_1_1_core_1_1_telemetry" kindref="compound">Telemetry</ref></computeroutput> configuration section. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" line="161" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" bodystart="161" bodyend="180"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Extension methods for configuring OpenTelemetry with <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> instrumentation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These extensions simplify the integration of <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> telemetry with OpenTelemetry. They register the <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> activity source and meter for tracing and metrics collection. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddOpenTelemetry()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.WithTracing(<ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref><sp/>=&gt;<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.AddToolboxInstrumentation())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.WithMetrics(<ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref><sp/>=&gt;<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.AddToolboxInstrumentation());</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" line="29" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs" bodystart="30" bodyend="181"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1aa12f33144952ec1b8cb70379c29df8ba" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::OpenTelemetryExtensions</scope><name>AddToolboxInstrumentation</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a62cb110bec987dcce791a287a8b65594" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::OpenTelemetryExtensions</scope><name>AddToolboxInstrumentation</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a53444981a418b3f37421e000a1ed6aaf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::OpenTelemetryExtensions</scope><name>AddToolboxOpenTelemetry</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a431f5d11e64d62a26b1883512df26ea9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::OpenTelemetryExtensions</scope><name>AddToolboxOpenTelemetry</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions_1a5a5b400c50097c5ef75ca55fe5967479" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::OpenTelemetryExtensions</scope><name>AddToolboxOpenTelemetry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

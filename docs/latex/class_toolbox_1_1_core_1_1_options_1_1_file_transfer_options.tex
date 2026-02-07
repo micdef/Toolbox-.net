@@ -1,0 +1,293 @@
+\doxysection{Toolbox.\+Core.\+Options.\+File\+Transfer\+Options Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{}\label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+
+
+Configuration options for file transfer services.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a04947fbfcad2d865623906c932e4472b}{Get\+Default\+Port}} ()
+\begin{DoxyCompactList}\small\item\em Gets the default port for the current protocol. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a2c798a4aab8c3364a81a0913747bb6db}{Get\+Effective\+Port}} ()
+\begin{DoxyCompactList}\small\item\em Gets the effective port, using the default if not explicitly set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ada6c9c5bc36991f94f147061b3dd922a}{Section\+Name}} = "{}Toolbox:\+\+File\+Transfer"{}
+\begin{DoxyCompactList}\small\item\em The configuration section name for binding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a73afc07437abda81838a9319394b68af}{Host}} = string.\+Empty\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the server hostname or IP address. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a970c1d03c039471cad314f80af179c04}{Port}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the server port. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa28f8b568093e1c0151fef417a0bd8e0}{Username}} = string.\+Empty\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the username for authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ab06f316edd65c9230b21a4855bd24948}{Password}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the password for authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a75bd8e0fb9ac0f1a306d584c21581ded}{Private\+Key\+Path}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the private key file path for SFTP key-\/based authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ab94e3d4e8625bb6c1f327556d2212337}{Private\+Key\+Content}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the private key content for SFTP key-\/based authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_af5d39a7a27cd05c27b717b4548f9c707}{Private\+Key\+Passphrase}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the passphrase for the private key. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{File\+Transfer\+Protocol}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a300625ffc14d0f4b71421214ba75cd22}{Protocol}} = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484}{File\+Transfer\+Protocol.\+Sftp}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the file transfer protocol to use. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa0fb481aaa49ac52598cf12d8703dae0}{Connection\+Timeout}} = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the connection timeout. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a4ac54159454fd2e283a8801db7fadbad}{Operation\+Timeout}} = Time\+Span.\+From\+Seconds(60)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the operation timeout for read/\+write operations. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa62a9edcfa5074516330e0b81b3bec64}{Auto\+Create\+Directory}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether to automatically create remote directories. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a4ee3b55b533fd77b39dd73ca2159c77a}{Buffer\+Size}} = 32 \texorpdfstring{$\ast$}{*} 1024\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the buffer size for file transfers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration options for file transfer services. 
+
+These options configure the connection to FTP/\+\+SFTP servers. 
+
+For SFTP, you can use either password authentication or private key authentication. 
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00019}{19}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a04947fbfcad2d865623906c932e4472b}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!GetDefaultPort@{GetDefaultPort}}
+\index{GetDefaultPort@{GetDefaultPort}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{GetDefaultPort()}{GetDefaultPort()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a04947fbfcad2d865623906c932e4472b} 
+int Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Get\+Default\+Port (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the default port for the current protocol. 
+
+\begin{DoxyReturn}{Returns}
+The default port number.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00102}{102}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a2c798a4aab8c3364a81a0913747bb6db}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!GetEffectivePort@{GetEffectivePort}}
+\index{GetEffectivePort@{GetEffectivePort}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{GetEffectivePort()}{GetEffectivePort()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a2c798a4aab8c3364a81a0913747bb6db} 
+int Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Get\+Effective\+Port (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the effective port, using the default if not explicitly set. 
+
+\begin{DoxyReturn}{Returns}
+The port number to use.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00114}{114}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ada6c9c5bc36991f94f147061b3dd922a}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!SectionName@{SectionName}}
+\index{SectionName@{SectionName}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{SectionName}{SectionName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ada6c9c5bc36991f94f147061b3dd922a} 
+const string Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Section\+Name = "{}Toolbox:\+\+File\+Transfer"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The configuration section name for binding. 
+
+
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00024}{24}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa62a9edcfa5074516330e0b81b3bec64}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!AutoCreateDirectory@{AutoCreateDirectory}}
+\index{AutoCreateDirectory@{AutoCreateDirectory}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{AutoCreateDirectory}{AutoCreateDirectory}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa62a9edcfa5074516330e0b81b3bec64} 
+bool Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Auto\+Create\+Directory = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether to automatically create remote directories. 
+
+{\ttfamily true} to auto-\/create directories; otherwise, {\ttfamily false}. Default is {\ttfamily true}.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00090}{90}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a4ee3b55b533fd77b39dd73ca2159c77a}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!BufferSize@{BufferSize}}
+\index{BufferSize@{BufferSize}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{BufferSize}{BufferSize}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a4ee3b55b533fd77b39dd73ca2159c77a} 
+int Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Buffer\+Size = 32 \texorpdfstring{$\ast$}{*} 1024\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the buffer size for file transfers. 
+
+The buffer size in bytes. Default is 32 KB.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00096}{96}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa0fb481aaa49ac52598cf12d8703dae0}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!ConnectionTimeout@{ConnectionTimeout}}
+\index{ConnectionTimeout@{ConnectionTimeout}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{ConnectionTimeout}{ConnectionTimeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa0fb481aaa49ac52598cf12d8703dae0} 
+Time\+Span Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Connection\+Timeout = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the connection timeout. 
+
+The timeout duration. Default is 30 seconds.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00078}{78}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a73afc07437abda81838a9319394b68af}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!Host@{Host}}
+\index{Host@{Host}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{Host}{Host}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a73afc07437abda81838a9319394b68af} 
+string Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Host = string.\+Empty\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the server hostname or IP address. 
+
+The server address.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00030}{30}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a4ac54159454fd2e283a8801db7fadbad}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!OperationTimeout@{OperationTimeout}}
+\index{OperationTimeout@{OperationTimeout}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{OperationTimeout}{OperationTimeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a4ac54159454fd2e283a8801db7fadbad} 
+Time\+Span Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Operation\+Timeout = Time\+Span.\+From\+Seconds(60)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the operation timeout for read/\+write operations. 
+
+The timeout duration. Default is 60 seconds.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00084}{84}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ab06f316edd65c9230b21a4855bd24948}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!Password@{Password}}
+\index{Password@{Password}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{Password}{Password}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ab06f316edd65c9230b21a4855bd24948} 
+string? Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Password\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the password for authentication. 
+
+The password, or {\ttfamily null} for key-\/based authentication.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00048}{48}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a970c1d03c039471cad314f80af179c04}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!Port@{Port}}
+\index{Port@{Port}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{Port}{Port}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a970c1d03c039471cad314f80af179c04} 
+int Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Port\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the server port. 
+
+The port number. Default is 21 for FTP, 22 for SFTP.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00036}{36}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ab94e3d4e8625bb6c1f327556d2212337}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!PrivateKeyContent@{PrivateKeyContent}}
+\index{PrivateKeyContent@{PrivateKeyContent}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{PrivateKeyContent}{PrivateKeyContent}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_ab94e3d4e8625bb6c1f327556d2212337} 
+string? Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Private\+Key\+Content\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the private key content for SFTP key-\/based authentication. 
+
+The private key content as a string, or {\ttfamily null}.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00060}{60}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_af5d39a7a27cd05c27b717b4548f9c707}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!PrivateKeyPassphrase@{PrivateKeyPassphrase}}
+\index{PrivateKeyPassphrase@{PrivateKeyPassphrase}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{PrivateKeyPassphrase}{PrivateKeyPassphrase}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_af5d39a7a27cd05c27b717b4548f9c707} 
+string? Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Private\+Key\+Passphrase\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the passphrase for the private key. 
+
+The passphrase, or {\ttfamily null} if the key is not encrypted.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00066}{66}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a75bd8e0fb9ac0f1a306d584c21581ded}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!PrivateKeyPath@{PrivateKeyPath}}
+\index{PrivateKeyPath@{PrivateKeyPath}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{PrivateKeyPath}{PrivateKeyPath}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a75bd8e0fb9ac0f1a306d584c21581ded} 
+string? Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Private\+Key\+Path\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the private key file path for SFTP key-\/based authentication. 
+
+The path to the private key file, or {\ttfamily null} for password authentication.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00054}{54}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a300625ffc14d0f4b71421214ba75cd22}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!Protocol@{Protocol}}
+\index{Protocol@{Protocol}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{Protocol}{Protocol}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_a300625ffc14d0f4b71421214ba75cd22} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{File\+Transfer\+Protocol}} Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Protocol = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484}{File\+Transfer\+Protocol.\+Sftp}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the file transfer protocol to use. 
+
+The protocol. Default is \doxylink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484}{File\+Transfer\+Protocol.\+Sftp}.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00072}{72}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa28f8b568093e1c0151fef417a0bd8e0}\index{Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}!Username@{Username}}
+\index{Username@{Username}!Toolbox.Core.Options.FileTransferOptions@{Toolbox.Core.Options.FileTransferOptions}}
+\doxysubsubsection{\texorpdfstring{Username}{Username}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_aa28f8b568093e1c0151fef417a0bd8e0} 
+string Toolbox.\+Core.\+Options.\+File\+Transfer\+Options.\+Username = string.\+Empty\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the username for authentication. 
+
+The username.
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_options_8cs_source_l00042}{42}} of file \doxymbox{\hyperlink{_file_transfer_options_8cs_source}{File\+Transfer\+Options.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_file_transfer_options_8cs}{File\+Transfer\+Options.\+cs}}\end{DoxyCompactItemize}

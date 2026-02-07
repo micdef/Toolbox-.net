@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests_1_1_unit_1_1_extensions" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests::Unit::Extensions</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests" prot="public">Toolbox::Tests::Unit::Extensions::ApiServiceCollectionExtensionsTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests" prot="public">Toolbox::Tests::Unit::Extensions::MailingServiceCollectionExtensionsTests</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/ApiServiceCollectionExtensionsTests.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

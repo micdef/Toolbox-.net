@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::FileTransferOptions</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ada6c9c5bc36991f94f147061b3dd922a" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Options.FileTransferOptions.SectionName</definition>
+        <argsstring></argsstring>
+        <name>SectionName</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.SectionName</qualifiedname>
+        <initializer>= &quot;Toolbox:FileTransfer&quot;</initializer>
+        <briefdescription>
+<para>The configuration section name for binding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="24" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a73afc07437abda81838a9319394b68af" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.FileTransferOptions.Host</definition>
+        <argsstring></argsstring>
+        <name>Host</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.Host</qualifiedname>
+        <initializer>= string.Empty</initializer>
+        <briefdescription>
+<para>Gets or sets the server hostname or IP address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The server address.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="30" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a970c1d03c039471cad314f80af179c04" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.FileTransferOptions.Port</definition>
+        <argsstring></argsstring>
+        <name>Port</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.Port</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the server port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The port number. Default is 21 for FTP, 22 for SFTP.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="36" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa28f8b568093e1c0151fef417a0bd8e0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.FileTransferOptions.Username</definition>
+        <argsstring></argsstring>
+        <name>Username</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.Username</qualifiedname>
+        <initializer>= string.Empty</initializer>
+        <briefdescription>
+<para>Gets or sets the username for authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The username.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="42" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab06f316edd65c9230b21a4855bd24948" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.FileTransferOptions.Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.Password</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the password for authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The password, or <computeroutput>null</computeroutput> for key-based authentication.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="48" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a75bd8e0fb9ac0f1a306d584c21581ded" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.FileTransferOptions.PrivateKeyPath</definition>
+        <argsstring></argsstring>
+        <name>PrivateKeyPath</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.PrivateKeyPath</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the private key file path for SFTP key-based authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The path to the private key file, or <computeroutput>null</computeroutput> for password authentication.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="54" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab94e3d4e8625bb6c1f327556d2212337" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.FileTransferOptions.PrivateKeyContent</definition>
+        <argsstring></argsstring>
+        <name>PrivateKeyContent</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.PrivateKeyContent</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the private key content for SFTP key-based authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The private key content as a string, or <computeroutput>null</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="60" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1af5d39a7a27cd05c27b717b4548f9c707" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.FileTransferOptions.PrivateKeyPassphrase</definition>
+        <argsstring></argsstring>
+        <name>PrivateKeyPassphrase</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.PrivateKeyPassphrase</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the passphrase for the private key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The passphrase, or <computeroutput>null</computeroutput> if the key is not encrypted.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="66" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a300625ffc14d0f4b71421214ba75cd22" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c" kindref="member">FileTransferProtocol</ref></type>
+        <definition>FileTransferProtocol Toolbox.Core.Options.FileTransferOptions.Protocol</definition>
+        <argsstring></argsstring>
+        <name>Protocol</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.Protocol</qualifiedname>
+        <initializer>= <ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484" kindref="member">FileTransferProtocol.Sftp</ref></initializer>
+        <briefdescription>
+<para>Gets or sets the file transfer protocol to use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The protocol. Default is <ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484" kindref="member">FileTransferProtocol.Sftp</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="72" column="33" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa0fb481aaa49ac52598cf12d8703dae0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.FileTransferOptions.ConnectionTimeout</definition>
+        <argsstring></argsstring>
+        <name>ConnectionTimeout</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.ConnectionTimeout</qualifiedname>
+        <initializer>= TimeSpan.FromSeconds(30)</initializer>
+        <briefdescription>
+<para>Gets or sets the connection timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The timeout duration. Default is 30 seconds.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="78" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ac54159454fd2e283a8801db7fadbad" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.FileTransferOptions.OperationTimeout</definition>
+        <argsstring></argsstring>
+        <name>OperationTimeout</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.OperationTimeout</qualifiedname>
+        <initializer>= TimeSpan.FromSeconds(60)</initializer>
+        <briefdescription>
+<para>Gets or sets the operation timeout for read/write operations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The timeout duration. Default is 60 seconds.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="84" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa62a9edcfa5074516330e0b81b3bec64" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.FileTransferOptions.AutoCreateDirectory</definition>
+        <argsstring></argsstring>
+        <name>AutoCreateDirectory</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.AutoCreateDirectory</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets a value indicating whether to automatically create remote directories. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to auto-create directories; otherwise, <computeroutput>false</computeroutput>. Default is <computeroutput>true</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="90" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ee3b55b533fd77b39dd73ca2159c77a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.FileTransferOptions.BufferSize</definition>
+        <argsstring></argsstring>
+        <name>BufferSize</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.BufferSize</qualifiedname>
+        <initializer>= 32 * 1024</initializer>
+        <briefdescription>
+<para>Gets or sets the buffer size for file transfers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The buffer size in bytes. Default is 32 KB.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="96" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="96" bodyend="96"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.FileTransferOptions.GetDefaultPort</definition>
+        <argsstring>()</argsstring>
+        <name>GetDefaultPort</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.GetDefaultPort</qualifiedname>
+        <briefdescription>
+<para>Gets the default port for the current protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The default port number.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="102" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="102" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a2c798a4aab8c3364a81a0913747bb6db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.FileTransferOptions.GetEffectivePort</definition>
+        <argsstring>()</argsstring>
+        <name>GetEffectivePort</name>
+        <qualifiedname>Toolbox.Core.Options.FileTransferOptions.GetEffectivePort</qualifiedname>
+        <briefdescription>
+<para>Gets the effective port, using the default if not explicitly set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The port number to use.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="114" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="114" bodyend="114"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration options for file transfer services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These options configure the connection to FTP/SFTP servers. </para>
+<para>For SFTP, you can use either password authentication or private key authentication. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" line="19" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferOptions.cs" bodystart="20" bodyend="115"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa62a9edcfa5074516330e0b81b3bec64" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>AutoCreateDirectory</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ee3b55b533fd77b39dd73ca2159c77a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>BufferSize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa0fb481aaa49ac52598cf12d8703dae0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>ConnectionTimeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>GetDefaultPort</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a2c798a4aab8c3364a81a0913747bb6db" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>GetEffectivePort</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a73afc07437abda81838a9319394b68af" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>Host</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ac54159454fd2e283a8801db7fadbad" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>OperationTimeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab06f316edd65c9230b21a4855bd24948" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>Password</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a970c1d03c039471cad314f80af179c04" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>Port</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab94e3d4e8625bb6c1f327556d2212337" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>PrivateKeyContent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1af5d39a7a27cd05c27b717b4548f9c707" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>PrivateKeyPassphrase</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a75bd8e0fb9ac0f1a306d584c21581ded" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>PrivateKeyPath</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a300625ffc14d0f4b71421214ba75cd22" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>Protocol</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ada6c9c5bc36991f94f147061b3dd922a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>SectionName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa28f8b568093e1c0151fef417a0bd8e0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::FileTransferOptions</scope><name>Username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

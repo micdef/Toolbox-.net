@@ -1,0 +1,140 @@
+\doxysection{Api\+Request.\+cs}
+\hypertarget{_api_request_8cs_source}{}\label{_api_request_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs}}
+\doxymbox{\hyperlink{_api_request_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ ApiRequest.cs}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ API\ request\ representation}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Contains\ all\ data\ needed\ to\ make\ an\ HTTP\ request}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Supports\ all\ HTTP\ methods\ and\ content\ types}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }System.Text.Json;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00033}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{00033}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00039}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a06e9e8057655d57c61ed531091f56a97}{00039}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a06e9e8057655d57c61ed531091f56a97}{Method}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00045}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}{00045}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}{Url}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00051}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{00051}}\ \ \ \ \ \textcolor{keyword}{public}\ HttpContent?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00057}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_af06149ec3b36c0585349a67fff366b03}{00057}}\ \ \ \ \ \textcolor{keyword}{public}\ IDictionary<string,\ string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_af06149ec3b36c0585349a67fff366b03}{Headers}}\ \{\ \textcolor{keyword}{get};\ \}\ =\ \textcolor{keyword}{new}\ Dictionary<string,\ string>();}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00063}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}{00063}}\ \ \ \ \ \textcolor{keyword}{public}\ IDictionary<string,\ string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}{QueryParameters}}\ \{\ \textcolor{keyword}{get};\ \}\ =\ \textcolor{keyword}{new}\ Dictionary<string,\ string>();}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00069}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acb63d053a186e922ca0c4c75ffc8a129}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ TimeSpan?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acb63d053a186e922ca0c4c75ffc8a129}{Timeout}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00077}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{00077}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}(\textcolor{keywordtype}{string}\ method,\ \textcolor{keywordtype}{string}\ url)}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(method);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a06e9e8057655d57c61ed531091f56a97}{Method}}\ =\ method.ToUpperInvariant();}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}{Url}}\ =\ url;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00091}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}{00091}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}{Get}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}GET"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00101}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2ea4daa4d8de703288c4f3c80d7c4ccf}{00101}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2ea4daa4d8de703288c4f3c80d7c4ccf}{Post<T>}}(\textcolor{keywordtype}{string}\ url,\ T\ body,\ JsonSerializerOptions?\ options\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ var\ request\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}(\textcolor{stringliteral}{"{}POST"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ request.SetJsonContent(body,\ options);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ request;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00113}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a3e3e1e01010dfda0201ac9344f485b6a}{00113}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a3e3e1e01010dfda0201ac9344f485b6a}{Post}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}POST"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00123}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ad246e7b922cfe5fa71f2acf44f79592a}{00123}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ad246e7b922cfe5fa71f2acf44f79592a}{Put<T>}}(\textcolor{keywordtype}{string}\ url,\ T\ body,\ JsonSerializerOptions?\ options\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00124}00124\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ var\ request\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}(\textcolor{stringliteral}{"{}PUT"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ request.SetJsonContent(body,\ options);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ request;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00135}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab09b7cc8b377bd225d976fa846631ce4}{00135}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab09b7cc8b377bd225d976fa846631ce4}{Put}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}PUT"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00145}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a300af8f887a6751cc77ac59dba56b587}{00145}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a300af8f887a6751cc77ac59dba56b587}{Patch<T>}}(\textcolor{keywordtype}{string}\ url,\ T\ body,\ JsonSerializerOptions?\ options\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00146}00146\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ var\ request\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}(\textcolor{stringliteral}{"{}PATCH"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ request.SetJsonContent(body,\ options);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ request;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00157}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a7bd68f324636e566840020c0a6ac88e3}{00157}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a7bd68f324636e566840020c0a6ac88e3}{Patch}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}PATCH"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00164}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6e1f77a9bb4eb5dd123961e26c2c300f}{00164}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6e1f77a9bb4eb5dd123961e26c2c300f}{Delete}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}DELETE"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00171}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a1bb959460ddb0199ab46d06fc901d92a}{00171}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a1bb959460ddb0199ab46d06fc901d92a}{Head}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}HEAD"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00178}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acf3890bc53a094393fbbf1a4cab61308}{00178}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acf3890bc53a094393fbbf1a4cab61308}{Options}}(\textcolor{keywordtype}{string}\ url)\ =>\ \textcolor{keyword}{new}(\textcolor{stringliteral}{"{}OPTIONS"{}},\ url);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00186}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a849109ef628b7c9e34a546c1415a19ea}{00186}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a849109ef628b7c9e34a546c1415a19ea}{WithHeader}}(\textcolor{keywordtype}{string}\ name,\ \textcolor{keywordtype}{string}\ value)}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00187}00187\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00188}00188\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_af06149ec3b36c0585349a67fff366b03}{Headers}}[name]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00190}00190\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00198}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a771b292001c6ac98d1c22ef3140521f9}{00198}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a771b292001c6ac98d1c22ef3140521f9}{WithQuery}}(\textcolor{keywordtype}{string}\ name,\ \textcolor{keywordtype}{string}\ value)}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00199}00199\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00200}00200\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}{QueryParameters}}[name]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00202}00202\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00209}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_addb19820383e6d8a450841a49522ec82}{00209}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_addb19820383e6d8a450841a49522ec82}{WithTimeout}}(TimeSpan\ timeout)}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00210}00210\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00211}00211\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acb63d053a186e922ca0c4c75ffc8a129}{Timeout}}\ =\ timeout;}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00222}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6062cb6723b3dfbd0aaeba357ddf6365}{00222}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6062cb6723b3dfbd0aaeba357ddf6365}{SetJsonContent<T>}}(T\ body,\ JsonSerializerOptions?\ options\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00223}00223\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00224}00224\ \ \ \ \ \ \ \ \ var\ json\ =\ JsonSerializer.Serialize(body,\ options);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00225}00225\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\ =\ \textcolor{keyword}{new}\ StringContent(json,\ Encoding.UTF8,\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00227}00227\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00235}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f06d44684caeb91b514078f9285003f}{00235}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f06d44684caeb91b514078f9285003f}{SetStringContent}}(\textcolor{keywordtype}{string}\ content,\ \textcolor{keywordtype}{string}\ contentType\ =\ \textcolor{stringliteral}{"{}text/plain"{}})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00236}00236\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\ =\ \textcolor{keyword}{new}\ StringContent(content,\ Encoding.UTF8,\ contentType);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00246}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f54de7d78e3039400d846a5a6350071}{00246}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f54de7d78e3039400d846a5a6350071}{SetFormContent}}(IEnumerable<KeyValuePair<string,\ string>>\ formData)}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00247}00247\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00248}00248\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\ =\ \textcolor{keyword}{new}\ FormUrlEncodedContent(formData);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00250}00250\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00258}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a5d6dece7eb8a858c68da4662b33e62d4}{00258}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a5d6dece7eb8a858c68da4662b33e62d4}{SetBinaryContent}}(\textcolor{keywordtype}{byte}[]\ bytes,\ \textcolor{keywordtype}{string}\ contentType\ =\ \textcolor{stringliteral}{"{}application/octet-\/stream"{}})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00259}00259\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\ =\ \textcolor{keyword}{new}\ ByteArrayContent(bytes);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00261}00261\ \ \ \ \ \ \ \ \ Content.Headers.ContentType\ =\ \textcolor{keyword}{new}\ System.Net.Http.Headers.MediaTypeHeaderValue(contentType);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00263}00263\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00271}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a4b421958cd4ae4ca01f43342be5722bd}{00271}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a4b421958cd4ae4ca01f43342be5722bd}{SetStreamContent}}(Stream\ stream,\ \textcolor{keywordtype}{string}\ contentType\ =\ \textcolor{stringliteral}{"{}application/octet-\/stream"{}})}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00272}00272\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00273}00273\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\ =\ \textcolor{keyword}{new}\ StreamContent(stream);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00274}00274\ \ \ \ \ \ \ \ \ Content.Headers.ContentType\ =\ \textcolor{keyword}{new}\ System.Net.Http.Headers.MediaTypeHeaderValue(contentType);}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00276}00276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00282}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2276786ed9a920a6a9d54f9b4a72796e}{00282}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2276786ed9a920a6a9d54f9b4a72796e}{BuildUrl}}()}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00283}00283\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}{QueryParameters}}.Count\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00285}00285\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}{Url}};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00287}00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00289}00289\ \ \ \ \ \ \ \ \ var\ separator\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}{Url}}.Contains(\textcolor{charliteral}{'?'})\ ?\ \textcolor{stringliteral}{"{}\&"{}}\ :\ \textcolor{stringliteral}{"{}?"{}};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00290}00290\ \ \ \ \ \ \ \ \ var\ queryString\ =\ \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{"{}\&"{}},}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}{QueryParameters}}.Select(kvp\ =>}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\textcolor{stringliteral}{"{}\{Uri.EscapeDataString(kvp.Key)\}=\{Uri.EscapeDataString(kvp.Value)\}"{}}));}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}\{Url\}\{separator\}\{queryString\}"{}};}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00295}00295\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_api_request_8cs_source_l00296}00296\ \}}
+
+\end{DoxyCode}

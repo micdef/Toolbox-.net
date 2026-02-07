@@ -1,0 +1,679 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Api\+Request Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request}{}\label{class_toolbox_1_1_core_1_1_options_1_1_api_request}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+
+
+Represents an HTTP API request.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} (string method, string url)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request} class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a849109ef628b7c9e34a546c1415a19ea}{With\+Header}} (string name, string value)
+\begin{DoxyCompactList}\small\item\em Adds a header to the request. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a771b292001c6ac98d1c22ef3140521f9}{With\+Query}} (string name, string value)
+\begin{DoxyCompactList}\small\item\em Adds a query parameter to the request. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_addb19820383e6d8a450841a49522ec82}{With\+Timeout}} (Time\+Span timeout)
+\begin{DoxyCompactList}\small\item\em Sets a custom timeout for this request. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6062cb6723b3dfbd0aaeba357ddf6365}{Set\+Json\+Content$<$ T $>$}} (T body, Json\+Serializer\+Options? options=null)
+\begin{DoxyCompactList}\small\item\em Sets JSON content for the request body. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f06d44684caeb91b514078f9285003f}{Set\+String\+Content}} (string content, string content\+Type="{}text/\+plain"{})
+\begin{DoxyCompactList}\small\item\em Sets string content for the request body. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f54de7d78e3039400d846a5a6350071}{Set\+Form\+Content}} (IEnumerable$<$ Key\+Value\+Pair$<$ string, string $>$ $>$ form\+Data)
+\begin{DoxyCompactList}\small\item\em Sets form URL-\/encoded content for the request body. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a5d6dece7eb8a858c68da4662b33e62d4}{Set\+Binary\+Content}} (byte\+[$\,$]\+ bytes, string content\+Type="{}application/\+octet-\/stream"{})
+\begin{DoxyCompactList}\small\item\em Sets binary content for the request body. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a4b421958cd4ae4ca01f43342be5722bd}{Set\+Stream\+Content}} (Stream stream, string content\+Type="{}application/\+octet-\/stream"{})
+\begin{DoxyCompactList}\small\item\em Sets stream content for the request body. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2276786ed9a920a6a9d54f9b4a72796e}{Build\+Url}} ()
+\begin{DoxyCompactList}\small\item\em Builds the full URL with query parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}{Get}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates a GET request. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2ea4daa4d8de703288c4f3c80d7c4ccf}{Post$<$ T $>$}} (string url, T body, Json\+Serializer\+Options? options=null)
+\begin{DoxyCompactList}\small\item\em Creates a POST request with JSON content. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a3e3e1e01010dfda0201ac9344f485b6a}{Post}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates a POST request. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ad246e7b922cfe5fa71f2acf44f79592a}{Put$<$ T $>$}} (string url, T body, Json\+Serializer\+Options? options=null)
+\begin{DoxyCompactList}\small\item\em Creates a PUT request with JSON content. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab09b7cc8b377bd225d976fa846631ce4}{Put}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates a PUT request. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a300af8f887a6751cc77ac59dba56b587}{Patch$<$ T $>$}} (string url, T body, Json\+Serializer\+Options? options=null)
+\begin{DoxyCompactList}\small\item\em Creates a PATCH request with JSON content. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a7bd68f324636e566840020c0a6ac88e3}{Patch}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates a PATCH request. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6e1f77a9bb4eb5dd123961e26c2c300f}{Delete}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates a DELETE request. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a1bb959460ddb0199ab46d06fc901d92a}{Head}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates a HEAD request. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acf3890bc53a094393fbbf1a4cab61308}{Options}} (string url)
+\begin{DoxyCompactList}\small\item\em Creates an OPTIONS request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a06e9e8057655d57c61ed531091f56a97}{Method}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the HTTP method. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}{Url}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the request URL or path. \end{DoxyCompactList}\item 
+Http\+Content? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}{Content}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the request body content. \end{DoxyCompactList}\item 
+IDictionary$<$ string, string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_af06149ec3b36c0585349a67fff366b03}{Headers}} = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the request headers. \end{DoxyCompactList}\item 
+IDictionary$<$ string, string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}{Query\+Parameters}} = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the query parameters. \end{DoxyCompactList}\item 
+Time\+Span? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_acb63d053a186e922ca0c4c75ffc8a129}{Timeout}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the request timeout override. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an HTTP API request. 
+
+This class encapsulates all the data needed to make an HTTP request, including URL, method, headers, and body content. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ GET\ request}}
+\DoxyCodeLine{var\ request\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}(\textcolor{stringliteral}{"{}GET"{}},\ \textcolor{stringliteral}{"{}/users"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ POST\ with\ JSON\ body}}
+\DoxyCodeLine{var\ request\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}.Post(\textcolor{stringliteral}{"{}/users"{}},\ \textcolor{keyword}{new}\ \{\ Name\ =\ \textcolor{stringliteral}{"{}John"{}}\ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ With\ custom\ headers}}
+\DoxyCodeLine{var\ request\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{ApiRequest}}(\textcolor{stringliteral}{"{}GET"{}},\ \textcolor{stringliteral}{"{}/data"{}})}
+\DoxyCodeLine{\ \ \ \ .WithHeader(\textcolor{stringliteral}{"{}X-\/Custom"{}},\ \textcolor{stringliteral}{"{}value"{}});}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00033}{33}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!ApiRequest@{ApiRequest}}
+\index{ApiRequest@{ApiRequest}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{ApiRequest()}{ApiRequest()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735} 
+Toolbox.\+Core.\+Options.\+Api\+Request.\+Api\+Request (\begin{DoxyParamCaption}\item[{string}]{method}{, }\item[{string}]{url}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em method} & The HTTP method.\\
+\hline
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when parameters are {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00077}{77}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2276786ed9a920a6a9d54f9b4a72796e}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!BuildUrl@{BuildUrl}}
+\index{BuildUrl@{BuildUrl}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{BuildUrl()}{BuildUrl()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2276786ed9a920a6a9d54f9b4a72796e} 
+string Toolbox.\+Core.\+Options.\+Api\+Request.\+Build\+Url (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Builds the full URL with query parameters. 
+
+\begin{DoxyReturn}{Returns}
+The URL with query string.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00282}{282}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6e1f77a9bb4eb5dd123961e26c2c300f}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Delete@{Delete}}
+\index{Delete@{Delete}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6e1f77a9bb4eb5dd123961e26c2c300f} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Delete (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a DELETE request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00164}{164}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Get@{Get}}
+\index{Get@{Get}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Get (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a GET request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00091}{91}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a1bb959460ddb0199ab46d06fc901d92a}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Head@{Head}}
+\index{Head@{Head}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Head()}{Head()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a1bb959460ddb0199ab46d06fc901d92a} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Head (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a HEAD request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00171}{171}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_acf3890bc53a094393fbbf1a4cab61308}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Options@{Options}}
+\index{Options@{Options}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Options()}{Options()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_acf3890bc53a094393fbbf1a4cab61308} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Options (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an OPTIONS request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00178}{178}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a7bd68f324636e566840020c0a6ac88e3}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Patch@{Patch}}
+\index{Patch@{Patch}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Patch()}{Patch()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a7bd68f324636e566840020c0a6ac88e3} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Patch (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a PATCH request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00157}{157}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a300af8f887a6751cc77ac59dba56b587}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Patch$<$ T $>$@{Patch$<$ T $>$}}
+\index{Patch$<$ T $>$@{Patch$<$ T $>$}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Patch$<$ T $>$()}{Patch< T >()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a300af8f887a6751cc77ac59dba56b587} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a7bd68f324636e566840020c0a6ac88e3}{Toolbox.\+Core.\+Options.\+Api\+Request.\+Patch}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{url}{, }\item[{T}]{body}{, }\item[{Json\+Serializer\+Options?}]{options}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a PATCH request with JSON content. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The body type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+{\em body} & The request body.\\
+\hline
+{\em options} & JSON serializer options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00145}{145}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a3e3e1e01010dfda0201ac9344f485b6a}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Post@{Post}}
+\index{Post@{Post}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a3e3e1e01010dfda0201ac9344f485b6a} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Post (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a POST request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00113}{113}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2ea4daa4d8de703288c4f3c80d7c4ccf}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Post$<$ T $>$@{Post$<$ T $>$}}
+\index{Post$<$ T $>$@{Post$<$ T $>$}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Post$<$ T $>$()}{Post< T >()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2ea4daa4d8de703288c4f3c80d7c4ccf} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_a3e3e1e01010dfda0201ac9344f485b6a}{Toolbox.\+Core.\+Options.\+Api\+Request.\+Post}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{url}{, }\item[{T}]{body}{, }\item[{Json\+Serializer\+Options?}]{options}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a POST request with JSON content. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The body type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+{\em body} & The request body.\\
+\hline
+{\em options} & JSON serializer options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00101}{101}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab09b7cc8b377bd225d976fa846631ce4}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Put@{Put}}
+\index{Put@{Put}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Put()}{Put()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab09b7cc8b377bd225d976fa846631ce4} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Put (\begin{DoxyParamCaption}\item[{string}]{url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a PUT request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00135}{135}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_ad246e7b922cfe5fa71f2acf44f79592a}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Put$<$ T $>$@{Put$<$ T $>$}}
+\index{Put$<$ T $>$@{Put$<$ T $>$}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Put$<$ T $>$()}{Put< T >()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_ad246e7b922cfe5fa71f2acf44f79592a} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab09b7cc8b377bd225d976fa846631ce4}{Toolbox.\+Core.\+Options.\+Api\+Request.\+Put}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{url}{, }\item[{T}]{body}{, }\item[{Json\+Serializer\+Options?}]{options}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a PUT request with JSON content. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The body type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The URL or path.\\
+\hline
+{\em body} & The request body.\\
+\hline
+{\em options} & JSON serializer options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00123}{123}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a5d6dece7eb8a858c68da4662b33e62d4}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!SetBinaryContent@{SetBinaryContent}}
+\index{SetBinaryContent@{SetBinaryContent}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{SetBinaryContent()}{SetBinaryContent()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a5d6dece7eb8a858c68da4662b33e62d4} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Set\+Binary\+Content (\begin{DoxyParamCaption}\item[{byte\+[$\,$]\+}]{bytes}{, }\item[{string}]{content\+Type}{ = {\ttfamily "{}application/\+octet-\/stream"{}}}\end{DoxyParamCaption})}
+
+
+
+Sets binary content for the request body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array.\\
+\hline
+{\em content\+Type} & The content type. Default is "{}application/\+octet-\/stream"{}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00258}{258}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f54de7d78e3039400d846a5a6350071}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!SetFormContent@{SetFormContent}}
+\index{SetFormContent@{SetFormContent}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{SetFormContent()}{SetFormContent()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f54de7d78e3039400d846a5a6350071} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Set\+Form\+Content (\begin{DoxyParamCaption}\item[{IEnumerable$<$ Key\+Value\+Pair$<$ string, string $>$ $>$}]{form\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Sets form URL-\/encoded content for the request body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em form\+Data} & The form data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00246}{246}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6062cb6723b3dfbd0aaeba357ddf6365}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!SetJsonContent$<$ T $>$@{SetJsonContent$<$ T $>$}}
+\index{SetJsonContent$<$ T $>$@{SetJsonContent$<$ T $>$}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{SetJsonContent$<$ T $>$()}{SetJsonContent< T >()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a6062cb6723b3dfbd0aaeba357ddf6365} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Set\+Json\+Content$<$ T $>$ (\begin{DoxyParamCaption}\item[{T}]{body}{, }\item[{Json\+Serializer\+Options?}]{options}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+
+
+Sets JSON content for the request body. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The body type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em body} & The request body.\\
+\hline
+{\em options} & JSON serializer options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00222}{222}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a4b421958cd4ae4ca01f43342be5722bd}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!SetStreamContent@{SetStreamContent}}
+\index{SetStreamContent@{SetStreamContent}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{SetStreamContent()}{SetStreamContent()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a4b421958cd4ae4ca01f43342be5722bd} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Set\+Stream\+Content (\begin{DoxyParamCaption}\item[{Stream}]{stream}{, }\item[{string}]{content\+Type}{ = {\ttfamily "{}application/\+octet-\/stream"{}}}\end{DoxyParamCaption})}
+
+
+
+Sets stream content for the request body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The stream.\\
+\hline
+{\em content\+Type} & The content type. Default is "{}application/\+octet-\/stream"{}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00271}{271}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f06d44684caeb91b514078f9285003f}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!SetStringContent@{SetStringContent}}
+\index{SetStringContent@{SetStringContent}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{SetStringContent()}{SetStringContent()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a8f06d44684caeb91b514078f9285003f} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+Set\+String\+Content (\begin{DoxyParamCaption}\item[{string}]{content}{, }\item[{string}]{content\+Type}{ = {\ttfamily "{}text/\+plain"{}}}\end{DoxyParamCaption})}
+
+
+
+Sets string content for the request body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The content string.\\
+\hline
+{\em content\+Type} & The content type. Default is "{}text/\+plain"{}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00235}{235}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a849109ef628b7c9e34a546c1415a19ea}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!WithHeader@{WithHeader}}
+\index{WithHeader@{WithHeader}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{WithHeader()}{WithHeader()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a849109ef628b7c9e34a546c1415a19ea} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+With\+Header (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{string}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Adds a header to the request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The header name.\\
+\hline
+{\em value} & The header value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00186}{186}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a771b292001c6ac98d1c22ef3140521f9}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!WithQuery@{WithQuery}}
+\index{WithQuery@{WithQuery}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{WithQuery()}{WithQuery()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a771b292001c6ac98d1c22ef3140521f9} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+With\+Query (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{string}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Adds a query parameter to the request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The parameter name.\\
+\hline
+{\em value} & The parameter value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00198}{198}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_addb19820383e6d8a450841a49522ec82}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!WithTimeout@{WithTimeout}}
+\index{WithTimeout@{WithTimeout}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{WithTimeout()}{WithTimeout()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_addb19820383e6d8a450841a49522ec82} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_ab58a94b0c5dfaa5cc9af263283273735}{Api\+Request}} Toolbox.\+Core.\+Options.\+Api\+Request.\+With\+Timeout (\begin{DoxyParamCaption}\item[{Time\+Span}]{timeout}{}\end{DoxyParamCaption})}
+
+
+
+Sets a custom timeout for this request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The timeout.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This request for chaining.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00209}{209}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Content@{Content}}
+\index{Content@{Content}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Content}{Content}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a2b00fca70433944fb157a10bca840cc6} 
+Http\+Content? Toolbox.\+Core.\+Options.\+Api\+Request.\+Content\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the request body content. 
+
+The body content, or {\ttfamily null} for no body.
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00051}{51}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_af06149ec3b36c0585349a67fff366b03}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Headers@{Headers}}
+\index{Headers@{Headers}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Headers}{Headers}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_af06149ec3b36c0585349a67fff366b03} 
+IDictionary$<$string, string$>$ Toolbox.\+Core.\+Options.\+Api\+Request.\+Headers = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the request headers. 
+
+Dictionary of header names and values.
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00057}{57}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_a06e9e8057655d57c61ed531091f56a97}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Method@{Method}}
+\index{Method@{Method}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Method}{Method}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_a06e9e8057655d57c61ed531091f56a97} 
+string Toolbox.\+Core.\+Options.\+Api\+Request.\+Method\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the HTTP method. 
+
+The HTTP method (GET, POST, PUT, DELETE, etc.).
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00039}{39}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!QueryParameters@{QueryParameters}}
+\index{QueryParameters@{QueryParameters}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{QueryParameters}{QueryParameters}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae2398a82589a5b98dc9d2f0595ecddcd} 
+IDictionary$<$string, string$>$ Toolbox.\+Core.\+Options.\+Api\+Request.\+Query\+Parameters = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the query parameters. 
+
+Dictionary of query parameter names and values.
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00063}{63}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_acb63d053a186e922ca0c4c75ffc8a129}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Timeout@{Timeout}}
+\index{Timeout@{Timeout}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Timeout}{Timeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_acb63d053a186e922ca0c4c75ffc8a129} 
+Time\+Span? Toolbox.\+Core.\+Options.\+Api\+Request.\+Timeout\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the request timeout override. 
+
+Custom timeout, or {\ttfamily null} to use default.
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00069}{69}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6}\index{Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}!Url@{Url}}
+\index{Url@{Url}!Toolbox.Core.Options.ApiRequest@{Toolbox.Core.Options.ApiRequest}}
+\doxysubsubsection{\texorpdfstring{Url}{Url}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_request_ae51362d8d5c7b263d9807ed1af4c08a6} 
+string Toolbox.\+Core.\+Options.\+Api\+Request.\+Url\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the request URL or path. 
+
+The URL or path. Can be relative if base URL is configured.
+
+Definition at line \doxymbox{\hyperlink{_api_request_8cs_source_l00045}{45}} of file \doxymbox{\hyperlink{_api_request_8cs_source}{Api\+Request.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_api_request_8cs}{Api\+Request.\+cs}}\end{DoxyCompactItemize}

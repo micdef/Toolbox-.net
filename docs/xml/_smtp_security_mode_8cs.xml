@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_smtp_security_mode_8cs" kind="file" language="C#">
+    <compoundname>SmtpSecurityMode.cs</compoundname>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core">Toolbox::Core</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_options">Toolbox::Core::Options</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>@file<sp/>SmtpSecurityMode.cs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>SMTP<sp/>connection<sp/>security<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@details<sp/>Defines<sp/>the<sp/>security<sp/>protocols<sp/>for<sp/>SMTP<sp/>connections</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@note<sp/>Auto<sp/>mode<sp/>will<sp/>attempt<sp/>the<sp/>most<sp/>secure<sp/>connection<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" kindref="member">SmtpSecurityMode</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23" refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb" kindref="member">Auto</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754" kindref="member">None</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1" kindref="member">StartTls</ref><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377" kindref="member">StartTlsWhenAvailable</ref><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1" kindref="member">SslOnConnect</ref><sp/>=<sp/>4</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/SmtpSecurityMode.cs"/>
+  </compounddef>
+</doxygen>

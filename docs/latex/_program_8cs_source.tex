@@ -1,0 +1,95 @@
+\doxysection{Program.\+cs}
+\hypertarget{_program_8cs_source}{}\label{_program_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs@{C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs}}
+\doxymbox{\hyperlink{_program_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00001}00001\ \textcolor{comment}{//\ Sample\ application\ demonstrating\ Toolbox\ usage}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00002}00002\ \textcolor{comment}{//\ Shows\ how\ to\ configure\ and\ use\ Toolbox\ services\ with\ DI\ and\ OpenTelemetry}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }Microsoft.Extensions.DependencyInjection;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }Microsoft.Extensions.Hosting;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }Microsoft.Extensions.Logging;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00010}00010\ \textcolor{comment}{//\ Create\ and\ configure\ the\ host}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00011}\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{00011}}\ var\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =\ Host.CreateApplicationBuilder(args);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00013}00013\ \textcolor{comment}{//\ Add\ Toolbox\ core\ services}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00014}\doxymbox{\hyperlink{_program_8cs_ad612fa48b9074032108f9c5719face05}{00014}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxCore(options\ =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00016}00016\ \ \ \ \ options.EnableDetailedTelemetry\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00017}00017\ \ \ \ \ options.ServicePrefix\ =\ \textcolor{stringliteral}{"{}Sample"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00018}00018\ \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00020}00020\ \textcolor{comment}{//\ Add\ OpenTelemetry\ with\ console\ export\ for\ demonstration}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00021}\doxymbox{\hyperlink{_program_8cs_ab5be1f7721cc61e8cc139cba2c783407}{00021}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxOpenTelemetry(options\ =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00023}00023\ \ \ \ \ options.EnableTracing\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00024}00024\ \ \ \ \ options.EnableMetrics\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00025}00025\ \ \ \ \ options.EnableConsoleExport\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00026}00026\ \ \ \ \ options.ServiceName\ =\ \textcolor{stringliteral}{"{}Toolbox.Sample"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00027}00027\ \ \ \ \ options.ServiceVersion\ =\ \textcolor{stringliteral}{"{}1.0.0"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00028}00028\ \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00030}00030\ \textcolor{comment}{//\ Register\ our\ sample\ service}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00031}\doxymbox{\hyperlink{_program_8cs_a1cab3cb58e15892058dd7b4b52016e91}{00031}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddScoped<\doxymbox{\hyperlink{interface_i_sample_service}{ISampleService}},\ \doxymbox{\hyperlink{class_sample_service}{SampleService}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00033}\doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{00033}}\ var\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}\ =\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Build();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00035}00035\ \textcolor{comment}{//\ Demonstrate\ service\ usage}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00036}\doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{00036}}\ \textcolor{keyword}{using}\ (var\ \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}\ =\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Services.CreateScope())}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00038}00038\ \ \ \ \ var\ logger\ =\ \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}.ServiceProvider.GetRequiredService<ILogger<Program>>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00039}00039\ \ \ \ \ logger.LogInformation(\textcolor{stringliteral}{"{}Starting\ Toolbox\ Sample\ Application"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00041}00041\ \ \ \ \ var\ service\ =\ \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}.ServiceProvider.GetRequiredService<\doxymbox{\hyperlink{interface_i_sample_service}{ISampleService}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Perform\ some\ operations}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00044}00044\ \ \ \ \ await\ service.\doxymbox{\hyperlink{interface_i_sample_service_af558448f0c3ea3c73b0235216186395b}{DoWorkAsync}}(\textcolor{stringliteral}{"{}Hello,\ Toolbox!"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00046}00046\ \ \ \ \ logger.LogInformation(\textcolor{stringliteral}{"{}Sample\ application\ completed\ successfully"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00049}00049\ Console.WriteLine(\textcolor{stringliteral}{"{}Press\ any\ key\ to\ exit..."{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00050}\doxymbox{\hyperlink{_program_8cs_a0f92e719a4715fdc376c5338f84ffbef}{00050}}\ Console.ReadKey();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00055}\doxymbox{\hyperlink{interface_i_sample_service}{00055}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }\doxymbox{\hyperlink{interface_i_sample_service}{ISampleService}}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00063}\doxymbox{\hyperlink{interface_i_sample_service_af558448f0c3ea3c73b0235216186395b}{00063}}\ \ \ \ \ Task\ \doxymbox{\hyperlink{interface_i_sample_service_af558448f0c3ea3c73b0235216186395b}{DoWorkAsync}}(\textcolor{keywordtype}{string}\ message,\ CancellationToken\ ct\ =\ \textcolor{keywordflow}{default});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00069}\doxymbox{\hyperlink{class_sample_service}{00069}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sample_service_a3545afe78fb3e525d70ad0c3360ddcc7}{SampleService}}\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}},\ \doxymbox{\hyperlink{interface_i_sample_service}{ISampleService}}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger<SampleService>\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00077}\doxymbox{\hyperlink{class_sample_service_a3545afe78fb3e525d70ad0c3360ddcc7}{00077}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_sample_service_a3545afe78fb3e525d70ad0c3360ddcc7}{SampleService}}(ILogger<SampleService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}SampleService"{}},\ logger)}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00084}\doxymbox{\hyperlink{class_sample_service_a9517e289671e8098655ef2563c31419b}{00084}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_sample_service_a9517e289671e8098655ef2563c31419b}{DoWorkAsync}}(\textcolor{keywordtype}{string}\ message,\ CancellationToken\ ct\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \_logger.LogInformation(\textcolor{stringliteral}{"{}Processing\ message:\ \{Message\}"{}},\ message);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simulate\ some\ async\ work}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ await\ Task.Delay(100,\ ct);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \_logger.LogInformation(\textcolor{stringliteral}{"{}Message\ processed\ successfully"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}DoWorkAsync"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00102}\doxymbox{\hyperlink{class_sample_service_ac667ccd31274fce29bb598b5a5f593c2}{00102}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ async\ ValueTask\ \doxymbox{\hyperlink{class_sample_service_ac667ccd31274fce29bb598b5a5f593c2}{DisposeAsyncCore}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ \_logger.LogInformation(\textcolor{stringliteral}{"{}SampleService\ is\ being\ disposed"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ await\ Task.CompletedTask;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00107}00107\ \}}
+
+\end{DoxyCode}

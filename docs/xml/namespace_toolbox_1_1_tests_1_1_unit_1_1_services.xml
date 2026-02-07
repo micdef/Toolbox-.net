@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests_1_1_unit_1_1_services" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests::Unit::Services</compoundname>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api">Toolbox::Tests::Unit::Services::Api</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography">Toolbox::Tests::Unit::Services::Cryptography</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer">Toolbox::Tests::Unit::Services::FileTransfer</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing">Toolbox::Tests::Unit::Services::Mailing</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

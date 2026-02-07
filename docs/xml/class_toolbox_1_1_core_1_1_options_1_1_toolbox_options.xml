@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::ToolboxOptions</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a04306cd36618f56804e8622e6700dea2" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Options.ToolboxOptions.SectionName</definition>
+        <argsstring></argsstring>
+        <name>SectionName</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxOptions.SectionName</qualifiedname>
+        <initializer>= &quot;Toolbox&quot;</initializer>
+        <briefdescription>
+<para>The configuration section name for <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" line="27" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a70d6a07f94590e14b15ee1552b631534" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ToolboxOptions.EnableDetailedTelemetry</definition>
+        <argsstring></argsstring>
+        <name>EnableDetailedTelemetry</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxOptions.EnableDetailedTelemetry</qualifiedname>
+        <briefdescription>
+<para>Gets or sets a value indicating whether detailed telemetry should be enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to enable detailed telemetry including all operations; <computeroutput>false</computeroutput> for minimal telemetry. Defaults to <computeroutput>false</computeroutput>. </para>
+<para>When enabled, additional spans and metrics are recorded for internal operations. This may increase telemetry volume but provides better debugging capabilities. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" line="40" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a0bf6b659534ce1a07f5e7e8c0a59138b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ToolboxOptions.ServicePrefix</definition>
+        <argsstring></argsstring>
+        <name>ServicePrefix</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxOptions.ServicePrefix</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the prefix to use for service names in telemetry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A string prefix prepended to service names. Defaults to <computeroutput>null</computeroutput> (no prefix). </para>
+<para>Use this to distinguish services from different applications using the same <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> library. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" line="51" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a521a18cbf4960b456ee8213ab837d65e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.ToolboxOptions.AsyncDisposalTimeout</definition>
+        <argsstring></argsstring>
+        <name>AsyncDisposalTimeout</name>
+        <qualifiedname>Toolbox.Core.Options.ToolboxOptions.AsyncDisposalTimeout</qualifiedname>
+        <initializer>= TimeSpan.FromSeconds(30)</initializer>
+        <briefdescription>
+<para>Gets or sets the default timeout for async disposal operations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The timeout duration. Defaults to 30 seconds. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" line="59" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" bodystart="59" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration options for <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> core services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These options can be configured via <computeroutput>appsettings.json</computeroutput>: <programlisting filename=".cs"><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;Toolbox&quot;</highlight><highlight class="normal">:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;EnableDetailedTelemetry&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ServicePrefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;MyApp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" line="22" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs" bodystart="23" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a521a18cbf4960b456ee8213ab837d65e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxOptions</scope><name>AsyncDisposalTimeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a70d6a07f94590e14b15ee1552b631534" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxOptions</scope><name>EnableDetailedTelemetry</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a04306cd36618f56804e8622e6700dea2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxOptions</scope><name>SectionName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a0bf6b659534ce1a07f5e7e8c0a59138b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ToolboxOptions</scope><name>ServicePrefix</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

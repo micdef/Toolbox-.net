@@ -1,0 +1,96 @@
+\doxysection{Base\+Async\+Disposable\+Service.\+cs}
+\hypertarget{_base_async_disposable_service_8cs_source}{}\label{_base_async_disposable_service_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/BaseAsyncDisposableService.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/BaseAsyncDisposableService.cs}}
+\doxymbox{\hyperlink{_base_async_disposable_service_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ BaseAsyncDisposableService.cs}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Abstract\ base\ class\ for\ asynchronously\ disposable\ services}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Extends\ BaseDisposableService\ with\ async\ disposal\ and\ cancellation\ support}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Derive\ from\ this\ class\ for\ services\ managing\ async\ resources\ (streams,\ connections,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions}{Toolbox.Core.Abstractions}};}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00009}\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{00009}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00028}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{00028}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{abstract}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}}\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{BaseDisposableService}},\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{IAsyncDisposableService}}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ async\ disposal\ state\ (0\ =\ not\ disposed,\ 1\ =\ disposing/disposed)}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \_asyncDisposed;}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ The\ logger\ instance\ for\ this\ service}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00044}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{00044}}\ \ \ \ \ \textcolor{keyword}{protected}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}}(\textcolor{keywordtype}{string}\ serviceName,\ ILogger\ logger)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ :\ base(serviceName,\ logger)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00055}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{00055}}\ \ \ \ \ \textcolor{keyword}{public}\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{DisposeAsync}}()}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{DisposeAsync}}(CancellationToken.None);}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00061}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{00061}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{DisposeAsync}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00062}00062\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Interlocked.Exchange(ref\ \_asyncDisposed,\ 1)\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{ActivitySource}}.StartActivity(\$\textcolor{stringliteral}{"{}\{ServiceName\}.DisposeAsync"{}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ activity?.SetTag(TelemetryConstants.Attributes.ServiceName,\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Service\ \{ServiceName\}\ disposing\ asynchronously"{}},\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{DisposeAsyncCore}}(cancellationToken).ConfigureAwait(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (OperationCanceledException)\ when\ (cancellationToken.IsCancellationRequested)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogWarning(\textcolor{stringliteral}{"{}Async\ disposal\ of\ \{ServiceName\}\ was\ cancelled"{}},\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ activity?.SetStatus(ActivityStatusCode.Error,\ \textcolor{stringliteral}{"{}Disposal\ cancelled"{}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Error\ during\ async\ disposal\ of\ \{ServiceName\}"{}},\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ activity?.SetStatus(ActivityStatusCode.Error,\ ex.Message);}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{finally}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}}(disposing:\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ GC.SuppressFinalize(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordDisposal(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}async"{}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00115}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{00115}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{virtual}\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{DisposeAsyncCore}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00116}00116\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueTask.CompletedTask;}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00125}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{00125}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Dispose}}(\textcolor{keywordtype}{bool}\ disposing)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00126}00126\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (disposing\ \&\&\ Volatile.Read(ref\ \_asyncDisposed)\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ synchronous\ Dispose\ is\ called\ before\ DisposeAsync,}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ run\ the\ async\ disposal\ synchronously}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{DisposeAsync}}(CancellationToken.None).AsTask().GetAwaiter().GetResult();}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Error\ during\ synchronous\ disposal\ of\ async\ service\ \{ServiceName\}"{}},\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ base.Dispose(disposing);}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_async_disposable_service_8cs_source_l00143}00143\ \}}
+
+\end{DoxyCode}

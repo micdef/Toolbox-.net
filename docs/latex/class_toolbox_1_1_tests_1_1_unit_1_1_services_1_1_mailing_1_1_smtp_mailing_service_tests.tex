@@ -1,0 +1,190 @@
+\doxysection{Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests Class Reference}
+\hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests}{}\label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+
+
+\doxylink{namespace_toolbox_1_1_tests_1_1_unit}{Unit} tests for \doxylink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{Smtp\+Mailing\+Service}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_aeae79c79a05e3875c656625b6a5b5b8a}{Smtp\+Mailing\+Service\+Tests}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a48cb868c2b2be78a4a74debfcc24edb6}{Constructor\+\_\+\+With\+Null\+Options\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a1973d275befbddb084e6d13f6151972b}{Constructor\+\_\+\+With\+Null\+Logger\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a430643fc6c6a955de9306bfcd40ffc15}{Constructor\+\_\+\+With\+Empty\+Host\+\_\+\+Should\+Throw\+Argument\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a8e043ad3b58d4b49b254fdd247e87e5a}{Constructor\+\_\+\+With\+Valid\+Options\+\_\+\+Should\+Initialize}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a5b97f024969e91aa33aacc02a3eb8454}{Constructor\+\_\+\+With\+Direct\+Options\+\_\+\+Should\+Initialize}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_abe457abae7afec7e9fbbe3f5495845e6}{Constructor\+\_\+\+With\+Anonymous\+Auth\+\_\+\+Should\+Initialize}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_ae02aa7b934059630091662e7507100a3}{Send\+Mail\+\_\+\+With\+Null\+Message\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a0a7c3797ea46ab93884580f4b3d20e42}{Send\+Mail\+\_\+\+With\+No\+Recipients\+\_\+\+Should\+Throw\+Argument\+Exception}} ()
+\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a248c7556bd578d71735daf45fe3c0e7a}{Send\+Mail\+Async\+\_\+\+With\+Null\+Message\+\_\+\+Should\+Throw\+Argument\+Null\+Exception}} ()
+\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a91a2af1eede0d05e815513fea8f720f2}{Send\+Mail\+Async\+\_\+\+With\+Cancellation\+\_\+\+Should\+Throw\+Operation\+Canceled\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_acfb8c80baedc93743b5c8a52b0fa3129}{Send\+Mail\+\_\+\+When\+Disposed\+\_\+\+Should\+Throw\+Object\+Disposed\+Exception}} ()
+\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_af597aadf53f52229f6cd46a9562000ba}{Dispose\+Async\+\_\+\+Should\+Dispose\+Resources}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespace_toolbox_1_1_tests_1_1_unit}{Unit} tests for \doxylink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{Smtp\+Mailing\+Service}. 
+
+These tests verify argument validation and configuration. \doxylink{namespace_toolbox_1_1_tests_1_1_integration}{Integration} tests with a real SMTP server would be in a separate test project. 
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00016}{16}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_aeae79c79a05e3875c656625b6a5b5b8a}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!SmtpMailingServiceTests@{SmtpMailingServiceTests}}
+\index{SmtpMailingServiceTests@{SmtpMailingServiceTests}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{SmtpMailingServiceTests()}{SmtpMailingServiceTests()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_aeae79c79a05e3875c656625b6a5b5b8a} 
+Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Smtp\+Mailing\+Service\+Tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_abe457abae7afec7e9fbbe3f5495845e6}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!Constructor\_WithAnonymousAuth\_ShouldInitialize@{Constructor\_WithAnonymousAuth\_ShouldInitialize}}
+\index{Constructor\_WithAnonymousAuth\_ShouldInitialize@{Constructor\_WithAnonymousAuth\_ShouldInitialize}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithAnonymousAuth\_ShouldInitialize()}{Constructor\_WithAnonymousAuth\_ShouldInitialize()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_abe457abae7afec7e9fbbe3f5495845e6} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Constructor\+\_\+\+With\+Anonymous\+Auth\+\_\+\+Should\+Initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00105}{105}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a5b97f024969e91aa33aacc02a3eb8454}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!Constructor\_WithDirectOptions\_ShouldInitialize@{Constructor\_WithDirectOptions\_ShouldInitialize}}
+\index{Constructor\_WithDirectOptions\_ShouldInitialize@{Constructor\_WithDirectOptions\_ShouldInitialize}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithDirectOptions\_ShouldInitialize()}{Constructor\_WithDirectOptions\_ShouldInitialize()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a5b97f024969e91aa33aacc02a3eb8454} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Constructor\+\_\+\+With\+Direct\+Options\+\_\+\+Should\+Initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00092}{92}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a430643fc6c6a955de9306bfcd40ffc15}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!Constructor\_WithEmptyHost\_ShouldThrowArgumentException@{Constructor\_WithEmptyHost\_ShouldThrowArgumentException}}
+\index{Constructor\_WithEmptyHost\_ShouldThrowArgumentException@{Constructor\_WithEmptyHost\_ShouldThrowArgumentException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithEmptyHost\_ShouldThrowArgumentException()}{Constructor\_WithEmptyHost\_ShouldThrowArgumentException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a430643fc6c6a955de9306bfcd40ffc15} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Constructor\+\_\+\+With\+Empty\+Host\+\_\+\+Should\+Throw\+Argument\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00062}{62}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a1973d275befbddb084e6d13f6151972b}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!Constructor\_WithNullLogger\_ShouldThrowArgumentNullException@{Constructor\_WithNullLogger\_ShouldThrowArgumentNullException}}
+\index{Constructor\_WithNullLogger\_ShouldThrowArgumentNullException@{Constructor\_WithNullLogger\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithNullLogger\_ShouldThrowArgumentNullException()}{Constructor\_WithNullLogger\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a1973d275befbddb084e6d13f6151972b} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Constructor\+\_\+\+With\+Null\+Logger\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00049}{49}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a48cb868c2b2be78a4a74debfcc24edb6}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!Constructor\_WithNullOptions\_ShouldThrowArgumentNullException@{Constructor\_WithNullOptions\_ShouldThrowArgumentNullException}}
+\index{Constructor\_WithNullOptions\_ShouldThrowArgumentNullException@{Constructor\_WithNullOptions\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithNullOptions\_ShouldThrowArgumentNullException()}{Constructor\_WithNullOptions\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a48cb868c2b2be78a4a74debfcc24edb6} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Constructor\+\_\+\+With\+Null\+Options\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00037}{37}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a8e043ad3b58d4b49b254fdd247e87e5a}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!Constructor\_WithValidOptions\_ShouldInitialize@{Constructor\_WithValidOptions\_ShouldInitialize}}
+\index{Constructor\_WithValidOptions\_ShouldInitialize@{Constructor\_WithValidOptions\_ShouldInitialize}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{Constructor\_WithValidOptions\_ShouldInitialize()}{Constructor\_WithValidOptions\_ShouldInitialize()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a8e043ad3b58d4b49b254fdd247e87e5a} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Constructor\+\_\+\+With\+Valid\+Options\+\_\+\+Should\+Initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00079}{79}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_af597aadf53f52229f6cd46a9562000ba}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!DisposeAsync\_ShouldDisposeResources@{DisposeAsync\_ShouldDisposeResources}}
+\index{DisposeAsync\_ShouldDisposeResources@{DisposeAsync\_ShouldDisposeResources}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{DisposeAsync\_ShouldDisposeResources()}{DisposeAsync\_ShouldDisposeResources()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_af597aadf53f52229f6cd46a9562000ba} 
+async Task Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Dispose\+Async\+\_\+\+Should\+Dispose\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00233}{233}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_acfb8c80baedc93743b5c8a52b0fa3129}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!SendMail\_WhenDisposed\_ShouldThrowObjectDisposedException@{SendMail\_WhenDisposed\_ShouldThrowObjectDisposedException}}
+\index{SendMail\_WhenDisposed\_ShouldThrowObjectDisposedException@{SendMail\_WhenDisposed\_ShouldThrowObjectDisposedException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendMail\_WhenDisposed\_ShouldThrowObjectDisposedException()}{SendMail\_WhenDisposed\_ShouldThrowObjectDisposedException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_acfb8c80baedc93743b5c8a52b0fa3129} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Send\+Mail\+\_\+\+When\+Disposed\+\_\+\+Should\+Throw\+Object\+Disposed\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00209}{209}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a0a7c3797ea46ab93884580f4b3d20e42}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!SendMail\_WithNoRecipients\_ShouldThrowArgumentException@{SendMail\_WithNoRecipients\_ShouldThrowArgumentException}}
+\index{SendMail\_WithNoRecipients\_ShouldThrowArgumentException@{SendMail\_WithNoRecipients\_ShouldThrowArgumentException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendMail\_WithNoRecipients\_ShouldThrowArgumentException()}{SendMail\_WithNoRecipients\_ShouldThrowArgumentException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a0a7c3797ea46ab93884580f4b3d20e42} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Send\+Mail\+\_\+\+With\+No\+Recipients\+\_\+\+Should\+Throw\+Argument\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00142}{142}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_ae02aa7b934059630091662e7507100a3}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!SendMail\_WithNullMessage\_ShouldThrowArgumentNullException@{SendMail\_WithNullMessage\_ShouldThrowArgumentNullException}}
+\index{SendMail\_WithNullMessage\_ShouldThrowArgumentNullException@{SendMail\_WithNullMessage\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendMail\_WithNullMessage\_ShouldThrowArgumentNullException()}{SendMail\_WithNullMessage\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_ae02aa7b934059630091662e7507100a3} 
+void Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Send\+Mail\+\_\+\+With\+Null\+Message\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00127}{127}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a91a2af1eede0d05e815513fea8f720f2}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!SendMailAsync\_WithCancellation\_ShouldThrowOperationCanceledException@{SendMailAsync\_WithCancellation\_ShouldThrowOperationCanceledException}}
+\index{SendMailAsync\_WithCancellation\_ShouldThrowOperationCanceledException@{SendMailAsync\_WithCancellation\_ShouldThrowOperationCanceledException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendMailAsync\_WithCancellation\_ShouldThrowOperationCanceledException()}{SendMailAsync\_WithCancellation\_ShouldThrowOperationCanceledException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a91a2af1eede0d05e815513fea8f720f2} 
+async Task Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Send\+Mail\+Async\+\_\+\+With\+Cancellation\+\_\+\+Should\+Throw\+Operation\+Canceled\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00180}{180}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a248c7556bd578d71735daf45fe3c0e7a}\index{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}!SendMailAsync\_WithNullMessage\_ShouldThrowArgumentNullException@{SendMailAsync\_WithNullMessage\_ShouldThrowArgumentNullException}}
+\index{SendMailAsync\_WithNullMessage\_ShouldThrowArgumentNullException@{SendMailAsync\_WithNullMessage\_ShouldThrowArgumentNullException}!Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests@{Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests}}
+\doxysubsubsection{\texorpdfstring{SendMailAsync\_WithNullMessage\_ShouldThrowArgumentNullException()}{SendMailAsync\_WithNullMessage\_ShouldThrowArgumentNullException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_a248c7556bd578d71735daf45fe3c0e7a} 
+async Task Toolbox.\+Tests.\+Unit.\+Services.\+Mailing.\+Smtp\+Mailing\+Service\+Tests.\+Send\+Mail\+Async\+\_\+\+With\+Null\+Message\+\_\+\+Should\+Throw\+Argument\+Null\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source_l00165}{165}} of file \doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs_source}{Smtp\+Mailing\+Service\+Tests.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+tests/\+\+Toolbox.\+Tests/\+\+Unit/\+\+Services/\+\+Mailing/\+\doxymbox{\hyperlink{_smtp_mailing_service_tests_8cs}{Smtp\+Mailing\+Service\+Tests.\+cs}}\end{DoxyCompactItemize}

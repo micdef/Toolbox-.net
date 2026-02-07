@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_email_message" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::EmailMessage</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ae81d3000119c9b12dfffe302a6ed34e1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>?</type>
+        <definition>EmailAddress? Toolbox.Core.Options.EmailMessage.From</definition>
+        <argsstring></argsstring>
+        <name>From</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.From</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the sender&apos;s email address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The sender address. If <computeroutput>null</computeroutput>, uses the service&apos;s default sender.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="41" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ad1e2b8d83269be70648b1ea4c001c428" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>?</type>
+        <definition>EmailAddress? Toolbox.Core.Options.EmailMessage.ReplyTo</definition>
+        <argsstring></argsstring>
+        <name>ReplyTo</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.ReplyTo</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the reply-to email address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The reply-to address, or <computeroutput>null</computeroutput> to use the sender&apos;s address.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="47" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IList&lt; <ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref> &gt;</type>
+        <definition>IList&lt;EmailAddress&gt; Toolbox.Core.Options.EmailMessage.To</definition>
+        <argsstring></argsstring>
+        <name>To</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.To</qualifiedname>
+        <initializer>= new List&lt;<ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Gets the list of primary recipients. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of &quot;To&quot; recipients.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="53" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a30f5834090bbf7c36de92bd0de29f290" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IList&lt; <ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref> &gt;</type>
+        <definition>IList&lt;EmailAddress&gt; Toolbox.Core.Options.EmailMessage.Cc</definition>
+        <argsstring></argsstring>
+        <name>Cc</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Cc</qualifiedname>
+        <initializer>= new List&lt;<ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Gets the list of carbon copy recipients. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of &quot;CC&quot; recipients.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="59" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IList&lt; <ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref> &gt;</type>
+        <definition>IList&lt;EmailAddress&gt; Toolbox.Core.Options.EmailMessage.Bcc</definition>
+        <argsstring></argsstring>
+        <name>Bcc</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Bcc</qualifiedname>
+        <initializer>= new List&lt;<ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Gets the list of blind carbon copy recipients. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of &quot;BCC&quot; recipients.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="65" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2878058a0675907e71f46085dd7c1e0f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.EmailMessage.Subject</definition>
+        <argsstring></argsstring>
+        <name>Subject</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Subject</qualifiedname>
+        <initializer>= string.Empty</initializer>
+        <briefdescription>
+<para>Gets or sets the email subject. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The subject line.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="71" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1acc148135731267f616b58707b0e4132d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.EmailMessage.Body</definition>
+        <argsstring></argsstring>
+        <name>Body</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Body</qualifiedname>
+        <initializer>= string.Empty</initializer>
+        <briefdescription>
+<para>Gets or sets the email body content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The body content in HTML or plain text format.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="77" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.EmailMessage.IsBodyHtml</definition>
+        <argsstring></argsstring>
+        <name>IsBodyHtml</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.IsBodyHtml</qualifiedname>
+        <briefdescription>
+<para>Gets or sets a value indicating whether the body is HTML. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if the body is HTML; <computeroutput>false</computeroutput> for plain text. Default is <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="83" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a667aa502ae68efb886b63e93b06a695b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.EmailMessage.PlainTextBody</definition>
+        <argsstring></argsstring>
+        <name>PlainTextBody</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.PlainTextBody</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the plain text version of the body for HTML emails. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The plain text alternative, or <computeroutput>null</computeroutput> to auto-generate from HTML. Only used when <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf" kindref="member">IsBodyHtml</ref> is <computeroutput>true</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="92" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a7ec40f4c0801e9d635c33cdcd29cbf03" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IList&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref> &gt;</type>
+        <definition>IList&lt;EmailAttachment&gt; Toolbox.Core.Options.EmailMessage.Attachments</definition>
+        <argsstring></argsstring>
+        <name>Attachments</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Attachments</qualifiedname>
+        <initializer>= new List&lt;<ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Gets the list of attachments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of file attachments.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="98" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1abfe1f4e9814f5b67aa2122fafef4804a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778" kindref="member">EmailPriority</ref></type>
+        <definition>EmailPriority Toolbox.Core.Options.EmailMessage.Priority</definition>
+        <argsstring></argsstring>
+        <name>Priority</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Priority</qualifiedname>
+        <initializer>= <ref refid="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0" kindref="member">EmailPriority.Normal</ref></initializer>
+        <briefdescription>
+<para>Gets or sets the email priority. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The message priority. Default is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0" kindref="member">EmailPriority.Normal</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="104" column="26" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ac8af8d8afbb92f19ee7e9584906778d3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; Toolbox.Core.Options.EmailMessage.Headers</definition>
+        <argsstring></argsstring>
+        <name>Headers</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Headers</qualifiedname>
+        <initializer>= new Dictionary&lt;string, string&gt;()</initializer>
+        <briefdescription>
+<para>Gets the custom headers to include in the email. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A dictionary of custom header names and values.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="110" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a3e25efe03279f3b48fbf34eabcde53e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.EmailMessage.TotalRecipients</definition>
+        <argsstring></argsstring>
+        <name>TotalRecipients</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.TotalRecipients</qualifiedname>
+        <briefdescription>
+<para>Gets the total number of recipients (To + CC + BCC). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The total recipient count.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="116" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a6e9f18a8cfe7ea88b2547402868d41ce" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.EmailMessage.HasRecipients</definition>
+        <argsstring></argsstring>
+        <name>HasRecipients</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.HasRecipients</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether this message has any recipients. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if there is at least one recipient; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="122" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="122" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a631a28ef3c2b8a847205df409b4d83a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Options.EmailMessage.Validate</definition>
+        <argsstring>()</argsstring>
+        <name>Validate</name>
+        <qualifiedname>Toolbox.Core.Options.EmailMessage.Validate</qualifiedname>
+        <briefdescription>
+<para>Validates the message and throws if invalid. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the message is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="128" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="128" bodyend="134"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an email message to be sent. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class contains all the information needed to compose and send an email, including recipients, subject, body, and attachments. </para>
+<para>At least one recipient must be specified in <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e" kindref="member">To</ref> or <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b" kindref="member">Bcc</ref>. If <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e" kindref="member">To</ref> is empty, at least one <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b" kindref="member">Bcc</ref> recipient is required. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ae81d3000119c9b12dfffe302a6ed34e1" kindref="member">From</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;sender@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Sender&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2878058a0675907e71f46085dd7c1e0f" kindref="member">Subject</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Monthly<sp/>Report&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1acc148135731267f616b58707b0e4132d" kindref="member">Body</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Report&lt;/h1&gt;&lt;p&gt;See<sp/>attached.&lt;/p&gt;&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf" kindref="member">IsBodyHtml</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e" kindref="member">To</ref><sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;recipient@example.com&quot;</highlight><highlight class="normal"><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a30f5834090bbf7c36de92bd0de29f290" kindref="member">Cc</ref><sp/>=<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;manager@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Manager&quot;</highlight><highlight class="normal">)<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a7ec40f4c0801e9d635c33cdcd29cbf03" kindref="member">Attachments</ref><sp/>=<sp/>{<sp/>EmailAttachment.FromFile(</highlight><highlight class="stringliteral">&quot;report.pdf&quot;</highlight><highlight class="normal">)<sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" line="35" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs" bodystart="36" bodyend="135"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a7ec40f4c0801e9d635c33cdcd29cbf03" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Attachments</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Bcc</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1acc148135731267f616b58707b0e4132d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Body</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a30f5834090bbf7c36de92bd0de29f290" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Cc</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ae81d3000119c9b12dfffe302a6ed34e1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>From</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a6e9f18a8cfe7ea88b2547402868d41ce" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>HasRecipients</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ac8af8d8afbb92f19ee7e9584906778d3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Headers</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>IsBodyHtml</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a667aa502ae68efb886b63e93b06a695b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>PlainTextBody</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1abfe1f4e9814f5b67aa2122fafef4804a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Priority</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1ad1e2b8d83269be70648b1ea4c001c428" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>ReplyTo</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2878058a0675907e71f46085dd7c1e0f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Subject</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>To</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a3e25efe03279f3b48fbf34eabcde53e2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>TotalRecipients</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_message_1a631a28ef3c2b8a847205df409b4d83a2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailMessage</scope><name>Validate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

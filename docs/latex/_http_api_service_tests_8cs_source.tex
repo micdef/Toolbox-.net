@@ -1,0 +1,247 @@
+\doxysection{Http\+Api\+Service\+Tests.\+cs}
+\hypertarget{_http_api_service_tests_8cs_source}{}\label{_http_api_service_tests_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs@{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs}}
+\doxymbox{\hyperlink{_http_api_service_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.Extensions.Logging;}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Microsoft.Extensions.Options;}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_api}{Toolbox.Core.Services.Api}};}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00005}\doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{00005}}\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}\ =\ Microsoft.Extensions.Options.Options;}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00007}\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_unit_1_1_services}{00007}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api}{Toolbox.Tests.Unit.Services.Api}};}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00016}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests}{00016}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a79375397fb523d447f9758f2ed737ece}{HttpApiServiceTests}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ Mock<ILogger<HttpApiService>>\ \_loggerMock;}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00020}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a79375397fb523d447f9758f2ed737ece}{00020}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a79375397fb523d447f9758f2ed737ece}{HttpApiServiceTests}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00021}00021\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \_loggerMock\ =\ \textcolor{keyword}{new}\ Mock<ILogger<HttpApiService>>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{ApiOptions}}\ CreateValidOptions()\ =>\ \textcolor{keyword}{new}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ BaseUrl\ =\ \textcolor{stringliteral}{"{}https://api.example.com"{}},}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ AuthenticationMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}.Anonymous,}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ Timeout\ =\ TimeSpan.FromSeconds(30)}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00030}00030\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00032}00032\ \textcolor{preprocessor}{\ \ \ \ \#region\ Constructor\ Tests}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00034}00034\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00035}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a5935100502e898d850c0c039e41c7576}{00035}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a5935100502e898d850c0c039e41c7576}{Constructor\_WithNullOptions\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ (IOptions<ApiOptions>)\textcolor{keyword}{null}!,}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00046}00046\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00047}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_abeaa31e19b1d58233289eff7d4269a72}{00047}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_abeaa31e19b1d58233289eff7d4269a72}{Constructor\_WithNullLogger\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00048}00048\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions());}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(options,\ \textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00059}00059\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00060}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_ad12a3920e966951df841ba13cde7460d}{00060}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_ad12a3920e966951df841ba13cde7460d}{Constructor\_WithValidOptions\_ShouldInitialize}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions());}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ service.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00072}00072\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00073}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a683f2c7c6cb65499b7cabfe49a9599da}{00073}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a683f2c7c6cb65499b7cabfe49a9599da}{Constructor\_WithDirectOptions\_ShouldInitialize}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00074}00074\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ var\ options\ =\ CreateValidOptions();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ service.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00085}00085\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00086}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a391947ef276858e1f23962b1a4bd9215}{00086}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a391947ef276858e1f23962b1a4bd9215}{Constructor\_WithBearerTokenAuth\_ShouldInitialize}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00087}00087\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{ApiOptions}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ BaseUrl\ =\ \textcolor{stringliteral}{"{}https://api.example.com"{}},}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ AuthenticationMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}.BearerToken,}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30}{BearerToken}}\ =\ \textcolor{stringliteral}{"{}test-\/token"{}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ service.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00103}00103\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00104}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a16826b243591385e5120f933cacaf071}{00104}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a16826b243591385e5120f933cacaf071}{Constructor\_WithBasicAuth\_ShouldInitialize}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{ApiOptions}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ BaseUrl\ =\ \textcolor{stringliteral}{"{}https://api.example.com"{}},}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ AuthenticationMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}.Basic,}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ Username\ =\ \textcolor{stringliteral}{"{}user"{}},}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ Password\ =\ \textcolor{stringliteral}{"{}pass"{}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ service.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00122}00122\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00123}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a59a1cefd9180add432805680c092c7b8}{00123}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a59a1cefd9180add432805680c092c7b8}{Constructor\_WithApiKeyAuth\_ShouldInitialize}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00124}00124\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{ApiOptions}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ BaseUrl\ =\ \textcolor{stringliteral}{"{}https://api.example.com"{}},}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ AuthenticationMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}.ApiKey,}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac}{ApiKey}}\ =\ \textcolor{stringliteral}{"{}my-\/api-\/key"{}},}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ ApiKeyName\ =\ \textcolor{stringliteral}{"{}X-\/API-\/Key"{}}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ service.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00141}00141\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00142}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a8fdd72b9d76bc19999cc79824048469e}{00142}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a8fdd72b9d76bc19999cc79824048469e}{Constructor\_WithHttpClient\_ShouldInitialize}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00143}00143\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ httpClient\ =\ \textcolor{keyword}{new}\ HttpClient();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions());}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(httpClient,\ options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ service.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00155}00155\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00157}00157\ \textcolor{preprocessor}{\ \ \ \ \#region\ Send\ Tests}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00159}00159\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00160}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a49f2a0bb699fae5b08be0a9081a59153}{00160}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a49f2a0bb699fae5b08be0a9081a59153}{Send\_WithNullRequest\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00161}00161\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions()),}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Send(\textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00174}00174\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00175}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_aba098307ffbc27d5e86440b87bddca75}{00175}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_aba098307ffbc27d5e86440b87bddca75}{SendAsync\_WithNullRequest\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00176}00176\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions()),}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00183}00183\ \ \ \ \ \ \ \ \ var\ act\ =\ async\ ()\ =>\ await\ service.SendAsync(\textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ await\ act.Should().ThrowAsync<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00187}00187\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00189}00189\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00190}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a9900ad30e63606900d62f4272a41ebd9}{00190}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_a9900ad30e63606900d62f4272a41ebd9}{SendAsync\_WithCancellation\_ShouldThrowOperationCanceledException}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00191}00191\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions()),}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ cts\ =\ \textcolor{keyword}{new}\ CancellationTokenSource();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ await\ cts.CancelAsync();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00199}00199\ \ \ \ \ \ \ \ \ var\ request\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{ApiRequest}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}{Get}}(\textcolor{stringliteral}{"{}/test"{}});}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00202}00202\ \ \ \ \ \ \ \ \ var\ act\ =\ async\ ()\ =>\ await\ service.SendAsync(request,\ cts.Token);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ await\ act.Should().ThrowAsync<OperationCanceledException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00206}00206\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00208}00208\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00210}00210\ \textcolor{preprocessor}{\ \ \ \ \#region\ Dispose\ Tests}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00212}00212\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00213}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_aebeb8bc77c9ce36ef9e3e837feea5b84}{00213}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_aebeb8bc77c9ce36ef9e3e837feea5b84}{Send\_WhenDisposed\_ShouldThrowObjectDisposedException}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00214}00214\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00216}00216\ \ \ \ \ \ \ \ \ var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions()),}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00219}00219\ \ \ \ \ \ \ \ \ service.Dispose();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00221}00221\ \ \ \ \ \ \ \ \ var\ request\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{ApiRequest}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}{Get}}(\textcolor{stringliteral}{"{}/test"{}});}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00224}00224\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Send(request);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00227}00227\ \ \ \ \ \ \ \ \ act.Should().Throw<ObjectDisposedException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00230}00230\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00231}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_adb4ba66428b2a164e2feadb5601b4222}{00231}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_adb4ba66428b2a164e2feadb5601b4222}{DisposeAsync\_ShouldDisposeResources}}()}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00232}00232\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service}{HttpApiService}}(}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(CreateValidOptions()),}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00239}00239\ \ \ \ \ \ \ \ \ await\ service.DisposeAsync();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00242}00242\ \ \ \ \ \ \ \ \ var\ request\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{ApiRequest}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request_adc19541ba616263136091218814e80d1}{Get}}(\textcolor{stringliteral}{"{}/test"{}});}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00243}00243\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Send(request);}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ act.Should().Throw<ObjectDisposedException>();}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00247}00247\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_http_api_service_tests_8cs_source_l00248}00248\ \}}
+
+\end{DoxyCode}

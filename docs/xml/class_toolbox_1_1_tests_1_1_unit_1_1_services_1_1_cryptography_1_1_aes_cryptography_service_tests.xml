@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a8c17c2ff1c86ffe1e936f16741c20268" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" kindref="compound">AesCryptographyService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;AesCryptographyService&gt; &gt; Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="12" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a910962a858913f34b34eb0166d142524" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.AesCryptographyServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>AesCryptographyServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.AesCryptographyServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="14" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a84eef0da88771aed048ede1d870a4964" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes128_ShouldReturn16ByteKey</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKey_WithAes128_ShouldReturn16ByteKey</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes128_ShouldReturn16ByteKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="20" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="20" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a28c91aa5187dccada8327844bdbb5719" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes192_ShouldReturn24ByteKey</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKey_WithAes192_ShouldReturn24ByteKey</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes192_ShouldReturn24ByteKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="31" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="31" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1abad8ffe514a61b2708bfdf27cda85049" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes256_ShouldReturn32ByteKey</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKey_WithAes256_ShouldReturn32ByteKey</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes256_ShouldReturn32ByteKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="42" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="42" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9e4b6b19effe32e744a6cb78d3f99100" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithIntKeySize_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKey_WithIntKeySize_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithIntKeySize_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="53" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="53" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad6bbbfdec6de00f88ef5b39b40b4df3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</definition>
+        <argsstring>(int invalidKeySize)</argsstring>
+        <name>GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>invalidKeySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="67" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="67" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a997c471d42262a6025a93c937995383d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_ShouldGenerateUniqueKeys</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKey_ShouldGenerateUniqueKeys</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_ShouldGenerateUniqueKeys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="77" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="77" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a57f11279df1efac66945c49c803b0f67" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithNullKey_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullKey_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithNullKey_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="89" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="89" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af4ea51f86d8eb14e4b184a5a64db404a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithNullIv_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullIv_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithNullIv_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="102" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="102" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a2ce4216157866472d8db1fece341a409" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithInvalidKeySize_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithInvalidKeySize_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithInvalidKeySize_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="115" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="115" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1b5f0a8a3f3913aad6737325598667ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithInvalidIvSize_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithInvalidIvSize_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithInvalidIvSize_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="129" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="129" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ab4ba7356408aa0e1a185ef8385b07356" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ShouldReturnBase64String</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_ShouldReturnBase64String</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ShouldReturnBase64String</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="143" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="143" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1a07704d88a1b618a360d1ee8b40d72f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_ThenDecrypt_ShouldReturnOriginalText</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="159" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="159" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1aff428bbab44961c0a2dfc126880d315b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</definition>
+        <argsstring>(AesKeySize keySize)</argsstring>
+        <name>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</qualifiedname>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref></type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="178" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="178" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1acaedc9e21d57ebd8691b015f05c2c3ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithSameInput_ShouldProduceSameOutput</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithSameInput_ShouldProduceSameOutput</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithSameInput_ShouldProduceSameOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="194" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="194" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a116877c143e329dc8d22195faf37573e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="210" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="210" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af446010a39f04d103be3940818b3b9d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithWrongKey_ShouldThrowFormatException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithWrongKey_ShouldThrowFormatException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithWrongKey_ShouldThrowFormatException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="228" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="228" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad2b1fc1b8c886653bbd02a2f61da6019" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithNullText_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="246" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="246" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae74e0b3d522295369bdc5669c5a426c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithNullText_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="260" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="260" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1debd900c8def91cbaa59c15e0833aee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithInvalidBase64_ShouldThrowFormatException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="274" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="274" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9f434f527a6b9b86525cb07d5ea6a6d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</definition>
+        <argsstring>()</argsstring>
+        <name>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="288" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="288" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a618d102a6b358be51aceaaaed48f8630" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="304" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="304" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a4f99578cb215ad129a90ed70efb56762" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="320" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="320" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a0f6a48cbc0bcf5c3749936ebd5449acf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithEmptyString_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithEmptyString_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithEmptyString_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="335" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="335" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae0eaf0449f97c9174eb42365476d8dc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithUnicodeText_ShouldHandleCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="350" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="350" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a67da4707905842daac27a925caa8d49f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithLargeText_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithLargeText_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithLargeText_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="366" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="366" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a5bbd33bfa303231211f81d1ad7460c5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.DisposeAsync_ShouldClearSensitiveData</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldClearSensitiveData</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.DisposeAsync_ShouldClearSensitiveData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="382" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="382" bodyend="394"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" kindref="compound">AesCryptographyService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="10" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" bodystart="11" bodyend="395"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a8c17c2ff1c86ffe1e936f16741c20268" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a910962a858913f34b34eb0166d142524" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>AesCryptographyServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1b5f0a8a3f3913aad6737325598667ad" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Constructor_WithInvalidIvSize_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a2ce4216157866472d8db1fece341a409" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Constructor_WithInvalidKeySize_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af4ea51f86d8eb14e4b184a5a64db404a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Constructor_WithNullIv_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a57f11279df1efac66945c49c803b0f67" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Constructor_WithNullKey_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1debd900c8def91cbaa59c15e0833aee" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Decrypt_WithInvalidBase64_ShouldThrowFormatException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae74e0b3d522295369bdc5669c5a426c8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Decrypt_WithNullText_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af446010a39f04d103be3940818b3b9d8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Decrypt_WithWrongKey_ShouldThrowFormatException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a5bbd33bfa303231211f81d1ad7460c5d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>DisposeAsync_ShouldClearSensitiveData</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ab4ba7356408aa0e1a185ef8385b07356" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_ShouldReturnBase64String</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1a07704d88a1b618a360d1ee8b40d72f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_ShouldReturnOriginalText</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1aff428bbab44961c0a2dfc126880d315b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a4f99578cb215ad129a90ed70efb56762" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a116877c143e329dc8d22195faf37573e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a0f6a48cbc0bcf5c3749936ebd5449acf" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WithEmptyString_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a67da4707905842daac27a925caa8d49f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WithLargeText_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad2b1fc1b8c886653bbd02a2f61da6019" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WithNullText_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1acaedc9e21d57ebd8691b015f05c2c3ac" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WithSameInput_ShouldProduceSameOutput</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae0eaf0449f97c9174eb42365476d8dc5" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>Encrypt_WithUnicodeText_ShouldHandleCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9f434f527a6b9b86525cb07d5ea6a6d2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a618d102a6b358be51aceaaaed48f8630" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a997c471d42262a6025a93c937995383d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>GenerateKey_ShouldGenerateUniqueKeys</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a84eef0da88771aed048ede1d870a4964" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>GenerateKey_WithAes128_ShouldReturn16ByteKey</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a28c91aa5187dccada8327844bdbb5719" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>GenerateKey_WithAes192_ShouldReturn24ByteKey</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1abad8ffe514a61b2708bfdf27cda85049" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>GenerateKey_WithAes256_ShouldReturn32ByteKey</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9e4b6b19effe32e744a6cb78d3f99100" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>GenerateKey_WithIntKeySize_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad6bbbfdec6de00f88ef5b39b40b4df3f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</scope><name>GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

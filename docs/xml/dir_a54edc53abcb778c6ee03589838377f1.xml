@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_a54edc53abcb778c6ee03589838377f1" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry</compoundname>
+    <innerfile refid="_telemetry_constants_8cs">TelemetryConstants.cs</innerfile>
+    <innerfile refid="_toolbox_activity_source_8cs">ToolboxActivitySource.cs</innerfile>
+    <innerfile refid="_toolbox_meter_8cs">ToolboxMeter.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/"/>
+  </compounddef>
+</doxygen>

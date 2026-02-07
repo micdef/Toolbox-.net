@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" kind="interface" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Abstractions::IAsyncDisposableService</compoundname>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IDisposableService</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">IAsyncDisposable</basecompoundref>
+    <derivedcompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.Services.IApiService</derivedcompoundref>
+    <derivedcompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.Services.ICryptographyService</derivedcompoundref>
+    <derivedcompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.Services.IFileTransferService</derivedcompoundref>
+    <derivedcompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.Services.IMailingService</derivedcompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Base.BaseAsyncDisposableService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ValueTask</type>
+        <definition>ValueTask Toolbox.Core.Abstractions.IAsyncDisposableService.DisposeAsync</definition>
+        <argsstring>(CancellationToken cancellationToken)</argsstring>
+        <name>DisposeAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.IAsyncDisposableService.DisposeAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">DisposeAsync</reimplementedby>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para>Asynchronously releases resources with cancellation support. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A ValueTask representing the asynchronous disposal operation.</para>
+</simplesect>
+</para>
+<para>This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. </para>
+<para>The standard IAsyncDisposable.DisposeAsync method should call this method with CancellationToken.None. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs" line="35" column="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for services requiring asynchronous disposal with cancellation support. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface combines <ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service" kindref="compound">IDisposableService</ref> and IAsyncDisposable with an additional method supporting cancellation tokens for graceful shutdown scenarios. </para>
+<para><simplesect kind="see"><para><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service" kindref="compound">IDisposableService</ref></para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="3">
+        <label>IDisposable</label>
+      </node>
+      <node id="17">
+        <label>SampleService</label>
+        <link refid="class_sample_service"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Toolbox.Core.Abstractions.Services.IApiService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Abstractions.Services.ICryptographyService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Toolbox.Core.Abstractions.Services.IFileTransferService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Toolbox.Core.Abstractions.Services.IMailingService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Toolbox.Core.Base.BaseAsyncDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Toolbox.Core.Services.Api.HttpApiService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Toolbox.Core.Services.Cryptography.AesCryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Toolbox.Core.Services.Cryptography.Base64CryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Toolbox.Core.Services.Cryptography.RsaCryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Toolbox.Core.Services.FileTransfer.FtpFileTransferService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Toolbox.Core.Services.Mailing.SmtpMailingService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="3">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs" line="16" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs" bodystart="17" bodyend="36"/>
+    <listofallmembers>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::IAsyncDisposableService</scope><name>DisposeAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::IAsyncDisposableService</scope><name>IsDisposed</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::IAsyncDisposableService</scope><name>ServiceName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

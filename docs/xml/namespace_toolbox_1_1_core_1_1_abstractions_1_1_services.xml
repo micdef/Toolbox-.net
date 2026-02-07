@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_abstractions_1_1_services" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Abstractions::Services</compoundname>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service" prot="public">Toolbox::Core::Abstractions::Services::IApiService</innerclass>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" prot="public">Toolbox::Core::Abstractions::Services::ICryptographyService</innerclass>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service" prot="public">Toolbox::Core::Abstractions::Services::IFileTransferService</innerclass>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" prot="public">Toolbox::Core::Abstractions::Services::IMailingService</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" line="8" column="1"/>
+  </compounddef>
+</doxygen>

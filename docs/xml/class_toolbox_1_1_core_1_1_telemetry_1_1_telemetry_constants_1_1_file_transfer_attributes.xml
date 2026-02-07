@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1abb86dc1f16d70850a0592ba887a03c46" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.Protocol</definition>
+        <argsstring></argsstring>
+        <name>Protocol</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.Protocol</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.protocol&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for transfer protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="120" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1acad0e0833dc45565d214f9100ca33b24" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.Host</definition>
+        <argsstring></argsstring>
+        <name>Host</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.Host</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.host&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for remote host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="123" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1af5e8378baa6803164bc818b6ae14981d" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.Direction</definition>
+        <argsstring></argsstring>
+        <name>Direction</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.Direction</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.direction&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for transfer direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="126" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1add4af7c53e52549fec6ce79593d84480" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.FilePath</definition>
+        <argsstring></argsstring>
+        <name>FilePath</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.FilePath</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.path&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for file path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="129" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1af8a7737440c928610ee47e1cf30fbea9" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.FileCount</definition>
+        <argsstring></argsstring>
+        <name>FileCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes.FileCount</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.filecount&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for file count in batch operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="132" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="132" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Additional attribute names for file transfer services. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="117" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="118" bodyend="133"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1af5e8378baa6803164bc818b6ae14981d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</scope><name>Direction</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1af8a7737440c928610ee47e1cf30fbea9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</scope><name>FileCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1add4af7c53e52549fec6ce79593d84480" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</scope><name>FilePath</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1acad0e0833dc45565d214f9100ca33b24" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</scope><name>Host</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes_1abb86dc1f16d70850a0592ba887a03c46" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</scope><name>Protocol</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

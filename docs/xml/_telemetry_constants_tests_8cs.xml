@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_telemetry_constants_tests_8cs" kind="file" language="C#">
+    <compoundname>TelemetryConstantsTests.cs</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests" prot="public">Toolbox::Tests::Regression::TelemetryConstantsTests</innerclass>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests">Toolbox::Tests</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_regression">Toolbox::Tests::Regression</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_telemetry" kindref="compound">Toolbox.Core.Telemetry</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_tests_1_1_regression" kindref="compound">Toolbox.Tests.Regression</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests" kindref="compound">TelemetryConstantsTests</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="11" refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a1e2aebcc9b5f38fa219c8f21e47daac1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a1e2aebcc9b5f38fa219c8f21e47daac1" kindref="member">ActivitySourceName_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.ActivitySourceName.Should().Be(</highlight><highlight class="stringliteral">&quot;Toolbox.Core&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="17" refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a93b74b7c64f6190fad1460aef9abd4e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a93b74b7c64f6190fad1460aef9abd4e7" kindref="member">MeterName_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.MeterName.Should().Be(</highlight><highlight class="stringliteral">&quot;Toolbox.Core&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="23" refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1ab67ad42099fa07e37502f1a0bb6e32f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1ab67ad42099fa07e37502f1a0bb6e32f5" kindref="member">Version_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Version.Should().Be(</highlight><highlight class="stringliteral">&quot;1.0.0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="29" refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a6e24d67d83470d22bcf343deb9ebd428" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a6e24d67d83470d22bcf343deb9ebd428" kindref="member">AttributeNames_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Attributes.ServiceName.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.service.name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Attributes.OperationName.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.operation.name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Attributes.ErrorType.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.error.type&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Attributes.DisposalReason.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.disposal.reason&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>[Fact]</highlight></codeline>
+<codeline lineno="38" refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a3c432937de6b31d41dde20ff924a1533" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a3c432937de6b31d41dde20ff924a1533" kindref="member">MetricNames_ShouldNotChange</ref>()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Metrics.OperationCount.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.operations.count&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Metrics.OperationDuration.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.operations.duration&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Metrics.DisposalCount.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.disposals.count&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TelemetryConstants.Metrics.ActiveInstances.Should().Be(</highlight><highlight class="stringliteral">&quot;toolbox.instances.active&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/TelemetryConstantsTests.cs"/>
+  </compounddef>
+</doxygen>

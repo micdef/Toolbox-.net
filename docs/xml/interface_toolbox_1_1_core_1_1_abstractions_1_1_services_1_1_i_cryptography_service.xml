@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" kind="interface" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Abstractions::Services::ICryptographyService</compoundname>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IInstrumentedService</basecompoundref>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IAsyncDisposableService</basecompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" prot="public" virt="non-virtual">Toolbox.Core.Services.Cryptography.AesCryptographyService</derivedcompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service" prot="public" virt="non-virtual">Toolbox.Core.Services.Cryptography.Base64CryptographyService</derivedcompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service" prot="public" virt="non-virtual">Toolbox.Core.Services.Cryptography.RsaCryptographyService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Toolbox.Core.Abstractions.Services.ICryptographyService.Encrypt</definition>
+        <argsstring>(string plainText)</argsstring>
+        <name>Encrypt</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.ICryptographyService.Encrypt</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1acca78d079b5b61766b44df902ded3865">Encrypt</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a367b25c280d280f5ecf469e94da66d04">Encrypt</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a0d6440aa8b8df80575e7c69873fc3dca">Encrypt</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>plainText</declname>
+        </param>
+        <briefdescription>
+<para>Encrypts the specified plain text. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plainText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to encrypt.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The encrypted text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs" line="28" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task&lt; string &gt;</type>
+        <definition>Task&lt; string &gt; Toolbox.Core.Abstractions.Services.ICryptographyService.EncryptAsync</definition>
+        <argsstring>(string plainText, CancellationToken cancellationToken=default)</argsstring>
+        <name>EncryptAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.ICryptographyService.EncryptAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a912ab62911fa9f0ec93297f2a918f351">EncryptAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1aa061bb1de53760c740b7c16b2e273129">EncryptAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a8d65b30e83ed3be8cb39bfa1d9cd2227">EncryptAsync</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>plainText</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Asynchronously encrypts the specified plain text. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plainText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to encrypt.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the encrypted text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs" line="37" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Toolbox.Core.Abstractions.Services.ICryptographyService.Decrypt</definition>
+        <argsstring>(string encryptedText)</argsstring>
+        <name>Decrypt</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.ICryptographyService.Decrypt</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a3f723805255f3988a36130df6990b91f">Decrypt</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1adc6af0a05226f77128990a579635ed43">Decrypt</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a49a9ab566b0355bb6991a839cb27801c">Decrypt</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>encryptedText</declname>
+        </param>
+        <briefdescription>
+<para>Decrypts the specified encrypted text. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>encryptedText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to decrypt.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The decrypted plain text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FormatException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the encrypted text format is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs" line="46" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task&lt; string &gt;</type>
+        <definition>Task&lt; string &gt; Toolbox.Core.Abstractions.Services.ICryptographyService.DecryptAsync</definition>
+        <argsstring>(string encryptedText, CancellationToken cancellationToken=default)</argsstring>
+        <name>DecryptAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.ICryptographyService.DecryptAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ac0d76348e1fb0d832893e94ac14c19e0">DecryptAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a9ac221788e4ac3ca1fb3a0408f65f692">DecryptAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a12dc875ff5bd879d7b5ccbe17413ec7e">DecryptAsync</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>encryptedText</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Asynchronously decrypts the specified encrypted text. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>encryptedText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to decrypt.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the decrypted plain text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FormatException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the encrypted text format is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs" line="56" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for cryptography services providing text encryption and decryption. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface defines a simple contract for encrypting and decrypting text. Implementations may use various algorithms (Base64, AES, RSA, etc.). </para>
+<para>All methods accept and return string values for ease of use. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.ICryptographyService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Services.Cryptography.AesCryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Toolbox.Core.Services.Cryptography.Base64CryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Toolbox.Core.Services.Cryptography.RsaCryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.ICryptographyService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs" line="20" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs" bodystart="21" bodyend="57"/>
+    <listofallmembers>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>ActivitySource</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>Decrypt</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>DecryptAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>DisposeAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>Encrypt</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>EncryptAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>IsDisposed</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>Meter</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::ICryptographyService</scope><name>ServiceName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_rsa_key_size_8cs" kind="file" language="C#">
+    <compoundname>RsaKeySize.cs</compoundname>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core">Toolbox::Core</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_options">Toolbox::Core::Options</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>@file<sp/>RsaKeySize.cs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Enumeration<sp/>of<sp/>valid<sp/>RSA<sp/>key<sp/>sizes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@details<sp/>Defines<sp/>the<sp/>supported<sp/>RSA<sp/>key<sp/>sizes<sp/>in<sp/>bits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@note<sp/>RSA<sp/>supports<sp/>512,<sp/>1024,<sp/>2048,<sp/>4096,<sp/>8192,<sp/>and<sp/>16384-bit<sp/>keys</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21" kindref="member">Rsa512</ref><sp/>=<sp/>512,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395" kindref="member">Rsa1024</ref><sp/>=<sp/>1024,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a" kindref="member">Rsa2048</ref><sp/>=<sp/>2048,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433" kindref="member">Rsa4096</ref><sp/>=<sp/>4096,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3" kindref="member">Rsa8192</ref><sp/>=<sp/>8192,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d" kindref="member">Rsa16384</ref><sp/>=<sp/>16384</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeySize.cs"/>
+  </compounddef>
+</doxygen>

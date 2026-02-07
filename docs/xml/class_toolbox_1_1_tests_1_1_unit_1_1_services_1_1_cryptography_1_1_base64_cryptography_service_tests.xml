@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a72a54d26dc55804f081324fb9c6031be" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service" kindref="compound">Base64CryptographyService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;Base64CryptographyService&gt; &gt; Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="14" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1af9f1574a89ba249660ca8539f1e72393" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Base64CryptographyServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>Base64CryptographyServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Base64CryptographyServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="16" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2204617f7cb65a2201f5fd604f31baf4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithStandardTable_ShouldEncodeCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithStandardTable_ShouldEncodeCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithStandardTable_ShouldEncodeCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="22" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="22" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a69991f788258af9b59bb36f2a881f6f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithStandardTable_ShouldDecodeCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithStandardTable_ShouldDecodeCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithStandardTable_ShouldDecodeCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="37" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="37" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a5443c2acf140864901235e16607f9b38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_ThenDecrypt_ShouldReturnOriginalText</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="52" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="52" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2dfa437a5e67ec2d58d28cfd00dba61c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="69" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="69" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a16ac3c127bf38bad8a674a9233aaf360" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="88" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="88" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac37f38b3668cb7ccf97087aadd7fe4a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="104" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="104" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a0d5ff561b3ddb2ab689c601ad82cb171" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="123" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="123" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a9abdce7b65b4fe65c24de17baaf64324" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithNullText_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="141" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="141" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac9843de52ebf8af8f4f4a7d420811892" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithNullText_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="156" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="156" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ae29f3d09f22ffe41ec6393be191e67de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithInvalidBase64_ShouldThrowFormatException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="171" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="171" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2a0ebe26093a0d66946ff0902db8d22f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.EncryptAsync_ShouldEncodeCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>EncryptAsync_ShouldEncodeCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.EncryptAsync_ShouldEncodeCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="186" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="186" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a11208a9ad3be4fe34b884f108ab9ce80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.DecryptAsync_ShouldDecodeCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>DecryptAsync_ShouldDecodeCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.DecryptAsync_ShouldDecodeCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="201" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="201" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1adf08739890c31b31a5db315270768754" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="216" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="216" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a428a6b5d2e1f4a4cb6e15aa9d4d19d76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="233" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="233" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a7cff486da88f86d12d1940d706855ae5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithEmptyString_ShouldReturnEmptyBase64</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithEmptyString_ShouldReturnEmptyBase64</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithEmptyString_ShouldReturnEmptyBase64</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="249" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="249" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2187af6a2849b6b9480956bb9e456ad2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithUnicodeText_ShouldHandleCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="264" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="264" bodyend="278"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service" kindref="compound">Base64CryptographyService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" line="12" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs" bodystart="13" bodyend="279"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a72a54d26dc55804f081324fb9c6031be" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1af9f1574a89ba249660ca8539f1e72393" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Base64CryptographyServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ae29f3d09f22ffe41ec6393be191e67de" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Decrypt_WithInvalidBase64_ShouldThrowFormatException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac9843de52ebf8af8f4f4a7d420811892" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Decrypt_WithNullText_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a0d5ff561b3ddb2ab689c601ad82cb171" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a69991f788258af9b59bb36f2a881f6f6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Decrypt_WithStandardTable_ShouldDecodeCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a16ac3c127bf38bad8a674a9233aaf360" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a11208a9ad3be4fe34b884f108ab9ce80" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>DecryptAsync_ShouldDecodeCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a5443c2acf140864901235e16607f9b38" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_ShouldReturnOriginalText</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a428a6b5d2e1f4a4cb6e15aa9d4d19d76" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a7cff486da88f86d12d1940d706855ae5" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WithEmptyString_ShouldReturnEmptyBase64</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac37f38b3668cb7ccf97087aadd7fe4a0" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a9abdce7b65b4fe65c24de17baaf64324" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WithNullText_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2204617f7cb65a2201f5fd604f31baf4" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WithStandardTable_ShouldEncodeCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2187af6a2849b6b9480956bb9e456ad2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WithUnicodeText_ShouldHandleCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2dfa437a5e67ec2d58d28cfd00dba61c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2a0ebe26093a0d66946ff0902db8d22f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>EncryptAsync_ShouldEncodeCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1adf08739890c31b31a5db315270768754" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</scope><name>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

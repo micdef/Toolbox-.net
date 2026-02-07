@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_7817c100d872970f32fdb454cda15dc6" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox</compoundname>
+    <innerdir refid="dir_b1be64d60e5a7cf8e8891c9e2303c399">C:/Users/micde/RiderProjects/Toolbox/samples</innerdir>
+    <innerdir refid="dir_6ac6fc6bb3b06b85fb096b7b9f65ee06">C:/Users/micde/RiderProjects/Toolbox/src</innerdir>
+    <innerdir refid="dir_eaaf9cb45e917ecc53bfca006a6d5728">C:/Users/micde/RiderProjects/Toolbox/tests</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md0">
+<title>Toolbox</title><para>A .NET 10 library providing base services, telemetry, and dependency injection extensions.</para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md1">
+<title>Features</title><para><itemizedlist>
+<listitem><para><bold>Disposable Services</bold>: Thread-safe base classes for synchronous and asynchronous disposal</para>
+</listitem><listitem><para><bold>OpenTelemetry Integration</bold>: Built-in distributed tracing and metrics collection</para>
+</listitem><listitem><para><bold>Dependency Injection</bold>: Fluent extensions for easy service registration</para>
+</listitem><listitem><para><bold>Comprehensive Documentation</bold>: Full Doxygen documentation support</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md2">
+<title>Requirements</title><para><itemizedlist>
+<listitem><para>.NET 10.0 or later</para>
+</listitem><listitem><para>C# 14.0</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md3">
+<title>Installation</title><para>Add the project reference to your solution:</para>
+<para><programlisting filename=".xml"><codeline><highlight class="normal">&lt;</highlight><highlight class="keywordtype">ProjectReference</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">Include</highlight><highlight class="normal">=</highlight><highlight class="stringliteral">&quot;..\src\Toolbox.Core\Toolbox.Core.csproj&quot;</highlight><highlight class="normal"><sp/>/&gt;</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md4">
+<title>Quick Start</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref><sp/>=<sp/>Host.CreateApplicationBuilder(args);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Add<sp/>Toolbox<sp/>core<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxCore(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableDetailedTelemetry<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Add<sp/>OpenTelemetry<sp/>integration</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableTracing<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableMetrics<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableConsoleExport<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref><sp/>=<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Build();</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.Run();</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md5">
+<title>Documentation</title><para><itemizedlist>
+<listitem><para><ref refid="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e" kindref="compound">Usage Guide</ref> - Detailed usage instructions</para>
+</listitem><listitem><para><ulink url="docs/html/index.html">API Documentation</ulink> - Generated Doxygen documentation</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md6">
+<title>Generating Documentation</title><para><programlisting filename=".bash"><codeline><highlight class="normal">doxygen<sp/>Doxyfile</highlight></codeline>
+</programlisting></para>
+</sect2>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md7">
+<title>Project Structure</title><para><programlisting><codeline><highlight class="normal">Toolbox/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>src/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Core/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Core<sp/>library</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Abstractions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Interfaces</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Base/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Base<sp/>classes</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Extensions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>DI<sp/>extensions</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Options/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Configuration<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>└──<sp/>Telemetry/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>OpenTelemetry<sp/>infrastructure</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>tests/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Tests/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Unit<sp/>and<sp/>integration<sp/>tests</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>samples/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Sample/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Sample<sp/>application</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>docs/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Generated<sp/>documentation</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md8">
+<title>Building</title><para><programlisting filename=".bash"><codeline><highlight class="normal">dotnet<sp/>build</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md9">
+<title>Testing</title><para><programlisting filename=".bash"><codeline><highlight class="normal">dotnet<sp/>test</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md10">
+<title>License</title><para>This project is licensed under the MIT License. </para>
+</sect1>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,726 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1af07936d219401a8774cd10c9c89cf1e8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApi</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; ApiOptions &gt; configureOptions)</argsstring>
+        <name>AddHttpApi</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApi</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds the HTTP API service to the service collection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Action to configure API options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddHttpApi(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BaseUrl<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;https://api.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.AuthenticationMode<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249" kindref="member">ApiAuthenticationMode</ref>.BearerToken;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BearerToken<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;your-token&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="44" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="44" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a1852b3ee52d566732b3820e9f1e5ed3b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApi</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddHttpApi</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApi</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds the HTTP API service to the service collection with a configuration section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration section containing API options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>In<sp/>appsettings.json:</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>&quot;Api&quot;:<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;BaseUrl&quot;:<sp/>&quot;https://api.example.com&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;AuthenticationMode&quot;:<sp/>&quot;BearerToken&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;BearerToken&quot;:<sp/>&quot;your-token&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApi(configuration.GetSection(</highlight><highlight class="stringliteral">&quot;Api&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="78" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="78" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a189bf7aef2e71e315eec554247d7d8b1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApi</definition>
+        <argsstring>(this IServiceCollection services, ApiOptions options)</argsstring>
+        <name>AddHttpApi</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApi</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+<para>Adds the HTTP API service with pre-configured options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The API options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="98" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="98" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a6cf0d3960e4990f0c43410ced11e02f2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiAnonymous</definition>
+        <argsstring>(this IServiceCollection services, string? baseUrl=null)</argsstring>
+        <name>AddHttpApiAnonymous</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiAnonymous</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>baseUrl</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Adds an anonymous HTTP API service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="118" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="118" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1abc21a19f42dd6ce3d91ee49d81b63e55" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithBearerToken</definition>
+        <argsstring>(this IServiceCollection services, string baseUrl, string bearerToken)</argsstring>
+        <name>AddHttpApiWithBearerToken</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithBearerToken</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bearerToken</declname>
+        </param>
+        <briefdescription>
+<para>Adds an HTTP API service with Bearer token authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bearerToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bearer token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="139" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="139" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a5f9521da1eba3f9811735e9440d71b4a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithBasicAuth</definition>
+        <argsstring>(this IServiceCollection services, string baseUrl, string username, string password)</argsstring>
+        <name>AddHttpApiWithBasicAuth</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithBasicAuth</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>Adds an HTTP API service with Basic authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The username.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The password.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="165" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="165" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a159332c9de10a8aba513dc67580e6a00" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithApiKey</definition>
+        <argsstring>(this IServiceCollection services, string baseUrl, string apiKey, string apiKeyName=&quot;X-API-Key&quot;, ApiKeyLocation location=ApiKeyLocation.Header)</argsstring>
+        <name>AddHttpApiWithApiKey</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithApiKey</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>apiKey</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>apiKeyName</declname>
+          <defval>&quot;X-API-Key&quot;</defval>
+        </param>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30" kindref="member">ApiKeyLocation</ref></type>
+          <declname>location</declname>
+          <defval>ApiKeyLocation.Header</defval>
+        </param>
+        <briefdescription>
+<para>Adds an HTTP API service with API key authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>apiKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The API key.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>apiKeyName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The header or query parameter name. Default is &quot;X-API-Key&quot;.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where to send the API key. Default is ApiKeyLocation.Header.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="195" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="195" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a5b355ed255cc097dd6e6adf89f7afdd2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithCertificate</definition>
+        <argsstring>(this IServiceCollection services, string baseUrl, X509Certificate2 certificate)</argsstring>
+        <name>AddHttpApiWithCertificate</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithCertificate</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>X509Certificate2</type>
+          <declname>certificate</declname>
+        </param>
+        <briefdescription>
+<para>Adds an HTTP API service with client certificate authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>certificate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The client certificate.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="224" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="224" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a3483fd528768af2648255046a82d1057" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithCertificate</definition>
+        <argsstring>(this IServiceCollection services, string baseUrl, string certificatePath, string? certificatePassword=null)</argsstring>
+        <name>AddHttpApiWithCertificate</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithCertificate</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>certificatePath</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>certificatePassword</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Adds an HTTP API service with client certificate authentication from file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>certificatePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to the PFX certificate file.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>certificatePassword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The certificate password.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="250" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="250" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1ae3b8b4086d7b7b638d868b3e5e65b049" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithOAuth2</definition>
+        <argsstring>(this IServiceCollection services, string baseUrl, string tokenUrl, string clientId, string clientSecret, string? scopes=null)</argsstring>
+        <name>AddHttpApiWithOAuth2</name>
+        <qualifiedname>Toolbox.Core.Extensions.ApiServiceCollectionExtensions.AddHttpApiWithOAuth2</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>tokenUrl</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>clientId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>clientSecret</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>scopes</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Adds an HTTP API service with OAuth2 client credentials flow. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base URL for the API.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tokenUrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The OAuth2 token endpoint URL.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clientId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The OAuth2 client ID.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clientSecret</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The OAuth2 client secret.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scopes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional scopes (space-separated).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="280" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="280" bodyend="303"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Extension methods for registering API services with dependency injection. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These extensions simplify the registration of HTTP API services with the Microsoft.Extensions.DependencyInjection container. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="25" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" bodystart="26" bodyend="304"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1af07936d219401a8774cd10c9c89cf1e8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApi</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a1852b3ee52d566732b3820e9f1e5ed3b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApi</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a189bf7aef2e71e315eec554247d7d8b1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApi</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a6cf0d3960e4990f0c43410ced11e02f2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiAnonymous</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a159332c9de10a8aba513dc67580e6a00" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiWithApiKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a5f9521da1eba3f9811735e9440d71b4a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiWithBasicAuth</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1abc21a19f42dd6ce3d91ee49d81b63e55" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiWithBearerToken</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a5b355ed255cc097dd6e6adf89f7afdd2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiWithCertificate</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1a3483fd528768af2648255046a82d1057" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiWithCertificate</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions_1ae3b8b4086d7b7b638d868b3e5e65b049" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ApiServiceCollectionExtensions</scope><name>AddHttpApiWithOAuth2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

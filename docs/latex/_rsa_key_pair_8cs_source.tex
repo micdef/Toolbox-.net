@@ -1,0 +1,105 @@
+\doxysection{Rsa\+Key\+Pair.\+cs}
+\hypertarget{_rsa_key_pair_8cs_source}{}\label{_rsa_key_pair_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs}}
+\doxymbox{\hyperlink{_rsa_key_pair_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ RsaKeyPair.cs}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Container\ for\ RSA\ key\ pair\ data}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Holds\ public\ and\ optional\ private\ key\ in\ various\ formats}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Use\ the\ static\ factory\ methods\ to\ create\ instances}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Security.Cryptography.X509Certificates;}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00008}00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00022}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{00022}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }RsaKeyPair\ :\ IDisposable}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ if\ the\ object\ has\ been\ disposed}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ \_disposed;}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00031}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{00031}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{byte}[]?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ init;\ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00037}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{00037}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{byte}[]?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ init;\ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00043}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{00043}}\ \ \ \ \ \textcolor{keyword}{public}\ X509Certificate2?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ init;\ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00049}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a3fb77c5e71b39fb255e0267b629a1717}{00049}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a3fb77c5e71b39fb255e0267b629a1717}{HasPrivateKey}}\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ is\ not\ \textcolor{keyword}{null}\ ||\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}?.HasPrivateKey\ ==\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00055}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{00055}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ init;\ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{private}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}()}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00064}00064\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00075}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c}{00075}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ RsaKeyPair\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c}{FromBytes}}(\textcolor{keywordtype}{byte}[]\ publicKey,\ \textcolor{keywordtype}{byte}[]?\ privateKey,\ \textcolor{keywordtype}{int}\ keySize)}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(publicKey);}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ RsaKeyPair}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ =\ (\textcolor{keywordtype}{byte}[])publicKey.Clone(),}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ =\ privateKey\ is\ not\ \textcolor{keyword}{null}\ ?\ (\textcolor{keywordtype}{byte}[])privateKey.Clone()\ :\ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}\ =\ keySize}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00094}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_aab9750348bf4c7e81179a2d14a0a42e0}{00094}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ RsaKeyPair\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_aab9750348bf4c7e81179a2d14a0a42e0}{FromCertificate}}(X509Certificate2\ certificate)}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(certificate);}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ var\ rsa\ =\ certificate.GetRSAPublicKey()}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ ??\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentException(\textcolor{stringliteral}{"{}Certificate\ does\ not\ contain\ an\ RSA\ public\ key."{}},\ nameof(certificate));}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ RsaKeyPair}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}\ =\ certificate,}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ =\ rsa.ExportSubjectPublicKeyInfo(),}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ =\ certificate.HasPrivateKey\ ?\ certificate.GetRSAPrivateKey()?.ExportPkcs8PrivateKey()\ :\ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}\ =\ rsa.KeySize}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00115}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a15c37cc950b13377826ad776c130b1f3}{00115}}\ \ \ \ \ \textcolor{keyword}{public}\ RsaKeyPair\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a15c37cc950b13377826ad776c130b1f3}{ToPublicOnly}}()}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00116}00116\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ ObjectDisposedException.ThrowIf(\_disposed,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}\ is\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ certificate\ without\ private\ key}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ var\ publicCert\ =\ X509CertificateLoader.LoadCertificate(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}.RawData);}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ RsaKeyPair}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}\ =\ publicCert,}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ is\ not\ \textcolor{keyword}{null}\ ?\ (\textcolor{keywordtype}{byte}[])\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}.Clone()\ :\ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ =\ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ RsaKeyPair}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}\ is\ not\ \textcolor{keyword}{null}\ ?\ (\textcolor{keywordtype}{byte}[])\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{PublicKey}}.Clone()\ :\ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ =\ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{KeySize}}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00138}00138\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00141}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a529d31ae26cc534d47ff61d57e2b8b34}{00141}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a529d31ae26cc534d47ff61d57e2b8b34}{Dispose}}()}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00142}00142\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_disposed)}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ sensitive\ private\ key\ data}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}\ is\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ Array.Clear(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}},\ 0,\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{PrivateKey}}.Length);}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00154}00154\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}?.Dispose();}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00156}00156\ \ \ \ \ \ \ \ \ \_disposed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_key_pair_8cs_source_l00158}00158\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_extensions" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Extensions</compoundname>
+    <innerclass refid="class_toolbox_1_1_core_1_1_extensions_1_1_api_service_collection_extensions" prot="public">Toolbox::Core::Extensions::ApiServiceCollectionExtensions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions" prot="public">Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions" prot="public">Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions" prot="public">Toolbox::Core::Extensions::MailingServiceCollectionExtensions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_extensions_1_1_open_telemetry_extensions" prot="public">Toolbox::Core::Extensions::OpenTelemetryExtensions</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions" prot="public">Toolbox::Core::Extensions::ServiceCollectionExtensions</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ApiServiceCollectionExtensions.cs" line="14" column="1"/>
+  </compounddef>
+</doxygen>

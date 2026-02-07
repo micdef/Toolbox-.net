@@ -1,0 +1,232 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{}\label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+
+
+Represents an RSA key pair containing public and optionally private key data.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Rsa\+Key\+Pair \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a15c37cc950b13377826ad776c130b1f3}{To\+Public\+Only}} ()
+\begin{DoxyCompactList}\small\item\em Creates an \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} containing only the public key from this pair. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a529d31ae26cc534d47ff61d57e2b8b34}{Dispose}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Rsa\+Key\+Pair \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c}{From\+Bytes}} (byte\+[$\,$]\+ public\+Key, byte\+[$\,$]\+? private\+Key, int key\+Size)
+\begin{DoxyCompactList}\small\item\em Creates an \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} from raw byte arrays. \end{DoxyCompactList}\item 
+static Rsa\+Key\+Pair \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_aab9750348bf4c7e81179a2d14a0a42e0}{From\+Certificate}} (X509\+Certificate2 certificate)
+\begin{DoxyCompactList}\small\item\em Creates an \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} from an X.\+509 certificate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+byte?\+[$\,$]\+ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}{Public\+Key}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the public key in DER-\/encoded Subject\+Public\+Key\+Info format. \end{DoxyCompactList}\item 
+byte?\+[$\,$]\+ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}{Private\+Key}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the private key in DER-\/encoded PKCS\#8 format. \end{DoxyCompactList}\item 
+X509\+Certificate2? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}{Certificate}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the X.\+509 certificate containing the public key. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a3fb77c5e71b39fb255e0267b629a1717}{Has\+Private\+Key}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this key pair contains a private key. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}{Key\+Size}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the key size in bits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an RSA key pair containing public and optionally private key data. 
+
+This class provides multiple formats for RSA keys:\+ raw byte arrays and X.\+509 certificates. 
+
+The private key is optional -\/ some operations (like encryption) only require the public key. 
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00022}{22}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a529d31ae26cc534d47ff61d57e2b8b34}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a529d31ae26cc534d47ff61d57e2b8b34} 
+void Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+Dispose (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+
+
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00141}{141}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!FromBytes@{FromBytes}}
+\index{FromBytes@{FromBytes}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{FromBytes()}{FromBytes()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c} 
+Rsa\+Key\+Pair Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+From\+Bytes (\begin{DoxyParamCaption}\item[{byte\+[$\,$]\+}]{public\+Key}{, }\item[{byte?\+[$\,$]\+}]{private\+Key}{, }\item[{int}]{key\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} from raw byte arrays. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em public\+Key} & The public key in Subject\+Public\+Key\+Info format.\\
+\hline
+{\em private\+Key} & The private key in PKCS\#8 format, or {\ttfamily null} for public-\/only.\\
+\hline
+{\em key\+Size} & The key size in bits.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} instance.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape public\+Key}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00075}{75}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_aab9750348bf4c7e81179a2d14a0a42e0}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!FromCertificate@{FromCertificate}}
+\index{FromCertificate@{FromCertificate}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{FromCertificate()}{FromCertificate()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_aab9750348bf4c7e81179a2d14a0a42e0} 
+Rsa\+Key\+Pair Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+From\+Certificate (\begin{DoxyParamCaption}\item[{X509\+Certificate2}]{certificate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} from an X.\+509 certificate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em certificate} & The certificate containing the RSA public key.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} instance.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape certificate}  is {\ttfamily null}.\\
+\hline
+{\em Argument\+Exception} & Thrown when the certificate does not contain an RSA key.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00094}{94}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a15c37cc950b13377826ad776c130b1f3}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!ToPublicOnly@{ToPublicOnly}}
+\index{ToPublicOnly@{ToPublicOnly}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{ToPublicOnly()}{ToPublicOnly()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a15c37cc950b13377826ad776c130b1f3} 
+Rsa\+Key\+Pair Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+To\+Public\+Only (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates an \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} containing only the public key from this pair. 
+
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair} with only the public key.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Object\+Disposed\+Exception} & Thrown when the object has been disposed.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00115}{115}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!Certificate@{Certificate}}
+\index{Certificate@{Certificate}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{Certificate}{Certificate}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ad50951d095162719319f04e7a569b108} 
+X509\+Certificate2? Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+Certificate\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the X.\+509 certificate containing the public key. 
+
+The certificate, or {\ttfamily null} if not available in this format.
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00043}{43}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a3fb77c5e71b39fb255e0267b629a1717}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!HasPrivateKey@{HasPrivateKey}}
+\index{HasPrivateKey@{HasPrivateKey}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{HasPrivateKey}{HasPrivateKey}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a3fb77c5e71b39fb255e0267b629a1717} 
+bool Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+Has\+Private\+Key\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether this key pair contains a private key. 
+
+{\ttfamily true} if a private key is available; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00049}{49}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!KeySize@{KeySize}}
+\index{KeySize@{KeySize}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{KeySize}{KeySize}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_ae2631c69bf8487916142d64c41e165a2} 
+int Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+Key\+Size\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the key size in bits. 
+
+The RSA key size.
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00055}{55}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!PrivateKey@{PrivateKey}}
+\index{PrivateKey@{PrivateKey}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{PrivateKey}{PrivateKey}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a2e05dabe536cf7b9a543b9bf84dc5104} 
+byte? \+[$\,$]\+ Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+Private\+Key\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the private key in DER-\/encoded PKCS\#8 format. 
+
+The private key bytes, or {\ttfamily null} if not available or not included.
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00037}{37}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5}\index{Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}!PublicKey@{PublicKey}}
+\index{PublicKey@{PublicKey}!Toolbox.Core.Options.RsaKeyPair@{Toolbox.Core.Options.RsaKeyPair}}
+\doxysubsubsection{\texorpdfstring{PublicKey}{PublicKey}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a8744b4471d6363247ac464c63f73f9a5} 
+byte? \+[$\,$]\+ Toolbox.\+Core.\+Options.\+Rsa\+Key\+Pair.\+Public\+Key\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the public key in DER-\/encoded Subject\+Public\+Key\+Info format. 
+
+The public key bytes, or {\ttfamily null} if not available in this format.
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_pair_8cs_source_l00031}{31}} of file \doxymbox{\hyperlink{_rsa_key_pair_8cs_source}{Rsa\+Key\+Pair.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_rsa_key_pair_8cs}{Rsa\+Key\+Pair.\+cs}}\end{DoxyCompactItemize}

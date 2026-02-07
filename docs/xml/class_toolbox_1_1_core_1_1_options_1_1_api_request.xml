@@ -1,0 +1,968 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_api_request" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::ApiRequest</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.ApiRequest.Method</definition>
+        <argsstring></argsstring>
+        <name>Method</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Method</qualifiedname>
+        <briefdescription>
+<para>Gets the HTTP method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The HTTP method (GET, POST, PUT, DELETE, etc.).</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="39" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae51362d8d5c7b263d9807ed1af4c08a6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.ApiRequest.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Url</qualifiedname>
+        <briefdescription>
+<para>Gets the request URL or path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The URL or path. Can be relative if base URL is configured.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="45" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>HttpContent?</type>
+        <definition>HttpContent? Toolbox.Core.Options.ApiRequest.Content</definition>
+        <argsstring></argsstring>
+        <name>Content</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Content</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the request body content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The body content, or <computeroutput>null</computeroutput> for no body.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="51" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1af06149ec3b36c0585349a67fff366b03" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; Toolbox.Core.Options.ApiRequest.Headers</definition>
+        <argsstring></argsstring>
+        <name>Headers</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Headers</qualifiedname>
+        <initializer>= new Dictionary&lt;string, string&gt;()</initializer>
+        <briefdescription>
+<para>Gets the request headers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Dictionary of header names and values.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="57" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae2398a82589a5b98dc9d2f0595ecddcd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; Toolbox.Core.Options.ApiRequest.QueryParameters</definition>
+        <argsstring></argsstring>
+        <name>QueryParameters</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.QueryParameters</qualifiedname>
+        <initializer>= new Dictionary&lt;string, string&gt;()</initializer>
+        <briefdescription>
+<para>Gets the query parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Dictionary of query parameter names and values.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="63" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1acb63d053a186e922ca0c4c75ffc8a129" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan?</type>
+        <definition>TimeSpan? Toolbox.Core.Options.ApiRequest.Timeout</definition>
+        <argsstring></argsstring>
+        <name>Timeout</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Timeout</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the request timeout override. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Custom timeout, or <computeroutput>null</computeroutput> to use default.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="69" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="69" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Core.Options.ApiRequest.ApiRequest</definition>
+        <argsstring>(string method, string url)</argsstring>
+        <name>ApiRequest</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.ApiRequest</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>method</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HTTP method.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="77" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="77" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.WithHeader</definition>
+        <argsstring>(string name, string value)</argsstring>
+        <name>WithHeader</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.WithHeader</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a header to the request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The header name.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The header value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="186" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="186" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.WithQuery</definition>
+        <argsstring>(string name, string value)</argsstring>
+        <name>WithQuery</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.WithQuery</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a query parameter to the request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parameter name.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parameter value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="198" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="198" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1addb19820383e6d8a450841a49522ec82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.WithTimeout</definition>
+        <argsstring>(TimeSpan timeout)</argsstring>
+        <name>WithTimeout</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.WithTimeout</qualifiedname>
+        <param>
+          <type>TimeSpan</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+<para>Sets a custom timeout for this request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timeout.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="209" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="209" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6062cb6723b3dfbd0aaeba357ddf6365" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.SetJsonContent&lt; T &gt;</definition>
+        <argsstring>(T body, JsonSerializerOptions? options=null)</argsstring>
+        <name>SetJsonContent&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.SetJsonContent&lt; T &gt;</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>JsonSerializerOptions?</type>
+          <declname>options</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Sets JSON content for the request body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request body.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JSON serializer options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="222" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="222" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f06d44684caeb91b514078f9285003f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.SetStringContent</definition>
+        <argsstring>(string content, string contentType=&quot;text/plain&quot;)</argsstring>
+        <name>SetStringContent</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.SetStringContent</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>content</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>contentType</declname>
+          <defval>&quot;text/plain&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Sets string content for the request body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content string.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content type. Default is &quot;text/plain&quot;.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="235" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="235" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f54de7d78e3039400d846a5a6350071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.SetFormContent</definition>
+        <argsstring>(IEnumerable&lt; KeyValuePair&lt; string, string &gt; &gt; formData)</argsstring>
+        <name>SetFormContent</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.SetFormContent</qualifiedname>
+        <param>
+          <type>IEnumerable&lt; KeyValuePair&lt; string, string &gt; &gt;</type>
+          <declname>formData</declname>
+        </param>
+        <briefdescription>
+<para>Sets form URL-encoded content for the request body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>formData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The form data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="246" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="246" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a5d6dece7eb8a858c68da4662b33e62d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.SetBinaryContent</definition>
+        <argsstring>(byte[] bytes, string contentType=&quot;application/octet-stream&quot;)</argsstring>
+        <name>SetBinaryContent</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.SetBinaryContent</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>contentType</declname>
+          <defval>&quot;application/octet-stream&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Sets binary content for the request body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The byte array.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content type. Default is &quot;application/octet-stream&quot;.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="258" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="258" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a4b421958cd4ae4ca01f43342be5722bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>ApiRequest Toolbox.Core.Options.ApiRequest.SetStreamContent</definition>
+        <argsstring>(Stream stream, string contentType=&quot;application/octet-stream&quot;)</argsstring>
+        <name>SetStreamContent</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.SetStreamContent</qualifiedname>
+        <param>
+          <type>Stream</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>contentType</declname>
+          <defval>&quot;application/octet-stream&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Sets stream content for the request body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content type. Default is &quot;application/octet-stream&quot;.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This request for chaining.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="271" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="271" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.ApiRequest.BuildUrl</definition>
+        <argsstring>()</argsstring>
+        <name>BuildUrl</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.BuildUrl</qualifiedname>
+        <briefdescription>
+<para>Builds the full URL with query parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The URL with query string.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="282" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="282" bodyend="295"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Get</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Get</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Get</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates a GET request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="91" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2ea4daa4d8de703288c4f3c80d7c4ccf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Post&lt; T &gt;</definition>
+        <argsstring>(string url, T body, JsonSerializerOptions? options=null)</argsstring>
+        <name>Post&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Post&lt; T &gt;</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>JsonSerializerOptions?</type>
+          <declname>options</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates a POST request with JSON content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request body.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JSON serializer options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="101" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="101" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Post</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Post</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Post</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates a POST request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="113" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ad246e7b922cfe5fa71f2acf44f79592a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Put&lt; T &gt;</definition>
+        <argsstring>(string url, T body, JsonSerializerOptions? options=null)</argsstring>
+        <name>Put&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Put&lt; T &gt;</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>JsonSerializerOptions?</type>
+          <declname>options</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates a PUT request with JSON content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request body.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JSON serializer options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="123" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="123" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab09b7cc8b377bd225d976fa846631ce4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Put</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Put</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Put</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates a PUT request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="135" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a300af8f887a6751cc77ac59dba56b587" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Patch&lt; T &gt;</definition>
+        <argsstring>(string url, T body, JsonSerializerOptions? options=null)</argsstring>
+        <name>Patch&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Patch&lt; T &gt;</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>JsonSerializerOptions?</type>
+          <declname>options</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates a PATCH request with JSON content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request body.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JSON serializer options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="145" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="145" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a7bd68f324636e566840020c0a6ac88e3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Patch</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Patch</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Patch</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates a PATCH request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="157" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6e1f77a9bb4eb5dd123961e26c2c300f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Delete</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Delete</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates a DELETE request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="164" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a1bb959460ddb0199ab46d06fc901d92a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Head</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Head</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Head</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates a HEAD request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="171" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="171" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_request_1acf3890bc53a094393fbbf1a4cab61308" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref></type>
+        <definition>static ApiRequest Toolbox.Core.Options.ApiRequest.Options</definition>
+        <argsstring>(string url)</argsstring>
+        <name>Options</name>
+        <qualifiedname>Toolbox.Core.Options.ApiRequest.Options</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Creates an OPTIONS request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="178" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="178" bodyend="178"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an HTTP API request. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class encapsulates all the data needed to make an HTTP request, including URL, method, headers, and body content. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>GET<sp/>request</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>request<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref>(</highlight><highlight class="stringliteral">&quot;GET&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/users&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>POST<sp/>with<sp/>JSON<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>request<sp/>=<sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref>.Post(</highlight><highlight class="stringliteral">&quot;/users&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>{<sp/>Name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;John&quot;</highlight><highlight class="normal"><sp/>});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>With<sp/>custom<sp/>headers</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>request<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" kindref="member">ApiRequest</ref>(</highlight><highlight class="stringliteral">&quot;GET&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/data&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.WithHeader(</highlight><highlight class="stringliteral">&quot;X-Custom&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" line="33" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiRequest.cs" bodystart="34" bodyend="296"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>ApiRequest</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>BuildUrl</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Content</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6e1f77a9bb4eb5dd123961e26c2c300f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Delete</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Get</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a1bb959460ddb0199ab46d06fc901d92a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Head</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1af06149ec3b36c0585349a67fff366b03" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Headers</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Method</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1acf3890bc53a094393fbbf1a4cab61308" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Options</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a7bd68f324636e566840020c0a6ac88e3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Patch</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a300af8f887a6751cc77ac59dba56b587" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Patch&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Post</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2ea4daa4d8de703288c4f3c80d7c4ccf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Post&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab09b7cc8b377bd225d976fa846631ce4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Put</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ad246e7b922cfe5fa71f2acf44f79592a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Put&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae2398a82589a5b98dc9d2f0595ecddcd" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>QueryParameters</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a5d6dece7eb8a858c68da4662b33e62d4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>SetBinaryContent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f54de7d78e3039400d846a5a6350071" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>SetFormContent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6062cb6723b3dfbd0aaeba357ddf6365" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>SetJsonContent&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a4b421958cd4ae4ca01f43342be5722bd" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>SetStreamContent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f06d44684caeb91b514078f9285003f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>SetStringContent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1acb63d053a186e922ca0c4c75ffc8a129" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Timeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae51362d8d5c7b263d9807ed1af4c08a6" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>Url</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>WithHeader</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>WithQuery</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_request_1addb19820383e6d8a450841a49522ec82" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiRequest</scope><name>WithTimeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

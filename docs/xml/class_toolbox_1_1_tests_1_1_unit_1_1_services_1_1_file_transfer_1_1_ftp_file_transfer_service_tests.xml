@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aade6f419cb478ffe7bee4fb589532cf2" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service" kindref="compound">FtpFileTransferService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;FtpFileTransferService&gt; &gt; Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="18" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aff16d2336d552771847f7763d30f73e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.FtpFileTransferServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>FtpFileTransferServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.FtpFileTransferServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="20" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a20fdbff4f812ff16eb82403f05271b9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="36" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="36" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a333d7cbe40397ec55380065feb2040fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="48" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="48" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a8c52a9869f5209beccefc2d21cb7163e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithEmptyHost_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="61" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="61" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a504bafad0b400bf62e6eac65e91ea369" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithEmptyUsername_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithEmptyUsername_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithEmptyUsername_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="80" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="80" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a5917a4c6799d551fb1116bbaabe31462" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithValidOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithValidOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithValidOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="99" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="99" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aec3ea6acde555cf3f5accf45af2a5aea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithDirectOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithDirectOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.Constructor_WithDirectOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="112" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="112" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a57abd6d3271e409748a78db072eb60c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="129" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="129" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a04a6b0676316216de79e3a8760db18a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="144" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="144" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a804f345e51752a5c5db5bd2e8282ddf2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="159" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="159" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a0b6a6586a8b7422db0639a181d117d62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="174" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="174" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a455e5d04f97df3096d74c6cf7f7cb0de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="189" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="189" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a0509724c54624645815051e003e420bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="219" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="219" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a9d372bc28ec431955a18701f02359b87" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="234" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="234" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1ab50fff29a0119d7550d229d65021ef86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="253" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="253" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1ab1d26f335acc163630323bab88e93fe9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="268" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="268" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a2ab374598103b3b7119442d5454bf1a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="283" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="283" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a2f8a69ed1e7ef1741fa0dd6c8d3482bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="298" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="298" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a9bab3f9121cec3a93e8554e5a7d9c13c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="319" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="319" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aaa2e3d551be602b7dc6a93ea7b8cb345" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="334" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="334" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a60204d5955a7c542f55e52a99184a214" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="353" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="353" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1af4c4668cb376f0110c541823c7871faa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DisposeAsync_ShouldDisposeResources</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldDisposeResources</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.DisposeAsync_ShouldDisposeResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="369" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="369" bodyend="382"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1ac0a72986236ebce1191d4953c0ca7d66" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kindref="compound">FileTransferOptions</ref></type>
+        <definition>static FileTransferOptions Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.CreateValidOptions</definition>
+        <argsstring>()</argsstring>
+        <name>CreateValidOptions</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests.CreateValidOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="25" column="40" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="25" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service" kindref="compound">FtpFileTransferService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These tests verify argument validation and configuration. <ref refid="namespace_toolbox_1_1_tests_1_1_integration" kindref="compound">Integration</ref> tests with a real FTP server would be in a separate test project. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" line="16" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/FtpFileTransferServiceTests.cs" bodystart="17" bodyend="385"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aade6f419cb478ffe7bee4fb589532cf2" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aec3ea6acde555cf3f5accf45af2a5aea" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>Constructor_WithDirectOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a8c52a9869f5209beccefc2d21cb7163e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>Constructor_WithEmptyHost_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a504bafad0b400bf62e6eac65e91ea369" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>Constructor_WithEmptyUsername_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a333d7cbe40397ec55380065feb2040fe" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a20fdbff4f812ff16eb82403f05271b9f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a5917a4c6799d551fb1116bbaabe31462" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>Constructor_WithValidOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1ac0a72986236ebce1191d4953c0ca7d66" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>CreateValidOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1af4c4668cb376f0110c541823c7871faa" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DisposeAsync_ShouldDisposeResources</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a9bab3f9121cec3a93e8554e5a7d9c13c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aaa2e3d551be602b7dc6a93ea7b8cb345" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1ab1d26f335acc163630323bab88e93fe9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1ab50fff29a0119d7550d229d65021ef86" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a2f8a69ed1e7ef1741fa0dd6c8d3482bd" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a2ab374598103b3b7119442d5454bf1a9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1aff16d2336d552771847f7763d30f73e3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>FtpFileTransferServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a0509724c54624645815051e003e420bd" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a9d372bc28ec431955a18701f02359b87" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a60204d5955a7c542f55e52a99184a214" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a804f345e51752a5c5db5bd2e8282ddf2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a57abd6d3271e409748a78db072eb60c3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a04a6b0676316216de79e3a8760db18a4" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a455e5d04f97df3096d74c6cf7f7cb0de" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests_1a0b6a6586a8b7422db0639a181d117d62" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests</scope><name>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

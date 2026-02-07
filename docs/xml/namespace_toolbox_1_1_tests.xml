@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests</compoundname>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_integration">Toolbox::Tests::Integration</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_regression">Toolbox::Tests::Regression</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit">Toolbox::Tests::Unit</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="9" column="1"/>
+  </compounddef>
+</doxygen>

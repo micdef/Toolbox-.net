@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_abstractions" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Abstractions</compoundname>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" prot="public">Toolbox::Core::Abstractions::IAsyncDisposableService</innerclass>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service" prot="public">Toolbox::Core::Abstractions::IDisposableService</innerclass>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" prot="public">Toolbox::Core::Abstractions::IInstrumentedService</innerclass>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox::Core::Abstractions::Services</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs" line="6" column="1"/>
+  </compounddef>
+</doxygen>

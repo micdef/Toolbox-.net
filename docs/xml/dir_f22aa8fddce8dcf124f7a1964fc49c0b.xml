@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_f22aa8fddce8dcf124f7a1964fc49c0b" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core</compoundname>
+    <innerdir refid="dir_4545b5be615a473c9a127332be7eb6bd">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions</innerdir>
+    <innerdir refid="dir_30b6d4f0a5dc51fa6d81d2a3a49b9829">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base</innerdir>
+    <innerdir refid="dir_c945ddb9beeffc9cf85643aaa67e35d2">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions</innerdir>
+    <innerdir refid="dir_5e3976146a5c9c5d3c016f6af0e4713f">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj</innerdir>
+    <innerdir refid="dir_d27de8e9a8fedd922b0775e5e7f0fd69">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options</innerdir>
+    <innerdir refid="dir_282f86989ac6d3b849143b291e7ac116">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services</innerdir>
+    <innerdir refid="dir_a54edc53abcb778c6ee03589838377f1">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry</innerdir>
+    <innerfile refid="src_2_toolbox_8_core_2_global_usings_8cs">GlobalUsings.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/"/>
+  </compounddef>
+</doxygen>

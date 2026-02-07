@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants</compoundname>
+    <innerclass refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_attributes" prot="public">Toolbox::Core::Telemetry::TelemetryConstants::Attributes</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics" prot="public">Toolbox::Core::Telemetry::TelemetryConstants::Metrics</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes" prot="public">Toolbox::Core::Telemetry::TelemetryConstants::CryptoAttributes</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_file_transfer_attributes" prot="public">Toolbox::Core::Telemetry::TelemetryConstants::FileTransferAttributes</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes" prot="public">Toolbox::Core::Telemetry::TelemetryConstants::MailingAttributes</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes" prot="public">Toolbox::Core::Telemetry::TelemetryConstants::ApiAttributes</innerclass>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1a23584e2ab9c8e7ffdc752dcac50a47c4" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.ActivitySourceName</definition>
+        <argsstring></argsstring>
+        <name>ActivitySourceName</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.ActivitySourceName</qualifiedname>
+        <initializer>= &quot;Toolbox.Core&quot;</initializer>
+        <briefdescription>
+<para>The name of the root activity source for <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="20" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1a06328cf58993b3a8a9337c99aa5c53e7" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.MeterName</definition>
+        <argsstring></argsstring>
+        <name>MeterName</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.MeterName</qualifiedname>
+        <initializer>= &quot;Toolbox.Core&quot;</initializer>
+        <briefdescription>
+<para>The name of the root meter for <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> metrics. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="25" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1a2cf6ffd73a03619cfa267de508669021" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Version</definition>
+        <argsstring></argsstring>
+        <name>Version</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Version</qualifiedname>
+        <initializer>= &quot;1.0.0&quot;</initializer>
+        <briefdescription>
+<para>The current version of the telemetry instrumentation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This version should be updated when breaking changes are made to telemetry semantics (attribute names, metric units, etc.). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="34" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Constants used for OpenTelemetry instrumentation across <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Using consistent names for activity sources and meters ensures proper correlation and filtering in observability backends. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="15" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="16" bodyend="167"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1a23584e2ab9c8e7ffdc752dcac50a47c4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants</scope><name>ActivitySourceName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1a06328cf58993b3a8a9337c99aa5c53e7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants</scope><name>MeterName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1a2cf6ffd73a03619cfa267de508669021" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants</scope><name>Version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

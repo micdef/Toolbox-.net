@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_5e3976146a5c9c5d3c016f6af0e4713f" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj</compoundname>
+    <innerdir refid="dir_80049b72955c6cf2a572fe2b5cf85fa3">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/Debug</innerdir>
+    <innerdir refid="dir_636a9ef4e55783369f86ea89a8d9e435">C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/Release</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/"/>
+  </compounddef>
+</doxygen>

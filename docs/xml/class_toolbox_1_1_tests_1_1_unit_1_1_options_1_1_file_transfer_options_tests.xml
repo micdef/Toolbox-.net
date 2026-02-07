@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a242dcaa6e6b95e8f9876e6f5bc97b49b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForFtp_ShouldReturn21</definition>
+        <argsstring>()</argsstring>
+        <name>GetDefaultPort_ForFtp_ShouldReturn21</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForFtp_ShouldReturn21</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="11" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="11" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a550e5b1193017ee318c15eaac3176b93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForFtps_ShouldReturn990</definition>
+        <argsstring>()</argsstring>
+        <name>GetDefaultPort_ForFtps_ShouldReturn990</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForFtps_ShouldReturn990</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="24" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="24" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a7dace05bd04ed530f0add10903380ff6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForSftp_ShouldReturn22</definition>
+        <argsstring>()</argsstring>
+        <name>GetDefaultPort_ForSftp_ShouldReturn22</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForSftp_ShouldReturn22</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="37" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="37" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1ad1ef6f6860000e9330af768e05aa3bb8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</definition>
+        <argsstring>()</argsstring>
+        <name>GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="50" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="50" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1adfca657bbb6111496f5e47b3b9f2df85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</definition>
+        <argsstring>()</argsstring>
+        <name>GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="67" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="67" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1aeda7b00391282acfeb1ba09823aee7e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.DefaultValues_ShouldBeCorrect</definition>
+        <argsstring>()</argsstring>
+        <name>DefaultValues_ShouldBeCorrect</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.DefaultValues_ShouldBeCorrect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="84" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="84" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a77b597b15191d70e048b7db668cee4c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.SectionName_ShouldBeCorrect</definition>
+        <argsstring>()</argsstring>
+        <name>SectionName_ShouldBeCorrect</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.FileTransferOptionsTests.SectionName_ShouldBeCorrect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="104" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="104" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kindref="compound">FileTransferOptions</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" line="8" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs" bodystart="9" bodyend="109"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1aeda7b00391282acfeb1ba09823aee7e9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>DefaultValues_ShouldBeCorrect</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a242dcaa6e6b95e8f9876e6f5bc97b49b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>GetDefaultPort_ForFtp_ShouldReturn21</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a550e5b1193017ee318c15eaac3176b93" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>GetDefaultPort_ForFtps_ShouldReturn990</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a7dace05bd04ed530f0add10903380ff6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>GetDefaultPort_ForSftp_ShouldReturn22</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1adfca657bbb6111496f5e47b3b9f2df85" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1ad1ef6f6860000e9330af768e05aa3bb8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a77b597b15191d70e048b7db668cee4c0" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::FileTransferOptionsTests</scope><name>SectionName_ShouldBeCorrect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

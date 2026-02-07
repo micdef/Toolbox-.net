@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Extensions::MailingServiceCollectionExtensions</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a7e653971cce903c8c7397632b2ee839c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddSmtpMailing</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; MailingOptions &gt; configureOptions)</argsstring>
+        <name>AddSmtpMailing</name>
+        <qualifiedname>Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddSmtpMailing</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options" kindref="compound">MailingOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SMTP mailing service to the service collection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Action to configure mailing options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddSmtpMailing(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;smtp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>587;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" kindref="member">SmtpSecurityMode</ref>.StartTls;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user@example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" line="45" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" bodystart="45" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a0fb711c6984380a6d54beaedc3c2ab72" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddSmtpMailing</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddSmtpMailing</name>
+        <qualifiedname>Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddSmtpMailing</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SMTP mailing service to the service collection with a configuration section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration section containing mailing options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>In<sp/>appsettings.json:</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>&quot;Mailing&quot;:<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;Host&quot;:<sp/>&quot;smtp.example.com&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;Port&quot;:<sp/>587,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;SecurityMode&quot;:<sp/>&quot;StartTls&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;Username&quot;:<sp/>&quot;user@example.com&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>&quot;Password&quot;:<sp/>&quot;password&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(configuration.GetSection(</highlight><highlight class="stringliteral">&quot;Mailing&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" line="81" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" bodystart="81" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1af0c81a0b89b5fad5370a07fa1de4f797" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddSmtpMailing</definition>
+        <argsstring>(this IServiceCollection services, MailingOptions options)</argsstring>
+        <name>AddSmtpMailing</name>
+        <qualifiedname>Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddSmtpMailing</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options" kindref="compound">MailingOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SMTP mailing service to the service collection with pre-configured options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mailing options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" line="101" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" bodystart="101" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a42b5de63a57819c30e487b506ecb7f97" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddGmailMailing</definition>
+        <argsstring>(this IServiceCollection services, string email, string appPassword)</argsstring>
+        <name>AddGmailMailing</name>
+        <qualifiedname>Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddGmailMailing</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>appPassword</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SMTP mailing service with Gmail configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>email</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Gmail email address.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appPassword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Gmail app password (not the regular password).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>To use Gmail, you need to create an App Password: <ulink url="https://support.google.com/accounts/answer/185833">https://support.google.com/accounts/answer/185833</ulink> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" line="128" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" bodystart="128" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a67a744521afb867a57330c481bc2d5e2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddOutlookMailing</definition>
+        <argsstring>(this IServiceCollection services, string email, string password)</argsstring>
+        <name>AddOutlookMailing</name>
+        <qualifiedname>Toolbox.Core.Extensions.MailingServiceCollectionExtensions.AddOutlookMailing</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SMTP mailing service with Office 365 / Outlook configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>email</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Microsoft email address.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The account password or app password.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" line="156" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" bodystart="156" bodyend="174"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Extension methods for registering mailing services with dependency injection. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These extensions simplify the registration of mailing services with the Microsoft.Extensions.DependencyInjection container. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" line="24" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs" bodystart="25" bodyend="175"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a42b5de63a57819c30e487b506ecb7f97" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::MailingServiceCollectionExtensions</scope><name>AddGmailMailing</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a67a744521afb867a57330c481bc2d5e2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::MailingServiceCollectionExtensions</scope><name>AddOutlookMailing</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a7e653971cce903c8c7397632b2ee839c" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::MailingServiceCollectionExtensions</scope><name>AddSmtpMailing</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1a0fb711c6984380a6d54beaedc3c2ab72" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::MailingServiceCollectionExtensions</scope><name>AddSmtpMailing</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_mailing_service_collection_extensions_1af0c81a0b89b5fad5370a07fa1de4f797" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::MailingServiceCollectionExtensions</scope><name>AddSmtpMailing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

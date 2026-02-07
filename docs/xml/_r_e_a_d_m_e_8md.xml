@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Toolbox</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>.NET<sp/>10<sp/>library<sp/>providing<sp/>base<sp/>services,<sp/>telemetry,<sp/>and<sp/>dependency<sp/>injection<sp/>extensions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Disposable<sp/>Services**:<sp/>Thread-safe<sp/>base<sp/>classes<sp/>for<sp/>synchronous<sp/>and<sp/>asynchronous<sp/>disposal</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**OpenTelemetry<sp/>Integration**:<sp/>Built-in<sp/>distributed<sp/>tracing<sp/>and<sp/>metrics<sp/>collection</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Dependency<sp/>Injection**:<sp/>Fluent<sp/>extensions<sp/>for<sp/>easy<sp/>service<sp/>registration</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Comprehensive<sp/>Documentation**:<sp/>Full<sp/>Doxygen<sp/>documentation<sp/>support</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Requirements</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>.NET<sp/>10.0<sp/>or<sp/>later</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>C#<sp/>14.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Installation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Add<sp/>the<sp/>project<sp/>reference<sp/>to<sp/>your<sp/>solution:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```xml</highlight></codeline>
+<codeline><highlight class="normal">&lt;ProjectReference<sp/>Include=&quot;..\src\Toolbox.Core\Toolbox.Core.csproj&quot;<sp/>/&gt;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Quick<sp/>Start</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">var<sp/>builder<sp/>=<sp/>Host.CreateApplicationBuilder(args);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Add<sp/>Toolbox<sp/>core<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxCore(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableDetailedTelemetry<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Add<sp/>OpenTelemetry<sp/>integration</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableTracing<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableMetrics<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableConsoleExport<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">var<sp/>app<sp/>=<sp/>builder.Build();</highlight></codeline>
+<codeline><highlight class="normal">app.Run();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[Usage<sp/>Guide](USAGE.md)<sp/>-<sp/>Detailed<sp/>usage<sp/>instructions</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[API<sp/>Documentation](docs/html/index.html)<sp/>-<sp/>Generated<sp/>Doxygen<sp/>documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Generating<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">doxygen<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Project<sp/>Structure</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Toolbox/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>src/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Core/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Core<sp/>library</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Abstractions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Interfaces</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Base/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Base<sp/>classes</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Extensions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>DI<sp/>extensions</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Options/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Configuration<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>└──<sp/>Telemetry/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>OpenTelemetry<sp/>infrastructure</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>tests/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Tests/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Unit<sp/>and<sp/>integration<sp/>tests</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>samples/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Sample/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Sample<sp/>application</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>docs/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Generated<sp/>documentation</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">dotnet<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Testing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">dotnet<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/README.md"/>
+  </compounddef>
+</doxygen>

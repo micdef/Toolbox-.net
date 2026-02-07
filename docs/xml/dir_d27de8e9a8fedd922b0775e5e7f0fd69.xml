@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_d27de8e9a8fedd922b0775e5e7f0fd69" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options</compoundname>
+    <innerfile refid="_aes_key_size_8cs">AesKeySize.cs</innerfile>
+    <innerfile refid="_api_authentication_mode_8cs">ApiAuthenticationMode.cs</innerfile>
+    <innerfile refid="_api_options_8cs">ApiOptions.cs</innerfile>
+    <innerfile refid="_api_request_8cs">ApiRequest.cs</innerfile>
+    <innerfile refid="_api_response_8cs">ApiResponse.cs</innerfile>
+    <innerfile refid="_base64_cryptography_options_8cs">Base64CryptographyOptions.cs</innerfile>
+    <innerfile refid="_base64_encoding_table_8cs">Base64EncodingTable.cs</innerfile>
+    <innerfile refid="_email_address_8cs">EmailAddress.cs</innerfile>
+    <innerfile refid="_email_attachment_8cs">EmailAttachment.cs</innerfile>
+    <innerfile refid="_email_message_8cs">EmailMessage.cs</innerfile>
+    <innerfile refid="_file_transfer_options_8cs">FileTransferOptions.cs</innerfile>
+    <innerfile refid="_file_transfer_protocol_8cs">FileTransferProtocol.cs</innerfile>
+    <innerfile refid="_mailing_options_8cs">MailingOptions.cs</innerfile>
+    <innerfile refid="_rsa_key_pair_8cs">RsaKeyPair.cs</innerfile>
+    <innerfile refid="_rsa_key_size_8cs">RsaKeySize.cs</innerfile>
+    <innerfile refid="_rsa_padding_mode_8cs">RsaPaddingMode.cs</innerfile>
+    <innerfile refid="_smtp_security_mode_8cs">SmtpSecurityMode.cs</innerfile>
+    <innerfile refid="_toolbox_options_8cs">ToolboxOptions.cs</innerfile>
+    <innerfile refid="_toolbox_telemetry_options_8cs">ToolboxTelemetryOptions.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/"/>
+  </compounddef>
+</doxygen>

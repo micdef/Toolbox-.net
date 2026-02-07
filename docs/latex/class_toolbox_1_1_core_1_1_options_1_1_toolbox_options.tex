@@ -1,0 +1,115 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Toolbox\+Options Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options}{}\label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options}\index{Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}}
+
+
+Configuration options for \doxylink{namespace_toolbox}{Toolbox} core services.  
+
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a04306cd36618f56804e8622e6700dea2}{Section\+Name}} = "{}Toolbox"{}
+\begin{DoxyCompactList}\small\item\em The configuration section name for \doxylink{namespace_toolbox}{Toolbox} options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a70d6a07f94590e14b15ee1552b631534}{Enable\+Detailed\+Telemetry}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether detailed telemetry should be enabled. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a0bf6b659534ce1a07f5e7e8c0a59138b}{Service\+Prefix}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the prefix to use for service names in telemetry. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a521a18cbf4960b456ee8213ab837d65e}{Async\+Disposal\+Timeout}} = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the default timeout for async disposal operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration options for \doxylink{namespace_toolbox}{Toolbox} core services. 
+
+These options can be configured via {\ttfamily appsettings.\+json}:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{stringliteral}{"{}Toolbox"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}EnableDetailedTelemetry"{}}:\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}ServicePrefix"{}}:\ \textcolor{stringliteral}{"{}MyApp"{}}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_options_8cs_source_l00022}{22}} of file \doxymbox{\hyperlink{_toolbox_options_8cs_source}{Toolbox\+Options.\+cs}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a04306cd36618f56804e8622e6700dea2}\index{Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}!SectionName@{SectionName}}
+\index{SectionName@{SectionName}!Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}}
+\doxysubsubsection{\texorpdfstring{SectionName}{SectionName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a04306cd36618f56804e8622e6700dea2} 
+const string Toolbox.\+Core.\+Options.\+Toolbox\+Options.\+Section\+Name = "{}Toolbox"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The configuration section name for \doxylink{namespace_toolbox}{Toolbox} options. 
+
+
+
+Definition at line \doxymbox{\hyperlink{_toolbox_options_8cs_source_l00027}{27}} of file \doxymbox{\hyperlink{_toolbox_options_8cs_source}{Toolbox\+Options.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a521a18cbf4960b456ee8213ab837d65e}\index{Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}!AsyncDisposalTimeout@{AsyncDisposalTimeout}}
+\index{AsyncDisposalTimeout@{AsyncDisposalTimeout}!Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}}
+\doxysubsubsection{\texorpdfstring{AsyncDisposalTimeout}{AsyncDisposalTimeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a521a18cbf4960b456ee8213ab837d65e} 
+Time\+Span Toolbox.\+Core.\+Options.\+Toolbox\+Options.\+Async\+Disposal\+Timeout = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the default timeout for async disposal operations. 
+
+The timeout duration. Defaults to 30 seconds. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_options_8cs_source_l00059}{59}} of file \doxymbox{\hyperlink{_toolbox_options_8cs_source}{Toolbox\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a70d6a07f94590e14b15ee1552b631534}\index{Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}!EnableDetailedTelemetry@{EnableDetailedTelemetry}}
+\index{EnableDetailedTelemetry@{EnableDetailedTelemetry}!Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}}
+\doxysubsubsection{\texorpdfstring{EnableDetailedTelemetry}{EnableDetailedTelemetry}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a70d6a07f94590e14b15ee1552b631534} 
+bool Toolbox.\+Core.\+Options.\+Toolbox\+Options.\+Enable\+Detailed\+Telemetry\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether detailed telemetry should be enabled. 
+
+{\ttfamily true} to enable detailed telemetry including all operations; {\ttfamily false} for minimal telemetry. Defaults to {\ttfamily false}. 
+
+When enabled, additional spans and metrics are recorded for internal operations. This may increase telemetry volume but provides better debugging capabilities. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_options_8cs_source_l00040}{40}} of file \doxymbox{\hyperlink{_toolbox_options_8cs_source}{Toolbox\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a0bf6b659534ce1a07f5e7e8c0a59138b}\index{Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}!ServicePrefix@{ServicePrefix}}
+\index{ServicePrefix@{ServicePrefix}!Toolbox.Core.Options.ToolboxOptions@{Toolbox.Core.Options.ToolboxOptions}}
+\doxysubsubsection{\texorpdfstring{ServicePrefix}{ServicePrefix}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a0bf6b659534ce1a07f5e7e8c0a59138b} 
+string? Toolbox.\+Core.\+Options.\+Toolbox\+Options.\+Service\+Prefix\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the prefix to use for service names in telemetry. 
+
+A string prefix prepended to service names. Defaults to {\ttfamily null} (no prefix). 
+
+Use this to distinguish services from different applications using the same \doxylink{namespace_toolbox}{Toolbox} library. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_options_8cs_source_l00051}{51}} of file \doxymbox{\hyperlink{_toolbox_options_8cs_source}{Toolbox\+Options.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_toolbox_options_8cs}{Toolbox\+Options.\+cs}}\end{DoxyCompactItemize}

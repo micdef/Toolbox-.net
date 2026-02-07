@@ -1,0 +1,181 @@
+\doxysection{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service Interface Reference}
+\hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}{}\label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}\index{Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}}
+
+
+Interface for cryptography services providing text encryption and decryption.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.333333cm]{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_af7d5a5001f53ab7db2bee41b919e8b59}{Encrypt}} (string plain\+Text)
+\begin{DoxyCompactList}\small\item\em Encrypts the specified plain text. \end{DoxyCompactList}\item 
+Task$<$ string $>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a05ababf7768be976af8ab8b6b96e60bf}{Encrypt\+Async}} (string plain\+Text, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Asynchronously encrypts the specified plain text. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a013a7019090a0e9fe9ce39604993d04f}{Decrypt}} (string encrypted\+Text)
+\begin{DoxyCompactList}\small\item\em Decrypts the specified encrypted text. \end{DoxyCompactList}\item 
+Task$<$ string $>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a5b20b3deb70835815fd7dcd53ea4b36a}{Decrypt\+Async}} (string encrypted\+Text, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Asynchronously decrypts the specified encrypted text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IAsync\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_a3bcb31cb213a921cbfc4b548b1571abb}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Activity\+Source \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for cryptography services providing text encryption and decryption. 
+
+This interface defines a simple contract for encrypting and decrypting text. Implementations may use various algorithms (Base64, AES, RSA, etc.). 
+
+All methods accept and return string values for ease of use. 
+
+Definition at line \doxymbox{\hyperlink{_i_cryptography_service_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_i_cryptography_service_8cs_source}{ICryptography\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a013a7019090a0e9fe9ce39604993d04f}\index{Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}!Decrypt@{Decrypt}}
+\index{Decrypt@{Decrypt}!Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}}
+\doxysubsubsection{\texorpdfstring{Decrypt()}{Decrypt()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a013a7019090a0e9fe9ce39604993d04f} 
+string Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service.\+Decrypt (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text}{}\end{DoxyParamCaption})}
+
+
+
+Decrypts the specified encrypted text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a3f723805255f3988a36130df6990b91f}{Toolbox.\+Core.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service}}, \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_adc6af0a05226f77128990a579635ed43}{Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c}{Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a5b20b3deb70835815fd7dcd53ea4b36a}\index{Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}!DecryptAsync@{DecryptAsync}}
+\index{DecryptAsync@{DecryptAsync}!Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}}
+\doxysubsubsection{\texorpdfstring{DecryptAsync()}{DecryptAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a5b20b3deb70835815fd7dcd53ea4b36a} 
+Task$<$ string $>$ Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service.\+Decrypt\+Async (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Asynchronously decrypts the specified encrypted text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_ac0d76348e1fb0d832893e94ac14c19e0}{Toolbox.\+Core.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service}}, \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a9ac221788e4ac3ca1fb3a0408f65f692}{Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a12dc875ff5bd879d7b5ccbe17413ec7e}{Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_af7d5a5001f53ab7db2bee41b919e8b59}\index{Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}!Encrypt@{Encrypt}}
+\index{Encrypt@{Encrypt}!Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}}
+\doxysubsubsection{\texorpdfstring{Encrypt()}{Encrypt()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_af7d5a5001f53ab7db2bee41b919e8b59} 
+string Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service.\+Encrypt (\begin{DoxyParamCaption}\item[{string}]{plain\+Text}{}\end{DoxyParamCaption})}
+
+
+
+Encrypts the specified plain text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_acca78d079b5b61766b44df902ded3865}{Toolbox.\+Core.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service}}, \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a367b25c280d280f5ecf469e94da66d04}{Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca}{Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a05ababf7768be976af8ab8b6b96e60bf}\index{Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}!EncryptAsync@{EncryptAsync}}
+\index{EncryptAsync@{EncryptAsync}!Toolbox.Core.Abstractions.Services.ICryptographyService@{Toolbox.Core.Abstractions.Services.ICryptographyService}}
+\doxysubsubsection{\texorpdfstring{EncryptAsync()}{EncryptAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a05ababf7768be976af8ab8b6b96e60bf} 
+Task$<$ string $>$ Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service.\+Encrypt\+Async (\begin{DoxyParamCaption}\item[{string}]{plain\+Text}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Asynchronously encrypts the specified plain text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a912ab62911fa9f0ec93297f2a918f351}{Toolbox.\+Core.\+Services.\+Cryptography.\+Aes\+Cryptography\+Service}}, \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_aa061bb1de53760c740b7c16b2e273129}{Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service}}, and \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a8d65b30e83ed3be8cb39bfa1d9cd2227}{Toolbox.\+Core.\+Services.\+Cryptography.\+Rsa\+Cryptography\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Abstractions/\+\+Services/\+\doxymbox{\hyperlink{_i_cryptography_service_8cs}{ICryptography\+Service.\+cs}}\end{DoxyCompactItemize}

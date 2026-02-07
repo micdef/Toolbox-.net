@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::BaseDisposableServiceTests</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1_1_test_disposable_service" prot="private">Toolbox::Tests::Unit::BaseDisposableServiceTests::TestDisposableService</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a98fc4735b24358de47416de5311d79d1" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger &gt;</type>
+        <definition>readonly Mock&lt;ILogger&gt; Toolbox.Tests.Unit.BaseDisposableServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="12" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.BaseDisposableServiceTests.BaseDisposableServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>BaseDisposableServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.BaseDisposableServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="14" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ab968db008c26c3e95840e894cd5b3a5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_ShouldSetServiceName</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_ShouldSetServiceName</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_ShouldSetServiceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="20" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="20" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a42482755bb1152e1903d56c89640b06a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_WithNullServiceName_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullServiceName_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_WithNullServiceName_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="30" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9c7abe12937f10d4194e70d6a8dba7ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="41" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="41" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a8f0d4ba996103b3f1e3cd08c38e6a642" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.IsDisposed_WhenNotDisposed_ShouldReturnFalse</definition>
+        <argsstring>()</argsstring>
+        <name>IsDisposed_WhenNotDisposed_ShouldReturnFalse</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.IsDisposed_WhenNotDisposed_ShouldReturnFalse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="52" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="52" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a48cede2a84fe8a0fb8b5a64b1a0ab723" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.IsDisposed_AfterDispose_ShouldReturnTrue</definition>
+        <argsstring>()</argsstring>
+        <name>IsDisposed_AfterDispose_ShouldReturnTrue</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.IsDisposed_AfterDispose_ShouldReturnTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="62" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="62" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a842f041f72d1ff7154cb208104641a98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Dispose_ShouldBeIdempotent</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose_ShouldBeIdempotent</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.Dispose_ShouldBeIdempotent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="75" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="75" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ac4733d2a15b4c459b4ae96a12ce83cba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="90" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="90" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9e9576babedfcaccf6a65e8416566f24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="103" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="103" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a123a31640f9d7d7a1ff85c06a5b43381" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.ActivitySource_ShouldReturnToolboxActivitySource</definition>
+        <argsstring>()</argsstring>
+        <name>ActivitySource_ShouldReturnToolboxActivitySource</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.ActivitySource_ShouldReturnToolboxActivitySource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="117" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="117" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a678289211577806055471776fea65995" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Meter_ShouldReturnToolboxMeter</definition>
+        <argsstring>()</argsstring>
+        <name>Meter_ShouldReturnToolboxMeter</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.Meter_ShouldReturnToolboxMeter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="127" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="127" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a70cde4accd521d78c9287bcbd864e5cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Dispose_ShouldBeThreadSafe</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose_ShouldBeThreadSafe</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseDisposableServiceTests.Dispose_ShouldBeThreadSafe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="137" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="137" bodyend="153"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service" kindref="compound">BaseDisposableService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" line="10" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs" bodystart="11" bodyend="179"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a98fc4735b24358de47416de5311d79d1" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a123a31640f9d7d7a1ff85c06a5b43381" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>ActivitySource_ShouldReturnToolboxActivitySource</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>BaseDisposableServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ab968db008c26c3e95840e894cd5b3a5e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>Constructor_ShouldSetServiceName</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9c7abe12937f10d4194e70d6a8dba7ee" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a42482755bb1152e1903d56c89640b06a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>Constructor_WithNullServiceName_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a842f041f72d1ff7154cb208104641a98" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>Dispose_ShouldBeIdempotent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a70cde4accd521d78c9287bcbd864e5cb" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>Dispose_ShouldBeThreadSafe</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a48cede2a84fe8a0fb8b5a64b1a0ab723" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>IsDisposed_AfterDispose_ShouldReturnTrue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a8f0d4ba996103b3f1e3cd08c38e6a642" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>IsDisposed_WhenNotDisposed_ShouldReturnFalse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a678289211577806055471776fea65995" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>Meter_ShouldReturnToolboxMeter</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9e9576babedfcaccf6a65e8416566f24" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ac4733d2a15b4c459b4ae96a12ce83cba" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseDisposableServiceTests</scope><name>ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

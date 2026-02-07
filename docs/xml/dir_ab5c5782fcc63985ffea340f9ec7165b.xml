@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_ab5c5782fcc63985ffea340f9ec7165b" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options</compoundname>
+    <innerfile refid="_api_request_tests_8cs">ApiRequestTests.cs</innerfile>
+    <innerfile refid="_api_response_tests_8cs">ApiResponseTests.cs</innerfile>
+    <innerfile refid="_email_message_tests_8cs">EmailMessageTests.cs</innerfile>
+    <innerfile refid="_file_transfer_options_tests_8cs">FileTransferOptionsTests.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/"/>
+  </compounddef>
+</doxygen>

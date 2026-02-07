@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_api_response" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::ApiResponse</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3d0d03f1a691d1dcd7860def8714a74d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>HttpStatusCode</type>
+        <definition>HttpStatusCode Toolbox.Core.Options.ApiResponse.StatusCode</definition>
+        <argsstring></argsstring>
+        <name>StatusCode</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.StatusCode</qualifiedname>
+        <briefdescription>
+<para>Gets the HTTP status code. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The status code.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="40" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a939a87a416b603f0fe608377088908bd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.ApiResponse.StatusCodeValue</definition>
+        <argsstring></argsstring>
+        <name>StatusCodeValue</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.StatusCodeValue</qualifiedname>
+        <briefdescription>
+<para>Gets the status code as an integer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The numeric status code.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="46" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3361b19eafefcff0f5390938a90ba683" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiResponse.ReasonPhrase</definition>
+        <argsstring></argsstring>
+        <name>ReasonPhrase</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.ReasonPhrase</qualifiedname>
+        <briefdescription>
+<para>Gets the reason phrase. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The reason phrase (e.g., &quot;OK&quot;, &quot;Not Found&quot;).</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="52" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1acebf1624cbf9d398cf5456a92049e765" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IReadOnlyDictionary&lt; string, IEnumerable&lt; string &gt; &gt;</type>
+        <definition>IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt; &gt; Toolbox.Core.Options.ApiResponse.Headers</definition>
+        <argsstring></argsstring>
+        <name>Headers</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.Headers</qualifiedname>
+        <briefdescription>
+<para>Gets the response headers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Dictionary of header names and values.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="58" column="32" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6b20dee2b29798ce6af9e75c52420ce4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiResponse.Body</definition>
+        <argsstring></argsstring>
+        <name>Body</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.Body</qualifiedname>
+        <initializer>= new Dictionary&lt;string, IEnumerable&lt;string&gt;&gt;()</initializer>
+        <briefdescription>
+<para>Gets the response body as a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The body content, or <computeroutput>null</computeroutput> if no body.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="65" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6cff539e246f1dc20045e97104ec8c22" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>byte?[]</type>
+        <definition>byte? [] Toolbox.Core.Options.ApiResponse.BodyBytes</definition>
+        <argsstring></argsstring>
+        <name>BodyBytes</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.BodyBytes</qualifiedname>
+        <briefdescription>
+<para>Gets the response body as bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The body bytes, or <computeroutput>null</computeroutput> if no body.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="71" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a32b240cd491afbd67b4544f4ddbc4a8d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiResponse.ContentType</definition>
+        <argsstring></argsstring>
+        <name>ContentType</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.ContentType</qualifiedname>
+        <briefdescription>
+<para>Gets the content type header value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The content type, or <computeroutput>null</computeroutput> if not set.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="77" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a60a3edcd4c95e4eacc10b147968978e4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>long?</type>
+        <definition>long? Toolbox.Core.Options.ApiResponse.ContentLength</definition>
+        <argsstring></argsstring>
+        <name>ContentLength</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.ContentLength</qualifiedname>
+        <briefdescription>
+<para>Gets the content length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The content length in bytes, or <computeroutput>null</computeroutput> if not set.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="83" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a9cc29f2892a97bda50bcc1cf11b7e4cc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.ApiResponse.Duration</definition>
+        <argsstring></argsstring>
+        <name>Duration</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.Duration</qualifiedname>
+        <briefdescription>
+<para>Gets the request duration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The time taken for the request.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="89" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad9882807aeabd1aeba8ccc0b57461e1a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiResponse.IsSuccess</definition>
+        <argsstring></argsstring>
+        <name>IsSuccess</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.IsSuccess</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether the response indicates success (2xx status). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if status code is 2xx; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="95" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a1b30956dc36228b7d56acd95e8ecd0c7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiResponse.IsClientError</definition>
+        <argsstring></argsstring>
+        <name>IsClientError</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.IsClientError</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether the response indicates a client error (4xx status). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if status code is 4xx; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="101" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a0d00fac5c1919222643ad826b2a90ccd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiResponse.IsServerError</definition>
+        <argsstring></argsstring>
+        <name>IsServerError</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.IsServerError</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether the response indicates a server error (5xx status). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if status code is 5xx; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="107" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1ac29ced7049c785ba83fa9c3455be5a08" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiResponse.IsRedirect</definition>
+        <argsstring></argsstring>
+        <name>IsRedirect</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.IsRedirect</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether the response is a redirect (3xx status). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if status code is 3xx; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="113" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="113" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1afdbd9b36f4c01a02208a13cb3a093d54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T?</type>
+        <definition>T? Toolbox.Core.Options.ApiResponse.Deserialize&lt; T &gt;</definition>
+        <argsstring>(JsonSerializerOptions? options=null)</argsstring>
+        <name>Deserialize&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.Deserialize&lt; T &gt;</qualifiedname>
+        <param>
+          <type>JsonSerializerOptions?</type>
+          <declname>options</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Deserializes the response body as JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JSON serializer options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The deserialized object, or default if body is empty.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>JsonException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when deserialization fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="122" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="122" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1af16c8db6718baf251aa6453821b551d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiResponse.TryDeserialize&lt; T &gt;</definition>
+        <argsstring>(out T? result, JsonSerializerOptions? options=null)</argsstring>
+        <name>TryDeserialize&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.TryDeserialize&lt; T &gt;</qualifiedname>
+        <param>
+          <type>out T?</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>JsonSerializerOptions?</type>
+          <declname>options</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Tries to deserialize the response body as JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The deserialized object if successful.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JSON serializer options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if deserialization succeeded; otherwise, <computeroutput>false</computeroutput>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="139" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="139" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a5337b5d30a7f6809016a8c622c46d1f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiResponse.GetHeader</definition>
+        <argsstring>(string name)</argsstring>
+        <name>GetHeader</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.GetHeader</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Gets a header value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The header name.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The first header value, or <computeroutput>null</computeroutput> if not found.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="164" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="164" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a031f554c076f51b7130314ff4589d2d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; string &gt;</type>
+        <definition>IEnumerable&lt; string &gt; Toolbox.Core.Options.ApiResponse.GetHeaders</definition>
+        <argsstring>(string name)</argsstring>
+        <name>GetHeaders</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.GetHeaders</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Gets all values for a header. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The header name.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>All header values, or empty if not found.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="176" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="176" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1aae1b1269892d6c0d5199218cea0d9cb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Options.ApiResponse.EnsureSuccess</definition>
+        <argsstring>()</argsstring>
+        <name>EnsureSuccess</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.EnsureSuccess</qualifiedname>
+        <briefdescription>
+<para>Throws an exception if the response indicates an error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when response is not successful.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="187" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="187" bodyend="196"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3766c05d32ac54a7e02f483c0113ed54" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref></type>
+        <definition>static ApiResponse Toolbox.Core.Options.ApiResponse.Success</definition>
+        <argsstring>(string? body=null, HttpStatusCode statusCode=HttpStatusCode.OK)</argsstring>
+        <name>Success</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.Success</qualifiedname>
+        <param>
+          <type>string?</type>
+          <declname>body</declname>
+          <defval>null</defval>
+        </param>
+        <param>
+          <type>HttpStatusCode</type>
+          <declname>statusCode</declname>
+          <defval>HttpStatusCode.OK</defval>
+        </param>
+        <briefdescription>
+<para>Creates a successful response. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response body.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>statusCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status code.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="204" column="31" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="204" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad7295a5f46737289d5aa1e13506e793d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref></type>
+        <definition>static ApiResponse Toolbox.Core.Options.ApiResponse.Error</definition>
+        <argsstring>(HttpStatusCode statusCode, string? message=null)</argsstring>
+        <name>Error</name>
+        <qualifiedname>Toolbox.Core.Options.ApiResponse.Error</qualifiedname>
+        <param>
+          <type>HttpStatusCode</type>
+          <declname>statusCode</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>message</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates an error response. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>statusCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status code.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The error message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref>.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="221" column="31" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="221" bodyend="230"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an HTTP API response. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class encapsulates all data from an HTTP response, including status code, headers, and body content. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>response<sp/>=<sp/>await<sp/>apiService.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(response.IsSuccess)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>user<sp/>=<sp/>response.Deserialize&lt;User&gt;();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($</highlight><highlight class="stringliteral">&quot;Error:<sp/>{response.StatusCode}&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" line="34" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiResponse.cs" bodystart="35" bodyend="231"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6b20dee2b29798ce6af9e75c52420ce4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>Body</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6cff539e246f1dc20045e97104ec8c22" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>BodyBytes</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a60a3edcd4c95e4eacc10b147968978e4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>ContentLength</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a32b240cd491afbd67b4544f4ddbc4a8d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>ContentType</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1afdbd9b36f4c01a02208a13cb3a093d54" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>Deserialize&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a9cc29f2892a97bda50bcc1cf11b7e4cc" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>Duration</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1aae1b1269892d6c0d5199218cea0d9cb7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>EnsureSuccess</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad7295a5f46737289d5aa1e13506e793d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>Error</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a5337b5d30a7f6809016a8c622c46d1f7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>GetHeader</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a031f554c076f51b7130314ff4589d2d1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>GetHeaders</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1acebf1624cbf9d398cf5456a92049e765" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>Headers</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a1b30956dc36228b7d56acd95e8ecd0c7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>IsClientError</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1ac29ced7049c785ba83fa9c3455be5a08" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>IsRedirect</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a0d00fac5c1919222643ad826b2a90ccd" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>IsServerError</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad9882807aeabd1aeba8ccc0b57461e1a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>IsSuccess</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3361b19eafefcff0f5390938a90ba683" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>ReasonPhrase</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3d0d03f1a691d1dcd7860def8714a74d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>StatusCode</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a939a87a416b603f0fe608377088908bd" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>StatusCodeValue</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3766c05d32ac54a7e02f483c0113ed54" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>Success</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_response_1af16c8db6718baf251aa6453821b551d3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiResponse</scope><name>TryDeserialize&lt; T &gt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

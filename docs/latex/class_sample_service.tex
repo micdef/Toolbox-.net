@@ -1,0 +1,212 @@
+\doxysection{Sample\+Service Class Reference}
+\hypertarget{class_sample_service}{}\label{class_sample_service}\index{SampleService@{SampleService}}
+
+
+Sample service implementation using Base\+Async\+Disposable\+Service.  
+
+
+Inheritance diagram for Sample\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.194357cm]{class_sample_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_sample_service_a3545afe78fb3e525d70ad0c3360ddcc7}{Sample\+Service}} (ILogger$<$ \doxymbox{\hyperlink{class_sample_service}{Sample\+Service}} $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_sample_service}{Sample\+Service} class. \end{DoxyCompactList}\item 
+async Task \doxymbox{\hyperlink{class_sample_service_a9517e289671e8098655ef2563c31419b}{Do\+Work\+Async}} (string message, Cancellation\+Token ct=default)
+\begin{DoxyCompactList}\small\item\em Performs sample work asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to process.\\
+\hline
+{\em ct} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the async operation.
+\end{DoxyReturn}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{Dispose\+Async}} ()
+\item 
+async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous disposal operation.
+\end{DoxyReturn}
+
+
+This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Releases all resources used by this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override async Value\+Task \doxymbox{\hyperlink{class_sample_service_ac667ccd31274fce29bb598b5a5f593c2}{Dispose\+Async\+Core}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{Base\+Async\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Base\+Async\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+override void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Dispose}} (bool disposing)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{Base\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{Throw\+If\+Disposed}} ()
+\begin{DoxyCompactList}\small\item\em Throws an Object\+Disposed\+Exception if this service has been disposed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{Record\+Operation}} (string operation\+Name, double duration\+Ms)
+\begin{DoxyCompactList}\small\item\em Records an operation metric with the specified name and duration. \end{DoxyCompactList}\item 
+Activity? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{Start\+Activity}} (\+[Caller\+Member\+Name]\+ string operation\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Starts a new activity for the specified operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. \end{DoxyCompactList}\item 
+Activity\+Source \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sample service implementation using Base\+Async\+Disposable\+Service. 
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00069}{69}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_sample_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sample_service_a3545afe78fb3e525d70ad0c3360ddcc7}\index{SampleService@{SampleService}!SampleService@{SampleService}}
+\index{SampleService@{SampleService}!SampleService@{SampleService}}
+\doxysubsubsection{\texorpdfstring{SampleService()}{SampleService()}}
+{\footnotesize\ttfamily \label{class_sample_service_a3545afe78fb3e525d70ad0c3360ddcc7} 
+Sample\+Service.\+Sample\+Service (\begin{DoxyParamCaption}\item[{ILogger$<$ \doxymbox{\hyperlink{class_sample_service}{Sample\+Service}} $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_sample_service}{Sample\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00077}{77}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_sample_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sample_service_ac667ccd31274fce29bb598b5a5f593c2}\index{SampleService@{SampleService}!DisposeAsyncCore@{DisposeAsyncCore}}
+\index{DisposeAsyncCore@{DisposeAsyncCore}!SampleService@{SampleService}}
+\doxysubsubsection{\texorpdfstring{DisposeAsyncCore()}{DisposeAsyncCore()}}
+{\footnotesize\ttfamily \label{class_sample_service_ac667ccd31274fce29bb598b5a5f593c2} 
+override async Value\+Task Sample\+Service.\+Dispose\+Async\+Core (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00102}{102}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+
+\Hypertarget{class_sample_service_a9517e289671e8098655ef2563c31419b}\index{SampleService@{SampleService}!DoWorkAsync@{DoWorkAsync}}
+\index{DoWorkAsync@{DoWorkAsync}!SampleService@{SampleService}}
+\doxysubsubsection{\texorpdfstring{DoWorkAsync()}{DoWorkAsync()}}
+{\footnotesize\ttfamily \label{class_sample_service_a9517e289671e8098655ef2563c31419b} 
+async Task Sample\+Service.\+Do\+Work\+Async (\begin{DoxyParamCaption}\item[{string}]{message}{, }\item[{Cancellation\+Token}]{ct}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Performs sample work asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to process.\\
+\hline
+{\em ct} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the async operation.
+\end{DoxyReturn}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_i_sample_service_af558448f0c3ea3c73b0235216186395b}{ISample\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00084}{84}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+samples/\+\+Toolbox.\+Sample/\+\doxymbox{\hyperlink{_program_8cs}{Program.\+cs}}\end{DoxyCompactItemize}

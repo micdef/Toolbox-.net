@@ -1,0 +1,378 @@
+\doxysection{Ftp\+File\+Transfer\+Service.\+cs}
+\hypertarget{_ftp_file_transfer_service_8cs_source}{}\label{_ftp_file_transfer_service_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/FileTransfer/FtpFileTransferService.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/FileTransfer/FtpFileTransferService.cs}}
+\doxymbox{\hyperlink{_ftp_file_transfer_service_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ FtpFileTransferService.cs}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ FTP/FTPS\ file\ transfer\ service\ implementation}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Implements\ IFileTransferService\ using\ FluentFTP}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Supports\ both\ FTP\ and\ FTPS\ protocols}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }FluentFTP;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }Microsoft.Extensions.Options;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions_1_1_services}{Toolbox.Core.Abstractions.Services}};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00011}00011\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00013}\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer}{00013}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer}{Toolbox.Core.Services.FileTransfer}};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00028}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service}{00028}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a25abf01d010eca69476eeb4388a36e4e}{FtpFileTransferService}}\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}},\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service}{IFileTransferService}}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ The\ FTP\ client\ instance}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ AsyncFtpClient\ \_client;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ The\ service\ options}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}\ \_options;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ The\ logger\ instance}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger<FtpFileTransferService>\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Connection\ state}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ \_isConnected;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ Lock\ for\ connection\ management}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ SemaphoreSlim\ \_connectionLock\ =\ \textcolor{keyword}{new}(1,\ 1);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00052}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a25abf01d010eca69476eeb4388a36e4e}{00052}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a25abf01d010eca69476eeb4388a36e4e}{FtpFileTransferService}}(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ IOptions<FileTransferOptions>\ options,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ ILogger<FtpFileTransferService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}FtpFileTransferService"{}},\ logger)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(options);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(logger);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \_options\ =\ options.Value;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(\_options.Host))}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ throw\ new\ ArgumentException(\textcolor{stringliteral}{"{}Host\ cannot\ be\ empty."{}},\ nameof(options));}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ if\ (\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(\_options.Username))}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ throw\ new\ ArgumentException(\textcolor{stringliteral}{"{}Username\ cannot\ be\ empty."{}},\ nameof(options));}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \_client\ =\ \textcolor{keyword}{new}\ AsyncFtpClient(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Host,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Username,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Password\ ??\ \textcolor{keywordtype}{string}.Empty,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.GetEffectivePort());}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ ConfigureClient();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}FtpFileTransferService\ initialized\ for\ \{Host\}:\{Port\}\ with\ protocol\ \{Protocol\}"{}},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Host,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.GetEffectivePort(),}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Protocol);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00093}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a234001ece138875554fbeb45cb492533}{00093}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a234001ece138875554fbeb45cb492533}{FtpFileTransferService}}(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{FileTransferOptions}}\ options,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ ILogger<FtpFileTransferService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ :\ this(Microsoft.\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Extensions}}.\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Options}}.\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Options}}.Create(options),\ logger)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00097}00097\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00101}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a222a085f07cbcb05c1ea05c6f7ee6d52}{00101}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a222a085f07cbcb05c1ea05c6f7ee6d52}{UploadOne}}(\textcolor{keywordtype}{string}\ localPath,\ \textcolor{keywordtype}{string}\ remotePath,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_ac8dd94083d2c5f9191c573fec7b3fd81}{UploadOneAsync}}(localPath,\ remotePath,\ overwrite).GetAwaiter().GetResult();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00107}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_ac8dd94083d2c5f9191c573fec7b3fd81}{00107}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_ac8dd94083d2c5f9191c573fec7b3fd81}{UploadOneAsync}}(\textcolor{keywordtype}{string}\ localPath,\ \textcolor{keywordtype}{string}\ remotePath,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true},\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00108}00108\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(localPath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(remotePath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!File.Exists(localPath))}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FileNotFoundException(\textcolor{stringliteral}{"{}Local\ file\ not\ found."{}},\ localPath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ await\ EnsureConnectedAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ var\ existsMode\ =\ overwrite\ ?\ FtpRemoteExists.Overwrite\ :\ FtpRemoteExists.Skip;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ var\ createDir\ =\ \_options.AutoCreateDirectory\ ?\ FtpLocalExists.Overwrite\ :\ FtpLocalExists.Skip;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ var\ status\ =\ await\ \_client.UploadFile(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ localPath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remotePath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ existsMode,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.AutoCreateDirectory,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FtpVerify.None,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\ ==\ FtpStatus.Failed)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IOException(\$\textcolor{stringliteral}{"{}Failed\ to\ upload\ file\ to\ \{remotePath\}"{}});}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ var\ fileSize\ =\ \textcolor{keyword}{new}\ FileInfo(localPath).Length;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Uploaded\ \{LocalPath\}\ to\ \{RemotePath\}\ (status:\ \{Status\})"{}},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ localPath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remotePath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}UploadOne"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordFileUpload(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \_options.Protocol.ToString(),\ \_options.Host,\ fileSize);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00154}00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ FileNotFoundException\ and\ not\ OperationCanceledException\ and\ not\ ObjectDisposedException)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00156}00156\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ upload\ \{LocalPath\}\ to\ \{RemotePath\}"{}},\ localPath,\ remotePath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordFileTransferError(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \_options.Protocol.ToString(),\ \_options.Host,\ \textcolor{stringliteral}{"{}upload"{}},\ ex.GetType().Name);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IOException(\$\textcolor{stringliteral}{"{}Failed\ to\ upload\ file:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00164}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_af86e5e8c6e3d66009fd6c1fde825a8a0}{00164}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_af86e5e8c6e3d66009fd6c1fde825a8a0}{UploadBatch}}(IEnumerable<(\textcolor{keywordtype}{string}\ LocalPath,\ \textcolor{keywordtype}{string}\ RemotePath)>\ files,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00165}00165\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00166}00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a63073cbaccb6aa0a9f247f42d0a1ea08}{UploadBatchAsync}}(files,\ overwrite).GetAwaiter().GetResult();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00167}00167\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00170}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a63073cbaccb6aa0a9f247f42d0a1ea08}{00170}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<int>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a63073cbaccb6aa0a9f247f42d0a1ea08}{UploadBatchAsync}}(IEnumerable<(\textcolor{keywordtype}{string}\ LocalPath,\ \textcolor{keywordtype}{string}\ RemotePath)>\ files,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true},\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00171}00171\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(files);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ var\ fileList\ =\ files.ToList();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00181}00181\ \ \ \ \ \ \ \ \ var\ successCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00182}00182\ \ \ \ \ \ \ \ \ var\ exceptions\ =\ \textcolor{keyword}{new}\ List<Exception>();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00184}00184\ \ \ \ \ \ \ \ \ await\ EnsureConnectedAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ (localPath,\ remotePath)\ in\ fileList)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00187}00187\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_ac8dd94083d2c5f9191c573fec7b3fd81}{UploadOneAsync}}(localPath,\ remotePath,\ overwrite,\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ successCount++;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ OperationCanceledException)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exceptions.Add(\textcolor{keyword}{new}\ IOException(\$\textcolor{stringliteral}{"{}Failed\ to\ upload\ \{localPath\}:\ \{ex.Message\}"{}},\ ex));}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00199}00199\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}UploadBatch"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exceptions.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00202}00202\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogWarning(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Batch\ upload\ completed\ with\ \{SuccessCount\}/\{TotalCount\}\ successes\ and\ \{ErrorCount\}\ errors"{}},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ successCount,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fileList.Count,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exceptions.Count);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (successCount\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ AggregateException(\textcolor{stringliteral}{"{}All\ file\ uploads\ failed."{}},\ exceptions);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00213}00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ successCount;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00216}00216\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00219}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a97be6cecd8e7fbf0e15e048d5b381023}{00219}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a97be6cecd8e7fbf0e15e048d5b381023}{DownloadOne}}(\textcolor{keywordtype}{string}\ remotePath,\ \textcolor{keywordtype}{string}\ localPath,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00220}00220\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00221}00221\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a40427bcf42493c48ea8f79f5495c46d6}{DownloadOneAsync}}(remotePath,\ localPath,\ overwrite).GetAwaiter().GetResult();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00225}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a40427bcf42493c48ea8f79f5495c46d6}{00225}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a40427bcf42493c48ea8f79f5495c46d6}{DownloadOneAsync}}(\textcolor{keywordtype}{string}\ remotePath,\ \textcolor{keywordtype}{string}\ localPath,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true},\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00226}00226\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00227}00227\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00228}00228\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(remotePath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00229}00229\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(localPath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!overwrite\ \&\&\ File.Exists(localPath))}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00232}00232\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Skipping\ download,\ local\ file\ exists:\ \{LocalPath\}"{}},\ localPath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00240}00240\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00243}00243\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ await\ EnsureConnectedAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ensure\ local\ directory\ exists}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ var\ localDir\ =\ Path.GetDirectoryName(localPath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(localDir)\ \&\&\ !Directory.Exists(localDir))}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Directory.CreateDirectory(localDir);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ var\ existsMode\ =\ overwrite\ ?\ FtpLocalExists.Overwrite\ :\ FtpLocalExists.Skip;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ var\ status\ =\ await\ \_client.DownloadFile(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ localPath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remotePath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ existsMode,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FtpVerify.None,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{null},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\ ==\ FtpStatus.Failed)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IOException(\$\textcolor{stringliteral}{"{}Failed\ to\ download\ file\ from\ \{remotePath\}"{}});}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ var\ fileSize\ =\ \textcolor{keyword}{new}\ FileInfo(localPath).Length;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Downloaded\ \{RemotePath\}\ to\ \{LocalPath\}\ (status:\ \{Status\})"{}},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remotePath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ localPath,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}DownloadOne"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordFileDownload(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \_options.Protocol.ToString(),\ \_options.Host,\ fileSize);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00278}00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex.Message.Contains(\textcolor{stringliteral}{"{}not\ found"{}},\ StringComparison.OrdinalIgnoreCase)\ ||}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ex.Message.Contains(\textcolor{stringliteral}{"{}doesn't\ exist"{}},\ StringComparison.OrdinalIgnoreCase)\ ||}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ex.Message.Contains(\textcolor{stringliteral}{"{}550"{}},\ StringComparison.OrdinalIgnoreCase))}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00282}00282\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FileNotFoundException(\$\textcolor{stringliteral}{"{}Remote\ file\ not\ found:\ \{remotePath\}"{}},\ remotePath,\ ex);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00284}00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ FileNotFoundException\ and\ not\ OperationCanceledException\ and\ not\ ObjectDisposedException)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00286}00286\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ download\ \{RemotePath\}\ to\ \{LocalPath\}"{}},\ remotePath,\ localPath);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordFileTransferError(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \_options.Protocol.ToString(),\ \_options.Host,\ \textcolor{stringliteral}{"{}download"{}},\ ex.GetType().Name);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IOException(\$\textcolor{stringliteral}{"{}Failed\ to\ download\ file:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00290}00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00291}00291\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00294}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a633dc3abc6a6c476632f6275d7f91662}{00294}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a633dc3abc6a6c476632f6275d7f91662}{DownloadBatch}}(IEnumerable<(\textcolor{keywordtype}{string}\ RemotePath,\ \textcolor{keywordtype}{string}\ LocalPath)>\ files,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00295}00295\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a0d45675ff5262c4ecff6aa08fb682aac}{DownloadBatchAsync}}(files,\ overwrite).GetAwaiter().GetResult();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00297}00297\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00300}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a0d45675ff5262c4ecff6aa08fb682aac}{00300}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<int>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a0d45675ff5262c4ecff6aa08fb682aac}{DownloadBatchAsync}}(IEnumerable<(\textcolor{keywordtype}{string}\ RemotePath,\ \textcolor{keywordtype}{string}\ LocalPath)>\ files,\ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{true},\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00301}00301\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00302}00302\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00303}00303\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(files);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00305}00305\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00308}00308\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00310}00310\ \ \ \ \ \ \ \ \ var\ fileList\ =\ files.ToList();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00311}00311\ \ \ \ \ \ \ \ \ var\ successCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00312}00312\ \ \ \ \ \ \ \ \ var\ exceptions\ =\ \textcolor{keyword}{new}\ List<Exception>();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00314}00314\ \ \ \ \ \ \ \ \ await\ EnsureConnectedAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00316}00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ (remotePath,\ localPath)\ in\ fileList)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00317}00317\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a40427bcf42493c48ea8f79f5495c46d6}{DownloadOneAsync}}(remotePath,\ localPath,\ overwrite,\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ successCount++;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ OperationCanceledException)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exceptions.Add(\textcolor{keyword}{new}\ IOException(\$\textcolor{stringliteral}{"{}Failed\ to\ download\ \{remotePath\}:\ \{ex.Message\}"{}},\ ex));}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00327}00327\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00329}00329\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}DownloadBatch"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00331}00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exceptions.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00332}00332\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogWarning(}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Batch\ download\ completed\ with\ \{SuccessCount\}/\{TotalCount\}\ successes\ and\ \{ErrorCount\}\ errors"{}},}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ successCount,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fileList.Count,}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exceptions.Count);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (successCount\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ AggregateException(\textcolor{stringliteral}{"{}All\ file\ downloads\ failed."{}},\ exceptions);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00343}00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ successCount;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00346}00346\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00349}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a739af7ce6c951bbfc4d59db6781d1c46}{00349}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ async\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_a739af7ce6c951bbfc4d59db6781d1c46}{DisposeAsyncCore}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00350}00350\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00351}00351\ \ \ \ \ \ \ \ \ await\ \_connectionLock.WaitAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00352}00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00353}00353\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isConnected)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.Disconnect(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_isConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00359}00359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{finally}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00361}00361\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \_connectionLock.Release();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00363}00363\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00365}00365\ \ \ \ \ \ \ \ \ \_client.Dispose();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00366}00366\ \ \ \ \ \ \ \ \ \_connectionLock.Dispose();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00367}00367\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00372}00372\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ ConfigureClient()}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00373}00373\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00374}00374\ \ \ \ \ \ \ \ \ \_client.Config.ConnectTimeout\ =\ (int)\_options.ConnectionTimeout.TotalMilliseconds;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00375}00375\ \ \ \ \ \ \ \ \ \_client.Config.ReadTimeout\ =\ (int)\_options.OperationTimeout.TotalMilliseconds;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00376}00376\ \ \ \ \ \ \ \ \ \_client.Config.DataConnectionConnectTimeout\ =\ (int)\_options.ConnectionTimeout.TotalMilliseconds;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00377}00377\ \ \ \ \ \ \ \ \ \_client.Config.DataConnectionReadTimeout\ =\ (int)\_options.OperationTimeout.TotalMilliseconds;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00378}00378\ \ \ \ \ \ \ \ \ \_client.Config.LocalFileBufferSize\ =\ \_options.BufferSize;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00380}00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_options.Protocol\ ==\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{FileTransferProtocol}}.Ftps)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00381}00381\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \_client.Config.EncryptionMode\ =\ FtpEncryptionMode.Explicit;}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \_client.Config.ValidateAnyCertificate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00384}00384\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00385}00385\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00391}00391\ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ EnsureConnectedAsync(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00392}00392\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isConnected\ \&\&\ \_client.IsConnected)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00394}00394\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00396}00396\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00398}00398\ \ \ \ \ \ \ \ \ await\ \_connectionLock.WaitAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00399}00399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00400}00400\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\_isConnected\ ||\ !\_client.IsConnected)}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.Connect(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_isConnected\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Connected\ to\ FTP\ server\ \{Host\}:\{Port\}"{}},\ \_options.Host,\ \_options.GetEffectivePort());}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00407}00407\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00408}00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{finally}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00409}00409\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \_connectionLock.Release();}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00411}00411\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00412}00412\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ftp_file_transfer_service_8cs_source_l00413}00413\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,380 @@
+\doxysection{Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{}\label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+
+
+\doxylink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Cryptography} service implementation using Base64 encoding.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.166667cm]{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_ae78dcf4067c1104dd2b5cfb1c136ae46}{Base64\+Cryptography\+Service}} (\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64\+Encoding\+Table}} encoding\+Table, ILogger$<$ Base64\+Cryptography\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64\+Cryptography\+Service} class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_af163e7b25a167285f1e5575043e2882e}{Base64\+Cryptography\+Service}} (IOptions$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options}{Base64\+Cryptography\+Options}} $>$ options, ILogger$<$ Base64\+Cryptography\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64\+Cryptography\+Service} class with full options. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a367b25c280d280f5ecf469e94da66d04}{Encrypt}} (string plain\+Text)
+\begin{DoxyCompactList}\small\item\em Encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+Task$<$ string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_aa061bb1de53760c740b7c16b2e273129}{Encrypt\+Async}} (string plain\+Text, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Asynchronously encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_adc6af0a05226f77128990a579635ed43}{Decrypt}} (string encrypted\+Text)
+\begin{DoxyCompactList}\small\item\em Decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+Task$<$ string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a9ac221788e4ac3ca1fb3a0408f65f692}{Decrypt\+Async}} (string encrypted\+Text, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Asynchronously decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{Dispose\+Async}} ()
+\item 
+async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous disposal operation.
+\end{DoxyReturn}
+
+
+This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Releases all resources used by this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{Base\+Async\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Base\+Async\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+virtual Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{Dispose\+Async\+Core}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Performs application-\/defined async cleanup operations. \end{DoxyCompactList}\item 
+override void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Dispose}} (bool disposing)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{Base\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{Throw\+If\+Disposed}} ()
+\begin{DoxyCompactList}\small\item\em Throws an Object\+Disposed\+Exception if this service has been disposed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{Record\+Operation}} (string operation\+Name, double duration\+Ms)
+\begin{DoxyCompactList}\small\item\em Records an operation metric with the specified name and duration. \end{DoxyCompactList}\item 
+Activity? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{Start\+Activity}} (\+[Caller\+Member\+Name]\+ string operation\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Starts a new activity for the specified operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. \end{DoxyCompactList}\item 
+Activity\+Source \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Cryptography} service implementation using Base64 encoding. 
+
+This service provides text encryption and decryption using Base64 encoding. It supports both standard and URL-\/safe encoding tables. 
+
+Note:\+ Base64 is an encoding scheme, not encryption. It provides obfuscation but not security. For secure encryption, use a proper encryption algorithm. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}{ICryptography\+Service}, \doxylink{class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options}{Base64\+Cryptography\+Options}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00030}{30}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_ae78dcf4067c1104dd2b5cfb1c136ae46}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}!Base64CryptographyService@{Base64CryptographyService}}
+\index{Base64CryptographyService@{Base64CryptographyService}!Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+\doxysubsubsection{\texorpdfstring{Base64CryptographyService()}{Base64CryptographyService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_ae78dcf4067c1104dd2b5cfb1c136ae46} 
+Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service.\+Base64\+Cryptography\+Service (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64\+Encoding\+Table}}}]{encoding\+Table}{, }\item[{ILogger$<$ Base64\+Cryptography\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64\+Cryptography\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoding\+Table} & The Base64 encoding table to use.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00046}{46}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_af163e7b25a167285f1e5575043e2882e}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}!Base64CryptographyService@{Base64CryptographyService}}
+\index{Base64CryptographyService@{Base64CryptographyService}!Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+\doxysubsubsection{\texorpdfstring{Base64CryptographyService()}{Base64CryptographyService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_af163e7b25a167285f1e5575043e2882e} 
+Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service.\+Base64\+Cryptography\+Service (\begin{DoxyParamCaption}\item[{IOptions$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options}{Base64\+Cryptography\+Options}} $>$}]{options}{, }\item[{ILogger$<$ Base64\+Cryptography\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64\+Cryptography\+Service} class with full options. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & The configuration options.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape options}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00067}{67}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_adc6af0a05226f77128990a579635ed43}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}!Decrypt@{Decrypt}}
+\index{Decrypt@{Decrypt}!Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+\doxysubsubsection{\texorpdfstring{Decrypt()}{Decrypt()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_adc6af0a05226f77128990a579635ed43} 
+string Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service.\+Decrypt (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text}{}\end{DoxyParamCaption})}
+
+
+
+Decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a013a7019090a0e9fe9ce39604993d04f}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00129}{129}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a9ac221788e4ac3ca1fb3a0408f65f692}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}!DecryptAsync@{DecryptAsync}}
+\index{DecryptAsync@{DecryptAsync}!Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+\doxysubsubsection{\texorpdfstring{DecryptAsync()}{DecryptAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a9ac221788e4ac3ca1fb3a0408f65f692} 
+Task$<$ string $>$ Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service.\+Decrypt\+Async (\begin{DoxyParamCaption}\item[{string}]{encrypted\+Text}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Asynchronously decrypts the specified encrypted text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+Text} & The text to decrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the decrypted plain text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape encrypted\+Text}  is {\ttfamily null}.\\
+\hline
+{\em Format\+Exception} & Thrown when the encrypted text format is invalid.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a5b20b3deb70835815fd7dcd53ea4b36a}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00164}{164}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a367b25c280d280f5ecf469e94da66d04}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}!Encrypt@{Encrypt}}
+\index{Encrypt@{Encrypt}!Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+\doxysubsubsection{\texorpdfstring{Encrypt()}{Encrypt()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_a367b25c280d280f5ecf469e94da66d04} 
+string Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service.\+Encrypt (\begin{DoxyParamCaption}\item[{string}]{plain\+Text}{}\end{DoxyParamCaption})}
+
+
+
+Encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_af7d5a5001f53ab7db2bee41b919e8b59}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00086}{86}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_aa061bb1de53760c740b7c16b2e273129}\index{Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}!EncryptAsync@{EncryptAsync}}
+\index{EncryptAsync@{EncryptAsync}!Toolbox.Core.Services.Cryptography.Base64CryptographyService@{Toolbox.Core.Services.Cryptography.Base64CryptographyService}}
+\doxysubsubsection{\texorpdfstring{EncryptAsync()}{EncryptAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_aa061bb1de53760c740b7c16b2e273129} 
+Task$<$ string $>$ Toolbox.\+Core.\+Services.\+Cryptography.\+Base64\+Cryptography\+Service.\+Encrypt\+Async (\begin{DoxyParamCaption}\item[{string}]{plain\+Text}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Asynchronously encrypts the specified plain text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plain\+Text} & The text to encrypt.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the encrypted text.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape plain\+Text}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_a05ababf7768be976af8ab8b6b96e60bf}{Toolbox.\+Core.\+Abstractions.\+Services.\+ICryptography\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source_l00116}{116}} of file \doxymbox{\hyperlink{_base64_cryptography_service_8cs_source}{Base64\+Cryptography\+Service.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Services/\+\+Cryptography/\+\doxymbox{\hyperlink{_base64_cryptography_service_8cs}{Base64\+Cryptography\+Service.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_56c6ab8fb80cf5aa279a4bc89219792d" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit</compoundname>
+    <innerdir refid="dir_960a5ebd707c8495b18e199f9de577e2">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions</innerdir>
+    <innerdir refid="dir_ab5c5782fcc63985ffea340f9ec7165b">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options</innerdir>
+    <innerdir refid="dir_53ecca869a8324fc94617a474c1c668b">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services</innerdir>
+    <innerfile refid="_base_async_disposable_service_tests_8cs">BaseAsyncDisposableServiceTests.cs</innerfile>
+    <innerfile refid="_base_disposable_service_tests_8cs">BaseDisposableServiceTests.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/"/>
+  </compounddef>
+</doxygen>

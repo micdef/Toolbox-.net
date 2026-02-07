@@ -1,0 +1,1047 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::ToolboxMeter</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a1d52d749fd199407c832a3f246d3c2c6" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Meter &gt;</type>
+        <definition>readonly Lazy&lt;Meter&gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyMeter</definition>
+        <argsstring></argsstring>
+        <name>LazyMeter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyMeter</qualifiedname>
+        <initializer>                                   = new(
+() =&gt; new Meter(TelemetryConstants.MeterName, TelemetryConstants.Version),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="23" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a1ad9357673463b12d7434b13abb04661" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyOperationCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyOperationCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyOperationCounter</qualifiedname>
+        <initializer>                                              = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.OperationCount,
+    unit: &quot;{operations}&quot;,
+    description: &quot;Number of operations performed by <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="28" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ae4fa76090537535f971a484fb68428b5" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Histogram&lt; double &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Histogram&lt;double&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyOperationDuration</definition>
+        <argsstring></argsstring>
+        <name>LazyOperationDuration</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyOperationDuration</qualifiedname>
+        <initializer>                                               = new(
+() =&gt; Instance.CreateHistogram&lt;double&gt;(
+    TelemetryConstants.Metrics.OperationDuration,
+    unit: &quot;ms&quot;,
+    description: &quot;Duration of operations performed by <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="36" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a819f270392e1310ec28254244913e05b" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyDisposalCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyDisposalCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyDisposalCounter</qualifiedname>
+        <initializer>                                             = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.DisposalCount,
+    unit: &quot;{disposals}&quot;,
+    description: &quot;Number of service disposal events&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="44" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a4b4d360979cde379c7f710f01c533d6e" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; UpDownCounter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;UpDownCounter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyActiveInstances</definition>
+        <argsstring></argsstring>
+        <name>LazyActiveInstances</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyActiveInstances</qualifiedname>
+        <initializer>                                             = new(
+() =&gt; Instance.CreateUpDownCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.ActiveInstances,
+    unit: &quot;{instances}&quot;,
+    description: &quot;Number of active <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> service instances&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="52" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a206a7d1fb27aaa4a9ca7292b1829dd89" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyCryptoEncryptCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyCryptoEncryptCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyCryptoEncryptCounter</qualifiedname>
+        <initializer>                                                  = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.CryptoEncryptCount,
+    unit: &quot;{operations}&quot;,
+    description: &quot;Number of encryption operations&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="60" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1add21e8d5ca1e383ebf43f189c1dda82c" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyCryptoDecryptCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyCryptoDecryptCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyCryptoDecryptCounter</qualifiedname>
+        <initializer>                                                  = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.CryptoDecryptCount,
+    unit: &quot;{operations}&quot;,
+    description: &quot;Number of decryption operations&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="68" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a44ffb648ac533efe2e04dc43527c9cd8" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Histogram&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Histogram&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyCryptoDataSize</definition>
+        <argsstring></argsstring>
+        <name>LazyCryptoDataSize</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyCryptoDataSize</qualifiedname>
+        <initializer>                                            = new(
+() =&gt; Instance.CreateHistogram&lt;long&gt;(
+    TelemetryConstants.Metrics.CryptoDataSize,
+    unit: &quot;By&quot;,
+    description: &quot;Size of encrypted/decrypted data in bytes&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="76" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aece0ee8c4a5bd620d06f93bb9242fa06" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferUploadCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyFileTransferUploadCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferUploadCounter</qualifiedname>
+        <initializer>                                                       = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.FileTransferUploadCount,
+    unit: &quot;{files}&quot;,
+    description: &quot;Number of file upload operations&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="84" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a476bd5fe813ece5138518e1054ff3244" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferDownloadCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyFileTransferDownloadCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferDownloadCounter</qualifiedname>
+        <initializer>                                                         = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.FileTransferDownloadCount,
+    unit: &quot;{files}&quot;,
+    description: &quot;Number of file download operations&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="92" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ab5360e9a94b76e0980a44d21c3d40367" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Histogram&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Histogram&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferSize</definition>
+        <argsstring></argsstring>
+        <name>LazyFileTransferSize</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferSize</qualifiedname>
+        <initializer>                                              = new(
+() =&gt; Instance.CreateHistogram&lt;long&gt;(
+    TelemetryConstants.Metrics.FileTransferSize,
+    unit: &quot;By&quot;,
+    description: &quot;Size of transferred files in bytes&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="100" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1abe715095acc677be9bce6d8a3f09e55a" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferErrorCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyFileTransferErrorCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyFileTransferErrorCounter</qualifiedname>
+        <initializer>                                                      = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.FileTransferErrorCount,
+    unit: &quot;{errors}&quot;,
+    description: &quot;Number of file transfer errors&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="108" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a4620a618aeb15c47e8ada9963d45e0ee" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyEmailSentCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyEmailSentCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyEmailSentCounter</qualifiedname>
+        <initializer>                                              = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.EmailSentCount,
+    unit: &quot;{emails}&quot;,
+    description: &quot;Number of emails sent&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="116" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aede3f73f264920ecc7820d7ed30ede78" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; Counter&lt; long &gt; &gt;</type>
+        <definition>readonly Lazy&lt;Counter&lt;long&gt; &gt; Toolbox.Core.Telemetry.ToolboxMeter.LazyApiRequestCounter</definition>
+        <argsstring></argsstring>
+        <name>LazyApiRequestCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.LazyApiRequestCounter</qualifiedname>
+        <initializer>                                               = new(
+() =&gt; Instance.CreateCounter&lt;long&gt;(
+    TelemetryConstants.Metrics.ApiRequestCount,
+    unit: &quot;{requests}&quot;,
+    description: &quot;Number of API requests&quot;),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="124" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="124" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a514236f98b47c0fddffd120b6270e7e3" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Meter</type>
+        <definition>Meter Toolbox.Core.Telemetry.ToolboxMeter.Instance</definition>
+        <argsstring></argsstring>
+        <name>Instance</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.Instance</qualifiedname>
+        <briefdescription>
+<para>Gets the shared Meter instance for <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The singleton meter instance.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="135" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a7f5331999925a91701fb0f2cee391dc4" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Telemetry.ToolboxMeter.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.Name</qualifiedname>
+        <briefdescription>
+<para>Gets the name of the meter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The meter name as defined in TelemetryConstants.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="141" column="26" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aab047306eba63f92ad14389b8df76aaf" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Telemetry.ToolboxMeter.Version</definition>
+        <argsstring></argsstring>
+        <name>Version</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.Version</qualifiedname>
+        <briefdescription>
+<para>Gets the version of the meter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The telemetry version string.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="147" column="26" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a594c46375be2e0506872d1e1c4f572e9" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Counter&lt; long &gt;</type>
+        <definition>Counter&lt;long&gt; Toolbox.Core.Telemetry.ToolboxMeter.OperationCounter</definition>
+        <argsstring></argsstring>
+        <name>OperationCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.OperationCounter</qualifiedname>
+        <briefdescription>
+<para>Gets the counter for tracking operation counts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A counter instrument for operation events.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="153" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a0ba3ca4ff1fcdc74f690ad0b0282fede" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Histogram&lt; double &gt;</type>
+        <definition>Histogram&lt;double&gt; Toolbox.Core.Telemetry.ToolboxMeter.OperationDuration</definition>
+        <argsstring></argsstring>
+        <name>OperationDuration</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.OperationDuration</qualifiedname>
+        <briefdescription>
+<para>Gets the histogram for tracking operation durations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A histogram instrument for operation timing.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="159" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ae195ff156782d0c7f2442060426e163b" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Counter&lt; long &gt;</type>
+        <definition>Counter&lt;long&gt; Toolbox.Core.Telemetry.ToolboxMeter.DisposalCounter</definition>
+        <argsstring></argsstring>
+        <name>DisposalCounter</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.DisposalCounter</qualifiedname>
+        <briefdescription>
+<para>Gets the counter for tracking disposal events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A counter instrument for disposal events.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="165" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a06fe24910531f29b60aabffffdab58cf" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>UpDownCounter&lt; long &gt;</type>
+        <definition>UpDownCounter&lt;long&gt; Toolbox.Core.Telemetry.ToolboxMeter.ActiveInstances</definition>
+        <argsstring></argsstring>
+        <name>ActiveInstances</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.ActiveInstances</qualifiedname>
+        <briefdescription>
+<para>Gets the up/down counter for tracking active service instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An up/down counter instrument for active instances.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="171" column="33" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="171" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ab81ed5dc79ddaced1afc3fc28c5001d1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordOperation</definition>
+        <argsstring>(string serviceName, string operationName, double durationMs)</argsstring>
+        <name>RecordOperation</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordOperation</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>operationName</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>durationMs</declname>
+        </param>
+        <briefdescription>
+<para>Records an operation with the specified service name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the service performing the operation.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operationName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the operation.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>durationMs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The duration of the operation in milliseconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="179" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="179" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a87e2913c539b559ff96dcff10fe24bbf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordDisposal</definition>
+        <argsstring>(string serviceName, string? reason=null)</argsstring>
+        <name>RecordDisposal</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordDisposal</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>reason</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Records a disposal event for the specified service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the disposed service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional reason for disposal.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="196" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="196" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a20b6f87fadbc3fe8ab4eb8cfb48d275c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.IncrementActiveInstances</definition>
+        <argsstring>(string serviceName)</argsstring>
+        <name>IncrementActiveInstances</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.IncrementActiveInstances</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <briefdescription>
+<para>Increments the active instance count for the specified service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the service.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="216" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="216" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a63f7fa958da169c94e8f8b864d82bc86" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordEncryption</definition>
+        <argsstring>(string serviceName, string algorithm, long dataSize, int? keySize=null)</argsstring>
+        <name>RecordEncryption</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordEncryption</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>algorithm</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>dataSize</declname>
+        </param>
+        <param>
+          <type>int?</type>
+          <declname>keySize</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Records an encryption operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the cryptography service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>algorithm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encryption algorithm used.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dataSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of encrypted data in bytes.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key size in bits (optional).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="233" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="233" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a5386d4d546ec2d297cfabd39766897eb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordDecryption</definition>
+        <argsstring>(string serviceName, string algorithm, long dataSize, int? keySize=null)</argsstring>
+        <name>RecordDecryption</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordDecryption</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>algorithm</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>dataSize</declname>
+        </param>
+        <param>
+          <type>int?</type>
+          <declname>keySize</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Records a decryption operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the cryptography service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>algorithm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encryption algorithm used.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dataSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of decrypted data in bytes.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key size in bits (optional).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="257" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="257" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1afd965c78490e46c6825171e4f18b584e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordFileUpload</definition>
+        <argsstring>(string serviceName, string protocol, string host, long fileSize)</argsstring>
+        <name>RecordFileUpload</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordFileUpload</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>protocol</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>fileSize</declname>
+        </param>
+        <briefdescription>
+<para>Records a file upload operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the file transfer service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>protocol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transfer protocol used.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote host.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the uploaded file in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="281" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="281" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a7e2d7fde2a33c4abbcdd9e7b2328e5f8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordFileDownload</definition>
+        <argsstring>(string serviceName, string protocol, string host, long fileSize)</argsstring>
+        <name>RecordFileDownload</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordFileDownload</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>protocol</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>fileSize</declname>
+        </param>
+        <briefdescription>
+<para>Records a file download operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the file transfer service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>protocol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transfer protocol used.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote host.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the downloaded file in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="302" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="302" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aee2e1890a6daf71b92279f2eb981560f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordFileTransferError</definition>
+        <argsstring>(string serviceName, string protocol, string host, string direction, string errorType)</argsstring>
+        <name>RecordFileTransferError</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordFileTransferError</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>protocol</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>errorType</declname>
+        </param>
+        <briefdescription>
+<para>Records a file transfer error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the file transfer service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>protocol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transfer protocol used.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote host.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transfer direction (upload/download).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errorType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of error.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="324" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="324" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ac88dcb55398c31e93b0d134ddac828e2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordEmailSent</definition>
+        <argsstring>(string serviceName, string host, int recipientCount, bool hasAttachments, bool isHtml)</argsstring>
+        <name>RecordEmailSent</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordEmailSent</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>recipientCount</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>hasAttachments</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isHtml</declname>
+        </param>
+        <briefdescription>
+<para>Records an email sent operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the mailing service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SMTP host.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>recipientCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of recipients.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hasAttachments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether the email has attachments.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isHtml</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether the email body is HTML.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="346" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="346" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a79491b906d19225c2c458f7870c38aa7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Telemetry.ToolboxMeter.RecordApiRequest</definition>
+        <argsstring>(string serviceName, string httpMethod, int statusCode, bool isSuccess)</argsstring>
+        <name>RecordApiRequest</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxMeter.RecordApiRequest</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>serviceName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>httpMethod</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>statusCode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isSuccess</declname>
+        </param>
+        <briefdescription>
+<para>Records an API request operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the API service.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>httpMethod</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HTTP method used.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>statusCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HTTP status code.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isSuccess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether the request was successful.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="367" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="367" bodyend="378"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Provides a shared Meter and pre-defined instruments for metrics collection. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class exposes a singleton Meter along with commonly used instruments for tracking service operations, durations, and lifecycle events. </para>
+<para>The meter and instruments are lazily initialized and thread-safe. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" line="20" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs" bodystart="21" bodyend="379"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a06fe24910531f29b60aabffffdab58cf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>ActiveInstances</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ae195ff156782d0c7f2442060426e163b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>DisposalCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a20b6f87fadbc3fe8ab4eb8cfb48d275c" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>IncrementActiveInstances</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a514236f98b47c0fddffd120b6270e7e3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>Instance</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a4b4d360979cde379c7f710f01c533d6e" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyActiveInstances</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aede3f73f264920ecc7820d7ed30ede78" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyApiRequestCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a44ffb648ac533efe2e04dc43527c9cd8" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyCryptoDataSize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1add21e8d5ca1e383ebf43f189c1dda82c" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyCryptoDecryptCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a206a7d1fb27aaa4a9ca7292b1829dd89" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyCryptoEncryptCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a819f270392e1310ec28254244913e05b" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyDisposalCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a4620a618aeb15c47e8ada9963d45e0ee" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyEmailSentCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a476bd5fe813ece5138518e1054ff3244" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyFileTransferDownloadCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1abe715095acc677be9bce6d8a3f09e55a" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyFileTransferErrorCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ab5360e9a94b76e0980a44d21c3d40367" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyFileTransferSize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aece0ee8c4a5bd620d06f93bb9242fa06" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyFileTransferUploadCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a1d52d749fd199407c832a3f246d3c2c6" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyMeter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a1ad9357673463b12d7434b13abb04661" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyOperationCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ae4fa76090537535f971a484fb68428b5" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>LazyOperationDuration</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a7f5331999925a91701fb0f2cee391dc4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>Name</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a594c46375be2e0506872d1e1c4f572e9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>OperationCounter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a0ba3ca4ff1fcdc74f690ad0b0282fede" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>OperationDuration</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a79491b906d19225c2c458f7870c38aa7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordApiRequest</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a5386d4d546ec2d297cfabd39766897eb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordDecryption</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a87e2913c539b559ff96dcff10fe24bbf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordDisposal</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ac88dcb55398c31e93b0d134ddac828e2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordEmailSent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a63f7fa958da169c94e8f8b864d82bc86" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordEncryption</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1a7e2d7fde2a33c4abbcdd9e7b2328e5f8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordFileDownload</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aee2e1890a6daf71b92279f2eb981560f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordFileTransferError</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1afd965c78490e46c6825171e4f18b584e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordFileUpload</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1ab81ed5dc79ddaced1afc3fc28c5001d1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>RecordOperation</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_meter_1aab047306eba63f92ad14389b8df76aaf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxMeter</scope><name>Version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

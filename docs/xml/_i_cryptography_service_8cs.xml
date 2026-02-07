@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_i_cryptography_service_8cs" kind="file" language="C#">
+    <compoundname>ICryptographyService.cs</compoundname>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" prot="public">Toolbox::Core::Abstractions::Services::ICryptographyService</innerclass>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core">Toolbox::Core</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_abstractions">Toolbox::Core::Abstractions</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox::Core::Abstractions::Services</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>@file<sp/>ICryptographyService.cs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Interface<sp/>for<sp/>cryptography<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@details<sp/>Defines<sp/>the<sp/>contract<sp/>for<sp/>text<sp/>encryption<sp/>and<sp/>decryption<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@note<sp/>All<sp/>implementations<sp/>must<sp/>support<sp/>both<sp/>synchronous<sp/>and<sp/>asynchronous<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_abstractions_1_1_services" kindref="compound">Toolbox.Core.Abstractions.Services</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" kindref="compound">ICryptographyService</ref><sp/>:<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" kindref="compound">IInstrumentedService</ref>,<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" kindref="compound">IAsyncDisposableService</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59" kindref="member">Encrypt</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>plainText);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Task&lt;string&gt;<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf" kindref="member">EncryptAsync</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>plainText,<sp/>CancellationToken<sp/>cancellationToken<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f" kindref="member">Decrypt</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>encryptedText);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Task&lt;string&gt;<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a" kindref="member">DecryptAsync</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>encryptedText,<sp/>CancellationToken<sp/>cancellationToken<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/ICryptographyService.cs"/>
+  </compounddef>
+</doxygen>

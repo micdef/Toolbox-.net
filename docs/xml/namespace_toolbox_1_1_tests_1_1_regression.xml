@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests_1_1_regression" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests::Regression</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests" prot="public">Toolbox::Tests::Regression::OptionsSchemaTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests" prot="public">Toolbox::Tests::Regression::TelemetryConstantsTests</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/OptionsSchemaTests.cs" line="3" column="1"/>
+  </compounddef>
+</doxygen>

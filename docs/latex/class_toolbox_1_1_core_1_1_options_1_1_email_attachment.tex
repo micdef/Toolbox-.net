@@ -1,0 +1,259 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Email\+Attachment Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{}\label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+
+
+Represents an email attachment.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a853dc810e2df93594ae0a484f53ce974}{From\+File}} (string file\+Path, string? content\+Type=null, string? file\+Name=null)
+\begin{DoxyCompactList}\small\item\em Creates an attachment from a file path. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}{From\+Bytes}} (byte\+[$\,$]\+ content, string file\+Name, string? content\+Type=null)
+\begin{DoxyCompactList}\small\item\em Creates an attachment from a byte array. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a62b587e360cc79b519da2568a8b0f6f5}{Create\+Inline}} (byte\+[$\,$]\+ content, string file\+Name, string content\+Id, string? content\+Type=null)
+\begin{DoxyCompactList}\small\item\em Creates an inline attachment for embedding in HTML. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+required string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a3178dcb477c3e739acfb83d1b4000785}{File\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the filename of the attachment. \end{DoxyCompactList}\item 
+required string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ae714a842f714c3f159cb91cf9b000369}{Content\+Type}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the MIME content type of the attachment. \end{DoxyCompactList}\item 
+byte?\+[$\,$]\+ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ac6f99591d53cb530223e3dbb884c37ba}{Content}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the attachment content as a byte array. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_af5ee3aee9da198e3e9024a6e26e2afdd}{File\+Path}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the file path of the attachment. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a87c92e4fc41de2261fd60c2bb5177f84}{Is\+Inline}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this attachment is inline (embedded in HTML). \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a80b0a2f8893ae4c3cb7e9c21e98e0863}{Content\+Id}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the Content-\/\+ID for inline attachments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an email attachment. 
+
+An attachment can be created from either a file path or raw byte data. The content type is automatically detected from the filename if not specified. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ From\ file\ path}}
+\DoxyCodeLine{var\ attachment1\ =\ EmailAttachment.FromFile(\textcolor{stringliteral}{"{}document.pdf"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ From\ byte\ array}}
+\DoxyCodeLine{var\ attachment2\ =\ EmailAttachment.FromBytes(}
+\DoxyCodeLine{\ \ \ \ pdfBytes,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}report.pdf"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}application/pdf"{}});}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00029}{29}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a62b587e360cc79b519da2568a8b0f6f5}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!CreateInline@{CreateInline}}
+\index{CreateInline@{CreateInline}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{CreateInline()}{CreateInline()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a62b587e360cc79b519da2568a8b0f6f5} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} Toolbox.\+Core.\+Options.\+Email\+Attachment.\+Create\+Inline (\begin{DoxyParamCaption}\item[{byte\+[$\,$]\+}]{content}{, }\item[{string}]{file\+Name}{, }\item[{string}]{content\+Id}{, }\item[{string?}]{content\+Type}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an inline attachment for embedding in HTML. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The attachment content.\\
+\hline
+{\em file\+Name} & The filename.\\
+\hline
+{\em content\+Id} & The Content-\/\+ID for referencing in HTML (without angle brackets).\\
+\hline
+{\em content\+Type} & The content type, or {\ttfamily null} to auto-\/detect.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An inline \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when required parameters are {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ logo\ =\ EmailAttachment.CreateInline(logoBytes,\ \textcolor{stringliteral}{"{}logo.png"{}},\ \textcolor{stringliteral}{"{}company-\/logo"{}});}
+\DoxyCodeLine{message.Body\ =\ \textcolor{stringliteral}{"{}<img\ src='cid:company-\/logo'\ />"{}};}
+\DoxyCodeLine{message.Attachments.Add(logo);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00136}{136}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!FromBytes@{FromBytes}}
+\index{FromBytes@{FromBytes}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{FromBytes()}{FromBytes()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} Toolbox.\+Core.\+Options.\+Email\+Attachment.\+From\+Bytes (\begin{DoxyParamCaption}\item[{byte\+[$\,$]\+}]{content}{, }\item[{string}]{file\+Name}{, }\item[{string?}]{content\+Type}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an attachment from a byte array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The attachment content.\\
+\hline
+{\em file\+Name} & The filename to use in the email.\\
+\hline
+{\em content\+Type} & The content type, or {\ttfamily null} to auto-\/detect from filename.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment} representing the content.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape content}  or {\itshape file\+Name}  is {\ttfamily null}.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00104}{104}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a853dc810e2df93594ae0a484f53ce974}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!FromFile@{FromFile}}
+\index{FromFile@{FromFile}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{FromFile()}{FromFile()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a853dc810e2df93594ae0a484f53ce974} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} Toolbox.\+Core.\+Options.\+Email\+Attachment.\+From\+File (\begin{DoxyParamCaption}\item[{string}]{file\+Path}{, }\item[{string?}]{content\+Type}{ = {\ttfamily null}, }\item[{string?}]{file\+Name}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an attachment from a file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The path to the file.\\
+\hline
+{\em content\+Type} & The content type, or {\ttfamily null} to auto-\/detect.\\
+\hline
+{\em file\+Name} & The filename to use, or {\ttfamily null} to use the file\textquotesingle{}s name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment} representing the file.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape file\+Path}  is {\ttfamily null}.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when the file does not exist.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00076}{76}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ac6f99591d53cb530223e3dbb884c37ba}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!Content@{Content}}
+\index{Content@{Content}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{Content}{Content}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ac6f99591d53cb530223e3dbb884c37ba} 
+byte? \+[$\,$]\+ Toolbox.\+Core.\+Options.\+Email\+Attachment.\+Content\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the attachment content as a byte array. 
+
+The raw content bytes, or {\ttfamily null} if using a file path.
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00047}{47}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a80b0a2f8893ae4c3cb7e9c21e98e0863}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!ContentId@{ContentId}}
+\index{ContentId@{ContentId}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{ContentId}{ContentId}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a80b0a2f8893ae4c3cb7e9c21e98e0863} 
+string? Toolbox.\+Core.\+Options.\+Email\+Attachment.\+Content\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the Content-\/\+ID for inline attachments. 
+
+The Content-\/\+ID for referencing in HTML, or {\ttfamily null}.
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00065}{65}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ae714a842f714c3f159cb91cf9b000369}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!ContentType@{ContentType}}
+\index{ContentType@{ContentType}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{ContentType}{ContentType}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ae714a842f714c3f159cb91cf9b000369} 
+required string Toolbox.\+Core.\+Options.\+Email\+Attachment.\+Content\+Type\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the MIME content type of the attachment. 
+
+The content type (e.\+g., "{}application/\+pdf"{}).
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00041}{41}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a3178dcb477c3e739acfb83d1b4000785}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!FileName@{FileName}}
+\index{FileName@{FileName}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{FileName}{FileName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a3178dcb477c3e739acfb83d1b4000785} 
+required string Toolbox.\+Core.\+Options.\+Email\+Attachment.\+File\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the filename of the attachment. 
+
+The filename to use in the email.
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00035}{35}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_af5ee3aee9da198e3e9024a6e26e2afdd}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!FilePath@{FilePath}}
+\index{FilePath@{FilePath}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{FilePath}{FilePath}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_af5ee3aee9da198e3e9024a6e26e2afdd} 
+string? Toolbox.\+Core.\+Options.\+Email\+Attachment.\+File\+Path\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the file path of the attachment. 
+
+The file path, or {\ttfamily null} if using byte content.
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a87c92e4fc41de2261fd60c2bb5177f84}\index{Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}!IsInline@{IsInline}}
+\index{IsInline@{IsInline}!Toolbox.Core.Options.EmailAttachment@{Toolbox.Core.Options.EmailAttachment}}
+\doxysubsubsection{\texorpdfstring{IsInline}{IsInline}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a87c92e4fc41de2261fd60c2bb5177f84} 
+bool Toolbox.\+Core.\+Options.\+Email\+Attachment.\+Is\+Inline\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether this attachment is inline (embedded in HTML). 
+
+{\ttfamily true} if inline; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_email_attachment_8cs_source_l00059}{59}} of file \doxymbox{\hyperlink{_email_attachment_8cs_source}{Email\+Attachment.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_email_attachment_8cs}{Email\+Attachment.\+cs}}\end{DoxyCompactItemize}

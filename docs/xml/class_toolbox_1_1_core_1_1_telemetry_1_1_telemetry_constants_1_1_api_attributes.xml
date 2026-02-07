@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants::ApiAttributes</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes_1aefddc2f0f39b490c1b591b99857133c4" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes.HttpMethod</definition>
+        <argsstring></argsstring>
+        <name>HttpMethod</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes.HttpMethod</qualifiedname>
+        <initializer>= &quot;toolbox.api.http_method&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for HTTP method. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="159" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes_1a7dd483e7dfa2b9263b693dbd341bde8f" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes.HttpStatusCode</definition>
+        <argsstring></argsstring>
+        <name>HttpStatusCode</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes.HttpStatusCode</qualifiedname>
+        <initializer>= &quot;toolbox.api.status_code&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for HTTP status code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="162" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes_1aaaae54da14c95d0ddf4f1a611d9d2b93" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes.HttpSuccess</definition>
+        <argsstring></argsstring>
+        <name>HttpSuccess</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes.HttpSuccess</qualifiedname>
+        <initializer>= &quot;toolbox.api.success&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for success indicator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="165" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="165" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Additional attribute names for API services. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="156" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="157" bodyend="166"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes_1aefddc2f0f39b490c1b591b99857133c4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::ApiAttributes</scope><name>HttpMethod</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes_1a7dd483e7dfa2b9263b693dbd341bde8f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::ApiAttributes</scope><name>HttpStatusCode</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_api_attributes_1aaaae54da14c95d0ddf4f1a611d9d2b93" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::ApiAttributes</scope><name>HttpSuccess</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

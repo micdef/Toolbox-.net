@@ -1,0 +1,1028 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e" kind="page">
+    <compoundname>md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e</compoundname>
+    <title>Toolbox Usage Guide</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md11"/></para>
+<para>This guide provides detailed instructions for using the <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> library.</para>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md12">
+<title>Table of Contents</title><para><orderedlist>
+<listitem><para>Getting Started</para>
+</listitem><listitem><para>Cryptography Services<itemizedlist>
+<listitem><para>Base64 Encoding</para>
+</listitem><listitem><para>AES Encryption</para>
+</listitem><listitem><para>RSA Encryption</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>File Transfer Services<itemizedlist>
+<listitem><para>FTP/FTPS</para>
+</listitem><listitem><para>SFTP</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Mailing Services</para>
+</listitem><listitem><para>Creating Custom Services</para>
+</listitem><listitem><para>OpenTelemetry Integration</para>
+</listitem><listitem><para>Configuration Options</para>
+</listitem><listitem><para>Best Practices</para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md13">
+<title>Getting Started</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md14">
+<title>Basic Setup</title><para>Add <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> to your application:</para>
+<para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref><sp/>=<sp/>Host.CreateApplicationBuilder(args);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Register<sp/>Toolbox<sp/>core<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxCore();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref><sp/>=<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Build();</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md15">
+<title>Configuration via appsettings.json</title><para><programlisting filename=".json"><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;Toolbox&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableDetailedTelemetry&quot;:<sp/>false,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ServicePrefix&quot;:<sp/>&quot;MyApp&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;AsyncDisposalTimeout&quot;:<sp/>&quot;00:00:30&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;Toolbox:Telemetry&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableTracing&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableMetrics&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableConsoleExport&quot;:<sp/>false,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ServiceName&quot;:<sp/>&quot;MyApplication&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ServiceVersion&quot;:<sp/>&quot;1.0.0&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxCore(<ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Configuration);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxOpenTelemetry(<ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Configuration);</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md17">
+<title>Cryptography Services</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md18">
+<title>Base64 Encoding</title><para>Base64 encoding/decoding service for text obfuscation (not encryption).</para>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md19">
+<title>Registration</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Standard<sp/>Base64</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddBase64Cryptography();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>URL-safe<sp/>Base64</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddBase64Cryptography(<ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" kindref="member">Base64EncodingTable</ref>.UrlSafe);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>With<sp/>full<sp/>options</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddBase64Cryptography(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EncodingTable<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" kindref="member">Base64EncodingTable</ref>.UrlSafe;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.IncludePadding<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md20">
+<title>Usage</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MyService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>ICryptographyService<sp/>_crypto;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MyService(ICryptographyService<sp/>crypto)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_crypto<sp/>=<sp/>crypto;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>ProcessAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Encode</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encoded<sp/>=<sp/>_crypto.Encrypt(</highlight><highlight class="stringliteral">&quot;Hello,<sp/>World!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Result:<sp/>&quot;SGVsbG8sIFdvcmxkIQ==&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Decode</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decoded<sp/>=<sp/>_crypto.Decrypt(encoded);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Result:<sp/>&quot;Hello,<sp/>World!&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Async<sp/>versions</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encodedAsync<sp/>=<sp/>await<sp/>_crypto.EncryptAsync(</highlight><highlight class="stringliteral">&quot;Hello&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decodedAsync<sp/>=<sp/>await<sp/>_crypto.DecryptAsync(encodedAsync);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect3>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md22">
+<title>AES Encryption</title><para>Secure symmetric encryption using AES (CBC mode with PKCS7 padding).</para>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md23">
+<title>Registration</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generate<sp/>new<sp/>key<sp/>and<sp/>IV</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key,<sp/>iv)<sp/>=<sp/>AesCryptographyService.GenerateKey(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes256);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Register<sp/>with<sp/>generated<sp/>key</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddAesCryptography(key,<sp/>iv);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Or<sp/>with<sp/>key<sp/>size<sp/>enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddAesCryptography(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes256);</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md24">
+<title>Usage</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SecureService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>ICryptographyService<sp/>_crypto;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>SecureService(ICryptographyService<sp/>crypto)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_crypto<sp/>=<sp/>crypto;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task&lt;string&gt;<sp/>EncryptDataAsync(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>sensitiveData)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Encrypt<sp/>(returns<sp/>Base64-encoded<sp/>ciphertext)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encrypted<sp/>=<sp/>await<sp/>_crypto.EncryptAsync(sensitiveData);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Decrypt</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decrypted<sp/>=<sp/>await<sp/>_crypto.DecryptAsync(encrypted);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>encrypted;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md25">
+<title>Key Generation</title><para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>Generate<sp/>AES-128<sp/>key</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key128,<sp/>iv128)<sp/>=<sp/>AesCryptographyService.GenerateKey(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes128);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generate<sp/>AES-192<sp/>key</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key192,<sp/>iv192)<sp/>=<sp/>AesCryptographyService.GenerateKey(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes192);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generate<sp/>AES-256<sp/>key<sp/>(recommended)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key256,<sp/>iv256)<sp/>=<sp/>AesCryptographyService.GenerateKey(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes256);</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect3>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md27">
+<title>RSA Encryption</title><para>Asymmetric encryption using RSA with various key sizes and padding modes.</para>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md28">
+<title>Registration</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generate<sp/>key<sp/>pair</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>keyPair<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref>.Rsa2048);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Register<sp/>with<sp/>full<sp/>key<sp/>pair<sp/>(encrypt<sp/>+<sp/>decrypt)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>keyPair.PublicKey!,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref>.OaepSha256,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>keyPair.PrivateKey);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Register<sp/>with<sp/>public<sp/>key<sp/>only<sp/>(encrypt<sp/>only)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>keyPair.PublicKey!,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref>.OaepSha256);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Register<sp/>with<sp/>X.509<sp/>certificate</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>cert<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>X509Certificate2(</highlight><highlight class="stringliteral">&quot;certificate.pfx&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(cert,<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref>.OaepSha256);</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md29">
+<title>Usage</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">AsymmetricService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>ICryptographyService<sp/>_crypto;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>AsymmetricService(ICryptographyService<sp/>crypto)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_crypto<sp/>=<sp/>crypto;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task&lt;(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>encrypted,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>decrypted)&gt;<sp/>ProcessAsync(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>data)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Encrypt<sp/>with<sp/>public<sp/>key</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encrypted<sp/>=<sp/>await<sp/>_crypto.EncryptAsync(data);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Decrypt<sp/>with<sp/>private<sp/>key<sp/>(requires<sp/>private<sp/>key)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decrypted<sp/>=<sp/>await<sp/>_crypto.DecryptAsync(encrypted);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(encrypted,<sp/>decrypted);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md30">
+<title>Key Generation</title><para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>Generate<sp/>key<sp/>pair<sp/>(bytes)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>keyPair<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref>.Rsa2048);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>publicKey<sp/>=<sp/>keyPair.PublicKey!;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>privateKey<sp/>=<sp/>keyPair.PrivateKey!;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generate<sp/>self-signed<sp/>certificate</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>certKeyPair<sp/>=<sp/>RsaCryptographyService.GenerateCertificate(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref>.Rsa4096,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CN=MyApplication&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TimeSpan.FromDays(365));</highlight></codeline>
+<codeline><highlight class="normal">X509Certificate2<sp/>certificate<sp/>=<sp/>certKeyPair.Certificate!;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Public<sp/>key<sp/>only<sp/>(for<sp/>sharing)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>publicOnly<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref>.Rsa2048,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>includePrivateKey:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md31">
+<title>Padding Modes</title><para><table rows="6" cols="2"><row>
+<entry thead="yes"><para>Mode  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Pkcs1</computeroutput>  </para>
+</entry><entry thead="no"><para>PKCS#1 v1.5 padding (legacy)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OaepSha1</computeroutput>  </para>
+</entry><entry thead="no"><para>OAEP with SHA-1  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OaepSha256</computeroutput>  </para>
+</entry><entry thead="no"><para>OAEP with SHA-256 (recommended)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OaepSha384</computeroutput>  </para>
+</entry><entry thead="no"><para>OAEP with SHA-384  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OaepSha512</computeroutput>  </para>
+</entry><entry thead="no"><para>OAEP with SHA-512  </para>
+</entry></row>
+</table>
+</para>
+<para><hruler/>
+</para>
+</sect3>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md33">
+<title>File Transfer Services</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md34">
+<title>FTP/FTPS</title><para>File transfer service for FTP and FTPS (FTP over TLS) protocols.</para>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md35">
+<title>Registration</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Basic<sp/>FTP</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddFtpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>21;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Protocol<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c" kindref="member">FileTransferProtocol</ref>.Ftp;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Secure<sp/>FTPS</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddFtpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>21;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Protocol<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c" kindref="member">FileTransferProtocol</ref>.Ftps;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>From<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddFtpFileTransfer(configuration.GetSection(</highlight><highlight class="stringliteral">&quot;Ftp&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md36">
+<title>Usage</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FileService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>IFileTransferService<sp/>_ftp;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>FileService(IFileTransferService<sp/>ftp)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ftp<sp/>=<sp/>ftp;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>TransferFilesAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Upload<sp/>single<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_ftp.UploadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localPath:<sp/></highlight><highlight class="stringliteral">@&quot;C:\local\file.txt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remotePath:<sp/></highlight><highlight class="stringliteral">&quot;/remote/file.txt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overwrite:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Download<sp/>single<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_ftp.DownloadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remotePath:<sp/></highlight><highlight class="stringliteral">&quot;/remote/file.txt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localPath:<sp/></highlight><highlight class="stringliteral">@&quot;C:\local\downloaded.txt&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Batch<sp/>upload</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>uploads<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">@&quot;C:\local\file1.txt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/remote/file1.txt&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">@&quot;C:\local\file2.txt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/remote/file2.txt&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>successCount<sp/>=<sp/>await<sp/>_ftp.UploadBatchAsync(uploads);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Batch<sp/>download</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>downloads<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;/remote/file1.txt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">@&quot;C:\local\file1.txt&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;/remote/file2.txt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">@&quot;C:\local\file2.txt&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>downloaded<sp/>=<sp/>await<sp/>_ftp.DownloadBatchAsync(downloads);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect3>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md38">
+<title>SFTP</title><para>Secure file transfer over SSH (SFTP protocol).</para>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md39">
+<title>Registration</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Password<sp/>authentication</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>22;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>key<sp/>authentication</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>22;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.PrivateKeyPath<sp/>=<sp/></highlight><highlight class="stringliteral">@&quot;C:\keys\id_rsa&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.PrivateKeyPassphrase<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;passphrase&quot;</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Optional</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>key<sp/>from<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.PrivateKeyContent<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;-----BEGIN<sp/>RSA<sp/>PRIVATE<sp/>KEY-----\n...&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md40">
+<title>Usage</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SecureFileService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>IFileTransferService<sp/>_sftp;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>SecureFileService(IFileTransferService<sp/>sftp)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sftp<sp/>=<sp/>sftp;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>TransferAsync(CancellationToken<sp/>ct)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Upload<sp/>with<sp/>cancellation<sp/>support</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sftp.UploadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">@&quot;C:\data\report.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/uploads/report.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overwrite:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ct);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Download</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sftp.DownloadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/downloads/data.csv&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">@&quot;C:\data\data.csv&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cancellationToken:<sp/>ct);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md41">
+<title>Configuration Options</title><para><table rows="13" cols="4"><row>
+<entry thead="yes"><para>Option  </para>
+</entry><entry thead="yes"><para>Type  </para>
+</entry><entry thead="yes"><para>Default  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Host</computeroutput>  </para>
+</entry><entry thead="no"><para>string  </para>
+</entry><entry thead="no"><para>-  </para>
+</entry><entry thead="no"><para>Server hostname  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Port</computeroutput>  </para>
+</entry><entry thead="no"><para>int  </para>
+</entry><entry thead="no"><para>21/22  </para>
+</entry><entry thead="no"><para>Server port  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Username</computeroutput>  </para>
+</entry><entry thead="no"><para>string  </para>
+</entry><entry thead="no"><para>-  </para>
+</entry><entry thead="no"><para>Login username  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Password</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Password (if using password auth)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>PrivateKeyPath</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Path to private key file  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>PrivateKeyContent</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Private key as string  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>PrivateKeyPassphrase</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Private key passphrase  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Protocol</computeroutput>  </para>
+</entry><entry thead="no"><para>FileTransferProtocol  </para>
+</entry><entry thead="no"><para>Ftp  </para>
+</entry><entry thead="no"><para>Ftp, Ftps, or Sftp  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>ConnectionTimeout</computeroutput>  </para>
+</entry><entry thead="no"><para>TimeSpan  </para>
+</entry><entry thead="no"><para>30s  </para>
+</entry><entry thead="no"><para>Connection timeout  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OperationTimeout</computeroutput>  </para>
+</entry><entry thead="no"><para>TimeSpan  </para>
+</entry><entry thead="no"><para>5min  </para>
+</entry><entry thead="no"><para>Operation timeout  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>BufferSize</computeroutput>  </para>
+</entry><entry thead="no"><para>int  </para>
+</entry><entry thead="no"><para>32KB  </para>
+</entry><entry thead="no"><para>Transfer buffer size  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>AutoCreateDirectory</computeroutput>  </para>
+</entry><entry thead="no"><para>bool  </para>
+</entry><entry thead="no"><para>true  </para>
+</entry><entry thead="no"><para>Auto-create remote directories  </para>
+</entry></row>
+</table>
+</para>
+<para><hruler/>
+</para>
+</sect3>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md43">
+<title>Mailing Services</title><para>SMTP email sending service with TLS/SSL, OAuth2, and attachment support.</para>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md44">
+<title>Registration</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generic<sp/>SMTP</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;smtp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>587;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" kindref="member">SmtpSecurityMode</ref>.StartTls;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user@example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.DefaultFrom<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;noreply@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;My<sp/>App&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Gmail<sp/>shortcut</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddGmailMailing(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>email:<sp/></highlight><highlight class="stringliteral">&quot;myapp@gmail.com&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>appPassword:<sp/></highlight><highlight class="stringliteral">&quot;xxxx-xxxx-xxxx-xxxx&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Outlook/Office<sp/>365<sp/>shortcut</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddOutlookMailing(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>email:<sp/></highlight><highlight class="stringliteral">&quot;myapp@outlook.com&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>password:<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Anonymous<sp/>relay<sp/>(internal<sp/>servers)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mail.internal.local&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>25;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" kindref="member">SmtpSecurityMode</ref>.None;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>From<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(configuration.GetSection(</highlight><highlight class="stringliteral">&quot;Mailing&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md45">
+<title>Usage</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">NotificationService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>IMailingService<sp/>_mailing;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>NotificationService(IMailingService<sp/>mailing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_mailing<sp/>=<sp/>mailing;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>SendWelcomeEmailAsync(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>userEmail,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>userName)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>From<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;noreply@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;My<sp/>Application&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Welcome<sp/>to<sp/>Our<sp/>Service!&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Body<sp/>=<sp/>$</highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Welcome,<sp/>{userName}!&lt;/h1&gt;&lt;p&gt;Thank<sp/>you<sp/>for<sp/>joining<sp/>us.&lt;/p&gt;&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>To<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(userEmail,<sp/>userName)<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>SendReportAsync(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">[]<sp/>recipients,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>pdfReport)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>From<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;reports@example.com&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Report<sp/>System&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Monthly<sp/>Report&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Body<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Please<sp/>find<sp/>the<sp/>monthly<sp/>report<sp/>attached.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Attachments<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EmailAttachment.FromBytes(pdfReport,<sp/></highlight><highlight class="stringliteral">&quot;report.pdf&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Multiple<sp/>recipients</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(var<sp/>recipient<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>recipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message.To.Add(recipient);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>SendBccEmailAsync(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">[]<sp/>bccRecipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Email<sp/>with<sp/>BCC<sp/>only<sp/>(no<sp/>visible<sp/>recipients)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>From<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;newsletter@example.com&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Newsletter&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Body<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Monthly<sp/>Newsletter&lt;/h1&gt;&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(var<sp/>bcc<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>bccRecipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message.Bcc.Add(bcc);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md46">
+<title>Email with Inline Images</title><para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>logoBytes<sp/>=<sp/>File.ReadAllBytes(</highlight><highlight class="stringliteral">&quot;logo.png&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>message<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" kindref="compound">EmailMessage</ref></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>From<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>(</highlight><highlight class="stringliteral">&quot;noreply@example.com&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Email<sp/>with<sp/>Logo&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Body<sp/>=<sp/></highlight><highlight class="stringliteral">@&quot;</highlight></codeline>
+<codeline><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;html&gt;</highlight></codeline>
+<codeline><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;body&gt;</highlight></codeline>
+<codeline><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;img<sp/>src=&apos;cid:company-logo&apos;<sp/>alt=&apos;Logo&apos;<sp/>/&gt;</highlight></codeline>
+<codeline><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;h1&gt;Welcome!&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;/body&gt;</highlight></codeline>
+<codeline><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;/html&gt;&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>To<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;recipient@example.com&quot;</highlight><highlight class="normal"><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Attachments<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref>.<ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a62b587e360cc79b519da2568a8b0f6f5" kindref="member">CreateInline</ref>(logoBytes,<sp/></highlight><highlight class="stringliteral">&quot;logo.png&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;company-logo&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md47">
+<title>Configuration Options</title><para><table rows="12" cols="4"><row>
+<entry thead="yes"><para>Option  </para>
+</entry><entry thead="yes"><para>Type  </para>
+</entry><entry thead="yes"><para>Default  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Host</computeroutput>  </para>
+</entry><entry thead="no"><para>string  </para>
+</entry><entry thead="no"><para>&quot;localhost&quot;  </para>
+</entry><entry thead="no"><para>SMTP server hostname  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Port</computeroutput>  </para>
+</entry><entry thead="no"><para>int  </para>
+</entry><entry thead="no"><para>25  </para>
+</entry><entry thead="no"><para>SMTP port (25, 587, 465)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>SecurityMode</computeroutput>  </para>
+</entry><entry thead="no"><para>SmtpSecurityMode  </para>
+</entry><entry thead="no"><para>Auto  </para>
+</entry><entry thead="no"><para>Security mode  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Username</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>SMTP username  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Password</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>SMTP password  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OAuth2AccessToken</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>OAuth2 token (Gmail, O365)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>ConnectionTimeout</computeroutput>  </para>
+</entry><entry thead="no"><para>TimeSpan  </para>
+</entry><entry thead="no"><para>30s  </para>
+</entry><entry thead="no"><para>Connection timeout  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OperationTimeout</computeroutput>  </para>
+</entry><entry thead="no"><para>TimeSpan  </para>
+</entry><entry thead="no"><para>2min  </para>
+</entry><entry thead="no"><para>Send timeout  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>ValidateCertificate</computeroutput>  </para>
+</entry><entry thead="no"><para>bool  </para>
+</entry><entry thead="no"><para>true  </para>
+</entry><entry thead="no"><para>Validate SSL certificate  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>DefaultFrom</computeroutput>  </para>
+</entry><entry thead="no"><para>EmailAddress?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Default sender address  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>DefaultReplyTo</computeroutput>  </para>
+</entry><entry thead="no"><para>EmailAddress?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Default reply-to address  </para>
+</entry></row>
+</table>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md48">
+<title>Security Modes</title><para><table rows="6" cols="3"><row>
+<entry thead="yes"><para>Mode  </para>
+</entry><entry thead="yes"><para>Port  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Auto</computeroutput>  </para>
+</entry><entry thead="no"><para>-  </para>
+</entry><entry thead="no"><para>Automatic detection  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>None</computeroutput>  </para>
+</entry><entry thead="no"><para>25  </para>
+</entry><entry thead="no"><para>No encryption (internal only)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>StartTls</computeroutput>  </para>
+</entry><entry thead="no"><para>587  </para>
+</entry><entry thead="no"><para>Upgrade to TLS (recommended)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>StartTlsWhenAvailable</computeroutput>  </para>
+</entry><entry thead="no"><para>587  </para>
+</entry><entry thead="no"><para>TLS if available  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>SslOnConnect</computeroutput>  </para>
+</entry><entry thead="no"><para>465  </para>
+</entry><entry thead="no"><para>Implicit SSL/TLS  </para>
+</entry></row>
+</table>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md50">
+<title>Creating Custom Services</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md51">
+<title>Synchronous Disposal</title><para>For services with synchronous cleanup:</para>
+<para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_base" kindref="compound">Toolbox.Core.Base</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MyService<sp/>:<sp/><ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service" kindref="compound">BaseDisposableService</ref></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>SomeResource<sp/>_resource;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MyService(ILogger&lt;MyService&gt;<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>base(</highlight><highlight class="stringliteral">&quot;MyService&quot;</highlight><highlight class="normal">,<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_resource<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SomeResource();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DoWork()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThrowIfDisposed();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">var<sp/>activity<sp/>=<sp/>StartActivity();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>sw<sp/>=<sp/>Stopwatch.StartNew();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_resource.Process();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RecordOperation(</highlight><highlight class="stringliteral">&quot;DoWork&quot;</highlight><highlight class="normal">,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Dispose(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>disposing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(disposing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_resource?.Dispose();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base.Dispose(disposing);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md52">
+<title>Asynchronous Disposal</title><para>For services with async resources:</para>
+<para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_base" kindref="compound">Toolbox.Core.Base</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MyAsyncService<sp/>:<sp/><ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service" kindref="compound">BaseAsyncDisposableService</ref></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>Stream<sp/>_stream;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MyAsyncService(ILogger&lt;MyAsyncService&gt;<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>base(</highlight><highlight class="stringliteral">&quot;MyAsyncService&quot;</highlight><highlight class="normal">,<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_stream<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FileStream(</highlight><highlight class="stringliteral">&quot;data.bin&quot;</highlight><highlight class="normal">,<sp/>FileMode.OpenOrCreate);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>ProcessAsync(CancellationToken<sp/>ct<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThrowIfDisposed();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">var<sp/>activity<sp/>=<sp/>StartActivity();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>sw<sp/>=<sp/>Stopwatch.StartNew();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_stream.WriteAsync(data,<sp/>ct);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RecordOperation(</highlight><highlight class="stringliteral">&quot;ProcessAsync&quot;</highlight><highlight class="normal">,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/>async<sp/>ValueTask<sp/>DisposeAsyncCore(CancellationToken<sp/>ct)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_stream.DisposeAsync();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md54">
+<title>OpenTelemetry Integration</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md55">
+<title>Basic Tracing and Metrics</title><para><programlisting filename=".cs"><codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableTracing<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableMetrics<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServiceName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;MyApplication&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServiceVersion<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;1.0.0&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md56">
+<title>OTLP Export</title><para><programlisting filename=".cs"><codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.OtlpEndpoint<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;http://localhost:4317&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md57">
+<title>Custom Instrumentation</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_telemetry" kindref="compound">Toolbox.Core.Telemetry</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Start<sp/>a<sp/>custom<sp/>activity</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">var<sp/>activity<sp/>=<sp/>ToolboxActivitySource.StartActivity(</highlight><highlight class="stringliteral">&quot;CustomOperation&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">activity?.SetTag(</highlight><highlight class="stringliteral">&quot;custom.tag&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Record<sp/>metrics</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">ToolboxMeter.RecordOperation(</highlight><highlight class="stringliteral">&quot;MyService&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;CustomOp&quot;</highlight><highlight class="normal">,<sp/>elapsedMs);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md58">
+<title>Available Metrics</title><para><table rows="9" cols="3"><row>
+<entry thead="yes"><para>Metric  </para>
+</entry><entry thead="yes"><para>Type  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.operations.count</computeroutput>  </para>
+</entry><entry thead="no"><para>Counter  </para>
+</entry><entry thead="no"><para>Total operations  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.operations.duration</computeroutput>  </para>
+</entry><entry thead="no"><para>Histogram  </para>
+</entry><entry thead="no"><para>Operation duration (ms)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.crypto.encrypt.count</computeroutput>  </para>
+</entry><entry thead="no"><para>Counter  </para>
+</entry><entry thead="no"><para>Encryption operations  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.crypto.decrypt.count</computeroutput>  </para>
+</entry><entry thead="no"><para>Counter  </para>
+</entry><entry thead="no"><para>Decryption operations  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.crypto.data.size</computeroutput>  </para>
+</entry><entry thead="no"><para>Histogram  </para>
+</entry><entry thead="no"><para>Data size (bytes)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.filetransfer.upload.count</computeroutput>  </para>
+</entry><entry thead="no"><para>Counter  </para>
+</entry><entry thead="no"><para>File uploads  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.filetransfer.download.count</computeroutput>  </para>
+</entry><entry thead="no"><para>Counter  </para>
+</entry><entry thead="no"><para>File downloads  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>toolbox.filetransfer.size</computeroutput>  </para>
+</entry><entry thead="no"><para>Histogram  </para>
+</entry><entry thead="no"><para>File size (bytes)  </para>
+</entry></row>
+</table>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md60">
+<title>Configuration Options</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md61">
+<title>ToolboxOptions</title><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para>Option  </para>
+</entry><entry thead="yes"><para>Type  </para>
+</entry><entry thead="yes"><para>Default  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>EnableDetailedTelemetry</computeroutput>  </para>
+</entry><entry thead="no"><para>bool  </para>
+</entry><entry thead="no"><para>false  </para>
+</entry><entry thead="no"><para>Enable detailed telemetry  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>ServicePrefix</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>Prefix for service names  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>AsyncDisposalTimeout</computeroutput>  </para>
+</entry><entry thead="no"><para>TimeSpan  </para>
+</entry><entry thead="no"><para>30s  </para>
+</entry><entry thead="no"><para>Timeout for async disposal  </para>
+</entry></row>
+</table>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md62">
+<title>ToolboxTelemetryOptions</title><para><table rows="7" cols="4"><row>
+<entry thead="yes"><para>Option  </para>
+</entry><entry thead="yes"><para>Type  </para>
+</entry><entry thead="yes"><para>Default  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>EnableTracing</computeroutput>  </para>
+</entry><entry thead="no"><para>bool  </para>
+</entry><entry thead="no"><para>true  </para>
+</entry><entry thead="no"><para>Enable distributed tracing  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>EnableMetrics</computeroutput>  </para>
+</entry><entry thead="no"><para>bool  </para>
+</entry><entry thead="no"><para>true  </para>
+</entry><entry thead="no"><para>Enable metrics collection  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>EnableConsoleExport</computeroutput>  </para>
+</entry><entry thead="no"><para>bool  </para>
+</entry><entry thead="no"><para>false  </para>
+</entry><entry thead="no"><para>Export to console  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>OtlpEndpoint</computeroutput>  </para>
+</entry><entry thead="no"><para>string?  </para>
+</entry><entry thead="no"><para>null  </para>
+</entry><entry thead="no"><para>OTLP collector endpoint  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>ServiceName</computeroutput>  </para>
+</entry><entry thead="no"><para>string  </para>
+</entry><entry thead="no"><para>&quot;Toolbox&quot;  </para>
+</entry><entry thead="no"><para>Service name for telemetry  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>ServiceVersion</computeroutput>  </para>
+</entry><entry thead="no"><para>string  </para>
+</entry><entry thead="no"><para>&quot;1.0.0&quot;  </para>
+</entry><entry thead="no"><para>Service version  </para>
+</entry></row>
+</table>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md64">
+<title>Best Practices</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md65">
+<title>1. Always Check Disposal State</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DoWork()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ThrowIfDisposed();<sp/><sp/></highlight><highlight class="comment">//<sp/>Call<sp/>this<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>...<sp/>rest<sp/>of<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md66">
+<title>2. Use Activity Scopes for Tracing</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>DoWorkAsync()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">var<sp/>activity<sp/>=<sp/>StartActivity();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Activity<sp/>automatically<sp/>ends<sp/>when<sp/>scope<sp/>exits</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md67">
+<title>3. Record Metrics for Performance</title><para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>sw<sp/>=<sp/>Stopwatch.StartNew();</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>...<sp/>operation</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">RecordOperation(</highlight><highlight class="stringliteral">&quot;OperationName&quot;</highlight><highlight class="normal">,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md68">
+<title>4. Handle Cancellation in Async Operations</title><para><programlisting filename=".cs"><codeline><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/>ProcessAsync(CancellationToken<sp/>ct<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ct.ThrowIfCancellationRequested();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>await<sp/>_service.DoWorkAsync(ct);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md69">
+<title>5. Use Appropriate Service Lifetimes</title><para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>Singleton<sp/>for<sp/>stateless<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSingleton&lt;ICryptographyService,<sp/>AesCryptographyService&gt;();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Scoped<sp/>for<sp/>per-request<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddScoped&lt;IFileTransferService,<sp/>SftpFileTransferService&gt;();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Transient<sp/>for<sp/>lightweight<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddTransient&lt;IMailingService,<sp/>SmtpMailingService&gt;();</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md70">
+<title>6. Secure Credential Management</title><para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>Use<sp/>configuration/secrets,<sp/>not<sp/>hardcoded<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(configuration.GetSection(</highlight><highlight class="stringliteral">&quot;Mailing&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Or<sp/>use<sp/>Azure<sp/>Key<sp/>Vault,<sp/>AWS<sp/>Secrets<sp/>Manager,<sp/>etc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>password<sp/>=<sp/>await<sp/>secretsClient.GetSecretAsync(</highlight><highlight class="stringliteral">&quot;smtp-password&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting> </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/USAGE.md"/>
+  </compounddef>
+</doxygen>

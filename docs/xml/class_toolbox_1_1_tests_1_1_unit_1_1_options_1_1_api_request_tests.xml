@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Options::ApiRequestTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9192bd0b0154a3dab056ba59fdbfb12c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithValidParameters_ShouldCreate</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithValidParameters_ShouldCreate</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithValidParameters_ShouldCreate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="13" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="13" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab13c818c4f7482934734dc434aa9547e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_ShouldUppercaseMethod</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_ShouldUppercaseMethod</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_ShouldUppercaseMethod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="24" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a2ea600570fe9a57c5d094667a9e149fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithNullMethod_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullMethod_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithNullMethod_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="34" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="34" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1461f901b40a40d8b2724dfeb307a23b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithNullUrl_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullUrl_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithNullUrl_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="44" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a78e138bb215d9334958b1cfb33be2982" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Get_ShouldCreateGetRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Get_ShouldCreateGetRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Get_ShouldCreateGetRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="58" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="58" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaaabac086d44280bbc48601562490788" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Post_ShouldCreatePostRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Post_ShouldCreatePostRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Post_ShouldCreatePostRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="69" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="69" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a5c560e400bc454836ecaa139bc6022b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Post_WithBody_ShouldSetJsonContent</definition>
+        <argsstring>()</argsstring>
+        <name>Post_WithBody_ShouldSetJsonContent</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Post_WithBody_ShouldSetJsonContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="80" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="80" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ac77e7c783fffddce49deda043eb8732c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Put_ShouldCreatePutRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Put_ShouldCreatePutRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Put_ShouldCreatePutRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="94" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="94" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a23db8d15b2fd7272ecb05202445b0aac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Patch_ShouldCreatePatchRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Patch_ShouldCreatePatchRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Patch_ShouldCreatePatchRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="104" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="104" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a7e7521cb196f50d92818428ad59c0594" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Delete_ShouldCreateDeleteRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Delete_ShouldCreateDeleteRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Delete_ShouldCreateDeleteRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="114" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="114" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9666360faaf6640eaea0b43d4701ad63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Head_ShouldCreateHeadRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Head_ShouldCreateHeadRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Head_ShouldCreateHeadRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="124" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a6ff82adfa33f87fe41e0214f9c393e40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.Options_ShouldCreateOptionsRequest</definition>
+        <argsstring>()</argsstring>
+        <name>Options_ShouldCreateOptionsRequest</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.Options_ShouldCreateOptionsRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="134" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="134" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab75f4ece2d268741df7edeeac97e9473" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithHeader_ShouldAddHeader</definition>
+        <argsstring>()</argsstring>
+        <name>WithHeader_ShouldAddHeader</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.WithHeader_ShouldAddHeader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="148" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="148" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1abed525e1f4076a3079f074ee800a09ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithHeader_ShouldSupportChaining</definition>
+        <argsstring>()</argsstring>
+        <name>WithHeader_ShouldSupportChaining</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.WithHeader_ShouldSupportChaining</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="162" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="162" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a684492780e7694e654f4faa5f4fe0fef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithQuery_ShouldAddQueryParameter</definition>
+        <argsstring>()</argsstring>
+        <name>WithQuery_ShouldAddQueryParameter</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.WithQuery_ShouldAddQueryParameter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="174" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="174" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaf9249416551d932abbdfe1bf39af9e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithTimeout_ShouldSetTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>WithTimeout_ShouldSetTimeout</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.WithTimeout_ShouldSetTimeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="188" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="188" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af778f73957e5e3cb599e8a2cd60ed302" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetJsonContent_ShouldSetContent</definition>
+        <argsstring>()</argsstring>
+        <name>SetJsonContent_ShouldSetContent</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.SetJsonContent_ShouldSetContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="201" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="201" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1bb54d2cebdca52cfe2874c605cec95d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetStringContent_ShouldSetContent</definition>
+        <argsstring>()</argsstring>
+        <name>SetStringContent_ShouldSetContent</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.SetStringContent_ShouldSetContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="215" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="215" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ae8e0609e864fa109d1f43cf958c6290a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetFormContent_ShouldSetContent</definition>
+        <argsstring>()</argsstring>
+        <name>SetFormContent_ShouldSetContent</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.SetFormContent_ShouldSetContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="228" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="228" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a8b50228fb7c3e8d151c878adfa121e0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetBinaryContent_ShouldSetContent</definition>
+        <argsstring>()</argsstring>
+        <name>SetBinaryContent_ShouldSetContent</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.SetBinaryContent_ShouldSetContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="246" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="246" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a4c955dc36ffd841fc73ec0c0251567e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithNoQueryParams_ShouldReturnUrl</definition>
+        <argsstring>()</argsstring>
+        <name>BuildUrl_WithNoQueryParams_ShouldReturnUrl</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithNoQueryParams_ShouldReturnUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="264" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="264" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af246712202b0ffc30e2bb012fa30cd3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithQueryParams_ShouldAppendQueryString</definition>
+        <argsstring>()</argsstring>
+        <name>BuildUrl_WithQueryParams_ShouldAppendQueryString</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithQueryParams_ShouldAppendQueryString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="277" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="277" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a81b58e97d2c3797840e732fc8ec0bbe7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</definition>
+        <argsstring>()</argsstring>
+        <name>BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="294" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="294" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a564ee753f72df49505608e3b6d9ee804" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_ShouldEncodeSpecialCharacters</definition>
+        <argsstring>()</argsstring>
+        <name>BuildUrl_ShouldEncodeSpecialCharacters</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_ShouldEncodeSpecialCharacters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="309" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="309" bodyend="320"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref> and related classes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="8" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" bodystart="9" bodyend="323"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a564ee753f72df49505608e3b6d9ee804" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>BuildUrl_ShouldEncodeSpecialCharacters</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a81b58e97d2c3797840e732fc8ec0bbe7" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a4c955dc36ffd841fc73ec0c0251567e8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>BuildUrl_WithNoQueryParams_ShouldReturnUrl</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af246712202b0ffc30e2bb012fa30cd3e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>BuildUrl_WithQueryParams_ShouldAppendQueryString</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab13c818c4f7482934734dc434aa9547e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Constructor_ShouldUppercaseMethod</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a2ea600570fe9a57c5d094667a9e149fb" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Constructor_WithNullMethod_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1461f901b40a40d8b2724dfeb307a23b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Constructor_WithNullUrl_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9192bd0b0154a3dab056ba59fdbfb12c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Constructor_WithValidParameters_ShouldCreate</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a7e7521cb196f50d92818428ad59c0594" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Delete_ShouldCreateDeleteRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a78e138bb215d9334958b1cfb33be2982" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Get_ShouldCreateGetRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9666360faaf6640eaea0b43d4701ad63" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Head_ShouldCreateHeadRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a6ff82adfa33f87fe41e0214f9c393e40" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Options_ShouldCreateOptionsRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a23db8d15b2fd7272ecb05202445b0aac" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Patch_ShouldCreatePatchRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaaabac086d44280bbc48601562490788" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Post_ShouldCreatePostRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a5c560e400bc454836ecaa139bc6022b8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Post_WithBody_ShouldSetJsonContent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ac77e7c783fffddce49deda043eb8732c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>Put_ShouldCreatePutRequest</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a8b50228fb7c3e8d151c878adfa121e0b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>SetBinaryContent_ShouldSetContent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ae8e0609e864fa109d1f43cf958c6290a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>SetFormContent_ShouldSetContent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af778f73957e5e3cb599e8a2cd60ed302" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>SetJsonContent_ShouldSetContent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1bb54d2cebdca52cfe2874c605cec95d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>SetStringContent_ShouldSetContent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab75f4ece2d268741df7edeeac97e9473" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>WithHeader_ShouldAddHeader</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1abed525e1f4076a3079f074ee800a09ec" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>WithHeader_ShouldSupportChaining</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a684492780e7694e654f4faa5f4fe0fef" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>WithQuery_ShouldAddQueryParameter</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaf9249416551d932abbdfe1bf39af9e5" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiRequestTests</scope><name>WithTimeout_ShouldSetTimeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,101 @@
+\doxysection{Mailing\+Service\+Collection\+Extensions.\+cs}
+\hypertarget{_mailing_service_collection_extensions_8cs_source}{}\label{_mailing_service_collection_extensions_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/MailingServiceCollectionExtensions.cs}}
+\doxymbox{\hyperlink{_mailing_service_collection_extensions_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ MailingServiceCollectionExtensions.cs}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ DI\ extensions\ for\ mailing\ services}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Provides\ extension\ methods\ to\ register\ mailing\ services}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Includes\ configuration\ via\ IOptions\ pattern}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }Microsoft.Extensions.Configuration;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }Microsoft.Extensions.DependencyInjection;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }Microsoft.Extensions.DependencyInjection.Extensions;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions_1_1_services}{Toolbox.Core.Abstractions.Services}};}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00011}00011\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_mailing}{Toolbox.Core.Services.Mailing}};}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00013}00013\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00024}00024\ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }MailingServiceCollectionExtensions}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddSmtpMailing(}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ Action<MailingOptions>\ configureOptions)}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00048}00048\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(configureOptions);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ services.Configure(configureOptions);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ services.TryAddSingleton<IMailingService,\ SmtpMailingService>();}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddSmtpMailing(}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ IConfiguration\ configuration)}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00084}00084\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(configuration);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ services.Configure<MailingOptions>(configuration);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ services.TryAddSingleton<IMailingService,\ SmtpMailingService>();}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00101}00101\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddSmtpMailing(}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ MailingOptions\ options)}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00104}00104\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(options);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ services.AddSingleton(Microsoft.Extensions.Options.Options.Create(options));}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ services.TryAddSingleton<IMailingService,\ SmtpMailingService>();}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00128}00128\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddGmailMailing(}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ email,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ appPassword)}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00132}00132\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(email);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(appPassword);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services.AddSmtpMailing(options\ =>}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}smtp.gmail.com"{}};}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ options.Port\ =\ 587;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ options.SecurityMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{SmtpSecurityMode}}.StartTls;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ options.Username\ =\ email;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ options.Password\ =\ appPassword;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ options.DefaultFrom\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(email);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00156}00156\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddOutlookMailing(}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ email,}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ password)}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00160}00160\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(email);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(password);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services.AddSmtpMailing(options\ =>}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00166}00166\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ options.Host\ =\ \textcolor{stringliteral}{"{}smtp-\/mail.outlook.com"{}};}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ options.Port\ =\ 587;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ options.SecurityMode\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{SmtpSecurityMode}}.StartTls;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ options.Username\ =\ email;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ options.Password\ =\ password;}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ options.DefaultFrom\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(email);}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mailing_service_collection_extensions_8cs_source_l00175}00175\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\doxysection{Base\+Disposable\+Service.\+cs}
+\hypertarget{_base_disposable_service_8cs_source}{}\label{_base_disposable_service_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/BaseDisposableService.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/BaseDisposableService.cs}}
+\doxymbox{\hyperlink{_base_disposable_service_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ BaseDisposableService.cs}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Abstract\ base\ class\ for\ synchronously\ disposable\ services}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Implements\ thread-\/safe\ dispose\ pattern\ with\ telemetry\ integration}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Derive\ from\ this\ class\ for\ services\ that\ only\ need\ synchronous\ disposal}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions}{Toolbox.Core.Abstractions}};}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00027}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{00027}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{abstract}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{BaseDisposableService}}\ :\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{IDisposableService}},\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{IInstrumentedService}}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ disposal\ state\ (0\ =\ not\ disposed,\ 1\ =\ disposed)}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \_disposed;}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ The\ logger\ instance\ for\ this\ service}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00043}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{00043}}\ \ \ \ \ \textcolor{keyword}{protected}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{BaseDisposableService}}(\textcolor{keywordtype}{string}\ serviceName,\ ILogger\ logger)}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00044}00044\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}}\ =\ serviceName\ ??\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentNullException(nameof(serviceName));}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \_logger\ =\ logger\ ??\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentNullException(nameof(logger));}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ ToolboxMeter.IncrementActiveInstances(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Service\ \{ServiceName\}\ created"{}},\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00053}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{00053}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}}\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00056}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{00056}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{IsDisposed}}\ =>\ Volatile.Read(ref\ \_disposed)\ ==\ 1;}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00059}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{00059}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{ActivitySource}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{ActivitySource}}\ =>\ ToolboxActivitySource.Instance;}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00062}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{00062}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\ =>\ ToolboxMeter.Instance;}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00071}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{00071}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}}()}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00072}00072\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}}(disposing:\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ GC.SuppressFinalize(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00094}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_abe66f7a1e36466851f1a3df7ce2cc51c}{00094}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_abe66f7a1e36466851f1a3df7ce2cc51c}{Dispose}}(\textcolor{keywordtype}{bool}\ disposing)}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Interlocked.Exchange(ref\ \_disposed,\ 1)\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (disposing)}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{ActivitySource}}.StartActivity(\$\textcolor{stringliteral}{"{}\{ServiceName\}.Dispose"{}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ activity?.SetTag(TelemetryConstants.Attributes.ServiceName,\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Service\ \{ServiceName\}\ disposing"{}},\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordDisposal(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00120}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{00120}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}()}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00121}00121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ ObjectDisposedException.ThrowIf(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{IsDisposed}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00130}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{00130}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{keywordtype}{string}\ operationName,\ \textcolor{keywordtype}{double}\ durationMs)}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00131}00131\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ ToolboxMeter.RecordOperation(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ operationName,\ durationMs);}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00142}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{00142}}\ \ \ \ \ \textcolor{keyword}{protected}\ Activity?\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}([CallerMemberName]\ \textcolor{keywordtype}{string}\ operationName\ =\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00143}00143\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{ActivitySource}}.StartActivity(\$\textcolor{stringliteral}{"{}\{ServiceName\}.\{operationName\}"{}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ activity?.SetTag(TelemetryConstants.Attributes.ServiceName,\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}});}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ activity?.SetTag(TelemetryConstants.Attributes.OperationName,\ operationName);}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ activity;}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_disposable_service_8cs_source_l00149}00149\ \}}
+
+\end{DoxyCode}

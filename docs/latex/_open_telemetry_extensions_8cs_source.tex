@@ -1,0 +1,107 @@
+\doxysection{Open\+Telemetry\+Extensions.\+cs}
+\hypertarget{_open_telemetry_extensions_8cs_source}{}\label{_open_telemetry_extensions_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs}}
+\doxymbox{\hyperlink{_open_telemetry_extensions_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ OpenTelemetryExtensions.cs}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Extension\ methods\ for\ configuring\ OpenTelemetry\ with\ Toolbox}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Provides\ fluent\ API\ for\ adding\ Toolbox\ tracing\ and\ metrics\ to\ OpenTelemetry}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Use\ AddToolboxInstrumentation()\ on\ TracerProviderBuilder\ and\ MeterProviderBuilder}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }Microsoft.Extensions.Configuration;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }OpenTelemetry.Resources;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00011}00011\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00029}00029\ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }OpenTelemetryExtensions}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ TracerProviderBuilder\ AddToolboxInstrumentation(\textcolor{keyword}{this}\ TracerProviderBuilder\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}})}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00044}00044\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.AddSource(ToolboxActivitySource.Name);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ MeterProviderBuilder\ AddToolboxInstrumentation(\textcolor{keyword}{this}\ MeterProviderBuilder\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}})}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00063}00063\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.AddMeter(ToolboxMeter.Name);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddToolboxOpenTelemetry(\textcolor{keyword}{this}\ IServiceCollection\ services)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services.AddToolboxOpenTelemetry(\_\ =>\ \{\ \});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00102}00102\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddToolboxOpenTelemetry(}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ Action<ToolboxTelemetryOptions>\ configureOptions)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(configureOptions);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ ToolboxTelemetryOptions();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ configureOptions(options);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ services.Configure(configureOptions);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ var\ otelBuilder\ =\ services.AddOpenTelemetry()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ .ConfigureResource(resource\ =>\ resource}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .AddService(}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serviceName:\ options.ServiceName,}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serviceVersion:\ options.ServiceVersion));}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.EnableTracing)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ otelBuilder.WithTracing(tracing\ =>}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracing.AddToolboxInstrumentation();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.EnableConsoleExport)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracing.AddConsoleExporter();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.EnableMetrics)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ otelBuilder.WithMetrics(metrics\ =>}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metrics.AddToolboxInstrumentation();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (options.EnableConsoleExport)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metrics.AddConsoleExporter();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00147}00147\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00161}00161\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddToolboxOpenTelemetry(}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ IConfiguration\ configuration)}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00164}00164\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00165}00165\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00166}00166\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(configuration);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ ToolboxTelemetryOptions();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ configuration.GetSection(ToolboxTelemetryOptions.SectionName).Bind(options);}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services.AddToolboxOpenTelemetry(opt\ =>}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ opt.EnableTracing\ =\ options.EnableTracing;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ opt.EnableMetrics\ =\ options.EnableMetrics;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ opt.EnableConsoleExport\ =\ options.EnableConsoleExport;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ opt.OtlpEndpoint\ =\ options.OtlpEndpoint;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ opt.ServiceName\ =\ options.ServiceName;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ opt.ServiceVersion\ =\ options.ServiceVersion;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00179}00179\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00180}00180\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_8cs_source_l00181}00181\ \}}
+
+\end{DoxyCode}

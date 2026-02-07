@@ -1,0 +1,436 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Api\+Options Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options}{}\label{class_toolbox_1_1_core_1_1_options_1_1_api_options}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+
+
+Configuration options for the HTTP API service.  
+
+
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_ab7fbf158825dcfdab7fdb56edd8eb652}{Base\+Url}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the base URL for API requests. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{Api\+Authentication\+Mode}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{Authentication\+Mode}} = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0}{Api\+Authentication\+Mode.\+Anonymous}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the authentication mode. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_adaa7ce66c1939d638d19244193f26837}{Bearer\+Token}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the bearer token for authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a97a7365ec0769e038aaeea4be4b0bb50}{Username}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the username for basic authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a58e0a0c3c1f54b81fd8d8f406a684869}{Password}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the password for basic authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_aab45300e4a1a09f2fd4d830a25999006}{Api\+Key}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the API key value. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a07786e9a5413d5a9c9556c2c45e06c90}{Api\+Key\+Name}} = "{}X-\/API-\/Key"{}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the API key header or parameter name. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30}{Api\+Key\+Location}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a494b64c3abe07a88097daa454855e6f4}{Api\+Key\+Location}} = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7}{Api\+Key\+Location.\+Header}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets where to send the API key. \end{DoxyCompactList}\item 
+X509\+Certificate2? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a52c2418d08cd8e2abd3ac18007f0b062}{Client\+Certificate}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the client certificate for authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a091dc62a1f1c8c73993c8e023e385b40}{Certificate\+Path}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the path to a PFX/\+\+PKCS\#12 certificate file. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fbbdeb293875a6794fd8d14f6f8f491}{Certificate\+Password}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the certificate password. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a5e8fb0aa4595eafad53d1eb80dfe3757}{OAuth2\+Token\+Url}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the OAuth2 token endpoint URL. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4c490b62f0b75becbfa4245d6f1f0d5a}{OAuth2\+Client\+Id}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the OAuth2 client ID. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_af3c6ddb9688e27881baff0c41ddcb37f}{OAuth2\+Client\+Secret}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the OAuth2 client secret. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a6413ef1fa1ac2f837dcded107d180e49}{OAuth2\+Scopes}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the OAuth2 scopes. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a60ec33964b858f8522f6fc41e7d1d20e}{Timeout}} = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the request timeout. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a57f0285af6fe846c5613690aa42ffa04}{Max\+Retries}} = 3\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the maximum number of retry attempts. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_af7b1d566cbbe3694b5584abf7ba797bc}{Retry\+Delay}} = Time\+Span.\+From\+Seconds(1)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the delay between retries. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a9c9db36422b7f6f98c438a22a5b8869a}{Use\+Exponential\+Backoff}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets whether to use exponential backoff for retries. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fa72ff5b9e293a649c6c567e71fa98f}{Validate\+Certificate}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets whether to validate SSL certificates. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a0033c861e010757102e58400ea48c00c}{Follow\+Redirects}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets whether to follow redirects automatically. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1b349cf42ca14eb0d4da7fa2ed1217d8}{Max\+Redirects}} = 10\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the maximum number of redirects to follow. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a75f953ecee87a17859cebaa00fdd4bcc}{User\+Agent}} = "{}Toolbox.\+Core.\+Http\+Api\+Service/\+1.\+0"{}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the default User-\/\+Agent header. \end{DoxyCompactList}\item 
+IDictionary$<$ string, string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a330e944f0f05473cd9636241ad7a1d85}{Default\+Headers}} = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the default headers to include in all requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration options for the HTTP API service. 
+
+These options configure HTTP client behavior and authentication. The authentication mode determines which credential properties are used. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ options\ =\ \textcolor{keyword}{new}\ ApiOptions}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_ab7fbf158825dcfdab7fdb56edd8eb652}{BaseUrl}}\ =\ \textcolor{stringliteral}{"{}https://api.example.com"{}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{AuthenticationMode}}\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{ApiAuthenticationMode}}.BearerToken,}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_adaa7ce66c1939d638d19244193f26837}{BearerToken}}\ =\ \textcolor{stringliteral}{"{}your-\/token-\/here"{}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a60ec33964b858f8522f6fc41e7d1d20e}{Timeout}}\ =\ TimeSpan.FromSeconds(30)}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00030}{30}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_aab45300e4a1a09f2fd4d830a25999006}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!ApiKey@{ApiKey}}
+\index{ApiKey@{ApiKey}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{ApiKey}{ApiKey}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_aab45300e4a1a09f2fd4d830a25999006} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Api\+Key\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the API key value. 
+
+The API key.
+
+Used when \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{Authentication\+Mode} is \doxylink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac}{Api\+Authentication\+Mode.\+Api\+Key}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00080}{80}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a494b64c3abe07a88097daa454855e6f4}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!ApiKeyLocation@{ApiKeyLocation}}
+\index{ApiKeyLocation@{ApiKeyLocation}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{ApiKeyLocation}{ApiKeyLocation}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a494b64c3abe07a88097daa454855e6f4} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30}{Api\+Key\+Location}} Toolbox.\+Core.\+Options.\+Api\+Options.\+Api\+Key\+Location = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7}{Api\+Key\+Location.\+Header}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets where to send the API key. 
+
+The location. Default is \doxylink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7}{Api\+Key\+Location.\+Header}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00092}{92}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a07786e9a5413d5a9c9556c2c45e06c90}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!ApiKeyName@{ApiKeyName}}
+\index{ApiKeyName@{ApiKeyName}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{ApiKeyName}{ApiKeyName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a07786e9a5413d5a9c9556c2c45e06c90} 
+string Toolbox.\+Core.\+Options.\+Api\+Options.\+Api\+Key\+Name = "{}X-\/API-\/Key"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the API key header or parameter name. 
+
+The name (e.\+g., "{}\+X-\/\+API-\/\+Key"{} or "{}api\+\_\+key"{}). Default is "{}\+X-\/\+API-\/\+Key"{}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00086}{86}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!AuthenticationMode@{AuthenticationMode}}
+\index{AuthenticationMode@{AuthenticationMode}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{AuthenticationMode}{AuthenticationMode}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{Api\+Authentication\+Mode}} Toolbox.\+Core.\+Options.\+Api\+Options.\+Authentication\+Mode = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0}{Api\+Authentication\+Mode.\+Anonymous}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the authentication mode. 
+
+The authentication mode. Default is \doxylink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0}{Api\+Authentication\+Mode.\+Anonymous}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00042}{42}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_ab7fbf158825dcfdab7fdb56edd8eb652}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!BaseUrl@{BaseUrl}}
+\index{BaseUrl@{BaseUrl}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{BaseUrl}{BaseUrl}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_ab7fbf158825dcfdab7fdb56edd8eb652} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Base\+Url\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the base URL for API requests. 
+
+The base URL (e.\+g., "{}https:\+/\+/\+api.\+example.\+com"{}).
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00036}{36}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_adaa7ce66c1939d638d19244193f26837}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!BearerToken@{BearerToken}}
+\index{BearerToken@{BearerToken}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{BearerToken}{BearerToken}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_adaa7ce66c1939d638d19244193f26837} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Bearer\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the bearer token for authentication. 
+
+The bearer token (without "{}\+Bearer"{} prefix).
+
+Used when \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{Authentication\+Mode} is \doxylink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30}{Api\+Authentication\+Mode.\+Bearer\+Token}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00051}{51}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fbbdeb293875a6794fd8d14f6f8f491}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!CertificatePassword@{CertificatePassword}}
+\index{CertificatePassword@{CertificatePassword}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{CertificatePassword}{CertificatePassword}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fbbdeb293875a6794fd8d14f6f8f491} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Certificate\+Password\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the certificate password. 
+
+The password for the certificate file.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00115}{115}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a091dc62a1f1c8c73993c8e023e385b40}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!CertificatePath@{CertificatePath}}
+\index{CertificatePath@{CertificatePath}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{CertificatePath}{CertificatePath}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a091dc62a1f1c8c73993c8e023e385b40} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Certificate\+Path\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the path to a PFX/\+\+PKCS\#12 certificate file. 
+
+The file path.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00109}{109}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a52c2418d08cd8e2abd3ac18007f0b062}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!ClientCertificate@{ClientCertificate}}
+\index{ClientCertificate@{ClientCertificate}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{ClientCertificate}{ClientCertificate}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a52c2418d08cd8e2abd3ac18007f0b062} 
+X509\+Certificate2? Toolbox.\+Core.\+Options.\+Api\+Options.\+Client\+Certificate\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the client certificate for authentication. 
+
+The X.\+509 certificate.
+
+Used when \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{Authentication\+Mode} is \doxylink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6}{Api\+Authentication\+Mode.\+Certificate}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00103}{103}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a330e944f0f05473cd9636241ad7a1d85}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!DefaultHeaders@{DefaultHeaders}}
+\index{DefaultHeaders@{DefaultHeaders}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{DefaultHeaders}{DefaultHeaders}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a330e944f0f05473cd9636241ad7a1d85} 
+IDictionary$<$string, string$>$ Toolbox.\+Core.\+Options.\+Api\+Options.\+Default\+Headers = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the default headers to include in all requests. 
+
+Dictionary of header names and values.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00201}{201}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a0033c861e010757102e58400ea48c00c}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!FollowRedirects@{FollowRedirects}}
+\index{FollowRedirects@{FollowRedirects}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{FollowRedirects}{FollowRedirects}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a0033c861e010757102e58400ea48c00c} 
+bool Toolbox.\+Core.\+Options.\+Api\+Options.\+Follow\+Redirects = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets whether to follow redirects automatically. 
+
+{\ttfamily true} to follow redirects; {\ttfamily false} to return redirect responses. Default is {\ttfamily true}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00183}{183}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1b349cf42ca14eb0d4da7fa2ed1217d8}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!MaxRedirects@{MaxRedirects}}
+\index{MaxRedirects@{MaxRedirects}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{MaxRedirects}{MaxRedirects}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1b349cf42ca14eb0d4da7fa2ed1217d8} 
+int Toolbox.\+Core.\+Options.\+Api\+Options.\+Max\+Redirects = 10\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the maximum number of redirects to follow. 
+
+The maximum redirects. Default is 10.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00189}{189}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a57f0285af6fe846c5613690aa42ffa04}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!MaxRetries@{MaxRetries}}
+\index{MaxRetries@{MaxRetries}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{MaxRetries}{MaxRetries}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a57f0285af6fe846c5613690aa42ffa04} 
+int Toolbox.\+Core.\+Options.\+Api\+Options.\+Max\+Retries = 3\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the maximum number of retry attempts. 
+
+The retry count. Default is 3.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00159}{159}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4c490b62f0b75becbfa4245d6f1f0d5a}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!OAuth2ClientId@{OAuth2ClientId}}
+\index{OAuth2ClientId@{OAuth2ClientId}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{OAuth2ClientId}{OAuth2ClientId}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4c490b62f0b75becbfa4245d6f1f0d5a} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+OAuth2\+Client\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the OAuth2 client ID. 
+
+The client ID.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00131}{131}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_af3c6ddb9688e27881baff0c41ddcb37f}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!OAuth2ClientSecret@{OAuth2ClientSecret}}
+\index{OAuth2ClientSecret@{OAuth2ClientSecret}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{OAuth2ClientSecret}{OAuth2ClientSecret}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_af3c6ddb9688e27881baff0c41ddcb37f} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+OAuth2\+Client\+Secret\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the OAuth2 client secret. 
+
+The client secret.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00137}{137}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a6413ef1fa1ac2f837dcded107d180e49}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!OAuth2Scopes@{OAuth2Scopes}}
+\index{OAuth2Scopes@{OAuth2Scopes}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{OAuth2Scopes}{OAuth2Scopes}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a6413ef1fa1ac2f837dcded107d180e49} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+OAuth2\+Scopes\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the OAuth2 scopes. 
+
+Space-\/separated scopes (e.\+g., "{}read write"{}).
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00143}{143}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a5e8fb0aa4595eafad53d1eb80dfe3757}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!OAuth2TokenUrl@{OAuth2TokenUrl}}
+\index{OAuth2TokenUrl@{OAuth2TokenUrl}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{OAuth2TokenUrl}{OAuth2TokenUrl}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a5e8fb0aa4595eafad53d1eb80dfe3757} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+OAuth2\+Token\+Url\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the OAuth2 token endpoint URL. 
+
+The token endpoint (e.\+g., "{}https:\+/\+/\+auth.\+example.\+com/\+oauth/\+token"{}).
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00125}{125}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a58e0a0c3c1f54b81fd8d8f406a684869}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!Password@{Password}}
+\index{Password@{Password}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{Password}{Password}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a58e0a0c3c1f54b81fd8d8f406a684869} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Password\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the password for basic authentication. 
+
+The password.
+
+Used when \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{Authentication\+Mode} is \doxylink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94}{Api\+Authentication\+Mode.\+Basic}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00069}{69}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_af7b1d566cbbe3694b5584abf7ba797bc}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!RetryDelay@{RetryDelay}}
+\index{RetryDelay@{RetryDelay}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{RetryDelay}{RetryDelay}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_af7b1d566cbbe3694b5584abf7ba797bc} 
+Time\+Span Toolbox.\+Core.\+Options.\+Api\+Options.\+Retry\+Delay = Time\+Span.\+From\+Seconds(1)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the delay between retries. 
+
+The retry delay. Default is 1 second.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00165}{165}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a60ec33964b858f8522f6fc41e7d1d20e}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!Timeout@{Timeout}}
+\index{Timeout@{Timeout}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{Timeout}{Timeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a60ec33964b858f8522f6fc41e7d1d20e} 
+Time\+Span Toolbox.\+Core.\+Options.\+Api\+Options.\+Timeout = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the request timeout. 
+
+The timeout. Default is 30 seconds.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00153}{153}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a9c9db36422b7f6f98c438a22a5b8869a}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!UseExponentialBackoff@{UseExponentialBackoff}}
+\index{UseExponentialBackoff@{UseExponentialBackoff}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{UseExponentialBackoff}{UseExponentialBackoff}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a9c9db36422b7f6f98c438a22a5b8869a} 
+bool Toolbox.\+Core.\+Options.\+Api\+Options.\+Use\+Exponential\+Backoff = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets whether to use exponential backoff for retries. 
+
+{\ttfamily true} for exponential backoff; {\ttfamily false} for fixed delay. Default is {\ttfamily true}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00171}{171}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a75f953ecee87a17859cebaa00fdd4bcc}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!UserAgent@{UserAgent}}
+\index{UserAgent@{UserAgent}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{UserAgent}{UserAgent}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a75f953ecee87a17859cebaa00fdd4bcc} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+User\+Agent = "{}Toolbox.\+Core.\+Http\+Api\+Service/\+1.\+0"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the default User-\/\+Agent header. 
+
+The User-\/\+Agent string.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00195}{195}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a97a7365ec0769e038aaeea4be4b0bb50}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!Username@{Username}}
+\index{Username@{Username}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{Username}{Username}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a97a7365ec0769e038aaeea4be4b0bb50} 
+string? Toolbox.\+Core.\+Options.\+Api\+Options.\+Username\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the username for basic authentication. 
+
+The username.
+
+Used when \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_options_a4f8948ba94f1beeaabbad315f4f181ef}{Authentication\+Mode} is \doxylink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94}{Api\+Authentication\+Mode.\+Basic}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00062}{62}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fa72ff5b9e293a649c6c567e71fa98f}\index{Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}!ValidateCertificate@{ValidateCertificate}}
+\index{ValidateCertificate@{ValidateCertificate}!Toolbox.Core.Options.ApiOptions@{Toolbox.Core.Options.ApiOptions}}
+\doxysubsubsection{\texorpdfstring{ValidateCertificate}{ValidateCertificate}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_api_options_a1fa72ff5b9e293a649c6c567e71fa98f} 
+bool Toolbox.\+Core.\+Options.\+Api\+Options.\+Validate\+Certificate = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets whether to validate SSL certificates. 
+
+{\ttfamily true} to validate (recommended); {\ttfamily false} to skip. Default is {\ttfamily true}.
+
+Definition at line \doxymbox{\hyperlink{_api_options_8cs_source_l00177}{177}} of file \doxymbox{\hyperlink{_api_options_8cs_source}{Api\+Options.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_api_options_8cs}{Api\+Options.\+cs}}\end{DoxyCompactItemize}

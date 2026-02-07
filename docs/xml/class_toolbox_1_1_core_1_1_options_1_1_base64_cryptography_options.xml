@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::Base64CryptographyOptions</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1ad44e2c1a33e08fd0c76ec687525cccc9" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Options.Base64CryptographyOptions.SectionName</definition>
+        <argsstring></argsstring>
+        <name>SectionName</name>
+        <qualifiedname>Toolbox.Core.Options.Base64CryptographyOptions.SectionName</qualifiedname>
+        <initializer>= &quot;Toolbox:Cryptography:Base64&quot;</initializer>
+        <briefdescription>
+<para>The configuration section name for Base64 cryptography options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" line="19" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a214c81a47799865e51cf7e56b7edf13e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" kindref="member">Base64EncodingTable</ref></type>
+        <definition>Base64EncodingTable Toolbox.Core.Options.Base64CryptographyOptions.EncodingTable</definition>
+        <argsstring></argsstring>
+        <name>EncodingTable</name>
+        <qualifiedname>Toolbox.Core.Options.Base64CryptographyOptions.EncodingTable</qualifiedname>
+        <initializer>= <ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b" kindref="member">Base64EncodingTable.Standard</ref></initializer>
+        <briefdescription>
+<para>Gets or sets the encoding table to use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The Base64 encoding table. Defaults to <ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b" kindref="member">Base64EncodingTable.Standard</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" line="27" column="32" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a9f2d8fa3947244e6872b3cca8748d79d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.Base64CryptographyOptions.IncludePadding</definition>
+        <argsstring></argsstring>
+        <name>IncludePadding</name>
+        <qualifiedname>Toolbox.Core.Options.Base64CryptographyOptions.IncludePadding</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets a value indicating whether padding should be included. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to include &apos;=&apos; padding characters; <computeroutput>false</computeroutput> to omit them. Defaults to <computeroutput>true</computeroutput>. </para>
+<para>Padding is required by the Base64 standard but can be omitted in some contexts. When decoding, the service handles both padded and unpadded input. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" line="40" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" bodystart="40" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration options for the Base64 cryptography service. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These options control the encoding behavior of the Base64 service. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" line="14" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64CryptographyOptions.cs" bodystart="15" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a214c81a47799865e51cf7e56b7edf13e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::Base64CryptographyOptions</scope><name>EncodingTable</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a9f2d8fa3947244e6872b3cca8748d79d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::Base64CryptographyOptions</scope><name>IncludePadding</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1ad44e2c1a33e08fd0c76ec687525cccc9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::Base64CryptographyOptions</scope><name>SectionName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

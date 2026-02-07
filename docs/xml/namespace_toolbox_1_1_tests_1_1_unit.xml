@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests_1_1_unit" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests::Unit</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests" prot="public">Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests" prot="public">Toolbox::Tests::Unit::BaseDisposableServiceTests</innerclass>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_extensions">Toolbox::Tests::Unit::Extensions</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_options">Toolbox::Tests::Unit::Options</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_tests_1_1_unit_1_1_services">Toolbox::Tests::Unit::Services</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

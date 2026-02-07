@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac8e2a2b2cfc9c324342b7095b4567c13" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service" kindref="compound">SftpFileTransferService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;SftpFileTransferService&gt; &gt; Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="18" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.SftpFileTransferServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>SftpFileTransferServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.SftpFileTransferServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="20" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1aec58634296d0a159b8b2c24f090d0a3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="36" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="36" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a91efd5c5ad316decf23196055cd10ce9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="48" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="48" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ae39045faf5768ff2662472aa33d82a4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithEmptyHost_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="61" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="61" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a9b7c3c0983459655a79323dc143a4c78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithEmptyUsername_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithEmptyUsername_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithEmptyUsername_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="80" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="80" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a3e7cc9d1e3f871dc4dd6eec80f2f1aa6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNoAuthentication_ShouldThrowArgumentException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNoAuthentication_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNoAuthentication_ShouldThrowArgumentException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="99" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="99" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6f0ef8a8bc094069b9be87782007b2cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithPasswordAuth_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithPasswordAuth_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithPasswordAuth_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="119" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="119" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada457e12bf14895da4d111bea36675f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithDirectOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithDirectOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithDirectOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="132" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="132" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af2e70adad8e727d80ee42c0b90bcdf71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="149" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="149" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a2745ad3052675cd281561f7834c97ae3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="164" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="164" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1accf28159a5d130e925b38ad1d2cabf45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="179" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="179" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6300b98a0f30a8192dd36ff11fb2c5ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="194" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="194" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a090018e7b1bb2c3e62e560427a3c5b89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="209" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="209" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a51b5f1d140aa2524e0046da54f5f142d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="239" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="239" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a358eef0fc26b7276bd6e1eaab085fe80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="254" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="254" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ab9335c7c1456d102b4d013484d6c1d0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="273" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="273" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acb9abc8354c6cad33fd08bae004af671" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="288" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="288" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a82bfb4c6caa6ece81d5caa6e67785d70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="303" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="303" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1afe55ce598c02c0d6ac4aeb17b0f360c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="318" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="318" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a906032fb3c144d71b6d8080b4ee53bee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="339" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="339" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a8f02ece2059d159106b0799fb95972b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="354" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="354" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acbf2707f55bd275090277e5010b048c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="373" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="373" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af6d53793872f080e3972aedabeb9e3cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DisposeAsync_ShouldDisposeResources</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldDisposeResources</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DisposeAsync_ShouldDisposeResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="389" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="389" bodyend="402"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada43138dd90c5c65f112b40fae1873ab" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kindref="compound">FileTransferOptions</ref></type>
+        <definition>static FileTransferOptions Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.CreateValidOptions</definition>
+        <argsstring>()</argsstring>
+        <name>CreateValidOptions</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.CreateValidOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="25" column="40" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="25" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service" kindref="compound">SftpFileTransferService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These tests verify argument validation and configuration. <ref refid="namespace_toolbox_1_1_tests_1_1_integration" kindref="compound">Integration</ref> tests with a real SFTP server would be in a separate test project. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" line="16" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs" bodystart="17" bodyend="405"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac8e2a2b2cfc9c324342b7095b4567c13" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada457e12bf14895da4d111bea36675f6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithDirectOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ae39045faf5768ff2662472aa33d82a4b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithEmptyHost_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a9b7c3c0983459655a79323dc143a4c78" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithEmptyUsername_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a3e7cc9d1e3f871dc4dd6eec80f2f1aa6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithNoAuthentication_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a91efd5c5ad316decf23196055cd10ce9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1aec58634296d0a159b8b2c24f090d0a3d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6f0ef8a8bc094069b9be87782007b2cb" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>Constructor_WithPasswordAuth_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada43138dd90c5c65f112b40fae1873ab" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>CreateValidOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af6d53793872f080e3972aedabeb9e3cf" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DisposeAsync_ShouldDisposeResources</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a906032fb3c144d71b6d8080b4ee53bee" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a8f02ece2059d159106b0799fb95972b2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acb9abc8354c6cad33fd08bae004af671" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ab9335c7c1456d102b4d013484d6c1d0f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1afe55ce598c02c0d6ac4aeb17b0f360c9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a82bfb4c6caa6ece81d5caa6e67785d70" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>SftpFileTransferServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a51b5f1d140aa2524e0046da54f5f142d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a358eef0fc26b7276bd6e1eaab085fe80" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acbf2707f55bd275090277e5010b048c9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1accf28159a5d130e925b38ad1d2cabf45" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af2e70adad8e727d80ee42c0b90bcdf71" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a2745ad3052675cd281561f7834c97ae3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a090018e7b1bb2c3e62e560427a3c5b89" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6300b98a0f30a8192dd36ff11fb2c5ee" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::FileTransfer::SftpFileTransferServiceTests</scope><name>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

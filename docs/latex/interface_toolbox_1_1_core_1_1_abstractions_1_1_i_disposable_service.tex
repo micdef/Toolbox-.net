@@ -1,0 +1,84 @@
+\doxysection{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service Interface Reference}
+\hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{}\label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}\index{Toolbox.Core.Abstractions.IDisposableService@{Toolbox.Core.Abstractions.IDisposableService}}
+
+
+\doxylink{namespace_toolbox_1_1_core_1_1_base}{Base} interface for disposable services providing lifecycle management.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.680000cm]{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespace_toolbox_1_1_core_1_1_base}{Base} interface for disposable services providing lifecycle management. 
+
+This interface extends IDisposable with additional properties for service identification and disposal state tracking. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{IAsync\+Disposable\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_i_disposable_service_8cs_source_l00016}{16}} of file \doxymbox{\hyperlink{_i_disposable_service_8cs_source}{IDisposable\+Service.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}\index{Toolbox.Core.Abstractions.IDisposableService@{Toolbox.Core.Abstractions.IDisposableService}!IsDisposed@{IsDisposed}}
+\index{IsDisposed@{IsDisposed}!Toolbox.Core.Abstractions.IDisposableService@{Toolbox.Core.Abstractions.IDisposableService}}
+\doxysubsubsection{\texorpdfstring{IsDisposed}{IsDisposed}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1} 
+bool Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service.\+Is\+Disposed\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether this service has been disposed. 
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}.
+
+This property should be checked before performing any operation on the service. Operations on disposed services should throw Object\+Disposed\+Exception. 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_i_disposable_service_8cs_source_l00032}{32}} of file \doxymbox{\hyperlink{_i_disposable_service_8cs_source}{IDisposable\+Service.\+cs}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}\index{Toolbox.Core.Abstractions.IDisposableService@{Toolbox.Core.Abstractions.IDisposableService}!ServiceName@{ServiceName}}
+\index{ServiceName@{ServiceName}!Toolbox.Core.Abstractions.IDisposableService@{Toolbox.Core.Abstractions.IDisposableService}}
+\doxysubsubsection{\texorpdfstring{ServiceName}{ServiceName}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74} 
+string Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service.\+Service\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique name identifying this service instance. 
+
+A human-\/readable name for logging and diagnostics.
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_i_disposable_service_8cs_source_l00022}{22}} of file \doxymbox{\hyperlink{_i_disposable_service_8cs_source}{IDisposable\+Service.\+cs}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Abstractions/\+\doxymbox{\hyperlink{_i_disposable_service_8cs}{IDisposable\+Service.\+cs}}\end{DoxyCompactItemize}

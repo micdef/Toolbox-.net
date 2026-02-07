@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_base" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Base</compoundname>
+    <innerclass refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service" prot="public">Toolbox::Core::Base::BaseAsyncDisposableService</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service" prot="public">Toolbox::Core::Base::BaseDisposableService</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/BaseAsyncDisposableService.cs" line="9" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,239 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Mailing\+Options Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{}\label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+
+
+Configuration options for the SMTP mailing service.  
+
+
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a1973fb40f24a5029a0da0be3f7f93a9d}{Host}} = "{}localhost"{}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the SMTP server hostname or IP address. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_acea60967c6520c8c575a6dc81310fc0d}{Port}} = 25\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the SMTP server port. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{Smtp\+Security\+Mode}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa0965c379cae15714a13ad998027d33b}{Security\+Mode}} = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb}{Smtp\+Security\+Mode.\+Auto}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the security mode for the SMTP connection. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4757f2cb0756b8e12f0f5f174381c7c8}{Username}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the username for SMTP authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_addde220b9b4243a94dbf9c6d5d5623e1}{Password}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the password for SMTP authentication. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4b040ab32d447a2226acfdbec363e034}{OAuth2\+Access\+Token}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the OAuth2 access token for authentication. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa8936448acd23f7147be166d3b529514}{Connection\+Timeout}} = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the connection timeout. \end{DoxyCompactList}\item 
+Time\+Span \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aebf39366b856983c2e3ef80f296a7a79}{Operation\+Timeout}} = Time\+Span.\+From\+Minutes(2)\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the operation timeout for sending emails. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a13418293605c62830981c6fbc9f33262}{Validate\+Certificate}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets whether to validate the server\textquotesingle{}s SSL certificate. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8850d7ac80760e2bae3eb99a95e6559f}{Default\+From}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the default sender address to use when not specified in the message. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4b3119bb98f9a6c42971de5949475075}{Default\+Reply\+To}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the default reply-\/to address. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8edd367bcee0766e09aed546e09e7639}{Requires\+Authentication}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether authentication is configured. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration options for the SMTP mailing service. 
+
+These options configure how the mailing service connects to an SMTP server. Authentication is optional for servers that support anonymous relay. 
+
+For secure connections, use \doxylink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1}{Smtp\+Security\+Mode.\+Start\+Tls} (port 587) or \doxylink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1}{Smtp\+Security\+Mode.\+Ssl\+On\+Connect} (port 465). 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ options\ =\ \textcolor{keyword}{new}\ MailingOptions}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a1973fb40f24a5029a0da0be3f7f93a9d}{Host}}\ =\ \textcolor{stringliteral}{"{}smtp.example.com"{}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_acea60967c6520c8c575a6dc81310fc0d}{Port}}\ =\ 587,}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa0965c379cae15714a13ad998027d33b}{SecurityMode}}\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{SmtpSecurityMode}}.StartTls,}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4757f2cb0756b8e12f0f5f174381c7c8}{Username}}\ =\ \textcolor{stringliteral}{"{}user@example.com"{}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_addde220b9b4243a94dbf9c6d5d5623e1}{Password}}\ =\ \textcolor{stringliteral}{"{}password"{}}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00033}{33}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa8936448acd23f7147be166d3b529514}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!ConnectionTimeout@{ConnectionTimeout}}
+\index{ConnectionTimeout@{ConnectionTimeout}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{ConnectionTimeout}{ConnectionTimeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa8936448acd23f7147be166d3b529514} 
+Time\+Span Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Connection\+Timeout = Time\+Span.\+From\+Seconds(30)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the connection timeout. 
+
+The connection timeout. Default is 30 seconds.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00082}{82}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8850d7ac80760e2bae3eb99a95e6559f}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!DefaultFrom@{DefaultFrom}}
+\index{DefaultFrom@{DefaultFrom}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{DefaultFrom}{DefaultFrom}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8850d7ac80760e2bae3eb99a95e6559f} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Default\+From\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the default sender address to use when not specified in the message. 
+
+The default sender email address, or {\ttfamily null} if not set.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00104}{104}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4b3119bb98f9a6c42971de5949475075}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!DefaultReplyTo@{DefaultReplyTo}}
+\index{DefaultReplyTo@{DefaultReplyTo}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{DefaultReplyTo}{DefaultReplyTo}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4b3119bb98f9a6c42971de5949475075} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Default\+Reply\+To\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the default reply-\/to address. 
+
+The default reply-\/to email address, or {\ttfamily null} if not set.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00110}{110}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a1973fb40f24a5029a0da0be3f7f93a9d}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!Host@{Host}}
+\index{Host@{Host}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{Host}{Host}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a1973fb40f24a5029a0da0be3f7f93a9d} 
+string Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Host = "{}localhost"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the SMTP server hostname or IP address. 
+
+The SMTP server host. Default is {\ttfamily "{}localhost"{}}.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00039}{39}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4b040ab32d447a2226acfdbec363e034}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!OAuth2AccessToken@{OAuth2AccessToken}}
+\index{OAuth2AccessToken@{OAuth2AccessToken}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{OAuth2AccessToken}{OAuth2AccessToken}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4b040ab32d447a2226acfdbec363e034} 
+string? Toolbox.\+Core.\+Options.\+Mailing\+Options.\+OAuth2\+Access\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the OAuth2 access token for authentication. 
+
+The OAuth2 token, or {\ttfamily null} to use password authentication.
+
+When set, this takes precedence over password authentication. Useful for services like Gmail or Office 365 that require OAuth2. 
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00076}{76}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aebf39366b856983c2e3ef80f296a7a79}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!OperationTimeout@{OperationTimeout}}
+\index{OperationTimeout@{OperationTimeout}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{OperationTimeout}{OperationTimeout}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aebf39366b856983c2e3ef80f296a7a79} 
+Time\+Span Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Operation\+Timeout = Time\+Span.\+From\+Minutes(2)\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the operation timeout for sending emails. 
+
+The operation timeout. Default is 2 minutes.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00088}{88}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_addde220b9b4243a94dbf9c6d5d5623e1}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!Password@{Password}}
+\index{Password@{Password}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{Password}{Password}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_addde220b9b4243a94dbf9c6d5d5623e1} 
+string? Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Password\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the password for SMTP authentication. 
+
+The password, or {\ttfamily null} for anonymous authentication.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00066}{66}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_acea60967c6520c8c575a6dc81310fc0d}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!Port@{Port}}
+\index{Port@{Port}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{Port}{Port}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_acea60967c6520c8c575a6dc81310fc0d} 
+int Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Port = 25\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the SMTP server port. 
+
+The port number. Default is {\ttfamily 25}. Common ports:\+ 25 (unencrypted), 587 (STARTTLS), 465 (SSL/\+\+TLS). 
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00048}{48}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8edd367bcee0766e09aed546e09e7639}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!RequiresAuthentication@{RequiresAuthentication}}
+\index{RequiresAuthentication@{RequiresAuthentication}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{RequiresAuthentication}{RequiresAuthentication}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8edd367bcee0766e09aed546e09e7639} 
+bool Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Requires\+Authentication\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether authentication is configured. 
+
+{\ttfamily true} if username or OAuth2 token is set; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00116}{116}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa0965c379cae15714a13ad998027d33b}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!SecurityMode@{SecurityMode}}
+\index{SecurityMode@{SecurityMode}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{SecurityMode}{SecurityMode}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_aa0965c379cae15714a13ad998027d33b} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{Smtp\+Security\+Mode}} Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Security\+Mode = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb}{Smtp\+Security\+Mode.\+Auto}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the security mode for the SMTP connection. 
+
+The security mode. Default is \doxylink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb}{Smtp\+Security\+Mode.\+Auto}.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00054}{54}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4757f2cb0756b8e12f0f5f174381c7c8}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!Username@{Username}}
+\index{Username@{Username}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{Username}{Username}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a4757f2cb0756b8e12f0f5f174381c7c8} 
+string? Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Username\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the username for SMTP authentication. 
+
+The username, or {\ttfamily null} for anonymous authentication.
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00060}{60}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a13418293605c62830981c6fbc9f33262}\index{Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}!ValidateCertificate@{ValidateCertificate}}
+\index{ValidateCertificate@{ValidateCertificate}!Toolbox.Core.Options.MailingOptions@{Toolbox.Core.Options.MailingOptions}}
+\doxysubsubsection{\texorpdfstring{ValidateCertificate}{ValidateCertificate}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a13418293605c62830981c6fbc9f33262} 
+bool Toolbox.\+Core.\+Options.\+Mailing\+Options.\+Validate\+Certificate = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets whether to validate the server\textquotesingle{}s SSL certificate. 
+
+{\ttfamily true} to validate certificates (recommended); {\ttfamily false} to accept all certificates (use only for testing). Default is {\ttfamily true}. 
+
+Definition at line \doxymbox{\hyperlink{_mailing_options_8cs_source_l00098}{98}} of file \doxymbox{\hyperlink{_mailing_options_8cs_source}{Mailing\+Options.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_mailing_options_8cs}{Mailing\+Options.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,747 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service" kind="interface" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Abstractions::Services::IFileTransferService</compoundname>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IInstrumentedService</basecompoundref>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IAsyncDisposableService</basecompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service" prot="public" virt="non-virtual">Toolbox.Core.Services.FileTransfer.FtpFileTransferService</derivedcompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service" prot="public" virt="non-virtual">Toolbox.Core.Services.FileTransfer.SftpFileTransferService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a39493197015631afe633dbf737acb5b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Abstractions.Services.IFileTransferService.UploadOne</definition>
+        <argsstring>(string localPath, string remotePath, bool overwrite=true)</argsstring>
+        <name>UploadOne</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.UploadOne</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a222a085f07cbcb05c1ea05c6f7ee6d52">UploadOne</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a8081b8c21e7bedd5486629282899028a">UploadOne</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>localPath</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>remotePath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Uploads a single file to the remote server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local file path to upload.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remotePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote destination path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing files.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when paths are null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FileNotFoundException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when local file doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when transfer fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a50c1189a1e77238ef3c86bb7c3d641ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task</type>
+        <definition>Task Toolbox.Core.Abstractions.Services.IFileTransferService.UploadOneAsync</definition>
+        <argsstring>(string localPath, string remotePath, bool overwrite=true, CancellationToken cancellationToken=default)</argsstring>
+        <name>UploadOneAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.UploadOneAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1ac8dd94083d2c5f9191c573fec7b3fd81">UploadOneAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a005ac6db09ec98d03f12d0e18b095ef4">UploadOneAsync</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>localPath</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>remotePath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Uploads a single file to the remote server asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local file path to upload.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remotePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote destination path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing files.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task representing the asynchronous operation.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when paths are null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FileNotFoundException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when local file doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when transfer fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="44" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1ae4dd51de7dcb5668082dc15073f6bb54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Toolbox.Core.Abstractions.Services.IFileTransferService.UploadBatch</definition>
+        <argsstring>(IEnumerable&lt;(string LocalPath, string RemotePath)&gt; files, bool overwrite=true)</argsstring>
+        <name>UploadBatch</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.UploadBatch</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1af86e5e8c6e3d66009fd6c1fde825a8a0">UploadBatch</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1ad9b93a94ca76bd432dd320daa124921e">UploadBatch</reimplementedby>
+        <param>
+          <type>IEnumerable&lt;(string LocalPath, string RemotePath)&gt;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Uploads multiple files to the remote server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>files</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Collection of tuples containing (localPath, remotePath) pairs.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing files.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of files successfully uploaded.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when files collection is null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>AggregateException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when one or more transfers fail.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1ae4da65114040f1cf522cef93f514fc1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task&lt; int &gt;</type>
+        <definition>Task&lt; int &gt; Toolbox.Core.Abstractions.Services.IFileTransferService.UploadBatchAsync</definition>
+        <argsstring>(IEnumerable&lt;(string LocalPath, string RemotePath)&gt; files, bool overwrite=true, CancellationToken cancellationToken=default)</argsstring>
+        <name>UploadBatchAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.UploadBatchAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a63073cbaccb6aa0a9f247f42d0a1ea08">UploadBatchAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1adbcbc55146b849a4d4918ffda0b827b5">UploadBatchAsync</reimplementedby>
+        <param>
+          <type>IEnumerable&lt;(string LocalPath, string RemotePath)&gt;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Uploads multiple files to the remote server asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>files</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Collection of tuples containing (localPath, remotePath) pairs.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing files.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the number of files successfully uploaded.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when files collection is null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>AggregateException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when one or more transfers fail.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a16448190399a0a2230f75c29dda1a851" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadOne</definition>
+        <argsstring>(string remotePath, string localPath, bool overwrite=true)</argsstring>
+        <name>DownloadOne</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadOne</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a97be6cecd8e7fbf0e15e048d5b381023">DownloadOne</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a81aca18a4c2217ac7067f30266e62703">DownloadOne</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>remotePath</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>localPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Downloads a single file from the remote server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>remotePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote file path to download.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>localPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local destination path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing local files.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when paths are null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FileNotFoundException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when remote file doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when transfer fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1aed1537898eecb5b9dc32c88a51525c38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task</type>
+        <definition>Task Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadOneAsync</definition>
+        <argsstring>(string remotePath, string localPath, bool overwrite=true, CancellationToken cancellationToken=default)</argsstring>
+        <name>DownloadOneAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadOneAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a40427bcf42493c48ea8f79f5495c46d6">DownloadOneAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a94af0bd9271952109afff0a02aaeb284">DownloadOneAsync</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>remotePath</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>localPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Downloads a single file from the remote server asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>remotePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote file path to download.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>localPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local destination path.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing local files.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task representing the asynchronous operation.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when paths are null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FileNotFoundException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when remote file doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when transfer fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="89" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a8fa36a9667eb5532d1e1490204d31966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadBatch</definition>
+        <argsstring>(IEnumerable&lt;(string RemotePath, string LocalPath)&gt; files, bool overwrite=true)</argsstring>
+        <name>DownloadBatch</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadBatch</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a633dc3abc6a6c476632f6275d7f91662">DownloadBatch</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a6a0c49174a00d2a33c09943f6b8cfeb7">DownloadBatch</reimplementedby>
+        <param>
+          <type>IEnumerable&lt;(string RemotePath, string LocalPath)&gt;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Downloads multiple files from the remote server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>files</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Collection of tuples containing (remotePath, localPath) pairs.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing local files.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of files successfully downloaded.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when files collection is null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>AggregateException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when one or more transfers fail.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="99" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a9b2153d151943a376d3365ddfbfb4519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task&lt; int &gt;</type>
+        <definition>Task&lt; int &gt; Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadBatchAsync</definition>
+        <argsstring>(IEnumerable&lt;(string RemotePath, string LocalPath)&gt; files, bool overwrite=true, CancellationToken cancellationToken=default)</argsstring>
+        <name>DownloadBatchAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IFileTransferService.DownloadBatchAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a0d45675ff5262c4ecff6aa08fb682aac">DownloadBatchAsync</reimplementedby>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a422d60e8663bf5c040832ddbf70d0221">DownloadBatchAsync</reimplementedby>
+        <param>
+          <type>IEnumerable&lt;(string RemotePath, string LocalPath)&gt;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Downloads multiple files from the remote server asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>files</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Collection of tuples containing (remotePath, localPath) pairs.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to overwrite existing local files.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the number of files successfully downloaded.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when files collection is null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>AggregateException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when one or more transfers fail.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="110" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Defines the contract for file transfer services supporting FTP and SFTP protocols. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface provides methods for uploading and downloading files to/from remote servers using FTP or SFTP protocols. </para>
+<para>All methods support both synchronous and asynchronous operations. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.IFileTransferService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Services.FileTransfer.FtpFileTransferService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.IFileTransferService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" line="20" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs" bodystart="21" bodyend="111"/>
+    <listofallmembers>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>ActivitySource</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>DisposeAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a8fa36a9667eb5532d1e1490204d31966" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>DownloadBatch</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a9b2153d151943a376d3365ddfbfb4519" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>DownloadBatchAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a16448190399a0a2230f75c29dda1a851" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>DownloadOne</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1aed1537898eecb5b9dc32c88a51525c38" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>DownloadOneAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>IsDisposed</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>Meter</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>ServiceName</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1ae4dd51de7dcb5668082dc15073f6bb54" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>UploadBatch</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1ae4da65114040f1cf522cef93f514fc1e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>UploadBatchAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a39493197015631afe633dbf737acb5b9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>UploadOne</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a50c1189a1e77238ef3c86bb7c3d641ef" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IFileTransferService</scope><name>UploadOneAsync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

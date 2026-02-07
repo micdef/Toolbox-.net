@@ -1,0 +1,403 @@
+\doxysection{Smtp\+Mailing\+Service.\+cs}
+\hypertarget{_smtp_mailing_service_8cs_source}{}\label{_smtp_mailing_service_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Mailing/SmtpMailingService.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Mailing/SmtpMailingService.cs}}
+\doxymbox{\hyperlink{_smtp_mailing_service_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ SmtpMailingService.cs}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ SMTP\ email\ sending\ service\ implementation}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Implements\ IMailingService\ using\ MailKit\ for\ secure\ SMTP}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Supports\ TLS/SSL,\ OAuth2,\ and\ various\ authentication\ methods}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }MailKit.Net.Smtp;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }MailKit.Security;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }Microsoft.Extensions.Options;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }MimeKit;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }MimeKit.Text;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00011}00011\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions_1_1_services}{Toolbox.Core.Abstractions.Services}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00012}00012\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00013}00013\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00014}00014\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00016}\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_mailing}{00016}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_mailing}{Toolbox.Core.Services.Mailing}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00035}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{00035}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a88d19f3ee89dc3b7cc76a819fe2e2e8e}{SmtpMailingService}}\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}},\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service}{IMailingService}}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ The\ SMTP\ client\ instance}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ SmtpClient\ \_client;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ The\ service\ options}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{MailingOptions}}\ \_options;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ The\ logger\ instance}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger<SmtpMailingService>\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Lock\ for\ connection\ management}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ SemaphoreSlim\ \_connectionLock\ =\ \textcolor{keyword}{new}(1,\ 1);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ Connection\ state}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ \_isConnected;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00059}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a88d19f3ee89dc3b7cc76a819fe2e2e8e}{00059}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a88d19f3ee89dc3b7cc76a819fe2e2e8e}{SmtpMailingService}}(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ IOptions<MailingOptions>\ options,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ ILogger<SmtpMailingService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}SmtpMailingService"{}},\ logger)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00063}00063\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(options);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(logger);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \_options\ =\ options.Value;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(\_options.Host))}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ throw\ new\ ArgumentException(\textcolor{stringliteral}{"{}SMTP\ host\ cannot\ be\ empty."{}},\ nameof(options));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \_client\ =\ \textcolor{keyword}{new}\ SmtpClient}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ Timeout\ =\ (int)\_options.ConnectionTimeout.TotalMilliseconds,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ ServerCertificateValidationCallback\ =\ \_options.ValidateCertificate}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ null}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ (\_,\ \_,\ \_,\ \_)\ =>\ true}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SmtpMailingService\ initialized\ for\ \{Host\}:\{Port\}\ with\ security\ mode\ \{SecurityMode\}"{}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Host,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Port,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.SecurityMode);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00095}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a61d3434bd50f150fbf68f406395d616c}{00095}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a61d3434bd50f150fbf68f406395d616c}{SmtpMailingService}}(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{MailingOptions}}\ options,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ ILogger<SmtpMailingService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ :\ this(Microsoft.\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Extensions}}.\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Options}}.\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Options}}.Create(options),\ logger)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00103}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a6196953505265e87710fe85710c77c03}{00103}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a6196953505265e87710fe85710c77c03}{SendMail}}(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}\ message)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00104}00104\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aa946d4ab1fd7abe6fd5ec78ee2a5998b}{SendMailAsync}}(message).GetAwaiter().GetResult();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00109}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aa946d4ab1fd7abe6fd5ec78ee2a5998b}{00109}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aa946d4ab1fd7abe6fd5ec78ee2a5998b}{SendMailAsync}}(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}\ message,\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(message);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a631a28ef3c2b8a847205df409b4d83a2}{Validate}}();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ await\ EnsureConnectedAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ var\ mimeMessage\ =\ BuildMimeMessage(message);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.SendAsync(mimeMessage,\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Email\ sent\ successfully\ to\ \{RecipientCount\}\ recipient(s):\ Subject='\{Subject\}'"{}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a3e25efe03279f3b48fbf34eabcde53e2}{TotalRecipients}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2878058a0675907e71f46085dd7c1e0f}{Subject}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}SendMail"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ RecordEmailSent(message);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (SmtpCommandException\ ex)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ex,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SMTP\ command\ error\ while\ sending\ email:\ \{StatusCode\}\ -\/\ \{Message\}"{}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ex.StatusCode,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ex.Message);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ InvalidOperationException(\$\textcolor{stringliteral}{"{}SMTP\ error:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (SmtpProtocolException\ ex)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}SMTP\ protocol\ error\ while\ sending\ email"{}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ InvalidOperationException(\$\textcolor{stringliteral}{"{}SMTP\ protocol\ error:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ not\ ArgumentException}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ not\ OperationCanceledException}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ not\ ObjectDisposedException}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ not\ InvalidOperationException)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00157}00157\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ send\ email"{}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ InvalidOperationException(\$\textcolor{stringliteral}{"{}Failed\ to\ send\ email:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00164}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aead3e7af73d87cbafd360347e36fde9a}{00164}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ async\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aead3e7af73d87cbafd360347e36fde9a}{DisposeAsyncCore}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00165}00165\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00166}00166\ \ \ \ \ \ \ \ \ await\ \_connectionLock.WaitAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isConnected\ \&\&\ \_client.IsConnected)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.DisconnectAsync(\textcolor{keyword}{true},\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_isConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00174}00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{finally}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00176}00176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \_connectionLock.Release();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ \_client.Dispose();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00181}00181\ \ \ \ \ \ \ \ \ \_connectionLock.Dispose();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00182}00182\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00189}00189\ \ \ \ \ \textcolor{keyword}{private}\ MimeMessage\ BuildMimeMessage(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}\ message)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00190}00190\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00191}00191\ \ \ \ \ \ \ \ \ var\ mimeMessage\ =\ \textcolor{keyword}{new}\ MimeMessage();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ From\ address}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00194}00194\ \ \ \ \ \ \ \ \ var\ from\ =\ message.From\ ??\ \_options.DefaultFrom}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ ??\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentException(\textcolor{stringliteral}{"{}No\ sender\ address\ specified\ and\ no\ default\ configured."{}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ mimeMessage.From.Add(\textcolor{keyword}{new}\ MailboxAddress(from.DisplayName,\ from.Address));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reply-\/To}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00200}00200\ \ \ \ \ \ \ \ \ var\ replyTo\ =\ message.ReplyTo\ ??\ \_options.DefaultReplyTo;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (replyTo\ is\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00202}00202\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ mimeMessage.ReplyTo.Add(\textcolor{keyword}{new}\ MailboxAddress(replyTo.DisplayName,\ replyTo.Address));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recipients}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ to\ \textcolor{keywordflow}{in}\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e}{To}})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ mimeMessage.To.Add(\textcolor{keyword}{new}\ MailboxAddress(to.DisplayName,\ to.Address));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00210}00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ cc\ \textcolor{keywordflow}{in}\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a30f5834090bbf7c36de92bd0de29f290}{Cc}})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00213}00213\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ mimeMessage.Cc.Add(\textcolor{keyword}{new}\ MailboxAddress(cc.DisplayName,\ cc.Address));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00215}00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ bcc\ \textcolor{keywordflow}{in}\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a1fde3f15e549c1ce10418ea24a8ee79b}{Bcc}})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ mimeMessage.Bcc.Add(\textcolor{keyword}{new}\ MailboxAddress(bcc.DisplayName,\ bcc.Address));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00220}00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Subject}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00223}00223\ \ \ \ \ \ \ \ \ mimeMessage.Subject\ =\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2878058a0675907e71f46085dd7c1e0f}{Subject}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Priority}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00226}00226\ \ \ \ \ \ \ \ \ mimeMessage.Priority\ =\ message.Priority\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00227}00227\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef}{Options.EmailPriority.Low}}\ =>\ MessagePriority.NonUrgent,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35}{Options.EmailPriority.High}}\ =>\ MessagePriority.Urgent,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =>\ MessagePriority.Normal}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00231}00231\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Custom\ headers}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ (name,\ value)\ in\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_ac8af8d8afbb92f19ee7e9584906778d3}{Headers}})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ mimeMessage.Headers.Add(name,\ value);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Body\ and\ attachments}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00240}00240\ \ \ \ \ \ \ \ \ mimeMessage.Body\ =\ BuildMessageBody(message);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mimeMessage;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00243}00243\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00250}00250\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ MimeEntity\ BuildMessageBody(EmailMessage\ message)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00251}00251\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ the\ body\ part}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00253}00253\ \ \ \ \ \ \ \ \ var\ textFormat\ =\ message.IsBodyHtml\ ?\ TextFormat.Html\ :\ TextFormat.Plain;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00254}00254\ \ \ \ \ \ \ \ \ var\ textPart\ =\ \textcolor{keyword}{new}\ TextPart(textFormat)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00255}00255\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ Text\ =\ message.Body}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00257}00257\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ HTML\ with\ explicit\ plain\ text,\ create\ multipart/alternative}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ MimeEntity\ bodyPart;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}{IsBodyHtml}}\ \&\&\ !\textcolor{keywordtype}{string}.IsNullOrEmpty(message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a667aa502ae68efb886b63e93b06a695b}{PlainTextBody}}))}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00262}00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ var\ alternative\ =\ \textcolor{keyword}{new}\ Multipart(\textcolor{stringliteral}{"{}alternative"{}})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ TextPart(TextFormat.Plain)\ \{\ Text\ =\ message.PlainTextBody\ \},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textPart}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ bodyPart\ =\ alternative;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00269}00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00271}00271\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ bodyPart\ =\ textPart;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00273}00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ attachments}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}{Attachments}}.Count\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00277}00277\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bodyPart;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00279}00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Separate\ inline\ and\ regular\ attachments}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00282}00282\ \ \ \ \ \ \ \ \ var\ inlineAttachments\ =\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}{Attachments}}.Where(a\ =>\ a.IsInline).ToList();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00283}00283\ \ \ \ \ \ \ \ \ var\ regularAttachments\ =\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}{Attachments}}.Where(a\ =>\ !a.IsInline).ToList();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ have\ inline\ attachments\ and\ HTML\ body,\ wrap\ in\ multipart/related}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00286}00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (inlineAttachments.Count\ >\ 0\ \&\&\ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}{IsBodyHtml}})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00287}00287\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ var\ related\ =\ \textcolor{keyword}{new}\ Multipart(\textcolor{stringliteral}{"{}related"{}})\ \{\ bodyPart\ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ attachment\ \textcolor{keywordflow}{in}\ inlineAttachments)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ related.Add(CreateMimePart(attachment));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ bodyPart\ =\ related;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00296}00296\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00298}00298\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ have\ regular\ attachments,\ wrap\ in\ multipart/mixed}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00299}00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (regularAttachments.Count\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00300}00300\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ var\ mixed\ =\ \textcolor{keyword}{new}\ Multipart(\textcolor{stringliteral}{"{}mixed"{}})\ \{\ bodyPart\ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ attachment\ \textcolor{keywordflow}{in}\ regularAttachments)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mixed.Add(CreateMimePart(attachment));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mixed;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00309}00309\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00311}00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bodyPart;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00312}00312\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00319}00319\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ MimePart\ CreateMimePart(EmailAttachment\ attachment)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00320}00320\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00321}00321\ \ \ \ \ \ \ \ \ var\ contentType\ =\ ContentType.Parse(attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ae714a842f714c3f159cb91cf9b000369}{ContentType}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00322}00322\ \ \ \ \ \ \ \ \ var\ mimePart\ =\ \textcolor{keyword}{new}\ MimePart(contentType)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00323}00323\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ FileName\ =\ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a3178dcb477c3e739acfb83d1b4000785}{FileName}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ ContentDisposition\ =\ \textcolor{keyword}{new}\ ContentDisposition(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a87c92e4fc41de2261fd60c2bb5177f84}{IsInline}}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ ContentDisposition.Inline}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ ContentDisposition.Attachment),}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ ContentTransferEncoding\ =\ ContentEncoding.Base64}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00330}00330\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00332}00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a87c92e4fc41de2261fd60c2bb5177f84}{IsInline}}\ \&\&\ !\textcolor{keywordtype}{string}.IsNullOrEmpty(attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a80b0a2f8893ae4c3cb7e9c21e98e0863}{ContentId}}))}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00333}00333\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ mimePart.ContentId\ =\ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a80b0a2f8893ae4c3cb7e9c21e98e0863}{ContentId}};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00335}00335\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00337}00337\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ content}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00338}00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ac6f99591d53cb530223e3dbb884c37ba}{Content}}\ is\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00339}00339\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ mimePart.Content\ =\ \textcolor{keyword}{new}\ MimeContent(\textcolor{keyword}{new}\ MemoryStream(attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ac6f99591d53cb530223e3dbb884c37ba}{Content}}));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00341}00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_af5ee3aee9da198e3e9024a6e26e2afdd}{FilePath}}))}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00343}00343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ mimePart.Content\ =\ \textcolor{keyword}{new}\ MimeContent(File.OpenRead(attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_af5ee3aee9da198e3e9024a6e26e2afdd}{FilePath}}));}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00345}00345\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mimePart;}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00348}00348\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00354}00354\ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ EnsureConnectedAsync(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00355}00355\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isConnected\ \&\&\ \_client.IsConnected)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00357}00357\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00359}00359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00361}00361\ \ \ \ \ \ \ \ \ await\ \_connectionLock.WaitAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00362}00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00363}00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isConnected\ \&\&\ \_client.IsConnected)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convert\ security\ mode\ to\ SecureSocketOptions}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ var\ secureSocketOptions\ =\ \_options.SecurityMode\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SmtpSecurityMode.None\ =>\ SecureSocketOptions.None,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SmtpSecurityMode.StartTls\ =>\ SecureSocketOptions.StartTls,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SmtpSecurityMode.StartTlsWhenAvailable\ =>\ SecureSocketOptions.StartTlsWhenAvailable,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SmtpSecurityMode.SslOnConnect\ =>\ SecureSocketOptions.SslOnConnect,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =>\ SecureSocketOptions.Auto}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.ConnectAsync(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Host,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Port,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ secureSocketOptions,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Connected\ to\ SMTP\ server\ \{Host\}:\{Port\}"{}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Host,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Port);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Authenticate\ if\ credentials\ are\ configured}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_options.RequiresAuthentication)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ AuthenticateAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \_isConnected\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00397}00397\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00398}00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ OperationCanceledException)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00399}00399\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ connect\ to\ SMTP\ server\ \{Host\}:\{Port\}"{}},\ \_options.Host,\ \_options.Port);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ InvalidOperationException(\$\textcolor{stringliteral}{"{}Failed\ to\ connect\ to\ SMTP\ server:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00402}00402\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{finally}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00404}00404\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \_connectionLock.Release();}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00406}00406\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00407}00407\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00413}00413\ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ AuthenticateAsync(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00414}00414\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00415}00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00416}00416\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(\_options.OAuth2AccessToken))}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OAuth2\ authentication}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ oauth2\ =\ \textcolor{keyword}{new}\ SaslMechanismOAuth2(\_options.Username!,\ \_options.OAuth2AccessToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.AuthenticateAsync(oauth2,\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Authenticated\ with\ SMTP\ server\ using\ OAuth2"{}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(\_options.Username))}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Password\ authentication}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_client.AuthenticateAsync(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Username,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Password\ ??\ \textcolor{keywordtype}{string}.Empty,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00432}00432\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(\textcolor{stringliteral}{"{}Authenticated\ with\ SMTP\ server\ using\ password"{}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00435}00435\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00436}00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (AuthenticationException\ ex)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00437}00437\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}SMTP\ authentication\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ InvalidOperationException(\$\textcolor{stringliteral}{"{}SMTP\ authentication\ failed:\ \{ex.Message\}"{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00440}00440\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00441}00441\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00447}00447\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ RecordEmailSent(EmailMessage\ message)}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00448}00448\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00449}00449\ \ \ \ \ \ \ \ \ ToolboxMeter.RecordEmailSent(}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ ServiceName,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \_options.Host,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a3e25efe03279f3b48fbf34eabcde53e2}{TotalRecipients}},}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}{Attachments}}.Count\ >\ 0,}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ message.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}{IsBodyHtml}});}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00455}00455\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_smtp_mailing_service_8cs_source_l00456}00456\ \}}
+
+\end{DoxyCode}

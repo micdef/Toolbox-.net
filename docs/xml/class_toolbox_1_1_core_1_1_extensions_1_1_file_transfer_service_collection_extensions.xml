@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1ad50aebce0f28469a512d758393349bd0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddFtpFileTransfer</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; FileTransferOptions &gt; configureOptions)</argsstring>
+        <name>AddFtpFileTransfer</name>
+        <qualifiedname>Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddFtpFileTransfer</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kindref="compound">FileTransferOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds the FTP file transfer service with the specified options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An action to configure the options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configureOptions</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddFtpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Protocol<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c" kindref="member">FileTransferProtocol</ref>.Ftps;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" line="41" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" bodystart="41" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1ad13074173d880b03e767ddb8efc6ef03" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddFtpFileTransfer</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddFtpFileTransfer</name>
+        <qualifiedname>Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddFtpFileTransfer</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds the FTP file transfer service with configuration binding. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration to bind from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configuration</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>Binds options from the <computeroutput><ref refid="namespace_toolbox" kindref="compound">Toolbox</ref>:<ref refid="namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer" kindref="compound">FileTransfer</ref></computeroutput> configuration section. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" line="66" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" bodystart="66" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1ae804e37909eeefd2a5bca07eda6a08f3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddSftpFileTransfer</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; FileTransferOptions &gt; configureOptions)</argsstring>
+        <name>AddSftpFileTransfer</name>
+        <qualifiedname>Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddSftpFileTransfer</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kindref="compound">FileTransferOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SFTP file transfer service with the specified options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An action to configure the options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configureOptions</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sftp.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" line="100" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" bodystart="100" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1a341aa415d9b9964c22a9321b3f98727e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddSftpFileTransfer</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddSftpFileTransfer</name>
+        <qualifiedname>Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddSftpFileTransfer</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds the SFTP file transfer service with configuration binding. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration to bind from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configuration</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>Binds options from the <computeroutput><ref refid="namespace_toolbox" kindref="compound">Toolbox</ref>:<ref refid="namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer" kindref="compound">FileTransfer</ref></computeroutput> configuration section. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" line="125" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" bodystart="125" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1a65c78afa534bd01c623d62bcaec9301b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddFileTransfer</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; FileTransferOptions &gt; configureOptions)</argsstring>
+        <name>AddFileTransfer</name>
+        <qualifiedname>Toolbox.Core.Extensions.FileTransferServiceCollectionExtensions.AddFileTransfer</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" kindref="compound">FileTransferOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds a file transfer service based on the protocol specified in options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An action to configure the options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configureOptions</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>Automatically selects FTP or SFTP service based on the <ref refid="class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a300625ffc14d0f4b71421214ba75cd22" kindref="member">FileTransferOptions.Protocol</ref> setting. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;server.example.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Protocol<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c" kindref="member">FileTransferProtocol</ref>.Sftp;<sp/></highlight><highlight class="comment">//<sp/>Will<sp/>use<sp/>SFTP<sp/>service</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" line="163" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" bodystart="163" bodyend="185"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Extension methods for IServiceCollection to configure file transfer services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These extensions provide a fluent API for registering FTP and SFTP file transfer services. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" line="19" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs" bodystart="20" bodyend="186"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1a65c78afa534bd01c623d62bcaec9301b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</scope><name>AddFileTransfer</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1ad50aebce0f28469a512d758393349bd0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</scope><name>AddFtpFileTransfer</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1ad13074173d880b03e767ddb8efc6ef03" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</scope><name>AddFtpFileTransfer</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1ae804e37909eeefd2a5bca07eda6a08f3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</scope><name>AddSftpFileTransfer</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_file_transfer_service_collection_extensions_1a341aa415d9b9964c22a9321b3f98727e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::FileTransferServiceCollectionExtensions</scope><name>AddSftpFileTransfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

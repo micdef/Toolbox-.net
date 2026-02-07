@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a696f36109b9ca8f35235ff8467dbf8b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</name>
+        <qualifiedname>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="17" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="17" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1aa895e759a485cbedd0c6bd55d16008ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_Metrics_ShouldAddMeter</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxInstrumentation_Metrics_ShouldAddMeter</name>
+        <qualifiedname>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_Metrics_ShouldAddMeter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="33" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="33" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a7a0116bc9d378fe6286174c148498de2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</name>
+        <qualifiedname>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="49" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="49" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ac2ea716fd6bdb8b4e034dce2ed911b54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</name>
+        <qualifiedname>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="64" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="64" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a77fd11cf8dada75d666f57eed4ab21b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="86" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="86" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ae2877b5684a8d70f6de89fea55e5728d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="99" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="99" bodyend="109"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_integration" kindref="compound">Integration</ref> tests for OpenTelemetryExtensions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" line="14" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs" bodystart="15" bodyend="110"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1aa895e759a485cbedd0c6bd55d16008ec" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</scope><name>AddToolboxInstrumentation_Metrics_ShouldAddMeter</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a696f36109b9ca8f35235ff8467dbf8b8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</scope><name>AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a77fd11cf8dada75d666f57eed4ab21b5" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</scope><name>AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a7a0116bc9d378fe6286174c148498de2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</scope><name>AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ac2ea716fd6bdb8b4e034dce2ed911b54" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</scope><name>AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ae2877b5684a8d70f6de89fea55e5728d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::OpenTelemetryExtensionsTests</scope><name>AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

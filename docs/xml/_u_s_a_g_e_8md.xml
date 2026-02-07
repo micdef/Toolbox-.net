@@ -1,0 +1,833 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_u_s_a_g_e_8md" kind="file" language="Markdown">
+    <compoundname>USAGE.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Toolbox<sp/>Usage<sp/>Guide</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>guide<sp/>provides<sp/>detailed<sp/>instructions<sp/>for<sp/>using<sp/>the<sp/>Toolbox<sp/>library.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Table<sp/>of<sp/>Contents</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[Getting<sp/>Started](#getting-started)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[Cryptography<sp/>Services](#cryptography-services)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Base64<sp/>Encoding](#base64-encoding)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[AES<sp/>Encryption](#aes-encryption)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[RSA<sp/>Encryption](#rsa-encryption)</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>[File<sp/>Transfer<sp/>Services](#file-transfer-services)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[FTP/FTPS](#ftpftps)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[SFTP](#sftp)</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>[Mailing<sp/>Services](#mailing-services)</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>[Creating<sp/>Custom<sp/>Services](#creating-custom-services)</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/>[OpenTelemetry<sp/>Integration](#opentelemetry-integration)</highlight></codeline>
+<codeline><highlight class="normal">7.<sp/>[Configuration<sp/>Options](#configuration-options)</highlight></codeline>
+<codeline><highlight class="normal">8.<sp/>[Best<sp/>Practices](#best-practices)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Getting<sp/>Started</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Basic<sp/>Setup</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Add<sp/>Toolbox<sp/>to<sp/>your<sp/>application:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">var<sp/>builder<sp/>=<sp/>Host.CreateApplicationBuilder(args);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Register<sp/>Toolbox<sp/>core<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxCore();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">var<sp/>app<sp/>=<sp/>builder.Build();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configuration<sp/>via<sp/>appsettings.json</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;Toolbox&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableDetailedTelemetry&quot;:<sp/>false,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ServicePrefix&quot;:<sp/>&quot;MyApp&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;AsyncDisposalTimeout&quot;:<sp/>&quot;00:00:30&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;Toolbox:Telemetry&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableTracing&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableMetrics&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;EnableConsoleExport&quot;:<sp/>false,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ServiceName&quot;:<sp/>&quot;MyApplication&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;ServiceVersion&quot;:<sp/>&quot;1.0.0&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxCore(builder.Configuration);</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxOpenTelemetry(builder.Configuration);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Cryptography<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Base64<sp/>Encoding</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Base64<sp/>encoding/decoding<sp/>service<sp/>for<sp/>text<sp/>obfuscation<sp/>(not<sp/>encryption).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Standard<sp/>Base64</highlight></codeline>
+<codeline><highlight class="normal">services.AddBase64Cryptography();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>URL-safe<sp/>Base64</highlight></codeline>
+<codeline><highlight class="normal">services.AddBase64Cryptography(Base64EncodingTable.UrlSafe);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>With<sp/>full<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">services.AddBase64Cryptography(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EncodingTable<sp/>=<sp/>Base64EncodingTable.UrlSafe;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.IncludePadding<sp/>=<sp/>false;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>MyService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ICryptographyService<sp/>_crypto;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>MyService(ICryptographyService<sp/>crypto)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_crypto<sp/>=<sp/>crypto;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>ProcessAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Encode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encoded<sp/>=<sp/>_crypto.Encrypt(&quot;Hello,<sp/>World!&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Result:<sp/>&quot;SGVsbG8sIFdvcmxkIQ==&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Decode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decoded<sp/>=<sp/>_crypto.Decrypt(encoded);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Result:<sp/>&quot;Hello,<sp/>World!&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Async<sp/>versions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encodedAsync<sp/>=<sp/>await<sp/>_crypto.EncryptAsync(&quot;Hello&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decodedAsync<sp/>=<sp/>await<sp/>_crypto.DecryptAsync(encodedAsync);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>AES<sp/>Encryption</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Secure<sp/>symmetric<sp/>encryption<sp/>using<sp/>AES<sp/>(CBC<sp/>mode<sp/>with<sp/>PKCS7<sp/>padding).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>new<sp/>key<sp/>and<sp/>IV</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key,<sp/>iv)<sp/>=<sp/>AesCryptographyService.GenerateKey(AesKeySize.Aes256);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Register<sp/>with<sp/>generated<sp/>key</highlight></codeline>
+<codeline><highlight class="normal">services.AddAesCryptography(key,<sp/>iv);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Or<sp/>with<sp/>key<sp/>size<sp/>enum</highlight></codeline>
+<codeline><highlight class="normal">services.AddAesCryptography(AesKeySize.Aes256);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>SecureService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ICryptographyService<sp/>_crypto;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>SecureService(ICryptographyService<sp/>crypto)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_crypto<sp/>=<sp/>crypto;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;string&gt;<sp/>EncryptDataAsync(string<sp/>sensitiveData)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Encrypt<sp/>(returns<sp/>Base64-encoded<sp/>ciphertext)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encrypted<sp/>=<sp/>await<sp/>_crypto.EncryptAsync(sensitiveData);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Decrypt</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decrypted<sp/>=<sp/>await<sp/>_crypto.DecryptAsync(encrypted);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>encrypted;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Key<sp/>Generation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>AES-128<sp/>key</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key128,<sp/>iv128)<sp/>=<sp/>AesCryptographyService.GenerateKey(AesKeySize.Aes128);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>AES-192<sp/>key</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key192,<sp/>iv192)<sp/>=<sp/>AesCryptographyService.GenerateKey(AesKeySize.Aes192);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>AES-256<sp/>key<sp/>(recommended)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>(key256,<sp/>iv256)<sp/>=<sp/>AesCryptographyService.GenerateKey(AesKeySize.Aes256);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>RSA<sp/>Encryption</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asymmetric<sp/>encryption<sp/>using<sp/>RSA<sp/>with<sp/>various<sp/>key<sp/>sizes<sp/>and<sp/>padding<sp/>modes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>key<sp/>pair</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>keyPair<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Register<sp/>with<sp/>full<sp/>key<sp/>pair<sp/>(encrypt<sp/>+<sp/>decrypt)</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>keyPair.PublicKey!,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RsaPaddingMode.OaepSha256,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>keyPair.PrivateKey);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Register<sp/>with<sp/>public<sp/>key<sp/>only<sp/>(encrypt<sp/>only)</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>keyPair.PublicKey!,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RsaPaddingMode.OaepSha256);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Register<sp/>with<sp/>X.509<sp/>certificate</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>cert<sp/>=<sp/>new<sp/>X509Certificate2(&quot;certificate.pfx&quot;,<sp/>&quot;password&quot;);</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(cert,<sp/>RsaPaddingMode.OaepSha256);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>AsymmetricService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ICryptographyService<sp/>_crypto;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>AsymmetricService(ICryptographyService<sp/>crypto)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_crypto<sp/>=<sp/>crypto;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;(string<sp/>encrypted,<sp/>string<sp/>decrypted)&gt;<sp/>ProcessAsync(string<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Encrypt<sp/>with<sp/>public<sp/>key</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>encrypted<sp/>=<sp/>await<sp/>_crypto.EncryptAsync(data);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Decrypt<sp/>with<sp/>private<sp/>key<sp/>(requires<sp/>private<sp/>key)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>decrypted<sp/>=<sp/>await<sp/>_crypto.DecryptAsync(encrypted);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>(encrypted,<sp/>decrypted);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Key<sp/>Generation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>key<sp/>pair<sp/>(bytes)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>keyPair<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);</highlight></codeline>
+<codeline><highlight class="normal">byte[]<sp/>publicKey<sp/>=<sp/>keyPair.PublicKey!;</highlight></codeline>
+<codeline><highlight class="normal">byte[]<sp/>privateKey<sp/>=<sp/>keyPair.PrivateKey!;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>self-signed<sp/>certificate</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>certKeyPair<sp/>=<sp/>RsaCryptographyService.GenerateCertificate(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RsaKeySize.Rsa4096,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;CN=MyApplication&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TimeSpan.FromDays(365));</highlight></codeline>
+<codeline><highlight class="normal">X509Certificate2<sp/>certificate<sp/>=<sp/>certKeyPair.Certificate!;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Public<sp/>key<sp/>only<sp/>(for<sp/>sharing)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>publicOnly<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RsaKeySize.Rsa2048,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>includePrivateKey:<sp/>false);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Padding<sp/>Modes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Mode<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Pkcs1`<sp/>|<sp/>PKCS#1<sp/>v1.5<sp/>padding<sp/>(legacy)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OaepSha1`<sp/>|<sp/>OAEP<sp/>with<sp/>SHA-1<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OaepSha256`<sp/>|<sp/>OAEP<sp/>with<sp/>SHA-256<sp/>(recommended)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OaepSha384`<sp/>|<sp/>OAEP<sp/>with<sp/>SHA-384<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OaepSha512`<sp/>|<sp/>OAEP<sp/>with<sp/>SHA-512<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>File<sp/>Transfer<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>FTP/FTPS</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">File<sp/>transfer<sp/>service<sp/>for<sp/>FTP<sp/>and<sp/>FTPS<sp/>(FTP<sp/>over<sp/>TLS)<sp/>protocols.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Basic<sp/>FTP</highlight></codeline>
+<codeline><highlight class="normal">services.AddFtpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;ftp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>21;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;user&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/>&quot;password&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Protocol<sp/>=<sp/>FileTransferProtocol.Ftp;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Secure<sp/>FTPS</highlight></codeline>
+<codeline><highlight class="normal">services.AddFtpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;ftp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>21;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;user&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/>&quot;password&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Protocol<sp/>=<sp/>FileTransferProtocol.Ftps;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddFtpFileTransfer(configuration.GetSection(&quot;Ftp&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>FileService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>IFileTransferService<sp/>_ftp;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>FileService(IFileTransferService<sp/>ftp)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ftp<sp/>=<sp/>ftp;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>TransferFilesAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Upload<sp/>single<sp/>file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_ftp.UploadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localPath:<sp/>@&quot;C:\local\file.txt&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remotePath:<sp/>&quot;/remote/file.txt&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overwrite:<sp/>true);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Download<sp/>single<sp/>file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_ftp.DownloadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remotePath:<sp/>&quot;/remote/file.txt&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localPath:<sp/>@&quot;C:\local\downloaded.txt&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Batch<sp/>upload</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>uploads<sp/>=<sp/>new[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(@&quot;C:\local\file1.txt&quot;,<sp/>&quot;/remote/file1.txt&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(@&quot;C:\local\file2.txt&quot;,<sp/>&quot;/remote/file2.txt&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>successCount<sp/>=<sp/>await<sp/>_ftp.UploadBatchAsync(uploads);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Batch<sp/>download</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>downloads<sp/>=<sp/>new[]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(&quot;/remote/file1.txt&quot;,<sp/>@&quot;C:\local\file1.txt&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(&quot;/remote/file2.txt&quot;,<sp/>@&quot;C:\local\file2.txt&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>downloaded<sp/>=<sp/>await<sp/>_ftp.DownloadBatchAsync(downloads);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SFTP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Secure<sp/>file<sp/>transfer<sp/>over<sp/>SSH<sp/>(SFTP<sp/>protocol).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Password<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;sftp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>22;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;user&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/>&quot;password&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Private<sp/>key<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;sftp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>22;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;user&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.PrivateKeyPath<sp/>=<sp/>@&quot;C:\keys\id_rsa&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.PrivateKeyPassphrase<sp/>=<sp/>&quot;passphrase&quot;;<sp/>//<sp/>Optional</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Private<sp/>key<sp/>from<sp/>string</highlight></codeline>
+<codeline><highlight class="normal">services.AddSftpFileTransfer(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;sftp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;user&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.PrivateKeyContent<sp/>=<sp/>&quot;-----BEGIN<sp/>RSA<sp/>PRIVATE<sp/>KEY-----\n...&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>SecureFileService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>IFileTransferService<sp/>_sftp;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>SecureFileService(IFileTransferService<sp/>sftp)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sftp<sp/>=<sp/>sftp;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>TransferAsync(CancellationToken<sp/>ct)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Upload<sp/>with<sp/>cancellation<sp/>support</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sftp.UploadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@&quot;C:\data\report.pdf&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;/uploads/report.pdf&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overwrite:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ct);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Download</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sftp.DownloadOneAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;/downloads/data.csv&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@&quot;C:\data\data.csv&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cancellationToken:<sp/>ct);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Host`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Server<sp/>hostname<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Port`<sp/>|<sp/>int<sp/>|<sp/>21/22<sp/>|<sp/>Server<sp/>port<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Username`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Login<sp/>username<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Password`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Password<sp/>(if<sp/>using<sp/>password<sp/>auth)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`PrivateKeyPath`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Path<sp/>to<sp/>private<sp/>key<sp/>file<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`PrivateKeyContent`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Private<sp/>key<sp/>as<sp/>string<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`PrivateKeyPassphrase`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Private<sp/>key<sp/>passphrase<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Protocol`<sp/>|<sp/>FileTransferProtocol<sp/>|<sp/>Ftp<sp/>|<sp/>Ftp,<sp/>Ftps,<sp/>or<sp/>Sftp<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ConnectionTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>30s<sp/>|<sp/>Connection<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OperationTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>5min<sp/>|<sp/>Operation<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BufferSize`<sp/>|<sp/>int<sp/>|<sp/>32KB<sp/>|<sp/>Transfer<sp/>buffer<sp/>size<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`AutoCreateDirectory`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Auto-create<sp/>remote<sp/>directories<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Mailing<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">SMTP<sp/>email<sp/>sending<sp/>service<sp/>with<sp/>TLS/SSL,<sp/>OAuth2,<sp/>and<sp/>attachment<sp/>support.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generic<sp/>SMTP</highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;smtp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>587;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/>SmtpSecurityMode.StartTls;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;user@example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/>&quot;password&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.DefaultFrom<sp/>=<sp/>new<sp/>EmailAddress(&quot;noreply@example.com&quot;,<sp/>&quot;My<sp/>App&quot;);</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Gmail<sp/>shortcut</highlight></codeline>
+<codeline><highlight class="normal">services.AddGmailMailing(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>email:<sp/>&quot;myapp@gmail.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>appPassword:<sp/>&quot;xxxx-xxxx-xxxx-xxxx&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Outlook/Office<sp/>365<sp/>shortcut</highlight></codeline>
+<codeline><highlight class="normal">services.AddOutlookMailing(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>email:<sp/>&quot;myapp@outlook.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>password:<sp/>&quot;password&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Anonymous<sp/>relay<sp/>(internal<sp/>servers)</highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;mail.internal.local&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>25;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/>SmtpSecurityMode.None;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>NotificationService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>IMailingService<sp/>_mailing;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>NotificationService(IMailingService<sp/>mailing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_mailing<sp/>=<sp/>mailing;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>SendWelcomeEmailAsync(string<sp/>userEmail,<sp/>string<sp/>userName)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>message<sp/>=<sp/>new<sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>From<sp/>=<sp/>new<sp/>EmailAddress(&quot;noreply@example.com&quot;,<sp/>&quot;My<sp/>Application&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/>&quot;Welcome<sp/>to<sp/>Our<sp/>Service!&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Body<sp/>=<sp/>$&quot;&lt;h1&gt;Welcome,<sp/>{userName}!&lt;/h1&gt;&lt;p&gt;Thank<sp/>you<sp/>for<sp/>joining<sp/>us.&lt;/p&gt;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>To<sp/>=<sp/>{<sp/>new<sp/>EmailAddress(userEmail,<sp/>userName)<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>SendReportAsync(string[]<sp/>recipients,<sp/>byte[]<sp/>pdfReport)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>message<sp/>=<sp/>new<sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>From<sp/>=<sp/>new<sp/>EmailAddress(&quot;reports@example.com&quot;,<sp/>&quot;Report<sp/>System&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/>&quot;Monthly<sp/>Report&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Body<sp/>=<sp/>&quot;Please<sp/>find<sp/>the<sp/>monthly<sp/>report<sp/>attached.&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/>false,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Attachments<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EmailAttachment.FromBytes(pdfReport,<sp/>&quot;report.pdf&quot;,<sp/>&quot;application/pdf&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Multiple<sp/>recipients</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>foreach<sp/>(var<sp/>recipient<sp/>in<sp/>recipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message.To.Add(recipient);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>SendBccEmailAsync(string[]<sp/>bccRecipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Email<sp/>with<sp/>BCC<sp/>only<sp/>(no<sp/>visible<sp/>recipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>message<sp/>=<sp/>new<sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>From<sp/>=<sp/>new<sp/>EmailAddress(&quot;newsletter@example.com&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/>&quot;Newsletter&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Body<sp/>=<sp/>&quot;&lt;h1&gt;Monthly<sp/>Newsletter&lt;/h1&gt;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/>true</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>foreach<sp/>(var<sp/>bcc<sp/>in<sp/>bccRecipients)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message.Bcc.Add(bcc);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Email<sp/>with<sp/>Inline<sp/>Images</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>logoBytes<sp/>=<sp/>File.ReadAllBytes(&quot;logo.png&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">var<sp/>message<sp/>=<sp/>new<sp/>EmailMessage</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>From<sp/>=<sp/>new<sp/>EmailAddress(&quot;noreply@example.com&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Subject<sp/>=<sp/>&quot;Email<sp/>with<sp/>Logo&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Body<sp/>=<sp/>@&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;html&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;body&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;img<sp/>src=&apos;cid:company-logo&apos;<sp/>alt=&apos;Logo&apos;<sp/>/&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;h1&gt;Welcome!&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;/body&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;/html&gt;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IsBodyHtml<sp/>=<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>To<sp/>=<sp/>{<sp/>&quot;recipient@example.com&quot;<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Attachments<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EmailAttachment.CreateInline(logoBytes,<sp/>&quot;logo.png&quot;,<sp/>&quot;company-logo&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">await<sp/>_mailing.SendMailAsync(message);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Host`<sp/>|<sp/>string<sp/>|<sp/>&quot;localhost&quot;<sp/>|<sp/>SMTP<sp/>server<sp/>hostname<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Port`<sp/>|<sp/>int<sp/>|<sp/>25<sp/>|<sp/>SMTP<sp/>port<sp/>(25,<sp/>587,<sp/>465)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SecurityMode`<sp/>|<sp/>SmtpSecurityMode<sp/>|<sp/>Auto<sp/>|<sp/>Security<sp/>mode<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Username`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>SMTP<sp/>username<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Password`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>SMTP<sp/>password<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OAuth2AccessToken`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>OAuth2<sp/>token<sp/>(Gmail,<sp/>O365)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ConnectionTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>30s<sp/>|<sp/>Connection<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OperationTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>2min<sp/>|<sp/>Send<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ValidateCertificate`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Validate<sp/>SSL<sp/>certificate<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`DefaultFrom`<sp/>|<sp/>EmailAddress?<sp/>|<sp/>null<sp/>|<sp/>Default<sp/>sender<sp/>address<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`DefaultReplyTo`<sp/>|<sp/>EmailAddress?<sp/>|<sp/>null<sp/>|<sp/>Default<sp/>reply-to<sp/>address<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Security<sp/>Modes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Mode<sp/>|<sp/>Port<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Auto`<sp/>|<sp/>-<sp/>|<sp/>Automatic<sp/>detection<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`None`<sp/>|<sp/>25<sp/>|<sp/>No<sp/>encryption<sp/>(internal<sp/>only)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`StartTls`<sp/>|<sp/>587<sp/>|<sp/>Upgrade<sp/>to<sp/>TLS<sp/>(recommended)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`StartTlsWhenAvailable`<sp/>|<sp/>587<sp/>|<sp/>TLS<sp/>if<sp/>available<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SslOnConnect`<sp/>|<sp/>465<sp/>|<sp/>Implicit<sp/>SSL/TLS<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Creating<sp/>Custom<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Synchronous<sp/>Disposal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>services<sp/>with<sp/>synchronous<sp/>cleanup:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Base;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>MyService<sp/>:<sp/>BaseDisposableService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>SomeResource<sp/>_resource;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>MyService(ILogger&lt;MyService&gt;<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>base(&quot;MyService&quot;,<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_resource<sp/>=<sp/>new<sp/>SomeResource();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>DoWork()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThrowIfDisposed();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>using<sp/>var<sp/>activity<sp/>=<sp/>StartActivity();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>sw<sp/>=<sp/>Stopwatch.StartNew();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_resource.Process();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RecordOperation(&quot;DoWork&quot;,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>protected<sp/>override<sp/>void<sp/>Dispose(bool<sp/>disposing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(disposing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_resource?.Dispose();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base.Dispose(disposing);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Asynchronous<sp/>Disposal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>services<sp/>with<sp/>async<sp/>resources:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Base;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>MyAsyncService<sp/>:<sp/>BaseAsyncDisposableService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>Stream<sp/>_stream;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>MyAsyncService(ILogger&lt;MyAsyncService&gt;<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>base(&quot;MyAsyncService&quot;,<sp/>logger)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_stream<sp/>=<sp/>new<sp/>FileStream(&quot;data.bin&quot;,<sp/>FileMode.OpenOrCreate);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>ProcessAsync(CancellationToken<sp/>ct<sp/>=<sp/>default)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThrowIfDisposed();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>using<sp/>var<sp/>activity<sp/>=<sp/>StartActivity();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>sw<sp/>=<sp/>Stopwatch.StartNew();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_stream.WriteAsync(data,<sp/>ct);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RecordOperation(&quot;ProcessAsync&quot;,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>protected<sp/>override<sp/>async<sp/>ValueTask<sp/>DisposeAsyncCore(CancellationToken<sp/>ct)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_stream.DisposeAsync();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>OpenTelemetry<sp/>Integration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Basic<sp/>Tracing<sp/>and<sp/>Metrics</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableTracing<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableMetrics<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServiceName<sp/>=<sp/>&quot;MyApplication&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServiceVersion<sp/>=<sp/>&quot;1.0.0&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>OTLP<sp/>Export</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">builder.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.OtlpEndpoint<sp/>=<sp/>&quot;http://localhost:4317&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Custom<sp/>Instrumentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Telemetry;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Start<sp/>a<sp/>custom<sp/>activity</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>var<sp/>activity<sp/>=<sp/>ToolboxActivitySource.StartActivity(&quot;CustomOperation&quot;);</highlight></codeline>
+<codeline><highlight class="normal">activity?.SetTag(&quot;custom.tag&quot;,<sp/>&quot;value&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Record<sp/>metrics</highlight></codeline>
+<codeline><highlight class="normal">ToolboxMeter.RecordOperation(&quot;MyService&quot;,<sp/>&quot;CustomOp&quot;,<sp/>elapsedMs);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Available<sp/>Metrics</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Metric<sp/>|<sp/>Type<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.operations.count`<sp/>|<sp/>Counter<sp/>|<sp/>Total<sp/>operations<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.operations.duration`<sp/>|<sp/>Histogram<sp/>|<sp/>Operation<sp/>duration<sp/>(ms)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.crypto.encrypt.count`<sp/>|<sp/>Counter<sp/>|<sp/>Encryption<sp/>operations<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.crypto.decrypt.count`<sp/>|<sp/>Counter<sp/>|<sp/>Decryption<sp/>operations<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.crypto.data.size`<sp/>|<sp/>Histogram<sp/>|<sp/>Data<sp/>size<sp/>(bytes)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.upload.count`<sp/>|<sp/>Counter<sp/>|<sp/>File<sp/>uploads<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.download.count`<sp/>|<sp/>Counter<sp/>|<sp/>File<sp/>downloads<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.size`<sp/>|<sp/>Histogram<sp/>|<sp/>File<sp/>size<sp/>(bytes)<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>ToolboxOptions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnableDetailedTelemetry`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Enable<sp/>detailed<sp/>telemetry<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ServicePrefix`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Prefix<sp/>for<sp/>service<sp/>names<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`AsyncDisposalTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>30s<sp/>|<sp/>Timeout<sp/>for<sp/>async<sp/>disposal<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>ToolboxTelemetryOptions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnableTracing`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Enable<sp/>distributed<sp/>tracing<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnableMetrics`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Enable<sp/>metrics<sp/>collection<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnableConsoleExport`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Export<sp/>to<sp/>console<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OtlpEndpoint`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>OTLP<sp/>collector<sp/>endpoint<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ServiceName`<sp/>|<sp/>string<sp/>|<sp/>&quot;Toolbox&quot;<sp/>|<sp/>Service<sp/>name<sp/>for<sp/>telemetry<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ServiceVersion`<sp/>|<sp/>string<sp/>|<sp/>&quot;1.0.0&quot;<sp/>|<sp/>Service<sp/>version<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Best<sp/>Practices</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.<sp/>Always<sp/>Check<sp/>Disposal<sp/>State</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>void<sp/>DoWork()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ThrowIfDisposed();<sp/><sp/>//<sp/>Call<sp/>this<sp/>first</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>...<sp/>rest<sp/>of<sp/>method</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.<sp/>Use<sp/>Activity<sp/>Scopes<sp/>for<sp/>Tracing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>async<sp/>Task<sp/>DoWorkAsync()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>using<sp/>var<sp/>activity<sp/>=<sp/>StartActivity();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Activity<sp/>automatically<sp/>ends<sp/>when<sp/>scope<sp/>exits</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.<sp/>Record<sp/>Metrics<sp/>for<sp/>Performance</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>sw<sp/>=<sp/>Stopwatch.StartNew();</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>...<sp/>operation</highlight></codeline>
+<codeline><highlight class="normal">RecordOperation(&quot;OperationName&quot;,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>4.<sp/>Handle<sp/>Cancellation<sp/>in<sp/>Async<sp/>Operations</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>async<sp/>Task<sp/>ProcessAsync(CancellationToken<sp/>ct<sp/>=<sp/>default)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ct.ThrowIfCancellationRequested();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>await<sp/>_service.DoWorkAsync(ct);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>5.<sp/>Use<sp/>Appropriate<sp/>Service<sp/>Lifetimes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Singleton<sp/>for<sp/>stateless<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">services.AddSingleton&lt;ICryptographyService,<sp/>AesCryptographyService&gt;();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Scoped<sp/>for<sp/>per-request<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">services.AddScoped&lt;IFileTransferService,<sp/>SftpFileTransferService&gt;();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Transient<sp/>for<sp/>lightweight<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">services.AddTransient&lt;IMailingService,<sp/>SmtpMailingService&gt;();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>6.<sp/>Secure<sp/>Credential<sp/>Management</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Use<sp/>configuration/secrets,<sp/>not<sp/>hardcoded<sp/>values</highlight></codeline>
+<codeline><highlight class="normal">services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Or<sp/>use<sp/>Azure<sp/>Key<sp/>Vault,<sp/>AWS<sp/>Secrets<sp/>Manager,<sp/>etc.</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>password<sp/>=<sp/>await<sp/>secretsClient.GetSecretAsync(&quot;smtp-password&quot;);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/USAGE.md"/>
+  </compounddef>
+</doxygen>

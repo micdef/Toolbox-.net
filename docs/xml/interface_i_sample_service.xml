@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="interface_i_sample_service" kind="interface" language="C#" prot="public">
+    <compoundname>ISampleService</compoundname>
+    <derivedcompoundref refid="class_sample_service" prot="public" virt="non-virtual">SampleService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task</type>
+        <definition>Task ISampleService.DoWorkAsync</definition>
+        <argsstring>(string message, CancellationToken ct=default)</argsstring>
+        <name>DoWorkAsync</name>
+        <qualifiedname>ISampleService.DoWorkAsync</qualifiedname>
+        <reimplementedby refid="class_sample_service_1a9517e289671e8098655ef2563c31419b">DoWorkAsync</reimplementedby>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>ct</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Performs sample work asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to process.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task representing the async operation.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="63" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Sample service interface demonstrating <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> patterns. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ISampleService</label>
+        <link refid="interface_i_sample_service"/>
+      </node>
+      <node id="2">
+        <label>SampleService</label>
+        <link refid="class_sample_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="55" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" bodystart="56" bodyend="64"/>
+    <listofallmembers>
+      <member refid="interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b" prot="public" virt="non-virtual"><scope>ISampleService</scope><name>DoWorkAsync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

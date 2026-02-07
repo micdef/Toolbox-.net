@@ -1,0 +1,300 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Email\+Message Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message}{}\label{class_toolbox_1_1_core_1_1_options_1_1_email_message}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+
+
+Represents an email message to be sent.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a631a28ef3c2b8a847205df409b4d83a2}{Validate}} ()
+\begin{DoxyCompactList}\small\item\em Validates the message and throws if invalid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_ae81d3000119c9b12dfffe302a6ed34e1}{From}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the sender\textquotesingle{}s email address. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_ad1e2b8d83269be70648b1ea4c001c428}{Reply\+To}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the reply-\/to email address. \end{DoxyCompactList}\item 
+IList$<$ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}} $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e}{To}} = new List$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the list of primary recipients. \end{DoxyCompactList}\item 
+IList$<$ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}} $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a30f5834090bbf7c36de92bd0de29f290}{Cc}} = new List$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the list of carbon copy recipients. \end{DoxyCompactList}\item 
+IList$<$ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}} $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a1fde3f15e549c1ce10418ea24a8ee79b}{Bcc}} = new List$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the list of blind carbon copy recipients. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2878058a0675907e71f46085dd7c1e0f}{Subject}} = string.\+Empty\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the email subject. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_acc148135731267f616b58707b0e4132d}{Body}} = string.\+Empty\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the email body content. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}{Is\+Body\+Html}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether the body is HTML. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a667aa502ae68efb886b63e93b06a695b}{Plain\+Text\+Body}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the plain text version of the body for HTML emails. \end{DoxyCompactList}\item 
+IList$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}} $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}{Attachments}} = new List$<$\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}}$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the list of attachments. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778}{Email\+Priority}} \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_abfe1f4e9814f5b67aa2122fafef4804a}{Priority}} = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0}{Email\+Priority.\+Normal}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the email priority. \end{DoxyCompactList}\item 
+IDictionary$<$ string, string $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_ac8af8d8afbb92f19ee7e9584906778d3}{Headers}} = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the custom headers to include in the email. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a3e25efe03279f3b48fbf34eabcde53e2}{Total\+Recipients}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the total number of recipients (To + CC + BCC). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a6e9f18a8cfe7ea88b2547402868d41ce}{Has\+Recipients}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this message has any recipients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an email message to be sent. 
+
+This class contains all the information needed to compose and send an email, including recipients, subject, body, and attachments. 
+
+At least one recipient must be specified in \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e}{To} or \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a1fde3f15e549c1ce10418ea24a8ee79b}{Bcc}. If \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e}{To} is empty, at least one \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a1fde3f15e549c1ce10418ea24a8ee79b}{Bcc} recipient is required. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_ae81d3000119c9b12dfffe302a6ed34e1}{From}}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}sender@example.com"{}},\ \textcolor{stringliteral}{"{}Sender"{}}),}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2878058a0675907e71f46085dd7c1e0f}{Subject}}\ =\ \textcolor{stringliteral}{"{}Monthly\ Report"{}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_acc148135731267f616b58707b0e4132d}{Body}}\ =\ \textcolor{stringliteral}{"{}<h1>Report</h1><p>See\ attached.</p>"{}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}{IsBodyHtml}}\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e}{To}}\ =\ \{\ \textcolor{stringliteral}{"{}recipient@example.com"{}}\ \},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a30f5834090bbf7c36de92bd0de29f290}{Cc}}\ =\ \{\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}manager@example.com"{}},\ \textcolor{stringliteral}{"{}Manager"{}})\ \},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}{Attachments}}\ =\ \{\ EmailAttachment.FromFile(\textcolor{stringliteral}{"{}report.pdf"{}})\ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00035}{35}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a631a28ef3c2b8a847205df409b4d83a2}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Validate@{Validate}}
+\index{Validate@{Validate}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Validate()}{Validate()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a631a28ef3c2b8a847205df409b4d83a2} 
+void Toolbox.\+Core.\+Options.\+Email\+Message.\+Validate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Validates the message and throws if invalid. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Thrown when the message is invalid.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00128}{128}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Attachments@{Attachments}}
+\index{Attachments@{Attachments}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Attachments}{Attachments}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a7ec40f4c0801e9d635c33cdcd29cbf03} 
+IList$<$\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}}$>$ Toolbox.\+Core.\+Options.\+Email\+Message.\+Attachments = new List$<$\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the list of attachments. 
+
+The list of file attachments.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00098}{98}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a1fde3f15e549c1ce10418ea24a8ee79b}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Bcc@{Bcc}}
+\index{Bcc@{Bcc}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Bcc}{Bcc}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a1fde3f15e549c1ce10418ea24a8ee79b} 
+IList$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$ Toolbox.\+Core.\+Options.\+Email\+Message.\+Bcc = new List$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the list of blind carbon copy recipients. 
+
+The list of "{}\+BCC"{} recipients.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00065}{65}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_acc148135731267f616b58707b0e4132d}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Body@{Body}}
+\index{Body@{Body}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Body}{Body}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_acc148135731267f616b58707b0e4132d} 
+string Toolbox.\+Core.\+Options.\+Email\+Message.\+Body = string.\+Empty\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the email body content. 
+
+The body content in HTML or plain text format.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00077}{77}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a30f5834090bbf7c36de92bd0de29f290}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Cc@{Cc}}
+\index{Cc@{Cc}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Cc}{Cc}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a30f5834090bbf7c36de92bd0de29f290} 
+IList$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$ Toolbox.\+Core.\+Options.\+Email\+Message.\+Cc = new List$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the list of carbon copy recipients. 
+
+The list of "{}\+CC"{} recipients.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00059}{59}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_ae81d3000119c9b12dfffe302a6ed34e1}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!From@{From}}
+\index{From@{From}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{From}{From}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_ae81d3000119c9b12dfffe302a6ed34e1} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? Toolbox.\+Core.\+Options.\+Email\+Message.\+From\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the sender\textquotesingle{}s email address. 
+
+The sender address. If {\ttfamily null}, uses the service\textquotesingle{}s default sender.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00041}{41}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a6e9f18a8cfe7ea88b2547402868d41ce}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!HasRecipients@{HasRecipients}}
+\index{HasRecipients@{HasRecipients}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{HasRecipients}{HasRecipients}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a6e9f18a8cfe7ea88b2547402868d41ce} 
+bool Toolbox.\+Core.\+Options.\+Email\+Message.\+Has\+Recipients\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a value indicating whether this message has any recipients. 
+
+{\ttfamily true} if there is at least one recipient; otherwise, {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00122}{122}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_ac8af8d8afbb92f19ee7e9584906778d3}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Headers@{Headers}}
+\index{Headers@{Headers}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Headers}{Headers}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_ac8af8d8afbb92f19ee7e9584906778d3} 
+IDictionary$<$string, string$>$ Toolbox.\+Core.\+Options.\+Email\+Message.\+Headers = new Dictionary$<$string, string$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the custom headers to include in the email. 
+
+A dictionary of custom header names and values.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00110}{110}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!IsBodyHtml@{IsBodyHtml}}
+\index{IsBodyHtml@{IsBodyHtml}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{IsBodyHtml}{IsBodyHtml}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf} 
+bool Toolbox.\+Core.\+Options.\+Email\+Message.\+Is\+Body\+Html\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether the body is HTML. 
+
+{\ttfamily true} if the body is HTML; {\ttfamily false} for plain text. Default is {\ttfamily false}.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00083}{83}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a667aa502ae68efb886b63e93b06a695b}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!PlainTextBody@{PlainTextBody}}
+\index{PlainTextBody@{PlainTextBody}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{PlainTextBody}{PlainTextBody}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a667aa502ae68efb886b63e93b06a695b} 
+string? Toolbox.\+Core.\+Options.\+Email\+Message.\+Plain\+Text\+Body\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the plain text version of the body for HTML emails. 
+
+The plain text alternative, or {\ttfamily null} to auto-\/generate from HTML. Only used when \doxylink{class_toolbox_1_1_core_1_1_options_1_1_email_message_a82878f0f02674c42c078a1d0a85bc1bf}{Is\+Body\+Html} is {\ttfamily true}. 
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00092}{92}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_abfe1f4e9814f5b67aa2122fafef4804a}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Priority@{Priority}}
+\index{Priority@{Priority}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Priority}{Priority}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_abfe1f4e9814f5b67aa2122fafef4804a} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778}{Email\+Priority}} Toolbox.\+Core.\+Options.\+Email\+Message.\+Priority = \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0}{Email\+Priority.\+Normal}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the email priority. 
+
+The message priority. Default is \doxylink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0}{Email\+Priority.\+Normal}.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00104}{104}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_ad1e2b8d83269be70648b1ea4c001c428}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!ReplyTo@{ReplyTo}}
+\index{ReplyTo@{ReplyTo}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{ReplyTo}{ReplyTo}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_ad1e2b8d83269be70648b1ea4c001c428} 
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}? Toolbox.\+Core.\+Options.\+Email\+Message.\+Reply\+To\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the reply-\/to email address. 
+
+The reply-\/to address, or {\ttfamily null} to use the sender\textquotesingle{}s address.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00047}{47}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2878058a0675907e71f46085dd7c1e0f}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!Subject@{Subject}}
+\index{Subject@{Subject}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{Subject}{Subject}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2878058a0675907e71f46085dd7c1e0f} 
+string Toolbox.\+Core.\+Options.\+Email\+Message.\+Subject = string.\+Empty\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the email subject. 
+
+The subject line.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00071}{71}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!To@{To}}
+\index{To@{To}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{To}{To}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a2a22cf3d9bd7c67d8ac73aab098fa24e} 
+IList$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$ Toolbox.\+Core.\+Options.\+Email\+Message.\+To = new List$<$\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the list of primary recipients. 
+
+The list of "{}\+To"{} recipients.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00053}{53}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_email_message_a3e25efe03279f3b48fbf34eabcde53e2}\index{Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}!TotalRecipients@{TotalRecipients}}
+\index{TotalRecipients@{TotalRecipients}!Toolbox.Core.Options.EmailMessage@{Toolbox.Core.Options.EmailMessage}}
+\doxysubsubsection{\texorpdfstring{TotalRecipients}{TotalRecipients}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_email_message_a3e25efe03279f3b48fbf34eabcde53e2} 
+int Toolbox.\+Core.\+Options.\+Email\+Message.\+Total\+Recipients\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the total number of recipients (To + CC + BCC). 
+
+The total recipient count.
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00116}{116}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_email_message_8cs}{Email\+Message.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="src_2_toolbox_8_core_2_global_usings_8cs" kind="file" language="C#">
+    <compoundname>GlobalUsings.cs</compoundname>
+    <innernamespace refid="namespace_system_1_1_diagnostics">System::Diagnostics</innernamespace>
+    <innernamespace refid="namespace_system_1_1_diagnostics_1_1_metrics">System::Diagnostics::Metrics</innernamespace>
+    <innernamespace refid="namespace_system_1_1_runtime_1_1_compiler_services">System::Runtime::CompilerServices</innernamespace>
+    <innernamespace refid="namespace_microsoft_1_1_extensions_1_1_options">Microsoft::Extensions::Options</innernamespace>
+    <innernamespace refid="namespace_open_telemetry">OpenTelemetry</innernamespace>
+    <innernamespace refid="namespace_open_telemetry_1_1_metrics">OpenTelemetry::Metrics</innernamespace>
+    <innernamespace refid="namespace_open_telemetry_1_1_trace">OpenTelemetry::Trace</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>@file<sp/>GlobalUsings.cs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Global<sp/>using<sp/>directives<sp/>for<sp/>Toolbox.Core</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@details<sp/>Centralizes<sp/>common<sp/>namespace<sp/>imports<sp/>used<sp/>throughout<sp/>the<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@note<sp/>These<sp/>global<sp/>usings<sp/>are<sp/>automatically<sp/>available<sp/>in<sp/>all<sp/>source<sp/>files<sp/>within</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>Toolbox.Core<sp/>assembly,<sp/>reducing<sp/>boilerplate<sp/>imports<sp/>and<sp/>ensuring</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>consistent<sp/>namespace<sp/>usage<sp/>across<sp/>the<sp/>codebase.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@section<sp/>namespaces<sp/>Included<sp/>Namespaces</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>System.Diagnostics:<sp/>Performance<sp/>monitoring<sp/>and<sp/>tracing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>System.Diagnostics.Metrics:<sp/>OpenTelemetry-compatible<sp/>metrics<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>System.Runtime.CompilerServices:<sp/>Compiler<sp/>services<sp/>and<sp/>attributes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>Microsoft.Extensions.*:<sp/>Dependency<sp/>injection,<sp/>logging,<sp/>and<sp/>options<sp/>patterns</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>OpenTelemetry.*:<sp/>Distributed<sp/>tracing<sp/>and<sp/>metrics<sp/>collection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Diagnostics;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Diagnostics.Metrics;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Runtime.CompilerServices;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.Extensions.DependencyInjection;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.Extensions.Logging;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.Extensions.Options;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">OpenTelemetry;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">OpenTelemetry.Metrics;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">global<sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">OpenTelemetry.Trace;</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/GlobalUsings.cs"/>
+  </compounddef>
+</doxygen>

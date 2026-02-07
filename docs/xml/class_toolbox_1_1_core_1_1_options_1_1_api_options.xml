@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_api_options" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::ApiOptions</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1ab7fbf158825dcfdab7fdb56edd8eb652" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.BaseUrl</definition>
+        <argsstring></argsstring>
+        <name>BaseUrl</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.BaseUrl</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the base URL for API requests. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The base URL (e.g., &quot;https://api.example.com&quot;).</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="36" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249" kindref="member">ApiAuthenticationMode</ref></type>
+        <definition>ApiAuthenticationMode Toolbox.Core.Options.ApiOptions.AuthenticationMode</definition>
+        <argsstring></argsstring>
+        <name>AuthenticationMode</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.AuthenticationMode</qualifiedname>
+        <initializer>= <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0" kindref="member">ApiAuthenticationMode.Anonymous</ref></initializer>
+        <briefdescription>
+<para>Gets or sets the authentication mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The authentication mode. Default is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0" kindref="member">ApiAuthenticationMode.Anonymous</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="42" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1adaa7ce66c1939d638d19244193f26837" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.BearerToken</definition>
+        <argsstring></argsstring>
+        <name>BearerToken</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.BearerToken</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the bearer token for authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bearer token (without &quot;Bearer&quot; prefix).</para>
+<para>Used when <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" kindref="member">AuthenticationMode</ref> is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30" kindref="member">ApiAuthenticationMode.BearerToken</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="51" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a97a7365ec0769e038aaeea4be4b0bb50" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.Username</definition>
+        <argsstring></argsstring>
+        <name>Username</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.Username</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the username for basic authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The username.</para>
+<para>Used when <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" kindref="member">AuthenticationMode</ref> is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94" kindref="member">ApiAuthenticationMode.Basic</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="62" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a58e0a0c3c1f54b81fd8d8f406a684869" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.Password</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the password for basic authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The password.</para>
+<para>Used when <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" kindref="member">AuthenticationMode</ref> is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94" kindref="member">ApiAuthenticationMode.Basic</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="69" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1aab45300e4a1a09f2fd4d830a25999006" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.ApiKey</definition>
+        <argsstring></argsstring>
+        <name>ApiKey</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.ApiKey</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the API key value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The API key.</para>
+<para>Used when <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" kindref="member">AuthenticationMode</ref> is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac" kindref="member">ApiAuthenticationMode.ApiKey</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="80" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a07786e9a5413d5a9c9556c2c45e06c90" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.ApiOptions.ApiKeyName</definition>
+        <argsstring></argsstring>
+        <name>ApiKeyName</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.ApiKeyName</qualifiedname>
+        <initializer>= &quot;X-API-Key&quot;</initializer>
+        <briefdescription>
+<para>Gets or sets the API key header or parameter name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The name (e.g., &quot;X-API-Key&quot; or &quot;api_key&quot;). Default is &quot;X-API-Key&quot;.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="86" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a494b64c3abe07a88097daa454855e6f4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30" kindref="member">ApiKeyLocation</ref></type>
+        <definition>ApiKeyLocation Toolbox.Core.Options.ApiOptions.ApiKeyLocation</definition>
+        <argsstring></argsstring>
+        <name>ApiKeyLocation</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.ApiKeyLocation</qualifiedname>
+        <initializer>= <ref refid="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7" kindref="member">ApiKeyLocation.Header</ref></initializer>
+        <briefdescription>
+<para>Gets or sets where to send the API key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The location. Default is <ref refid="namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7" kindref="member">ApiKeyLocation.Header</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="92" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a52c2418d08cd8e2abd3ac18007f0b062" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>X509Certificate2?</type>
+        <definition>X509Certificate2? Toolbox.Core.Options.ApiOptions.ClientCertificate</definition>
+        <argsstring></argsstring>
+        <name>ClientCertificate</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.ClientCertificate</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the client certificate for authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The X.509 certificate.</para>
+<para>Used when <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" kindref="member">AuthenticationMode</ref> is <ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6" kindref="member">ApiAuthenticationMode.Certificate</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="103" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a091dc62a1f1c8c73993c8e023e385b40" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.CertificatePath</definition>
+        <argsstring></argsstring>
+        <name>CertificatePath</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.CertificatePath</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the path to a PFX/PKCS#12 certificate file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="109" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fbbdeb293875a6794fd8d14f6f8f491" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.CertificatePassword</definition>
+        <argsstring></argsstring>
+        <name>CertificatePassword</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.CertificatePassword</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the certificate password. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The password for the certificate file.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="115" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a5e8fb0aa4595eafad53d1eb80dfe3757" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.OAuth2TokenUrl</definition>
+        <argsstring></argsstring>
+        <name>OAuth2TokenUrl</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.OAuth2TokenUrl</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the OAuth2 token endpoint URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The token endpoint (e.g., &quot;https://auth.example.com/oauth/token&quot;).</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="125" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4c490b62f0b75becbfa4245d6f1f0d5a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.OAuth2ClientId</definition>
+        <argsstring></argsstring>
+        <name>OAuth2ClientId</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.OAuth2ClientId</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the OAuth2 client ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The client ID.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="131" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1af3c6ddb9688e27881baff0c41ddcb37f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.OAuth2ClientSecret</definition>
+        <argsstring></argsstring>
+        <name>OAuth2ClientSecret</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.OAuth2ClientSecret</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the OAuth2 client secret. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The client secret.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="137" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="137" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a6413ef1fa1ac2f837dcded107d180e49" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.OAuth2Scopes</definition>
+        <argsstring></argsstring>
+        <name>OAuth2Scopes</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.OAuth2Scopes</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the OAuth2 scopes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Space-separated scopes (e.g., &quot;read write&quot;).</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="143" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="143" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a60ec33964b858f8522f6fc41e7d1d20e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.ApiOptions.Timeout</definition>
+        <argsstring></argsstring>
+        <name>Timeout</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.Timeout</qualifiedname>
+        <initializer>= TimeSpan.FromSeconds(30)</initializer>
+        <briefdescription>
+<para>Gets or sets the request timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The timeout. Default is 30 seconds.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="153" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a57f0285af6fe846c5613690aa42ffa04" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.ApiOptions.MaxRetries</definition>
+        <argsstring></argsstring>
+        <name>MaxRetries</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.MaxRetries</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+<para>Gets or sets the maximum number of retry attempts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The retry count. Default is 3.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="159" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1af7b1d566cbbe3694b5584abf7ba797bc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.ApiOptions.RetryDelay</definition>
+        <argsstring></argsstring>
+        <name>RetryDelay</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.RetryDelay</qualifiedname>
+        <initializer>= TimeSpan.FromSeconds(1)</initializer>
+        <briefdescription>
+<para>Gets or sets the delay between retries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The retry delay. Default is 1 second.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="165" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="165" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a9c9db36422b7f6f98c438a22a5b8869a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiOptions.UseExponentialBackoff</definition>
+        <argsstring></argsstring>
+        <name>UseExponentialBackoff</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.UseExponentialBackoff</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets whether to use exponential backoff for retries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> for exponential backoff; <computeroutput>false</computeroutput> for fixed delay. Default is <computeroutput>true</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="171" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="171" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fa72ff5b9e293a649c6c567e71fa98f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiOptions.ValidateCertificate</definition>
+        <argsstring></argsstring>
+        <name>ValidateCertificate</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.ValidateCertificate</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets whether to validate SSL certificates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to validate (recommended); <computeroutput>false</computeroutput> to skip. Default is <computeroutput>true</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="177" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="177" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a0033c861e010757102e58400ea48c00c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.ApiOptions.FollowRedirects</definition>
+        <argsstring></argsstring>
+        <name>FollowRedirects</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.FollowRedirects</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets whether to follow redirects automatically. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to follow redirects; <computeroutput>false</computeroutput> to return redirect responses. Default is <computeroutput>true</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="183" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1b349cf42ca14eb0d4da7fa2ed1217d8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.ApiOptions.MaxRedirects</definition>
+        <argsstring></argsstring>
+        <name>MaxRedirects</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.MaxRedirects</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+<para>Gets or sets the maximum number of redirects to follow. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum redirects. Default is 10.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="189" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="189" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a75f953ecee87a17859cebaa00fdd4bcc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.ApiOptions.UserAgent</definition>
+        <argsstring></argsstring>
+        <name>UserAgent</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.UserAgent</qualifiedname>
+        <initializer>= &quot;Toolbox.Core.HttpApiService/1.0&quot;</initializer>
+        <briefdescription>
+<para>Gets or sets the default User-Agent header. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The User-Agent string.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="195" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="195" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a330e944f0f05473cd9636241ad7a1d85" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; Toolbox.Core.Options.ApiOptions.DefaultHeaders</definition>
+        <argsstring></argsstring>
+        <name>DefaultHeaders</name>
+        <qualifiedname>Toolbox.Core.Options.ApiOptions.DefaultHeaders</qualifiedname>
+        <initializer>= new Dictionary&lt;string, string&gt;()</initializer>
+        <briefdescription>
+<para>Gets the default headers to include in all requests. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Dictionary of header names and values.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="201" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="201" bodyend="201"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration options for the HTTP API service. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These options configure HTTP client behavior and authentication. The authentication mode determines which credential properties are used. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>options<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ApiOptions</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1ab7fbf158825dcfdab7fdb56edd8eb652" kindref="member">BaseUrl</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;https://api.example.com&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" kindref="member">AuthenticationMode</ref><sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249" kindref="member">ApiAuthenticationMode</ref>.BearerToken,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1adaa7ce66c1939d638d19244193f26837" kindref="member">BearerToken</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;your-token-here&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a60ec33964b858f8522f6fc41e7d1d20e" kindref="member">Timeout</ref><sp/>=<sp/>TimeSpan.FromSeconds(30)</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" line="30" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiOptions.cs" bodystart="31" bodyend="204"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1aab45300e4a1a09f2fd4d830a25999006" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>ApiKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a494b64c3abe07a88097daa454855e6f4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>ApiKeyLocation</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a07786e9a5413d5a9c9556c2c45e06c90" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>ApiKeyName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>AuthenticationMode</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1ab7fbf158825dcfdab7fdb56edd8eb652" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>BaseUrl</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1adaa7ce66c1939d638d19244193f26837" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>BearerToken</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fbbdeb293875a6794fd8d14f6f8f491" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>CertificatePassword</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a091dc62a1f1c8c73993c8e023e385b40" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>CertificatePath</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a52c2418d08cd8e2abd3ac18007f0b062" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>ClientCertificate</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a330e944f0f05473cd9636241ad7a1d85" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>DefaultHeaders</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a0033c861e010757102e58400ea48c00c" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>FollowRedirects</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1b349cf42ca14eb0d4da7fa2ed1217d8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>MaxRedirects</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a57f0285af6fe846c5613690aa42ffa04" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>MaxRetries</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4c490b62f0b75becbfa4245d6f1f0d5a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>OAuth2ClientId</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1af3c6ddb9688e27881baff0c41ddcb37f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>OAuth2ClientSecret</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a6413ef1fa1ac2f837dcded107d180e49" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>OAuth2Scopes</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a5e8fb0aa4595eafad53d1eb80dfe3757" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>OAuth2TokenUrl</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a58e0a0c3c1f54b81fd8d8f406a684869" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>Password</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1af7b1d566cbbe3694b5584abf7ba797bc" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>RetryDelay</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a60ec33964b858f8522f6fc41e7d1d20e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>Timeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a9c9db36422b7f6f98c438a22a5b8869a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>UseExponentialBackoff</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a75f953ecee87a17859cebaa00fdd4bcc" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>UserAgent</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a97a7365ec0769e038aaeea4be4b0bb50" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>Username</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fa72ff5b9e293a649c6c567e71fa98f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::ApiOptions</scope><name>ValidateCertificate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

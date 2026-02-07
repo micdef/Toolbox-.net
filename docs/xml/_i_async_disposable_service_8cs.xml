@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_i_async_disposable_service_8cs" kind="file" language="C#">
+    <compoundname>IAsyncDisposableService.cs</compoundname>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" prot="public">Toolbox::Core::Abstractions::IAsyncDisposableService</innerclass>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core">Toolbox::Core</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_abstractions">Toolbox::Core::Abstractions</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>@file<sp/>IAsyncDisposableService.cs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Interface<sp/>for<sp/>asynchronously<sp/>disposable<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@details<sp/>Extends<sp/>IDisposableService<sp/>with<sp/>async<sp/>disposal<sp/>capabilities<sp/>and<sp/>cancellation<sp/>support</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@note<sp/>Prefer<sp/>this<sp/>interface<sp/>for<sp/>services<sp/>that<sp/>manage<sp/>async<sp/>resources<sp/>(streams,<sp/>connections,<sp/>etc.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="namespace_toolbox" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_abstractions" kindref="compound">Toolbox.Core.Abstractions</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" kindref="compound">IAsyncDisposableService</ref><sp/>:<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service" kindref="compound">IDisposableService</ref>,<sp/>IAsyncDisposable</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ValueTask<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" kindref="member">DisposeAsync</ref>(CancellationToken<sp/>cancellationToken);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs"/>
+  </compounddef>
+</doxygen>

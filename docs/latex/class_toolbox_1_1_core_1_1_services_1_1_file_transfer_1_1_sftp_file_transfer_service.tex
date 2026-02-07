@@ -1,0 +1,711 @@
+\doxysection{Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}{}\label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+
+
+File transfer service implementation using SFTP protocol.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.289135cm]{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a9bee15cb5a018d0a53da1ef895dc852e}{Sftp\+File\+Transfer\+Service}} (IOptions$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{File\+Transfer\+Options}} $>$ options, ILogger$<$ Sftp\+File\+Transfer\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}{Sftp\+File\+Transfer\+Service} class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbbe0d8a543a8b89b6592be111393352}{Sftp\+File\+Transfer\+Service}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{File\+Transfer\+Options}} options, ILogger$<$ Sftp\+File\+Transfer\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}{Sftp\+File\+Transfer\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a8081b8c21e7bedd5486629282899028a}{Upload\+One}} (string local\+Path, string remote\+Path, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Uploads a single file to the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+Path} & The local file path to upload.\\
+\hline
+{\em remote\+Path} & The remote destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when local file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a005ac6db09ec98d03f12d0e18b095ef4}{Upload\+One\+Async}} (string local\+Path, string remote\+Path, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Uploads a single file to the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+Path} & The local file path to upload.\\
+\hline
+{\em remote\+Path} & The remote destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when local file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad9b93a94ca76bd432dd320daa124921e}{Upload\+Batch}} (IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$ files, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Uploads multiple files to the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (local\+Path, remote\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of files successfully uploaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+async Task$<$ int $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbcbc55146b849a4d4918ffda0b827b5}{Upload\+Batch\+Async}} (IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$ files, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Uploads multiple files to the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (local\+Path, remote\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the number of files successfully uploaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a81aca18a4c2217ac7067f30266e62703}{Download\+One}} (string remote\+Path, string local\+Path, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Downloads a single file from the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em remote\+Path} & The remote file path to download.\\
+\hline
+{\em local\+Path} & The local destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when remote file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a94af0bd9271952109afff0a02aaeb284}{Download\+One\+Async}} (string remote\+Path, string local\+Path, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Downloads a single file from the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em remote\+Path} & The remote file path to download.\\
+\hline
+{\em local\+Path} & The local destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when remote file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a6a0c49174a00d2a33c09943f6b8cfeb7}{Download\+Batch}} (IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$ files, bool overwrite=true)
+\begin{DoxyCompactList}\small\item\em Downloads multiple files from the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (remote\+Path, local\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of files successfully downloaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\item 
+async Task$<$ int $>$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a422d60e8663bf5c040832ddbf70d0221}{Download\+Batch\+Async}} (IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$ files, bool overwrite=true, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Downloads multiple files from the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (remote\+Path, local\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the number of files successfully downloaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{Dispose\+Async}} ()
+\item 
+async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous disposal operation.
+\end{DoxyReturn}
+
+
+This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Releases all resources used by this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad25aedfa6d6dc6b8b6726f171bd00708}{Dispose\+Async\+Core}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{Base\+Async\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Base\+Async\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+override void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Dispose}} (bool disposing)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{Base\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{Throw\+If\+Disposed}} ()
+\begin{DoxyCompactList}\small\item\em Throws an Object\+Disposed\+Exception if this service has been disposed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{Record\+Operation}} (string operation\+Name, double duration\+Ms)
+\begin{DoxyCompactList}\small\item\em Records an operation metric with the specified name and duration. \end{DoxyCompactList}\item 
+Activity? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{Start\+Activity}} (\+[Caller\+Member\+Name]\+ string operation\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Starts a new activity for the specified operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. \end{DoxyCompactList}\item 
+Activity\+Source \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File transfer service implementation using SFTP protocol. 
+
+This service provides secure file upload and download capabilities using the SFTP protocol. It supports both password and private key authentication. 
+
+Uses SSH.\+NET library for SFTP operations. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service}{IFile\+Transfer\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00029}{29}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a9bee15cb5a018d0a53da1ef895dc852e}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!SftpFileTransferService@{SftpFileTransferService}}
+\index{SftpFileTransferService@{SftpFileTransferService}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{SftpFileTransferService()}{SftpFileTransferService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a9bee15cb5a018d0a53da1ef895dc852e} 
+Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Sftp\+File\+Transfer\+Service (\begin{DoxyParamCaption}\item[{IOptions$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{File\+Transfer\+Options}} $>$}]{options}{, }\item[{ILogger$<$ Sftp\+File\+Transfer\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}{Sftp\+File\+Transfer\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & The file transfer options.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when options or logger is null.\\
+\hline
+{\em Argument\+Exception} & Thrown when host or username is empty.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00050}{50}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbbe0d8a543a8b89b6592be111393352}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!SftpFileTransferService@{SftpFileTransferService}}
+\index{SftpFileTransferService@{SftpFileTransferService}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{SftpFileTransferService()}{SftpFileTransferService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbbe0d8a543a8b89b6592be111393352} 
+Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Sftp\+File\+Transfer\+Service (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{File\+Transfer\+Options}}}]{options}{, }\item[{ILogger$<$ Sftp\+File\+Transfer\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service}{Sftp\+File\+Transfer\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & The file transfer options.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00087}{87}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad25aedfa6d6dc6b8b6726f171bd00708}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!DisposeAsyncCore@{DisposeAsyncCore}}
+\index{DisposeAsyncCore@{DisposeAsyncCore}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DisposeAsyncCore()}{DisposeAsyncCore()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad25aedfa6d6dc6b8b6726f171bd00708} 
+override async Value\+Task Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Dispose\+Async\+Core (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00512}{512}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a6a0c49174a00d2a33c09943f6b8cfeb7}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!DownloadBatch@{DownloadBatch}}
+\index{DownloadBatch@{DownloadBatch}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadBatch()}{DownloadBatch()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a6a0c49174a00d2a33c09943f6b8cfeb7} 
+int Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Download\+Batch (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Downloads multiple files from the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (remote\+Path, local\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of files successfully downloaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a8fa36a9667eb5532d1e1490204d31966}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00416}{416}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a422d60e8663bf5c040832ddbf70d0221}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!DownloadBatchAsync@{DownloadBatchAsync}}
+\index{DownloadBatchAsync@{DownloadBatchAsync}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadBatchAsync()}{DownloadBatchAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a422d60e8663bf5c040832ddbf70d0221} 
+async Task$<$ int $>$ Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Download\+Batch\+Async (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Remote\+Path, string Local\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Downloads multiple files from the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (remote\+Path, local\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the number of files successfully downloaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a9b2153d151943a376d3365ddfbfb4519}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00463}{463}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a81aca18a4c2217ac7067f30266e62703}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!DownloadOne@{DownloadOne}}
+\index{DownloadOne@{DownloadOne}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadOne()}{DownloadOne()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a81aca18a4c2217ac7067f30266e62703} 
+void Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Download\+One (\begin{DoxyParamCaption}\item[{string}]{remote\+Path}{, }\item[{string}]{local\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Downloads a single file from the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em remote\+Path} & The remote file path to download.\\
+\hline
+{\em local\+Path} & The local destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when remote file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a16448190399a0a2230f75c29dda1a851}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00307}{307}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a94af0bd9271952109afff0a02aaeb284}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!DownloadOneAsync@{DownloadOneAsync}}
+\index{DownloadOneAsync@{DownloadOneAsync}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{DownloadOneAsync()}{DownloadOneAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a94af0bd9271952109afff0a02aaeb284} 
+async Task Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Download\+One\+Async (\begin{DoxyParamCaption}\item[{string}]{remote\+Path}{, }\item[{string}]{local\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Downloads a single file from the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em remote\+Path} & The remote file path to download.\\
+\hline
+{\em local\+Path} & The local destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing local files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when remote file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_aed1537898eecb5b9dc32c88a51525c38}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00360}{360}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad9b93a94ca76bd432dd320daa124921e}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!UploadBatch@{UploadBatch}}
+\index{UploadBatch@{UploadBatch}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadBatch()}{UploadBatch()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_ad9b93a94ca76bd432dd320daa124921e} 
+int Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Upload\+Batch (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Uploads multiple files to the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (local\+Path, remote\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of files successfully uploaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4dd51de7dcb5668082dc15073f6bb54}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00211}{211}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbcbc55146b849a4d4918ffda0b827b5}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!UploadBatchAsync@{UploadBatchAsync}}
+\index{UploadBatchAsync@{UploadBatchAsync}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadBatchAsync()}{UploadBatchAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_adbcbc55146b849a4d4918ffda0b827b5} 
+async Task$<$ int $>$ Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Upload\+Batch\+Async (\begin{DoxyParamCaption}\item[{IEnumerable$<$(string Local\+Path, string Remote\+Path)$>$}]{files}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Uploads multiple files to the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & Collection of tuples containing (local\+Path, remote\+Path) pairs.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the number of files successfully uploaded.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when files collection is null.\\
+\hline
+{\em Aggregate\+Exception} & Thrown when one or more transfers fail.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_ae4da65114040f1cf522cef93f514fc1e}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00258}{258}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a8081b8c21e7bedd5486629282899028a}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!UploadOne@{UploadOne}}
+\index{UploadOne@{UploadOne}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadOne()}{UploadOne()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a8081b8c21e7bedd5486629282899028a} 
+void Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Upload\+One (\begin{DoxyParamCaption}\item[{string}]{local\+Path}{, }\item[{string}]{remote\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Uploads a single file to the remote server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+Path} & The local file path to upload.\\
+\hline
+{\em remote\+Path} & The remote destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when local file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a39493197015631afe633dbf737acb5b9}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00095}{95}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a005ac6db09ec98d03f12d0e18b095ef4}\index{Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}!UploadOneAsync@{UploadOneAsync}}
+\index{UploadOneAsync@{UploadOneAsync}!Toolbox.Core.Services.FileTransfer.SftpFileTransferService@{Toolbox.Core.Services.FileTransfer.SftpFileTransferService}}
+\doxysubsubsection{\texorpdfstring{UploadOneAsync()}{UploadOneAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_a005ac6db09ec98d03f12d0e18b095ef4} 
+async Task Toolbox.\+Core.\+Services.\+File\+Transfer.\+Sftp\+File\+Transfer\+Service.\+Upload\+One\+Async (\begin{DoxyParamCaption}\item[{string}]{local\+Path}{, }\item[{string}]{remote\+Path}{, }\item[{bool}]{overwrite}{ = {\ttfamily true}, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Uploads a single file to the remote server asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+Path} & The local file path to upload.\\
+\hline
+{\em remote\+Path} & The remote destination path.\\
+\hline
+{\em overwrite} & Whether to overwrite existing files.\\
+\hline
+{\em cancellation\+Token} & Cancellation token.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when paths are null.\\
+\hline
+{\em File\+Not\+Found\+Exception} & Thrown when local file doesn\textquotesingle{}t exist.\\
+\hline
+{\em IOException} & Thrown when transfer fails.\\
+\hline
+\end{DoxyExceptions}
+ 
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_a50c1189a1e77238ef3c86bb7c3d641ef}{Toolbox.\+Core.\+Abstractions.\+Services.\+IFile\+Transfer\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source_l00152}{152}} of file \doxymbox{\hyperlink{_sftp_file_transfer_service_8cs_source}{Sftp\+File\+Transfer\+Service.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Services/\+\+File\+Transfer/\+\doxymbox{\hyperlink{_sftp_file_transfer_service_8cs}{Sftp\+File\+Transfer\+Service.\+cs}}\end{DoxyCompactItemize}

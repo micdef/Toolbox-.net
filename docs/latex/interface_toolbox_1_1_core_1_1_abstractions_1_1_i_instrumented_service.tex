@@ -1,0 +1,81 @@
+\doxysection{Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service Interface Reference}
+\hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{}\label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}\index{Toolbox.Core.Abstractions.IInstrumentedService@{Toolbox.Core.Abstractions.IInstrumentedService}}
+
+
+Interface for services that expose Open\+Telemetry instrumentation.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.000000cm]{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Activity\+Source \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for services that expose Open\+Telemetry instrumentation. 
+
+\doxylink{namespace_toolbox_1_1_core_1_1_abstractions_1_1_services}{Services} implementing this interface provide access to their telemetry primitives, enabling consistent observability across the application. 
+
+The \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}{Activity\+Source} is used for distributed tracing, while the \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}{Meter} is used for metrics collection. 
+
+Definition at line \doxymbox{\hyperlink{_i_instrumented_service_8cs_source_l00021}{21}} of file \doxymbox{\hyperlink{_i_instrumented_service_8cs_source}{IInstrumented\+Service.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}\index{Toolbox.Core.Abstractions.IInstrumentedService@{Toolbox.Core.Abstractions.IInstrumentedService}!ActivitySource@{ActivitySource}}
+\index{ActivitySource@{ActivitySource}!Toolbox.Core.Abstractions.IInstrumentedService@{Toolbox.Core.Abstractions.IInstrumentedService}}
+\doxysubsubsection{\texorpdfstring{ActivitySource}{ActivitySource}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3} 
+Activity\+Source Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service.\+Activity\+Source\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing. 
+
+The activity source used to create spans for this service.
+
+Activities created from this source will be included in traces when Open\+Telemetry tracing is configured. 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_i_instrumented_service_8cs_source_l00031}{31}} of file \doxymbox{\hyperlink{_i_instrumented_service_8cs_source}{IInstrumented\+Service.\+cs}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}\index{Toolbox.Core.Abstractions.IInstrumentedService@{Toolbox.Core.Abstractions.IInstrumentedService}!Meter@{Meter}}
+\index{Meter@{Meter}!Toolbox.Core.Abstractions.IInstrumentedService@{Toolbox.Core.Abstractions.IInstrumentedService}}
+\doxysubsubsection{\texorpdfstring{Meter}{Meter}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0} 
+Meter Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service.\+Meter\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection. 
+
+The meter used to create instruments for this service.
+
+Instruments created from this meter will report metrics when Open\+Telemetry metrics is configured. 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_i_instrumented_service_8cs_source_l00041}{41}} of file \doxymbox{\hyperlink{_i_instrumented_service_8cs_source}{IInstrumented\+Service.\+cs}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Abstractions/\+\doxymbox{\hyperlink{_i_instrumented_service_8cs}{IInstrumented\+Service.\+cs}}\end{DoxyCompactItemize}

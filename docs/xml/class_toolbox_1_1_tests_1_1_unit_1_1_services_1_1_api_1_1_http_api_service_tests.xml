@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a0ddcde5e3a1a21b3fe48405a6b8c0607" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" kindref="compound">HttpApiService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;HttpApiService&gt; &gt; Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="18" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.HttpApiServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>HttpApiServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.HttpApiServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="20" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a5935100502e898d850c0c039e41c7576" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="35" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="35" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1abeaa31e19b1d58233289eff7d4269a72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="47" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="47" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1ad12a3920e966951df841ba13cde7460d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithValidOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithValidOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithValidOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="60" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="60" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a683f2c7c6cb65499b7cabfe49a9599da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithDirectOptions_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithDirectOptions_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithDirectOptions_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="73" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="73" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a391947ef276858e1f23962b1a4bd9215" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithBearerTokenAuth_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithBearerTokenAuth_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithBearerTokenAuth_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="86" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="86" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a16826b243591385e5120f933cacaf071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithBasicAuth_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithBasicAuth_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithBasicAuth_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="104" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="104" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a59a1cefd9180add432805680c092c7b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithApiKeyAuth_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithApiKeyAuth_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithApiKeyAuth_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="123" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="123" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a8fdd72b9d76bc19999cc79824048469e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithHttpClient_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithHttpClient_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithHttpClient_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="142" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="142" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a49f2a0bb699fae5b08be0a9081a59153" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Send_WithNullRequest_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Send_WithNullRequest_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Send_WithNullRequest_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="160" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="160" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aba098307ffbc27d5e86440b87bddca75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.SendAsync_WithNullRequest_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>SendAsync_WithNullRequest_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.SendAsync_WithNullRequest_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="175" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="175" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a9900ad30e63606900d62f4272a41ebd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.SendAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>SendAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.SendAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="190" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="190" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aebeb8bc77c9ce36ef9e3e837feea5b84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Send_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>Send_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Send_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="213" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="213" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1adb4ba66428b2a164e2feadb5601b4222" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.DisposeAsync_ShouldDisposeResources</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldDisposeResources</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.DisposeAsync_ShouldDisposeResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="231" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="231" bodyend="245"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a30e576ac7182cbb573e0d44f7994f7bf" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref></type>
+        <definition>static ApiOptions Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.CreateValidOptions</definition>
+        <argsstring>()</argsstring>
+        <name>CreateValidOptions</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.CreateValidOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="25" column="31" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="25" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" kindref="compound">HttpApiService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These tests verify argument validation and configuration. <ref refid="namespace_toolbox_1_1_tests_1_1_integration" kindref="compound">Integration</ref> tests with real APIs would be in a separate test project. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" line="16" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs" bodystart="17" bodyend="248"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a0ddcde5e3a1a21b3fe48405a6b8c0607" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a59a1cefd9180add432805680c092c7b8" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithApiKeyAuth_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a16826b243591385e5120f933cacaf071" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithBasicAuth_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a391947ef276858e1f23962b1a4bd9215" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithBearerTokenAuth_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a683f2c7c6cb65499b7cabfe49a9599da" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithDirectOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a8fdd72b9d76bc19999cc79824048469e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithHttpClient_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1abeaa31e19b1d58233289eff7d4269a72" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a5935100502e898d850c0c039e41c7576" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithNullOptions_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1ad12a3920e966951df841ba13cde7460d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Constructor_WithValidOptions_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a30e576ac7182cbb573e0d44f7994f7bf" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>CreateValidOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1adb4ba66428b2a164e2feadb5601b4222" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>DisposeAsync_ShouldDisposeResources</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>HttpApiServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aebeb8bc77c9ce36ef9e3e837feea5b84" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Send_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a49f2a0bb699fae5b08be0a9081a59153" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>Send_WithNullRequest_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a9900ad30e63606900d62f4272a41ebd9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>SendAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aba098307ffbc27d5e86440b87bddca75" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests</scope><name>SendAsync_WithNullRequest_ShouldThrowArgumentNullException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

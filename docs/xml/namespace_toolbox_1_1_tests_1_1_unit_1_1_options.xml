@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests_1_1_unit_1_1_options" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests::Unit::Options</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests" prot="public">Toolbox::Tests::Unit::Options::ApiRequestTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests" prot="public">Toolbox::Tests::Unit::Options::ApiResponseTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests" prot="public">Toolbox::Tests::Unit::Options::EmailMessageTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests" prot="public">Toolbox::Tests::Unit::Options::FileTransferOptionsTests</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs" line="3" column="1"/>
+  </compounddef>
+</doxygen>

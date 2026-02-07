@@ -1,0 +1,384 @@
+\doxysection{Email\+Message\+Tests.\+cs}
+\hypertarget{_email_message_tests_8cs_source}{}\label{_email_message_tests_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs@{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs}}
+\doxymbox{\hyperlink{_email_message_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00003}00003\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_unit_1_1_options}{Toolbox.Tests.Unit.Options}};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00008}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests}{00008}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests}{EmailMessageTests}}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00010}00010\ \textcolor{preprocessor}{\ \ \ \ \#region\ EmailAddress\ Tests}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00012}00012\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00013}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_abc20b962462c7f7d37796572847cf3cd}{00013}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_abc20b962462c7f7d37796572847cf3cd}{EmailAddress\_WithAddressOnly\_ShouldCreate}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ var\ address\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ address.Address.Should().Be(\textcolor{stringliteral}{"{}test@example.com"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ address.DisplayName.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00023}00023\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00024}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a928b52bb69e4589c1b6eca1689d9f34f}{00024}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a928b52bb69e4589c1b6eca1689d9f34f}{EmailAddress\_WithDisplayName\_ShouldCreate}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ var\ address\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}},\ \textcolor{stringliteral}{"{}Test\ User"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ address.Address.Should().Be(\textcolor{stringliteral}{"{}test@example.com"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ address.DisplayName.Should().Be(\textcolor{stringliteral}{"{}Test\ User"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00034}00034\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00035}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a731abdf87473b2e998a0d36629a713d3}{00035}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a731abdf87473b2e998a0d36629a713d3}{EmailAddress\_WithNullAddress\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00044}00044\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00045}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a9e35dbacdc2ba4a9bdfe96ca866b850b}{00045}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a9e35dbacdc2ba4a9bdfe96ca866b850b}{EmailAddress\_ImplicitConversion\_ShouldWork}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}\ address\ =\ \textcolor{stringliteral}{"{}test@example.com"{}};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ address.Address.Should().Be(\textcolor{stringliteral}{"{}test@example.com"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ address.DisplayName.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00055}00055\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00056}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_ab9b8c8659669932cbbc560744a630d4f}{00056}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_ab9b8c8659669932cbbc560744a630d4f}{EmailAddress\_ToString\_WithoutDisplayName\_ShouldReturnAddress}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00057}00057\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ var\ address\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ var\ result\ =\ address.ToString();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}test@example.com"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00068}00068\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00069}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a5c53f94c17d282f42a2d2fdc5a1fd144}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a5c53f94c17d282f42a2d2fdc5a1fd144}{EmailAddress\_ToString\_WithDisplayName\_ShouldReturnFormattedAddress}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00070}00070\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ var\ address\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}},\ \textcolor{stringliteral}{"{}Test\ User"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ var\ result\ =\ address.ToString();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}\(\backslash\)"{}Test\ User\(\backslash\)"{}\ <test@example.com>"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00081}00081\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ \#region\ EmailMessage\ Tests}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00085}00085\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00086}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a1ae7f8eebfe7651456d281daa7ce60c5}{00086}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a1ae7f8eebfe7651456d281daa7ce60c5}{EmailMessage\_NewInstance\_ShouldHaveEmptyCollections}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00087}00087\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ message.To.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ message.Cc.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ message.Bcc.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ message.Attachments.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ message.Headers.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00099}00099\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00100}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a1eb7d554445b71553550f036342b04f2}{00100}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a1eb7d554445b71553550f036342b04f2}{EmailMessage\_NewInstance\_ShouldHaveDefaultValues}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ message.Subject.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ message.Body.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ message.IsBodyHtml.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ message.Priority.Should().Be(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778}{EmailPriority}}.Normal);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00112}00112\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00113}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a6d05f26d89f848cad542516da33027c2}{00113}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a6d05f26d89f848cad542516da33027c2}{EmailMessage\_HasRecipients\_WithNoRecipients\_ShouldReturnFalse}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00114}00114\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ message.HasRecipients.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00122}00122\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00123}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a5a4d8b89203985d243488060b2d6f1fc}{00123}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a5a4d8b89203985d243488060b2d6f1fc}{EmailMessage\_HasRecipients\_WithToRecipient\_ShouldReturnTrue}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00124}00124\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ message.To.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ message.HasRecipients.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00133}00133\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00134}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_aca97a5868672f5f3ee51d54d97035636}{00134}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_aca97a5868672f5f3ee51d54d97035636}{EmailMessage\_HasRecipients\_WithBccOnly\_ShouldReturnTrue}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00135}00135\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ message.Bcc.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ message.HasRecipients.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00144}00144\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00145}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a6687ae2c08f14391bfead86b5b23077d}{00145}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a6687ae2c08f14391bfead86b5b23077d}{EmailMessage\_HasRecipients\_WithCcOnly\_ShouldReturnFalse}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00146}00146\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ message.Cc.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ message.HasRecipients.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00155}00155\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00156}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a0c0dafef3605e247494e868ef152486c}{00156}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a0c0dafef3605e247494e868ef152486c}{EmailMessage\_TotalRecipients\_ShouldCountAll}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00157}00157\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ message.To.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}to1@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ message.To.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}to2@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ message.Cc.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}cc@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ message.Bcc.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}bcc@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00166}00166\ \ \ \ \ \ \ \ \ message.TotalRecipients.Should().Be(4);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00167}00167\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00169}00169\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00170}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a65de4a56e6f4c54f5e151e78ece07cca}{00170}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a65de4a56e6f4c54f5e151e78ece07cca}{EmailMessage\_Validate\_WithNoRecipients\_ShouldThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00171}00171\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00176}00176\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ message.Validate();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00179}00179\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentException>()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ .WithMessage(\textcolor{stringliteral}{"{}*recipient*"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00181}00181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00183}00183\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00184}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_aac09fd7e838c765f8358ce0f1e67072d}{00184}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_aac09fd7e838c765f8358ce0f1e67072d}{EmailMessage\_Validate\_WithToRecipient\_ShouldNotThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00185}00185\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00187}00187\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00188}00188\ \ \ \ \ \ \ \ \ message.To.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00191}00191\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ message.Validate();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00194}00194\ \ \ \ \ \ \ \ \ act.Should().NotThrow();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00197}00197\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00198}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a7753930381938442b502b375e42b2348}{00198}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a7753930381938442b502b375e42b2348}{EmailMessage\_Validate\_WithBccOnly\_ShouldNotThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00199}00199\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ var\ message\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{EmailMessage}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00202}00202\ \ \ \ \ \ \ \ \ message.Bcc.Add(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}test@example.com"{}}));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ message.Validate();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ act.Should().NotThrow();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00209}00209\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00211}00211\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00213}00213\ \textcolor{preprocessor}{\ \ \ \ \#region\ EmailAttachment\ Tests}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00215}00215\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00216}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_ad97c6772356b996b36af035ddc476f41}{00216}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_ad97c6772356b996b36af035ddc476f41}{EmailAttachment\_FromFile\_WithNonExistentFile\_ShouldThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00217}00217\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00219}00219\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a853dc810e2df93594ae0a484f53ce974}{FromFile}}(\textcolor{stringliteral}{"{}nonexistent.pdf"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00222}00222\ \ \ \ \ \ \ \ \ act.Should().Throw<FileNotFoundException>();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00223}00223\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00225}00225\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00226}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a190102a0d5ab226020bc4f7195f16bd2}{00226}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a190102a0d5ab226020bc4f7195f16bd2}{EmailAttachment\_FromFile\_WithNullPath\_ShouldThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00227}00227\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00229}00229\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a853dc810e2df93594ae0a484f53ce974}{FromFile}}(\textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00232}00232\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00233}00233\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00235}00235\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00236}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a0421ecb39be760cf9508d3baa63790d1}{00236}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a0421ecb39be760cf9508d3baa63790d1}{EmailAttachment\_FromBytes\_WithValidData\_ShouldCreate}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00237}00237\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00239}00239\ \ \ \ \ \ \ \ \ var\ content\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{byte}[]\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00242}00242\ \ \ \ \ \ \ \ \ var\ attachment\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}{FromBytes}}(content,\ \textcolor{stringliteral}{"{}test.pdf"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00245}00245\ \ \ \ \ \ \ \ \ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a3178dcb477c3e739acfb83d1b4000785}{FileName}}.Should().Be(\textcolor{stringliteral}{"{}test.pdf"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00246}00246\ \ \ \ \ \ \ \ \ attachment.ContentType.Should().Be(\textcolor{stringliteral}{"{}application/pdf"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00247}00247\ \ \ \ \ \ \ \ \ attachment.Content.Should().BeEquivalentTo(content);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00248}00248\ \ \ \ \ \ \ \ \ attachment.FilePath.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00249}00249\ \ \ \ \ \ \ \ \ attachment.IsInline.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00250}00250\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00252}00252\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00253}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a3a3d32fefab51d71e3e4ee15a69e89db}{00253}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a3a3d32fefab51d71e3e4ee15a69e89db}{EmailAttachment\_FromBytes\_WithNullContent\_ShouldThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00254}00254\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00256}00256\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}{FromBytes}}(\textcolor{keyword}{null}!,\ \textcolor{stringliteral}{"{}test.pdf"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00259}00259\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00262}00262\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00263}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a163cdf2e9fbad7ba60576203c928945b}{00263}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a163cdf2e9fbad7ba60576203c928945b}{EmailAttachment\_FromBytes\_WithNullFileName\_ShouldThrow}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00264}00264\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00266}00266\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}{FromBytes}}(\textcolor{keyword}{new}\ \textcolor{keywordtype}{byte}[]\ \{\ 1,\ 2,\ 3\ \},\ \textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00269}00269\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00270}00270\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00272}00272\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00273}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_afa6c594d9353e51336d8b4b44ad4c4eb}{00273}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_afa6c594d9353e51336d8b4b44ad4c4eb}{EmailAttachment\_FromBytes\_WithCustomContentType\_ShouldUseIt}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00274}00274\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00276}00276\ \ \ \ \ \ \ \ \ var\ content\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{byte}[]\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00279}00279\ \ \ \ \ \ \ \ \ var\ attachment\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}{FromBytes}}(content,\ \textcolor{stringliteral}{"{}data.bin"{}},\ \textcolor{stringliteral}{"{}application/custom"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00282}00282\ \ \ \ \ \ \ \ \ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ae714a842f714c3f159cb91cf9b000369}{ContentType}}.Should().Be(\textcolor{stringliteral}{"{}application/custom"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00283}00283\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00285}00285\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00286}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a803e67d13501ca9726f98de2d5c6a6f9}{00286}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a803e67d13501ca9726f98de2d5c6a6f9}{EmailAttachment\_CreateInline\_ShouldCreateInlineAttachment}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00287}00287\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00289}00289\ \ \ \ \ \ \ \ \ var\ content\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{byte}[]\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00292}00292\ \ \ \ \ \ \ \ \ var\ attachment\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a62b587e360cc79b519da2568a8b0f6f5}{CreateInline}}(content,\ \textcolor{stringliteral}{"{}logo.png"{}},\ \textcolor{stringliteral}{"{}company-\/logo"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00295}00295\ \ \ \ \ \ \ \ \ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a3178dcb477c3e739acfb83d1b4000785}{FileName}}.Should().Be(\textcolor{stringliteral}{"{}logo.png"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00296}00296\ \ \ \ \ \ \ \ \ attachment.ContentType.Should().Be(\textcolor{stringliteral}{"{}image/png"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00297}00297\ \ \ \ \ \ \ \ \ attachment.IsInline.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00298}00298\ \ \ \ \ \ \ \ \ attachment.ContentId.Should().Be(\textcolor{stringliteral}{"{}company-\/logo"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00299}00299\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00301}00301\ \ \ \ \ [Theory]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00302}00302\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.pdf"{}},\ \textcolor{stringliteral}{"{}application/pdf"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00303}00303\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.docx"{}},\ \textcolor{stringliteral}{"{}application/vnd.openxmlformats-\/officedocument.wordprocessingml.document"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00304}00304\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.xlsx"{}},\ \textcolor{stringliteral}{"{}application/vnd.openxmlformats-\/officedocument.spreadsheetml.sheet"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00305}00305\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.jpg"{}},\ \textcolor{stringliteral}{"{}image/jpeg"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00306}00306\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.png"{}},\ \textcolor{stringliteral}{"{}image/png"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00307}00307\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.gif"{}},\ \textcolor{stringliteral}{"{}image/gif"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00308}00308\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.txt"{}},\ \textcolor{stringliteral}{"{}text/plain"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00309}00309\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.html"{}},\ \textcolor{stringliteral}{"{}text/html"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00310}00310\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.json"{}},\ \textcolor{stringliteral}{"{}application/json"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00311}00311\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.xml"{}},\ \textcolor{stringliteral}{"{}application/xml"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00312}00312\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.zip"{}},\ \textcolor{stringliteral}{"{}application/zip"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00313}00313\ \ \ \ \ [InlineData(\textcolor{stringliteral}{"{}.unknown"{}},\ \textcolor{stringliteral}{"{}application/octet-\/stream"{}})]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00314}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a25498d656eceb91ca8afd55bba7af77e}{00314}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a25498d656eceb91ca8afd55bba7af77e}{EmailAttachment\_FromBytes\_ShouldDetectContentType}}(\textcolor{keywordtype}{string}\ extension,\ \textcolor{keywordtype}{string}\ expectedContentType)}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00315}00315\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00316}00316\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00317}00317\ \ \ \ \ \ \ \ \ var\ content\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{byte}[]\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00320}00320\ \ \ \ \ \ \ \ \ var\ attachment\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{EmailAttachment}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_a2b0f649a7f6e17f0b20df2172fee173b}{FromBytes}}(content,\ \$\textcolor{stringliteral}{"{}file\{extension\}"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00322}00322\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00323}00323\ \ \ \ \ \ \ \ \ attachment.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment_ae714a842f714c3f159cb91cf9b000369}{ContentType}}.Should().Be(expectedContentType);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00324}00324\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00326}00326\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00328}00328\ \textcolor{preprocessor}{\ \ \ \ \#region\ MailingOptions\ Tests}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00330}00330\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00331}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_aac88ffb6cc0ab426b0571108a8e1fdb1}{00331}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_aac88ffb6cc0ab426b0571108a8e1fdb1}{MailingOptions\_DefaultValues\_ShouldBeCorrect}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00332}00332\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange\ \&\ Act}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00334}00334\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{MailingOptions}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00336}00336\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00337}00337\ \ \ \ \ \ \ \ \ options.Host.Should().Be(\textcolor{stringliteral}{"{}localhost"{}});}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00338}00338\ \ \ \ \ \ \ \ \ options.Port.Should().Be(25);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00339}00339\ \ \ \ \ \ \ \ \ options.SecurityMode.Should().Be(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{SmtpSecurityMode}}.Auto);}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00340}00340\ \ \ \ \ \ \ \ \ options.Username.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00341}00341\ \ \ \ \ \ \ \ \ options.Password.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00342}00342\ \ \ \ \ \ \ \ \ options.OAuth2AccessToken.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00343}00343\ \ \ \ \ \ \ \ \ options.ConnectionTimeout.Should().Be(TimeSpan.FromSeconds(30));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00344}00344\ \ \ \ \ \ \ \ \ options.OperationTimeout.Should().Be(TimeSpan.FromMinutes(2));}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00345}00345\ \ \ \ \ \ \ \ \ options.ValidateCertificate.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00346}00346\ \ \ \ \ \ \ \ \ options.DefaultFrom.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00347}00347\ \ \ \ \ \ \ \ \ options.DefaultReplyTo.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00348}00348\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00350}00350\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00351}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a4af9d14f316486c132863917ff53b053}{00351}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a4af9d14f316486c132863917ff53b053}{MailingOptions\_RequiresAuthentication\_WithNoCredentials\_ShouldReturnFalse}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00352}00352\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00354}00354\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{MailingOptions}}();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00357}00357\ \ \ \ \ \ \ \ \ options.RequiresAuthentication.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00358}00358\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00360}00360\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00361}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a87f97d25200c2cfe6c2ce521c296175c}{00361}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a87f97d25200c2cfe6c2ce521c296175c}{MailingOptions\_RequiresAuthentication\_WithUsername\_ShouldReturnTrue}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00362}00362\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00363}00363\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00364}00364\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{MailingOptions}}\ \{\ Username\ =\ \textcolor{stringliteral}{"{}user"{}}\ \};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00367}00367\ \ \ \ \ \ \ \ \ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8edd367bcee0766e09aed546e09e7639}{RequiresAuthentication}}.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00368}00368\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00370}00370\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00371}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a47af5f8bf27d57da51d45d671b620cf0}{00371}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_a47af5f8bf27d57da51d45d671b620cf0}{MailingOptions\_RequiresAuthentication\_WithOAuth2\_ShouldReturnTrue}}()}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00372}00372\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00373}00373\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00374}00374\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{MailingOptions}}\ \{\ OAuth2AccessToken\ =\ \textcolor{stringliteral}{"{}token"{}}\ \};}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00376}00376\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ \&\ Assert}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00377}00377\ \ \ \ \ \ \ \ \ options.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options_a8edd367bcee0766e09aed546e09e7639}{RequiresAuthentication}}.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00378}00378\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00380}00380\ \textcolor{preprocessor}{\ \ \ \ \#endregion}}
+\DoxyCodeLine{\Hypertarget{_email_message_tests_8cs_source_l00381}00381\ \}}
+
+\end{DoxyCode}

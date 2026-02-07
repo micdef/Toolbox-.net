@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Services::FileTransfer</compoundname>
+    <innerclass refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service" prot="public">Toolbox::Core::Services::FileTransfer::FtpFileTransferService</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service" prot="public">Toolbox::Core::Services::FileTransfer::SftpFileTransferService</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/FileTransfer/FtpFileTransferService.cs" line="13" column="1"/>
+  </compounddef>
+</doxygen>

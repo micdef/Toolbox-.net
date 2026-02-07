@@ -1,0 +1,103 @@
+\doxysection{Telemetry\+Constants.\+cs}
+\hypertarget{_telemetry_constants_8cs_source}{}\label{_telemetry_constants_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs}}
+\doxymbox{\hyperlink{_telemetry_constants_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ TelemetryConstants.cs}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Constants\ for\ OpenTelemetry\ instrumentation}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Defines\ standard\ names\ and\ versions\ for\ telemetry\ sources}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ These\ constants\ ensure\ consistent\ naming\ across\ all\ instrumented\ services}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00006}\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{00006}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00015}00015\ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }TelemetryConstants}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ ActivitySourceName\ =\ \textcolor{stringliteral}{"{}Toolbox.Core"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ MeterName\ =\ \textcolor{stringliteral}{"{}Toolbox.Core"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Version\ =\ \textcolor{stringliteral}{"{}1.0.0"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }Attributes}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ ServiceName\ =\ \textcolor{stringliteral}{"{}toolbox.service.name"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ OperationName\ =\ \textcolor{stringliteral}{"{}toolbox.operation.name"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ ErrorType\ =\ \textcolor{stringliteral}{"{}toolbox.error.type"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ DisposalReason\ =\ \textcolor{stringliteral}{"{}toolbox.disposal.reason"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }Metrics}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ OperationCount\ =\ \textcolor{stringliteral}{"{}toolbox.operations.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ OperationDuration\ =\ \textcolor{stringliteral}{"{}toolbox.operations.duration"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ DisposalCount\ =\ \textcolor{stringliteral}{"{}toolbox.disposals.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ ActiveInstances\ =\ \textcolor{stringliteral}{"{}toolbox.instances.active"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ CryptoEncryptCount\ =\ \textcolor{stringliteral}{"{}toolbox.crypto.encrypt.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ CryptoDecryptCount\ =\ \textcolor{stringliteral}{"{}toolbox.crypto.decrypt.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ CryptoDataSize\ =\ \textcolor{stringliteral}{"{}toolbox.crypto.data.size"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FileTransferUploadCount\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.upload.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FileTransferDownloadCount\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.download.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FileTransferSize\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.size"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FileTransferErrorCount\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.errors.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ EmailSentCount\ =\ \textcolor{stringliteral}{"{}toolbox.mailing.sent.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ ApiRequestCount\ =\ \textcolor{stringliteral}{"{}toolbox.api.requests.count"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00102}00102\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }CryptoAttributes}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Algorithm\ =\ \textcolor{stringliteral}{"{}toolbox.crypto.algorithm"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ KeySize\ =\ \textcolor{stringliteral}{"{}toolbox.crypto.keysize"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ PaddingMode\ =\ \textcolor{stringliteral}{"{}toolbox.crypto.padding"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00117}00117\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }FileTransferAttributes}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00118}00118\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Protocol\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.protocol"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Host\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.host"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Direction\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.direction"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FilePath\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.path"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FileCount\ =\ \textcolor{stringliteral}{"{}toolbox.filetransfer.filecount"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00138}00138\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }MailingAttributes}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00139}00139\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Host\ =\ \textcolor{stringliteral}{"{}toolbox.mailing.host"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ Recipients\ =\ \textcolor{stringliteral}{"{}toolbox.mailing.recipients"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ HasAttachments\ =\ \textcolor{stringliteral}{"{}toolbox.mailing.has\_attachments"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ IsHtml\ =\ \textcolor{stringliteral}{"{}toolbox.mailing.is\_html"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00151}00151\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00156}00156\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }ApiAttributes}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00157}00157\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ HttpMethod\ =\ \textcolor{stringliteral}{"{}toolbox.api.http\_method"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ HttpStatusCode\ =\ \textcolor{stringliteral}{"{}toolbox.api.status\_code"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ HttpSuccess\ =\ \textcolor{stringliteral}{"{}toolbox.api.success"{}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00166}00166\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_constants_8cs_source_l00167}00167\ \}}
+
+\end{DoxyCode}

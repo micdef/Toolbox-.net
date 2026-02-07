@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_53ecca869a8324fc94617a474c1c668b" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services</compoundname>
+    <innerdir refid="dir_610bce840d6c088982f5fb9a72b0eedc">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api</innerdir>
+    <innerdir refid="dir_1f70f0d5adfd7e13f30a8c7643fb206b">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography</innerdir>
+    <innerdir refid="dir_7df5dc38408765fc7b9bd4469a23eb88">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer</innerdir>
+    <innerdir refid="dir_8f1c01c18d4a7e08f6196b806f802f60">C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/"/>
+  </compounddef>
+</doxygen>

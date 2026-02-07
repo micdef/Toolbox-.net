@@ -67,12 +67,6 @@ _NCrunch_*
 nCrunchTemp_*
 *.ncrunch*
 
-# Documentation - Doxygen output
-docs/html/
-docs/latex/
-docs/xml/
-doxygen_warnings.log
-
 # OS generated files
 .DS_Store
 .DS_Store?

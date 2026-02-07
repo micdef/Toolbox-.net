@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants::MailingAttributes</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1acc062ee31a43d802d3471013d5ebb2dc" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.Host</definition>
+        <argsstring></argsstring>
+        <name>Host</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.Host</qualifiedname>
+        <initializer>= &quot;toolbox.mailing.host&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for SMTP host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="141" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1afe08e54ed27f870befd9c7dff9888079" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.Recipients</definition>
+        <argsstring></argsstring>
+        <name>Recipients</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.Recipients</qualifiedname>
+        <initializer>= &quot;toolbox.mailing.recipients&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for recipient count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="144" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1a6da0a9eca2338c6f28f2c32543895742" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.HasAttachments</definition>
+        <argsstring></argsstring>
+        <name>HasAttachments</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.HasAttachments</qualifiedname>
+        <initializer>= &quot;toolbox.mailing.has_attachments&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for attachment indicator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="147" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1a9ed81b2d5ee5644cb8f7f3ee4ae638ac" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.IsHtml</definition>
+        <argsstring></argsstring>
+        <name>IsHtml</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes.IsHtml</qualifiedname>
+        <initializer>= &quot;toolbox.mailing.is_html&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for HTML body indicator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="150" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="150" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Additional attribute names for mailing services. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="138" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="139" bodyend="151"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1a6da0a9eca2338c6f28f2c32543895742" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::MailingAttributes</scope><name>HasAttachments</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1acc062ee31a43d802d3471013d5ebb2dc" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::MailingAttributes</scope><name>Host</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1a9ed81b2d5ee5644cb8f7f3ee4ae638ac" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::MailingAttributes</scope><name>IsHtml</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_mailing_attributes_1afe08e54ed27f870befd9c7dff9888079" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::MailingAttributes</scope><name>Recipients</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

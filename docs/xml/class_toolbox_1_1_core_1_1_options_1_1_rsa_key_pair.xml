@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::RsaKeyPair</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aea004a1c7edd9b0f8e170d95ba409459" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.RsaKeyPair._disposed</definition>
+        <argsstring></argsstring>
+        <name>_disposed</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair._disposed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="25" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>byte?[]</type>
+        <definition>byte? [] Toolbox.Core.Options.RsaKeyPair.PublicKey</definition>
+        <argsstring></argsstring>
+        <name>PublicKey</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.PublicKey</qualifiedname>
+        <briefdescription>
+<para>Gets the public key in DER-encoded SubjectPublicKeyInfo format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The public key bytes, or <computeroutput>null</computeroutput> if not available in this format.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="31" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>byte?[]</type>
+        <definition>byte? [] Toolbox.Core.Options.RsaKeyPair.PrivateKey</definition>
+        <argsstring></argsstring>
+        <name>PrivateKey</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.PrivateKey</qualifiedname>
+        <briefdescription>
+<para>Gets the private key in DER-encoded PKCS#8 format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The private key bytes, or <computeroutput>null</computeroutput> if not available or not included.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="37" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>X509Certificate2?</type>
+        <definition>X509Certificate2? Toolbox.Core.Options.RsaKeyPair.Certificate</definition>
+        <argsstring></argsstring>
+        <name>Certificate</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.Certificate</qualifiedname>
+        <briefdescription>
+<para>Gets the X.509 certificate containing the public key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The certificate, or <computeroutput>null</computeroutput> if not available in this format.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="43" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a3fb77c5e71b39fb255e0267b629a1717" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.RsaKeyPair.HasPrivateKey</definition>
+        <argsstring></argsstring>
+        <name>HasPrivateKey</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.HasPrivateKey</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether this key pair contains a private key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if a private key is available; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="49" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.RsaKeyPair.KeySize</definition>
+        <argsstring></argsstring>
+        <name>KeySize</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.KeySize</qualifiedname>
+        <briefdescription>
+<para>Gets the key size in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The RSA key size.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="55" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="55" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a84134110947bf2513ea7d27ed853b282" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Core.Options.RsaKeyPair.RsaKeyPair</definition>
+        <argsstring>()</argsstring>
+        <name>RsaKeyPair</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.RsaKeyPair</qualifiedname>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use the static factory methods to create instances. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="63" column="13" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="63" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a11d9cb712cd59fd30f03885a47d95b0c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RsaKeyPair</type>
+        <definition>static RsaKeyPair Toolbox.Core.Options.RsaKeyPair.FromBytes</definition>
+        <argsstring>(byte[] publicKey, byte[]? privateKey, int keySize)</argsstring>
+        <name>FromBytes</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.FromBytes</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>publicKey</declname>
+        </param>
+        <param>
+          <type>byte?[]</type>
+          <declname>privateKey</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+<para>Creates an <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> from raw byte arrays. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>publicKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The public key in SubjectPublicKeyInfo format.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>privateKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private key in PKCS#8 format, or <computeroutput>null</computeroutput> for public-only.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key size in bits.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> instance.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>publicKey</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="75" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="75" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aab9750348bf4c7e81179a2d14a0a42e0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RsaKeyPair</type>
+        <definition>static RsaKeyPair Toolbox.Core.Options.RsaKeyPair.FromCertificate</definition>
+        <argsstring>(X509Certificate2 certificate)</argsstring>
+        <name>FromCertificate</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.FromCertificate</qualifiedname>
+        <param>
+          <type>X509Certificate2</type>
+          <declname>certificate</declname>
+        </param>
+        <briefdescription>
+<para>Creates an <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> from an X.509 certificate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>certificate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The certificate containing the RSA public key.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> instance.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>certificate</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the certificate does not contain an RSA key.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="94" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="94" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RsaKeyPair</type>
+        <definition>RsaKeyPair Toolbox.Core.Options.RsaKeyPair.ToPublicOnly</definition>
+        <argsstring>()</argsstring>
+        <name>ToPublicOnly</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.ToPublicOnly</qualifiedname>
+        <briefdescription>
+<para>Creates an <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> containing only the public key from this pair. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A new <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref> with only the public key.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ObjectDisposedException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the object has been disposed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="115" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="115" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a529d31ae26cc534d47ff61d57e2b8b34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Options.RsaKeyPair.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <qualifiedname>Toolbox.Core.Options.RsaKeyPair.Dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="141" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="141" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an RSA key pair containing public and optionally private key data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class provides multiple formats for RSA keys: raw byte arrays and X.509 certificates. </para>
+<para>The private key is optional - some operations (like encryption) only require the public key. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Options.RsaKeyPair</label>
+        <link refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Options.RsaKeyPair</label>
+        <link refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" line="22" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs" bodystart="23" bodyend="158"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aea004a1c7edd9b0f8e170d95ba409459" prot="private" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>_disposed</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>Certificate</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a529d31ae26cc534d47ff61d57e2b8b34" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>Dispose</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a11d9cb712cd59fd30f03885a47d95b0c" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>FromBytes</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aab9750348bf4c7e81179a2d14a0a42e0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>FromCertificate</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a3fb77c5e71b39fb255e0267b629a1717" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>HasPrivateKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>KeySize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>PrivateKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>PublicKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a84134110947bf2513ea7d27ed853b282" prot="private" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>RsaKeyPair</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::RsaKeyPair</scope><name>ToPublicOnly</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

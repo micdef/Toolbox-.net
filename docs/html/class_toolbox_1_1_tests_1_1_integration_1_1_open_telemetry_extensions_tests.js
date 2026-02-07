@@ -1,0 +1,9 @@
+var class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests =
+[
+    [ "AddToolboxInstrumentation_Metrics_ShouldAddMeter", "class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests.html#aa895e759a485cbedd0c6bd55d16008ec", null ],
+    [ "AddToolboxInstrumentation_Tracing_ShouldAddActivitySource", "class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests.html#a696f36109b9ca8f35235ff8467dbf8b8", null ],
+    [ "AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException", "class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests.html#a77fd11cf8dada75d666f57eed4ab21b5", null ],
+    [ "AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions", "class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests.html#a7a0116bc9d378fe6286174c148498de2", null ],
+    [ "AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration", "class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests.html#ac2ea716fd6bdb8b4e034dce2ed911b54", null ],
+    [ "AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException", "class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests.html#ae2877b5684a8d70f6de89fea55e5728d", null ]
+];

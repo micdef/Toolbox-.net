@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants::CryptoAttributes</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes_1a69136e88507a7adf7e312e36e8282897" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes.Algorithm</definition>
+        <argsstring></argsstring>
+        <name>Algorithm</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes.Algorithm</qualifiedname>
+        <initializer>= &quot;toolbox.crypto.algorithm&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for encryption algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="105" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes_1a52ace9c6a426e3d6dda0498c0a21ba68" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes.KeySize</definition>
+        <argsstring></argsstring>
+        <name>KeySize</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes.KeySize</qualifiedname>
+        <initializer>= &quot;toolbox.crypto.keysize&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for key size in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="108" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes_1a2fce94736f11e57ab2daa9a8941e1d1d" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes.PaddingMode</definition>
+        <argsstring></argsstring>
+        <name>PaddingMode</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes.PaddingMode</qualifiedname>
+        <initializer>= &quot;toolbox.crypto.padding&quot;</initializer>
+        <briefdescription>
+<para>Attribute name for padding mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="111" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="111" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Additional attribute names for specific service categories. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="102" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="103" bodyend="112"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes_1a69136e88507a7adf7e312e36e8282897" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::CryptoAttributes</scope><name>Algorithm</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes_1a52ace9c6a426e3d6dda0498c0a21ba68" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::CryptoAttributes</scope><name>KeySize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_crypto_attributes_1a2fce94736f11e57ab2daa9a8941e1d1d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::CryptoAttributes</scope><name>PaddingMode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

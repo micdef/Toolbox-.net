@@ -1,0 +1,340 @@
+\doxysection{Rsa\+Cryptography\+Service.\+cs}
+\hypertarget{_rsa_cryptography_service_8cs_source}{}\label{_rsa_cryptography_service_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/RsaCryptographyService.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/RsaCryptographyService.cs}}
+\doxymbox{\hyperlink{_rsa_cryptography_service_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ RsaCryptographyService.cs}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ RSA\ encryption/decryption\ cryptography\ service}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Implements\ ICryptographyService\ using\ RSA\ asymmetric\ encryption}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Supports\ multiple\ key\ sizes\ and\ padding\ modes}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Security.Cryptography;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }System.Security.Cryptography.X509Certificates;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions_1_1_services}{Toolbox.Core.Abstractions.Services}};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00011}00011\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00012}00012\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00014}00014\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Toolbox.Core.Services.Cryptography}};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00032}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service}{00032}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}},\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}{ICryptographyService}}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ The\ RSA\ instance\ for\ cryptographic\ operations}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ RSA\ \_rsa;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ The\ padding\ mode\ to\ use}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ RSAEncryptionPadding\ \_padding;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ if\ private\ key\ is\ available}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \textcolor{keywordtype}{bool}\ \_hasPrivateKey;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ The\ logger\ instance}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger<RsaCryptographyService>\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00067}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{00067}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a7b79c2ea91fbdafaaac21da221ff9373}{RsaCryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]\ publicKey,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}\ paddingMode,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ ILogger<RsaCryptographyService>\ logger,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]?\ privateKey\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}RsaCryptographyService"{}},\ logger)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(publicKey);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(logger);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \_padding\ =\ GetEncryptionPadding(paddingMode);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \_rsa\ =\ RSA.Create();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.ImportSubjectPublicKeyInfo(publicKey,\ out\ \_);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (privateKey\ is\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.ImportPkcs8PrivateKey(privateKey,\ out\ \_);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_hasPrivateKey\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.Dispose();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ CryptographicException(\textcolor{stringliteral}{"{}Failed\ to\ import\ RSA\ key(s)."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}RsaCryptographyService\ initialized\ with\ \{KeySize\}-\/bit\ key,\ padding:\ \{Padding\},\ has\ private\ key:\ \{HasPrivateKey\}"{}},}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.KeySize,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ paddingMode,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \_hasPrivateKey);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00120}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a1ce02ac159386c5dcd90c5f688affa55}{00120}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a1ce02ac159386c5dcd90c5f688affa55}{RsaCryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ X509Certificate2\ certificate,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}\ paddingMode,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ ILogger<RsaCryptographyService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}RsaCryptographyService"{}},\ logger)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00125}00125\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(certificate);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(logger);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \_padding\ =\ GetEncryptionPadding(paddingMode);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ var\ publicRsa\ =\ certificate.GetRSAPublicKey()}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ ??\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentException(\textcolor{stringliteral}{"{}Certificate\ does\ not\ contain\ an\ RSA\ public\ key."{}},\ nameof(certificate));}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \_rsa\ =\ RSA.Create();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Import\ public\ key}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.ImportSubjectPublicKeyInfo(publicRsa.ExportSubjectPublicKeyInfo(),\ out\ \_);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Import\ private\ key\ if\ available}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (certificate.HasPrivateKey)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ privateRsa\ =\ certificate.GetRSAPrivateKey();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (privateRsa\ is\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.ImportPkcs8PrivateKey(privateRsa.ExportPkcs8PrivateKey(),\ out\ \_);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_hasPrivateKey\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentException)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00154}00154\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.Dispose();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ CryptographicException(\textcolor{stringliteral}{"{}Failed\ to\ import\ RSA\ key(s)\ from\ certificate."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00157}00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}RsaCryptographyService\ initialized\ from\ certificate\ with\ \{KeySize\}-\/bit\ key,\ padding:\ \{Padding\},\ has\ private\ key:\ \{HasPrivateKey\}"{}},}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \_rsa.KeySize,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ paddingMode,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \_hasPrivateKey);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00182}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a25fe7a8c713f3c467f87a0a3fd0f92fb}{00182}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a25fe7a8c713f3c467f87a0a3fd0f92fb}{GenerateKeyPair}}(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}\ keySize,\ \textcolor{keywordtype}{bool}\ includePrivateKey\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00183}00183\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00184}00184\ \ \ \ \ \ \ \ \ ValidateKeySize((\textcolor{keywordtype}{int})keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ rsa\ =\ RSA.Create((\textcolor{keywordtype}{int})keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00188}00188\ \ \ \ \ \ \ \ \ var\ publicKey\ =\ rsa.ExportSubjectPublicKeyInfo();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00189}00189\ \ \ \ \ \ \ \ \ var\ privateKey\ =\ includePrivateKey\ ?\ rsa.ExportPkcs8PrivateKey()\ :\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c}{FromBytes}}(publicKey,\ privateKey,\ (\textcolor{keywordtype}{int})keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00201}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a01b384be723c2fa81134191f316861a2}{00201}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a01b384be723c2fa81134191f316861a2}{GenerateKeyPair}}(\textcolor{keywordtype}{int}\ keySize,\ \textcolor{keywordtype}{bool}\ includePrivateKey\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00202}00202\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ ValidateKeySize(keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ rsa\ =\ RSA.Create(keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ var\ publicKey\ =\ rsa.ExportSubjectPublicKeyInfo();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ var\ privateKey\ =\ includePrivateKey\ ?\ rsa.ExportPkcs8PrivateKey()\ :\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_a11d9cb712cd59fd30f03885a47d95b0c}{FromBytes}}(publicKey,\ privateKey,\ keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00211}00211\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00231}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_aeba578a09d400cfa0431ffdbd2e27aba}{00231}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_aeba578a09d400cfa0431ffdbd2e27aba}{GenerateCertificate}}(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00232}00232\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}}\ keySize,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ subjectName,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ TimeSpan\ validityPeriod,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ includePrivateKey\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00236}00236\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(subjectName);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ ValidateKeySize((\textcolor{keywordtype}{int})keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ rsa\ =\ RSA.Create((\textcolor{keywordtype}{int})keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00242}00242\ \ \ \ \ \ \ \ \ var\ request\ =\ \textcolor{keyword}{new}\ CertificateRequest(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ subjectName,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ rsa,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ HashAlgorithmName.SHA256,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ RSASignaturePadding.Pkcs1);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00248}00248\ \ \ \ \ \ \ \ \ var\ notBefore\ =\ DateTimeOffset.UtcNow;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00249}00249\ \ \ \ \ \ \ \ \ var\ notAfter\ =\ notBefore.Add(validityPeriod);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ certWithPrivateKey\ =\ request.CreateSelfSigned(notBefore,\ notAfter);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00253}00253\ \ \ \ \ \ \ \ \ X509Certificate2\ resultCert;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (includePrivateKey)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00255}00255\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Export\ and\ re-\/import\ to\ ensure\ private\ key\ is\ exportable}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ var\ pfxBytes\ =\ certWithPrivateKey.Export(X509ContentType.Pfx);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ resultCert\ =\ X509CertificateLoader.LoadPkcs12(pfxBytes,\ \textcolor{keyword}{null},\ X509KeyStorageFlags.Exportable);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00259}00259\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00261}00261\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Export\ only\ the\ public\ certificate}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ var\ certBytes\ =\ certWithPrivateKey.Export(X509ContentType.Cert);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ resultCert\ =\ X509CertificateLoader.LoadCertificate(certBytes);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_aab9750348bf4c7e81179a2d14a0a42e0}{FromCertificate}}(resultCert);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00268}00268\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00278}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0a56928eef9957cec54185e332770a55}{00278}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{RsaKeyPair}}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0a56928eef9957cec54185e332770a55}{GenerateCertificate}}(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ keySize,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ subjectName,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00281}00281\ \ \ \ \ \ \ \ \ TimeSpan\ validityPeriod,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ includePrivateKey\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00283}00283\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00284}00284\ \ \ \ \ \ \ \ \ ValidateKeySize(keySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_aeba578a09d400cfa0431ffdbd2e27aba}{GenerateCertificate}}((\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{RsaKeySize}})keySize,\ subjectName,\ validityPeriod,\ includePrivateKey);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00286}00286\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00294}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca}{00294}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca}{Encrypt}}(\textcolor{keywordtype}{string}\ plainText)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00295}00295\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00296}00296\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00297}00297\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(plainText);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00299}00299\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00300}00300\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00302}00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00303}00303\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ var\ plainBytes\ =\ Encoding.UTF8.GetBytes(plainText);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ var\ maxDataLength\ =\ GetMaxDataLength();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (plainBytes.Length\ >\ maxDataLength)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ CryptographicException(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\textcolor{stringliteral}{"{}Data\ too\ large\ for\ RSA\ encryption.\ Maximum\ size\ is\ \{maxDataLength\}\ bytes,\ but\ data\ is\ \{plainBytes.Length\}\ bytes.\ "{}}\ +}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Consider\ using\ hybrid\ encryption\ (RSA\ +\ AES)\ for\ larger\ data."{}});}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ var\ encryptedBytes\ =\ \_rsa.Encrypt(plainBytes,\ \_padding);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ Convert.ToBase64String(encryptedBytes);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Encrypted\ \{InputLength\}\ bytes\ to\ \{OutputLength\}\ characters"{}},}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plainBytes.Length,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Length);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}Encrypt"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordEncryption(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}RSA"{}},\ plainBytes.Length,\ \_rsa.KeySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00325}00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00326}00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ CryptographicException)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00327}00327\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ encrypt\ text"{}});}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ CryptographicException(\textcolor{stringliteral}{"{}RSA\ encryption\ failed."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00330}00330\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00331}00331\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00334}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a8d65b30e83ed3be8cb39bfa1d9cd2227}{00334}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a8d65b30e83ed3be8cb39bfa1d9cd2227}{EncryptAsync}}(\textcolor{keywordtype}{string}\ plainText,\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00335}00335\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00336}00336\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00337}00337\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(plainText);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00339}00339\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RSA\ encryption\ is\ CPU-\/bound,\ use\ Task.Run\ for\ async}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ Task.Run(()\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a0d6440aa8b8df80575e7c69873fc3dca}{Encrypt}}(plainText),\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00343}00343\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00348}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c}{00348}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c}{Decrypt}}(\textcolor{keywordtype}{string}\ encryptedText)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00349}00349\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00350}00350\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00351}00351\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\_hasPrivateKey)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00354}00354\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ InvalidOperationException(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cannot\ decrypt\ without\ a\ private\ key.\ Ensure\ the\ service\ was\ initialized\ with\ a\ private\ key."{}});}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00357}00357\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00359}00359\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00360}00360\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00362}00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00363}00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ var\ encryptedBytes\ =\ Convert.FromBase64String(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ var\ decryptedBytes\ =\ \_rsa.Decrypt(encryptedBytes,\ \_padding);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ Encoding.UTF8.GetString(decryptedBytes);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Decrypted\ \{InputLength\}\ characters\ to\ \{OutputLength\}\ bytes"{}},}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptedText.Length,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ decryptedBytes.Length);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}Decrypt"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordDecryption(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}RSA"{}},\ decryptedBytes.Length,\ \_rsa.KeySize);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00376}00376\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00377}00377\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (FormatException)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00378}00378\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(\textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text:\ invalid\ Base64\ format"{}});}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00381}00381\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (CryptographicException\ ex)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00383}00383\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text:\ cryptographic\ error"{}});}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FormatException(\textcolor{stringliteral}{"{}The\ encrypted\ text\ is\ invalid\ or\ corrupted."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00386}00386\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00387}00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ FormatException\ and\ not\ InvalidOperationException)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00388}00388\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text"{}});}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FormatException(\textcolor{stringliteral}{"{}Decryption\ failed."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00391}00391\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00392}00392\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00395}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a12dc875ff5bd879d7b5ccbe17413ec7e}{00395}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a12dc875ff5bd879d7b5ccbe17413ec7e}{DecryptAsync}}(\textcolor{keywordtype}{string}\ encryptedText,\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00396}00396\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00397}00397\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00398}00398\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00400}00400\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RSA\ decryption\ is\ CPU-\/bound,\ use\ Task.Run\ for\ async}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ Task.Run(()\ =>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a49a9ab566b0355bb6991a839cb27801c}{Decrypt}}(encryptedText),\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00404}00404\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00407}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a681b435f226e69b0c06d134af2b7bff7}{00407}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_a681b435f226e69b0c06d134af2b7bff7}{DisposeAsyncCore}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00408}00408\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00409}00409\ \ \ \ \ \ \ \ \ \_rsa.Dispose();}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueTask.CompletedTask;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00411}00411\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00418}00418\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ RSAEncryptionPadding\ GetEncryptionPadding(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{RsaPaddingMode}}\ mode)\ =>\ mode\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00419}00419\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00420}00420\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387}{RsaPaddingMode.Pkcs1}}\ =>\ RSAEncryptionPadding.Pkcs1,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00421}00421\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003}{RsaPaddingMode.OaepSha1}}\ =>\ RSAEncryptionPadding.OaepSHA1,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00422}00422\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c}{RsaPaddingMode.OaepSha256}}\ =>\ RSAEncryptionPadding.OaepSHA256,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00423}00423\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe}{RsaPaddingMode.OaepSha384}}\ =>\ RSAEncryptionPadding.OaepSHA384,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00424}00424\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3}{RsaPaddingMode.OaepSha512}}\ =>\ RSAEncryptionPadding.OaepSHA512,}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00425}00425\ \ \ \ \ \ \ \ \ \_\ =>\ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentOutOfRangeException(nameof(mode),\ mode,\ \textcolor{stringliteral}{"{}Invalid\ padding\ mode."{}})}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00426}00426\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00433}00433\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ValidateKeySize(\textcolor{keywordtype}{int}\ keySizeInBits)}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00434}00434\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00435}00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (keySizeInBits\ is\ not\ (512\ or\ 1024\ or\ 2048\ or\ 4096\ or\ 8192\ or\ 16384))}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00436}00436\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentException(}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\textcolor{stringliteral}{"{}Invalid\ RSA\ key\ size:\ \{keySizeInBits\}\ bits.\ Valid\ sizes\ are\ 512,\ 1024,\ 2048,\ 4096,\ 8192,\ or\ 16384\ bits."{}},}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nameof(keySizeInBits));}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00440}00440\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00441}00441\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00447}00447\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ GetMaxDataLength()}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00448}00448\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00449}00449\ \ \ \ \ \ \ \ \ var\ keyBytes\ =\ \_rsa.KeySize\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00451}00451\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OAEP\ overhead\ depends\ on\ hash\ size}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00452}00452\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Formula:\ keyBytes\ -\/\ 2\ *\ hashBytes\ -\/\ 2}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00453}00453\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_padding.OaepHashAlgorithm.Name\ \textcolor{keywordflow}{switch}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00454}00454\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SHA1"{}}\ =>\ keyBytes\ -\/\ 42,\ \ \ \ \textcolor{comment}{//\ 2\ *\ 20\ +\ 2\ =\ 42}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SHA256"{}}\ =>\ keyBytes\ -\/\ 66,\ \ \textcolor{comment}{//\ 2\ *\ 32\ +\ 2\ =\ 66}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SHA384"{}}\ =>\ keyBytes\ -\/\ 98,\ \ \textcolor{comment}{//\ 2\ *\ 48\ +\ 2\ =\ 98}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SHA512"{}}\ =>\ keyBytes\ -\/\ 130,\ \textcolor{comment}{//\ 2\ *\ 64\ +\ 2\ =\ 130}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \_\ =>\ keyBytes\ -\/\ 11\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ PKCS\#1\ v1.5\ overhead\ is\ 11\ bytes}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00460}00460\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00461}00461\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rsa_cryptography_service_8cs_source_l00462}00462\ \}}
+
+\end{DoxyCode}

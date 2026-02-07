@@ -1,0 +1,164 @@
+\doxysection{Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options}{}\label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+
+
+Configuration options for Open\+Telemetry integration in \doxylink{namespace_toolbox}{Toolbox}.  
+
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_ad376b2327064c73e8ce4baf2410836c5}{Section\+Name}} = "{}Toolbox:\+\+Telemetry"{}
+\begin{DoxyCompactList}\small\item\em The configuration section name for telemetry options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a50f491773234e522517838b94454f336}{Enable\+Tracing}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether distributed tracing is enabled. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a973d6de7776d4c78425f263ff1c20caf}{Enable\+Metrics}} = true\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether metrics collection is enabled. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a77efdd55213c2072793143d52be3f6f4}{Enable\+Console\+Export}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether console export is enabled. \end{DoxyCompactList}\item 
+string? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_aac1b83338d681be52bad44f03551b47b}{Otlp\+Endpoint}}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the OTLP endpoint for telemetry export. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a3046c1e387903245e09b85eb8a18d52f}{Service\+Name}} = "{}Toolbox"{}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the service name for telemetry identification. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a8310f9472b0b080ebb725f7f8a8d1889}{Service\+Version}} = "{}1.\+0.\+0"{}\hspace{0.3cm}{\ttfamily  \+[get, set]\+}
+\begin{DoxyCompactList}\small\item\em Gets or sets the service version for telemetry identification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration options for Open\+Telemetry integration in \doxylink{namespace_toolbox}{Toolbox}. 
+
+These options can be configured via {\ttfamily appsettings.\+json}:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{stringliteral}{"{}Toolbox:Telemetry"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}EnableTracing"{}}:\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}EnableMetrics"{}}:\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}OtlpEndpoint"{}}:\ \textcolor{stringliteral}{"{}http://localhost:4317"{}}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00023}{23}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_ad376b2327064c73e8ce4baf2410836c5}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!SectionName@{SectionName}}
+\index{SectionName@{SectionName}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{SectionName}{SectionName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_ad376b2327064c73e8ce4baf2410836c5} 
+const string Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Section\+Name = "{}Toolbox:\+\+Telemetry"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The configuration section name for telemetry options. 
+
+
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00028}{28}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a77efdd55213c2072793143d52be3f6f4}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!EnableConsoleExport@{EnableConsoleExport}}
+\index{EnableConsoleExport@{EnableConsoleExport}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{EnableConsoleExport}{EnableConsoleExport}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a77efdd55213c2072793143d52be3f6f4} 
+bool Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Enable\+Console\+Export\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether console export is enabled. 
+
+{\ttfamily true} to export telemetry to console; {\ttfamily false} to disable. Defaults to {\ttfamily false}. 
+
+Enable this for debugging purposes only. Not recommended for production. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00055}{55}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a973d6de7776d4c78425f263ff1c20caf}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!EnableMetrics@{EnableMetrics}}
+\index{EnableMetrics@{EnableMetrics}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{EnableMetrics}{EnableMetrics}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a973d6de7776d4c78425f263ff1c20caf} 
+bool Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Enable\+Metrics = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether metrics collection is enabled. 
+
+{\ttfamily true} to enable metrics; {\ttfamily false} to disable. Defaults to {\ttfamily true}. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00044}{44}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a50f491773234e522517838b94454f336}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!EnableTracing@{EnableTracing}}
+\index{EnableTracing@{EnableTracing}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{EnableTracing}{EnableTracing}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a50f491773234e522517838b94454f336} 
+bool Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Enable\+Tracing = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether distributed tracing is enabled. 
+
+{\ttfamily true} to enable tracing; {\ttfamily false} to disable. Defaults to {\ttfamily true}. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00036}{36}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_aac1b83338d681be52bad44f03551b47b}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!OtlpEndpoint@{OtlpEndpoint}}
+\index{OtlpEndpoint@{OtlpEndpoint}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{OtlpEndpoint}{OtlpEndpoint}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_aac1b83338d681be52bad44f03551b47b} 
+string? Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Otlp\+Endpoint\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the OTLP endpoint for telemetry export. 
+
+The OTLP endpoint URL. Defaults to {\ttfamily null} (OTLP export disabled). 
+
+Example:\+ {\ttfamily \href{http://localhost:4317}{\texttt{http:\+/\+/\+localhost:\+4317}}} for a local OTLP collector. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00066}{66}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a3046c1e387903245e09b85eb8a18d52f}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!ServiceName@{ServiceName}}
+\index{ServiceName@{ServiceName}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{ServiceName}{ServiceName}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a3046c1e387903245e09b85eb8a18d52f} 
+string Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Service\+Name = "{}Toolbox"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the service name for telemetry identification. 
+
+The service name used in telemetry. Defaults to {\ttfamily "{}\+Toolbox"{}}. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00074}{74}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a8310f9472b0b080ebb725f7f8a8d1889}\index{Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}!ServiceVersion@{ServiceVersion}}
+\index{ServiceVersion@{ServiceVersion}!Toolbox.Core.Options.ToolboxTelemetryOptions@{Toolbox.Core.Options.ToolboxTelemetryOptions}}
+\doxysubsubsection{\texorpdfstring{ServiceVersion}{ServiceVersion}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_a8310f9472b0b080ebb725f7f8a8d1889} 
+string Toolbox.\+Core.\+Options.\+Toolbox\+Telemetry\+Options.\+Service\+Version = "{}1.\+0.\+0"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the service version for telemetry identification. 
+
+The service version string. Defaults to {\ttfamily "{}1.\+0.\+0"{}}. 
+
+Definition at line \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source_l00082}{82}} of file \doxymbox{\hyperlink{_toolbox_telemetry_options_8cs_source}{Toolbox\+Telemetry\+Options.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Options/\+\doxymbox{\hyperlink{_toolbox_telemetry_options_8cs}{Toolbox\+Telemetry\+Options.\+cs}}\end{DoxyCompactItemize}

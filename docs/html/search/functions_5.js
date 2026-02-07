@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['frombytes_0',['FromBytes',['../class_toolbox_1_1_core_1_1_options_1_1_email_attachment.html#a2b0f649a7f6e17f0b20df2172fee173b',1,'Toolbox.Core.Options.EmailAttachment.FromBytes()'],['../class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair.html#a11d9cb712cd59fd30f03885a47d95b0c',1,'Toolbox.Core.Options.RsaKeyPair.FromBytes(byte[] publicKey, byte[]? privateKey, int keySize)']]],
+  ['fromcertificate_1',['FromCertificate',['../class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair.html#aab9750348bf4c7e81179a2d14a0a42e0',1,'Toolbox::Core::Options::RsaKeyPair']]],
+  ['fromfile_2',['FromFile',['../class_toolbox_1_1_core_1_1_options_1_1_email_attachment.html#a853dc810e2df93594ae0a484f53ce974',1,'Toolbox::Core::Options::EmailAttachment']]],
+  ['ftpfiletransferservice_3',['FtpFileTransferService',['../class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service.html#a25abf01d010eca69476eeb4388a36e4e',1,'Toolbox.Core.Services.FileTransfer.FtpFileTransferService.FtpFileTransferService(IOptions&lt; FileTransferOptions &gt; options, ILogger&lt; FtpFileTransferService &gt; logger)'],['../class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service.html#a234001ece138875554fbeb45cb492533',1,'Toolbox.Core.Services.FileTransfer.FtpFileTransferService.FtpFileTransferService(FileTransferOptions options, ILogger&lt; FtpFileTransferService &gt; logger)']]],
+  ['ftpfiletransferservicetests_4',['FtpFileTransferServiceTests',['../class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests.html#aff16d2336d552771847f7763d30f73e3',1,'Toolbox::Tests::Unit::Services::FileTransfer::FtpFileTransferServiceTests']]]
+];

@@ -1,0 +1,253 @@
+\doxysection{Toolbox.\+Core.\+Abstractions.\+Services.\+IApi\+Service Interface Reference}
+\hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service}{}\label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service}\index{Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}}
+
+
+Defines the contract for HTTP API services.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Abstractions.\+Services.\+IApi\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.925810cm]{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a8e1e539d9367084d49f092a7fd28f0f7}{Send}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}} request)
+\begin{DoxyCompactList}\small\item\em Sends an HTTP request synchronously. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} $>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a0accf629ae4c199538748481fe5878a2}{Send\+Async}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}} request, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Sends an HTTP request asynchronously. \end{DoxyCompactList}\item 
+T? \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a27ea4b9ea559b9e6c686d53a690f0f5b}{Send$<$ T $>$}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}} request)
+\begin{DoxyCompactList}\small\item\em Sends an HTTP request and deserializes the response. \end{DoxyCompactList}\item 
+Task$<$ T?$>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_aa115f05961994226ad5f2ffce5cb974d}{Send\+Async$<$ T $>$}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}} request, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Sends an HTTP request and deserializes the response asynchronously. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IAsync\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_a3bcb31cb213a921cbfc4b548b1571abb}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{Toolbox.\+Core.\+Abstractions.\+IInstrumented\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Activity\+Source \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a44e9295e7ed5f4fac7beaad46a3599e3}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_a1b5982d055e61a3e027c2d5ee45c69a0}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the contract for HTTP API services. 
+
+This interface provides methods for making HTTP requests with support for:\+ 
+
+
+\begin{DoxyItemize}
+\item All HTTP verbs (GET, POST, PUT, DELETE, PATCH, etc.) 
+\item Multiple authentication modes (Bearer, Basic, API Key, Certificate) 
+\item JSON serialization/\+deserialization 
+\item Custom headers and query parameters 
+\item Automatic retry with exponential backoff 
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service}{IInstrumented\+Service}, \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{IAsync\+Disposable\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_i_api_service_8cs_source_l00027}{27}} of file \doxymbox{\hyperlink{_i_api_service_8cs_source}{IApi\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a8e1e539d9367084d49f092a7fd28f0f7}\index{Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}!Send@{Send}}
+\index{Send@{Send}!Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}}
+\doxysubsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a8e1e539d9367084d49f092a7fd28f0f7} 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} Toolbox.\+Core.\+Abstractions.\+Services.\+IApi\+Service.\+Send (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}}}]{request}{}\end{DoxyParamCaption})}
+
+
+
+Sends an HTTP request synchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The request to send.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API response.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape request}  is {\ttfamily null}.\\
+\hline
+{\em Http\+Request\+Exception} & Thrown when the request fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ request\ =\ ApiRequest.Get(\textcolor{stringliteral}{"{}/users/123"{}});}
+\DoxyCodeLine{var\ response\ =\ apiService.Send(request);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (response.IsSuccess)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ var\ user\ =\ response.Deserialize<User>();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_ac500eb0b849bbdc483def95d72074bb0}{Toolbox.\+Core.\+Services.\+Api.\+Http\+Api\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a27ea4b9ea559b9e6c686d53a690f0f5b}\index{Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}!Send$<$ T $>$@{Send$<$ T $>$}}
+\index{Send$<$ T $>$@{Send$<$ T $>$}!Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}}
+\doxysubsubsection{\texorpdfstring{Send$<$ T $>$()}{Send< T >()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a27ea4b9ea559b9e6c686d53a690f0f5b} 
+T? \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a8e1e539d9367084d49f092a7fd28f0f7}{Toolbox.\+Core.\+Abstractions.\+Services.\+IApi\+Service.\+Send}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}}}]{request}{}\end{DoxyParamCaption})}
+
+
+
+Sends an HTTP request and deserializes the response. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The response body type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The request to send.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The deserialized response body.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape request}  is {\ttfamily null}.\\
+\hline
+{\em Http\+Request\+Exception} & Thrown when the request fails or returns an error status.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ users\ =\ apiService.Send<List<User>>(ApiRequest.Get(\textcolor{stringliteral}{"{}/users"{}}));}
+
+\end{DoxyCode}
+ 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_a12ae6cb6399a2ce3c8552aec716bace4}{Toolbox.\+Core.\+Services.\+Api.\+Http\+Api\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a0accf629ae4c199538748481fe5878a2}\index{Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}!SendAsync@{SendAsync}}
+\index{SendAsync@{SendAsync}!Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}}
+\doxysubsubsection{\texorpdfstring{SendAsync()}{SendAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a0accf629ae4c199538748481fe5878a2} 
+Task$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}} $>$ Toolbox.\+Core.\+Abstractions.\+Services.\+IApi\+Service.\+Send\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}}}]{request}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Sends an HTTP request asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The request to send.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the API response.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape request}  is {\ttfamily null}.\\
+\hline
+{\em Http\+Request\+Exception} & Thrown when the request fails.\\
+\hline
+{\em Operation\+Canceled\+Exception} & Thrown when the operation is cancelled.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ request\ =\ ApiRequest.Post(\textcolor{stringliteral}{"{}/users"{}},\ \textcolor{keyword}{new}\ \{\ Name\ =\ \textcolor{stringliteral}{"{}John"{}}\ \});}
+\DoxyCodeLine{var\ response\ =\ await\ apiService.SendAsync(request);}
+\DoxyCodeLine{}
+\DoxyCodeLine{response.EnsureSuccess();}
+\DoxyCodeLine{var\ createdUser\ =\ response.Deserialize<User>();}
+
+\end{DoxyCode}
+ 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_aaed64c4d21394332ab877cec4b5a3c8f}{Toolbox.\+Core.\+Services.\+Api.\+Http\+Api\+Service}}.
+
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_aa115f05961994226ad5f2ffce5cb974d}\index{Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}!SendAsync$<$ T $>$@{SendAsync$<$ T $>$}}
+\index{SendAsync$<$ T $>$@{SendAsync$<$ T $>$}!Toolbox.Core.Abstractions.Services.IApiService@{Toolbox.Core.Abstractions.Services.IApiService}}
+\doxysubsubsection{\texorpdfstring{SendAsync$<$ T $>$()}{SendAsync< T >()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_aa115f05961994226ad5f2ffce5cb974d} 
+Task$<$ T?$>$ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_a0accf629ae4c199538748481fe5878a2}{Toolbox.\+Core.\+Abstractions.\+Services.\+IApi\+Service.\+Send\+Async}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}}}]{request}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Sends an HTTP request and deserializes the response asynchronously. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The response body type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The request to send.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task containing the deserialized response body.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape request}  is {\ttfamily null}.\\
+\hline
+{\em Http\+Request\+Exception} & Thrown when the request fails or returns an error status.\\
+\hline
+{\em Operation\+Canceled\+Exception} & Thrown when the operation is cancelled.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ user\ =\ await\ apiService.SendAsync<User>(}
+\DoxyCodeLine{\ \ \ \ ApiRequest.Get(\textcolor{stringliteral}{"{}/users/123"{}}),}
+\DoxyCodeLine{\ \ \ \ cancellationToken);}
+
+\end{DoxyCode}
+ 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_a44f935aae5324b5f2d40dc6f786eda13}{Toolbox.\+Core.\+Services.\+Api.\+Http\+Api\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Abstractions/\+\+Services/\+\doxymbox{\hyperlink{_i_api_service_8cs}{IApi\+Service.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_4e9795c81f02a13a612ea04ceef40cad" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services</compoundname>
+    <innerfile refid="_i_api_service_8cs">IApiService.cs</innerfile>
+    <innerfile refid="_i_cryptography_service_8cs">ICryptographyService.cs</innerfile>
+    <innerfile refid="_i_file_transfer_service_8cs">IFileTransferService.cs</innerfile>
+    <innerfile refid="_i_mailing_service_8cs">IMailingService.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/"/>
+  </compounddef>
+</doxygen>

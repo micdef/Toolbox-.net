@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_6ad6fb5987013a4c20248f68b3a151eb" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration</compoundname>
+    <innerfile refid="_open_telemetry_extensions_tests_8cs">OpenTelemetryExtensionsTests.cs</innerfile>
+    <innerfile refid="_service_collection_extensions_tests_8cs">ServiceCollectionExtensionsTests.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,287 @@
+\doxysection{Aes\+Cryptography\+Service.\+cs}
+\hypertarget{_aes_cryptography_service_8cs_source}{}\label{_aes_cryptography_service_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs}}
+\doxymbox{\hyperlink{_aes_cryptography_service_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ AesCryptographyService.cs}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ AES\ encryption/decryption\ cryptography\ service}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Implements\ ICryptographyService\ using\ AES\ symmetric\ encryption}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Uses\ CBC\ mode\ with\ PKCS7\ padding}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Security.Cryptography;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_abstractions_1_1_services}{Toolbox.Core.Abstractions.Services}};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_base}{Toolbox.Core.Base}};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00011}00011\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00013}\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{00013}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Toolbox.Core.Services.Cryptography}};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00028}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service}{00028}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{sealed}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_aadc55a35328a94992637b4dbb298416f}{AesCryptographyService}}\ :\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{BaseAsyncDisposableService}},\ \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service}{ICryptographyService}}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ The\ AES\ key}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \textcolor{keywordtype}{byte}[]\ \_key;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ The\ initialization\ vector}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \textcolor{keywordtype}{byte}[]\ \_iv;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ The\ logger\ instance}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ ILogger<AesCryptographyService>\ \_logger;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00047}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_aadc55a35328a94992637b4dbb298416f}{00047}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_aadc55a35328a94992637b4dbb298416f}{AesCryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]\ key,}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}[]\ iv,}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ ILogger<AesCryptographyService>\ logger)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ :\ base(\textcolor{stringliteral}{"{}AesCryptographyService"{}},\ logger)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(key);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(iv);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ ValidateKeySize(key.Length\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ ValidateIvSize(iv.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \_key\ =\ (\textcolor{keywordtype}{byte}[])key.Clone();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \_iv\ =\ (\textcolor{keywordtype}{byte}[])iv.Clone();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \_logger\ =\ logger;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}AesCryptographyService\ initialized\ with\ \{KeySize\}-\/bit\ key"{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ key.Length\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00080}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a08ffcbf1022ac5cfb494ae028eb98b91}{00080}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ (\textcolor{keywordtype}{byte}[]\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_aed41df33ef97ec4a2c9e015ce3aa4bdb}{Key}},\ \textcolor{keywordtype}{byte}[]\ Iv)\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a08ffcbf1022ac5cfb494ae028eb98b91}{GenerateKey}}(\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{AesKeySize}}\ keySize)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00081}00081\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ ValidateKeySize((\textcolor{keywordtype}{int})keySize);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ aes\ =\ Aes.Create();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ aes.KeySize\ =\ (int)keySize;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ aes.GenerateKey();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ aes.GenerateIV();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (aes.Key,\ aes.IV);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00098}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_ae46961cca02c4830fd98e47fd89d6f1e}{00098}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ (\textcolor{keywordtype}{byte}[]\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_aed41df33ef97ec4a2c9e015ce3aa4bdb}{Key}},\ \textcolor{keywordtype}{byte}[]\ Iv)\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_ae46961cca02c4830fd98e47fd89d6f1e}{GenerateKey}}(\textcolor{keywordtype}{int}\ keySize)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ ValidateKeySize(keySize);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ aes\ =\ Aes.Create();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ aes.KeySize\ =\ keySize;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ aes.GenerateKey();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ aes.GenerateIV();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (aes.Key,\ aes.IV);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00111}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_acca78d079b5b61766b44df902ded3865}{00111}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_acca78d079b5b61766b44df902ded3865}{Encrypt}}(\textcolor{keywordtype}{string}\ plainText)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00112}00112\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(plainText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ aes\ =\ Aes.Create();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Key\ =\ \_key;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ aes.IV\ =\ \_iv;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Mode\ =\ CipherMode.CBC;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Padding\ =\ PaddingMode.PKCS7;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ encryptor\ =\ aes.CreateEncryptor();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ var\ plainBytes\ =\ Encoding.UTF8.GetBytes(plainText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ var\ encryptedBytes\ =\ encryptor.TransformFinalBlock(plainBytes,\ 0,\ plainBytes.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ Convert.ToBase64String(encryptedBytes);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Encrypted\ \{InputLength\}\ characters\ to\ \{OutputLength\}\ characters"{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plainText.Length,}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}Encrypt"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordEncryption(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}AES"{}},\ plainBytes.Length,\ \_key.Length\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00140}00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ encrypt\ text"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00149}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a912ab62911fa9f0ec93297f2a918f351}{00149}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a912ab62911fa9f0ec93297f2a918f351}{EncryptAsync}}(\textcolor{keywordtype}{string}\ plainText,\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00150}00150\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(plainText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00154}00154\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00157}00157\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ aes\ =\ Aes.Create();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Key\ =\ \_key;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ aes.IV\ =\ \_iv;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Mode\ =\ CipherMode.CBC;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Padding\ =\ PaddingMode.PKCS7;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ encryptor\ =\ aes.CreateEncryptor();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ memoryStream\ =\ \textcolor{keyword}{new}\ MemoryStream();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \textcolor{keyword}{using\ }var\ cryptoStream\ =\ \textcolor{keyword}{new}\ CryptoStream(memoryStream,\ encryptor,\ CryptoStreamMode.Write);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ var\ plainBytes\ =\ Encoding.UTF8.GetBytes(plainText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ await\ cryptoStream.WriteAsync(plainBytes,\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ await\ cryptoStream.FlushFinalBlockAsync(cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ Convert.ToBase64String(memoryStream.ToArray());}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Encrypted\ \{InputLength\}\ characters\ to\ \{OutputLength\}\ characters\ (async)"{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plainText.Length,}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}EncryptAsync"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordEncryption(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}AES"{}},\ plainBytes.Length,\ \_key.Length\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00185}00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ OperationCanceledException)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00187}00187\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ encrypt\ text\ asynchronously"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00190}00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00191}00191\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00194}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a3f723805255f3988a36130df6990b91f}{00194}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a3f723805255f3988a36130df6990b91f}{Decrypt}}(\textcolor{keywordtype}{string}\ encryptedText)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00195}00195\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00196}00196\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00200}00200\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ aes\ =\ Aes.Create();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Key\ =\ \_key;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ aes.IV\ =\ \_iv;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Mode\ =\ CipherMode.CBC;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Padding\ =\ PaddingMode.PKCS7;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ decryptor\ =\ aes.CreateDecryptor();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ var\ encryptedBytes\ =\ Convert.FromBase64String(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ var\ decryptedBytes\ =\ decryptor.TransformFinalBlock(encryptedBytes,\ 0,\ encryptedBytes.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ Encoding.UTF8.GetString(decryptedBytes);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Decrypted\ \{InputLength\}\ characters\ to\ \{OutputLength\}\ characters"{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptedText.Length,}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}Decrypt"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordDecryption(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}AES"{}},\ decryptedBytes.Length,\ \_key.Length\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00223}00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (FormatException)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00225}00225\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(\textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text:\ invalid\ Base64\ format"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00228}00228\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (CryptographicException\ ex)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00230}00230\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text:\ cryptographic\ error"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FormatException(\textcolor{stringliteral}{"{}The\ encrypted\ text\ is\ invalid\ or\ corrupted."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ FormatException)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00242}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_ac0d76348e1fb0d832893e94ac14c19e0}{00242}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_ac0d76348e1fb0d832893e94ac14c19e0}{DecryptAsync}}(\textcolor{keywordtype}{string}\ encryptedText,\ CancellationToken\ cancellationToken\ =\ \textcolor{keywordflow}{default})}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00243}00243\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{ThrowIfDisposed}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00245}00245\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00247}00247\ \ \ \ \ \ \ \ \ cancellationToken.ThrowIfCancellationRequested();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ activity\ =\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{StartActivity}}();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00250}00250\ \ \ \ \ \ \ \ \ var\ sw\ =\ System.Diagnostics.Stopwatch.StartNew();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00253}00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ aes\ =\ Aes.Create();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Key\ =\ \_key;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ aes.IV\ =\ \_iv;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Mode\ =\ CipherMode.CBC;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ aes.Padding\ =\ PaddingMode.PKCS7;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ decryptor\ =\ aes.CreateDecryptor();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ var\ encryptedBytes\ =\ Convert.FromBase64String(encryptedText);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ inputStream\ =\ \textcolor{keyword}{new}\ MemoryStream(encryptedBytes);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \textcolor{keyword}{using\ }var\ cryptoStream\ =\ \textcolor{keyword}{new}\ CryptoStream(inputStream,\ decryptor,\ CryptoStreamMode.Read);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ outputStream\ =\ \textcolor{keyword}{new}\ MemoryStream();}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ await\ cryptoStream.CopyToAsync(outputStream,\ cancellationToken);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ Encoding.UTF8.GetString(outputStream.ToArray());}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogDebug(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Decrypted\ \{InputLength\}\ characters\ to\ \{OutputLength\}\ characters\ (async)"{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encryptedText.Length,}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{RecordOperation}}(\textcolor{stringliteral}{"{}DecryptAsync"{}},\ sw.ElapsedMilliseconds);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ ToolboxMeter.RecordDecryption(\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{ServiceName}},\ \textcolor{stringliteral}{"{}AES"{}},\ outputStream.ToArray().Length,\ \_key.Length\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00278}00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (FormatException)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00280}00280\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(\textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text:\ invalid\ Base64\ format"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00283}00283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (CryptographicException\ ex)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00285}00285\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text\ asynchronously:\ cryptographic\ error"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ FormatException(\textcolor{stringliteral}{"{}The\ encrypted\ text\ is\ invalid\ or\ corrupted."{}},\ ex);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00288}00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ when\ (ex\ is\ not\ ArgumentNullException\ and\ not\ FormatException\ and\ not\ OperationCanceledException)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00290}00290\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \_logger.LogError(ex,\ \textcolor{stringliteral}{"{}Failed\ to\ decrypt\ text\ asynchronously"{}});}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00293}00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00294}00294\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00297}\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a66430c765f915913cfbbd49f8bbd09f1}{00297}}\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ ValueTask\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_a66430c765f915913cfbbd49f8bbd09f1}{DisposeAsyncCore}}(CancellationToken\ cancellationToken)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00298}00298\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00299}00299\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ sensitive\ data\ from\ memory}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00300}00300\ \ \ \ \ \ \ \ \ Array.Clear(\_key,\ 0,\ \_key.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00301}00301\ \ \ \ \ \ \ \ \ Array.Clear(\_iv,\ 0,\ \_iv.Length);}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueTask.CompletedTask;}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00304}00304\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00311}00311\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ValidateKeySize(\textcolor{keywordtype}{int}\ keySizeInBits)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00312}00312\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00313}00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (keySizeInBits\ is\ not\ (128\ or\ 192\ or\ 256))}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00314}00314\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentException(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\textcolor{stringliteral}{"{}Invalid\ AES\ key\ size:\ \{keySizeInBits\}\ bits.\ Valid\ sizes\ are\ 128,\ 192,\ or\ 256\ bits."{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nameof(keySizeInBits));}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00318}00318\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00319}00319\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00326}00326\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ValidateIvSize(\textcolor{keywordtype}{int}\ ivSizeInBytes)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00327}00327\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00328}00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ivSizeInBytes\ !=\ 16)}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00329}00329\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ArgumentException(}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$\textcolor{stringliteral}{"{}Invalid\ AES\ IV\ size:\ \{ivSizeInBytes\}\ bytes.\ IV\ must\ be\ exactly\ 16\ bytes\ (128\ bits)."{}},}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nameof(ivSizeInBytes));}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00333}00333\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00334}00334\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_aes_cryptography_service_8cs_source_l00335}00335\ \}}
+
+\end{DoxyCode}

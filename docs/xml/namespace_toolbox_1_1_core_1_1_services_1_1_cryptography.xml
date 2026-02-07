@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_core_1_1_services_1_1_cryptography" kind="namespace" language="C#">
+    <compoundname>Toolbox::Core::Services::Cryptography</compoundname>
+    <innerclass refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" prot="public">Toolbox::Core::Services::Cryptography::AesCryptographyService</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service" prot="public">Toolbox::Core::Services::Cryptography::Base64CryptographyService</innerclass>
+    <innerclass refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service" prot="public">Toolbox::Core::Services::Cryptography::RsaCryptographyService</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="13" column="1"/>
+  </compounddef>
+</doxygen>

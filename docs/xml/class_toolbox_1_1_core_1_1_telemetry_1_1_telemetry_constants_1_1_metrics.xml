@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a7b46871244f2973d76b99077d7868a1f" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.OperationCount</definition>
+        <argsstring></argsstring>
+        <name>OperationCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.OperationCount</qualifiedname>
+        <initializer>= &quot;toolbox.operations.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for service operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="60" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a715e9b1c6a7abfe434de6333da877a73" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.OperationDuration</definition>
+        <argsstring></argsstring>
+        <name>OperationDuration</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.OperationDuration</qualifiedname>
+        <initializer>= &quot;toolbox.operations.duration&quot;</initializer>
+        <briefdescription>
+<para>Histogram for operation duration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="63" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1abb497bea7dc519c79622e6456f9ff6c5" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.DisposalCount</definition>
+        <argsstring></argsstring>
+        <name>DisposalCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.DisposalCount</qualifiedname>
+        <initializer>= &quot;toolbox.disposals.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for disposal events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="66" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1ae3d009d52d688a8dc1d4f3aee54174a2" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.ActiveInstances</definition>
+        <argsstring></argsstring>
+        <name>ActiveInstances</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.ActiveInstances</qualifiedname>
+        <initializer>= &quot;toolbox.instances.active&quot;</initializer>
+        <briefdescription>
+<para>Gauge for active service instances. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="69" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1aae53bcb4c1b8c66c2afcdfa3eb328bb0" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.CryptoEncryptCount</definition>
+        <argsstring></argsstring>
+        <name>CryptoEncryptCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.CryptoEncryptCount</qualifiedname>
+        <initializer>= &quot;toolbox.crypto.encrypt.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for cryptography encrypt operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="72" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1aef062e52de35f850e714f7fd7b6a9e84" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.CryptoDecryptCount</definition>
+        <argsstring></argsstring>
+        <name>CryptoDecryptCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.CryptoDecryptCount</qualifiedname>
+        <initializer>= &quot;toolbox.crypto.decrypt.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for cryptography decrypt operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="75" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a9723fc8435e06219a89c7943e292cff0" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.CryptoDataSize</definition>
+        <argsstring></argsstring>
+        <name>CryptoDataSize</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.CryptoDataSize</qualifiedname>
+        <initializer>= &quot;toolbox.crypto.data.size&quot;</initializer>
+        <briefdescription>
+<para>Histogram for encrypted data size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="78" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a29b1e7b134d119c2e9e79571f7799344" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferUploadCount</definition>
+        <argsstring></argsstring>
+        <name>FileTransferUploadCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferUploadCount</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.upload.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for file transfer upload operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="81" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1aefce5873434fd3602a87f83dd7cff414" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferDownloadCount</definition>
+        <argsstring></argsstring>
+        <name>FileTransferDownloadCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferDownloadCount</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.download.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for file transfer download operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="84" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a914c9986885ef6ff6255b8143aade08e" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferSize</definition>
+        <argsstring></argsstring>
+        <name>FileTransferSize</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferSize</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.size&quot;</initializer>
+        <briefdescription>
+<para>Histogram for file transfer size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="87" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1ac4261bec97d4d153869dedac4c96e755" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferErrorCount</definition>
+        <argsstring></argsstring>
+        <name>FileTransferErrorCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.FileTransferErrorCount</qualifiedname>
+        <initializer>= &quot;toolbox.filetransfer.errors.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for file transfer errors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="90" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a7454666eccb9a889deee2db267246df1" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.EmailSentCount</definition>
+        <argsstring></argsstring>
+        <name>EmailSentCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.EmailSentCount</qualifiedname>
+        <initializer>= &quot;toolbox.mailing.sent.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for email sent operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="93" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1ae1255a909bb793cfed09259431f9d83f" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Toolbox.Core.Telemetry.TelemetryConstants.Metrics.ApiRequestCount</definition>
+        <argsstring></argsstring>
+        <name>ApiRequestCount</name>
+        <qualifiedname>Toolbox.Core.Telemetry.TelemetryConstants.Metrics.ApiRequestCount</qualifiedname>
+        <initializer>= &quot;toolbox.api.requests.count&quot;</initializer>
+        <briefdescription>
+<para>Counter for API request operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="96" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Standard metric names for service instrumentation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" line="57" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs" bodystart="58" bodyend="97"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1ae3d009d52d688a8dc1d4f3aee54174a2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>ActiveInstances</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1ae1255a909bb793cfed09259431f9d83f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>ApiRequestCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a9723fc8435e06219a89c7943e292cff0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>CryptoDataSize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1aef062e52de35f850e714f7fd7b6a9e84" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>CryptoDecryptCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1aae53bcb4c1b8c66c2afcdfa3eb328bb0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>CryptoEncryptCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1abb497bea7dc519c79622e6456f9ff6c5" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>DisposalCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a7454666eccb9a889deee2db267246df1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>EmailSentCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1aefce5873434fd3602a87f83dd7cff414" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>FileTransferDownloadCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1ac4261bec97d4d153869dedac4c96e755" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>FileTransferErrorCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a914c9986885ef6ff6255b8143aade08e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>FileTransferSize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a29b1e7b134d119c2e9e79571f7799344" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>FileTransferUploadCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a7b46871244f2973d76b99077d7868a1f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>OperationCount</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_telemetry_constants_1_1_metrics_1a715e9b1c6a7abfe434de6333da877a73" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::TelemetryConstants::Metrics</scope><name>OperationDuration</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

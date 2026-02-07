@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_c945ddb9beeffc9cf85643aaa67e35d2" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions</compoundname>
+    <innerfile refid="_api_service_collection_extensions_8cs">ApiServiceCollectionExtensions.cs</innerfile>
+    <innerfile refid="_cryptography_service_collection_extensions_8cs">CryptographyServiceCollectionExtensions.cs</innerfile>
+    <innerfile refid="_file_transfer_service_collection_extensions_8cs">FileTransferServiceCollectionExtensions.cs</innerfile>
+    <innerfile refid="_mailing_service_collection_extensions_8cs">MailingServiceCollectionExtensions.cs</innerfile>
+    <innerfile refid="_open_telemetry_extensions_8cs">OpenTelemetryExtensions.cs</innerfile>
+    <innerfile refid="_service_collection_extensions_8cs">ServiceCollectionExtensions.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/"/>
+  </compounddef>
+</doxygen>

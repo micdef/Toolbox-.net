@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography" kind="namespace" language="C#">
+    <compoundname>Toolbox::Tests::Unit::Services::Cryptography</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests" prot="public">Toolbox::Tests::Unit::Services::Cryptography::AesCryptographyServiceTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests" prot="public">Toolbox::Tests::Unit::Services::Cryptography::Base64CryptographyServiceTests</innerclass>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests" prot="public">Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/AesCryptographyServiceTests.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

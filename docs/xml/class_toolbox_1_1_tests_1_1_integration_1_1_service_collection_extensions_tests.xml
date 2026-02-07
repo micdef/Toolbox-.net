@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Integration::ServiceCollectionExtensionsTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a05082e3b853b8d91f8a971c9fb0e0e6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_ShouldRegisterOptions</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxCore_ShouldRegisterOptions</name>
+        <qualifiedname>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_ShouldRegisterOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" line="15" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" bodystart="15" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1ab0518cd9828d15663daacec14ed8d130" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithConfiguration_ShouldApplyOptions</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxCore_WithConfiguration_ShouldApplyOptions</name>
+        <qualifiedname>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithConfiguration_ShouldApplyOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" line="30" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" bodystart="30" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a10584dd879a109f9bf2108b887224a87" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_FromConfiguration_ShouldBindOptions</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxCore_FromConfiguration_ShouldBindOptions</name>
+        <qualifiedname>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_FromConfiguration_ShouldBindOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" line="50" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" bodystart="50" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1abdd6aa08df21b0cdc44003f0065ed0cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" line="73" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" bodystart="73" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1aa03b7db6f70c5a059df176e7255a5f16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" line="86" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" bodystart="86" bodyend="96"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_integration" kindref="compound">Integration</ref> tests for ServiceCollectionExtensions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" line="12" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/ServiceCollectionExtensionsTests.cs" bodystart="13" bodyend="97"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a10584dd879a109f9bf2108b887224a87" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::ServiceCollectionExtensionsTests</scope><name>AddToolboxCore_FromConfiguration_ShouldBindOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a05082e3b853b8d91f8a971c9fb0e0e6b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::ServiceCollectionExtensionsTests</scope><name>AddToolboxCore_ShouldRegisterOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1ab0518cd9828d15663daacec14ed8d130" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::ServiceCollectionExtensionsTests</scope><name>AddToolboxCore_WithConfiguration_ShouldApplyOptions</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1aa03b7db6f70c5a059df176e7255a5f16" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::ServiceCollectionExtensionsTests</scope><name>AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1abdd6aa08df21b0cdc44003f0065ed0cd" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Integration::ServiceCollectionExtensionsTests</scope><name>AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

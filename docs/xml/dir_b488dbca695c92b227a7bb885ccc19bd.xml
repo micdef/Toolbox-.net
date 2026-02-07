@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_b488dbca695c92b227a7bb885ccc19bd" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/Release/net10.0</compoundname>
+    <innerfile refid="src_2_toolbox_8_core_2obj_2_release_2net10_80_2_8_n_e_t_core_app_00_version_0av10_80_8_assembly_attributes_8cs">.NETCoreApp,Version=v10.0.AssemblyAttributes.cs</innerfile>
+    <innerfile refid="_release_2net10_80_2_toolbox_8_core_8_assembly_info_8cs">Toolbox.Core.AssemblyInfo.cs</innerfile>
+    <innerfile refid="_release_2net10_80_2_toolbox_8_core_8_global_usings_8g_8cs">Toolbox.Core.GlobalUsings.g.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/Release/net10.0/"/>
+  </compounddef>
+</doxygen>

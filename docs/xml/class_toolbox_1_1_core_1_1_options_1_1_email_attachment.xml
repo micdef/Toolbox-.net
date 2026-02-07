@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::EmailAttachment</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a3178dcb477c3e739acfb83d1b4000785" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>required string</type>
+        <definition>required string Toolbox.Core.Options.EmailAttachment.FileName</definition>
+        <argsstring></argsstring>
+        <name>FileName</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.FileName</qualifiedname>
+        <briefdescription>
+<para>Gets the filename of the attachment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The filename to use in the email.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="35" column="28" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ae714a842f714c3f159cb91cf9b000369" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>required string</type>
+        <definition>required string Toolbox.Core.Options.EmailAttachment.ContentType</definition>
+        <argsstring></argsstring>
+        <name>ContentType</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.ContentType</qualifiedname>
+        <briefdescription>
+<para>Gets the MIME content type of the attachment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The content type (e.g., &quot;application/pdf&quot;).</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="41" column="28" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ac6f99591d53cb530223e3dbb884c37ba" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>byte?[]</type>
+        <definition>byte? [] Toolbox.Core.Options.EmailAttachment.Content</definition>
+        <argsstring></argsstring>
+        <name>Content</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.Content</qualifiedname>
+        <briefdescription>
+<para>Gets the attachment content as a byte array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The raw content bytes, or <computeroutput>null</computeroutput> if using a file path.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="47" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1af5ee3aee9da198e3e9024a6e26e2afdd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.EmailAttachment.FilePath</definition>
+        <argsstring></argsstring>
+        <name>FilePath</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.FilePath</qualifiedname>
+        <briefdescription>
+<para>Gets the file path of the attachment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path, or <computeroutput>null</computeroutput> if using byte content.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="53" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a87c92e4fc41de2261fd60c2bb5177f84" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.EmailAttachment.IsInline</definition>
+        <argsstring></argsstring>
+        <name>IsInline</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.IsInline</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether this attachment is inline (embedded in HTML). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if inline; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="59" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a80b0a2f8893ae4c3cb7e9c21e98e0863" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.EmailAttachment.ContentId</definition>
+        <argsstring></argsstring>
+        <name>ContentId</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.ContentId</qualifiedname>
+        <briefdescription>
+<para>Gets the Content-ID for inline attachments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The Content-ID for referencing in HTML, or <computeroutput>null</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="65" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="65" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a853dc810e2df93594ae0a484f53ce974" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref></type>
+        <definition>static EmailAttachment Toolbox.Core.Options.EmailAttachment.FromFile</definition>
+        <argsstring>(string filePath, string? contentType=null, string? fileName=null)</argsstring>
+        <name>FromFile</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.FromFile</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>contentType</declname>
+          <defval>null</defval>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>fileName</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates an attachment from a file path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content type, or <computeroutput>null</computeroutput> to auto-detect.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The filename to use, or <computeroutput>null</computeroutput> to use the file&apos;s name.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref> representing the file.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>filePath</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FileNotFoundException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the file does not exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="76" column="35" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="76" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a2b0f649a7f6e17f0b20df2172fee173b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref></type>
+        <definition>static EmailAttachment Toolbox.Core.Options.EmailAttachment.FromBytes</definition>
+        <argsstring>(byte[] content, string fileName, string? contentType=null)</argsstring>
+        <name>FromBytes</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.FromBytes</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>content</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>contentType</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates an attachment from a byte array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attachment content.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The filename to use in the email.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content type, or <computeroutput>null</computeroutput> to auto-detect from filename.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref> representing the content.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>content</emphasis>  or <emphasis>fileName</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="104" column="35" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="104" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a62b587e360cc79b519da2568a8b0f6f5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref></type>
+        <definition>static EmailAttachment Toolbox.Core.Options.EmailAttachment.CreateInline</definition>
+        <argsstring>(byte[] content, string fileName, string contentId, string? contentType=null)</argsstring>
+        <name>CreateInline</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.CreateInline</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>content</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>contentId</declname>
+        </param>
+        <param>
+          <type>string?</type>
+          <declname>contentType</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Creates an inline attachment for embedding in HTML. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attachment content.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The filename.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Content-ID for referencing in HTML (without angle brackets).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contentType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content type, or <computeroutput>null</computeroutput> to auto-detect.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An inline <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment" kindref="compound">EmailAttachment</ref>.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when required parameters are <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>logo<sp/>=<sp/>EmailAttachment.CreateInline(logoBytes,<sp/></highlight><highlight class="stringliteral">&quot;logo.png&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;company-logo&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">message.Body<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;img<sp/>src=&apos;cid:company-logo&apos;<sp/>/&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">message.Attachments.Add(logo);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="136" column="35" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="136" bodyend="154"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a86b1abb8ff6ad04c1e41c9eeedc96a44" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string Toolbox.Core.Options.EmailAttachment.GetContentType</definition>
+        <argsstring>(string fileName)</argsstring>
+        <name>GetContentType</name>
+        <qualifiedname>Toolbox.Core.Options.EmailAttachment.GetContentType</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Gets the content type based on file extension. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The filename or path.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The MIME content type.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="161" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="161" bodyend="200"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an email attachment. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>An attachment can be created from either a file path or raw byte data. The content type is automatically detected from the filename if not specified. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>From<sp/>file<sp/>path</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>attachment1<sp/>=<sp/>EmailAttachment.FromFile(</highlight><highlight class="stringliteral">&quot;document.pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>From<sp/>byte<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">var<sp/>attachment2<sp/>=<sp/>EmailAttachment.FromBytes(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pdfBytes,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;report.pdf&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;application/pdf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" line="29" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAttachment.cs" bodystart="30" bodyend="201"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ac6f99591d53cb530223e3dbb884c37ba" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>Content</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a80b0a2f8893ae4c3cb7e9c21e98e0863" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>ContentId</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ae714a842f714c3f159cb91cf9b000369" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>ContentType</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a62b587e360cc79b519da2568a8b0f6f5" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>CreateInline</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a3178dcb477c3e739acfb83d1b4000785" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>FileName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1af5ee3aee9da198e3e9024a6e26e2afdd" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>FilePath</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a2b0f649a7f6e17f0b20df2172fee173b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>FromBytes</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a853dc810e2df93594ae0a484f53ce974" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>FromFile</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a86b1abb8ff6ad04c1e41c9eeedc96a44" prot="private" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>GetContentType</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a87c92e4fc41de2261fd60c2bb5177f84" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::EmailAttachment</scope><name>IsInline</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

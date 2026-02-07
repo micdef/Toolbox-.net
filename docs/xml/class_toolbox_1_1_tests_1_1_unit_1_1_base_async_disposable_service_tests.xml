@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1_1_test_async_disposable_service" prot="private">Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests::TestAsyncDisposableService</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a4909204c48dc27bc83e8a0300e36867f" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger &gt;</type>
+        <definition>readonly Mock&lt;ILogger&gt; Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="11" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a9c7d88d3566e9cb40cea5e4fbd1fd3df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.BaseAsyncDisposableServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>BaseAsyncDisposableServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.BaseAsyncDisposableServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="13" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1abcc9e7a5a4ab4fdb452520f7a00f0793" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldSetIsDisposed</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldSetIsDisposed</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldSetIsDisposed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="19" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="19" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a3d9c891fbbceacad871f959097cedc09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldCallDisposeAsyncCore</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldCallDisposeAsyncCore</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldCallDisposeAsyncCore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="32" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="32" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1ad0384bc1ad70c1124f370013ad21eabe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldBeIdempotent</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldBeIdempotent</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldBeIdempotent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="45" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="45" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1aa99655edfd50f56fcf48bf3a76d6879b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_WithCancellation_ShouldPassCancellationToken</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_WithCancellation_ShouldPassCancellationToken</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_WithCancellation_ShouldPassCancellationToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="60" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="60" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1afb70b8dce892a155f3fd11e1ccafd018" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="74" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="74" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a2b781a6f9c711c615ef1db4f3b401999" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.Dispose_ShouldCallDisposeAsyncCore</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose_ShouldCallDisposeAsyncCore</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.Dispose_ShouldCallDisposeAsyncCore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="92" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="92" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a88c03b3391d46c90d82b06d3680bae33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldBeThreadSafe</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldBeThreadSafe</name>
+        <qualifiedname>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldBeThreadSafe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="105" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="105" bodyend="121"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service" kindref="compound">BaseAsyncDisposableService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" line="9" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseAsyncDisposableServiceTests.cs" bodystart="10" bodyend="150"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a4909204c48dc27bc83e8a0300e36867f" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a9c7d88d3566e9cb40cea5e4fbd1fd3df" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>BaseAsyncDisposableServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a2b781a6f9c711c615ef1db4f3b401999" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>Dispose_ShouldCallDisposeAsyncCore</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1ad0384bc1ad70c1124f370013ad21eabe" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>DisposeAsync_ShouldBeIdempotent</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a88c03b3391d46c90d82b06d3680bae33" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>DisposeAsync_ShouldBeThreadSafe</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a3d9c891fbbceacad871f959097cedc09" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>DisposeAsync_ShouldCallDisposeAsyncCore</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1abcc9e7a5a4ab4fdb452520f7a00f0793" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>DisposeAsync_ShouldSetIsDisposed</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1afb70b8dce892a155f3fd11e1ccafd018" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1aa99655edfd50f56fcf48bf3a76d6879b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::BaseAsyncDisposableServiceTests</scope><name>DisposeAsync_WithCancellation_ShouldPassCancellationToken</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

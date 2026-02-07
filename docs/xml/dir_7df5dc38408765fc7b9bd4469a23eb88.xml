@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_7df5dc38408765fc7b9bd4469a23eb88" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer</compoundname>
+    <innerfile refid="_ftp_file_transfer_service_tests_8cs">FtpFileTransferServiceTests.cs</innerfile>
+    <innerfile refid="_sftp_file_transfer_service_tests_8cs">SftpFileTransferServiceTests.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,510 @@
+\doxysection{Toolbox.\+Core.\+Options Namespace Reference}
+\hypertarget{namespace_toolbox_1_1_core_1_1_options}{}\label{namespace_toolbox_1_1_core_1_1_options}\index{Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{Api\+Options}}
+\begin{DoxyCompactList}\small\item\em Configuration options for the HTTP API service. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_request}{Api\+Request}}
+\begin{DoxyCompactList}\small\item\em Represents an HTTP API request. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}}
+\begin{DoxyCompactList}\small\item\em Represents an HTTP API response. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options}{Base64\+Cryptography\+Options}}
+\begin{DoxyCompactList}\small\item\em Configuration options for the Base64 cryptography service. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_attachment}{Email\+Attachment}}
+\begin{DoxyCompactList}\small\item\em Represents an email attachment. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{Email\+Message}}
+\begin{DoxyCompactList}\small\item\em Represents an email message to be sent. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options}{File\+Transfer\+Options}}
+\begin{DoxyCompactList}\small\item\em Configuration options for file transfer services. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{Mailing\+Options}}
+\begin{DoxyCompactList}\small\item\em Configuration options for the SMTP mailing service. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair}{Rsa\+Key\+Pair}}
+\begin{DoxyCompactList}\small\item\em Represents an RSA key pair containing public and optionally private key data. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options}{Toolbox\+Options}}
+\begin{DoxyCompactList}\small\item\em Configuration options for \doxylink{namespace_toolbox}{Toolbox} core services. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options}{Toolbox\+Telemetry\+Options}}
+\begin{DoxyCompactList}\small\item\em Configuration options for Open\+Telemetry integration in \doxylink{namespace_toolbox}{Toolbox}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{Aes\+Key\+Size}} \{ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94}{Aes128}} = 128
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495}{Aes192}} = 192
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14}{Aes256}} = 256
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the AES key size in bits. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{Api\+Authentication\+Mode}} \{ \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0}{Anonymous}} = 0
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30}{Bearer\+Token}} = 1
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94}{Basic}} = 2
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac}{Api\+Key}} = 3
+, \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6}{Certificate}} = 4
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1}{OAuth2\+Client\+Credentials}} = 5
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the authentication mode for API requests. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30}{Api\+Key\+Location}} \{ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7}{Header}} = 0
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477}{Query\+String}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies where to send the API key. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64\+Encoding\+Table}} \{ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b}{Standard}} = 0
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8}{Url\+Safe}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the Base64 encoding table to use. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778}{Email\+Priority}} \{ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef}{Low}} = 0
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0}{Normal}} = 1
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35}{High}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the priority of an email message. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{File\+Transfer\+Protocol}} \{ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb}{Ftp}}
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f}{Ftps}}
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484}{Sftp}}
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the file transfer protocol to use. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{Rsa\+Key\+Size}} \{ \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21}{Rsa512}} = 512
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395}{Rsa1024}} = 1024
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a}{Rsa2048}} = 2048
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433}{Rsa4096}} = 4096
+, \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3}{Rsa8192}} = 8192
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d}{Rsa16384}} = 16384
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the RSA key size in bits. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{Rsa\+Padding\+Mode}} \{ \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387}{Pkcs1}}
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003}{Oaep\+Sha1}}
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c}{Oaep\+Sha256}}
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe}{Oaep\+Sha384}}
+, \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3}{Oaep\+Sha512}}
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the RSA encryption padding mode. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{Smtp\+Security\+Mode}} \{ \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb}{Auto}} = 0
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754}{None}} = 1
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1}{Start\+Tls}} = 2
+, \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377}{Start\+Tls\+When\+Available}} = 3
+, \newline
+\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1}{Ssl\+On\+Connect}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies the security mode for SMTP connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}} (string Address, string? Display\+Name=null)
+\begin{DoxyCompactList}\small\item\em Represents an email address with an optional display name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!AesKeySize@{AesKeySize}}
+\index{AesKeySize@{AesKeySize}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{AesKeySize}{AesKeySize}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3bea}{Toolbox.\+Core.\+Options.\+Aes\+Key\+Size}}}
+
+
+
+Specifies the AES key size in bits. 
+
+Larger key sizes provide stronger encryption but may have slightly higher performance overhead. AES-\/256 is recommended for most security-\/sensitive applications. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Aes128@{Aes128}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Aes128@{Aes128}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94}\label{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94} 
+Aes128&128-\/bit key (16 bytes). Provides good security and is the fastest option. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Aes192@{Aes192}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Aes192@{Aes192}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495}\label{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495} 
+Aes192&192-\/bit key (24 bytes). Provides stronger security than 128-\/bit. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Aes256@{Aes256}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Aes256@{Aes256}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14}\label{namespace_toolbox_1_1_core_1_1_options_a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14} 
+Aes256&256-\/bit key (32 bytes). Provides the strongest security. Recommended for highly sensitive data. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_aes_key_size_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_aes_key_size_8cs_source}{Aes\+Key\+Size.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!ApiAuthenticationMode@{ApiAuthenticationMode}}
+\index{ApiAuthenticationMode@{ApiAuthenticationMode}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{ApiAuthenticationMode}{ApiAuthenticationMode}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249}{Toolbox.\+Core.\+Options.\+Api\+Authentication\+Mode}}}
+
+
+
+Specifies the authentication mode for API requests. 
+
+Choose the appropriate authentication mode based on the API requirements. Each mode requires specific configuration in \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_options}{Api\+Options}. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Anonymous@{Anonymous}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Anonymous@{Anonymous}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0}\label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0} 
+Anonymous&No authentication required. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BearerToken@{BearerToken}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!BearerToken@{BearerToken}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30}\label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30} 
+Bearer\+Token&Bearer token authentication. Uses the Authorization header with "{}\+Bearer \{token\}"{} format. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Basic@{Basic}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Basic@{Basic}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94}\label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94} 
+Basic&Basic authentication with username and password. Uses the Authorization header with Base64-\/encoded credentials. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ApiKey@{ApiKey}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!ApiKey@{ApiKey}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac}\label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac} 
+Api\+Key&API key authentication. Can be sent as a header or query parameter. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Certificate@{Certificate}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Certificate@{Certificate}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6}\label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6} 
+Certificate&Client certificate authentication. Uses X.\+509 certificate for mutual TLS (m\+TLS). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OAuth2ClientCredentials@{OAuth2ClientCredentials}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!OAuth2ClientCredentials@{OAuth2ClientCredentials}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1}\label{namespace_toolbox_1_1_core_1_1_options_ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1} 
+OAuth2\+Client\+Credentials&OAuth2 client credentials flow. Automatically obtains and refreshes access tokens. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_api_authentication_mode_8cs_source_l00017}{17}} of file \doxymbox{\hyperlink{_api_authentication_mode_8cs_source}{Api\+Authentication\+Mode.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!ApiKeyLocation@{ApiKeyLocation}}
+\index{ApiKeyLocation@{ApiKeyLocation}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{ApiKeyLocation}{ApiKeyLocation}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30}{Toolbox.\+Core.\+Options.\+Api\+Key\+Location}}}
+
+
+
+Specifies where to send the API key. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Header@{Header}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Header@{Header}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7}\label{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7} 
+Header&Send API key in a header. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QueryString@{QueryString}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!QueryString@{QueryString}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477}\label{namespace_toolbox_1_1_core_1_1_options_a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477} 
+Query\+String&Send API key as a query parameter. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_api_authentication_mode_8cs_source_l00058}{58}} of file \doxymbox{\hyperlink{_api_authentication_mode_8cs_source}{Api\+Authentication\+Mode.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Base64EncodingTable@{Base64EncodingTable}}
+\index{Base64EncodingTable@{Base64EncodingTable}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{Base64EncodingTable}{Base64EncodingTable}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Toolbox.\+Core.\+Options.\+Base64\+Encoding\+Table}}}
+
+
+
+Specifies the Base64 encoding table to use. 
+
+Different encoding tables are suitable for different use cases. The URL-\/safe variant is recommended for use in URLs and filenames. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Standard@{Standard}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Standard@{Standard}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b}\label{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b} 
+Standard&Standard Base64 alphabet as defined in RFC 4648. Uses \textquotesingle{}+\textquotesingle{} and \textquotesingle{}/\+\textquotesingle{} characters, with \textquotesingle{}=\textquotesingle{} padding. Alphabet:\+ A-\/Z, a-\/z, 0-\/9, +, /\+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UrlSafe@{UrlSafe}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!UrlSafe@{UrlSafe}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8}\label{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8} 
+Url\+Safe&URL and filename safe Base64 alphabet as defined in RFC 4648 Section 5. Uses \textquotesingle{}-\/\textquotesingle{} and \textquotesingle{}\+\_\+\textquotesingle{} characters instead of \textquotesingle{}+\textquotesingle{} and \textquotesingle{}/\+\textquotesingle{}. Alphabet:\+ A-\/Z, a-\/z, 0-\/9, -\/, \+\_\+ This variant is safe for use in URLs and filenames. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_base64_encoding_table_8cs_source_l00015}{15}} of file \doxymbox{\hyperlink{_base64_encoding_table_8cs_source}{Base64\+Encoding\+Table.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!EmailPriority@{EmailPriority}}
+\index{EmailPriority@{EmailPriority}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{EmailPriority}{EmailPriority}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778}{Toolbox.\+Core.\+Options.\+Email\+Priority}}}
+
+
+
+Specifies the priority of an email message. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Low@{Low}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Low@{Low}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef}\label{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef} 
+Low&Low priority. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Normal@{Normal}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Normal@{Normal}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0}\label{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0} 
+Normal&Normal priority (default). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{High@{High}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!High@{High}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35}\label{namespace_toolbox_1_1_core_1_1_options_ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35} 
+High&High priority. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_email_message_8cs_source_l00140}{140}} of file \doxymbox{\hyperlink{_email_message_8cs_source}{Email\+Message.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!FileTransferProtocol@{FileTransferProtocol}}
+\index{FileTransferProtocol@{FileTransferProtocol}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{FileTransferProtocol}{FileTransferProtocol}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086c}{Toolbox.\+Core.\+Options.\+File\+Transfer\+Protocol}}}
+
+
+
+Specifies the file transfer protocol to use. 
+
+SFTP provides encrypted transfers and is recommended for sensitive data. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ftp@{Ftp}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Ftp@{Ftp}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb}\label{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb} 
+Ftp&File Transfer Protocol (unencrypted). {\bfseries{Warning:\+}} FTP transfers data in plain text. Use FTPS or SFTP for sensitive data. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ftps@{Ftps}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Ftps@{Ftps}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f}\label{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f} 
+Ftps&FTP over TLS/\+\+SSL (encrypted). Provides encryption for FTP connections using TLS/\+\+SSL. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Sftp@{Sftp}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Sftp@{Sftp}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484}\label{namespace_toolbox_1_1_core_1_1_options_aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484} 
+Sftp&SSH File Transfer Protocol (encrypted). Provides secure file transfer over SSH. Recommended for sensitive data. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_file_transfer_protocol_8cs_source_l00014}{14}} of file \doxymbox{\hyperlink{_file_transfer_protocol_8cs_source}{File\+Transfer\+Protocol.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!RsaKeySize@{RsaKeySize}}
+\index{RsaKeySize@{RsaKeySize}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{RsaKeySize}{RsaKeySize}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917c}{Toolbox.\+Core.\+Options.\+Rsa\+Key\+Size}}}
+
+
+
+Specifies the RSA key size in bits. 
+
+Larger key sizes provide stronger security but have significantly higher performance overhead. 
+
+RSA-\/2048 is the minimum recommended for production use. RSA-\/4096 is recommended for highly sensitive data. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rsa512@{Rsa512}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Rsa512@{Rsa512}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21}\label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21} 
+Rsa512&512-\/bit key. {\bfseries{Warning:\+}} This key size is considered insecure and should only be used for testing. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rsa1024@{Rsa1024}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Rsa1024@{Rsa1024}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395}\label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395} 
+Rsa1024&1024-\/bit key. {\bfseries{Warning:\+}} This key size is considered weak and not recommended for production use. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rsa2048@{Rsa2048}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Rsa2048@{Rsa2048}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a}\label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a} 
+Rsa2048&2048-\/bit key. Minimum recommended key size for production use. Provides good balance between security and performance. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rsa4096@{Rsa4096}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Rsa4096@{Rsa4096}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433}\label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433} 
+Rsa4096&4096-\/bit key. Recommended for highly sensitive data. Provides stronger security with moderate performance impact. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rsa8192@{Rsa8192}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Rsa8192@{Rsa8192}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3}\label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3} 
+Rsa8192&8192-\/bit key. Very strong security with significant performance impact. Use only when maximum security is required. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rsa16384@{Rsa16384}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Rsa16384@{Rsa16384}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d}\label{namespace_toolbox_1_1_core_1_1_options_a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d} 
+Rsa16384&16384-\/bit key. Maximum security with very high performance impact. Key generation and operations can be very slow. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_key_size_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_rsa_key_size_8cs_source}{Rsa\+Key\+Size.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!RsaPaddingMode@{RsaPaddingMode}}
+\index{RsaPaddingMode@{RsaPaddingMode}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{RsaPaddingMode}{RsaPaddingMode}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448}{Toolbox.\+Core.\+Options.\+Rsa\+Padding\+Mode}}}
+
+
+
+Specifies the RSA encryption padding mode. 
+
+The padding mode affects both security and compatibility. OAEP (Optimal Asymmetric Encryption Padding) is more secure than PKCS\#1 v1.\+5. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pkcs1@{Pkcs1}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Pkcs1@{Pkcs1}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387}\label{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387} 
+Pkcs1&PKCS\#1 v1.\+5 padding. Legacy padding mode. Compatible with older systems but vulnerable to certain attacks. Not recommended for new applications. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OaepSha1@{OaepSha1}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!OaepSha1@{OaepSha1}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003}\label{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003} 
+Oaep\+Sha1&OAEP with SHA-\/1 hash. More secure than PKCS\#1 v1.\+5. SHA-\/1 is considered weak; prefer SHA-\/256 or SHA-\/384 for new applications. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OaepSha256@{OaepSha256}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!OaepSha256@{OaepSha256}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c}\label{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c} 
+Oaep\+Sha256&OAEP with SHA-\/256 hash. Recommended padding mode for most applications. Provides good security with reasonable performance. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OaepSha384@{OaepSha384}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!OaepSha384@{OaepSha384}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe}\label{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe} 
+Oaep\+Sha384&OAEP with SHA-\/384 hash. Stronger than SHA-\/256 with slightly higher overhead. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OaepSha512@{OaepSha512}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!OaepSha512@{OaepSha512}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3}\label{namespace_toolbox_1_1_core_1_1_options_a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3} 
+Oaep\+Sha512&OAEP with SHA-\/512 hash. Strongest OAEP variant. Recommended for highly sensitive data. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_rsa_padding_mode_8cs_source_l00017}{17}} of file \doxymbox{\hyperlink{_rsa_padding_mode_8cs_source}{Rsa\+Padding\+Mode.\+cs}}.
+
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!SmtpSecurityMode@{SmtpSecurityMode}}
+\index{SmtpSecurityMode@{SmtpSecurityMode}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{SmtpSecurityMode}{SmtpSecurityMode}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453} 
+enum \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453}{Toolbox.\+Core.\+Options.\+Smtp\+Security\+Mode}}}
+
+
+
+Specifies the security mode for SMTP connections. 
+
+Choose the appropriate mode based on your SMTP server\textquotesingle{}s requirements. When in doubt, use Auto for automatic negotiation. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Auto@{Auto}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!Auto@{Auto}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb}\label{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb} 
+Auto&Automatically determine the best security mode. Will attempt STARTTLS if available, otherwise use implicit SSL/\+\+TLS. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!None@{None}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754}\label{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754} 
+None&No encryption (not recommended for production). Use only for local development or internal networks. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StartTls@{StartTls}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!StartTls@{StartTls}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1}\label{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1} 
+Start\+Tls&Use STARTTLS to upgrade an unencrypted connection. Standard for port 587. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StartTlsWhenAvailable@{StartTlsWhenAvailable}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!StartTlsWhenAvailable@{StartTlsWhenAvailable}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377}\label{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377} 
+Start\+Tls\+When\+Available&Use STARTTLS if available, otherwise continue unencrypted. Less secure than Start\+Tls but more compatible. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SslOnConnect@{SslOnConnect}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\index{Toolbox.Core.Options@{Toolbox.Core.Options}!SslOnConnect@{SslOnConnect}}
+}\Hypertarget{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1}\label{namespace_toolbox_1_1_core_1_1_options_a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1} 
+Ssl\+On\+Connect&Use implicit SSL/\+\+TLS from the start. Standard for port 465. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_security_mode_8cs_source_l00017}{17}} of file \doxymbox{\hyperlink{_smtp_security_mode_8cs_source}{Smtp\+Security\+Mode.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}\index{Toolbox.Core.Options@{Toolbox.Core.Options}!EmailAddress@{EmailAddress}}
+\index{EmailAddress@{EmailAddress}!Toolbox.Core.Options@{Toolbox.Core.Options}}
+\doxysubsubsection{\texorpdfstring{EmailAddress()}{EmailAddress()}}
+{\footnotesize\ttfamily \label{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3} 
+record Toolbox.\+Core.\+Options.\+Email\+Address (\begin{DoxyParamCaption}\item[{string}]{Address}{, }\item[{string?}]{Display\+Name}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [sealed]}}
+
+
+
+Represents an email address with an optional display name. 
+
+This is an immutable record type that combines an email address with an optional human-\/readable display name. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ With\ display\ name}}
+\DoxyCodeLine{var\ sender\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}john.doe@example.com"{}},\ \textcolor{stringliteral}{"{}John\ Doe"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Without\ display\ name}}
+\DoxyCodeLine{var\ recipient\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}jane@example.com"{}});}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Address} & The email address (e.\+g., "{}user@example.\+com"{}).\\
+\hline
+{\em Display\+Name} & The optional display name (e.\+g., "{}\+John Doe"{}).\\
+\hline
+\end{DoxyParams}
+Gets the email address.
+
+The email address string.
+
+Implicitly converts a string to an \doxylink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The email address string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{Email\+Address} with no display name.
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_email_address_8cs_source_l00028}{28}} of file \doxymbox{\hyperlink{_email_address_8cs_source}{Email\+Address.\+cs}}.
+

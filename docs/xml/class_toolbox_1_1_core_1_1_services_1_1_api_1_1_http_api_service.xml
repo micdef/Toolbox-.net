@@ -1,0 +1,1040 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Services::Api::HttpApiService</compoundname>
+    <basecompoundref refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Base.BaseAsyncDisposableService</basecompoundref>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.Services.IApiService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a844eba031a802a68ded87c5da7d83639" prot="private" static="no" mutable="no">
+        <type>readonly HttpClient</type>
+        <definition>readonly HttpClient Toolbox.Core.Services.Api.HttpApiService._httpClient</definition>
+        <argsstring></argsstring>
+        <name>_httpClient</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._httpClient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="37" column="33" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a53f2b38f663e797682a7c5315fc12e00" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref></type>
+        <definition>readonly ApiOptions Toolbox.Core.Services.Api.HttpApiService._options</definition>
+        <argsstring></argsstring>
+        <name>_options</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._options</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="40" column="33" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ae2fd13876ed10a5869d7a0a50b080680" prot="private" static="no" mutable="no">
+        <type>readonly ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a13db9bf8c57aa5cdb1fdc5454edc34c8" kindref="member">HttpApiService</ref> &gt;</type>
+        <definition>readonly ILogger&lt;HttpApiService&gt; Toolbox.Core.Services.Api.HttpApiService._logger</definition>
+        <argsstring></argsstring>
+        <name>_logger</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._logger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="43" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a857a7541a21deb032195d7e7c24db90d" prot="private" static="no" mutable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Services.Api.HttpApiService._oauth2Token</definition>
+        <argsstring></argsstring>
+        <name>_oauth2Token</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._oauth2Token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="46" column="20" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac0139976f1d0d6d5b1746a9702652f2c" prot="private" static="no" mutable="no">
+        <type>DateTime</type>
+        <definition>DateTime Toolbox.Core.Services.Api.HttpApiService._oauth2TokenExpiry</definition>
+        <argsstring></argsstring>
+        <name>_oauth2TokenExpiry</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._oauth2TokenExpiry</qualifiedname>
+        <initializer>= DateTime.MinValue</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="47" column="22" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a8706f22b5d98ebcabd2ebbf3eafb4050" prot="private" static="no" mutable="no">
+        <type>readonly SemaphoreSlim</type>
+        <definition>readonly SemaphoreSlim Toolbox.Core.Services.Api.HttpApiService._oauth2Lock</definition>
+        <argsstring></argsstring>
+        <name>_oauth2Lock</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._oauth2Lock</qualifiedname>
+        <initializer>= new(1, 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="48" column="36" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a69ad5cd19f3dc75ce9b978f58119ee90" prot="private" static="no" mutable="no">
+        <type>readonly bool</type>
+        <definition>readonly bool Toolbox.Core.Services.Api.HttpApiService._ownsHttpClient</definition>
+        <argsstring></argsstring>
+        <name>_ownsHttpClient</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService._ownsHttpClient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="51" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a13db9bf8c57aa5cdb1fdc5454edc34c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Core.Services.Api.HttpApiService.HttpApiService</definition>
+        <argsstring>(IOptions&lt; ApiOptions &gt; options, ILogger&lt; HttpApiService &gt; logger)</argsstring>
+        <name>HttpApiService</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.HttpApiService</qualifiedname>
+        <param>
+          <type>IOptions&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref> &gt;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>ILogger&lt; HttpApiService &gt;</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" kindref="compound">HttpApiService</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The API service options.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The logger instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when options or logger is null.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="59" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="59" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a2e0327bd457d140986ae3b5dcae62c49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Core.Services.Api.HttpApiService.HttpApiService</definition>
+        <argsstring>(HttpClient httpClient, IOptions&lt; ApiOptions &gt; options, ILogger&lt; HttpApiService &gt; logger)</argsstring>
+        <name>HttpApiService</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.HttpApiService</qualifiedname>
+        <param>
+          <type>HttpClient</type>
+          <declname>httpClient</declname>
+        </param>
+        <param>
+          <type>IOptions&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref> &gt;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>ILogger&lt; HttpApiService &gt;</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" kindref="compound">HttpApiService</ref> class with a provided HttpClient. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>httpClient</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HttpClient to use.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The API service options.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The logger instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when parameters are null.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="86" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="86" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a5b6a7d2f7dffc37af3a16a464f1ba9cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Core.Services.Api.HttpApiService.HttpApiService</definition>
+        <argsstring>(ApiOptions options, ILogger&lt; HttpApiService &gt; logger)</argsstring>
+        <name>HttpApiService</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.HttpApiService</qualifiedname>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_options" kindref="compound">ApiOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>ILogger&lt; HttpApiService &gt;</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" kindref="compound">HttpApiService</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The API service options.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The logger instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="109" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="109" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac500eb0b849bbdc483def95d72074bb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref></type>
+        <definition>ApiResponse Toolbox.Core.Services.Api.HttpApiService.Send</definition>
+        <argsstring>(ApiRequest request)</argsstring>
+        <name>Send</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.Send</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a8e1e539d9367084d49f092a7fd28f0f7">Send</reimplements>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para><para>Sends an HTTP request synchronously.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The API response.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>request<sp/>=<sp/>ApiRequest.Get(</highlight><highlight class="stringliteral">&quot;/users/123&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>response<sp/>=<sp/>apiService.Send(request);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(response.IsSuccess)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>user<sp/>=<sp/>response.Deserialize&lt;User&gt;();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="117" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1aaed64c4d21394332ab877cec4b5a3c8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref> &gt;</type>
+        <definition>async Task&lt; ApiResponse &gt; Toolbox.Core.Services.Api.HttpApiService.SendAsync</definition>
+        <argsstring>(ApiRequest request, CancellationToken cancellationToken=default)</argsstring>
+        <name>SendAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.SendAsync</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a0accf629ae4c199538748481fe5878a2">SendAsync</reimplements>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para><para>Sends an HTTP request asynchronously.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the API response.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OperationCanceledException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the operation is cancelled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>request<sp/>=<sp/>ApiRequest.Post(</highlight><highlight class="stringliteral">&quot;/users&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>{<sp/>Name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;John&quot;</highlight><highlight class="normal"><sp/>});</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>response<sp/>=<sp/>await<sp/>apiService.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">response.EnsureSuccess();</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>createdUser<sp/>=<sp/>response.Deserialize&lt;User&gt;();</highlight></codeline>
+</programlisting> </para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="123" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="123" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a12ae6cb6399a2ce3c8552aec716bace4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T?</type>
+        <definition>T? Toolbox.Core.Services.Api.HttpApiService.Send&lt; T &gt;</definition>
+        <argsstring>(ApiRequest request)</argsstring>
+        <name>Send&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.Send&lt; T &gt;</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a27ea4b9ea559b9e6c686d53a690f0f5b">Send&lt; T &gt;</reimplements>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para><para>Sends an HTTP request and deserializes the response.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The deserialized response body.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails or returns an error status.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>users<sp/>=<sp/>apiService.Send&lt;List&lt;User&gt;&gt;(ApiRequest.Get(</highlight><highlight class="stringliteral">&quot;/users&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting> </para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="207" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="207" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a44f935aae5324b5f2d40dc6f786eda13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; T?&gt;</type>
+        <definition>async Task&lt; T?&gt; Toolbox.Core.Services.Api.HttpApiService.SendAsync&lt; T &gt;</definition>
+        <argsstring>(ApiRequest request, CancellationToken cancellationToken=default)</argsstring>
+        <name>SendAsync&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.SendAsync&lt; T &gt;</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1aa115f05961994226ad5f2ffce5cb974d">SendAsync&lt; T &gt;</reimplements>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para><para>Sends an HTTP request and deserializes the response asynchronously.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the deserialized response body.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails or returns an error status.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OperationCanceledException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the operation is cancelled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>user<sp/>=<sp/>await<sp/>apiService.SendAsync&lt;User&gt;(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ApiRequest.Get(</highlight><highlight class="stringliteral">&quot;/users/123&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cancellationToken);</highlight></codeline>
+</programlisting> </para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="215" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="215" bodyend="220"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1af03a98fbca48075dfa8bd52e85a5936c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override ValueTask</type>
+        <definition>override ValueTask Toolbox.Core.Services.Api.HttpApiService.DisposeAsyncCore</definition>
+        <argsstring>(CancellationToken cancellationToken)</argsstring>
+        <name>DisposeAsyncCore</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.DisposeAsyncCore</qualifiedname>
+        <reimplements refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">DisposeAsyncCore</reimplements>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para><para>Performs application-defined async cleanup operations.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A ValueTask representing the asynchronous operation.</para>
+</simplesect>
+</para>
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="223" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="223" bodyend="232"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a039e73594dd884c1d3560983a9b98f69" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>HttpClient</type>
+        <definition>HttpClient Toolbox.Core.Services.Api.HttpApiService.CreateHttpClient</definition>
+        <argsstring>()</argsstring>
+        <name>CreateHttpClient</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.CreateHttpClient</qualifiedname>
+        <briefdescription>
+<para>Creates and configures the HttpClient. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The configured HttpClient.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="238" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="238" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a517169d8829abcaac11580da1ce08bab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Services.Api.HttpApiService.ConfigureHttpClient</definition>
+        <argsstring>(HttpClient client)</argsstring>
+        <name>ConfigureHttpClient</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.ConfigureHttpClient</qualifiedname>
+        <param>
+          <type>HttpClient</type>
+          <declname>client</declname>
+        </param>
+        <briefdescription>
+<para>Configures the HttpClient with base settings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>client</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HttpClient to configure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="276" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="276" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a43449abefc5d5368231b2ee0eec86c52" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>X509Certificate2?</type>
+        <definition>X509Certificate2? Toolbox.Core.Services.Api.HttpApiService.GetClientCertificate</definition>
+        <argsstring>()</argsstring>
+        <name>GetClientCertificate</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.GetClientCertificate</qualifiedname>
+        <briefdescription>
+<para>Gets the client certificate for authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The X.509 certificate, or null if not configured.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="301" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="301" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac2f23b9e21279a214e03c1f3347f32db" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; HttpRequestMessage &gt;</type>
+        <definition>async Task&lt; HttpRequestMessage &gt; Toolbox.Core.Services.Api.HttpApiService.BuildHttpRequestAsync</definition>
+        <argsstring>(ApiRequest request, CancellationToken cancellationToken)</argsstring>
+        <name>BuildHttpRequestAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.BuildHttpRequestAsync</qualifiedname>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para>Builds an HttpRequestMessage from an <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The API request.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The HTTP request message.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="325" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="325" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1acd8074527e37b8a4303a03b145373a39" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Core.Services.Api.HttpApiService.AddAuthenticationAsync</definition>
+        <argsstring>(HttpRequestMessage request, CancellationToken cancellationToken)</argsstring>
+        <name>AddAuthenticationAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.AddAuthenticationAsync</qualifiedname>
+        <param>
+          <type>HttpRequestMessage</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para>Adds authentication to the HTTP request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HTTP request.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="362" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="362" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a808a92f1404832e4e6b070af3477ea2d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string?&gt;</type>
+        <definition>async Task&lt; string?&gt; Toolbox.Core.Services.Api.HttpApiService.GetOAuth2TokenAsync</definition>
+        <argsstring>(CancellationToken cancellationToken)</argsstring>
+        <name>GetOAuth2TokenAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.GetOAuth2TokenAsync</qualifiedname>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para>Gets an OAuth2 access token using client credentials flow. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The access token.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="413" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="413" bodyend="480"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a15b25bf573219b86afa5ae461d58be5a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Core.Services.Api.HttpApiService.RecordApiRequest</definition>
+        <argsstring>(ApiRequest request, ApiResponse response)</argsstring>
+        <name>RecordApiRequest</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.RecordApiRequest</qualifiedname>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref></type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+<para>Records API request metrics. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="525" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="525" bodyend="532"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a05ff7b086f09914e4a353d495bed20dc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref> &gt;</type>
+        <definition>static async Task&lt; ApiResponse &gt; Toolbox.Core.Services.Api.HttpApiService.BuildApiResponseAsync</definition>
+        <argsstring>(HttpResponseMessage response, TimeSpan duration, CancellationToken cancellationToken)</argsstring>
+        <name>BuildApiResponseAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Api.HttpApiService.BuildApiResponseAsync</qualifiedname>
+        <param>
+          <type>HttpResponseMessage</type>
+          <declname>response</declname>
+        </param>
+        <param>
+          <type>TimeSpan</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para>Builds an <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref> from an HttpResponseMessage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The HTTP response.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request duration.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cancellation token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The API response.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="489" column="31" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="489" bodyend="518"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>HTTP API service implementation using HttpClient. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This service provides HTTP request capabilities with support for: </para>
+<para><itemizedlist>
+<listitem>
+<para>All HTTP verbs </para>
+</listitem>
+<listitem>
+<para>Multiple authentication modes </para>
+</listitem>
+<listitem>
+<para>Automatic retry with exponential backoff </para>
+</listitem>
+<listitem>
+<para>Request/response logging and telemetry </para>
+</listitem>
+</itemizedlist>
+</para>
+<para><simplesect kind="see"><para><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service" kindref="compound">IApiService</ref></para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Services.Api.HttpApiService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="9">
+        <label>Toolbox.Core.Abstractions.Services.IApiService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Base.BaseAsyncDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Base.BaseDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Services.Api.HttpApiService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="9">
+        <label>Toolbox.Core.Abstractions.Services.IApiService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Base.BaseAsyncDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Base.BaseDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" line="34" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/HttpApiService.cs" bodystart="35" bodyend="533"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a844eba031a802a68ded87c5da7d83639" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_httpClient</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ae2fd13876ed10a5869d7a0a50b080680" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_logger</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a8706f22b5d98ebcabd2ebbf3eafb4050" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_oauth2Lock</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a857a7541a21deb032195d7e7c24db90d" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_oauth2Token</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac0139976f1d0d6d5b1746a9702652f2c" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_oauth2TokenExpiry</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a53f2b38f663e797682a7c5315fc12e00" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_options</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a69ad5cd19f3dc75ce9b978f58119ee90" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>_ownsHttpClient</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>ActivitySource</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1acd8074527e37b8a4303a03b145373a39" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>AddAuthenticationAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>BaseAsyncDisposableService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>BaseDisposableService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a05ff7b086f09914e4a353d495bed20dc" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>BuildApiResponseAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac2f23b9e21279a214e03c1f3347f32db" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>BuildHttpRequestAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a517169d8829abcaac11580da1ce08bab" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>ConfigureHttpClient</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a039e73594dd884c1d3560983a9b98f69" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>CreateHttpClient</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f" prot="protected" virt="virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>Dispose</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89" prot="public" virt="non-virtual" ambiguityscope="Toolbox::Core::Base::BaseDisposableService."><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>Dispose</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>DisposeAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>DisposeAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1af03a98fbca48075dfa8bd52e85a5936c" prot="protected" virt="virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>DisposeAsyncCore</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a43449abefc5d5368231b2ee0eec86c52" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>GetClientCertificate</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a808a92f1404832e4e6b070af3477ea2d" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>GetOAuth2TokenAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a13db9bf8c57aa5cdb1fdc5454edc34c8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>HttpApiService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a2e0327bd457d140986ae3b5dcae62c49" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>HttpApiService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a5b6a7d2f7dffc37af3a16a464f1ba9cf" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>HttpApiService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>IsDisposed</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>Meter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a15b25bf573219b86afa5ae461d58be5a" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>RecordApiRequest</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>RecordOperation</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac500eb0b849bbdc483def95d72074bb0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>Send</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a12ae6cb6399a2ce3c8552aec716bace4" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>Send&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1aaed64c4d21394332ab877cec4b5a3c8f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>SendAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a44f935aae5324b5f2d40dc6f786eda13" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>SendAsync&lt; T &gt;</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>ServiceName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>StartActivity</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Api::HttpApiService</scope><name>ThrowIfDisposed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

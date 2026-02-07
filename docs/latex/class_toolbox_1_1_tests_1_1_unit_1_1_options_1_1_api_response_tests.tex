@@ -1,0 +1,243 @@
+\doxysection{Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests Class Reference}
+\hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests}{}\label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+
+
+\doxylink{namespace_toolbox_1_1_tests_1_1_unit}{Unit} tests for \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a547124024229380f0317874692fb4b97}{Is\+Success\+\_\+\+Should\+Return\+Correct\+Value}} (Http\+Status\+Code status\+Code, bool expected)
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a4d15e78989ecc99ce7f03c4209e86af3}{Is\+Client\+Error\+\_\+\+Should\+Return\+Correct\+Value}} (Http\+Status\+Code status\+Code, bool expected)
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a70153e9da4797d03f41e96eb0454aa2e}{Is\+Server\+Error\+\_\+\+Should\+Return\+Correct\+Value}} (Http\+Status\+Code status\+Code, bool expected)
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a41688f44ee35469617ab0b84c4d67d5f}{Is\+Redirect\+\_\+\+Should\+Return\+Correct\+Value}} (Http\+Status\+Code status\+Code, bool expected)
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_aece8267cf3a0c16cd5f2546f567c5048}{Status\+Code\+Value\+\_\+\+Should\+Return\+Numeric\+Value}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ad595676e5064524667d43f09981907e2}{Deserialize\+\_\+\+With\+Valid\+Json\+\_\+\+Should\+Return\+Object}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_af52c48d1914dbd9aab5ebf43e53afb7a}{Deserialize\+\_\+\+With\+Empty\+Body\+\_\+\+Should\+Return\+Default}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ab3c519a3564dae85a4119a3c8f493487}{Deserialize\+\_\+\+With\+Invalid\+Json\+\_\+\+Should\+Throw\+Json\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a6c9173ad522dd63de85d015882a1f574}{Try\+Deserialize\+\_\+\+With\+Valid\+Json\+\_\+\+Should\+Return\+True}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_aee798727f1d44580a456a229f7ee7fc0}{Try\+Deserialize\+\_\+\+With\+Invalid\+Json\+\_\+\+Should\+Return\+False}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a6fc7b50baa8689aa7b6221199c1725af}{Try\+Deserialize\+\_\+\+With\+Empty\+Body\+\_\+\+Should\+Return\+False}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a7fdd8bf3b736fca3d6265a290b97ec2c}{Get\+Header\+\_\+\+With\+Existing\+Header\+\_\+\+Should\+Return\+Value}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_abfecc9def6cdfed6952f710ad90de393}{Get\+Header\+\_\+\+With\+Non\+Existing\+Header\+\_\+\+Should\+Return\+Null}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ab109575af4ff3e1ff99b84f4b20688d0}{Get\+Headers\+\_\+\+With\+Multiple\+Values\+\_\+\+Should\+Return\+All}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a1d80bb7a674c4df1035e3ec51640b191}{Ensure\+Success\+\_\+\+With\+Success\+Status\+\_\+\+Should\+Not\+Throw}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a65cd9566d1d7503a3c7bb8a5c9e4ad96}{Ensure\+Success\+\_\+\+With\+Error\+Status\+\_\+\+Should\+Throw\+Http\+Request\+Exception}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a634fa4bf9aab980e9b2dc95135c13994}{Success\+\_\+\+Should\+Create\+Success\+Response}} ()
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a67099110421286bc1e16549ff6f627a7}{Error\+\_\+\+Should\+Create\+Error\+Response}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespace_toolbox_1_1_tests_1_1_unit}{Unit} tests for \doxylink{class_toolbox_1_1_core_1_1_options_1_1_api_response}{Api\+Response}. 
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00010}{10}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_af52c48d1914dbd9aab5ebf43e53afb7a}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!Deserialize\_WithEmptyBody\_ShouldReturnDefault@{Deserialize\_WithEmptyBody\_ShouldReturnDefault}}
+\index{Deserialize\_WithEmptyBody\_ShouldReturnDefault@{Deserialize\_WithEmptyBody\_ShouldReturnDefault}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{Deserialize\_WithEmptyBody\_ShouldReturnDefault()}{Deserialize\_WithEmptyBody\_ShouldReturnDefault()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_af52c48d1914dbd9aab5ebf43e53afb7a} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Deserialize\+\_\+\+With\+Empty\+Body\+\_\+\+Should\+Return\+Default (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00107}{107}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ab3c519a3564dae85a4119a3c8f493487}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!Deserialize\_WithInvalidJson\_ShouldThrowJsonException@{Deserialize\_WithInvalidJson\_ShouldThrowJsonException}}
+\index{Deserialize\_WithInvalidJson\_ShouldThrowJsonException@{Deserialize\_WithInvalidJson\_ShouldThrowJsonException}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{Deserialize\_WithInvalidJson\_ShouldThrowJsonException()}{Deserialize\_WithInvalidJson\_ShouldThrowJsonException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ab3c519a3564dae85a4119a3c8f493487} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Deserialize\+\_\+\+With\+Invalid\+Json\+\_\+\+Should\+Throw\+Json\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00124}{124}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ad595676e5064524667d43f09981907e2}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!Deserialize\_WithValidJson\_ShouldReturnObject@{Deserialize\_WithValidJson\_ShouldReturnObject}}
+\index{Deserialize\_WithValidJson\_ShouldReturnObject@{Deserialize\_WithValidJson\_ShouldReturnObject}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{Deserialize\_WithValidJson\_ShouldReturnObject()}{Deserialize\_WithValidJson\_ShouldReturnObject()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ad595676e5064524667d43f09981907e2} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Deserialize\+\_\+\+With\+Valid\+Json\+\_\+\+Should\+Return\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00088}{88}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a65cd9566d1d7503a3c7bb8a5c9e4ad96}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!EnsureSuccess\_WithErrorStatus\_ShouldThrowHttpRequestException@{EnsureSuccess\_WithErrorStatus\_ShouldThrowHttpRequestException}}
+\index{EnsureSuccess\_WithErrorStatus\_ShouldThrowHttpRequestException@{EnsureSuccess\_WithErrorStatus\_ShouldThrowHttpRequestException}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{EnsureSuccess\_WithErrorStatus\_ShouldThrowHttpRequestException()}{EnsureSuccess\_WithErrorStatus\_ShouldThrowHttpRequestException()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a65cd9566d1d7503a3c7bb8a5c9e4ad96} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Ensure\+Success\+\_\+\+With\+Error\+Status\+\_\+\+Should\+Throw\+Http\+Request\+Exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00274}{274}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a1d80bb7a674c4df1035e3ec51640b191}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!EnsureSuccess\_WithSuccessStatus\_ShouldNotThrow@{EnsureSuccess\_WithSuccessStatus\_ShouldNotThrow}}
+\index{EnsureSuccess\_WithSuccessStatus\_ShouldNotThrow@{EnsureSuccess\_WithSuccessStatus\_ShouldNotThrow}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{EnsureSuccess\_WithSuccessStatus\_ShouldNotThrow()}{EnsureSuccess\_WithSuccessStatus\_ShouldNotThrow()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a1d80bb7a674c4df1035e3ec51640b191} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Ensure\+Success\+\_\+\+With\+Success\+Status\+\_\+\+Should\+Not\+Throw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00261}{261}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a67099110421286bc1e16549ff6f627a7}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!Error\_ShouldCreateErrorResponse@{Error\_ShouldCreateErrorResponse}}
+\index{Error\_ShouldCreateErrorResponse@{Error\_ShouldCreateErrorResponse}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{Error\_ShouldCreateErrorResponse()}{Error\_ShouldCreateErrorResponse()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a67099110421286bc1e16549ff6f627a7} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Error\+\_\+\+Should\+Create\+Error\+Response (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00309}{309}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a7fdd8bf3b736fca3d6265a290b97ec2c}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!GetHeader\_WithExistingHeader\_ShouldReturnValue@{GetHeader\_WithExistingHeader\_ShouldReturnValue}}
+\index{GetHeader\_WithExistingHeader\_ShouldReturnValue@{GetHeader\_WithExistingHeader\_ShouldReturnValue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{GetHeader\_WithExistingHeader\_ShouldReturnValue()}{GetHeader\_WithExistingHeader\_ShouldReturnValue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a7fdd8bf3b736fca3d6265a290b97ec2c} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Get\+Header\+\_\+\+With\+Existing\+Header\+\_\+\+Should\+Return\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00198}{198}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_abfecc9def6cdfed6952f710ad90de393}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!GetHeader\_WithNonExistingHeader\_ShouldReturnNull@{GetHeader\_WithNonExistingHeader\_ShouldReturnNull}}
+\index{GetHeader\_WithNonExistingHeader\_ShouldReturnNull@{GetHeader\_WithNonExistingHeader\_ShouldReturnNull}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{GetHeader\_WithNonExistingHeader\_ShouldReturnNull()}{GetHeader\_WithNonExistingHeader\_ShouldReturnNull()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_abfecc9def6cdfed6952f710ad90de393} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Get\+Header\+\_\+\+With\+Non\+Existing\+Header\+\_\+\+Should\+Return\+Null (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00219}{219}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ab109575af4ff3e1ff99b84f4b20688d0}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!GetHeaders\_WithMultipleValues\_ShouldReturnAll@{GetHeaders\_WithMultipleValues\_ShouldReturnAll}}
+\index{GetHeaders\_WithMultipleValues\_ShouldReturnAll@{GetHeaders\_WithMultipleValues\_ShouldReturnAll}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{GetHeaders\_WithMultipleValues\_ShouldReturnAll()}{GetHeaders\_WithMultipleValues\_ShouldReturnAll()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_ab109575af4ff3e1ff99b84f4b20688d0} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Get\+Headers\+\_\+\+With\+Multiple\+Values\+\_\+\+Should\+Return\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00236}{236}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a4d15e78989ecc99ce7f03c4209e86af3}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!IsClientError\_ShouldReturnCorrectValue@{IsClientError\_ShouldReturnCorrectValue}}
+\index{IsClientError\_ShouldReturnCorrectValue@{IsClientError\_ShouldReturnCorrectValue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{IsClientError\_ShouldReturnCorrectValue()}{IsClientError\_ShouldReturnCorrectValue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a4d15e78989ecc99ce7f03c4209e86af3} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Is\+Client\+Error\+\_\+\+Should\+Return\+Correct\+Value (\begin{DoxyParamCaption}\item[{Http\+Status\+Code}]{status\+Code}{, }\item[{bool}]{expected}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00035}{35}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a41688f44ee35469617ab0b84c4d67d5f}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!IsRedirect\_ShouldReturnCorrectValue@{IsRedirect\_ShouldReturnCorrectValue}}
+\index{IsRedirect\_ShouldReturnCorrectValue@{IsRedirect\_ShouldReturnCorrectValue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{IsRedirect\_ShouldReturnCorrectValue()}{IsRedirect\_ShouldReturnCorrectValue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a41688f44ee35469617ab0b84c4d67d5f} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Is\+Redirect\+\_\+\+Should\+Return\+Correct\+Value (\begin{DoxyParamCaption}\item[{Http\+Status\+Code}]{status\+Code}{, }\item[{bool}]{expected}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00064}{64}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a70153e9da4797d03f41e96eb0454aa2e}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!IsServerError\_ShouldReturnCorrectValue@{IsServerError\_ShouldReturnCorrectValue}}
+\index{IsServerError\_ShouldReturnCorrectValue@{IsServerError\_ShouldReturnCorrectValue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{IsServerError\_ShouldReturnCorrectValue()}{IsServerError\_ShouldReturnCorrectValue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a70153e9da4797d03f41e96eb0454aa2e} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Is\+Server\+Error\+\_\+\+Should\+Return\+Correct\+Value (\begin{DoxyParamCaption}\item[{Http\+Status\+Code}]{status\+Code}{, }\item[{bool}]{expected}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00050}{50}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a547124024229380f0317874692fb4b97}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!IsSuccess\_ShouldReturnCorrectValue@{IsSuccess\_ShouldReturnCorrectValue}}
+\index{IsSuccess\_ShouldReturnCorrectValue@{IsSuccess\_ShouldReturnCorrectValue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{IsSuccess\_ShouldReturnCorrectValue()}{IsSuccess\_ShouldReturnCorrectValue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a547124024229380f0317874692fb4b97} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Is\+Success\+\_\+\+Should\+Return\+Correct\+Value (\begin{DoxyParamCaption}\item[{Http\+Status\+Code}]{status\+Code}{, }\item[{bool}]{expected}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00020}{20}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_aece8267cf3a0c16cd5f2546f567c5048}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!StatusCodeValue\_ShouldReturnNumericValue@{StatusCodeValue\_ShouldReturnNumericValue}}
+\index{StatusCodeValue\_ShouldReturnNumericValue@{StatusCodeValue\_ShouldReturnNumericValue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{StatusCodeValue\_ShouldReturnNumericValue()}{StatusCodeValue\_ShouldReturnNumericValue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_aece8267cf3a0c16cd5f2546f567c5048} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Status\+Code\+Value\+\_\+\+Should\+Return\+Numeric\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00074}{74}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a634fa4bf9aab980e9b2dc95135c13994}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!Success\_ShouldCreateSuccessResponse@{Success\_ShouldCreateSuccessResponse}}
+\index{Success\_ShouldCreateSuccessResponse@{Success\_ShouldCreateSuccessResponse}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{Success\_ShouldCreateSuccessResponse()}{Success\_ShouldCreateSuccessResponse()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a634fa4bf9aab980e9b2dc95135c13994} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Success\+\_\+\+Should\+Create\+Success\+Response (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00297}{297}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a6fc7b50baa8689aa7b6221199c1725af}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!TryDeserialize\_WithEmptyBody\_ShouldReturnFalse@{TryDeserialize\_WithEmptyBody\_ShouldReturnFalse}}
+\index{TryDeserialize\_WithEmptyBody\_ShouldReturnFalse@{TryDeserialize\_WithEmptyBody\_ShouldReturnFalse}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{TryDeserialize\_WithEmptyBody\_ShouldReturnFalse()}{TryDeserialize\_WithEmptyBody\_ShouldReturnFalse()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a6fc7b50baa8689aa7b6221199c1725af} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Try\+Deserialize\+\_\+\+With\+Empty\+Body\+\_\+\+Should\+Return\+False (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00177}{177}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_aee798727f1d44580a456a229f7ee7fc0}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!TryDeserialize\_WithInvalidJson\_ShouldReturnFalse@{TryDeserialize\_WithInvalidJson\_ShouldReturnFalse}}
+\index{TryDeserialize\_WithInvalidJson\_ShouldReturnFalse@{TryDeserialize\_WithInvalidJson\_ShouldReturnFalse}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{TryDeserialize\_WithInvalidJson\_ShouldReturnFalse()}{TryDeserialize\_WithInvalidJson\_ShouldReturnFalse()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_aee798727f1d44580a456a229f7ee7fc0} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Try\+Deserialize\+\_\+\+With\+Invalid\+Json\+\_\+\+Should\+Return\+False (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00159}{159}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a6c9173ad522dd63de85d015882a1f574}\index{Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}!TryDeserialize\_WithValidJson\_ShouldReturnTrue@{TryDeserialize\_WithValidJson\_ShouldReturnTrue}}
+\index{TryDeserialize\_WithValidJson\_ShouldReturnTrue@{TryDeserialize\_WithValidJson\_ShouldReturnTrue}!Toolbox.Tests.Unit.Options.ApiResponseTests@{Toolbox.Tests.Unit.Options.ApiResponseTests}}
+\doxysubsubsection{\texorpdfstring{TryDeserialize\_WithValidJson\_ShouldReturnTrue()}{TryDeserialize\_WithValidJson\_ShouldReturnTrue()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_a6c9173ad522dd63de85d015882a1f574} 
+void Toolbox.\+Tests.\+Unit.\+Options.\+Api\+Response\+Tests.\+Try\+Deserialize\+\_\+\+With\+Valid\+Json\+\_\+\+Should\+Return\+True (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{_api_response_tests_8cs_source_l00141}{141}} of file \doxymbox{\hyperlink{_api_response_tests_8cs_source}{Api\+Response\+Tests.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+tests/\+\+Toolbox.\+Tests/\+\+Unit/\+\+Options/\+\doxymbox{\hyperlink{_api_response_tests_8cs}{Api\+Response\+Tests.\+cs}}\end{DoxyCompactItemize}

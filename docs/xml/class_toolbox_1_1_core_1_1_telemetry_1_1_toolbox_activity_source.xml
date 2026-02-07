@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Telemetry::ToolboxActivitySource</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1af36a3afb77dcd3af66b14ed5148d4d80" prot="private" static="yes" mutable="no">
+        <type>readonly Lazy&lt; ActivitySource &gt;</type>
+        <definition>readonly Lazy&lt;ActivitySource&gt; Toolbox.Core.Telemetry.ToolboxActivitySource.LazySource</definition>
+        <argsstring></argsstring>
+        <name>LazySource</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxActivitySource.LazySource</qualifiedname>
+        <initializer>                                    = new(
+() =&gt; new ActivitySource(TelemetryConstants.ActivitySourceName, TelemetryConstants.Version),
+LazyThreadSafetyMode.ExecutionAndPublication)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" line="24" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a333329a176a93cf85e796d55d99a1a8e" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>ActivitySource</type>
+        <definition>ActivitySource Toolbox.Core.Telemetry.ToolboxActivitySource.Instance</definition>
+        <argsstring></argsstring>
+        <name>Instance</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxActivitySource.Instance</qualifiedname>
+        <briefdescription>
+<para>Gets the shared ActivitySource instance for <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The singleton activity source instance.</para>
+<para>This source should be added to OpenTelemetry configuration using: <programlisting filename=".cs"><codeline><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.AddSource(ToolboxActivitySource.Instance.Name);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" line="38" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a2f27724b194ab7009b9c1049dbb98910" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Telemetry.ToolboxActivitySource.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxActivitySource.Name</qualifiedname>
+        <briefdescription>
+<para>Gets the name of the activity source. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The activity source name as defined in TelemetryConstants.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" line="44" column="26" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a19b822b0b9008169f80c364c4fa02654" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Telemetry.ToolboxActivitySource.Version</definition>
+        <argsstring></argsstring>
+        <name>Version</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxActivitySource.Version</qualifiedname>
+        <briefdescription>
+<para>Gets the version of the activity source. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The telemetry version string.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" line="50" column="26" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a9107baf0c891ee724eaa5a364e04ad5d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>? Activity</type>
+        <definition>static ? Activity Toolbox.Core.Telemetry.ToolboxActivitySource.StartActivity</definition>
+        <argsstring>([CallerMemberName] string name=&quot;&quot;, ActivityKind kind=ActivityKind.Internal)</argsstring>
+        <name>StartActivity</name>
+        <qualifiedname>Toolbox.Core.Telemetry.ToolboxActivitySource.StartActivity</qualifiedname>
+        <param>
+          <attributes>[CallerMemberName]</attributes>
+          <type>string</type>
+          <declname>name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>ActivityKind</type>
+          <declname>kind</declname>
+          <defval>ActivityKind.Internal</defval>
+        </param>
+        <briefdescription>
+<para>Starts a new activity with the specified name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the activity (typically the operation name).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The kind of activity. Defaults to ActivityKind.Internal.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The started Activity if there is a listener; otherwise, <computeroutput>null</computeroutput>. </para>
+</simplesect>
+</para>
+<para>This is a convenience method that wraps ActivitySource.StartActivity(string, ActivityKind). The returned activity should be disposed when the operation completes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" line="64" column="28" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" bodystart="64" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Provides a shared ActivitySource for distributed tracing across <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class exposes a singleton ActivitySource that should be used by all <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services for creating trace spans. Using a shared source ensures consistent naming and simplifies OpenTelemetry configuration. </para>
+<para>The activity source is lazily initialized and thread-safe. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" line="21" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs" bodystart="22" bodyend="70"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a333329a176a93cf85e796d55d99a1a8e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxActivitySource</scope><name>Instance</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1af36a3afb77dcd3af66b14ed5148d4d80" prot="private" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxActivitySource</scope><name>LazySource</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a2f27724b194ab7009b9c1049dbb98910" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxActivitySource</scope><name>Name</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a9107baf0c891ee724eaa5a364e04ad5d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxActivitySource</scope><name>StartActivity</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_telemetry_1_1_toolbox_activity_source_1a19b822b0b9008169f80c364c4fa02654" prot="public" virt="non-virtual"><scope>Toolbox::Core::Telemetry::ToolboxActivitySource</scope><name>Version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

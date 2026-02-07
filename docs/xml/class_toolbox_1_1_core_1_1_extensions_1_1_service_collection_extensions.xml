@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Extensions::ServiceCollectionExtensions</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions_1a7adcc7941aca7697c9623bf4dcec4f26" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ServiceCollectionExtensions.AddToolboxCore</definition>
+        <argsstring>(this IServiceCollection services)</argsstring>
+        <name>AddToolboxCore</name>
+        <qualifiedname>Toolbox.Core.Extensions.ServiceCollectionExtensions.AddToolboxCore</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> core services to the specified IServiceCollection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection to add services to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+</para>
+<para>This method registers the default <ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" kindref="compound">ToolboxOptions</ref> with no custom configuration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" line="39" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions_1aa67abacd16152cae443542f11dfce03e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ServiceCollectionExtensions.AddToolboxCore</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; ToolboxOptions &gt; configureOptions)</argsstring>
+        <name>AddToolboxCore</name>
+        <qualifiedname>Toolbox.Core.Extensions.ServiceCollectionExtensions.AddToolboxCore</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" kindref="compound">ToolboxOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> core services to the specified IServiceCollection with custom options configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection to add services to.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An action to configure the <ref refid="class_toolbox_1_1_core_1_1_options_1_1_toolbox_options" kindref="compound">ToolboxOptions</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configureOptions</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddToolboxCore(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableDetailedTelemetry<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" line="62" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" bodystart="62" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions_1ae80f39d5b581f2613006f4902b211c95" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.ServiceCollectionExtensions.AddToolboxCore</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddToolboxCore</name>
+        <qualifiedname>Toolbox.Core.Extensions.ServiceCollectionExtensions.AddToolboxCore</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> core services to the specified IServiceCollection with configuration binding from IConfiguration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection to add services to.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration to bind options from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configuration</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>This method binds options from the <computeroutput><ref refid="namespace_toolbox" kindref="compound">Toolbox</ref></computeroutput> configuration section. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="comment">//<sp/>In<sp/>appsettings.json:</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>{<sp/>&quot;Toolbox&quot;:<sp/>{<sp/>&quot;EnableDetailedTelemetry&quot;:<sp/>true<sp/>}<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">services.AddToolboxCore(configuration);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" line="95" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" bodystart="95" bodyend="106"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Extension methods for IServiceCollection to configure <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These extensions provide a fluent API for registering <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> services with the dependency injection container. </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddToolboxCore(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableDetailedTelemetry<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServicePrefix<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;MyApp&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" line="29" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs" bodystart="30" bodyend="107"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions_1a7adcc7941aca7697c9623bf4dcec4f26" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ServiceCollectionExtensions</scope><name>AddToolboxCore</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions_1aa67abacd16152cae443542f11dfce03e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ServiceCollectionExtensions</scope><name>AddToolboxCore</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_service_collection_extensions_1ae80f39d5b581f2613006f4902b211c95" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::ServiceCollectionExtensions</scope><name>AddToolboxCore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

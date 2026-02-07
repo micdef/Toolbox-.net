@@ -1,0 +1,78 @@
+\doxysection{Toolbox.\+Core.\+Abstractions.\+IAsync\+Disposable\+Service Interface Reference}
+\hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}{}\label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}\index{Toolbox.Core.Abstractions.IAsyncDisposableService@{Toolbox.Core.Abstractions.IAsyncDisposableService}}
+
+
+Interface for services requiring asynchronous disposal with cancellation support.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Abstractions.\+IAsync\+Disposable\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.100000cm]{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_a3bcb31cb213a921cbfc4b548b1571abb}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{Toolbox.\+Core.\+Abstractions.\+IDisposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a639988028cfcc5b5704fdbacb7032b74}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_a7b631cf1b2439a4c95cc6149170bd1b1}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for services requiring asynchronous disposal with cancellation support. 
+
+This interface combines \doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{IDisposable\+Service} and IAsync\+Disposable with an additional method supporting cancellation tokens for graceful shutdown scenarios. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service}{IDisposable\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_i_async_disposable_service_8cs_source_l00016}{16}} of file \doxymbox{\hyperlink{_i_async_disposable_service_8cs_source}{IAsync\+Disposable\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_a3bcb31cb213a921cbfc4b548b1571abb}\index{Toolbox.Core.Abstractions.IAsyncDisposableService@{Toolbox.Core.Abstractions.IAsyncDisposableService}!DisposeAsync@{DisposeAsync}}
+\index{DisposeAsync@{DisposeAsync}!Toolbox.Core.Abstractions.IAsyncDisposableService@{Toolbox.Core.Abstractions.IAsyncDisposableService}}
+\doxysubsubsection{\texorpdfstring{DisposeAsync()}{DisposeAsync()}}
+{\footnotesize\ttfamily \label{interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_a3bcb31cb213a921cbfc4b548b1571abb} 
+Value\+Task Toolbox.\+Core.\+Abstractions.\+IAsync\+Disposable\+Service.\+Dispose\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token}{}\end{DoxyParamCaption})}
+
+
+
+Asynchronously releases resources with cancellation support. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous disposal operation.
+\end{DoxyReturn}
+
+
+This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. 
+
+The standard IAsync\+Disposable.\+Dispose\+Async method should call this method with Cancellation\+Token.\+None. 
+
+Implemented in \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Abstractions/\+\doxymbox{\hyperlink{_i_async_disposable_service_8cs}{IAsync\+Disposable\+Service.\+cs}}\end{DoxyCompactItemize}

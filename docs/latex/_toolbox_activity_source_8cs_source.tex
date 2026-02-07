@@ -1,0 +1,33 @@
+\doxysection{Toolbox\+Activity\+Source.\+cs}
+\hypertarget{_toolbox_activity_source_8cs_source}{}\label{_toolbox_activity_source_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs}}
+\doxymbox{\hyperlink{_toolbox_activity_source_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ ToolboxActivitySource.cs}}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Shared\ ActivitySource\ for\ distributed\ tracing}}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Provides\ a\ singleton\ ActivitySource\ for\ all\ Toolbox\ services}}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Use\ this\ source\ for\ creating\ spans\ in\ service\ implementations}}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00006}00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00021}00021\ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }ToolboxActivitySource}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Lazy\ initializer\ for\ thread-\/safe\ singleton}}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ readonly\ Lazy<ActivitySource>\ LazySource\ =\ \textcolor{keyword}{new}(}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ ()\ =>\ \textcolor{keyword}{new}\ ActivitySource(TelemetryConstants.ActivitySourceName,\ TelemetryConstants.Version),}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ LazyThreadSafetyMode.ExecutionAndPublication);}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ ActivitySource\ Instance\ =>\ LazySource.Value;}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ Name\ =>\ TelemetryConstants.ActivitySourceName;}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ Version\ =>\ TelemetryConstants.Version;}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Activity?\ StartActivity(}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ [CallerMemberName]\ \textcolor{keywordtype}{string}\ name\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ ActivityKind\ kind\ =\ ActivityKind.Internal)}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00067}00067\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Instance.StartActivity(name,\ kind);}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_toolbox_activity_source_8cs_source_l00070}00070\ \}}
+
+\end{DoxyCode}

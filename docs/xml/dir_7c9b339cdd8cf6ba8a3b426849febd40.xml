@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="dir_7c9b339cdd8cf6ba8a3b426849febd40" kind="dir">
+    <compoundname>C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/obj/Release</compoundname>
+    <innerdir refid="dir_d2cc30d5b96e8cd4e5225f7ef29aa56d">C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/obj/Release/net10.0</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/obj/Release/"/>
+  </compounddef>
+</doxygen>

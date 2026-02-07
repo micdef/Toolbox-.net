@@ -1,0 +1,395 @@
+\doxysection{Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service Class Reference}
+\hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{}\label{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}\index{Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}}
+
+
+Email sending service implementation using SMTP with Mail\+Kit.  
+
+
+Inheritance diagram for Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.462905cm]{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a88d19f3ee89dc3b7cc76a819fe2e2e8e}{Smtp\+Mailing\+Service}} (IOptions$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{Mailing\+Options}} $>$ options, ILogger$<$ Smtp\+Mailing\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{Smtp\+Mailing\+Service} class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a61d3434bd50f150fbf68f406395d616c}{Smtp\+Mailing\+Service}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{Mailing\+Options}} options, ILogger$<$ Smtp\+Mailing\+Service $>$ logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{Smtp\+Mailing\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a6196953505265e87710fe85710c77c03}{Send\+Mail}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{Email\+Message}} message)
+\begin{DoxyCompactList}\small\item\em Sends an email synchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The email message to send.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape message}  is {\ttfamily null}.\\
+\hline
+{\em Argument\+Exception} & Thrown when the message has no recipients (To or BCC).\\
+\hline
+{\em Invalid\+Operation\+Exception} & Thrown when the SMTP connection fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}sender@example.com"{}},\ \textcolor{stringliteral}{"{}Sender\ Name"{}}),}
+\DoxyCodeLine{\ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Hello"{}},}
+\DoxyCodeLine{\ \ \ \ Body\ =\ \textcolor{stringliteral}{"{}Hello,\ World!"{}},}
+\DoxyCodeLine{\ \ \ \ To\ =\ \{\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}recipient@example.com"{}})\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{mailingService.SendMail(message);}
+
+\end{DoxyCode}
+  \end{DoxyCompactList}\item 
+async Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aa946d4ab1fd7abe6fd5ec78ee2a5998b}{Send\+Mail\+Async}} (\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{Email\+Message}} message, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Sends an email asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The email message to send.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape message}  is {\ttfamily null}.\\
+\hline
+{\em Argument\+Exception} & Thrown when the message has no recipients (To or BCC).\\
+\hline
+{\em Invalid\+Operation\+Exception} & Thrown when the SMTP connection fails.\\
+\hline
+{\em Operation\+Canceled\+Exception} & Thrown when the operation is cancelled.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}sender@example.com"{}},\ \textcolor{stringliteral}{"{}Sender\ Name"{}}),}
+\DoxyCodeLine{\ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Hello"{}},}
+\DoxyCodeLine{\ \ \ \ Body\ =\ \textcolor{stringliteral}{"{}<h1>Hello,\ World!</h1>"{}},}
+\DoxyCodeLine{\ \ \ \ IsBodyHtml\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ To\ =\ \{\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}recipient@example.com"{}})\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{await\ mailingService.SendMailAsync(message);}
+
+\end{DoxyCode}
+  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_acadc42721759683aa816d5d250150bd9}{Dispose\+Async}} ()
+\item 
+async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a5d073243b9ad1f5edb5a47cff9576317}{Dispose\+Async}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Asynchronously releases resources with cancellation support.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous disposal operation.
+\end{DoxyReturn}
+
+
+This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a5bccf3c546513ac18851a08b1ad80d89}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Releases all resources used by this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override async Value\+Task \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aead3e7af73d87cbafd360347e36fde9a}{Dispose\+Async\+Core}} (Cancellation\+Token cancellation\+Token)
+\begin{DoxyCompactList}\small\item\em Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a76d3918a8e1cbb2d9df627886b0650ea}{Base\+Async\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service}{Base\+Async\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+override void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_a2186c55a24d954449b92b2f58d8c5b5f}{Dispose}} (bool disposing)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a70d80274845dd844928e00c3ab630ec0}{Base\+Disposable\+Service}} (string service\+Name, ILogger logger)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Base\+Disposable\+Service} class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a773c264af63233c53c4a9974073753b5}{Throw\+If\+Disposed}} ()
+\begin{DoxyCompactList}\small\item\em Throws an Object\+Disposed\+Exception if this service has been disposed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_ab9bb57dbeef02f41d313f0516d5ba9b4}{Record\+Operation}} (string operation\+Name, double duration\+Ms)
+\begin{DoxyCompactList}\small\item\em Records an operation metric with the specified name and duration. \end{DoxyCompactList}\item 
+Activity? \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a8cae6c0b80bf9525c1d3e5a0a23b5e29}{Start\+Activity}} (\+[Caller\+Member\+Name]\+ string operation\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Starts a new activity for the specified operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Properties inherited from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service}{Toolbox.\+Core.\+Base.\+Base\+Disposable\+Service}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a629b72dfa8c6b42881909f8336c0dcbe}{Service\+Name}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the unique name identifying this service instance.
+
+A human-\/readable name for logging and diagnostics. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_af000ffed9733f0bc1b39998b081fe8e7}{Is\+Disposed}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets a value indicating whether this service has been disposed.
+
+{\ttfamily true} if the service has been disposed; otherwise, {\ttfamily false}. \end{DoxyCompactList}\item 
+Activity\+Source \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a0dd2f79ae2fbe7efd3ff6c4a373053f8}{Activity\+Source}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Activity\+Source for distributed tracing.
+
+The activity source used to create spans for this service. \end{DoxyCompactList}\item 
+Meter \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_a1a6603570442645f31abbcad1d225068}{Meter}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Gets the System.\+Diagnostics.\+Metrics.\+Meter for metrics collection.
+
+The meter used to create instruments for this service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Email sending service implementation using SMTP with Mail\+Kit. 
+
+This service provides secure email sending via SMTP with support for:\+ 
+
+
+\begin{DoxyItemize}
+\item TLS/\+\+SSL encryption (STARTTLS and implicit SSL) 
+\item Password and OAuth2 authentication 
+\item Anonymous connections for internal relays 
+\item Multiple recipients (To, CC, BCC) 
+\item HTML and plain text content 
+\item File attachments and inline images 
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service}{IMailing\+Service}
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source_l00035}{35}} of file \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source}{Smtp\+Mailing\+Service.\+cs}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a88d19f3ee89dc3b7cc76a819fe2e2e8e}\index{Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}!SmtpMailingService@{SmtpMailingService}}
+\index{SmtpMailingService@{SmtpMailingService}!Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}}
+\doxysubsubsection{\texorpdfstring{SmtpMailingService()}{SmtpMailingService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a88d19f3ee89dc3b7cc76a819fe2e2e8e} 
+Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service.\+Smtp\+Mailing\+Service (\begin{DoxyParamCaption}\item[{IOptions$<$ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{Mailing\+Options}} $>$}]{options}{, }\item[{ILogger$<$ Smtp\+Mailing\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{Smtp\+Mailing\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & The mailing service options.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when options or logger is null.\\
+\hline
+{\em Argument\+Exception} & Thrown when host is empty.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source_l00059}{59}} of file \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source}{Smtp\+Mailing\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a61d3434bd50f150fbf68f406395d616c}\index{Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}!SmtpMailingService@{SmtpMailingService}}
+\index{SmtpMailingService@{SmtpMailingService}!Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}}
+\doxysubsubsection{\texorpdfstring{SmtpMailingService()}{SmtpMailingService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a61d3434bd50f150fbf68f406395d616c} 
+Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service.\+Smtp\+Mailing\+Service (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_mailing_options}{Mailing\+Options}}}]{options}{, }\item[{ILogger$<$ Smtp\+Mailing\+Service $>$}]{logger}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service}{Smtp\+Mailing\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & The mailing service options.\\
+\hline
+{\em logger} & The logger instance.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source_l00095}{95}} of file \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source}{Smtp\+Mailing\+Service.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aead3e7af73d87cbafd360347e36fde9a}\index{Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}!DisposeAsyncCore@{DisposeAsyncCore}}
+\index{DisposeAsyncCore@{DisposeAsyncCore}!Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}}
+\doxysubsubsection{\texorpdfstring{DisposeAsyncCore()}{DisposeAsyncCore()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aead3e7af73d87cbafd360347e36fde9a} 
+override async Value\+Task Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service.\+Dispose\+Async\+Core (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Performs application-\/defined async cleanup operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cancellation\+Token} & A Cancellation\+Token that can be used to cancel the disposal operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Value\+Task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Override this method to release async resources such as streams, database connections, or other async-\/disposable objects.  
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_af67f7795ee7795cbe84c409e7c48af62}{Toolbox.\+Core.\+Base.\+Base\+Async\+Disposable\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source_l00164}{164}} of file \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source}{Smtp\+Mailing\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a6196953505265e87710fe85710c77c03}\index{Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}!SendMail@{SendMail}}
+\index{SendMail@{SendMail}!Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}}
+\doxysubsubsection{\texorpdfstring{SendMail()}{SendMail()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_a6196953505265e87710fe85710c77c03} 
+void Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service.\+Send\+Mail (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{Email\+Message}}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Sends an email synchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The email message to send.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape message}  is {\ttfamily null}.\\
+\hline
+{\em Argument\+Exception} & Thrown when the message has no recipients (To or BCC).\\
+\hline
+{\em Invalid\+Operation\+Exception} & Thrown when the SMTP connection fails.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}sender@example.com"{}},\ \textcolor{stringliteral}{"{}Sender\ Name"{}}),}
+\DoxyCodeLine{\ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Hello"{}},}
+\DoxyCodeLine{\ \ \ \ Body\ =\ \textcolor{stringliteral}{"{}Hello,\ World!"{}},}
+\DoxyCodeLine{\ \ \ \ To\ =\ \{\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}recipient@example.com"{}})\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{mailingService.SendMail(message);}
+
+\end{DoxyCode}
+  
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_a2d1c6b6cef15eb73bea48a0934cf8381}{Toolbox.\+Core.\+Abstractions.\+Services.\+IMailing\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source_l00103}{103}} of file \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source}{Smtp\+Mailing\+Service.\+cs}}.
+
+\Hypertarget{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aa946d4ab1fd7abe6fd5ec78ee2a5998b}\index{Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}!SendMailAsync@{SendMailAsync}}
+\index{SendMailAsync@{SendMailAsync}!Toolbox.Core.Services.Mailing.SmtpMailingService@{Toolbox.Core.Services.Mailing.SmtpMailingService}}
+\doxysubsubsection{\texorpdfstring{SendMailAsync()}{SendMailAsync()}}
+{\footnotesize\ttfamily \label{class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_aa946d4ab1fd7abe6fd5ec78ee2a5998b} 
+async Task Toolbox.\+Core.\+Services.\+Mailing.\+Smtp\+Mailing\+Service.\+Send\+Mail\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_email_message}{Email\+Message}}}]{message}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Sends an email asynchronously.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The email message to send.\\
+\hline
+{\em cancellation\+Token} & A token to cancel the operation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when {\itshape message}  is {\ttfamily null}.\\
+\hline
+{\em Argument\+Exception} & Thrown when the message has no recipients (To or BCC).\\
+\hline
+{\em Invalid\+Operation\+Exception} & Thrown when the SMTP connection fails.\\
+\hline
+{\em Operation\+Canceled\+Exception} & Thrown when the operation is cancelled.\\
+\hline
+\end{DoxyExceptions}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ message\ =\ \textcolor{keyword}{new}\ EmailMessage}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ From\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}sender@example.com"{}},\ \textcolor{stringliteral}{"{}Sender\ Name"{}}),}
+\DoxyCodeLine{\ \ \ \ Subject\ =\ \textcolor{stringliteral}{"{}Hello"{}},}
+\DoxyCodeLine{\ \ \ \ Body\ =\ \textcolor{stringliteral}{"{}<h1>Hello,\ World!</h1>"{}},}
+\DoxyCodeLine{\ \ \ \ IsBodyHtml\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ To\ =\ \{\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aaa73e3de1e09ba82a7b2435bba10d0d3}{EmailAddress}}(\textcolor{stringliteral}{"{}recipient@example.com"{}})\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{await\ mailingService.SendMailAsync(message);}
+
+\end{DoxyCode}
+  
+
+
+
+Implements \doxymbox{\hyperlink{interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_a96bf02139942f62ee0009fe3b2247306}{Toolbox.\+Core.\+Abstractions.\+Services.\+IMailing\+Service}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source_l00109}{109}} of file \doxymbox{\hyperlink{_smtp_mailing_service_8cs_source}{Smtp\+Mailing\+Service.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+src/\+\+Toolbox.\+Core/\+\+Services/\+\+Mailing/\+\doxymbox{\hyperlink{_smtp_mailing_service_8cs}{Smtp\+Mailing\+Service.\+cs}}\end{DoxyCompactItemize}

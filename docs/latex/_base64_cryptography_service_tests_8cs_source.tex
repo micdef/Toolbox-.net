@@ -1,0 +1,282 @@
+\doxysection{Base64\+Cryptography\+Service\+Tests.\+cs}
+\hypertarget{_base64_cryptography_service_tests_8cs_source}{}\label{_base64_cryptography_service_tests_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs@{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/Base64CryptographyServiceTests.cs}}
+\doxymbox{\hyperlink{_base64_cryptography_service_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.Extensions.Logging;}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Microsoft.Extensions.Options;}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_services_1_1_cryptography}{Toolbox.Core.Services.Cryptography}};}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}\ =\ Microsoft.Extensions.Options.Options;}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00007}00007\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography}{Toolbox.Tests.Unit.Services.Cryptography}};}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00012}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests}{00012}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_af9f1574a89ba249660ca8539f1e72393}{Base64CryptographyServiceTests}}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ Mock<ILogger<Base64CryptographyService>>\ \_loggerMock;}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00016}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_af9f1574a89ba249660ca8539f1e72393}{00016}}\ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_af9f1574a89ba249660ca8539f1e72393}{Base64CryptographyServiceTests}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00017}00017\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \_loggerMock\ =\ \textcolor{keyword}{new}\ Mock<ILogger<Base64CryptographyService>>();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00021}00021\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00022}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2204617f7cb65a2201f5fd604f31baf4}{00022}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2204617f7cb65a2201f5fd604f31baf4}{Encrypt\_WithStandardTable\_ShouldEncodeCorrectly}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00023}00023\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ var\ result\ =\ service.Encrypt(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}SGVsbG8sIFdvcmxkIQ=="{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00036}00036\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00037}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a69991f788258af9b59bb36f2a881f6f6}{00037}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a69991f788258af9b59bb36f2a881f6f6}{Decrypt\_WithStandardTable\_ShouldDecodeCorrectly}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ var\ result\ =\ service.Decrypt(\textcolor{stringliteral}{"{}SGVsbG8sIFdvcmxkIQ=="{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00051}00051\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00052}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a5443c2acf140864901235e16607f9b38}{00052}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a5443c2acf140864901235e16607f9b38}{Encrypt\_ThenDecrypt\_ShouldReturnOriginalText}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00053}00053\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ var\ originalText\ =\ \textcolor{stringliteral}{"{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."{}};}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ var\ encrypted\ =\ service.Encrypt(originalText);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ var\ decrypted\ =\ service.Decrypt(encrypted);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ decrypted.Should().Be(originalText);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00068}00068\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00069}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2dfa437a5e67ec2d58d28cfd00dba61c}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2dfa437a5e67ec2d58d28cfd00dba61c}{Encrypt\_WithUrlSafeTable\_ShouldUseUrlSafeCharacters}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00070}00070\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.UrlSafe,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ text\ produces\ +\ and\ /\ in\ standard\ Base64:\ "{}subjects?\_d"{}}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ var\ text\ =\ \textcolor{stringliteral}{"{}subjects?\_d"{}};}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ var\ result\ =\ service.Encrypt(text);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ result.Should().NotContain(\textcolor{stringliteral}{"{}+"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ result.Should().NotContain(\textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00087}00087\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00088}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a16ac3c127bf38bad8a674a9233aaf360}{00088}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a16ac3c127bf38bad8a674a9233aaf360}{Decrypt\_WithUrlSafeTable\_ShouldDecodeUrlSafeCharacters}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00089}00089\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.UrlSafe,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ var\ encrypted\ =\ service.Encrypt(\textcolor{stringliteral}{"{}test+data/here"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ var\ decrypted\ =\ service.Decrypt(encrypted);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ decrypted.Should().Be(\textcolor{stringliteral}{"{}test+data/here"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00103}00103\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00104}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_ac37f38b3668cb7ccf97087aadd7fe4a0}{00104}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_ac37f38b3668cb7ccf97087aadd7fe4a0}{Encrypt\_WithNoPadding\_ShouldOmitPaddingCharacters}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options}{Base64CryptographyOptions}}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ EncodingTable\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ IncludePadding\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ var\ result\ =\ service.Encrypt(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ result.Should().NotEndWith(\textcolor{stringliteral}{"{}="{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}SGVsbG8sIFdvcmxkIQ"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00122}00122\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00123}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a0d5ff561b3ddb2ab689c601ad82cb171}{00123}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a0d5ff561b3ddb2ab689c601ad82cb171}{Decrypt\_WithoutPadding\_ShouldStillDecodeCorrectly}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00124}00124\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ var\ options\ =\ \doxymbox{\hyperlink{_http_api_service_tests_8cs_aaa2599d4a7a65783f2155e2a162454f9}{MsOptions}}.Create(\textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options}{Base64CryptographyOptions}}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ EncodingTable\ =\ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ IncludePadding\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(options,\ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act\ -\/\ decode\ without\ padding}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ var\ result\ =\ service.Decrypt(\textcolor{stringliteral}{"{}SGVsbG8sIFdvcmxkIQ"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00138}00138\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00140}00140\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00141}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a9abdce7b65b4fe65c24de17baaf64324}{00141}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a9abdce7b65b4fe65c24de17baaf64324}{Encrypt\_WithNullText\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00142}00142\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00149}00149\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Encrypt(\textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00155}00155\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00156}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_ac9843de52ebf8af8f4f4a7d420811892}{00156}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_ac9843de52ebf8af8f4f4a7d420811892}{Decrypt\_WithNullText\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00157}00157\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00164}00164\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Decrypt(\textcolor{keyword}{null}!);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00166}00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00167}00167\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00168}00168\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00170}00170\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00171}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_ae29f3d09f22ffe41ec6393be191e67de}{00171}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_ae29f3d09f22ffe41ec6393be191e67de}{Decrypt\_WithInvalidBase64\_ShouldThrowFormatException}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00172}00172\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00179}00179\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Decrypt(\textcolor{stringliteral}{"{}Not@Valid\#Base64!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00182}00182\ \ \ \ \ \ \ \ \ act.Should().Throw<FormatException>();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00185}00185\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00186}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2a0ebe26093a0d66946ff0902db8d22f}{00186}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2a0ebe26093a0d66946ff0902db8d22f}{EncryptAsync\_ShouldEncodeCorrectly}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00187}00187\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00194}00194\ \ \ \ \ \ \ \ \ var\ result\ =\ await\ service.EncryptAsync(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}SGVsbG8sIFdvcmxkIQ=="{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00198}00198\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00200}00200\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00201}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a11208a9ad3be4fe34b884f108ab9ce80}{00201}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a11208a9ad3be4fe34b884f108ab9ce80}{DecryptAsync\_ShouldDecodeCorrectly}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00202}00202\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00209}00209\ \ \ \ \ \ \ \ \ var\ result\ =\ await\ service.DecryptAsync(\textcolor{stringliteral}{"{}SGVsbG8sIFdvcmxkIQ=="{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ result.Should().Be(\textcolor{stringliteral}{"{}Hello,\ World!"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00215}00215\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00216}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_adf08739890c31b31a5db315270768754}{00216}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_adf08739890c31b31a5db315270768754}{EncryptAsync\_WithCancellation\_ShouldThrowOperationCanceledException}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00217}00217\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ cts\ =\ \textcolor{keyword}{new}\ CancellationTokenSource();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00223}00223\ \ \ \ \ \ \ \ \ await\ cts.CancelAsync();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00226}00226\ \ \ \ \ \ \ \ \ var\ act\ =\ async\ ()\ =>\ await\ service.EncryptAsync(\textcolor{stringliteral}{"{}test"{}},\ cts.Token);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00229}00229\ \ \ \ \ \ \ \ \ await\ act.Should().ThrowAsync<OperationCanceledException>();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00232}00232\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00233}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a428a6b5d2e1f4a4cb6e15aa9d4d19d76}{00233}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a428a6b5d2e1f4a4cb6e15aa9d4d19d76}{Encrypt\_WhenDisposed\_ShouldThrowObjectDisposedException}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00234}00234\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00236}00236\ \ \ \ \ \ \ \ \ var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00239}00239\ \ \ \ \ \ \ \ \ service.Dispose();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00242}00242\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ service.Encrypt(\textcolor{stringliteral}{"{}test"{}});}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00245}00245\ \ \ \ \ \ \ \ \ act.Should().Throw<ObjectDisposedException>();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00246}00246\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00248}00248\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00249}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a7cff486da88f86d12d1940d706855ae5}{00249}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a7cff486da88f86d12d1940d706855ae5}{Encrypt\_WithEmptyString\_ShouldReturnEmptyBase64}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00250}00250\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00256}00256\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00257}00257\ \ \ \ \ \ \ \ \ var\ result\ =\ service.Encrypt(\textcolor{keywordtype}{string}.Empty);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ result.Should().BeEmpty();}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00261}00261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00263}00263\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00264}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2187af6a2849b6b9480956bb9e456ad2}{00264}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_a2187af6a2849b6b9480956bb9e456ad2}{Encrypt\_WithUnicodeText\_ShouldHandleCorrectly}}()}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00265}00265\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }var\ service\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service}{Base64CryptographyService}}(}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options_aae4ac17f23177c2ad802591f98604287}{Base64EncodingTable}}.Standard,}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \_loggerMock.Object);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00270}00270\ \ \ \ \ \ \ \ \ var\ unicodeText\ =\ \textcolor{stringliteral}{"{}Héllo,\ 世界!\ 🌍"{}};}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00273}00273\ \ \ \ \ \ \ \ \ var\ encrypted\ =\ service.Encrypt(unicodeText);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00274}00274\ \ \ \ \ \ \ \ \ var\ decrypted\ =\ service.Decrypt(encrypted);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00277}00277\ \ \ \ \ \ \ \ \ decrypted.Should().Be(unicodeText);}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00278}00278\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base64_cryptography_service_tests_8cs_source_l00279}00279\ \}}
+
+\end{DoxyCode}

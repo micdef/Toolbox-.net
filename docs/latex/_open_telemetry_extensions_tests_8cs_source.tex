@@ -1,0 +1,113 @@
+\doxysection{Open\+Telemetry\+Extensions\+Tests.\+cs}
+\hypertarget{_open_telemetry_extensions_tests_8cs_source}{}\label{_open_telemetry_extensions_tests_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs@{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs}}
+\doxymbox{\hyperlink{_open_telemetry_extensions_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.Extensions.DependencyInjection;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Microsoft.Extensions.Options;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }OpenTelemetry.Metrics;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }OpenTelemetry.Trace;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_telemetry}{Toolbox.Core.Telemetry}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00009}\doxymbox{\hyperlink{namespace_toolbox_1_1_tests}{00009}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_integration}{Toolbox.Tests.Integration}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00014}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests}{00014}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests}{OpenTelemetryExtensionsTests}}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00016}00016\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00017}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_a696f36109b9ca8f35235ff8467dbf8b8}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_a696f36109b9ca8f35235ff8467dbf8b8}{AddToolboxInstrumentation\_Tracing\_ShouldAddActivitySource}}()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ var\ services\ =\ \textcolor{keyword}{new}\ ServiceCollection();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ services.AddOpenTelemetry()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ .WithTracing(\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =>\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.AddToolboxInstrumentation());}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ var\ provider\ =\ services.BuildServiceProvider();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ var\ tracerProvider\ =\ provider.GetService<TracerProvider>();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ tracerProvider.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00032}00032\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00033}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_aa895e759a485cbedd0c6bd55d16008ec}{00033}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_aa895e759a485cbedd0c6bd55d16008ec}{AddToolboxInstrumentation\_Metrics\_ShouldAddMeter}}()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ var\ services\ =\ \textcolor{keyword}{new}\ ServiceCollection();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ services.AddOpenTelemetry()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ .WithMetrics(\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =>\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.AddToolboxInstrumentation());}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ var\ provider\ =\ services.BuildServiceProvider();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ var\ meterProvider\ =\ provider.GetService<MeterProvider>();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ meterProvider.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00048}00048\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00049}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_a7a0116bc9d378fe6286174c148498de2}{00049}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_a7a0116bc9d378fe6286174c148498de2}{AddToolboxOpenTelemetry\_ShouldRegisterTelemetryOptions}}()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00050}00050\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ var\ services\ =\ \textcolor{keyword}{new}\ ServiceCollection();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ services.AddToolboxOpenTelemetry();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ var\ provider\ =\ services.BuildServiceProvider();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ var\ options\ =\ provider.GetService<IOptions<ToolboxTelemetryOptions>>();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ options.Should().NotBeNull();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00063}00063\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00064}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_ac2ea716fd6bdb8b4e034dce2ed911b54}{00064}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_ac2ea716fd6bdb8b4e034dce2ed911b54}{AddToolboxOpenTelemetry\_WithCustomOptions\_ShouldApplyConfiguration}}()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ var\ services\ =\ \textcolor{keyword}{new}\ ServiceCollection();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ services.AddToolboxOpenTelemetry(options\ =>}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ options.EnableTracing\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ options.EnableMetrics\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ options.ServiceName\ =\ \textcolor{stringliteral}{"{}CustomService"{}};}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ var\ provider\ =\ services.BuildServiceProvider();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ var\ options\ =\ provider.GetRequiredService<IOptions<ToolboxTelemetryOptions>>().Value;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ options.EnableTracing.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ options.EnableMetrics.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ options.ServiceName.Should().Be(\textcolor{stringliteral}{"{}CustomService"{}});}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00085}00085\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00086}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_a77fd11cf8dada75d666f57eed4ab21b5}{00086}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_a77fd11cf8dada75d666f57eed4ab21b5}{AddToolboxInstrumentation\_WithNullBuilder\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00087}00087\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ TracerProviderBuilder\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =\ \textcolor{keyword}{null}!;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.AddToolboxInstrumentation();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00098}00098\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00099}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_ae2877b5684a8d70f6de89fea55e5728d}{00099}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_ae2877b5684a8d70f6de89fea55e5728d}{AddToolboxOpenTelemetry\_WithNullServices\_ShouldThrowArgumentNullException}}()}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00100}00100\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arrange}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ IServiceCollection\ services\ =\ \textcolor{keyword}{null}!;}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Act}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ var\ act\ =\ ()\ =>\ services.AddToolboxOpenTelemetry();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assert}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ act.Should().Throw<ArgumentNullException>();}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_open_telemetry_extensions_tests_8cs_source_l00110}00110\ \}}
+
+\end{DoxyCode}

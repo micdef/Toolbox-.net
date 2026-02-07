@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac0ac74fcc909121f6f87a9c2017ed3c7" prot="private" static="no" mutable="no">
+        <type>readonly Mock&lt; ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service" kindref="compound">RsaCryptographyService</ref> &gt; &gt;</type>
+        <definition>readonly Mock&lt;ILogger&lt;RsaCryptographyService&gt; &gt; Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests._loggerMock</definition>
+        <argsstring></argsstring>
+        <name>_loggerMock</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests._loggerMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="12" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaCryptographyServiceTests</definition>
+        <argsstring>()</argsstring>
+        <name>RsaCryptographyServiceTests</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaCryptographyServiceTests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="14" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab012f62dc109e0008ee2696898f67029" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</definition>
+        <argsstring>(RsaKeySize keySize)</argsstring>
+        <name>GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</qualifiedname>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref></type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="25" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="25" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a53a1580c350c69f35100ae06a4f6d28f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithIntKeySize_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKeyPair_WithIntKeySize_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithIntKeySize_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="39" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="39" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a1a31861c052fda3a5d1a5125d0637b45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</definition>
+        <argsstring>(int invalidKeySize)</argsstring>
+        <name>GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>invalidKeySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="55" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="55" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a29f84d442adad37c91f3fac0924a3094" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="65" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="65" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a4bdce7ee443c65c153e32e393a264775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_ShouldGenerateUniqueKeys</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateKeyPair_ShouldGenerateUniqueKeys</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_ShouldGenerateUniqueKeys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="77" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="77" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8fa6adcb5dc3d38f08b0e93481f84e20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_ShouldReturnValidCertificate</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateCertificate_ShouldReturnValidCertificate</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_ShouldReturnValidCertificate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="93" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="93" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a36c77e0fa6acdfa2abef1301503e7438" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="109" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="109" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8d38168b5be7e86fda8aad75b746ba2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="124" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="124" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa8a241293a6a5540d16b320f9d68c713" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="141" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="141" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9dee4889caf54d01f51063bb80268b97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="154" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="154" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a96176a7559fcc7189a6511917d4b7c98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullCertificate_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithNullCertificate_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullCertificate_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="170" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="170" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af0db341c70e9264ae746fd951d183c0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithValidKeyPair_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithValidKeyPair_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithValidKeyPair_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="183" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="183" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a257f772423de762efa1f86bb38c3fd1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithCertificate_ShouldInitialize</definition>
+        <argsstring>()</argsstring>
+        <name>Constructor_WithCertificate_ShouldInitialize</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithCertificate_ShouldInitialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="200" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="200" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af14ba35dac65ca9dc53b7bd59a9bd5c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ShouldReturnBase64String</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_ShouldReturnBase64String</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ShouldReturnBase64String</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="223" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="223" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa805ef539cb3654e35e96120f74f5507" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithNullText_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="243" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="243" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aaac147c0f5e1ad34efc0098556eaa0d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithPublicKeyOnly_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithPublicKeyOnly_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithPublicKeyOnly_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="260" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="260" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9cca5292815e4da08bd123e256a2c884" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithTooLargeData_ShouldThrowCryptographicException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithTooLargeData_ShouldThrowCryptographicException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithTooLargeData_ShouldThrowCryptographicException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="277" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="277" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ae2c1fce0bdda4863f99150917720bd06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="297" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="297" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a60a9bbf8b30cde9fb734ea7d74ff5513" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_ThenDecrypt_ShouldReturnOriginalText</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="325" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="325" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a971cad3c824f927055102a05276b8b66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</definition>
+        <argsstring>(RsaPaddingMode paddingMode)</argsstring>
+        <name>Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</qualifiedname>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref></type>
+          <declname>paddingMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="350" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="350" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab69170e0aa2b2f8d3077c23d0931fb38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</definition>
+        <argsstring>(RsaKeySize keySize)</argsstring>
+        <name>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</qualifiedname>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref></type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="373" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="373" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a7156777c8e4c9cf2575388b3a3cbf6d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="393" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="393" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ad462afaa21e47f374fa3c598b5474349" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithNullText_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="418" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="418" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a235650322e6eee127fd06b3d76ebf9f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithInvalidBase64_ShouldThrowFormatException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="436" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="436" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac1c5d2c1d7638a31773ea3302f2091df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithWrongKey_ShouldThrowFormatException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithWrongKey_ShouldThrowFormatException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithWrongKey_ShouldThrowFormatException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="454" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="454" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a112030d45cf2841a0838b1a43dfe22a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</definition>
+        <argsstring>()</argsstring>
+        <name>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="484" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="484" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1acf73f6f3eeff534c10f1fefe310f05f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="504" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="504" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adc5d1ad41e8298d19b4286e69c5b0d11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</definition>
+        <argsstring>()</argsstring>
+        <name>DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="524" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="524" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab3c44832b287fce1db2ec3b61d0d1d74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="549" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="549" bodyend="564"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a12eaa5d1ff54db32e274af16cb24494f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.DisposeAsync_ShouldDisposeResources</definition>
+        <argsstring>()</argsstring>
+        <name>DisposeAsync_ShouldDisposeResources</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.DisposeAsync_ShouldDisposeResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="567" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="567" bodyend="582"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a66729aa2c88c1916632ef3372199af6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithEmptyString_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithEmptyString_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithEmptyString_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="589" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="589" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a442e0284972d4cb76c056cbce1525672" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_WithUnicodeText_ShouldHandleCorrectly</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="608" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="608" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a5fdd966a7a994b666b2c7a5ddb0f5e9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithCertificate_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>Encrypt_ThenDecrypt_WithCertificate_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithCertificate_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="632" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="632" bodyend="651"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a68235acc26707bbf6e5aefaef4ed10ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</definition>
+        <argsstring>()</argsstring>
+        <name>Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="654" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="654" bodyend="679"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adb5c987e98b05ede1af1598d968074c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</definition>
+        <argsstring>()</argsstring>
+        <name>RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="686" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="686" bodyend="698"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a219ec3af5b1b0feef00f04e9f2fd539b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaKeyPair_Dispose_ShouldClearSensitiveData</definition>
+        <argsstring>()</argsstring>
+        <name>RsaKeyPair_Dispose_ShouldClearSensitiveData</name>
+        <qualifiedname>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaKeyPair_Dispose_ShouldClearSensitiveData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="701" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="701" bodyend="712"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service" kindref="compound">RsaCryptographyService</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" line="10" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs" bodystart="11" bodyend="715"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac0ac74fcc909121f6f87a9c2017ed3c7" prot="private" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>_loggerMock</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a257f772423de762efa1f86bb38c3fd1a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Constructor_WithCertificate_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a96176a7559fcc7189a6511917d4b7c98" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Constructor_WithNullCertificate_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9dee4889caf54d01f51063bb80268b97" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Constructor_WithNullLogger_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa8a241293a6a5540d16b320f9d68c713" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af0db341c70e9264ae746fd951d183c0f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Constructor_WithValidKeyPair_ShouldInitialize</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a235650322e6eee127fd06b3d76ebf9f9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Decrypt_WithInvalidBase64_ShouldThrowFormatException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ad462afaa21e47f374fa3c598b5474349" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Decrypt_WithNullText_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a7156777c8e4c9cf2575388b3a3cbf6d2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a68235acc26707bbf6e5aefaef4ed10ce" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac1c5d2c1d7638a31773ea3302f2091df" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Decrypt_WithWrongKey_ShouldThrowFormatException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adc5d1ad41e8298d19b4286e69c5b0d11" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a12eaa5d1ff54db32e274af16cb24494f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>DisposeAsync_ShouldDisposeResources</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af14ba35dac65ca9dc53b7bd59a9bd5c1" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_ShouldReturnBase64String</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a60a9bbf8b30cde9fb734ea7d74ff5513" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_ShouldReturnOriginalText</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a5fdd966a7a994b666b2c7a5ddb0f5e9d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_WithCertificate_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab69170e0aa2b2f8d3077c23d0931fb38" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a971cad3c824f927055102a05276b8b66" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab3c44832b287fce1db2ec3b61d0d1d74" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ae2c1fce0bdda4863f99150917720bd06" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a66729aa2c88c1916632ef3372199af6a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WithEmptyString_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa805ef539cb3654e35e96120f74f5507" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WithNullText_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aaac147c0f5e1ad34efc0098556eaa0d6" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WithPublicKeyOnly_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9cca5292815e4da08bd123e256a2c884" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WithTooLargeData_ShouldThrowCryptographicException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a442e0284972d4cb76c056cbce1525672" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>Encrypt_WithUnicodeText_ShouldHandleCorrectly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a112030d45cf2841a0838b1a43dfe22a2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1acf73f6f3eeff534c10f1fefe310f05f3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8fa6adcb5dc3d38f08b0e93481f84e20" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateCertificate_ShouldReturnValidCertificate</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8d38168b5be7e86fda8aad75b746ba2c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a36c77e0fa6acdfa2abef1301503e7438" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a4bdce7ee443c65c153e32e393a264775" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateKeyPair_ShouldGenerateUniqueKeys</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a53a1580c350c69f35100ae06a4f6d28f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateKeyPair_WithIntKeySize_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a1a31861c052fda3a5d1a5125d0637b45" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a29f84d442adad37c91f3fac0924a3094" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab012f62dc109e0008ee2696898f67029" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>RsaCryptographyServiceTests</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a219ec3af5b1b0feef00f04e9f2fd539b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>RsaKeyPair_Dispose_ShouldClearSensitiveData</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adb5c987e98b05ede1af1598d968074c5" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Services::Cryptography::RsaCryptographyServiceTests</scope><name>RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

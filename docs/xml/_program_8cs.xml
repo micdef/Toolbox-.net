@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_program_8cs" kind="file" language="C#">
+    <compoundname>Program.cs</compoundname>
+    <innerclass refid="interface_i_sample_service" prot="public">ISampleService</innerclass>
+    <innerclass refid="class_sample_service" prot="public">SampleService</innerclass>
+    <innernamespace refid="namespace_microsoft_1_1_extensions_1_1_dependency_injection">Microsoft::Extensions::DependencyInjection</innernamespace>
+    <innernamespace refid="namespace_microsoft_1_1_extensions_1_1_hosting">Microsoft::Extensions::Hosting</innernamespace>
+    <innernamespace refid="namespace_microsoft_1_1_extensions_1_1_logging">Microsoft::Extensions::Logging</innernamespace>
+    <innernamespace refid="namespacevar">var</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81" prot="public" static="no">
+        <type>app.Services.CreateScope()) { var logger=scope.ServiceProvider.GetRequiredService&lt; ILogger&lt; Program &gt; &gt;(); logger.LogInformation(&quot;Starting <ref refid="namespace_toolbox" kindref="compound">Toolbox</ref> Sample Application&quot;); var service=scope.ServiceProvider.GetRequiredService&lt; <ref refid="interface_i_sample_service" kindref="compound">ISampleService</ref> &gt;(); await service.DoWorkAsync(&quot;Hello, Toolbox!&quot;); logger.LogInformation(&quot;Sample application completed successfully&quot;);} Console.WriteLine(&quot;Press any key to exit...&quot;)</type>
+        <definition>using scope =  app.Services.CreateScope())
+{
+    var logger = scope.ServiceProvider.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+    logger.LogInformation(&quot;Starting Toolbox Sample Application&quot;);
+
+    var service = scope.ServiceProvider.GetRequiredService&lt;ISampleService&gt;();
+
+    
+    await service.DoWorkAsync(&quot;Hello, Toolbox!&quot;);
+
+    logger.LogInformation(&quot;Sample application completed successfully&quot;);
+}
+
+Console.WriteLine(&quot;Press any key to exit...&quot;)</definition>
+        <argsstring></argsstring>
+        <name>scope</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="36" column="1" bodyfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" bodystart="36" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" prot="public" static="no" mutable="no">
+        <type>var</type>
+        <definition>var builder</definition>
+        <argsstring></argsstring>
+        <name>builder</name>
+        <initializer>= Host.CreateApplicationBuilder(args)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="11" column="5" bodyfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" prot="public" static="no" mutable="no">
+        <type>var</type>
+        <definition>var app</definition>
+        <argsstring></argsstring>
+        <name>app</name>
+        <initializer>= builder.Build()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="33" column="5" bodyfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_program_8cs_1ad612fa48b9074032108f9c5719face05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddToolboxCore</definition>
+        <argsstring>(options=&gt; { options.EnableDetailedTelemetry=true;options.ServicePrefix=&quot;Sample&quot;;})</argsstring>
+        <name>AddToolboxCore</name>
+        <param>
+          <type>options</type>
+        </param>
+        <param>
+          <type>{ options.EnableDetailedTelemetry=true;options.ServicePrefix=&quot;Sample&quot;;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="14" column="16" declfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" declline="14" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1ab5be1f7721cc61e8cc139cba2c783407" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddToolboxOpenTelemetry</definition>
+        <argsstring>(options=&gt; { options.EnableTracing=true;options.EnableMetrics=true;options.EnableConsoleExport=true;options.ServiceName=&quot;Toolbox.Sample&quot;;options.ServiceVersion=&quot;1.0.0&quot;;})</argsstring>
+        <name>AddToolboxOpenTelemetry</name>
+        <param>
+          <type>options</type>
+        </param>
+        <param>
+          <type>{ options.EnableTracing=true;options.EnableMetrics=true;options.EnableConsoleExport=true;options.ServiceName=&quot;Toolbox.Sample&quot;;options.ServiceVersion=&quot;1.0.0&quot;;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="21" column="16" declfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" declline="21" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a1cab3cb58e15892058dd7b4b52016e91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>builder.Services.</type>
+        <definition>builder.Services. AddScoped&lt; ISampleService, SampleService &gt;</definition>
+        <argsstring>()</argsstring>
+        <name>AddScoped&lt; ISampleService, SampleService &gt;</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="31" column="8" declfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" declline="31" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_program_8cs_1a0f92e719a4715fdc376c5338f84ffbef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Console.</type>
+        <definition>Console. ReadKey</definition>
+        <argsstring>()</argsstring>
+        <name>ReadKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" line="50" column="8" declfile="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" declline="50" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Sample<sp/>application<sp/>demonstrating<sp/>Toolbox<sp/>usage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Shows<sp/>how<sp/>to<sp/>configure<sp/>and<sp/>use<sp/>Toolbox<sp/>services<sp/>with<sp/>DI<sp/>and<sp/>OpenTelemetry</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.Extensions.DependencyInjection;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.Extensions.Hosting;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Microsoft.Extensions.Logging;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_base" kindref="compound">Toolbox.Core.Base</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_extensions" kindref="compound">Toolbox.Core.Extensions</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Create<sp/>and<sp/>configure<sp/>the<sp/>host</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" refkind="member"><highlight class="normal">var<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref><sp/>=<sp/>Host.CreateApplicationBuilder(args);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Add<sp/>Toolbox<sp/>core<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="_program_8cs_1ad612fa48b9074032108f9c5719face05" refkind="member"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxCore(options<sp/>=&gt;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableDetailedTelemetry<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServicePrefix<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Sample&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Add<sp/>OpenTelemetry<sp/>with<sp/>console<sp/>export<sp/>for<sp/>demonstration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="_program_8cs_1ab5be1f7721cc61e8cc139cba2c783407" refkind="member"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddToolboxOpenTelemetry(options<sp/>=&gt;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableTracing<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableMetrics<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>options.EnableConsoleExport<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServiceName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Toolbox.Sample&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>options.ServiceVersion<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;1.0.0&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">});</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Register<sp/>our<sp/>sample<sp/>service</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="_program_8cs_1a1cab3cb58e15892058dd7b4b52016e91" refkind="member"><highlight class="normal"><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Services.AddScoped&lt;<ref refid="interface_i_sample_service" kindref="compound">ISampleService</ref>,<sp/><ref refid="class_sample_service" kindref="compound">SampleService</ref>&gt;();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" refkind="member"><highlight class="normal">var<sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref><sp/>=<sp/><ref refid="_program_8cs_1a2f78352277081c620fd4cf92a5ce15e5" kindref="member">builder</ref>.Build();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Demonstrate<sp/>service<sp/>usage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="_program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>(var<sp/><ref refid="_program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81" kindref="member">scope</ref><sp/>=<sp/><ref refid="_program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d" kindref="member">app</ref>.Services.CreateScope())</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>logger<sp/>=<sp/><ref refid="_program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81" kindref="member">scope</ref>.ServiceProvider.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>logger.LogInformation(</highlight><highlight class="stringliteral">&quot;Starting<sp/>Toolbox<sp/>Sample<sp/>Application&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>service<sp/>=<sp/><ref refid="_program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81" kindref="member">scope</ref>.ServiceProvider.GetRequiredService&lt;<ref refid="interface_i_sample_service" kindref="compound">ISampleService</ref>&gt;();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>some<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>await<sp/>service.<ref refid="interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b" kindref="member">DoWorkAsync</ref>(</highlight><highlight class="stringliteral">&quot;Hello,<sp/>Toolbox!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>logger.LogInformation(</highlight><highlight class="stringliteral">&quot;Sample<sp/>application<sp/>completed<sp/>successfully&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">Console.WriteLine(</highlight><highlight class="stringliteral">&quot;Press<sp/>any<sp/>key<sp/>to<sp/>exit...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50" refid="_program_8cs_1a0f92e719a4715fdc376c5338f84ffbef" refkind="member"><highlight class="normal">Console.ReadKey();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="interface_i_sample_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_i_sample_service" kindref="compound">ISampleService</ref></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63" refid="interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Task<sp/><ref refid="interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b" kindref="member">DoWorkAsync</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>message,<sp/>CancellationToken<sp/>ct<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_sample_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">sealed</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7" kindref="member">SampleService</ref><sp/>:<sp/><ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea" kindref="member">BaseAsyncDisposableService</ref>,<sp/><ref refid="interface_i_sample_service" kindref="compound">ISampleService</ref></highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>ILogger&lt;SampleService&gt;<sp/>_logger;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7" kindref="member">SampleService</ref>(ILogger&lt;SampleService&gt;<sp/>logger)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>base(</highlight><highlight class="stringliteral">&quot;SampleService&quot;</highlight><highlight class="normal">,<sp/>logger)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_logger<sp/>=<sp/>logger;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="class_sample_service_1a9517e289671e8098655ef2563c31419b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>async<sp/>Task<sp/><ref refid="class_sample_service_1a9517e289671e8098655ef2563c31419b" kindref="member">DoWorkAsync</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>message,<sp/>CancellationToken<sp/>ct<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5" kindref="member">ThrowIfDisposed</ref>();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">var<sp/>activity<sp/>=<sp/><ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29" kindref="member">StartActivity</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>sw<sp/>=<sp/>System.Diagnostics.Stopwatch.StartNew();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_logger.LogInformation(</highlight><highlight class="stringliteral">&quot;Processing<sp/>message:<sp/>{Message}&quot;</highlight><highlight class="normal">,<sp/>message);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Simulate<sp/>some<sp/>async<sp/>work</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>Task.Delay(100,<sp/>ct);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_logger.LogInformation(</highlight><highlight class="stringliteral">&quot;Message<sp/>processed<sp/>successfully&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4" kindref="member">RecordOperation</ref>(</highlight><highlight class="stringliteral">&quot;DoWorkAsync&quot;</highlight><highlight class="normal">,<sp/>sw.ElapsedMilliseconds);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="class_sample_service_1ac667ccd31274fce29bb598b5a5f593c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/>async<sp/>ValueTask<sp/><ref refid="class_sample_service_1ac667ccd31274fce29bb598b5a5f593c2" kindref="member">DisposeAsyncCore</ref>(CancellationToken<sp/>cancellationToken)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_logger.LogInformation(</highlight><highlight class="stringliteral">&quot;SampleService<sp/>is<sp/>being<sp/>disposed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>Task.CompletedTask;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs"/>
+  </compounddef>
+</doxygen>

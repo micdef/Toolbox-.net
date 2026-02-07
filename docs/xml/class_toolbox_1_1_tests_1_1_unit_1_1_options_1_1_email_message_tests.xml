@@ -1,0 +1,444 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Options::EmailMessageTests</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1abc20b962462c7f7d37796572847cf3cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithAddressOnly_ShouldCreate</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAddress_WithAddressOnly_ShouldCreate</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithAddressOnly_ShouldCreate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="13" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="13" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a928b52bb69e4589c1b6eca1689d9f34f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithDisplayName_ShouldCreate</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAddress_WithDisplayName_ShouldCreate</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithDisplayName_ShouldCreate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="24" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="24" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a731abdf87473b2e998a0d36629a713d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="35" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="35" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a9e35dbacdc2ba4a9bdfe96ca866b850b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ImplicitConversion_ShouldWork</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAddress_ImplicitConversion_ShouldWork</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ImplicitConversion_ShouldWork</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="45" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="45" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ab9b8c8659669932cbbc560744a630d4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="56" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="56" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5c53f94c17d282f42a2d2fdc5a1fd144" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="69" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="69" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1ae7f8eebfe7651456d281daa7ce60c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_NewInstance_ShouldHaveEmptyCollections</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_NewInstance_ShouldHaveEmptyCollections</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_NewInstance_ShouldHaveEmptyCollections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="86" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="86" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1eb7d554445b71553550f036342b04f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_NewInstance_ShouldHaveDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_NewInstance_ShouldHaveDefaultValues</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_NewInstance_ShouldHaveDefaultValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="100" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="100" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6d05f26d89f848cad542516da33027c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="113" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="113" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5a4d8b89203985d243488060b2d6f1fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="123" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="123" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aca97a5868672f5f3ee51d54d97035636" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="134" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="134" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6687ae2c08f14391bfead86b5b23077d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="145" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="145" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0c0dafef3605e247494e868ef152486c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_TotalRecipients_ShouldCountAll</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_TotalRecipients_ShouldCountAll</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_TotalRecipients_ShouldCountAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="156" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="156" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a65de4a56e6f4c54f5e151e78ece07cca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithNoRecipients_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_Validate_WithNoRecipients_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithNoRecipients_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="170" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="170" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac09fd7e838c765f8358ce0f1e67072d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithToRecipient_ShouldNotThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_Validate_WithToRecipient_ShouldNotThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithToRecipient_ShouldNotThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="184" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="184" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a7753930381938442b502b375e42b2348" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithBccOnly_ShouldNotThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailMessage_Validate_WithBccOnly_ShouldNotThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithBccOnly_ShouldNotThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="198" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="198" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ad97c6772356b996b36af035ddc476f41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="216" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="216" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a190102a0d5ab226020bc4f7195f16bd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromFile_WithNullPath_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_FromFile_WithNullPath_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromFile_WithNullPath_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="226" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="226" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0421ecb39be760cf9508d3baa63790d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithValidData_ShouldCreate</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_FromBytes_WithValidData_ShouldCreate</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithValidData_ShouldCreate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="236" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="236" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a3a3d32fefab51d71e3e4ee15a69e89db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithNullContent_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_FromBytes_WithNullContent_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithNullContent_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="253" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="253" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a163cdf2e9fbad7ba60576203c928945b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="263" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="263" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1afa6c594d9353e51336d8b4b44ad4c4eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="273" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="273" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a803e67d13501ca9726f98de2d5c6a6f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_CreateInline_ShouldCreateInlineAttachment</definition>
+        <argsstring>()</argsstring>
+        <name>EmailAttachment_CreateInline_ShouldCreateInlineAttachment</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_CreateInline_ShouldCreateInlineAttachment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="286" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="286" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a25498d656eceb91ca8afd55bba7af77e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_ShouldDetectContentType</definition>
+        <argsstring>(string extension, string expectedContentType)</argsstring>
+        <name>EmailAttachment_FromBytes_ShouldDetectContentType</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_ShouldDetectContentType</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>extension</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>expectedContentType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="314" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="314" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac88ffb6cc0ab426b0571108a8e1fdb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_DefaultValues_ShouldBeCorrect</definition>
+        <argsstring>()</argsstring>
+        <name>MailingOptions_DefaultValues_ShouldBeCorrect</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_DefaultValues_ShouldBeCorrect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="331" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="331" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a4af9d14f316486c132863917ff53b053" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</definition>
+        <argsstring>()</argsstring>
+        <name>MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="351" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="351" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a87f97d25200c2cfe6c2ce521c296175c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</definition>
+        <argsstring>()</argsstring>
+        <name>MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="361" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="361" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a47af5f8bf27d57da51d45d671b620cf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</definition>
+        <argsstring>()</argsstring>
+        <name>MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="371" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="371" bodyend="378"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" kindref="compound">EmailMessage</ref> and related classes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" line="8" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/EmailMessageTests.cs" bodystart="9" bodyend="381"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a9e35dbacdc2ba4a9bdfe96ca866b850b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAddress_ImplicitConversion_ShouldWork</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5c53f94c17d282f42a2d2fdc5a1fd144" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ab9b8c8659669932cbbc560744a630d4f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1abc20b962462c7f7d37796572847cf3cd" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAddress_WithAddressOnly_ShouldCreate</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a928b52bb69e4589c1b6eca1689d9f34f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAddress_WithDisplayName_ShouldCreate</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a731abdf87473b2e998a0d36629a713d3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a803e67d13501ca9726f98de2d5c6a6f9" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_CreateInline_ShouldCreateInlineAttachment</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a25498d656eceb91ca8afd55bba7af77e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromBytes_ShouldDetectContentType</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1afa6c594d9353e51336d8b4b44ad4c4eb" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a3a3d32fefab51d71e3e4ee15a69e89db" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromBytes_WithNullContent_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a163cdf2e9fbad7ba60576203c928945b" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0421ecb39be760cf9508d3baa63790d1" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromBytes_WithValidData_ShouldCreate</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ad97c6772356b996b36af035ddc476f41" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a190102a0d5ab226020bc4f7195f16bd2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailAttachment_FromFile_WithNullPath_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aca97a5868672f5f3ee51d54d97035636" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6687ae2c08f14391bfead86b5b23077d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6d05f26d89f848cad542516da33027c2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5a4d8b89203985d243488060b2d6f1fc" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1eb7d554445b71553550f036342b04f2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_NewInstance_ShouldHaveDefaultValues</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1ae7f8eebfe7651456d281daa7ce60c5" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_NewInstance_ShouldHaveEmptyCollections</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0c0dafef3605e247494e868ef152486c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_TotalRecipients_ShouldCountAll</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a7753930381938442b502b375e42b2348" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_Validate_WithBccOnly_ShouldNotThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a65de4a56e6f4c54f5e151e78ece07cca" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_Validate_WithNoRecipients_ShouldThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac09fd7e838c765f8358ce0f1e67072d" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>EmailMessage_Validate_WithToRecipient_ShouldNotThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac88ffb6cc0ab426b0571108a8e1fdb1" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>MailingOptions_DefaultValues_ShouldBeCorrect</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a4af9d14f316486c132863917ff53b053" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a47af5f8bf27d57da51d45d671b620cf0" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a87f97d25200c2cfe6c2ce521c296175c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::EmailMessageTests</scope><name>MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

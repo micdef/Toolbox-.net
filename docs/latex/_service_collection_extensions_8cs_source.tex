@@ -1,0 +1,48 @@
+\doxysection{Service\+Collection\+Extensions.\+cs}
+\hypertarget{_service_collection_extensions_8cs_source}{}\label{_service_collection_extensions_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs@{C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/ServiceCollectionExtensions.cs}}
+\doxymbox{\hyperlink{_service_collection_extensions_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00001}00001\ \textcolor{comment}{//\ @file\ ServiceCollectionExtensions.cs}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00002}00002\ \textcolor{comment}{//\ @brief\ Extension\ methods\ for\ IServiceCollection\ to\ register\ Toolbox\ services}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00003}00003\ \textcolor{comment}{//\ @details\ Provides\ fluent\ API\ for\ configuring\ Toolbox\ in\ dependency\ injection}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00004}00004\ \textcolor{comment}{//\ @note\ Use\ AddToolboxCore()\ to\ register\ base\ Toolbox\ services}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }Microsoft.Extensions.Configuration;}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00029}00029\ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }ServiceCollectionExtensions}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddToolboxCore(\textcolor{keyword}{this}\ IServiceCollection\ services)}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services.AddToolboxCore(\_\ =>\ \{\ \});}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddToolboxCore(}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ Action<ToolboxOptions>\ configureOptions)}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(configureOptions);}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ services.Configure(configureOptions);}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services;}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00095}00095\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ IServiceCollection\ AddToolboxCore(}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}\ IServiceCollection\ services,}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ IConfiguration\ configuration)}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00098}00098\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(services);}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ ArgumentNullException.ThrowIfNull(configuration);}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ services.Configure<ToolboxOptions>(}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ configuration.GetSection(ToolboxOptions.SectionName));}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ services;}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_service_collection_extensions_8cs_source_l00107}00107\ \}}
+
+\end{DoxyCode}

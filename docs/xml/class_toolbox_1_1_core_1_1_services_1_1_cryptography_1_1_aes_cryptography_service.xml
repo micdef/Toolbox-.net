@@ -1,0 +1,704 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Services::Cryptography::AesCryptographyService</compoundname>
+    <basecompoundref refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Base.BaseAsyncDisposableService</basecompoundref>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.Services.ICryptographyService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ad3630a48b4cc35dede2e11d55a91830c" prot="private" static="no" mutable="no">
+        <type>readonly byte[]</type>
+        <definition>readonly byte [] Toolbox.Core.Services.Cryptography.AesCryptographyService._key</definition>
+        <argsstring></argsstring>
+        <name>_key</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService._key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="31" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a5697f398eddcb7c596ee08fa4288237c" prot="private" static="no" mutable="no">
+        <type>readonly byte[]</type>
+        <definition>readonly byte [] Toolbox.Core.Services.Cryptography.AesCryptographyService._iv</definition>
+        <argsstring></argsstring>
+        <name>_iv</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService._iv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="34" column="27" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a6b8fe057fbfa950a35536cab9f70fde1" prot="private" static="no" mutable="no">
+        <type>readonly ILogger&lt; <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f" kindref="member">AesCryptographyService</ref> &gt;</type>
+        <definition>readonly ILogger&lt;AesCryptographyService&gt; Toolbox.Core.Services.Cryptography.AesCryptographyService._logger</definition>
+        <argsstring></argsstring>
+        <name>_logger</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService._logger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="37" column="30" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aed41df33ef97ec4a2c9e015ce3aa4bdb" prot="public" static="yes" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] Toolbox.Core.Services.Cryptography.AesCryptographyService.Key</definition>
+        <argsstring></argsstring>
+        <name>Key</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.Key</qualifiedname>
+        <briefdescription>
+<para>Generates a new AES key and initialization vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key size (128, 192, or 256 bits).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A tuple containing the generated key and IV.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>keySize</emphasis>  is not 128, 192, or 256.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>(key,<sp/>iv)<sp/>=<sp/><ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f" kindref="member">AesCryptographyService</ref>.GenerateKey(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes256);</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>service<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f" kindref="member">AesCryptographyService</ref>(key,<sp/>iv,<sp/>logger);</highlight></codeline>
+</programlisting> </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key size in bits (128, 192, or 256).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A tuple containing the generated key and IV.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>keySize</emphasis>  is not 128, 192, or 256.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="80" column="24" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Toolbox.Core.Services.Cryptography.AesCryptographyService.AesCryptographyService</definition>
+        <argsstring>(byte[] key, byte[] iv, ILogger&lt; AesCryptographyService &gt; logger)</argsstring>
+        <name>AesCryptographyService</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.AesCryptographyService</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>iv</declname>
+        </param>
+        <param>
+          <type>ILogger&lt; AesCryptographyService &gt;</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" kindref="compound">AesCryptographyService</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AES encryption key (16, 24, or 32 bytes for AES-128, AES-192, or AES-256).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initialization vector (must be 16 bytes).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The logger instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>key</emphasis> , <emphasis>iv</emphasis> , or <emphasis>logger</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when key or IV size is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="47" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="47" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1acca78d079b5b61766b44df902ded3865" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Toolbox.Core.Services.Cryptography.AesCryptographyService.Encrypt</definition>
+        <argsstring>(string plainText)</argsstring>
+        <name>Encrypt</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.Encrypt</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59">Encrypt</reimplements>
+        <param>
+          <type>string</type>
+          <declname>plainText</declname>
+        </param>
+        <briefdescription>
+<para><para>Encrypts the specified plain text.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plainText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to encrypt.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The encrypted text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="111" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="111" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a912ab62911fa9f0ec93297f2a918f351" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string &gt;</type>
+        <definition>async Task&lt; string &gt; Toolbox.Core.Services.Cryptography.AesCryptographyService.EncryptAsync</definition>
+        <argsstring>(string plainText, CancellationToken cancellationToken=default)</argsstring>
+        <name>EncryptAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.EncryptAsync</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf">EncryptAsync</reimplements>
+        <param>
+          <type>string</type>
+          <declname>plainText</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para><para>Asynchronously encrypts the specified plain text.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plainText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to encrypt.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the encrypted text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="149" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="149" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a3f723805255f3988a36130df6990b91f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Toolbox.Core.Services.Cryptography.AesCryptographyService.Decrypt</definition>
+        <argsstring>(string encryptedText)</argsstring>
+        <name>Decrypt</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.Decrypt</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f">Decrypt</reimplements>
+        <param>
+          <type>string</type>
+          <declname>encryptedText</declname>
+        </param>
+        <briefdescription>
+<para><para>Decrypts the specified encrypted text.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>encryptedText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to decrypt.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The decrypted plain text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FormatException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the encrypted text format is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="194" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="194" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ac0d76348e1fb0d832893e94ac14c19e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string &gt;</type>
+        <definition>async Task&lt; string &gt; Toolbox.Core.Services.Cryptography.AesCryptographyService.DecryptAsync</definition>
+        <argsstring>(string encryptedText, CancellationToken cancellationToken=default)</argsstring>
+        <name>DecryptAsync</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.DecryptAsync</qualifiedname>
+        <reimplements refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a">DecryptAsync</reimplements>
+        <param>
+          <type>string</type>
+          <declname>encryptedText</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para><para>Asynchronously decrypts the specified encrypted text.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>encryptedText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text to decrypt.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the decrypted plain text.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FormatException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the encrypted text format is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="242" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="242" bodyend="294"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a08ffcbf1022ac5cfb494ae028eb98b91" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[] byte[] Iv</type>
+        <definition>static byte[] byte[] Iv Toolbox.Core.Services.Cryptography.AesCryptographyService.GenerateKey</definition>
+        <argsstring>(AesKeySize keySize)</argsstring>
+        <name>GenerateKey</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.GenerateKey</qualifiedname>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref></type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="80" column="36" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="80" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ae46961cca02c4830fd98e47fd89d6f1e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[] byte[] Iv</type>
+        <definition>static byte[] byte[] Iv Toolbox.Core.Services.Cryptography.AesCryptographyService.GenerateKey</definition>
+        <argsstring>(int keySize)</argsstring>
+        <name>GenerateKey</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.GenerateKey</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>keySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="98" column="36" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="98" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a66430c765f915913cfbbd49f8bbd09f1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override ValueTask</type>
+        <definition>override ValueTask Toolbox.Core.Services.Cryptography.AesCryptographyService.DisposeAsyncCore</definition>
+        <argsstring>(CancellationToken cancellationToken)</argsstring>
+        <name>DisposeAsyncCore</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.DisposeAsyncCore</qualifiedname>
+        <reimplements refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">DisposeAsyncCore</reimplements>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+        </param>
+        <briefdescription>
+<para><para>Performs application-defined async cleanup operations.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A ValueTask representing the asynchronous operation.</para>
+</simplesect>
+</para>
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="297" column="34" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="297" bodyend="304"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a0161dbbd45107caf048c3188df9e168c" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Services.Cryptography.AesCryptographyService.ValidateKeySize</definition>
+        <argsstring>(int keySizeInBits)</argsstring>
+        <name>ValidateKeySize</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.ValidateKeySize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>keySizeInBits</declname>
+        </param>
+        <briefdescription>
+<para>Validates that the key size is valid for AES. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keySizeInBits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key size in bits.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the key size is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="311" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="311" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a148c3c80f2edf250d8f685db872d7beb" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Toolbox.Core.Services.Cryptography.AesCryptographyService.ValidateIvSize</definition>
+        <argsstring>(int ivSizeInBytes)</argsstring>
+        <name>ValidateIvSize</name>
+        <qualifiedname>Toolbox.Core.Services.Cryptography.AesCryptographyService.ValidateIvSize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ivSizeInBytes</declname>
+        </param>
+        <briefdescription>
+<para>Validates that the IV size is valid for AES. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ivSizeInBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The IV size in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the IV size is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="326" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="326" bodyend="334"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_core_1_1_services_1_1_cryptography" kindref="compound">Cryptography</ref> service implementation using AES symmetric encryption. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This service provides secure text encryption and decryption using the AES algorithm. It uses CBC mode with PKCS7 padding. </para>
+<para>The encrypted output is Base64-encoded for safe text transmission. </para>
+<para><simplesect kind="see"><para><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" kindref="compound">ICryptographyService</ref></para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Services.Cryptography.AesCryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="9">
+        <label>Toolbox.Core.Abstractions.Services.ICryptographyService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Base.BaseAsyncDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Base.BaseDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Services.Cryptography.AesCryptographyService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="9">
+        <label>Toolbox.Core.Abstractions.Services.ICryptographyService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Base.BaseAsyncDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Base.BaseDisposableService</label>
+        <link refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" line="28" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/AesCryptographyService.cs" bodystart="29" bodyend="335"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a5697f398eddcb7c596ee08fa4288237c" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>_iv</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ad3630a48b4cc35dede2e11d55a91830c" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>_key</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a6b8fe057fbfa950a35536cab9f70fde1" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>_logger</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>ActivitySource</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>AesCryptographyService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>BaseAsyncDisposableService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>BaseDisposableService</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a3f723805255f3988a36130df6990b91f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>Decrypt</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ac0d76348e1fb0d832893e94ac14c19e0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>DecryptAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f" prot="protected" virt="virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>Dispose</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89" prot="public" virt="non-virtual" ambiguityscope="Toolbox::Core::Base::BaseDisposableService."><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>Dispose</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>DisposeAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>DisposeAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a66430c765f915913cfbbd49f8bbd09f1" prot="protected" virt="virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>DisposeAsyncCore</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1acca78d079b5b61766b44df902ded3865" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>Encrypt</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a912ab62911fa9f0ec93297f2a918f351" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>EncryptAsync</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a08ffcbf1022ac5cfb494ae028eb98b91" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>GenerateKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ae46961cca02c4830fd98e47fd89d6f1e" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>GenerateKey</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>IsDisposed</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aed41df33ef97ec4a2c9e015ce3aa4bdb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>Key</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>Meter</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>RecordOperation</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe" prot="public" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>ServiceName</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>StartActivity</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5" prot="protected" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>ThrowIfDisposed</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a148c3c80f2edf250d8f685db872d7beb" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>ValidateIvSize</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a0161dbbd45107caf048c3188df9e168c" prot="private" virt="non-virtual"><scope>Toolbox::Core::Services::Cryptography::AesCryptographyService</scope><name>ValidateKeySize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

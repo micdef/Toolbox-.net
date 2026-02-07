@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1_1_test_person" kind="class" language="C#" prot="private">
+    <compoundname>Toolbox::Tests::Unit::Options::ApiResponseTests::TestPerson</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1_1_test_person_1ad4ed4a86375786e1c3bf4f7ea1e0e8fb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Tests.Unit.Options.ApiResponseTests.TestPerson.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.TestPerson.Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="325" column="23" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="325" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1_1_test_person_1a3d62e4bbc31e358fbd2e0820ca629e57" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Tests.Unit.Options.ApiResponseTests.TestPerson.Age</definition>
+        <argsstring></argsstring>
+        <name>Age</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.TestPerson.Age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="326" column="20" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="326" bodyend="326"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="323" column="12" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="324" bodyend="327"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1_1_test_person_1a3d62e4bbc31e358fbd2e0820ca629e57" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests::TestPerson</scope><name>Age</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1_1_test_person_1ad4ed4a86375786e1c3bf4f7ea1e0e8fb" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests::TestPerson</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

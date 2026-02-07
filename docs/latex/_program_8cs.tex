@@ -1,0 +1,119 @@
+\doxysection{C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox/\+samples/\+\+Toolbox.Sample/\+\+Program.cs File Reference}
+\hypertarget{_program_8cs}{}\label{_program_8cs}\index{C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs@{C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+interface \doxymbox{\hyperlink{interface_i_sample_service}{ISample\+Service}}
+\begin{DoxyCompactList}\small\item\em Sample service interface demonstrating \doxylink{namespace_toolbox}{Toolbox} patterns. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_sample_service}{Sample\+Service}}
+\begin{DoxyCompactList}\small\item\em Sample service implementation using Base\+Async\+Disposable\+Service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+builder.\+Services. \doxymbox{\hyperlink{_program_8cs_ad612fa48b9074032108f9c5719face05}{Add\+Toolbox\+Core}} (options=$>$ \{ options.\+Enable\+Detailed\+Telemetry=true;options.\+Service\+Prefix="{}Sample"{};\})
+\item 
+builder.\+Services. \doxymbox{\hyperlink{_program_8cs_ab5be1f7721cc61e8cc139cba2c783407}{Add\+Toolbox\+Open\+Telemetry}} (options=$>$ \{ options.\+Enable\+Tracing=true;options.\+Enable\+Metrics=true;options.\+Enable\+Console\+Export=true;options.\+Service\+Name="{}Toolbox.\+Sample"{};options.\+Service\+Version="{}1.\+0.\+0"{};\})
+\item 
+builder.\+Services. \doxymbox{\hyperlink{_program_8cs_a1cab3cb58e15892058dd7b4b52016e91}{Add\+Scoped$<$ ISample\+Service, Sample\+Service $>$}} ()
+\item 
+Console. \doxymbox{\hyperlink{_program_8cs_a0f92e719a4715fdc376c5338f84ffbef}{Read\+Key}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}} = Host.\+Create\+Application\+Builder(args)
+\item 
+var \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}} = builder.\+Build()
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{_program_8cs_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}\index{Program.cs@{Program.cs}!scope@{scope}}
+\index{scope@{scope}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{scope}{scope}}
+{\footnotesize\ttfamily \label{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81} 
+using \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Services.CreateScope())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ var\ logger\ =\ \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}.ServiceProvider.GetRequiredService<ILogger<Program>>();}
+\DoxyCodeLine{\ \ \ \ logger.LogInformation(\textcolor{stringliteral}{"{}Starting\ Toolbox\ Sample\ Application"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ var\ service\ =\ \doxymbox{\hyperlink{_program_8cs_a9c7e9f1318376a6625b27cbc10e0cf81}{scope}}.ServiceProvider.GetRequiredService<\doxymbox{\hyperlink{interface_i_sample_service}{ISampleService}}>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ await\ service.\doxymbox{\hyperlink{interface_i_sample_service_af558448f0c3ea3c73b0235216186395b}{DoWorkAsync}}(\textcolor{stringliteral}{"{}Hello,\ Toolbox!"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ logger.LogInformation(\textcolor{stringliteral}{"{}Sample\ application\ completed\ successfully"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Console.WriteLine(\textcolor{stringliteral}{"{}Press\ any\ key\ to\ exit..."{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00036}{36}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{_program_8cs_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_program_8cs_a1cab3cb58e15892058dd7b4b52016e91}\index{Program.cs@{Program.cs}!AddScoped$<$ ISampleService, SampleService $>$@{AddScoped$<$ ISampleService, SampleService $>$}}
+\index{AddScoped$<$ ISampleService, SampleService $>$@{AddScoped$<$ ISampleService, SampleService $>$}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddScoped$<$ ISampleService, SampleService $>$()}{AddScoped< ISampleService, SampleService >()}}
+{\footnotesize\ttfamily \label{_program_8cs_a1cab3cb58e15892058dd7b4b52016e91} 
+builder.\+Services. Add\+Scoped$<$ \doxymbox{\hyperlink{interface_i_sample_service}{ISample\+Service}}, \doxymbox{\hyperlink{class_sample_service}{Sample\+Service}} $>$ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_ad612fa48b9074032108f9c5719face05}\index{Program.cs@{Program.cs}!AddToolboxCore@{AddToolboxCore}}
+\index{AddToolboxCore@{AddToolboxCore}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddToolboxCore()}{AddToolboxCore()}}
+{\footnotesize\ttfamily \label{_program_8cs_ad612fa48b9074032108f9c5719face05} 
+builder.\+Services. Add\+Toolbox\+Core (\begin{DoxyParamCaption}\item[{options}]{}{, }\item[{\{ options.\+Enable\+Detailed\+Telemetry=true;options.\+Service\+Prefix="{}Sample"{};\}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_ab5be1f7721cc61e8cc139cba2c783407}\index{Program.cs@{Program.cs}!AddToolboxOpenTelemetry@{AddToolboxOpenTelemetry}}
+\index{AddToolboxOpenTelemetry@{AddToolboxOpenTelemetry}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{AddToolboxOpenTelemetry()}{AddToolboxOpenTelemetry()}}
+{\footnotesize\ttfamily \label{_program_8cs_ab5be1f7721cc61e8cc139cba2c783407} 
+builder.\+Services. Add\+Toolbox\+Open\+Telemetry (\begin{DoxyParamCaption}\item[{options}]{}{, }\item[{\{ options.\+Enable\+Tracing=true;options.\+Enable\+Metrics=true;options.\+Enable\+Console\+Export=true;options.\+Service\+Name="{}Toolbox.\+Sample"{};options.\+Service\+Version="{}1.\+0.\+0"{};\}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_program_8cs_a0f92e719a4715fdc376c5338f84ffbef}\index{Program.cs@{Program.cs}!ReadKey@{ReadKey}}
+\index{ReadKey@{ReadKey}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{ReadKey()}{ReadKey()}}
+{\footnotesize\ttfamily \label{_program_8cs_a0f92e719a4715fdc376c5338f84ffbef} 
+Console. Read\+Key (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_program_8cs_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}\index{Program.cs@{Program.cs}!app@{app}}
+\index{app@{app}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d} 
+var app = builder.\+Build()}
+
+
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00033}{33}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+
+\Hypertarget{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}\index{Program.cs@{Program.cs}!builder@{builder}}
+\index{builder@{builder}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{builder}{builder}}
+{\footnotesize\ttfamily \label{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5} 
+var builder = Host.\+Create\+Application\+Builder(args)}
+
+
+
+Definition at line \doxymbox{\hyperlink{_program_8cs_source_l00011}{11}} of file \doxymbox{\hyperlink{_program_8cs_source}{Program.\+cs}}.
+

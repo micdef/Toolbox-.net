@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a95339fa05785b920286d5d27a62e73e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddBase64Cryptography</definition>
+        <argsstring>(this IServiceCollection services, Base64EncodingTable encodingTable)</argsstring>
+        <name>AddBase64Cryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddBase64Cryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" kindref="member">Base64EncodingTable</ref></type>
+          <declname>encodingTable</declname>
+        </param>
+        <briefdescription>
+<para>Adds the Base64 cryptography service with the specified encoding table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>encodingTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encoding table to use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddBase64Cryptography(<ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" kindref="member">Base64EncodingTable</ref>.UrlSafe);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="34" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="34" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a45b9c463c32c1e2b2986c48af05de937" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddBase64Cryptography</definition>
+        <argsstring>(this IServiceCollection services, Action&lt; Base64CryptographyOptions &gt; configureOptions)</argsstring>
+        <name>AddBase64Cryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddBase64Cryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>Action&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options" kindref="compound">Base64CryptographyOptions</ref> &gt;</type>
+          <declname>configureOptions</declname>
+        </param>
+        <briefdescription>
+<para>Adds the Base64 cryptography service with custom options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configureOptions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An action to configure the options.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configureOptions</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">services.AddBase64Cryptography(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.EncodingTable<sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287" kindref="member">Base64EncodingTable</ref>.UrlSafe;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.IncludePadding<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="68" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="68" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1aa78e26b0cc9e08045e9590b251d54190" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddBase64Cryptography</definition>
+        <argsstring>(this IServiceCollection services, IConfiguration configuration)</argsstring>
+        <name>AddBase64Cryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddBase64Cryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Adds the Base64 cryptography service with configuration binding. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration to bind from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>configuration</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para>Binds options from the <computeroutput>Toolbox:Cryptography:Base64</computeroutput> configuration section. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="93" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="93" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a9966ada6c7a4f97cbee8cbb1e9aaddec" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddAesCryptography</definition>
+        <argsstring>(this IServiceCollection services, byte[] key, byte[] iv)</argsstring>
+        <name>AddAesCryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddAesCryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>iv</declname>
+        </param>
+        <briefdescription>
+<para>Adds the AES cryptography service with the specified key and IV. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AES encryption key (16, 24, or 32 bytes).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initialization vector (16 bytes).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis> , <emphasis>key</emphasis> , or <emphasis>iv</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when key or IV size is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>(key,<sp/>iv)<sp/>=<sp/>AesCryptographyService.GenerateKey(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea" kindref="member">AesKeySize</ref>.Aes256);</highlight></codeline>
+<codeline><highlight class="normal">services.AddAesCryptography(key,<sp/>iv);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="125" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="125" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a41eceb6309f196d4d34d709784ca7260" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddRsaCryptography</definition>
+        <argsstring>(this IServiceCollection services, byte[] publicKey, RsaPaddingMode paddingMode, byte[]? privateKey=null)</argsstring>
+        <name>AddRsaCryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddRsaCryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>publicKey</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref></type>
+          <declname>paddingMode</declname>
+        </param>
+        <param>
+          <type>byte?[]</type>
+          <declname>privateKey</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Adds the RSA cryptography service with the specified key pair. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>publicKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The public key in SubjectPublicKeyInfo format.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>paddingMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The padding mode to use.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>privateKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private key in PKCS#8 format, or <computeroutput>null</computeroutput> for encryption only.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>publicKey</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>keyPair<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref>.Rsa2048);</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(keyPair.PublicKey!,<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref>.OaepSha256,<sp/>keyPair.PrivateKey);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="160" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="160" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1abff4a4df79b440cf3ea280d288b5b9b7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddRsaCryptography</definition>
+        <argsstring>(this IServiceCollection services, X509Certificate2 certificate, RsaPaddingMode paddingMode)</argsstring>
+        <name>AddRsaCryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddRsaCryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type>X509Certificate2</type>
+          <declname>certificate</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref></type>
+          <declname>paddingMode</declname>
+        </param>
+        <briefdescription>
+<para>Adds the RSA cryptography service with an X.509 certificate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>certificate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The X.509 certificate containing the RSA key(s).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>paddingMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The padding mode to use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>certificate</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the certificate does not contain an RSA key.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>cert<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>X509Certificate2(</highlight><highlight class="stringliteral">&quot;certificate.pfx&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(cert,<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref>.OaepSha256);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="195" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="195" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1ac9ef30c94a036d040db1a465c555135a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IServiceCollection</type>
+        <definition>static IServiceCollection Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddRsaCryptography</definition>
+        <argsstring>(this IServiceCollection services, RsaKeyPair keyPair, RsaPaddingMode paddingMode)</argsstring>
+        <name>AddRsaCryptography</name>
+        <qualifiedname>Toolbox.Core.Extensions.CryptographyServiceCollectionExtensions.AddRsaCryptography</qualifiedname>
+        <param>
+          <type>this IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref></type>
+          <declname>keyPair</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref></type>
+          <declname>paddingMode</declname>
+        </param>
+        <briefdescription>
+<para>Adds the RSA cryptography service with an <ref refid="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" kindref="compound">RsaKeyPair</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>services</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The service collection.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keyPair</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The RSA key pair.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>paddingMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The padding mode to use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The service collection for chaining.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>services</emphasis>  or <emphasis>keyPair</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InvalidOperationException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the key pair has no public key.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>keyPair<sp/>=<sp/>RsaCryptographyService.GenerateKeyPair(<ref refid="namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c" kindref="member">RsaKeySize</ref>.Rsa2048);</highlight></codeline>
+<codeline><highlight class="normal">services.AddRsaCryptography(keyPair,<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448" kindref="member">RsaPaddingMode</ref>.OaepSha256);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="229" column="38" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="229" bodyend="248"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Extension methods for IServiceCollection to configure cryptography services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These extensions provide a fluent API for registering cryptography services. </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" line="20" column="15" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs" bodystart="21" bodyend="249"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a9966ada6c7a4f97cbee8cbb1e9aaddec" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddAesCryptography</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a95339fa05785b920286d5d27a62e73e1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddBase64Cryptography</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a45b9c463c32c1e2b2986c48af05de937" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddBase64Cryptography</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1aa78e26b0cc9e08045e9590b251d54190" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddBase64Cryptography</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1a41eceb6309f196d4d34d709784ca7260" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddRsaCryptography</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1abff4a4df79b440cf3ea280d288b5b9b7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddRsaCryptography</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_extensions_1_1_cryptography_service_collection_extensions_1ac9ef30c94a036d040db1a465c555135a" prot="public" virt="non-virtual"><scope>Toolbox::Core::Extensions::CryptographyServiceCollectionExtensions</scope><name>AddRsaCryptography</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,47 @@
+\doxysection{Options\+Schema\+Tests.\+cs}
+\hypertarget{_options_schema_tests_8cs_source}{}\label{_options_schema_tests_8cs_source}\index{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/OptionsSchemaTests.cs@{C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/OptionsSchemaTests.cs}}
+\doxymbox{\hyperlink{_options_schema_tests_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_options}{Toolbox.Core.Options}};}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00003}\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_regression}{00003}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_tests_1_1_regression}{Toolbox.Tests.Regression}};}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00008}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests}{00008}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests}{OptionsSchemaTests}}}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00010}00010\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00011}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_a14b1200bb842289fb5d9b450d50352b9}{00011}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_a14b1200bb842289fb5d9b450d50352b9}{ToolboxOptions\_SectionName\_ShouldNotChange}}()}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00013}00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options}{ToolboxOptions}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_a04306cd36618f56804e8622e6700dea2}{SectionName}}.Should().Be(\textcolor{stringliteral}{"{}Toolbox"{}});}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00016}00016\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00017}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_ab58f78b6f30351406b7c657e0954543d}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_ab58f78b6f30351406b7c657e0954543d}{ToolboxOptions\_DefaultValues\_ShouldNotChange}}()}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_options}{ToolboxOptions}}();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ options.EnableDetailedTelemetry.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ options.ServicePrefix.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ options.AsyncDisposalTimeout.Should().Be(TimeSpan.FromSeconds(30));}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00026}00026\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00027}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_a50c4672587592be45780a97e33079ae6}{00027}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_a50c4672587592be45780a97e33079ae6}{ToolboxTelemetryOptions\_SectionName\_ShouldNotChange}}()}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options}{ToolboxTelemetryOptions}}.\doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_ad376b2327064c73e8ce4baf2410836c5}{SectionName}}.Should().Be(\textcolor{stringliteral}{"{}Toolbox:Telemetry"{}});}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00032}00032\ \ \ \ \ [Fact]}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00033}\doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_a951b544a7a764ca7c793dd00a5f218c5}{00033}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_a951b544a7a764ca7c793dd00a5f218c5}{ToolboxTelemetryOptions\_DefaultValues\_ShouldNotChange}}()}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ var\ options\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options}{ToolboxTelemetryOptions}}();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ options.EnableTracing.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ options.EnableMetrics.Should().BeTrue();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ options.EnableConsoleExport.Should().BeFalse();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ options.OtlpEndpoint.Should().BeNull();}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ options.ServiceName.Should().Be(\textcolor{stringliteral}{"{}Toolbox"{}});}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ options.ServiceVersion.Should().Be(\textcolor{stringliteral}{"{}1.0.0"{}});}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_options_schema_tests_8cs_source_l00044}00044\ \}}
+
+\end{DoxyCode}

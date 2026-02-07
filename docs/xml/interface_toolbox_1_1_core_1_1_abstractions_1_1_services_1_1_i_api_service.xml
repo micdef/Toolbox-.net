@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service" kind="interface" language="C#" prot="public">
+    <compoundname>Toolbox::Core::Abstractions::Services::IApiService</compoundname>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IInstrumentedService</basecompoundref>
+    <basecompoundref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" prot="public" virt="non-virtual">Toolbox.Core.Abstractions.IAsyncDisposableService</basecompoundref>
+    <derivedcompoundref refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" prot="public" virt="non-virtual">Toolbox.Core.Services.Api.HttpApiService</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a8e1e539d9367084d49f092a7fd28f0f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref></type>
+        <definition>ApiResponse Toolbox.Core.Abstractions.Services.IApiService.Send</definition>
+        <argsstring>(ApiRequest request)</argsstring>
+        <name>Send</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IApiService.Send</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac500eb0b849bbdc483def95d72074bb0">Send</reimplementedby>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Sends an HTTP request synchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The API response.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>request<sp/>=<sp/>ApiRequest.Get(</highlight><highlight class="stringliteral">&quot;/users/123&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>response<sp/>=<sp/>apiService.Send(request);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(response.IsSuccess)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>user<sp/>=<sp/>response.Deserialize&lt;User&gt;();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" line="47" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a0accf629ae4c199538748481fe5878a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task&lt; <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref> &gt;</type>
+        <definition>Task&lt; ApiResponse &gt; Toolbox.Core.Abstractions.Services.IApiService.SendAsync</definition>
+        <argsstring>(ApiRequest request, CancellationToken cancellationToken=default)</argsstring>
+        <name>SendAsync</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IApiService.SendAsync</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1aaed64c4d21394332ab877cec4b5a3c8f">SendAsync</reimplementedby>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Sends an HTTP request asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the API response.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OperationCanceledException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the operation is cancelled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>request<sp/>=<sp/>ApiRequest.Post(</highlight><highlight class="stringliteral">&quot;/users&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>{<sp/>Name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;John&quot;</highlight><highlight class="normal"><sp/>});</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>response<sp/>=<sp/>await<sp/>apiService.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">response.EnsureSuccess();</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>createdUser<sp/>=<sp/>response.Deserialize&lt;User&gt;();</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a27ea4b9ea559b9e6c686d53a690f0f5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T?</type>
+        <definition>T? Toolbox.Core.Abstractions.Services.IApiService.Send&lt; T &gt;</definition>
+        <argsstring>(ApiRequest request)</argsstring>
+        <name>Send&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IApiService.Send&lt; T &gt;</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a12ae6cb6399a2ce3c8552aec716bace4">Send&lt; T &gt;</reimplementedby>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Sends an HTTP request and deserializes the response. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The deserialized response body.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails or returns an error status.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>users<sp/>=<sp/>apiService.Send&lt;List&lt;User&gt;&gt;(ApiRequest.Get(</highlight><highlight class="stringliteral">&quot;/users&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" line="82" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1aa115f05961994226ad5f2ffce5cb974d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Task&lt; T?&gt;</type>
+        <definition>Task&lt; T?&gt; Toolbox.Core.Abstractions.Services.IApiService.SendAsync&lt; T &gt;</definition>
+        <argsstring>(ApiRequest request, CancellationToken cancellationToken=default)</argsstring>
+        <name>SendAsync&lt; T &gt;</name>
+        <qualifiedname>Toolbox.Core.Abstractions.Services.IApiService.SendAsync&lt; T &gt;</qualifiedname>
+        <reimplementedby refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a44f935aae5324b5f2d40dc6f786eda13">SendAsync&lt; T &gt;</reimplementedby>
+        <param>
+          <type><ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_request" kindref="compound">ApiRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>CancellationToken</type>
+          <declname>cancellationToken</declname>
+          <defval>default</defval>
+        </param>
+        <briefdescription>
+<para>Sends an HTTP request and deserializes the response asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response body type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to send.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cancellationToken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token to cancel the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A task containing the deserialized response body.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HttpRequestException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the request fails or returns an error status.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OperationCanceledException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Thrown when the operation is cancelled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>user<sp/>=<sp/>await<sp/>apiService.SendAsync&lt;User&gt;(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ApiRequest.Get(</highlight><highlight class="stringliteral">&quot;/users/123&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cancellationToken);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" line="82" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Defines the contract for HTTP API services. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface provides methods for making HTTP requests with support for: </para>
+<para><itemizedlist>
+<listitem>
+<para>All HTTP verbs (GET, POST, PUT, DELETE, PATCH, etc.) </para>
+</listitem>
+<listitem>
+<para>Multiple authentication modes (Bearer, Basic, API Key, Certificate) </para>
+</listitem>
+<listitem>
+<para>JSON serialization/deserialization </para>
+</listitem>
+<listitem>
+<para>Custom headers and query parameters </para>
+</listitem>
+<listitem>
+<para>Automatic retry with exponential backoff </para>
+</listitem>
+</itemizedlist>
+</para>
+<para><simplesect kind="see"><para><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" kindref="compound">IInstrumentedService</ref>, <ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" kindref="compound">IAsyncDisposableService</ref></para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.IApiService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+      <node id="7">
+        <label>Toolbox.Core.Services.Api.HttpApiService</label>
+        <link refid="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>IAsyncDisposable</label>
+      </node>
+      <node id="5">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Toolbox.Core.Abstractions.Services.IApiService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toolbox.Core.Abstractions.IAsyncDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Toolbox.Core.Abstractions.IDisposableService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Toolbox.Core.Abstractions.IInstrumentedService</label>
+        <link refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" line="27" column="18" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IApiService.cs" bodystart="28" bodyend="102"/>
+    <listofallmembers>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>ActivitySource</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>DisposeAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>IsDisposed</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>Meter</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a8e1e539d9367084d49f092a7fd28f0f7" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>Send</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a27ea4b9ea559b9e6c686d53a690f0f5b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>Send&lt; T &gt;</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a0accf629ae4c199538748481fe5878a2" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>SendAsync</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1aa115f05961994226ad5f2ffce5cb974d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>SendAsync&lt; T &gt;</name></member>
+      <member refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74" prot="public" virt="non-virtual"><scope>Toolbox::Core::Abstractions::Services::IApiService</scope><name>ServiceName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

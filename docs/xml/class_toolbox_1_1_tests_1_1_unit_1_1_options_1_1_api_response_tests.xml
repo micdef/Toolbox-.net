@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests" kind="class" language="C#" prot="public">
+    <compoundname>Toolbox::Tests::Unit::Options::ApiResponseTests</compoundname>
+    <innerclass refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1_1_test_person" prot="private">Toolbox::Tests::Unit::Options::ApiResponseTests::TestPerson</innerclass>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a547124024229380f0317874692fb4b97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsSuccess_ShouldReturnCorrectValue</definition>
+        <argsstring>(HttpStatusCode statusCode, bool expected)</argsstring>
+        <name>IsSuccess_ShouldReturnCorrectValue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.IsSuccess_ShouldReturnCorrectValue</qualifiedname>
+        <param>
+          <type>HttpStatusCode</type>
+          <declname>statusCode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expected</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="20" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="20" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a4d15e78989ecc99ce7f03c4209e86af3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsClientError_ShouldReturnCorrectValue</definition>
+        <argsstring>(HttpStatusCode statusCode, bool expected)</argsstring>
+        <name>IsClientError_ShouldReturnCorrectValue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.IsClientError_ShouldReturnCorrectValue</qualifiedname>
+        <param>
+          <type>HttpStatusCode</type>
+          <declname>statusCode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expected</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="35" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="35" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a70153e9da4797d03f41e96eb0454aa2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsServerError_ShouldReturnCorrectValue</definition>
+        <argsstring>(HttpStatusCode statusCode, bool expected)</argsstring>
+        <name>IsServerError_ShouldReturnCorrectValue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.IsServerError_ShouldReturnCorrectValue</qualifiedname>
+        <param>
+          <type>HttpStatusCode</type>
+          <declname>statusCode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expected</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="50" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="50" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a41688f44ee35469617ab0b84c4d67d5f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsRedirect_ShouldReturnCorrectValue</definition>
+        <argsstring>(HttpStatusCode statusCode, bool expected)</argsstring>
+        <name>IsRedirect_ShouldReturnCorrectValue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.IsRedirect_ShouldReturnCorrectValue</qualifiedname>
+        <param>
+          <type>HttpStatusCode</type>
+          <declname>statusCode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expected</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="64" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="64" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aece8267cf3a0c16cd5f2546f567c5048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.StatusCodeValue_ShouldReturnNumericValue</definition>
+        <argsstring>()</argsstring>
+        <name>StatusCodeValue_ShouldReturnNumericValue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.StatusCodeValue_ShouldReturnNumericValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="74" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="74" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ad595676e5064524667d43f09981907e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithValidJson_ShouldReturnObject</definition>
+        <argsstring>()</argsstring>
+        <name>Deserialize_WithValidJson_ShouldReturnObject</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithValidJson_ShouldReturnObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="88" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1af52c48d1914dbd9aab5ebf43e53afb7a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithEmptyBody_ShouldReturnDefault</definition>
+        <argsstring>()</argsstring>
+        <name>Deserialize_WithEmptyBody_ShouldReturnDefault</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithEmptyBody_ShouldReturnDefault</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="107" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="107" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab3c519a3564dae85a4119a3c8f493487" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithInvalidJson_ShouldThrowJsonException</definition>
+        <argsstring>()</argsstring>
+        <name>Deserialize_WithInvalidJson_ShouldThrowJsonException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithInvalidJson_ShouldThrowJsonException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="124" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="124" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6c9173ad522dd63de85d015882a1f574" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithValidJson_ShouldReturnTrue</definition>
+        <argsstring>()</argsstring>
+        <name>TryDeserialize_WithValidJson_ShouldReturnTrue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithValidJson_ShouldReturnTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="141" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="141" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aee798727f1d44580a456a229f7ee7fc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithInvalidJson_ShouldReturnFalse</definition>
+        <argsstring>()</argsstring>
+        <name>TryDeserialize_WithInvalidJson_ShouldReturnFalse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithInvalidJson_ShouldReturnFalse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="159" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="159" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6fc7b50baa8689aa7b6221199c1725af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithEmptyBody_ShouldReturnFalse</definition>
+        <argsstring>()</argsstring>
+        <name>TryDeserialize_WithEmptyBody_ShouldReturnFalse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithEmptyBody_ShouldReturnFalse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="177" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="177" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a7fdd8bf3b736fca3d6265a290b97ec2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeader_WithExistingHeader_ShouldReturnValue</definition>
+        <argsstring>()</argsstring>
+        <name>GetHeader_WithExistingHeader_ShouldReturnValue</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeader_WithExistingHeader_ShouldReturnValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="198" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="198" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1abfecc9def6cdfed6952f710ad90de393" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeader_WithNonExistingHeader_ShouldReturnNull</definition>
+        <argsstring>()</argsstring>
+        <name>GetHeader_WithNonExistingHeader_ShouldReturnNull</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeader_WithNonExistingHeader_ShouldReturnNull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="219" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="219" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab109575af4ff3e1ff99b84f4b20688d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeaders_WithMultipleValues_ShouldReturnAll</definition>
+        <argsstring>()</argsstring>
+        <name>GetHeaders_WithMultipleValues_ShouldReturnAll</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeaders_WithMultipleValues_ShouldReturnAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="236" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="236" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a1d80bb7a674c4df1035e3ec51640b191" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.EnsureSuccess_WithSuccessStatus_ShouldNotThrow</definition>
+        <argsstring>()</argsstring>
+        <name>EnsureSuccess_WithSuccessStatus_ShouldNotThrow</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.EnsureSuccess_WithSuccessStatus_ShouldNotThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="261" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="261" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a65cd9566d1d7503a3c7bb8a5c9e4ad96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</definition>
+        <argsstring>()</argsstring>
+        <name>EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="274" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="274" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a634fa4bf9aab980e9b2dc95135c13994" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.Success_ShouldCreateSuccessResponse</definition>
+        <argsstring>()</argsstring>
+        <name>Success_ShouldCreateSuccessResponse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.Success_ShouldCreateSuccessResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="297" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="297" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a67099110421286bc1e16549ff6f627a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toolbox.Tests.Unit.Options.ApiResponseTests.Error_ShouldCreateErrorResponse</definition>
+        <argsstring>()</argsstring>
+        <name>Error_ShouldCreateErrorResponse</name>
+        <qualifiedname>Toolbox.Tests.Unit.Options.ApiResponseTests.Error_ShouldCreateErrorResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="309" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="309" bodyend="318"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_toolbox_1_1_tests_1_1_unit" kindref="compound">Unit</ref> tests for <ref refid="class_toolbox_1_1_core_1_1_options_1_1_api_response" kindref="compound">ApiResponse</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" line="10" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiResponseTests.cs" bodystart="11" bodyend="328"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1af52c48d1914dbd9aab5ebf43e53afb7a" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>Deserialize_WithEmptyBody_ShouldReturnDefault</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab3c519a3564dae85a4119a3c8f493487" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>Deserialize_WithInvalidJson_ShouldThrowJsonException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ad595676e5064524667d43f09981907e2" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>Deserialize_WithValidJson_ShouldReturnObject</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a65cd9566d1d7503a3c7bb8a5c9e4ad96" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a1d80bb7a674c4df1035e3ec51640b191" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>EnsureSuccess_WithSuccessStatus_ShouldNotThrow</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a67099110421286bc1e16549ff6f627a7" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>Error_ShouldCreateErrorResponse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a7fdd8bf3b736fca3d6265a290b97ec2c" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>GetHeader_WithExistingHeader_ShouldReturnValue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1abfecc9def6cdfed6952f710ad90de393" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>GetHeader_WithNonExistingHeader_ShouldReturnNull</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab109575af4ff3e1ff99b84f4b20688d0" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>GetHeaders_WithMultipleValues_ShouldReturnAll</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a4d15e78989ecc99ce7f03c4209e86af3" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>IsClientError_ShouldReturnCorrectValue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a41688f44ee35469617ab0b84c4d67d5f" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>IsRedirect_ShouldReturnCorrectValue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a70153e9da4797d03f41e96eb0454aa2e" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>IsServerError_ShouldReturnCorrectValue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a547124024229380f0317874692fb4b97" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>IsSuccess_ShouldReturnCorrectValue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aece8267cf3a0c16cd5f2546f567c5048" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>StatusCodeValue_ShouldReturnNumericValue</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a634fa4bf9aab980e9b2dc95135c13994" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>Success_ShouldCreateSuccessResponse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6fc7b50baa8689aa7b6221199c1725af" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>TryDeserialize_WithEmptyBody_ShouldReturnFalse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aee798727f1d44580a456a229f7ee7fc0" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>TryDeserialize_WithInvalidJson_ShouldReturnFalse</name></member>
+      <member refid="class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6c9173ad522dd63de85d015882a1f574" prot="public" virt="non-virtual"><scope>Toolbox::Tests::Unit::Options::ApiResponseTests</scope><name>TryDeserialize_WithValidJson_ShouldReturnTrue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options" kind="class" language="C#" prot="public" sealed="yes">
+    <compoundname>Toolbox::Core::Options::MailingOptions</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a1973fb40f24a5029a0da0be3f7f93a9d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toolbox.Core.Options.MailingOptions.Host</definition>
+        <argsstring></argsstring>
+        <name>Host</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.Host</qualifiedname>
+        <initializer>= &quot;localhost&quot;</initializer>
+        <briefdescription>
+<para>Gets or sets the SMTP server hostname or IP address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The SMTP server host. Default is <computeroutput>&quot;localhost&quot;</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="39" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1acea60967c6520c8c575a6dc81310fc0d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Toolbox.Core.Options.MailingOptions.Port</definition>
+        <argsstring></argsstring>
+        <name>Port</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.Port</qualifiedname>
+        <initializer>= 25</initializer>
+        <briefdescription>
+<para>Gets or sets the SMTP server port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The port number. Default is <computeroutput>25</computeroutput>. Common ports: 25 (unencrypted), 587 (STARTTLS), 465 (SSL/TLS). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="48" column="16" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa0965c379cae15714a13ad998027d33b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" kindref="member">SmtpSecurityMode</ref></type>
+        <definition>SmtpSecurityMode Toolbox.Core.Options.MailingOptions.SecurityMode</definition>
+        <argsstring></argsstring>
+        <name>SecurityMode</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.SecurityMode</qualifiedname>
+        <initializer>= <ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb" kindref="member">SmtpSecurityMode.Auto</ref></initializer>
+        <briefdescription>
+<para>Gets or sets the security mode for the SMTP connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The security mode. Default is <ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb" kindref="member">SmtpSecurityMode.Auto</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="54" column="29" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4757f2cb0756b8e12f0f5f174381c7c8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.MailingOptions.Username</definition>
+        <argsstring></argsstring>
+        <name>Username</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.Username</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the username for SMTP authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The username, or <computeroutput>null</computeroutput> for anonymous authentication.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="60" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1addde220b9b4243a94dbf9c6d5d5623e1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.MailingOptions.Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.Password</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the password for SMTP authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The password, or <computeroutput>null</computeroutput> for anonymous authentication.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="66" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b040ab32d447a2226acfdbec363e034" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string?</type>
+        <definition>string? Toolbox.Core.Options.MailingOptions.OAuth2AccessToken</definition>
+        <argsstring></argsstring>
+        <name>OAuth2AccessToken</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.OAuth2AccessToken</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the OAuth2 access token for authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The OAuth2 token, or <computeroutput>null</computeroutput> to use password authentication.</para>
+<para>When set, this takes precedence over password authentication. Useful for services like Gmail or Office 365 that require OAuth2. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="76" column="19" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa8936448acd23f7147be166d3b529514" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.MailingOptions.ConnectionTimeout</definition>
+        <argsstring></argsstring>
+        <name>ConnectionTimeout</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.ConnectionTimeout</qualifiedname>
+        <initializer>= TimeSpan.FromSeconds(30)</initializer>
+        <briefdescription>
+<para>Gets or sets the connection timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The connection timeout. Default is 30 seconds.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="82" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aebf39366b856983c2e3ef80f296a7a79" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TimeSpan</type>
+        <definition>TimeSpan Toolbox.Core.Options.MailingOptions.OperationTimeout</definition>
+        <argsstring></argsstring>
+        <name>OperationTimeout</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.OperationTimeout</qualifiedname>
+        <initializer>= TimeSpan.FromMinutes(2)</initializer>
+        <briefdescription>
+<para>Gets or sets the operation timeout for sending emails. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The operation timeout. Default is 2 minutes.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="88" column="21" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a13418293605c62830981c6fbc9f33262" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.MailingOptions.ValidateCertificate</definition>
+        <argsstring></argsstring>
+        <name>ValidateCertificate</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.ValidateCertificate</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Gets or sets whether to validate the server&apos;s SSL certificate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> to validate certificates (recommended); <computeroutput>false</computeroutput> to accept all certificates (use only for testing). Default is <computeroutput>true</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="98" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8850d7ac80760e2bae3eb99a95e6559f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>?</type>
+        <definition>EmailAddress? Toolbox.Core.Options.MailingOptions.DefaultFrom</definition>
+        <argsstring></argsstring>
+        <name>DefaultFrom</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.DefaultFrom</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the default sender address to use when not specified in the message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default sender email address, or <computeroutput>null</computeroutput> if not set.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="104" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b3119bb98f9a6c42971de5949475075" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3" kindref="member">EmailAddress</ref>?</type>
+        <definition>EmailAddress? Toolbox.Core.Options.MailingOptions.DefaultReplyTo</definition>
+        <argsstring></argsstring>
+        <name>DefaultReplyTo</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.DefaultReplyTo</qualifiedname>
+        <briefdescription>
+<para>Gets or sets the default reply-to address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default reply-to email address, or <computeroutput>null</computeroutput> if not set.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="110" column="25" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="property" id="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8edd367bcee0766e09aed546e09e7639" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toolbox.Core.Options.MailingOptions.RequiresAuthentication</definition>
+        <argsstring></argsstring>
+        <name>RequiresAuthentication</name>
+        <qualifiedname>Toolbox.Core.Options.MailingOptions.RequiresAuthentication</qualifiedname>
+        <briefdescription>
+<para>Gets a value indicating whether authentication is configured. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>true</computeroutput> if username or OAuth2 token is set; otherwise, <computeroutput>false</computeroutput>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="116" column="17" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="116" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration options for the SMTP mailing service. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These options configure how the mailing service connects to an SMTP server. Authentication is optional for servers that support anonymous relay. </para>
+<para>For secure connections, use <ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1" kindref="member">SmtpSecurityMode.StartTls</ref> (port 587) or <ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1" kindref="member">SmtpSecurityMode.SslOnConnect</ref> (port 465). </para>
+<para><programlisting filename=".cs"><codeline><highlight class="normal">var<sp/>options<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MailingOptions</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a1973fb40f24a5029a0da0be3f7f93a9d" kindref="member">Host</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;smtp.example.com&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1acea60967c6520c8c575a6dc81310fc0d" kindref="member">Port</ref><sp/>=<sp/>587,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa0965c379cae15714a13ad998027d33b" kindref="member">SecurityMode</ref><sp/>=<sp/><ref refid="namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453" kindref="member">SmtpSecurityMode</ref>.StartTls,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4757f2cb0756b8e12f0f5f174381c7c8" kindref="member">Username</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;user@example.com&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1addde220b9b4243a94dbf9c6d5d5623e1" kindref="member">Password</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" line="33" column="7" bodyfile="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/MailingOptions.cs" bodystart="34" bodyend="118"/>
+    <listofallmembers>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa8936448acd23f7147be166d3b529514" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>ConnectionTimeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8850d7ac80760e2bae3eb99a95e6559f" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>DefaultFrom</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b3119bb98f9a6c42971de5949475075" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>DefaultReplyTo</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a1973fb40f24a5029a0da0be3f7f93a9d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>Host</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b040ab32d447a2226acfdbec363e034" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>OAuth2AccessToken</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aebf39366b856983c2e3ef80f296a7a79" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>OperationTimeout</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1addde220b9b4243a94dbf9c6d5d5623e1" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>Password</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1acea60967c6520c8c575a6dc81310fc0d" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>Port</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8edd367bcee0766e09aed546e09e7639" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>RequiresAuthentication</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa0965c379cae15714a13ad998027d33b" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>SecurityMode</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4757f2cb0756b8e12f0f5f174381c7c8" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>Username</name></member>
+      <member refid="class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a13418293605c62830981c6fbc9f33262" prot="public" virt="non-virtual"><scope>Toolbox::Core::Options::MailingOptions</scope><name>ValidateCertificate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

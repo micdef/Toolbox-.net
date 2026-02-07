@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_i_mailing_service_8cs" kind="file" language="C#">
+    <compoundname>IMailingService.cs</compoundname>
+    <innerclass refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" prot="public">Toolbox::Core::Abstractions::Services::IMailingService</innerclass>
+    <innernamespace refid="namespace_toolbox">Toolbox</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core">Toolbox::Core</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_abstractions">Toolbox::Core::Abstractions</innernamespace>
+    <innernamespace refid="namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox::Core::Abstractions::Services</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>@file<sp/>IMailingService.cs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Interface<sp/>for<sp/>email<sp/>sending<sp/>services</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@details<sp/>Defines<sp/>the<sp/>contract<sp/>for<sp/>sending<sp/>emails<sp/>via<sp/>SMTP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@note<sp/>Supports<sp/>single<sp/>and<sp/>multiple<sp/>recipients,<sp/>attachments,<sp/>and<sp/>HTML/plain<sp/>text<sp/>content</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_options" kindref="compound">Toolbox.Core.Options</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_toolbox_1_1_core_1_1_abstractions_1_1_services" kindref="compound">Toolbox.Core.Abstractions.Services</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" kindref="compound">IMailingService</ref><sp/>:<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" kindref="compound">IInstrumentedService</ref>,<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" kindref="compound">IAsyncDisposableService</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381" kindref="member">SendMail</ref>(<ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" kindref="compound">EmailMessage</ref><sp/>message);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Task<sp/><ref refid="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306" kindref="member">SendMailAsync</ref>(<ref refid="class_toolbox_1_1_core_1_1_options_1_1_email_message" kindref="compound">EmailMessage</ref><sp/>message,<sp/>CancellationToken<sp/>cancellationToken<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IMailingService.cs"/>
+  </compounddef>
+</doxygen>
