@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_tests_1_1_unit" xml:lang="en-US">
+<title>Toolbox.Tests.Unit Namespace Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_extensions">Extensions</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_options">Options</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services">Services</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests">BaseAsyncDisposableServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link>. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests">BaseDisposableServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

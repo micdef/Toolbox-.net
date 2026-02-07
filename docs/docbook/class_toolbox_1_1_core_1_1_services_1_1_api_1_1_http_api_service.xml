@@ -1,0 +1,1094 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service" xml:lang="en-US">
+<title>Toolbox.Core.Services.Api.HttpApiService Class Reference</title>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary></indexterm>
+<para>
+
+<para>HTTP API service implementation using HttpClient. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Services.Api.HttpApiService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a13db9bf8c57aa5cdb1fdc5454edc34c8">HttpApiService</link> (IOptions&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link> &gt; options, ILogger&lt; HttpApiService &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> class. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a2e0327bd457d140986ae3b5dcae62c49">HttpApiService</link> (HttpClient httpClient, IOptions&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link> &gt; options, ILogger&lt; HttpApiService &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> class with a provided HttpClient. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a5b6a7d2f7dffc37af3a16a464f1ba9cf">HttpApiService</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link> options, ILogger&lt; HttpApiService &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> class. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac500eb0b849bbdc483def95d72074bb0">Send</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request)</para>
+
+<para>
+<para>Sends an HTTP request synchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The API response.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;request&#32;=&#32;ApiRequest.Get(<emphasis role="stringliteral">&quot;/users/123&quot;</emphasis>);
+var&#32;response&#32;=&#32;apiService.Send(request);
+
+<emphasis role="keywordflow">if</emphasis>&#32;(response.IsSuccess)
+{
+&#32;&#32;&#32;&#32;var&#32;user&#32;=&#32;response.Deserialize&lt;User&gt;();
+}
+</computeroutput></literallayout> </para>
+ </para>
+</listitem>
+            <listitem><para>async Task&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> &gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1aaed64c4d21394332ab877cec4b5a3c8f">SendAsync</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Sends an HTTP request asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the API response.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>OperationCanceledException</entry><entry>
+<para>Thrown when the operation is cancelled.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;request&#32;=&#32;ApiRequest.Post(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;{&#32;Name&#32;=&#32;<emphasis role="stringliteral">&quot;John&quot;</emphasis>&#32;});
+var&#32;response&#32;=&#32;await&#32;apiService.SendAsync(request);
+
+response.EnsureSuccess();
+var&#32;createdUser&#32;=&#32;response.Deserialize&lt;User&gt;();
+</computeroutput></literallayout> </para>
+ </para>
+</listitem>
+            <listitem><para>T? <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a12ae6cb6399a2ce3c8552aec716bace4">Send&lt; T &gt;</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request)</para>
+
+<para>
+<para>Sends an HTTP request and deserializes the response.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The response body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The deserialized response body.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails or returns an error status.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;users&#32;=&#32;apiService.Send&lt;List&lt;User&gt;&gt;(ApiRequest.Get(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>));
+</computeroutput></literallayout> </para>
+ </para>
+</listitem>
+            <listitem><para>async Task&lt; T?&gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a44f935aae5324b5f2d40dc6f786eda13">SendAsync&lt; T &gt;</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Sends an HTTP request and deserializes the response asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The response body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the deserialized response body.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails or returns an error status.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>OperationCanceledException</entry><entry>
+<para>Thrown when the operation is cancelled.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;user&#32;=&#32;await&#32;apiService.SendAsync&lt;User&gt;(
+&#32;&#32;&#32;&#32;ApiRequest.Get(<emphasis role="stringliteral">&quot;/users/123&quot;</emphasis>),
+&#32;&#32;&#32;&#32;cancellationToken);
+</computeroutput></literallayout> </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link> ()</para>
+</listitem>
+            <listitem><para>async ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Asynchronously releases resources with cancellation support.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous disposal operation.</para>
+</formalpara>
+</para>
+
+<para>This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link> ()</para>
+
+<para>Releases all resources used by this service. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>override ValueTask <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1af03a98fbca48075dfa8bd52e85a5936c">DisposeAsyncCore</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>override void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">Dispose</link> (bool disposing)</para>
+</listitem>
+        </itemizedlist>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0">BaseDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link> ()</para>
+
+<para>Throws an ObjectDisposedException if this service has been disposed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link> (string operationName, double durationMs)</para>
+
+<para>Records an operation metric with the specified name and duration. </para>
+</listitem>
+            <listitem><para>Activity? <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link> ([CallerMemberName] string operationName=&quot;&quot;)</para>
+
+<para>Starts a new activity for the specified operation. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the unique name identifying this service instance.</para>
+
+<para>A human-readable name for logging and diagnostics.</para>
+ </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets a value indicating whether this service has been disposed.</para>
+
+<para><computeroutput>true</computeroutput> if the service has been disposed; otherwise, <computeroutput>false</computeroutput>.</para>
+ </para>
+</listitem>
+            <listitem><para>ActivitySource <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing.</para>
+
+<para>The activity source used to create spans for this service.</para>
+ </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection.</para>
+
+<para>The meter used to create instruments for this service.</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>HTTP API service implementation using HttpClient. </para>
+
+
+
+<para>This service provides HTTP request capabilities with support for: </para>
+
+<para><itemizedlist>
+<listitem>
+
+<para>All HTTP verbs </para>
+</listitem>
+<listitem>
+
+<para>Multiple authentication modes </para>
+</listitem>
+<listitem>
+
+<para>Automatic retry with exponential backoff </para>
+</listitem>
+<listitem>
+
+<para>Request/response logging and telemetry </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00034">34</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a13db9bf8c57aa5cdb1fdc5454edc34c8"/><section>
+    <title>HttpApiService()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>HttpApiService</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>HttpApiService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Services.Api.HttpApiService.HttpApiService (IOptions&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link> &gt; options, ILogger&lt; HttpApiService &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>options</entry><entry>
+<para>The API service options.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when options or logger is null.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00059">59</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a2e0327bd457d140986ae3b5dcae62c49"/><section>
+    <title>HttpApiService()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>HttpApiService</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>HttpApiService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Services.Api.HttpApiService.HttpApiService (HttpClient httpClient, IOptions&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link> &gt; options, ILogger&lt; HttpApiService &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> class with a provided HttpClient. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>httpClient</entry><entry>
+<para>The HttpClient to use.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>options</entry><entry>
+<para>The API service options.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when parameters are null.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00086">86</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a5b6a7d2f7dffc37af3a16a464f1ba9cf"/><section>
+    <title>HttpApiService()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>HttpApiService</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>HttpApiService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Services.Api.HttpApiService.HttpApiService (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link> options, ILogger&lt; HttpApiService &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>options</entry><entry>
+<para>The API service options.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00109">109</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1af03a98fbca48075dfa8bd52e85a5936c"/><section>
+    <title>DisposeAsyncCore()</title>
+<indexterm><primary>DisposeAsyncCore</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>DisposeAsyncCore</secondary></indexterm>
+<para><computeroutput>override ValueTask Toolbox.Core.Services.Api.HttpApiService.DisposeAsyncCore (CancellationToken cancellationToken)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</para>
+<para>
+Reimplemented from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">Toolbox.Core.Base.BaseAsyncDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00223">223</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac500eb0b849bbdc483def95d72074bb0"/><section>
+    <title>Send()</title>
+<indexterm><primary>Send</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>Send</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> Toolbox.Core.Services.Api.HttpApiService.Send (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request)</computeroutput></para><para>
+
+<para>
+<para>Sends an HTTP request synchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The API response.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;request&#32;=&#32;ApiRequest.Get(<emphasis role="stringliteral">&quot;/users/123&quot;</emphasis>);
+var&#32;response&#32;=&#32;apiService.Send(request);
+
+<emphasis role="keywordflow">if</emphasis>&#32;(response.IsSuccess)
+{
+&#32;&#32;&#32;&#32;var&#32;user&#32;=&#32;response.Deserialize&lt;User&gt;();
+}
+</computeroutput></literallayout> </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a8e1e539d9367084d49f092a7fd28f0f7">Toolbox.Core.Abstractions.Services.IApiService</link>.</para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00117">117</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a12ae6cb6399a2ce3c8552aec716bace4"/><section>
+    <title>Send&lt; T &gt;()</title>
+<indexterm><primary>Send&lt; T &gt;</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>Send&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>T? <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1ac500eb0b849bbdc483def95d72074bb0">Toolbox.Core.Services.Api.HttpApiService.Send</link>&lt; T &gt; (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request)</computeroutput></para><para>
+
+<para>
+<para>Sends an HTTP request and deserializes the response.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The response body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The deserialized response body.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails or returns an error status.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;users&#32;=&#32;apiService.Send&lt;List&lt;User&gt;&gt;(ApiRequest.Get(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>));
+</computeroutput></literallayout> </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a27ea4b9ea559b9e6c686d53a690f0f5b">Toolbox.Core.Abstractions.Services.IApiService</link>.</para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00207">207</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1aaed64c4d21394332ab877cec4b5a3c8f"/><section>
+    <title>SendAsync()</title>
+<indexterm><primary>SendAsync</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>SendAsync</secondary></indexterm>
+<para><computeroutput>async Task&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> &gt; Toolbox.Core.Services.Api.HttpApiService.SendAsync (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Sends an HTTP request asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the API response.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>OperationCanceledException</entry><entry>
+<para>Thrown when the operation is cancelled.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;request&#32;=&#32;ApiRequest.Post(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;{&#32;Name&#32;=&#32;<emphasis role="stringliteral">&quot;John&quot;</emphasis>&#32;});
+var&#32;response&#32;=&#32;await&#32;apiService.SendAsync(request);
+
+response.EnsureSuccess();
+var&#32;createdUser&#32;=&#32;response.Deserialize&lt;User&gt;();
+</computeroutput></literallayout> </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1a0accf629ae4c199538748481fe5878a2">Toolbox.Core.Abstractions.Services.IApiService</link>.</para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00123">123</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1a44f935aae5324b5f2d40dc6f786eda13"/><section>
+    <title>SendAsync&lt; T &gt;()</title>
+<indexterm><primary>SendAsync&lt; T &gt;</primary><secondary>Toolbox.Core.Services.Api.HttpApiService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Api.HttpApiService</primary><secondary>SendAsync&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>async Task&lt; T?&gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service_1aaed64c4d21394332ab877cec4b5a3c8f">Toolbox.Core.Services.Api.HttpApiService.SendAsync</link>&lt; T &gt; (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> request, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Sends an HTTP request and deserializes the response asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The response body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>The request to send.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the deserialized response body.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>request</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when the request fails or returns an error status.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>OperationCanceledException</entry><entry>
+<para>Thrown when the operation is cancelled.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;user&#32;=&#32;await&#32;apiService.SendAsync&lt;User&gt;(
+&#32;&#32;&#32;&#32;ApiRequest.Get(<emphasis role="stringliteral">&quot;/users/123&quot;</emphasis>),
+&#32;&#32;&#32;&#32;cancellationToken);
+</computeroutput></literallayout> </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service_1aa115f05961994226ad5f2ffce5cb974d">Toolbox.Core.Abstractions.Services.IApiService</link>.</para>
+<para>
+Definition at line <link linkend="__http_api_service_8cs_source_1l00215">215</link> of file <link linkend="__http_api_service_8cs_source">HttpApiService.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Api/<link linkend="__http_api_service_8cs">HttpApiService.cs</link></section>
+</section>

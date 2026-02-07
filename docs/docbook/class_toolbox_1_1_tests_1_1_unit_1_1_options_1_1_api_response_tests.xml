@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Options.ApiResponseTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a547124024229380f0317874692fb4b97">IsSuccess_ShouldReturnCorrectValue</link> (HttpStatusCode statusCode, bool expected)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a4d15e78989ecc99ce7f03c4209e86af3">IsClientError_ShouldReturnCorrectValue</link> (HttpStatusCode statusCode, bool expected)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a70153e9da4797d03f41e96eb0454aa2e">IsServerError_ShouldReturnCorrectValue</link> (HttpStatusCode statusCode, bool expected)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a41688f44ee35469617ab0b84c4d67d5f">IsRedirect_ShouldReturnCorrectValue</link> (HttpStatusCode statusCode, bool expected)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aece8267cf3a0c16cd5f2546f567c5048">StatusCodeValue_ShouldReturnNumericValue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ad595676e5064524667d43f09981907e2">Deserialize_WithValidJson_ShouldReturnObject</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1af52c48d1914dbd9aab5ebf43e53afb7a">Deserialize_WithEmptyBody_ShouldReturnDefault</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab3c519a3564dae85a4119a3c8f493487">Deserialize_WithInvalidJson_ShouldThrowJsonException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6c9173ad522dd63de85d015882a1f574">TryDeserialize_WithValidJson_ShouldReturnTrue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aee798727f1d44580a456a229f7ee7fc0">TryDeserialize_WithInvalidJson_ShouldReturnFalse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6fc7b50baa8689aa7b6221199c1725af">TryDeserialize_WithEmptyBody_ShouldReturnFalse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a7fdd8bf3b736fca3d6265a290b97ec2c">GetHeader_WithExistingHeader_ShouldReturnValue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1abfecc9def6cdfed6952f710ad90de393">GetHeader_WithNonExistingHeader_ShouldReturnNull</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab109575af4ff3e1ff99b84f4b20688d0">GetHeaders_WithMultipleValues_ShouldReturnAll</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a1d80bb7a674c4df1035e3ec51640b191">EnsureSuccess_WithSuccessStatus_ShouldNotThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a65cd9566d1d7503a3c7bb8a5c9e4ad96">EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a634fa4bf9aab980e9b2dc95135c13994">Success_ShouldCreateSuccessResponse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a67099110421286bc1e16549ff6f627a7">Error_ShouldCreateErrorResponse</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link>. </para>
+<para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00010">10</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1af52c48d1914dbd9aab5ebf43e53afb7a"/><section>
+    <title>Deserialize_WithEmptyBody_ShouldReturnDefault()</title>
+<indexterm><primary>Deserialize_WithEmptyBody_ShouldReturnDefault</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>Deserialize_WithEmptyBody_ShouldReturnDefault</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithEmptyBody_ShouldReturnDefault ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00107">107</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab3c519a3564dae85a4119a3c8f493487"/><section>
+    <title>Deserialize_WithInvalidJson_ShouldThrowJsonException()</title>
+<indexterm><primary>Deserialize_WithInvalidJson_ShouldThrowJsonException</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>Deserialize_WithInvalidJson_ShouldThrowJsonException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithInvalidJson_ShouldThrowJsonException ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00124">124</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ad595676e5064524667d43f09981907e2"/><section>
+    <title>Deserialize_WithValidJson_ShouldReturnObject()</title>
+<indexterm><primary>Deserialize_WithValidJson_ShouldReturnObject</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>Deserialize_WithValidJson_ShouldReturnObject</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.Deserialize_WithValidJson_ShouldReturnObject ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00088">88</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a65cd9566d1d7503a3c7bb8a5c9e4ad96"/><section>
+    <title>EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException()</title>
+<indexterm><primary>EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00274">274</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a1d80bb7a674c4df1035e3ec51640b191"/><section>
+    <title>EnsureSuccess_WithSuccessStatus_ShouldNotThrow()</title>
+<indexterm><primary>EnsureSuccess_WithSuccessStatus_ShouldNotThrow</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>EnsureSuccess_WithSuccessStatus_ShouldNotThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.EnsureSuccess_WithSuccessStatus_ShouldNotThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00261">261</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a67099110421286bc1e16549ff6f627a7"/><section>
+    <title>Error_ShouldCreateErrorResponse()</title>
+<indexterm><primary>Error_ShouldCreateErrorResponse</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>Error_ShouldCreateErrorResponse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.Error_ShouldCreateErrorResponse ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00309">309</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a7fdd8bf3b736fca3d6265a290b97ec2c"/><section>
+    <title>GetHeader_WithExistingHeader_ShouldReturnValue()</title>
+<indexterm><primary>GetHeader_WithExistingHeader_ShouldReturnValue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>GetHeader_WithExistingHeader_ShouldReturnValue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeader_WithExistingHeader_ShouldReturnValue ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00198">198</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1abfecc9def6cdfed6952f710ad90de393"/><section>
+    <title>GetHeader_WithNonExistingHeader_ShouldReturnNull()</title>
+<indexterm><primary>GetHeader_WithNonExistingHeader_ShouldReturnNull</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>GetHeader_WithNonExistingHeader_ShouldReturnNull</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeader_WithNonExistingHeader_ShouldReturnNull ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00219">219</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1ab109575af4ff3e1ff99b84f4b20688d0"/><section>
+    <title>GetHeaders_WithMultipleValues_ShouldReturnAll()</title>
+<indexterm><primary>GetHeaders_WithMultipleValues_ShouldReturnAll</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>GetHeaders_WithMultipleValues_ShouldReturnAll</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.GetHeaders_WithMultipleValues_ShouldReturnAll ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00236">236</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a4d15e78989ecc99ce7f03c4209e86af3"/><section>
+    <title>IsClientError_ShouldReturnCorrectValue()</title>
+<indexterm><primary>IsClientError_ShouldReturnCorrectValue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>IsClientError_ShouldReturnCorrectValue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsClientError_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00035">35</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a41688f44ee35469617ab0b84c4d67d5f"/><section>
+    <title>IsRedirect_ShouldReturnCorrectValue()</title>
+<indexterm><primary>IsRedirect_ShouldReturnCorrectValue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>IsRedirect_ShouldReturnCorrectValue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsRedirect_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00064">64</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a70153e9da4797d03f41e96eb0454aa2e"/><section>
+    <title>IsServerError_ShouldReturnCorrectValue()</title>
+<indexterm><primary>IsServerError_ShouldReturnCorrectValue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>IsServerError_ShouldReturnCorrectValue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsServerError_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00050">50</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a547124024229380f0317874692fb4b97"/><section>
+    <title>IsSuccess_ShouldReturnCorrectValue()</title>
+<indexterm><primary>IsSuccess_ShouldReturnCorrectValue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>IsSuccess_ShouldReturnCorrectValue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.IsSuccess_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00020">20</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aece8267cf3a0c16cd5f2546f567c5048"/><section>
+    <title>StatusCodeValue_ShouldReturnNumericValue()</title>
+<indexterm><primary>StatusCodeValue_ShouldReturnNumericValue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>StatusCodeValue_ShouldReturnNumericValue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.StatusCodeValue_ShouldReturnNumericValue ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00074">74</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a634fa4bf9aab980e9b2dc95135c13994"/><section>
+    <title>Success_ShouldCreateSuccessResponse()</title>
+<indexterm><primary>Success_ShouldCreateSuccessResponse</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>Success_ShouldCreateSuccessResponse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.Success_ShouldCreateSuccessResponse ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00297">297</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6fc7b50baa8689aa7b6221199c1725af"/><section>
+    <title>TryDeserialize_WithEmptyBody_ShouldReturnFalse()</title>
+<indexterm><primary>TryDeserialize_WithEmptyBody_ShouldReturnFalse</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>TryDeserialize_WithEmptyBody_ShouldReturnFalse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithEmptyBody_ShouldReturnFalse ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00177">177</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1aee798727f1d44580a456a229f7ee7fc0"/><section>
+    <title>TryDeserialize_WithInvalidJson_ShouldReturnFalse()</title>
+<indexterm><primary>TryDeserialize_WithInvalidJson_ShouldReturnFalse</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>TryDeserialize_WithInvalidJson_ShouldReturnFalse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithInvalidJson_ShouldReturnFalse ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00159">159</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests_1a6c9173ad522dd63de85d015882a1f574"/><section>
+    <title>TryDeserialize_WithValidJson_ShouldReturnTrue()</title>
+<indexterm><primary>TryDeserialize_WithValidJson_ShouldReturnTrue</primary><secondary>Toolbox.Tests.Unit.Options.ApiResponseTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiResponseTests</primary><secondary>TryDeserialize_WithValidJson_ShouldReturnTrue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiResponseTests.TryDeserialize_WithValidJson_ShouldReturnTrue ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_response_tests_8cs_source_1l00141">141</link> of file <link linkend="__api_response_tests_8cs_source">ApiResponseTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/<link linkend="__api_response_tests_8cs">ApiResponseTests.cs</link></section>
+</section>

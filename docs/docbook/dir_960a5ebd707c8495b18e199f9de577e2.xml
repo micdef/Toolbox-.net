@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_960a5ebd707c8495b18e199f9de577e2" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__api_service_collection_extensions_tests_8cs">ApiServiceCollectionExtensionsTests.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__mailing_service_collection_extensions_tests_8cs">MailingServiceCollectionExtensionsTests.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

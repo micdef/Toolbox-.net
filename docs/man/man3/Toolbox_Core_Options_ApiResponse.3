@@ -1,0 +1,353 @@
+.TH "Toolbox.Core.Options.ApiResponse" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.ApiResponse \- Represents an HTTP API response\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "T? \fBDeserialize< T >\fP (JsonSerializerOptions? options=null)"
+.br
+.RI "Deserializes the response body as JSON\&. "
+.ti -1c
+.RI "bool \fBTryDeserialize< T >\fP (out T? result, JsonSerializerOptions? options=null)"
+.br
+.RI "Tries to deserialize the response body as JSON\&. "
+.ti -1c
+.RI "string? \fBGetHeader\fP (string name)"
+.br
+.RI "Gets a header value\&. "
+.ti -1c
+.RI "IEnumerable< string > \fBGetHeaders\fP (string name)"
+.br
+.RI "Gets all values for a header\&. "
+.ti -1c
+.RI "void \fBEnsureSuccess\fP ()"
+.br
+.RI "Throws an exception if the response indicates an error\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBApiResponse\fP \fBSuccess\fP (string? body=null, HttpStatusCode statusCode=HttpStatusCode\&.OK)"
+.br
+.RI "Creates a successful response\&. "
+.ti -1c
+.RI "static \fBApiResponse\fP \fBError\fP (HttpStatusCode statusCode, string? message=null)"
+.br
+.RI "Creates an error response\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "HttpStatusCode \fBStatusCode\fP\fR [get]\fP"
+.br
+.RI "Gets the HTTP status code\&. "
+.ti -1c
+.RI "int \fBStatusCodeValue\fP\fR [get]\fP"
+.br
+.RI "Gets the status code as an integer\&. "
+.ti -1c
+.RI "string? \fBReasonPhrase\fP\fR [get]\fP"
+.br
+.RI "Gets the reason phrase\&. "
+.ti -1c
+.RI "IReadOnlyDictionary< string, IEnumerable< string > > \fBHeaders\fP\fR [get]\fP"
+.br
+.RI "Gets the response headers\&. "
+.ti -1c
+.RI "string? \fBBody\fP = new Dictionary<string, IEnumerable<string>>()\fR [get]\fP"
+.br
+.RI "Gets the response body as a string\&. "
+.ti -1c
+.RI "byte?[] \fBBodyBytes\fP\fR [get]\fP"
+.br
+.RI "Gets the response body as bytes\&. "
+.ti -1c
+.RI "string? \fBContentType\fP\fR [get]\fP"
+.br
+.RI "Gets the content type header value\&. "
+.ti -1c
+.RI "long? \fBContentLength\fP\fR [get]\fP"
+.br
+.RI "Gets the content length\&. "
+.ti -1c
+.RI "TimeSpan \fBDuration\fP\fR [get]\fP"
+.br
+.RI "Gets the request duration\&. "
+.ti -1c
+.RI "bool \fBIsSuccess\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether the response indicates success (2xx status)\&. "
+.ti -1c
+.RI "bool \fBIsClientError\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether the response indicates a client error (4xx status)\&. "
+.ti -1c
+.RI "bool \fBIsServerError\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether the response indicates a server error (5xx status)\&. "
+.ti -1c
+.RI "bool \fBIsRedirect\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether the response is a redirect (3xx status)\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents an HTTP API response\&. 
+
+This class encapsulates all data from an HTTP response, including status code, headers, and body content\&. 
+
+.PP
+.PP
+.nf
+var response = await apiService\&.SendAsync(request);
+
+if (response\&.IsSuccess)
+{
+    var user = response\&.Deserialize<User>();
+}
+else
+{
+    Console\&.WriteLine($"Error: {response\&.StatusCode}");
+}
+.fi
+.PP
+ 
+.PP
+Definition at line \fB34\fP of file \fBApiResponse\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "T? Toolbox\&.Core\&.Options\&.ApiResponse\&.Deserialize< T > (JsonSerializerOptions? options = \fRnull\fP)"
+
+.PP
+Deserializes the response body as JSON\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The target type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIoptions\fP JSON serializer options\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The deserialized object, or default if body is empty\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIJsonException\fP Thrown when deserialization fails\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB122\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "void Toolbox\&.Core\&.Options\&.ApiResponse\&.EnsureSuccess ()"
+
+.PP
+Throws an exception if the response indicates an error\&. 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIHttpRequestException\fP Thrown when response is not successful\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB187\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "\fBApiResponse\fP Toolbox\&.Core\&.Options\&.ApiResponse\&.Error (HttpStatusCode statusCode, string? message = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates an error response\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstatusCode\fP The status code\&.
+.br
+\fImessage\fP The error message\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiResponse\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB221\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiResponse\&.GetHeader (string name)"
+
+.PP
+Gets a header value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP The header name\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The first header value, or \fRnull\fP if not found\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB164\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "IEnumerable< string > Toolbox\&.Core\&.Options\&.ApiResponse\&.GetHeaders (string name)"
+
+.PP
+Gets all values for a header\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP The header name\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+All header values, or empty if not found\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB176\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "\fBApiResponse\fP Toolbox\&.Core\&.Options\&.ApiResponse\&.Success (string? body = \fRnull\fP, HttpStatusCode statusCode = \fRHttpStatusCode::OK\fP)\fR [static]\fP"
+
+.PP
+Creates a successful response\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbody\fP The response body\&.
+.br
+\fIstatusCode\fP The status code\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiResponse\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB204\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiResponse\&.TryDeserialize< T > (out T? result, JsonSerializerOptions? options = \fRnull\fP)"
+
+.PP
+Tries to deserialize the response body as JSON\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The target type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIresult\fP The deserialized object if successful\&.
+.br
+\fIoptions\fP JSON serializer options\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fRtrue\fP if deserialization succeeded; otherwise, \fRfalse\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB139\fP of file \fBApiResponse\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "string? Toolbox\&.Core\&.Options\&.ApiResponse\&.Body = new Dictionary<string, IEnumerable<string>>()\fR [get]\fP"
+
+.PP
+Gets the response body as a string\&. The body content, or \fRnull\fP if no body\&.
+.PP
+Definition at line \fB65\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "byte? [] Toolbox\&.Core\&.Options\&.ApiResponse\&.BodyBytes\fR [get]\fP"
+
+.PP
+Gets the response body as bytes\&. The body bytes, or \fRnull\fP if no body\&.
+.PP
+Definition at line \fB71\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "long? Toolbox\&.Core\&.Options\&.ApiResponse\&.ContentLength\fR [get]\fP"
+
+.PP
+Gets the content length\&. The content length in bytes, or \fRnull\fP if not set\&.
+.PP
+Definition at line \fB83\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiResponse\&.ContentType\fR [get]\fP"
+
+.PP
+Gets the content type header value\&. The content type, or \fRnull\fP if not set\&.
+.PP
+Definition at line \fB77\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.ApiResponse\&.Duration\fR [get]\fP"
+
+.PP
+Gets the request duration\&. The time taken for the request\&.
+.PP
+Definition at line \fB89\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "IReadOnlyDictionary<string, IEnumerable<string> > Toolbox\&.Core\&.Options\&.ApiResponse\&.Headers\fR [get]\fP"
+
+.PP
+Gets the response headers\&. Dictionary of header names and values\&.
+.PP
+Definition at line \fB58\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiResponse\&.IsClientError\fR [get]\fP"
+
+.PP
+Gets a value indicating whether the response indicates a client error (4xx status)\&. \fRtrue\fP if status code is 4xx; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB101\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiResponse\&.IsRedirect\fR [get]\fP"
+
+.PP
+Gets a value indicating whether the response is a redirect (3xx status)\&. \fRtrue\fP if status code is 3xx; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB113\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiResponse\&.IsServerError\fR [get]\fP"
+
+.PP
+Gets a value indicating whether the response indicates a server error (5xx status)\&. \fRtrue\fP if status code is 5xx; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB107\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiResponse\&.IsSuccess\fR [get]\fP"
+
+.PP
+Gets a value indicating whether the response indicates success (2xx status)\&. \fRtrue\fP if status code is 2xx; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB95\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiResponse\&.ReasonPhrase\fR [get]\fP"
+
+.PP
+Gets the reason phrase\&. The reason phrase (e\&.g\&., "OK", "Not Found")\&.
+.PP
+Definition at line \fB52\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "HttpStatusCode Toolbox\&.Core\&.Options\&.ApiResponse\&.StatusCode\fR [get]\fP"
+
+.PP
+Gets the HTTP status code\&. The status code\&.
+.PP
+Definition at line \fB40\fP of file \fBApiResponse\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.ApiResponse\&.StatusCodeValue\fR [get]\fP"
+
+.PP
+Gets the status code as an integer\&. The numeric status code\&.
+.PP
+Definition at line \fB46\fP of file \fBApiResponse\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

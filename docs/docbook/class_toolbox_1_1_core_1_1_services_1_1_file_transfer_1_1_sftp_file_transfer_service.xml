@@ -1,0 +1,1532 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service" xml:lang="en-US">
+<title>Toolbox.Core.Services.FileTransfer.SftpFileTransferService Class Reference</title>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary></indexterm>
+<para>
+
+<para>File transfer service implementation using SFTP protocol. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Services.FileTransfer.SftpFileTransferService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a9bee15cb5a018d0a53da1ef895dc852e">SftpFileTransferService</link> (IOptions&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link> &gt; options, ILogger&lt; SftpFileTransferService &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link> class. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1adbbe0d8a543a8b89b6592be111393352">SftpFileTransferService</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link> options, ILogger&lt; SftpFileTransferService &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a8081b8c21e7bedd5486629282899028a">UploadOne</link> (string localPath, string remotePath, bool overwrite=true)</para>
+
+<para>
+<para>Uploads a single file to the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local file path to upload.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when local file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a005ac6db09ec98d03f12d0e18b095ef4">UploadOneAsync</link> (string localPath, string remotePath, bool overwrite=true, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Uploads a single file to the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local file path to upload.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the asynchronous operation.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when local file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1ad9b93a94ca76bd432dd320daa124921e">UploadBatch</link> (IEnumerable&lt;(string LocalPath, string RemotePath)&gt; files, bool overwrite=true)</para>
+
+<para>
+<para>Uploads multiple files to the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (localPath, remotePath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of files successfully uploaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>async Task&lt; int &gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1adbcbc55146b849a4d4918ffda0b827b5">UploadBatchAsync</link> (IEnumerable&lt;(string LocalPath, string RemotePath)&gt; files, bool overwrite=true, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Uploads multiple files to the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (localPath, remotePath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the number of files successfully uploaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a81aca18a4c2217ac7067f30266e62703">DownloadOne</link> (string remotePath, string localPath, bool overwrite=true)</para>
+
+<para>
+<para>Downloads a single file from the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote file path to download.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when remote file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a94af0bd9271952109afff0a02aaeb284">DownloadOneAsync</link> (string remotePath, string localPath, bool overwrite=true, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Downloads a single file from the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote file path to download.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the asynchronous operation.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when remote file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a6a0c49174a00d2a33c09943f6b8cfeb7">DownloadBatch</link> (IEnumerable&lt;(string RemotePath, string LocalPath)&gt; files, bool overwrite=true)</para>
+
+<para>
+<para>Downloads multiple files from the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (remotePath, localPath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of files successfully downloaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>async Task&lt; int &gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a422d60e8663bf5c040832ddbf70d0221">DownloadBatchAsync</link> (IEnumerable&lt;(string RemotePath, string LocalPath)&gt; files, bool overwrite=true, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Downloads multiple files from the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (remotePath, localPath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the number of files successfully downloaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link> ()</para>
+</listitem>
+            <listitem><para>async ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Asynchronously releases resources with cancellation support.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous disposal operation.</para>
+</formalpara>
+</para>
+
+<para>This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link> ()</para>
+
+<para>Releases all resources used by this service. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>override async ValueTask <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1ad25aedfa6d6dc6b8b6726f171bd00708">DisposeAsyncCore</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>override void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">Dispose</link> (bool disposing)</para>
+</listitem>
+        </itemizedlist>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0">BaseDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link> ()</para>
+
+<para>Throws an ObjectDisposedException if this service has been disposed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link> (string operationName, double durationMs)</para>
+
+<para>Records an operation metric with the specified name and duration. </para>
+</listitem>
+            <listitem><para>Activity? <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link> ([CallerMemberName] string operationName=&quot;&quot;)</para>
+
+<para>Starts a new activity for the specified operation. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the unique name identifying this service instance.</para>
+
+<para>A human-readable name for logging and diagnostics.</para>
+ </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets a value indicating whether this service has been disposed.</para>
+
+<para><computeroutput>true</computeroutput> if the service has been disposed; otherwise, <computeroutput>false</computeroutput>.</para>
+ </para>
+</listitem>
+            <listitem><para>ActivitySource <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing.</para>
+
+<para>The activity source used to create spans for this service.</para>
+ </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection.</para>
+
+<para>The meter used to create instruments for this service.</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>File transfer service implementation using SFTP protocol. </para>
+
+
+
+<para>This service provides secure file upload and download capabilities using the SFTP protocol. It supports both password and private key authentication. </para>
+
+<para>Uses SSH.NET library for SFTP operations. </para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service">IFileTransferService</link></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00029">29</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a9bee15cb5a018d0a53da1ef895dc852e"/><section>
+    <title>SftpFileTransferService()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>SftpFileTransferService</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>SftpFileTransferService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Services.FileTransfer.SftpFileTransferService.SftpFileTransferService (IOptions&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link> &gt; options, ILogger&lt; SftpFileTransferService &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>options</entry><entry>
+<para>The file transfer options.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when options or logger is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when host or username is empty.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00050">50</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1adbbe0d8a543a8b89b6592be111393352"/><section>
+    <title>SftpFileTransferService()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>SftpFileTransferService</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>SftpFileTransferService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Services.FileTransfer.SftpFileTransferService.SftpFileTransferService (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link> options, ILogger&lt; SftpFileTransferService &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>options</entry><entry>
+<para>The file transfer options.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00087">87</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1ad25aedfa6d6dc6b8b6726f171bd00708"/><section>
+    <title>DisposeAsyncCore()</title>
+<indexterm><primary>DisposeAsyncCore</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>DisposeAsyncCore</secondary></indexterm>
+<para><computeroutput>override async ValueTask Toolbox.Core.Services.FileTransfer.SftpFileTransferService.DisposeAsyncCore (CancellationToken cancellationToken)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</para>
+<para>
+Reimplemented from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">Toolbox.Core.Base.BaseAsyncDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00512">512</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a6a0c49174a00d2a33c09943f6b8cfeb7"/><section>
+    <title>DownloadBatch()</title>
+<indexterm><primary>DownloadBatch</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>DownloadBatch</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Services.FileTransfer.SftpFileTransferService.DownloadBatch (IEnumerable&lt;(string RemotePath, string LocalPath)&gt; files, bool overwrite = <computeroutput>true</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Downloads multiple files from the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (remotePath, localPath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of files successfully downloaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a8fa36a9667eb5532d1e1490204d31966">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00416">416</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a422d60e8663bf5c040832ddbf70d0221"/><section>
+    <title>DownloadBatchAsync()</title>
+<indexterm><primary>DownloadBatchAsync</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>DownloadBatchAsync</secondary></indexterm>
+<para><computeroutput>async Task&lt; int &gt; Toolbox.Core.Services.FileTransfer.SftpFileTransferService.DownloadBatchAsync (IEnumerable&lt;(string RemotePath, string LocalPath)&gt; files, bool overwrite = <computeroutput>true</computeroutput>
+, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Downloads multiple files from the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (remotePath, localPath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the number of files successfully downloaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a9b2153d151943a376d3365ddfbfb4519">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00463">463</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a81aca18a4c2217ac7067f30266e62703"/><section>
+    <title>DownloadOne()</title>
+<indexterm><primary>DownloadOne</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>DownloadOne</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Services.FileTransfer.SftpFileTransferService.DownloadOne (string remotePath, string localPath, bool overwrite = <computeroutput>true</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Downloads a single file from the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote file path to download.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when remote file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a16448190399a0a2230f75c29dda1a851">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00307">307</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a94af0bd9271952109afff0a02aaeb284"/><section>
+    <title>DownloadOneAsync()</title>
+<indexterm><primary>DownloadOneAsync</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>DownloadOneAsync</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Core.Services.FileTransfer.SftpFileTransferService.DownloadOneAsync (string remotePath, string localPath, bool overwrite = <computeroutput>true</computeroutput>
+, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Downloads a single file from the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote file path to download.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing local files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the asynchronous operation.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when remote file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1aed1537898eecb5b9dc32c88a51525c38">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00360">360</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1ad9b93a94ca76bd432dd320daa124921e"/><section>
+    <title>UploadBatch()</title>
+<indexterm><primary>UploadBatch</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>UploadBatch</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Services.FileTransfer.SftpFileTransferService.UploadBatch (IEnumerable&lt;(string LocalPath, string RemotePath)&gt; files, bool overwrite = <computeroutput>true</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Uploads multiple files to the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (localPath, remotePath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of files successfully uploaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1ae4dd51de7dcb5668082dc15073f6bb54">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00211">211</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1adbcbc55146b849a4d4918ffda0b827b5"/><section>
+    <title>UploadBatchAsync()</title>
+<indexterm><primary>UploadBatchAsync</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>UploadBatchAsync</secondary></indexterm>
+<para><computeroutput>async Task&lt; int &gt; Toolbox.Core.Services.FileTransfer.SftpFileTransferService.UploadBatchAsync (IEnumerable&lt;(string LocalPath, string RemotePath)&gt; files, bool overwrite = <computeroutput>true</computeroutput>
+, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Uploads multiple files to the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>files</entry><entry>
+<para>Collection of tuples containing (localPath, remotePath) pairs.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the number of files successfully uploaded.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when files collection is null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>AggregateException</entry><entry>
+<para>Thrown when one or more transfers fail.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1ae4da65114040f1cf522cef93f514fc1e">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00258">258</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a8081b8c21e7bedd5486629282899028a"/><section>
+    <title>UploadOne()</title>
+<indexterm><primary>UploadOne</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>UploadOne</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Services.FileTransfer.SftpFileTransferService.UploadOne (string localPath, string remotePath, bool overwrite = <computeroutput>true</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Uploads a single file to the remote server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local file path to upload.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when local file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a39493197015631afe633dbf737acb5b9">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00095">95</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_1a005ac6db09ec98d03f12d0e18b095ef4"/><section>
+    <title>UploadOneAsync()</title>
+<indexterm><primary>UploadOneAsync</primary><secondary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.FileTransfer.SftpFileTransferService</primary><secondary>UploadOneAsync</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Core.Services.FileTransfer.SftpFileTransferService.UploadOneAsync (string localPath, string remotePath, bool overwrite = <computeroutput>true</computeroutput>
+, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Uploads a single file to the remote server asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>localPath</entry><entry>
+<para>The local file path to upload.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>remotePath</entry><entry>
+<para>The remote destination path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>overwrite</entry><entry>
+<para>Whether to overwrite existing files.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the asynchronous operation.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when paths are null.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when local file doesn&apos;t exist.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>IOException</entry><entry>
+<para>Thrown when transfer fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service_1a50c1189a1e77238ef3c86bb7c3d641ef">Toolbox.Core.Abstractions.Services.IFileTransferService</link>.</para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_8cs_source_1l00152">152</link> of file <link linkend="__sftp_file_transfer_service_8cs_source">SftpFileTransferService.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/FileTransfer/<link linkend="__sftp_file_transfer_service_8cs">SftpFileTransferService.cs</link></section>
+</section>

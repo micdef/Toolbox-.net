@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a9c7d88d3566e9cb40cea5e4fbd1fd3df">BaseAsyncDisposableServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1abcc9e7a5a4ab4fdb452520f7a00f0793">DisposeAsync_ShouldSetIsDisposed</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a3d9c891fbbceacad871f959097cedc09">DisposeAsync_ShouldCallDisposeAsyncCore</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1ad0384bc1ad70c1124f370013ad21eabe">DisposeAsync_ShouldBeIdempotent</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1aa99655edfd50f56fcf48bf3a76d6879b">DisposeAsync_WithCancellation_ShouldPassCancellationToken</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1afb70b8dce892a155f3fd11e1ccafd018">DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a2b781a6f9c711c615ef1db4f3b401999">Dispose_ShouldCallDisposeAsyncCore</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a88c03b3391d46c90d82b06d3680bae33">DisposeAsync_ShouldBeThreadSafe</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link>. </para>
+<para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00009">9</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a9c7d88d3566e9cb40cea5e4fbd1fd3df"/><section>
+    <title>BaseAsyncDisposableServiceTests()</title>
+<indexterm><primary>BaseAsyncDisposableServiceTests</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>BaseAsyncDisposableServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.BaseAsyncDisposableServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00013">13</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a2b781a6f9c711c615ef1db4f3b401999"/><section>
+    <title>Dispose_ShouldCallDisposeAsyncCore()</title>
+<indexterm><primary>Dispose_ShouldCallDisposeAsyncCore</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>Dispose_ShouldCallDisposeAsyncCore</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.Dispose_ShouldCallDisposeAsyncCore ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00092">92</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1ad0384bc1ad70c1124f370013ad21eabe"/><section>
+    <title>DisposeAsync_ShouldBeIdempotent()</title>
+<indexterm><primary>DisposeAsync_ShouldBeIdempotent</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>DisposeAsync_ShouldBeIdempotent</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldBeIdempotent ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00045">45</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a88c03b3391d46c90d82b06d3680bae33"/><section>
+    <title>DisposeAsync_ShouldBeThreadSafe()</title>
+<indexterm><primary>DisposeAsync_ShouldBeThreadSafe</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>DisposeAsync_ShouldBeThreadSafe</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldBeThreadSafe ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00105">105</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1a3d9c891fbbceacad871f959097cedc09"/><section>
+    <title>DisposeAsync_ShouldCallDisposeAsyncCore()</title>
+<indexterm><primary>DisposeAsync_ShouldCallDisposeAsyncCore</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>DisposeAsync_ShouldCallDisposeAsyncCore</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldCallDisposeAsyncCore ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00032">32</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1abcc9e7a5a4ab4fdb452520f7a00f0793"/><section>
+    <title>DisposeAsync_ShouldSetIsDisposed()</title>
+<indexterm><primary>DisposeAsync_ShouldSetIsDisposed</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>DisposeAsync_ShouldSetIsDisposed</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_ShouldSetIsDisposed ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00019">19</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1afb70b8dce892a155f3fd11e1ccafd018"/><section>
+    <title>DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_WhenCancelled_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00074">74</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests_1aa99655edfd50f56fcf48bf3a76d6879b"/><section>
+    <title>DisposeAsync_WithCancellation_ShouldPassCancellationToken()</title>
+<indexterm><primary>DisposeAsync_WithCancellation_ShouldPassCancellationToken</primary><secondary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</primary><secondary>DisposeAsync_WithCancellation_ShouldPassCancellationToken</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests.DisposeAsync_WithCancellation_ShouldPassCancellationToken ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_async_disposable_service_tests_8cs_source_1l00060">60</link> of file <link linkend="__base_async_disposable_service_tests_8cs_source">BaseAsyncDisposableServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/<link linkend="__base_async_disposable_service_tests_8cs">BaseAsyncDisposableServiceTests.cs</link></section>
+</section>

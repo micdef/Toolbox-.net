@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__options_schema_tests_8cs_source" xml:lang="en-US">
+<title>OptionsSchemaTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/OptionsSchemaTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__options_schema_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__options_schema_tests_8cs_source_1l00002"/>00002 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00003"/><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">00003</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Toolbox.Tests.Regression</link>;
+<anchor xml:id="__options_schema_tests_8cs_source_1l00004"/>00004 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00008"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests">00008</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests">OptionsSchemaTests</link>
+<anchor xml:id="__options_schema_tests_8cs_source_1l00009"/>00009 {
+<anchor xml:id="__options_schema_tests_8cs_source_1l00010"/>00010 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__options_schema_tests_8cs_source_1l00011"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a14b1200bb842289fb5d9b450d50352b9">00011</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a14b1200bb842289fb5d9b450d50352b9">ToolboxOptions_SectionName_ShouldNotChange</link>()
+<anchor xml:id="__options_schema_tests_8cs_source_1l00012"/>00012 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__options_schema_tests_8cs_source_1l00013"/>00013 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options">ToolboxOptions</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a04306cd36618f56804e8622e6700dea2">SectionName</link>.Should().Be(<emphasis role="stringliteral">&quot;Toolbox&quot;</emphasis>);
+<anchor xml:id="__options_schema_tests_8cs_source_1l00014"/>00014 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__options_schema_tests_8cs_source_1l00015"/>00015 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__options_schema_tests_8cs_source_1l00017"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1ab58f78b6f30351406b7c657e0954543d">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1ab58f78b6f30351406b7c657e0954543d">ToolboxOptions_DefaultValues_ShouldNotChange</link>()
+<anchor xml:id="__options_schema_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__options_schema_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options">ToolboxOptions</link>();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00020"/>00020 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableDetailedTelemetry.Should().BeFalse();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.ServicePrefix.Should().BeNull();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.AsyncDisposalTimeout.Should().Be(TimeSpan.FromSeconds(30));
+<anchor xml:id="__options_schema_tests_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__options_schema_tests_8cs_source_1l00025"/>00025 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__options_schema_tests_8cs_source_1l00027"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a50c4672587592be45780a97e33079ae6">00027</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a50c4672587592be45780a97e33079ae6">ToolboxTelemetryOptions_SectionName_ShouldNotChange</link>()
+<anchor xml:id="__options_schema_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__options_schema_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options">ToolboxTelemetryOptions</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options_1ad376b2327064c73e8ce4baf2410836c5">SectionName</link>.Should().Be(<emphasis role="stringliteral">&quot;Toolbox:Telemetry&quot;</emphasis>);
+<anchor xml:id="__options_schema_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__options_schema_tests_8cs_source_1l00031"/>00031 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__options_schema_tests_8cs_source_1l00033"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a951b544a7a764ca7c793dd00a5f218c5">00033</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a951b544a7a764ca7c793dd00a5f218c5">ToolboxTelemetryOptions_DefaultValues_ShouldNotChange</link>()
+<anchor xml:id="__options_schema_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__options_schema_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options">ToolboxTelemetryOptions</link>();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00036"/>00036 
+<anchor xml:id="__options_schema_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableTracing.Should().BeTrue();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableMetrics.Should().BeTrue();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableConsoleExport.Should().BeFalse();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.OtlpEndpoint.Should().BeNull();
+<anchor xml:id="__options_schema_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.ServiceName.Should().Be(<emphasis role="stringliteral">&quot;Toolbox&quot;</emphasis>);
+<anchor xml:id="__options_schema_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.ServiceVersion.Should().Be(<emphasis role="stringliteral">&quot;1.0.0&quot;</emphasis>);
+<anchor xml:id="__options_schema_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__options_schema_tests_8cs_source_1l00044"/>00044 }
+</programlisting></section>

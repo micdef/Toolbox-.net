@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_efab858e26a0485ed8bee27bb1057701" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__options_schema_tests_8cs">OptionsSchemaTests.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__telemetry_constants_tests_8cs">TelemetryConstantsTests.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

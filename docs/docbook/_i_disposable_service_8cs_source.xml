@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__i_disposable_service_8cs_source" xml:lang="en-US">
+<title>IDisposableService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IDisposableService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__i_disposable_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;IDisposableService.cs</emphasis>
+<anchor xml:id="__i_disposable_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Base&#32;interface&#32;for&#32;disposable&#32;services</emphasis>
+<anchor xml:id="__i_disposable_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;contract&#32;for&#32;services&#32;that&#32;require&#32;deterministic&#32;cleanup</emphasis>
+<anchor xml:id="__i_disposable_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;All&#32;disposable&#32;services&#32;should&#32;implement&#32;this&#32;interface&#32;for&#32;consistent&#32;lifecycle&#32;management</emphasis>
+<anchor xml:id="__i_disposable_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__i_disposable_service_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Toolbox.Core.Abstractions</link>;
+<anchor xml:id="__i_disposable_service_8cs_source_1l00007"/>00007 
+<anchor xml:id="__i_disposable_service_8cs_source_1l00016"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">00016</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">interface&#32;</emphasis><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link>&#32;:&#32;IDisposable
+<anchor xml:id="__i_disposable_service_8cs_source_1l00017"/>00017 {
+<anchor xml:id="__i_disposable_service_8cs_source_1l00022"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74">00022</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74">ServiceName</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;}
+<anchor xml:id="__i_disposable_service_8cs_source_1l00023"/>00023 
+<anchor xml:id="__i_disposable_service_8cs_source_1l00032"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1">00032</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1">IsDisposed</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;}
+<anchor xml:id="__i_disposable_service_8cs_source_1l00033"/>00033 }
+</programlisting></section>

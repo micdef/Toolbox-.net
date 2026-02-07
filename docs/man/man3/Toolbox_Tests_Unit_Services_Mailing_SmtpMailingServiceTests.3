@@ -1,0 +1,119 @@
+.TH "Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests \- \fBUnit\fP tests for \fBSmtpMailingService\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSmtpMailingServiceTests\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullOptions_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullLogger_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithEmptyHost_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithValidOptions_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithDirectOptions_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithAnonymousAuth_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBSendMail_WithNullMessage_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBSendMail_WithNoRecipients_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBSendMailAsync_WithNullMessage_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBSendMailAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "void \fBSendMail_WhenDisposed_ShouldThrowObjectDisposedException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDisposeAsync_ShouldDisposeResources\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBSmtpMailingService\fP\&. 
+
+These tests verify argument validation and configuration\&. \fBIntegration\fP tests with a real SMTP server would be in a separate test project\&. 
+.PP
+Definition at line \fB16\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.SmtpMailingServiceTests ()"
+
+.PP
+Definition at line \fB20\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.Constructor_WithAnonymousAuth_ShouldInitialize ()"
+
+.PP
+Definition at line \fB105\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.Constructor_WithDirectOptions_ShouldInitialize ()"
+
+.PP
+Definition at line \fB92\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.Constructor_WithEmptyHost_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB62\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.Constructor_WithNullLogger_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB49\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.Constructor_WithNullOptions_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB37\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.Constructor_WithValidOptions_ShouldInitialize ()"
+
+.PP
+Definition at line \fB79\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.DisposeAsync_ShouldDisposeResources ()"
+
+.PP
+Definition at line \fB233\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.SendMail_WhenDisposed_ShouldThrowObjectDisposedException ()"
+
+.PP
+Definition at line \fB209\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.SendMail_WithNoRecipients_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB142\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.SendMail_WithNullMessage_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB127\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB180\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Mailing\&.SmtpMailingServiceTests\&.SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB165\fP of file \fBSmtpMailingServiceTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

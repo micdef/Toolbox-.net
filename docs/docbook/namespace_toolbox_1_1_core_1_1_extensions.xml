@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_core_1_1_extensions" xml:lang="en-US">
+<title>Toolbox.Core.Extensions Namespace Reference</title>
+<indexterm><primary>Toolbox.Core.Extensions</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">ApiServiceCollectionExtensions</emphasis></para>
+
+<para>Extension methods for registering API services with dependency injection. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">CryptographyServiceCollectionExtensions</emphasis></para>
+
+<para>Extension methods for IServiceCollection to configure cryptography services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">FileTransferServiceCollectionExtensions</emphasis></para>
+
+<para>Extension methods for IServiceCollection to configure file transfer services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">MailingServiceCollectionExtensions</emphasis></para>
+
+<para>Extension methods for registering mailing services with dependency injection. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">OpenTelemetryExtensions</emphasis></para>
+
+<para>Extension methods for configuring OpenTelemetry with <link linkend="_namespace_toolbox">Toolbox</link> instrumentation. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">ServiceCollectionExtensions</emphasis></para>
+
+<para>Extension methods for IServiceCollection to configure <link linkend="_namespace_toolbox">Toolbox</link> services. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

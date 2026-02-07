@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tests_2_toolbox_8_tests_2_global_usings_8cs_source" xml:lang="en-US">
+<title>GlobalUsings.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/GlobalUsings.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_tests_2_toolbox_8_tests_2_global_usings_8cs_source_1l00001"/>00001 global&#32;<emphasis role="keyword">using&#32;</emphasis>Xunit;
+<anchor xml:id="_tests_2_toolbox_8_tests_2_global_usings_8cs_source_1l00002"/>00002 global&#32;<emphasis role="keyword">using&#32;</emphasis>FluentAssertions;
+<anchor xml:id="_tests_2_toolbox_8_tests_2_global_usings_8cs_source_1l00003"/>00003 global&#32;<emphasis role="keyword">using&#32;</emphasis>Moq;
+</programlisting></section>

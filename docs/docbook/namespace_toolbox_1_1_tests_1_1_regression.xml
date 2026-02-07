@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_tests_1_1_regression" xml:lang="en-US">
+<title>Toolbox.Tests.Regression Namespace Reference</title>
+<indexterm><primary>Toolbox.Tests.Regression</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests">OptionsSchemaTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for options classes to detect breaking changes in configuration schema. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests">TelemetryConstantsTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for TelemetryConstants to detect breaking changes. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

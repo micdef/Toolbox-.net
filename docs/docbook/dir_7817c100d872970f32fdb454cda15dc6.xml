@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_7817c100d872970f32fdb454cda15dc6" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_b1be64d60e5a7cf8e8891c9e2303c399">samples</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_6ac6fc6bb3b06b85fb096b7b9f65ee06">src</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_eaaf9cb45e917ecc53bfca006a6d5728">tests</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md0">
+<title>Toolbox</title>
+<para>A .NET 10 library providing base services, telemetry, and dependency injection extensions.</para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md1">
+<title>Features</title>
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">Disposable Services</emphasis>: Thread-safe base classes for synchronous and asynchronous disposal</para>
+</listitem><listitem>
+<para><emphasis role="bold">OpenTelemetry Integration</emphasis>: Built-in distributed tracing and metrics collection</para>
+</listitem><listitem>
+<para><emphasis role="bold">Dependency Injection</emphasis>: Fluent extensions for easy service registration</para>
+</listitem><listitem>
+<para><emphasis role="bold">Comprehensive Documentation</emphasis>: Full Doxygen documentation support</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md2">
+<title>Requirements</title>
+<para><itemizedlist>
+<listitem>
+<para>.NET 10.0 or later</para>
+</listitem><listitem>
+<para>C# 14.0</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md3">
+<title>Installation</title>
+<para>Add the project reference to your solution:</para>
+
+<para><literallayout><computeroutput>&lt;ProjectReference&#32;Include=&quot;..\src\Toolbox.Core\Toolbox.Core.csproj&quot;&#32;/&gt;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md4">
+<title>Quick Start</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+
+var&#32;builder&#32;=&#32;Host.CreateApplicationBuilder(args);
+
+//&#32;Add&#32;Toolbox&#32;core&#32;services
+builder.Services.AddToolboxCore(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.EnableDetailedTelemetry&#32;=&#32;true;
+});
+
+//&#32;Add&#32;OpenTelemetry&#32;integration
+builder.Services.AddToolboxOpenTelemetry(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.EnableTracing&#32;=&#32;true;
+&#32;&#32;&#32;&#32;options.EnableMetrics&#32;=&#32;true;
+&#32;&#32;&#32;&#32;options.EnableConsoleExport&#32;=&#32;true;
+});
+
+var&#32;app&#32;=&#32;builder.Build();
+app.Run();
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md5">
+<title>Documentation</title>
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e">Usage Guide</link> - Detailed usage instructions</para>
+</listitem><listitem>
+<para><link xlink:href="docs/html/index.html">API Documentation</link> - Generated Doxygen documentation</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md6">
+<title>Generating Documentation</title>
+<para><literallayout><computeroutput>doxygen&#32;Doxyfile
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md7">
+<title>Project Structure</title>
+<para><literallayout><computeroutput>Toolbox/
+├──&#32;src/
+│&#32;&#32;&#32;└──&#32;Toolbox.Core/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Core&#32;library
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Abstractions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Interfaces
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Base/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Base&#32;classes
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Extensions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;DI&#32;extensions
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Options/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Configuration&#32;options
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;└──&#32;Telemetry/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;OpenTelemetry&#32;infrastructure
+├──&#32;tests/
+│&#32;&#32;&#32;└──&#32;Toolbox.Tests/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Unit&#32;and&#32;integration&#32;tests
+├──&#32;samples/
+│&#32;&#32;&#32;└──&#32;Toolbox.Sample/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Sample&#32;application
+└──&#32;docs/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Generated&#32;documentation
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md8">
+<title>Building</title>
+<para><literallayout><computeroutput>dotnet&#32;build
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md9">
+<title>Testing</title>
+<para><literallayout><computeroutput>dotnet&#32;test
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md10">
+<title>License</title>
+<para>This project is licensed under the MIT License. </para>
+</section>
+</section>
+</section>

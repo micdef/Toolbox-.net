@@ -1,0 +1,174 @@
+.TH "Toolbox.Core.Abstractions.Services.IMailingService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Abstractions.Services.IMailingService \- Defines the contract for email sending services\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Abstractions\&.IInstrumentedService\fP, and \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP\&.
+.PP
+Inherited by \fBToolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSendMail\fP (\fBEmailMessage\fP message)"
+.br
+.RI "Sends an email synchronously\&. "
+.ti -1c
+.RI "Task \fBSendMailAsync\fP (\fBEmailMessage\fP message, CancellationToken cancellationToken=default)"
+.br
+.RI "Sends an email asynchronously\&. "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IInstrumentedService\fP
+.in +1c
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&. "
+.in -1c
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines the contract for email sending services\&. 
+
+This interface provides methods for sending emails with support for: 
+
+.PP
+.PD 0
+.IP "\(bu" 2
+Single or multiple recipients (To, CC, BCC) 
+.IP "\(bu" 2
+File attachments 
+.IP "\(bu" 2
+HTML or plain text content 
+.PP
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBIInstrumentedService\fP, \fBIAsyncDisposableService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB25\fP of file \fBIMailingService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\&.SendMail (\fBEmailMessage\fP message)"
+
+.PP
+Sends an email synchronously\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP The email message to send\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fImessage\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the message has no recipients (To or BCC)\&.
+.br
+\fIInvalidOperationException\fP Thrown when the SMTP connection fails\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender Name"),
+    Subject = "Hello",
+    Body = "Hello, World!",
+    To = { new EmailAddress("recipient@example\&.com") }
+};
+mailingService\&.SendMail(message);
+.fi
+.PP
+ 
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\fP\&.
+.SS "Task Toolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\&.SendMailAsync (\fBEmailMessage\fP message, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Sends an email asynchronously\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP The email message to send\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task representing the asynchronous operation\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fImessage\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the message has no recipients (To or BCC)\&.
+.br
+\fIInvalidOperationException\fP Thrown when the SMTP connection fails\&.
+.br
+\fIOperationCanceledException\fP Thrown when the operation is cancelled\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender Name"),
+    Subject = "Hello",
+    Body = "<h1>Hello, World!</h1>",
+    IsBodyHtml = true,
+    To = { new EmailAddress("recipient@example\&.com") }
+};
+await mailingService\&.SendMailAsync(message);
+.fi
+.PP
+ 
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

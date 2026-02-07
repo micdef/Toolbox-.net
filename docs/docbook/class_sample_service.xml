@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sample_service" xml:lang="en-US">
+<title>SampleService Class Reference</title>
+<indexterm><primary>SampleService</primary></indexterm>
+<para>
+
+<para>Sample service implementation using BaseAsyncDisposableService. </para>
+ 
+</para>
+<para>Inheritance diagram for SampleService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sample_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7">SampleService</link> (ILogger&lt; <link linkend="_class_sample_service">SampleService</link> &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_sample_service">SampleService</link> class. </para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_sample_service_1a9517e289671e8098655ef2563c31419b">DoWorkAsync</link> (string message, CancellationToken ct=default)</para>
+
+<para>
+<para>Performs sample work asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>The message to process.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ct</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the async operation.</para>
+</formalpara>
+</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link> ()</para>
+</listitem>
+            <listitem><para>async ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Asynchronously releases resources with cancellation support.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous disposal operation.</para>
+</formalpara>
+</para>
+
+<para>This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link> ()</para>
+
+<para>Releases all resources used by this service. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>override async ValueTask <link linkend="_class_sample_service_1ac667ccd31274fce29bb598b5a5f593c2">DisposeAsyncCore</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>override void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">Dispose</link> (bool disposing)</para>
+</listitem>
+        </itemizedlist>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0">BaseDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link> ()</para>
+
+<para>Throws an ObjectDisposedException if this service has been disposed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link> (string operationName, double durationMs)</para>
+
+<para>Records an operation metric with the specified name and duration. </para>
+</listitem>
+            <listitem><para>Activity? <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link> ([CallerMemberName] string operationName=&quot;&quot;)</para>
+
+<para>Starts a new activity for the specified operation. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the unique name identifying this service instance.</para>
+
+<para>A human-readable name for logging and diagnostics.</para>
+ </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets a value indicating whether this service has been disposed.</para>
+
+<para><computeroutput>true</computeroutput> if the service has been disposed; otherwise, <computeroutput>false</computeroutput>.</para>
+ </para>
+</listitem>
+            <listitem><para>ActivitySource <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing.</para>
+
+<para>The activity source used to create spans for this service.</para>
+ </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection.</para>
+
+<para>The meter used to create instruments for this service.</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Sample service implementation using BaseAsyncDisposableService. </para>
+<para>
+Definition at line <link linkend="__program_8cs_source_1l00069">69</link> of file <link linkend="__program_8cs_source">Program.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7"/><section>
+    <title>SampleService()</title>
+<indexterm><primary>SampleService</primary><secondary>SampleService</secondary></indexterm>
+<indexterm><primary>SampleService</primary><secondary>SampleService</secondary></indexterm>
+<para><computeroutput>SampleService.SampleService (ILogger&lt; <link linkend="_class_sample_service">SampleService</link> &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_sample_service">SampleService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__program_8cs_source_1l00077">77</link> of file <link linkend="__program_8cs_source">Program.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_sample_service_1ac667ccd31274fce29bb598b5a5f593c2"/><section>
+    <title>DisposeAsyncCore()</title>
+<indexterm><primary>DisposeAsyncCore</primary><secondary>SampleService</secondary></indexterm>
+<indexterm><primary>SampleService</primary><secondary>DisposeAsyncCore</secondary></indexterm>
+<para><computeroutput>override async ValueTask SampleService.DisposeAsyncCore (CancellationToken cancellationToken)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</para>
+<para>
+Reimplemented from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">Toolbox.Core.Base.BaseAsyncDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__program_8cs_source_1l00102">102</link> of file <link linkend="__program_8cs_source">Program.cs</link>.</para>
+</section>
+<anchor xml:id="_class_sample_service_1a9517e289671e8098655ef2563c31419b"/><section>
+    <title>DoWorkAsync()</title>
+<indexterm><primary>DoWorkAsync</primary><secondary>SampleService</secondary></indexterm>
+<indexterm><primary>SampleService</primary><secondary>DoWorkAsync</secondary></indexterm>
+<para><computeroutput>async Task SampleService.DoWorkAsync (string message, CancellationToken ct = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Performs sample work asynchronously.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>The message to process.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ct</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the async operation.</para>
+</formalpara>
+</para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b">ISampleService</link>.</para>
+<para>
+Definition at line <link linkend="__program_8cs_source_1l00084">84</link> of file <link linkend="__program_8cs_source">Program.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/<link linkend="__program_8cs">Program.cs</link></section>
+</section>

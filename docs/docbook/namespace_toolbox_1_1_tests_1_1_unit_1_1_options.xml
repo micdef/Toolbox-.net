@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_tests_1_1_unit_1_1_options" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Options Namespace Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Options</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests">ApiRequestTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> and related classes. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests">ApiResponseTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link>. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests">EmailMessageTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> and related classes. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests">FileTransferOptionsTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

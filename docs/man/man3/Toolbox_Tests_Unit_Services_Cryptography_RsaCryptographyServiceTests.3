@@ -1,0 +1,285 @@
+.TH "Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests \- \fBUnit\fP tests for \fBRsaCryptographyService\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRsaCryptographyServiceTests\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair\fP (\fBRsaKeySize\fP keySize)"
+.br
+.ti -1c
+.RI "void \fBGenerateKeyPair_WithIntKeySize_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException\fP (int invalidKeySize)"
+.br
+.ti -1c
+.RI "void \fBGenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKeyPair_ShouldGenerateUniqueKeys\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateCertificate_ShouldReturnValidCertificate\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullPublicKey_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullLogger_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullCertificate_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithValidKeyPair_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithCertificate_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ShouldReturnBase64String\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithNullText_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithPublicKeyOnly_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithTooLargeData_ShouldThrowCryptographicException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithDifferentKeys_ShouldProduceDifferentOutput\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_ShouldReturnOriginalText\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork\fP (\fBRsaPaddingMode\fP paddingMode)"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork\fP (\fBRsaKeySize\fP keySize)"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithNullText_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithInvalidBase64_ShouldThrowFormatException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithWrongKey_ShouldThrowFormatException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBEncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBEncryptAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDecryptAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WhenDisposed_ShouldThrowObjectDisposedException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDisposeAsync_ShouldDisposeResources\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithEmptyString_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithUnicodeText_ShouldHandleCorrectly\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_WithCertificate_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException\fP ()"
+.br
+.ti -1c
+.RI "void \fBRsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey\fP ()"
+.br
+.ti -1c
+.RI "void \fBRsaKeyPair_Dispose_ShouldClearSensitiveData\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBRsaCryptographyService\fP\&. 
+.PP
+Definition at line \fB10\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.RsaCryptographyServiceTests ()"
+
+.PP
+Definition at line \fB14\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Constructor_WithCertificate_ShouldInitialize ()"
+
+.PP
+Definition at line \fB200\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Constructor_WithNullCertificate_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB170\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Constructor_WithNullLogger_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB154\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Constructor_WithNullPublicKey_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB141\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Constructor_WithValidKeyPair_ShouldInitialize ()"
+
+.PP
+Definition at line \fB183\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Decrypt_WithInvalidBase64_ShouldThrowFormatException ()"
+
+.PP
+Definition at line \fB436\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Decrypt_WithNullText_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB418\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException ()"
+
+.PP
+Definition at line \fB393\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException ()"
+
+.PP
+Definition at line \fB654\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Decrypt_WithWrongKey_ShouldThrowFormatException ()"
+
+.PP
+Definition at line \fB454\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB524\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.DisposeAsync_ShouldDisposeResources ()"
+
+.PP
+Definition at line \fB567\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_ShouldReturnBase64String ()"
+
+.PP
+Definition at line \fB223\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_ThenDecrypt_ShouldReturnOriginalText ()"
+
+.PP
+Definition at line \fB325\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_ThenDecrypt_WithCertificate_ShouldWork ()"
+
+.PP
+Definition at line \fB632\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork (\fBRsaKeySize\fP keySize)"
+
+.PP
+Definition at line \fB373\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork (\fBRsaPaddingMode\fP paddingMode)"
+
+.PP
+Definition at line \fB350\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException ()"
+
+.PP
+Definition at line \fB549\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput ()"
+
+.PP
+Definition at line \fB297\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WithEmptyString_ShouldWork ()"
+
+.PP
+Definition at line \fB589\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WithNullText_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB243\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WithPublicKeyOnly_ShouldWork ()"
+
+.PP
+Definition at line \fB260\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WithTooLargeData_ShouldThrowCryptographicException ()"
+
+.PP
+Definition at line \fB277\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.Encrypt_WithUnicodeText_ShouldHandleCorrectly ()"
+
+.PP
+Definition at line \fB608\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText ()"
+
+.PP
+Definition at line \fB484\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB504\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateCertificate_ShouldReturnValidCertificate ()"
+
+.PP
+Definition at line \fB93\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB124\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly ()"
+
+.PP
+Definition at line \fB109\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateKeyPair_ShouldGenerateUniqueKeys ()"
+
+.PP
+Definition at line \fB77\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateKeyPair_WithIntKeySize_ShouldWork ()"
+
+.PP
+Definition at line \fB39\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException (int invalidKeySize)"
+
+.PP
+Definition at line \fB55\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly ()"
+
+.PP
+Definition at line \fB65\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair (\fBRsaKeySize\fP keySize)"
+
+.PP
+Definition at line \fB25\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.RsaKeyPair_Dispose_ShouldClearSensitiveData ()"
+
+.PP
+Definition at line \fB701\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.RsaCryptographyServiceTests\&.RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey ()"
+
+.PP
+Definition at line \fB686\fP of file \fBRsaCryptographyServiceTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

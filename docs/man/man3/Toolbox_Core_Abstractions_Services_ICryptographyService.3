@@ -1,0 +1,183 @@
+.TH "Toolbox.Core.Abstractions.Services.ICryptographyService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Abstractions.Services.ICryptographyService \- Interface for cryptography services providing text encryption and decryption\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Abstractions\&.IInstrumentedService\fP, and \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP\&.
+.PP
+Inherited by \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\fP, and \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "string \fBEncrypt\fP (string plainText)"
+.br
+.RI "Encrypts the specified plain text\&. "
+.ti -1c
+.RI "Task< string > \fBEncryptAsync\fP (string plainText, CancellationToken cancellationToken=default)"
+.br
+.RI "Asynchronously encrypts the specified plain text\&. "
+.ti -1c
+.RI "string \fBDecrypt\fP (string encryptedText)"
+.br
+.RI "Decrypts the specified encrypted text\&. "
+.ti -1c
+.RI "Task< string > \fBDecryptAsync\fP (string encryptedText, CancellationToken cancellationToken=default)"
+.br
+.RI "Asynchronously decrypts the specified encrypted text\&. "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IInstrumentedService\fP
+.in +1c
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&. "
+.in -1c
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for cryptography services providing text encryption and decryption\&. 
+
+This interface defines a simple contract for encrypting and decrypting text\&. Implementations may use various algorithms (Base64, AES, RSA, etc\&.)\&. 
+
+.PP
+All methods accept and return string values for ease of use\&. 
+.PP
+Definition at line \fB20\fP of file \fBICryptographyService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "string Toolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\&.Decrypt (string encryptedText)"
+
+.PP
+Decrypts the specified encrypted text\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\fP, and \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP\&.
+.SS "Task< string > Toolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\&.DecryptAsync (string encryptedText, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Asynchronously decrypts the specified encrypted text\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\fP, and \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP\&.
+.SS "string Toolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\&.Encrypt (string plainText)"
+
+.PP
+Encrypts the specified plain text\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\fP, and \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP\&.
+.SS "Task< string > Toolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\&.EncryptAsync (string plainText, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Asynchronously encrypts the specified plain text\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\fP, and \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

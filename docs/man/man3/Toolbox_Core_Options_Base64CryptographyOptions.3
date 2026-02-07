@@ -1,0 +1,65 @@
+.TH "Toolbox.Core.Options.Base64CryptographyOptions" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.Base64CryptographyOptions \- Configuration options for the Base64 cryptography service\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const string \fBSectionName\fP = 'Toolbox:Cryptography:Base64'"
+.br
+.RI "The configuration section name for Base64 cryptography options\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "\fBBase64EncodingTable\fP \fBEncodingTable\fP = \fBBase64EncodingTable\&.Standard\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the encoding table to use\&. "
+.ti -1c
+.RI "bool \fBIncludePadding\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether padding should be included\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration options for the Base64 cryptography service\&. 
+
+These options control the encoding behavior of the Base64 service\&. 
+.PP
+Definition at line \fB14\fP of file \fBBase64CryptographyOptions\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const string Toolbox\&.Core\&.Options\&.Base64CryptographyOptions\&.SectionName = 'Toolbox:Cryptography:Base64'\fR [static]\fP"
+
+.PP
+The configuration section name for Base64 cryptography options\&. 
+.PP
+Definition at line \fB19\fP of file \fBBase64CryptographyOptions\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "\fBBase64EncodingTable\fP Toolbox\&.Core\&.Options\&.Base64CryptographyOptions\&.EncodingTable = \fBBase64EncodingTable\&.Standard\fP\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the encoding table to use\&. The Base64 encoding table\&. Defaults to \fBBase64EncodingTable\&.Standard\fP\&. 
+.PP
+Definition at line \fB27\fP of file \fBBase64CryptographyOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.Base64CryptographyOptions\&.IncludePadding = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether padding should be included\&. \fRtrue\fP to include '=' padding characters; \fRfalse\fP to omit them\&. Defaults to \fRtrue\fP\&. 
+
+.PP
+Padding is required by the Base64 standard but can be omitted in some contexts\&. When decoding, the service handles both padded and unpadded input\&. 
+.PP
+Definition at line \fB40\fP of file \fBBase64CryptographyOptions\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

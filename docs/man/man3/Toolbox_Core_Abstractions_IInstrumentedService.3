@@ -1,0 +1,61 @@
+.TH "Toolbox.Core.Abstractions.IInstrumentedService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Abstractions.IInstrumentedService \- Interface for services that expose OpenTelemetry instrumentation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBToolbox\&.Core\&.Abstractions\&.Services\&.IApiService\fP, \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP, \fBToolbox\&.Core\&.Abstractions\&.Services\&.IFileTransferService\fP, \fBToolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\fP, and \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for services that expose OpenTelemetry instrumentation\&. 
+
+\fBServices\fP implementing this interface provide access to their telemetry primitives, enabling consistent observability across the application\&. 
+
+.PP
+The \fBActivitySource\fP is used for distributed tracing, while the \fBMeter\fP is used for metrics collection\&. 
+.PP
+Definition at line \fB21\fP of file \fBIInstrumentedService\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "ActivitySource Toolbox\&.Core\&.Abstractions\&.IInstrumentedService\&.ActivitySource\fR [get]\fP"
+
+.PP
+Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&. The activity source used to create spans for this service\&.
+
+.PP
+Activities created from this source will be included in traces when OpenTelemetry tracing is configured\&. 
+.PP
+Implemented in \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.PP
+Definition at line \fB31\fP of file \fBIInstrumentedService\&.cs\fP\&.
+.SS "Meter Toolbox\&.Core\&.Abstractions\&.IInstrumentedService\&.Meter\fR [get]\fP"
+
+.PP
+Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&. The meter used to create instruments for this service\&.
+
+.PP
+Instruments created from this meter will report metrics when OpenTelemetry metrics is configured\&. 
+.PP
+Implemented in \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.PP
+Definition at line \fB41\fP of file \fBIInstrumentedService\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

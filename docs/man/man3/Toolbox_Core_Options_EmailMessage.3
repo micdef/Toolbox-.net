@@ -1,0 +1,209 @@
+.TH "Toolbox.Core.Options.EmailMessage" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.EmailMessage \- Represents an email message to be sent\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBValidate\fP ()"
+.br
+.RI "Validates the message and throws if invalid\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "\fBEmailAddress\fP? \fBFrom\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the sender's email address\&. "
+.ti -1c
+.RI "\fBEmailAddress\fP? \fBReplyTo\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the reply-to email address\&. "
+.ti -1c
+.RI "IList< \fBEmailAddress\fP > \fBTo\fP = new List<\fBEmailAddress\fP>()\fR [get]\fP"
+.br
+.RI "Gets the list of primary recipients\&. "
+.ti -1c
+.RI "IList< \fBEmailAddress\fP > \fBCc\fP = new List<\fBEmailAddress\fP>()\fR [get]\fP"
+.br
+.RI "Gets the list of carbon copy recipients\&. "
+.ti -1c
+.RI "IList< \fBEmailAddress\fP > \fBBcc\fP = new List<\fBEmailAddress\fP>()\fR [get]\fP"
+.br
+.RI "Gets the list of blind carbon copy recipients\&. "
+.ti -1c
+.RI "string \fBSubject\fP = string\&.Empty\fR [get, set]\fP"
+.br
+.RI "Gets or sets the email subject\&. "
+.ti -1c
+.RI "string \fBBody\fP = string\&.Empty\fR [get, set]\fP"
+.br
+.RI "Gets or sets the email body content\&. "
+.ti -1c
+.RI "bool \fBIsBodyHtml\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether the body is HTML\&. "
+.ti -1c
+.RI "string? \fBPlainTextBody\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the plain text version of the body for HTML emails\&. "
+.ti -1c
+.RI "IList< \fBEmailAttachment\fP > \fBAttachments\fP = new List<\fBEmailAttachment\fP>()\fR [get]\fP"
+.br
+.RI "Gets the list of attachments\&. "
+.ti -1c
+.RI "\fBEmailPriority\fP \fBPriority\fP = \fBEmailPriority\&.Normal\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the email priority\&. "
+.ti -1c
+.RI "IDictionary< string, string > \fBHeaders\fP = new Dictionary<string, string>()\fR [get]\fP"
+.br
+.RI "Gets the custom headers to include in the email\&. "
+.ti -1c
+.RI "int \fBTotalRecipients\fP\fR [get]\fP"
+.br
+.RI "Gets the total number of recipients (To + CC + BCC)\&. "
+.ti -1c
+.RI "bool \fBHasRecipients\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this message has any recipients\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents an email message to be sent\&. 
+
+This class contains all the information needed to compose and send an email, including recipients, subject, body, and attachments\&. 
+
+.PP
+At least one recipient must be specified in \fBTo\fP or \fBBcc\fP\&. If \fBTo\fP is empty, at least one \fBBcc\fP recipient is required\&. 
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender"),
+    Subject = "Monthly Report",
+    Body = "<h1>Report</h1><p>See attached\&.</p>",
+    IsBodyHtml = true,
+    To = { "recipient@example\&.com" },
+    Cc = { new EmailAddress("manager@example\&.com", "Manager") },
+    Attachments = { EmailAttachment\&.FromFile("report\&.pdf") }
+};
+.fi
+.PP
+ 
+.PP
+Definition at line \fB35\fP of file \fBEmailMessage\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Core\&.Options\&.EmailMessage\&.Validate ()"
+
+.PP
+Validates the message and throws if invalid\&. 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentException\fP Thrown when the message is invalid\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB128\fP of file \fBEmailMessage\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "IList<\fBEmailAttachment\fP> Toolbox\&.Core\&.Options\&.EmailMessage\&.Attachments = new List<\fBEmailAttachment\fP>()\fR [get]\fP"
+
+.PP
+Gets the list of attachments\&. The list of file attachments\&.
+.PP
+Definition at line \fB98\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "IList<\fBEmailAddress\fP> Toolbox\&.Core\&.Options\&.EmailMessage\&.Bcc = new List<\fBEmailAddress\fP>()\fR [get]\fP"
+
+.PP
+Gets the list of blind carbon copy recipients\&. The list of "BCC" recipients\&.
+.PP
+Definition at line \fB65\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.EmailMessage\&.Body = string\&.Empty\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the email body content\&. The body content in HTML or plain text format\&.
+.PP
+Definition at line \fB77\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "IList<\fBEmailAddress\fP> Toolbox\&.Core\&.Options\&.EmailMessage\&.Cc = new List<\fBEmailAddress\fP>()\fR [get]\fP"
+
+.PP
+Gets the list of carbon copy recipients\&. The list of "CC" recipients\&.
+.PP
+Definition at line \fB59\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "\fBEmailAddress\fP? Toolbox\&.Core\&.Options\&.EmailMessage\&.From\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the sender's email address\&. The sender address\&. If \fRnull\fP, uses the service's default sender\&.
+.PP
+Definition at line \fB41\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.EmailMessage\&.HasRecipients\fR [get]\fP"
+
+.PP
+Gets a value indicating whether this message has any recipients\&. \fRtrue\fP if there is at least one recipient; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB122\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "IDictionary<string, string> Toolbox\&.Core\&.Options\&.EmailMessage\&.Headers = new Dictionary<string, string>()\fR [get]\fP"
+
+.PP
+Gets the custom headers to include in the email\&. A dictionary of custom header names and values\&.
+.PP
+Definition at line \fB110\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.EmailMessage\&.IsBodyHtml\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether the body is HTML\&. \fRtrue\fP if the body is HTML; \fRfalse\fP for plain text\&. Default is \fRfalse\fP\&.
+.PP
+Definition at line \fB83\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.EmailMessage\&.PlainTextBody\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the plain text version of the body for HTML emails\&. The plain text alternative, or \fRnull\fP to auto-generate from HTML\&. Only used when \fBIsBodyHtml\fP is \fRtrue\fP\&. 
+.PP
+Definition at line \fB92\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "\fBEmailPriority\fP Toolbox\&.Core\&.Options\&.EmailMessage\&.Priority = \fBEmailPriority\&.Normal\fP\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the email priority\&. The message priority\&. Default is \fBEmailPriority\&.Normal\fP\&.
+.PP
+Definition at line \fB104\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "\fBEmailAddress\fP? Toolbox\&.Core\&.Options\&.EmailMessage\&.ReplyTo\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the reply-to email address\&. The reply-to address, or \fRnull\fP to use the sender's address\&.
+.PP
+Definition at line \fB47\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.EmailMessage\&.Subject = string\&.Empty\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the email subject\&. The subject line\&.
+.PP
+Definition at line \fB71\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "IList<\fBEmailAddress\fP> Toolbox\&.Core\&.Options\&.EmailMessage\&.To = new List<\fBEmailAddress\fP>()\fR [get]\fP"
+
+.PP
+Gets the list of primary recipients\&. The list of "To" recipients\&.
+.PP
+Definition at line \fB53\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.EmailMessage\&.TotalRecipients\fR [get]\fP"
+
+.PP
+Gets the total number of recipients (To + CC + BCC)\&. The total recipient count\&.
+.PP
+Definition at line \fB116\fP of file \fBEmailMessage\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

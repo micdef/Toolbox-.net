@@ -1,0 +1,717 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__rsa_cryptography_service_tests_8cs_source" xml:lang="en-US">
+<title>RsaCryptographyServiceTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/RsaCryptographyServiceTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Logging;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Toolbox.Core.Services.Cryptography</link>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00004"/>00004 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00005"/>00005 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography">Toolbox.Tests.Unit.Services.Cryptography</link>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00006"/>00006 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00010"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests">00010</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369">RsaCryptographyServiceTests</link>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00011"/>00011 {
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00012"/>00012 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;Mock&lt;ILogger&lt;RsaCryptographyService&gt;&gt;&#32;_loggerMock;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00013"/>00013 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00014"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369">00014</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369">RsaCryptographyServiceTests</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00015"/>00015 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;Mock&lt;ILogger&lt;RsaCryptographyService&gt;&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00017"/>00017 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00018"/>00018 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00019"/>00019 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;GenerateKeyPair&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00020"/>00020 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;[Theory]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa512)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa1024)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00025"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab012f62dc109e0008ee2696898f67029">00025</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab012f62dc109e0008ee2696898f67029">GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>&#32;keySize)
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(keySize);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00029"/>00029 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.HasPrivateKey.Should().BeTrue();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.KeySize.Should().Be((<emphasis role="keywordtype">int</emphasis>)keySize);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00037"/>00037 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00039"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a53a1580c350c69f35100ae06a4f6d28f">00039</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a53a1580c350c69f35100ae06a4f6d28f">GenerateKeyPair_WithIntKeySize_ShouldWork</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00043"/>00043 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.KeySize.Should().Be(2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00049"/>00049 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;[Theory]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;[InlineData(64)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;[InlineData(256)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;[InlineData(3072)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;[InlineData(5000)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00055"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a1a31861c052fda3a5d1a5125d0637b45">00055</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a1a31861c052fda3a5d1a5125d0637b45">GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</link>(<emphasis role="keywordtype">int</emphasis>&#32;invalidKeySize)
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(invalidKeySize);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00059"/>00059 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00063"/>00063 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00065"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a29f84d442adad37c91f3fac0924a3094">00065</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a29f84d442adad37c91f3fac0924a3094">GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,&#32;includePrivateKey:&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00069"/>00069 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey.Should().BeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.HasPrivateKey.Should().BeFalse();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00075"/>00075 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00077"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a4bdce7ee443c65c153e32e393a264775">00077</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a4bdce7ee443c65c153e32e393a264775">GenerateKeyPair_ShouldGenerateUniqueKeys</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair1&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair2&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00082"/>00082 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair1.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Should().NotEqual(keyPair2.PublicKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair1.PrivateKey.Should().NotEqual(keyPair2.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00087"/>00087 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00088"/>00088 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00089"/>00089 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00090"/>00090 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;GenerateCertificate&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00091"/>00091 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00093"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8fa6adcb5dc3d38f08b0e93481f84e20">00093</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8fa6adcb5dc3d38f08b0e93481f84e20">GenerateCertificate_ShouldReturnValidCertificate</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1aeba578a09d400cfa0431ffdbd2e27aba">GenerateCertificate</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;CN=TestCertificate&quot;</emphasis>,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TimeSpan.FromDays(365));
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00100"/>00100 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Certificate!.Subject.Should().Contain(<emphasis role="stringliteral">&quot;TestCertificate&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.HasPrivateKey.Should().BeTrue();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00107"/>00107 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00109"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a36c77e0fa6acdfa2abef1301503e7438">00109</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a36c77e0fa6acdfa2abef1301503e7438">GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1aeba578a09d400cfa0431ffdbd2e27aba">GenerateCertificate</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;CN=TestCertificate&quot;</emphasis>,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TimeSpan.FromDays(365),
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;includePrivateKey:&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00117"/>00117 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Certificate!.HasPrivateKey.Should().BeFalse();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00122"/>00122 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00124"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8d38168b5be7e86fda8aad75b746ba2c">00124</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8d38168b5be7e86fda8aad75b746ba2c">GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1aeba578a09d400cfa0431ffdbd2e27aba">GenerateCertificate</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">null</emphasis>!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TimeSpan.FromDays(365));
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00131"/>00131 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00135"/>00135 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00136"/>00136 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00137"/>00137 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00138"/>00138 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Constructor&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00139"/>00139 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00141"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa8a241293a6a5540d16b320f9d68c713">00141</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa8a241293a6a5540d16b320f9d68c713">Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">null</emphasis>!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00148"/>00148 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00152"/>00152 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00154"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9dee4889caf54d01f51063bb80268b97">00154</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9dee4889caf54d01f51063bb80268b97">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00155"/>00155 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00158"/>00158 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00164"/>00164 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00168"/>00168 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00170"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a96176a7559fcc7189a6511917d4b7c98">00170</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a96176a7559fcc7189a6511917d4b7c98">Constructor_WithNullCertificate_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(System.Security.Cryptography.X509Certificates.X509Certificate2)<emphasis role="keyword">null</emphasis>!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00177"/>00177 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00181"/>00181 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00183"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af0db341c70e9264ae746fd951d183c0f">00183</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af0db341c70e9264ae746fd951d183c0f">Constructor_WithValidKeyPair_ShouldInitialize</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00187"/>00187 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00194"/>00194 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert&#32;-&#32;No&#32;exception&#32;means&#32;success</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00198"/>00198 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00200"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a257f772423de762efa1f86bb38c3fd1a">00200</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a257f772423de762efa1f86bb38c3fd1a">Constructor_WithCertificate_ShouldInitialize</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1aeba578a09d400cfa0431ffdbd2e27aba">GenerateCertificate</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;CN=Test&quot;</emphasis>,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TimeSpan.FromDays(1));
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00207"/>00207 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Certificate!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00213"/>00213 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00217"/>00217 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00218"/>00218 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00219"/>00219 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00220"/>00220 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Encrypt&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00221"/>00221 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00222"/>00222 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00223"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af14ba35dac65ca9dc53b7bd59a9bd5c1">00223</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af14ba35dac65ca9dc53b7bd59a9bd5c1">Encrypt_ShouldReturnBase64String</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00224"/>00224 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00232"/>00232 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result&#32;=&#32;service.Encrypt(<emphasis role="stringliteral">&quot;Hello,&#32;World!&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00235"/>00235 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.Should().NotBeNullOrEmpty();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;Convert.FromBase64String(result);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().NotThrow();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00240"/>00240 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00241"/>00241 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00243"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa805ef539cb3654e35e96120f74f5507">00243</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa805ef539cb3654e35e96120f74f5507">Encrypt_WithNullText_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00244"/>00244 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00251"/>00251 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00253"/>00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Encrypt(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00254"/>00254 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00257"/>00257 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00258"/>00258 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00259"/>00259 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00260"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aaac147c0f5e1ad34efc0098556eaa0d6">00260</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aaac147c0f5e1ad34efc0098556eaa0d6">Encrypt_WithPublicKeyOnly_ShouldWork</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00261"/>00261 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00262"/>00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00267"/>00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);&#32;&#32;<emphasis role="comment">//&#32;No&#32;private&#32;key</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00268"/>00268 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result&#32;=&#32;service.Encrypt(<emphasis role="stringliteral">&quot;Test&#32;message&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00271"/>00271 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.Should().NotBeNullOrEmpty();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00274"/>00274 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00275"/>00275 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00276"/>00276 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00277"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9cca5292815e4da08bd123e256a2c884">00277</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9cca5292815e4da08bd123e256a2c884">Encrypt_WithTooLargeData_ShouldThrowCryptographicException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00278"/>00278 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00285"/>00285 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;RSA-2048&#32;with&#32;OAEP-SHA256&#32;can&#32;encrypt&#32;max&#32;190&#32;bytes</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;largeText&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;string(<emphasis role="charliteral">&apos;A&apos;</emphasis>,&#32;500);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00288"/>00288 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Encrypt(largeText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00291"/>00291 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;System.Security.Cryptography.CryptographicException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00294"/>00294 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00295"/>00295 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00296"/>00296 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00297"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ae2c1fce0bdda4863f99150917720bd06">00297</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ae2c1fce0bdda4863f99150917720bd06">Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00298"/>00298 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair1&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair2&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00302"/>00302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service1&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00303"/>00303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair1.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00304"/>00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00305"/>00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00306"/>00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service2&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair2.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00309"/>00309 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00310"/>00310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;text&#32;=&#32;<emphasis role="stringliteral">&quot;Test&#32;message&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00311"/>00311 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00313"/>00313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result1&#32;=&#32;service1.Encrypt(text);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00314"/>00314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result2&#32;=&#32;service2.Encrypt(text);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00315"/>00315 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result1.Should().NotBe(result2);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00318"/>00318 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00319"/>00319 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00320"/>00320 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00321"/>00321 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00322"/>00322 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Decrypt&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00323"/>00323 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00324"/>00324 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00325"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a60a9bbf8b30cde9fb734ea7d74ff5513">00325</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a60a9bbf8b30cde9fb734ea7d74ff5513">Encrypt_ThenDecrypt_ShouldReturnOriginalText</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00326"/>00326 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;originalText&#32;=&#32;<emphasis role="stringliteral">&quot;The&#32;quick&#32;brown&#32;fox&#32;jumps&#32;over&#32;the&#32;lazy&#32;dog.&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00335"/>00335 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00336"/>00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00337"/>00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00338"/>00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;service.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00339"/>00339 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00340"/>00340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().Be(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00342"/>00342 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00343"/>00343 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00344"/>00344 &#32;&#32;&#32;&#32;[Theory]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00345"/>00345 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.Pkcs1)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00346"/>00346 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha1)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00347"/>00347 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00348"/>00348 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha384)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00349"/>00349 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha512)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00350"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a971cad3c824f927055102a05276b8b66">00350</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a971cad3c824f927055102a05276b8b66">Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>&#32;paddingMode)
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00351"/>00351 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00354"/>00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00356"/>00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;paddingMode,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00357"/>00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00359"/>00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;originalText&#32;=&#32;<emphasis role="stringliteral">&quot;Test&#32;message&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00360"/>00360 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00362"/>00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00363"/>00363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;service.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00364"/>00364 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00365"/>00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00366"/>00366 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().Be(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00367"/>00367 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00368"/>00368 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00369"/>00369 &#32;&#32;&#32;&#32;[Theory]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00370"/>00370 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa512)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00371"/>00371 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa1024)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00372"/>00372 &#32;&#32;&#32;&#32;[InlineData(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048)]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00373"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab69170e0aa2b2f8d3077c23d0931fb38">00373</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab69170e0aa2b2f8d3077c23d0931fb38">Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>&#32;keySize)
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00374"/>00374 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(keySize);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00377"/>00377 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00378"/>00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00379"/>00379 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.Pkcs1,&#32;&#32;<emphasis role="comment">//&#32;Use&#32;PKCS1&#32;for&#32;smaller&#32;keys</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00380"/>00380 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00381"/>00381 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00382"/>00382 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;originalText&#32;=&#32;<emphasis role="stringliteral">&quot;Short&#32;test&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00383"/>00383 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00384"/>00384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00385"/>00385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00386"/>00386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;service.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00387"/>00387 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00388"/>00388 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00389"/>00389 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().Be(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00390"/>00390 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00391"/>00391 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00392"/>00392 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00393"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a7156777c8e4c9cf2575388b3a3cbf6d2">00393</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a7156777c8e4c9cf2575388b3a3cbf6d2">Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00394"/>00394 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00395"/>00395 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;encryptService&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00398"/>00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00399"/>00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00400"/>00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00402"/>00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;decryptService&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00403"/>00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00404"/>00404 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00405"/>00405 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);&#32;&#32;<emphasis role="comment">//&#32;No&#32;private&#32;key</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00406"/>00406 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00407"/>00407 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;encryptService.Encrypt(<emphasis role="stringliteral">&quot;Test&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00408"/>00408 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00409"/>00409 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00410"/>00410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;decryptService.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00411"/>00411 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00412"/>00412 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00413"/>00413 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;InvalidOperationException&gt;()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00414"/>00414 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMessage(<emphasis role="stringliteral">&quot;*private&#32;key*&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00415"/>00415 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00416"/>00416 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00417"/>00417 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00418"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ad462afaa21e47f374fa3c598b5474349">00418</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ad462afaa21e47f374fa3c598b5474349">Decrypt_WithNullText_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00419"/>00419 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00420"/>00420 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00421"/>00421 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00422"/>00422 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00423"/>00423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00424"/>00424 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00425"/>00425 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00426"/>00426 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00427"/>00427 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00428"/>00428 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00429"/>00429 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Decrypt(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00430"/>00430 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00431"/>00431 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00432"/>00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00433"/>00433 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00434"/>00434 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00435"/>00435 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00436"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a235650322e6eee127fd06b3d76ebf9f9">00436</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a235650322e6eee127fd06b3d76ebf9f9">Decrypt_WithInvalidBase64_ShouldThrowFormatException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00437"/>00437 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00438"/>00438 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00439"/>00439 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00440"/>00440 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00441"/>00441 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00442"/>00442 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00443"/>00443 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00444"/>00444 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00445"/>00445 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00446"/>00446 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00447"/>00447 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Decrypt(<emphasis role="stringliteral">&quot;Not@Valid#Base64!&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00448"/>00448 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00449"/>00449 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00450"/>00450 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;FormatException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00451"/>00451 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00452"/>00452 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00453"/>00453 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00454"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac1c5d2c1d7638a31773ea3302f2091df">00454</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac1c5d2c1d7638a31773ea3302f2091df">Decrypt_WithWrongKey_ShouldThrowFormatException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00455"/>00455 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00456"/>00456 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00457"/>00457 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair1&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00458"/>00458 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair2&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00459"/>00459 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service1&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00460"/>00460 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair1.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00461"/>00461 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00462"/>00462 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00463"/>00463 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair1.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00464"/>00464 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service2&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00465"/>00465 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair2.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00466"/>00466 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00467"/>00467 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00468"/>00468 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair2.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00469"/>00469 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00470"/>00470 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service1.Encrypt(<emphasis role="stringliteral">&quot;Secret&#32;message&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00471"/>00471 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00472"/>00472 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00473"/>00473 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service2.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00474"/>00474 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00475"/>00475 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00476"/>00476 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;FormatException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00477"/>00477 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00478"/>00478 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00479"/>00479 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00480"/>00480 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00481"/>00481 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Async&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00482"/>00482 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00483"/>00483 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00484"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a112030d45cf2841a0838b1a43dfe22a2">00484</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a112030d45cf2841a0838b1a43dfe22a2">EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00485"/>00485 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00486"/>00486 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00487"/>00487 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00488"/>00488 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00489"/>00489 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00490"/>00490 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00491"/>00491 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00492"/>00492 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00493"/>00493 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;originalText&#32;=&#32;<emphasis role="stringliteral">&quot;Async&#32;encryption&#32;test&#32;message.&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00494"/>00494 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00495"/>00495 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00496"/>00496 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;await&#32;service.EncryptAsync(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00497"/>00497 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;await&#32;service.DecryptAsync(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00498"/>00498 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00499"/>00499 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00500"/>00500 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().Be(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00501"/>00501 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00502"/>00502 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00503"/>00503 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00504"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1acf73f6f3eeff534c10f1fefe310f05f3">00504</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1acf73f6f3eeff534c10f1fefe310f05f3">EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00505"/>00505 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00506"/>00506 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00507"/>00507 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00508"/>00508 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00509"/>00509 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00510"/>00510 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00511"/>00511 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00512"/>00512 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00513"/>00513 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;cts&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;CancellationTokenSource();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00514"/>00514 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;cts.CancelAsync();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00515"/>00515 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00516"/>00516 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00517"/>00517 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.EncryptAsync(<emphasis role="stringliteral">&quot;test&quot;</emphasis>,&#32;cts.Token);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00518"/>00518 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00519"/>00519 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00520"/>00520 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;OperationCanceledException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00521"/>00521 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00522"/>00522 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00523"/>00523 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00524"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adc5d1ad41e8298d19b4286e69c5b0d11">00524</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adc5d1ad41e8298d19b4286e69c5b0d11">DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00525"/>00525 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00526"/>00526 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00527"/>00527 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00528"/>00528 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00529"/>00529 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00530"/>00530 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00531"/>00531 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00532"/>00532 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00533"/>00533 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;cts&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;CancellationTokenSource();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00534"/>00534 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(<emphasis role="stringliteral">&quot;test&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00535"/>00535 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;cts.CancelAsync();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00536"/>00536 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00537"/>00537 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00538"/>00538 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.DecryptAsync(encrypted,&#32;cts.Token);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00539"/>00539 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00540"/>00540 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00541"/>00541 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;OperationCanceledException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00542"/>00542 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00543"/>00543 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00544"/>00544 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00545"/>00545 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00546"/>00546 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Dispose&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00547"/>00547 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00548"/>00548 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00549"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab3c44832b287fce1db2ec3b61d0d1d74">00549</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab3c44832b287fce1db2ec3b61d0d1d74">Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00550"/>00550 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00551"/>00551 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00552"/>00552 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00553"/>00553 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00554"/>00554 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00555"/>00555 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00556"/>00556 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00557"/>00557 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00558"/>00558 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00559"/>00559 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00560"/>00560 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Encrypt(<emphasis role="stringliteral">&quot;test&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00561"/>00561 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00562"/>00562 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00563"/>00563 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00564"/>00564 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00565"/>00565 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00566"/>00566 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00567"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a12eaa5d1ff54db32e274af16cb24494f">00567</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a12eaa5d1ff54db32e274af16cb24494f">DisposeAsync_ShouldDisposeResources</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00568"/>00568 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00569"/>00569 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00570"/>00570 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00571"/>00571 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00572"/>00572 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00573"/>00573 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00574"/>00574 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00575"/>00575 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00576"/>00576 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00577"/>00577 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;service.DisposeAsync();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00578"/>00578 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00579"/>00579 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert&#32;-&#32;Service&#32;should&#32;be&#32;disposed</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00580"/>00580 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Encrypt(<emphasis role="stringliteral">&quot;test&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00581"/>00581 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00582"/>00582 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00583"/>00583 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00584"/>00584 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00585"/>00585 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00586"/>00586 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Unicode&#32;and&#32;Edge&#32;Cases</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00587"/>00587 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00588"/>00588 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00589"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a66729aa2c88c1916632ef3372199af6a">00589</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a66729aa2c88c1916632ef3372199af6a">Encrypt_WithEmptyString_ShouldWork</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00590"/>00590 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00591"/>00591 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00592"/>00592 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00593"/>00593 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00594"/>00594 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00595"/>00595 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00596"/>00596 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00597"/>00597 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00598"/>00598 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00599"/>00599 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00600"/>00600 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(<emphasis role="keywordtype">string</emphasis>.Empty);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00601"/>00601 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;service.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00602"/>00602 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00603"/>00603 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00604"/>00604 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().BeEmpty();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00605"/>00605 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00606"/>00606 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00607"/>00607 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00608"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a442e0284972d4cb76c056cbce1525672">00608</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a442e0284972d4cb76c056cbce1525672">Encrypt_WithUnicodeText_ShouldHandleCorrectly</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00609"/>00609 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00610"/>00610 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00611"/>00611 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00612"/>00612 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00613"/>00613 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00614"/>00614 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00615"/>00615 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00616"/>00616 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00617"/>00617 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;unicodeText&#32;=&#32;<emphasis role="stringliteral">&quot;Héllo,&#32;世界!&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00618"/>00618 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00619"/>00619 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00620"/>00620 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(unicodeText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00621"/>00621 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;service.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00622"/>00622 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00623"/>00623 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00624"/>00624 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().Be(unicodeText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00625"/>00625 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00626"/>00626 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00627"/>00627 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00628"/>00628 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00629"/>00629 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Certificate&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00630"/>00630 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00631"/>00631 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00632"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a5fdd966a7a994b666b2c7a5ddb0f5e9d">00632</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a5fdd966a7a994b666b2c7a5ddb0f5e9d">Encrypt_ThenDecrypt_WithCertificate_ShouldWork</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00633"/>00633 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00634"/>00634 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00635"/>00635 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1aeba578a09d400cfa0431ffdbd2e27aba">GenerateCertificate</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00636"/>00636 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00637"/>00637 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;CN=TestCert&quot;</emphasis>,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00638"/>00638 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TimeSpan.FromDays(1));
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00639"/>00639 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00640"/>00640 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Certificate!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00641"/>00641 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00642"/>00642 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00643"/>00643 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;originalText&#32;=&#32;<emphasis role="stringliteral">&quot;Certificate&#32;encryption&#32;test.&quot;</emphasis>;
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00644"/>00644 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00645"/>00645 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00646"/>00646 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;service.Encrypt(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00647"/>00647 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;service.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00648"/>00648 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00649"/>00649 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00650"/>00650 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;decrypted.Should().Be(originalText);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00651"/>00651 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00652"/>00652 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00653"/>00653 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00654"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a68235acc26707bbf6e5aefaef4ed10ce">00654</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a68235acc26707bbf6e5aefaef4ed10ce">Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00655"/>00655 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00656"/>00656 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00657"/>00657 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;fullKeyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1aeba578a09d400cfa0431ffdbd2e27aba">GenerateCertificate</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00658"/>00658 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00659"/>00659 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;CN=TestCert&quot;</emphasis>,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00660"/>00660 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TimeSpan.FromDays(1));
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00661"/>00661 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;publicOnlyKeyPair&#32;=&#32;fullKeyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3">ToPublicOnly</link>();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00662"/>00662 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00663"/>00663 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;encryptService&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00664"/>00664 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fullKeyPair.Certificate!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00665"/>00665 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00666"/>00666 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00667"/>00667 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;decryptService&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>(
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00668"/>00668 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;publicOnlyKeyPair.Certificate!,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00669"/>00669 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>.OaepSha256,
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00670"/>00670 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00671"/>00671 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00672"/>00672 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;encryptService.Encrypt(<emphasis role="stringliteral">&quot;Test&quot;</emphasis>);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00673"/>00673 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00674"/>00674 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00675"/>00675 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;decryptService.Decrypt(encrypted);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00676"/>00676 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00677"/>00677 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00678"/>00678 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;InvalidOperationException&gt;();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00679"/>00679 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00680"/>00680 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00681"/>00681 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00682"/>00682 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00683"/>00683 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;RsaKeyPair&#32;Tests</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00684"/>00684 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00685"/>00685 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00686"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adb5c987e98b05ede1af1598d968074c5">00686</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adb5c987e98b05ede1af1598d968074c5">RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00687"/>00687 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00688"/>00688 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00689"/>00689 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00690"/>00690 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00691"/>00691 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00692"/>00692 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;publicOnly&#32;=&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3">ToPublicOnly</link>();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00693"/>00693 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00694"/>00694 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00695"/>00695 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;publicOnly.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Should().NotBeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00696"/>00696 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;publicOnly.PrivateKey.Should().BeNull();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00697"/>00697 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;publicOnly.HasPrivateKey.Should().BeFalse();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00698"/>00698 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00699"/>00699 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00700"/>00700 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00701"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a219ec3af5b1b0feef00f04e9f2fd539b">00701</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a219ec3af5b1b0feef00f04e9f2fd539b">RsaKeyPair_Dispose_ShouldClearSensitiveData</link>()
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00702"/>00702 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00703"/>00703 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00704"/>00704 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;keyPair&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>.<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a25fe7a8c713f3c467f87a0a3fd0f92fb">GenerateKeyPair</link>(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>.Rsa2048);
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00705"/>00705 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;privateKeyCopy&#32;=&#32;(<emphasis role="keywordtype">byte</emphasis>[])keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>!.Clone();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00706"/>00706 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00707"/>00707 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00708"/>00708 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.Dispose();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00709"/>00709 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00710"/>00710 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert&#32;-&#32;Private&#32;key&#32;should&#32;be&#32;cleared&#32;(all&#32;zeros)</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00711"/>00711 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyPair.PrivateKey!.All(b&#32;=&gt;&#32;b&#32;==&#32;0).Should().BeTrue();
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00712"/>00712 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00713"/>00713 
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00714"/>00714 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__rsa_cryptography_service_tests_8cs_source_1l00715"/>00715 }
+</programlisting></section>

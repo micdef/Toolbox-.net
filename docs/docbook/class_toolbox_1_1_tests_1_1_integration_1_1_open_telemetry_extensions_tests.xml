@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests for OpenTelemetryExtensions. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a696f36109b9ca8f35235ff8467dbf8b8">AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1aa895e759a485cbedd0c6bd55d16008ec">AddToolboxInstrumentation_Metrics_ShouldAddMeter</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a7a0116bc9d378fe6286174c148498de2">AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ac2ea716fd6bdb8b4e034dce2ed911b54">AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a77fd11cf8dada75d666f57eed4ab21b5">AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ae2877b5684a8d70f6de89fea55e5728d">AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests for OpenTelemetryExtensions. </para>
+<para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00014">14</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1aa895e759a485cbedd0c6bd55d16008ec"/><section>
+    <title>AddToolboxInstrumentation_Metrics_ShouldAddMeter()</title>
+<indexterm><primary>AddToolboxInstrumentation_Metrics_ShouldAddMeter</primary><secondary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary><secondary>AddToolboxInstrumentation_Metrics_ShouldAddMeter</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_Metrics_ShouldAddMeter ( )</computeroutput></para><para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00033">33</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a696f36109b9ca8f35235ff8467dbf8b8"/><section>
+    <title>AddToolboxInstrumentation_Tracing_ShouldAddActivitySource()</title>
+<indexterm><primary>AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</primary><secondary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary><secondary>AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_Tracing_ShouldAddActivitySource ( )</computeroutput></para><para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00017">17</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a77fd11cf8dada75d666f57eed4ab21b5"/><section>
+    <title>AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary><secondary>AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00086">86</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a7a0116bc9d378fe6286174c148498de2"/><section>
+    <title>AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions()</title>
+<indexterm><primary>AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</primary><secondary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary><secondary>AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions ( )</computeroutput></para><para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00049">49</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ac2ea716fd6bdb8b4e034dce2ed911b54"/><section>
+    <title>AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration()</title>
+<indexterm><primary>AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</primary><secondary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary><secondary>AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration ( )</computeroutput></para><para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00064">64</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ae2877b5684a8d70f6de89fea55e5728d"/><section>
+    <title>AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</primary><secondary>AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.OpenTelemetryExtensionsTests.AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__open_telemetry_extensions_tests_8cs_source_1l00099">99</link> of file <link linkend="__open_telemetry_extensions_tests_8cs_source">OpenTelemetryExtensionsTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/<link linkend="__open_telemetry_extensions_tests_8cs">OpenTelemetryExtensionsTests.cs</link></section>
+</section>

@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__ftp_file_transfer_service_8cs_source" xml:lang="en-US">
+<title>FtpFileTransferService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/FileTransfer/FtpFileTransferService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;FtpFileTransferService.cs</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;FTP/FTPS&#32;file&#32;transfer&#32;service&#32;implementation</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Implements&#32;IFileTransferService&#32;using&#32;FluentFTP</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Supports&#32;both&#32;FTP&#32;and&#32;FTPS&#32;protocols</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>FluentFTP;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Options;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00008"/>00008 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00009"/>00009 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_base">Toolbox.Core.Base</link>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00010"/>00010 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00011"/>00011 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00012"/>00012 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00013"/><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer">00013</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer">Toolbox.Core.Services.FileTransfer</link>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00014"/>00014 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00028"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service">00028</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a25abf01d010eca69476eeb4388a36e4e">FtpFileTransferService</link>&#32;:&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link>,&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service">IFileTransferService</link>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00029"/>00029 {
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;FTP&#32;client&#32;instance</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;AsyncFtpClient&#32;_client;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00032"/>00032 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;service&#32;options</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>&#32;_options;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00035"/>00035 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;logger&#32;instance</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;ILogger&lt;FtpFileTransferService&gt;&#32;_logger;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00038"/>00038 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Connection&#32;state</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_isConnected;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00041"/>00041 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lock&#32;for&#32;connection&#32;management</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;SemaphoreSlim&#32;_connectionLock&#32;=&#32;<emphasis role="keyword">new</emphasis>(1,&#32;1);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00044"/>00044 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00052"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a25abf01d010eca69476eeb4388a36e4e">00052</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a25abf01d010eca69476eeb4388a36e4e">FtpFileTransferService</link>(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IOptions&lt;FileTransferOptions&gt;&#32;options,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ILogger&lt;FtpFileTransferService&gt;&#32;logger)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(<emphasis role="stringliteral">&quot;FtpFileTransferService&quot;</emphasis>,&#32;logger)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(options);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(logger);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00059"/>00059 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options&#32;=&#32;options.Value;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger&#32;=&#32;logger;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00062"/>00062 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">string</emphasis>.IsNullOrWhiteSpace(_options.Host))
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;ArgumentException(<emphasis role="stringliteral">&quot;Host&#32;cannot&#32;be&#32;empty.&quot;</emphasis>,&#32;nameof(options));
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00067"/>00067 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(<emphasis role="keywordtype">string</emphasis>.IsNullOrWhiteSpace(_options.Username))
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;ArgumentException(<emphasis role="stringliteral">&quot;Username&#32;cannot&#32;be&#32;empty.&quot;</emphasis>,&#32;nameof(options));
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00072"/>00072 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;AsyncFtpClient(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.Host,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.Username,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.Password&#32;??&#32;<emphasis role="keywordtype">string</emphasis>.Empty,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.GetEffectivePort());
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00078"/>00078 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ConfigureClient();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00080"/>00080 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;FtpFileTransferService&#32;initialized&#32;for&#32;{Host}:{Port}&#32;with&#32;protocol&#32;{Protocol}&quot;</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.Host,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.GetEffectivePort(),
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.Protocol);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00087"/>00087 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00093"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a234001ece138875554fbeb45cb492533">00093</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a234001ece138875554fbeb45cb492533">FtpFileTransferService</link>(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>&#32;options,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ILogger&lt;FtpFileTransferService&gt;&#32;logger)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;this(Microsoft.<link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Extensions</link>.<link linkend="_namespace_toolbox_1_1_core_1_1_options">Options</link>.<link linkend="_namespace_toolbox_1_1_core_1_1_options">Options</link>.Create(options),&#32;logger)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00099"/>00099 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00101"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a222a085f07cbcb05c1ea05c6f7ee6d52">00101</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a222a085f07cbcb05c1ea05c6f7ee6d52">UploadOne</link>(<emphasis role="keywordtype">string</emphasis>&#32;localPath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;remotePath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1ac8dd94083d2c5f9191c573fec7b3fd81">UploadOneAsync</link>(localPath,&#32;remotePath,&#32;overwrite).GetAwaiter().GetResult();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00105"/>00105 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00107"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1ac8dd94083d2c5f9191c573fec7b3fd81">00107</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1ac8dd94083d2c5f9191c573fec7b3fd81">UploadOneAsync</link>(<emphasis role="keywordtype">string</emphasis>&#32;localPath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;remotePath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(localPath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(remotePath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00112"/>00112 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!File.Exists(localPath))
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;FileNotFoundException(<emphasis role="stringliteral">&quot;Local&#32;file&#32;not&#32;found.&quot;</emphasis>,&#32;localPath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00117"/>00117 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken.ThrowIfCancellationRequested();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00119"/>00119 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00122"/>00122 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;EnsureConnectedAsync(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00126"/>00126 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;existsMode&#32;=&#32;overwrite&#32;?&#32;FtpRemoteExists.Overwrite&#32;:&#32;FtpRemoteExists.Skip;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;createDir&#32;=&#32;_options.AutoCreateDirectory&#32;?&#32;FtpLocalExists.Overwrite&#32;:&#32;FtpLocalExists.Skip;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00129"/>00129 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;status&#32;=&#32;await&#32;_client.UploadFile(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localPath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;remotePath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;existsMode,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_options.AutoCreateDirectory,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;FtpVerify.None,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00138"/>00138 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;==&#32;FtpStatus.Failed)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;IOException($<emphasis role="stringliteral">&quot;Failed&#32;to&#32;upload&#32;file&#32;to&#32;{remotePath}&quot;</emphasis>);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00143"/>00143 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;fileSize&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;FileInfo(localPath).Length;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00145"/>00145 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Uploaded&#32;{LocalPath}&#32;to&#32;{RemotePath}&#32;(status:&#32;{Status})&quot;</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localPath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;remotePath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00151"/>00151 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;UploadOne&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordFileUpload(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;_options.Protocol.ToString(),&#32;_options.Host,&#32;fileSize);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)&#32;when&#32;(ex&#32;is&#32;not&#32;ArgumentNullException&#32;and&#32;not&#32;FileNotFoundException&#32;and&#32;not&#32;OperationCanceledException&#32;and&#32;not&#32;ObjectDisposedException)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(ex,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;upload&#32;{LocalPath}&#32;to&#32;{RemotePath}&quot;</emphasis>,&#32;localPath,&#32;remotePath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordFileTransferError(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;_options.Protocol.ToString(),&#32;_options.Host,&#32;<emphasis role="stringliteral">&quot;upload&quot;</emphasis>,&#32;ex.GetType().Name);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;IOException($<emphasis role="stringliteral">&quot;Failed&#32;to&#32;upload&#32;file:&#32;{ex.Message}&quot;</emphasis>,&#32;ex);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00162"/>00162 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00164"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1af86e5e8c6e3d66009fd6c1fde825a8a0">00164</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1af86e5e8c6e3d66009fd6c1fde825a8a0">UploadBatch</link>(IEnumerable&lt;(<emphasis role="keywordtype">string</emphasis>&#32;LocalPath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;RemotePath)&gt;&#32;files,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a63073cbaccb6aa0a9f247f42d0a1ea08">UploadBatchAsync</link>(files,&#32;overwrite).GetAwaiter().GetResult();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00168"/>00168 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00170"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a63073cbaccb6aa0a9f247f42d0a1ea08">00170</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&lt;int&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a63073cbaccb6aa0a9f247f42d0a1ea08">UploadBatchAsync</link>(IEnumerable&lt;(<emphasis role="keywordtype">string</emphasis>&#32;LocalPath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;RemotePath)&gt;&#32;files,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(files);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00174"/>00174 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken.ThrowIfCancellationRequested();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00176"/>00176 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00179"/>00179 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;fileList&#32;=&#32;files.ToList();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;successCount&#32;=&#32;0;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;exceptions&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;List&lt;Exception&gt;();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00183"/>00183 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;EnsureConnectedAsync(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00185"/>00185 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">foreach</emphasis>&#32;(var&#32;(localPath,&#32;remotePath)&#32;in&#32;fileList)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1ac8dd94083d2c5f9191c573fec7b3fd81">UploadOneAsync</link>(localPath,&#32;remotePath,&#32;overwrite,&#32;cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;successCount++;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)&#32;when&#32;(ex&#32;is&#32;not&#32;OperationCanceledException)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exceptions.Add(<emphasis role="keyword">new</emphasis>&#32;IOException($<emphasis role="stringliteral">&quot;Failed&#32;to&#32;upload&#32;{localPath}:&#32;{ex.Message}&quot;</emphasis>,&#32;ex));
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00198"/>00198 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;UploadBatch&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00200"/>00200 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(exceptions.Count&#32;&gt;&#32;0)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogWarning(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Batch&#32;upload&#32;completed&#32;with&#32;{SuccessCount}/{TotalCount}&#32;successes&#32;and&#32;{ErrorCount}&#32;errors&quot;</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;successCount,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fileList.Count,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exceptions.Count);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00208"/>00208 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(successCount&#32;==&#32;0)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;AggregateException(<emphasis role="stringliteral">&quot;All&#32;file&#32;uploads&#32;failed.&quot;</emphasis>,&#32;exceptions);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00214"/>00214 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;successCount;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00217"/>00217 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00219"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a97be6cecd8e7fbf0e15e048d5b381023">00219</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a97be6cecd8e7fbf0e15e048d5b381023">DownloadOne</link>(<emphasis role="keywordtype">string</emphasis>&#32;remotePath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;localPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00220"/>00220 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a40427bcf42493c48ea8f79f5495c46d6">DownloadOneAsync</link>(remotePath,&#32;localPath,&#32;overwrite).GetAwaiter().GetResult();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00222"/>00222 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00223"/>00223 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00225"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a40427bcf42493c48ea8f79f5495c46d6">00225</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a40427bcf42493c48ea8f79f5495c46d6">DownloadOneAsync</link>(<emphasis role="keywordtype">string</emphasis>&#32;remotePath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;localPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00226"/>00226 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(remotePath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(localPath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00230"/>00230 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!overwrite&#32;&amp;&amp;&#32;File.Exists(localPath))
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(<emphasis role="stringliteral">&quot;Skipping&#32;download,&#32;local&#32;file&#32;exists:&#32;{LocalPath}&quot;</emphasis>,&#32;localPath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00236"/>00236 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken.ThrowIfCancellationRequested();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00238"/>00238 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00241"/>00241 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;EnsureConnectedAsync(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00245"/>00245 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Ensure&#32;local&#32;directory&#32;exists</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;localDir&#32;=&#32;Path.GetDirectoryName(localPath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<emphasis role="keywordtype">string</emphasis>.IsNullOrEmpty(localDir)&#32;&amp;&amp;&#32;!Directory.Exists(localDir))
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Directory.CreateDirectory(localDir);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00251"/>00251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00252"/>00252 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00253"/>00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;existsMode&#32;=&#32;overwrite&#32;?&#32;FtpLocalExists.Overwrite&#32;:&#32;FtpLocalExists.Skip;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00254"/>00254 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;status&#32;=&#32;await&#32;_client.DownloadFile(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localPath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;remotePath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;existsMode,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;FtpVerify.None,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00262"/>00262 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;==&#32;FtpStatus.Failed)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;IOException($<emphasis role="stringliteral">&quot;Failed&#32;to&#32;download&#32;file&#32;from&#32;{remotePath}&quot;</emphasis>);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00267"/>00267 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;fileSize&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;FileInfo(localPath).Length;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00269"/>00269 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Downloaded&#32;{RemotePath}&#32;to&#32;{LocalPath}&#32;(status:&#32;{Status})&quot;</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;remotePath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localPath,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00274"/>00274 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00275"/>00275 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00276"/>00276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;DownloadOne&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00277"/>00277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordFileDownload(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;_options.Protocol.ToString(),&#32;_options.Host,&#32;fileSize);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00278"/>00278 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)&#32;when&#32;(ex.Message.Contains(<emphasis role="stringliteral">&quot;not&#32;found&quot;</emphasis>,&#32;StringComparison.OrdinalIgnoreCase)&#32;||
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ex.Message.Contains(<emphasis role="stringliteral">&quot;doesn&apos;t&#32;exist&quot;</emphasis>,&#32;StringComparison.OrdinalIgnoreCase)&#32;||
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ex.Message.Contains(<emphasis role="stringliteral">&quot;550&quot;</emphasis>,&#32;StringComparison.OrdinalIgnoreCase))
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;FileNotFoundException($<emphasis role="stringliteral">&quot;Remote&#32;file&#32;not&#32;found:&#32;{remotePath}&quot;</emphasis>,&#32;remotePath,&#32;ex);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)&#32;when&#32;(ex&#32;is&#32;not&#32;ArgumentNullException&#32;and&#32;not&#32;FileNotFoundException&#32;and&#32;not&#32;OperationCanceledException&#32;and&#32;not&#32;ObjectDisposedException)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(ex,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;download&#32;{RemotePath}&#32;to&#32;{LocalPath}&quot;</emphasis>,&#32;remotePath,&#32;localPath);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordFileTransferError(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;_options.Protocol.ToString(),&#32;_options.Host,&#32;<emphasis role="stringliteral">&quot;download&quot;</emphasis>,&#32;ex.GetType().Name);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;IOException($<emphasis role="stringliteral">&quot;Failed&#32;to&#32;download&#32;file:&#32;{ex.Message}&quot;</emphasis>,&#32;ex);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00291"/>00291 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00292"/>00292 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00294"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a633dc3abc6a6c476632f6275d7f91662">00294</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a633dc3abc6a6c476632f6275d7f91662">DownloadBatch</link>(IEnumerable&lt;(<emphasis role="keywordtype">string</emphasis>&#32;RemotePath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;LocalPath)&gt;&#32;files,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00295"/>00295 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a0d45675ff5262c4ecff6aa08fb682aac">DownloadBatchAsync</link>(files,&#32;overwrite).GetAwaiter().GetResult();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00297"/>00297 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00298"/>00298 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00300"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a0d45675ff5262c4ecff6aa08fb682aac">00300</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&lt;int&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a0d45675ff5262c4ecff6aa08fb682aac">DownloadBatchAsync</link>(IEnumerable&lt;(<emphasis role="keywordtype">string</emphasis>&#32;RemotePath,&#32;<emphasis role="keywordtype">string</emphasis>&#32;LocalPath)&gt;&#32;files,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overwrite&#32;=&#32;<emphasis role="keyword">true</emphasis>,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00301"/>00301 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00302"/>00302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00303"/>00303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(files);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00304"/>00304 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00305"/>00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken.ThrowIfCancellationRequested();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00306"/>00306 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00309"/>00309 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00310"/>00310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;fileList&#32;=&#32;files.ToList();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;successCount&#32;=&#32;0;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;exceptions&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;List&lt;Exception&gt;();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00313"/>00313 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00314"/>00314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;EnsureConnectedAsync(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00315"/>00315 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">foreach</emphasis>&#32;(var&#32;(remotePath,&#32;localPath)&#32;in&#32;fileList)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00318"/>00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a40427bcf42493c48ea8f79f5495c46d6">DownloadOneAsync</link>(remotePath,&#32;localPath,&#32;overwrite,&#32;cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00321"/>00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;successCount++;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00323"/>00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)&#32;when&#32;(ex&#32;is&#32;not&#32;OperationCanceledException)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exceptions.Add(<emphasis role="keyword">new</emphasis>&#32;IOException($<emphasis role="stringliteral">&quot;Failed&#32;to&#32;download&#32;{remotePath}:&#32;{ex.Message}&quot;</emphasis>,&#32;ex));
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00328"/>00328 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;DownloadBatch&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00330"/>00330 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(exceptions.Count&#32;&gt;&#32;0)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogWarning(
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Batch&#32;download&#32;completed&#32;with&#32;{SuccessCount}/{TotalCount}&#32;successes&#32;and&#32;{ErrorCount}&#32;errors&quot;</emphasis>,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00335"/>00335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;successCount,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00336"/>00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fileList.Count,
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00337"/>00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exceptions.Count);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00338"/>00338 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00339"/>00339 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(successCount&#32;==&#32;0)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00340"/>00340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;AggregateException(<emphasis role="stringliteral">&quot;All&#32;file&#32;downloads&#32;failed.&quot;</emphasis>,&#32;exceptions);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00342"/>00342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00344"/>00344 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00345"/>00345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;successCount;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00346"/>00346 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00347"/>00347 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00349"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a739af7ce6c951bbfc4d59db6781d1c46">00349</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keyword">override</emphasis>&#32;async&#32;ValueTask&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_1a739af7ce6c951bbfc4d59db6781d1c46">DisposeAsyncCore</link>(CancellationToken&#32;cancellationToken)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00350"/>00350 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_connectionLock.WaitAsync(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00354"/>00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_isConnected)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00356"/>00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_client.Disconnect(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00357"/>00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_isConnected&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00359"/>00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00360"/>00360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">finally</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00362"/>00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_connectionLock.Release();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00363"/>00363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00364"/>00364 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00365"/>00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Dispose();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00366"/>00366 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_connectionLock.Dispose();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00367"/>00367 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00368"/>00368 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00372"/>00372 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;ConfigureClient()
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00373"/>00373 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00374"/>00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.ConnectTimeout&#32;=&#32;(int)_options.ConnectionTimeout.TotalMilliseconds;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.ReadTimeout&#32;=&#32;(int)_options.OperationTimeout.TotalMilliseconds;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.DataConnectionConnectTimeout&#32;=&#32;(int)_options.ConnectionTimeout.TotalMilliseconds;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00377"/>00377 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.DataConnectionReadTimeout&#32;=&#32;(int)_options.OperationTimeout.TotalMilliseconds;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00378"/>00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.LocalFileBufferSize&#32;=&#32;_options.BufferSize;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00379"/>00379 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00380"/>00380 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_options.Protocol&#32;==&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link>.Ftps)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00381"/>00381 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00382"/>00382 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.EncryptionMode&#32;=&#32;FtpEncryptionMode.Explicit;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00383"/>00383 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_client.Config.ValidateAnyCertificate&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00384"/>00384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00385"/>00385 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00386"/>00386 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00391"/>00391 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;async&#32;Task&#32;EnsureConnectedAsync(CancellationToken&#32;cancellationToken)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00392"/>00392 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00393"/>00393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_isConnected&#32;&amp;&amp;&#32;_client.IsConnected)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00394"/>00394 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00395"/>00395 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00397"/>00397 
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00398"/>00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_connectionLock.WaitAsync(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00399"/>00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00400"/>00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_isConnected&#32;||&#32;!_client.IsConnected)
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00402"/>00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00403"/>00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_client.Connect(cancellationToken);
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00404"/>00404 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_isConnected&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00405"/>00405 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(<emphasis role="stringliteral">&quot;Connected&#32;to&#32;FTP&#32;server&#32;{Host}:{Port}&quot;</emphasis>,&#32;_options.Host,&#32;_options.GetEffectivePort());
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00406"/>00406 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00407"/>00407 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00408"/>00408 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">finally</emphasis>
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00409"/>00409 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00410"/>00410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_connectionLock.Release();
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00411"/>00411 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00412"/>00412 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__ftp_file_transfer_service_8cs_source_1l00413"/>00413 }
+</programlisting></section>

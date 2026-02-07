@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_1f70f0d5adfd7e13f30a8c7643fb206b" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__aes_cryptography_service_tests_8cs">AesCryptographyServiceTests.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__base64_cryptography_service_tests_8cs">Base64CryptographyServiceTests.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__rsa_cryptography_service_tests_8cs">RsaCryptographyServiceTests.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

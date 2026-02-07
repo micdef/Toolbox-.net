@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Options.FileTransferOptionsTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a242dcaa6e6b95e8f9876e6f5bc97b49b">GetDefaultPort_ForFtp_ShouldReturn21</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a550e5b1193017ee318c15eaac3176b93">GetDefaultPort_ForFtps_ShouldReturn990</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a7dace05bd04ed530f0add10903380ff6">GetDefaultPort_ForSftp_ShouldReturn22</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1ad1ef6f6860000e9330af768e05aa3bb8">GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1adfca657bbb6111496f5e47b3b9f2df85">GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1aeda7b00391282acfeb1ba09823aee7e9">DefaultValues_ShouldBeCorrect</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a77b597b15191d70e048b7db668cee4c0">SectionName_ShouldBeCorrect</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>. </para>
+<para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00008">8</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1aeda7b00391282acfeb1ba09823aee7e9"/><section>
+    <title>DefaultValues_ShouldBeCorrect()</title>
+<indexterm><primary>DefaultValues_ShouldBeCorrect</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>DefaultValues_ShouldBeCorrect</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.DefaultValues_ShouldBeCorrect ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00084">84</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a242dcaa6e6b95e8f9876e6f5bc97b49b"/><section>
+    <title>GetDefaultPort_ForFtp_ShouldReturn21()</title>
+<indexterm><primary>GetDefaultPort_ForFtp_ShouldReturn21</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>GetDefaultPort_ForFtp_ShouldReturn21</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForFtp_ShouldReturn21 ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00011">11</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a550e5b1193017ee318c15eaac3176b93"/><section>
+    <title>GetDefaultPort_ForFtps_ShouldReturn990()</title>
+<indexterm><primary>GetDefaultPort_ForFtps_ShouldReturn990</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>GetDefaultPort_ForFtps_ShouldReturn990</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForFtps_ShouldReturn990 ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00024">24</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a7dace05bd04ed530f0add10903380ff6"/><section>
+    <title>GetDefaultPort_ForSftp_ShouldReturn22()</title>
+<indexterm><primary>GetDefaultPort_ForSftp_ShouldReturn22</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>GetDefaultPort_ForSftp_ShouldReturn22</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetDefaultPort_ForSftp_ShouldReturn22 ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00037">37</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1adfca657bbb6111496f5e47b3b9f2df85"/><section>
+    <title>GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort()</title>
+<indexterm><primary>GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00067">67</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1ad1ef6f6860000e9330af768e05aa3bb8"/><section>
+    <title>GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort()</title>
+<indexterm><primary>GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00050">50</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a77b597b15191d70e048b7db668cee4c0"/><section>
+    <title>SectionName_ShouldBeCorrect()</title>
+<indexterm><primary>SectionName_ShouldBeCorrect</primary><secondary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.FileTransferOptionsTests</primary><secondary>SectionName_ShouldBeCorrect</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.FileTransferOptionsTests.SectionName_ShouldBeCorrect ( )</computeroutput></para><para>
+Definition at line <link linkend="__file_transfer_options_tests_8cs_source_1l00104">104</link> of file <link linkend="__file_transfer_options_tests_8cs_source">FileTransferOptionsTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/<link linkend="__file_transfer_options_tests_8cs">FileTransferOptionsTests.cs</link></section>
+</section>

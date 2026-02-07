@@ -1,0 +1,145 @@
+.TH "Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests \- \fBUnit\fP tests for \fBBase64CryptographyService\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBase64CryptographyServiceTests\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithStandardTable_ShouldEncodeCorrectly\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithStandardTable_ShouldDecodeCorrectly\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_ShouldReturnOriginalText\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithNoPadding_ShouldOmitPaddingCharacters\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithoutPadding_ShouldStillDecodeCorrectly\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithNullText_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithNullText_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithInvalidBase64_ShouldThrowFormatException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBEncryptAsync_ShouldEncodeCorrectly\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDecryptAsync_ShouldDecodeCorrectly\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBEncryptAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WhenDisposed_ShouldThrowObjectDisposedException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithEmptyString_ShouldReturnEmptyBase64\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithUnicodeText_ShouldHandleCorrectly\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBBase64CryptographyService\fP\&. 
+.PP
+Definition at line \fB12\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Base64CryptographyServiceTests ()"
+
+.PP
+Definition at line \fB16\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Decrypt_WithInvalidBase64_ShouldThrowFormatException ()"
+
+.PP
+Definition at line \fB171\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Decrypt_WithNullText_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB156\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Decrypt_WithoutPadding_ShouldStillDecodeCorrectly ()"
+
+.PP
+Definition at line \fB123\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Decrypt_WithStandardTable_ShouldDecodeCorrectly ()"
+
+.PP
+Definition at line \fB37\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters ()"
+
+.PP
+Definition at line \fB88\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.DecryptAsync_ShouldDecodeCorrectly ()"
+
+.PP
+Definition at line \fB201\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_ThenDecrypt_ShouldReturnOriginalText ()"
+
+.PP
+Definition at line \fB52\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException ()"
+
+.PP
+Definition at line \fB233\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WithEmptyString_ShouldReturnEmptyBase64 ()"
+
+.PP
+Definition at line \fB249\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WithNoPadding_ShouldOmitPaddingCharacters ()"
+
+.PP
+Definition at line \fB104\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WithNullText_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB141\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WithStandardTable_ShouldEncodeCorrectly ()"
+
+.PP
+Definition at line \fB22\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WithUnicodeText_ShouldHandleCorrectly ()"
+
+.PP
+Definition at line \fB264\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters ()"
+
+.PP
+Definition at line \fB69\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.EncryptAsync_ShouldEncodeCorrectly ()"
+
+.PP
+Definition at line \fB186\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.Base64CryptographyServiceTests\&.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB216\fP of file \fBBase64CryptographyServiceTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

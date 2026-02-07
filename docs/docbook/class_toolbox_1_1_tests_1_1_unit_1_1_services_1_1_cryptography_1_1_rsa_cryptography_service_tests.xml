@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369">RsaCryptographyServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab012f62dc109e0008ee2696898f67029">GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</link> (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link> keySize)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a53a1580c350c69f35100ae06a4f6d28f">GenerateKeyPair_WithIntKeySize_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a1a31861c052fda3a5d1a5125d0637b45">GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</link> (int invalidKeySize)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a29f84d442adad37c91f3fac0924a3094">GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a4bdce7ee443c65c153e32e393a264775">GenerateKeyPair_ShouldGenerateUniqueKeys</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8fa6adcb5dc3d38f08b0e93481f84e20">GenerateCertificate_ShouldReturnValidCertificate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a36c77e0fa6acdfa2abef1301503e7438">GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8d38168b5be7e86fda8aad75b746ba2c">GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa8a241293a6a5540d16b320f9d68c713">Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9dee4889caf54d01f51063bb80268b97">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a96176a7559fcc7189a6511917d4b7c98">Constructor_WithNullCertificate_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af0db341c70e9264ae746fd951d183c0f">Constructor_WithValidKeyPair_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a257f772423de762efa1f86bb38c3fd1a">Constructor_WithCertificate_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af14ba35dac65ca9dc53b7bd59a9bd5c1">Encrypt_ShouldReturnBase64String</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa805ef539cb3654e35e96120f74f5507">Encrypt_WithNullText_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aaac147c0f5e1ad34efc0098556eaa0d6">Encrypt_WithPublicKeyOnly_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9cca5292815e4da08bd123e256a2c884">Encrypt_WithTooLargeData_ShouldThrowCryptographicException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ae2c1fce0bdda4863f99150917720bd06">Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a60a9bbf8b30cde9fb734ea7d74ff5513">Encrypt_ThenDecrypt_ShouldReturnOriginalText</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a971cad3c824f927055102a05276b8b66">Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</link> (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link> paddingMode)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab69170e0aa2b2f8d3077c23d0931fb38">Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</link> (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link> keySize)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a7156777c8e4c9cf2575388b3a3cbf6d2">Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ad462afaa21e47f374fa3c598b5474349">Decrypt_WithNullText_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a235650322e6eee127fd06b3d76ebf9f9">Decrypt_WithInvalidBase64_ShouldThrowFormatException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac1c5d2c1d7638a31773ea3302f2091df">Decrypt_WithWrongKey_ShouldThrowFormatException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a112030d45cf2841a0838b1a43dfe22a2">EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1acf73f6f3eeff534c10f1fefe310f05f3">EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adc5d1ad41e8298d19b4286e69c5b0d11">DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab3c44832b287fce1db2ec3b61d0d1d74">Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a12eaa5d1ff54db32e274af16cb24494f">DisposeAsync_ShouldDisposeResources</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a66729aa2c88c1916632ef3372199af6a">Encrypt_WithEmptyString_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a442e0284972d4cb76c056cbce1525672">Encrypt_WithUnicodeText_ShouldHandleCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a5fdd966a7a994b666b2c7a5ddb0f5e9d">Encrypt_ThenDecrypt_WithCertificate_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a68235acc26707bbf6e5aefaef4ed10ce">Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adb5c987e98b05ede1af1598d968074c5">RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a219ec3af5b1b0feef00f04e9f2fd539b">RsaKeyPair_Dispose_ShouldClearSensitiveData</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>. </para>
+<para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00010">10</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a080a92c0d31eb5b644e128086ae6f369"/><section>
+    <title>RsaCryptographyServiceTests()</title>
+<indexterm><primary>RsaCryptographyServiceTests</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>RsaCryptographyServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaCryptographyServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00014">14</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a257f772423de762efa1f86bb38c3fd1a"/><section>
+    <title>Constructor_WithCertificate_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithCertificate_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Constructor_WithCertificate_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithCertificate_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00200">200</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a96176a7559fcc7189a6511917d4b7c98"/><section>
+    <title>Constructor_WithNullCertificate_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullCertificate_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Constructor_WithNullCertificate_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullCertificate_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00170">170</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9dee4889caf54d01f51063bb80268b97"/><section>
+    <title>Constructor_WithNullLogger_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00154">154</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa8a241293a6a5540d16b320f9d68c713"/><section>
+    <title>Constructor_WithNullPublicKey_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Constructor_WithNullPublicKey_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithNullPublicKey_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00141">141</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af0db341c70e9264ae746fd951d183c0f"/><section>
+    <title>Constructor_WithValidKeyPair_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithValidKeyPair_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Constructor_WithValidKeyPair_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Constructor_WithValidKeyPair_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00183">183</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a235650322e6eee127fd06b3d76ebf9f9"/><section>
+    <title>Decrypt_WithInvalidBase64_ShouldThrowFormatException()</title>
+<indexterm><primary>Decrypt_WithInvalidBase64_ShouldThrowFormatException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Decrypt_WithInvalidBase64_ShouldThrowFormatException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00436">436</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ad462afaa21e47f374fa3c598b5474349"/><section>
+    <title>Decrypt_WithNullText_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Decrypt_WithNullText_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Decrypt_WithNullText_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00418">418</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a7156777c8e4c9cf2575388b3a3cbf6d2"/><section>
+    <title>Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException()</title>
+<indexterm><primary>Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithoutPrivateKey_ShouldThrowInvalidOperationException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00393">393</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a68235acc26707bbf6e5aefaef4ed10ce"/><section>
+    <title>Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException()</title>
+<indexterm><primary>Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithPublicOnlyCertificate_ShouldThrowInvalidOperationException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00654">654</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ac1c5d2c1d7638a31773ea3302f2091df"/><section>
+    <title>Decrypt_WithWrongKey_ShouldThrowFormatException()</title>
+<indexterm><primary>Decrypt_WithWrongKey_ShouldThrowFormatException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Decrypt_WithWrongKey_ShouldThrowFormatException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Decrypt_WithWrongKey_ShouldThrowFormatException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00454">454</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adc5d1ad41e8298d19b4286e69c5b0d11"/><section>
+    <title>DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.DecryptAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00524">524</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a12eaa5d1ff54db32e274af16cb24494f"/><section>
+    <title>DisposeAsync_ShouldDisposeResources()</title>
+<indexterm><primary>DisposeAsync_ShouldDisposeResources</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>DisposeAsync_ShouldDisposeResources</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.DisposeAsync_ShouldDisposeResources ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00567">567</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1af14ba35dac65ca9dc53b7bd59a9bd5c1"/><section>
+    <title>Encrypt_ShouldReturnBase64String()</title>
+<indexterm><primary>Encrypt_ShouldReturnBase64String</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_ShouldReturnBase64String</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ShouldReturnBase64String ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00223">223</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a60a9bbf8b30cde9fb734ea7d74ff5513"/><section>
+    <title>Encrypt_ThenDecrypt_ShouldReturnOriginalText()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_ShouldReturnOriginalText</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_ShouldReturnOriginalText</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00325">325</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a5fdd966a7a994b666b2c7a5ddb0f5e9d"/><section>
+    <title>Encrypt_ThenDecrypt_WithCertificate_ShouldWork()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_WithCertificate_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_WithCertificate_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithCertificate_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00632">632</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab69170e0aa2b2f8d3077c23d0931fb38"/><section>
+    <title>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link> keySize)</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00373">373</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a971cad3c824f927055102a05276b8b66"/><section>
+    <title>Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentPaddingModes_ShouldWork (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link> paddingMode)</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00350">350</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab3c44832b287fce1db2ec3b61d0d1d74"/><section>
+    <title>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00549">549</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ae2c1fce0bdda4863f99150917720bd06"/><section>
+    <title>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput()</title>
+<indexterm><primary>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00297">297</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a66729aa2c88c1916632ef3372199af6a"/><section>
+    <title>Encrypt_WithEmptyString_ShouldWork()</title>
+<indexterm><primary>Encrypt_WithEmptyString_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WithEmptyString_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithEmptyString_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00589">589</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aa805ef539cb3654e35e96120f74f5507"/><section>
+    <title>Encrypt_WithNullText_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Encrypt_WithNullText_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WithNullText_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00243">243</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1aaac147c0f5e1ad34efc0098556eaa0d6"/><section>
+    <title>Encrypt_WithPublicKeyOnly_ShouldWork()</title>
+<indexterm><primary>Encrypt_WithPublicKeyOnly_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WithPublicKeyOnly_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithPublicKeyOnly_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00260">260</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a9cca5292815e4da08bd123e256a2c884"/><section>
+    <title>Encrypt_WithTooLargeData_ShouldThrowCryptographicException()</title>
+<indexterm><primary>Encrypt_WithTooLargeData_ShouldThrowCryptographicException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WithTooLargeData_ShouldThrowCryptographicException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithTooLargeData_ShouldThrowCryptographicException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00277">277</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a442e0284972d4cb76c056cbce1525672"/><section>
+    <title>Encrypt_WithUnicodeText_ShouldHandleCorrectly()</title>
+<indexterm><primary>Encrypt_WithUnicodeText_ShouldHandleCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>Encrypt_WithUnicodeText_ShouldHandleCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00608">608</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a112030d45cf2841a0838b1a43dfe22a2"/><section>
+    <title>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText()</title>
+<indexterm><primary>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00484">484</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1acf73f6f3eeff534c10f1fefe310f05f3"/><section>
+    <title>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00504">504</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8fa6adcb5dc3d38f08b0e93481f84e20"/><section>
+    <title>GenerateCertificate_ShouldReturnValidCertificate()</title>
+<indexterm><primary>GenerateCertificate_ShouldReturnValidCertificate</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateCertificate_ShouldReturnValidCertificate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_ShouldReturnValidCertificate ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00093">93</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a8d38168b5be7e86fda8aad75b746ba2c"/><section>
+    <title>GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_WithNullSubjectName_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00124">124</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a36c77e0fa6acdfa2abef1301503e7438"/><section>
+    <title>GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly()</title>
+<indexterm><primary>GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateCertificate_WithoutPrivateKey_ShouldReturnPublicCertOnly ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00109">109</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a4bdce7ee443c65c153e32e393a264775"/><section>
+    <title>GenerateKeyPair_ShouldGenerateUniqueKeys()</title>
+<indexterm><primary>GenerateKeyPair_ShouldGenerateUniqueKeys</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateKeyPair_ShouldGenerateUniqueKeys</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_ShouldGenerateUniqueKeys ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00077">77</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a53a1580c350c69f35100ae06a4f6d28f"/><section>
+    <title>GenerateKeyPair_WithIntKeySize_ShouldWork()</title>
+<indexterm><primary>GenerateKeyPair_WithIntKeySize_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateKeyPair_WithIntKeySize_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithIntKeySize_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00039">39</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a1a31861c052fda3a5d1a5125d0637b45"/><section>
+    <title>GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException()</title>
+<indexterm><primary>GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithInvalidKeySize_ShouldThrowArgumentException (int invalidKeySize)</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00055">55</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a29f84d442adad37c91f3fac0924a3094"/><section>
+    <title>GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly()</title>
+<indexterm><primary>GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithoutPrivateKey_ShouldReturnPublicOnly ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00065">65</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1ab012f62dc109e0008ee2696898f67029"/><section>
+    <title>GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair()</title>
+<indexterm><primary>GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.GenerateKeyPair_WithValidKeySize_ShouldReturnKeyPair (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link> keySize)</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00025">25</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1a219ec3af5b1b0feef00f04e9f2fd539b"/><section>
+    <title>RsaKeyPair_Dispose_ShouldClearSensitiveData()</title>
+<indexterm><primary>RsaKeyPair_Dispose_ShouldClearSensitiveData</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>RsaKeyPair_Dispose_ShouldClearSensitiveData</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaKeyPair_Dispose_ShouldClearSensitiveData ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00701">701</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests_1adb5c987e98b05ede1af1598d968074c5"/><section>
+    <title>RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey()</title>
+<indexterm><primary>RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</primary><secondary>RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests.RsaKeyPair_ToPublicOnly_ShouldRemovePrivateKey ( )</computeroutput></para><para>
+Definition at line <link linkend="__rsa_cryptography_service_tests_8cs_source_1l00686">686</link> of file <link linkend="__rsa_cryptography_service_tests_8cs_source">RsaCryptographyServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/<link linkend="__rsa_cryptography_service_tests_8cs">RsaCryptographyServiceTests.cs</link></section>
+</section>

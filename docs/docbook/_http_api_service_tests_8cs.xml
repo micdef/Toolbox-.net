@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__http_api_service_tests_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests">Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests">Toolbox.Tests</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Toolbox.Tests.Unit</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services">Toolbox.Tests.Unit.Services</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api">Toolbox.Tests.Unit.Services.Api</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link> = Microsoft.Extensions.Options.Options</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9"/><section>
+    <title>MsOptions</title>
+<indexterm><primary>MsOptions</primary><secondary>HttpApiServiceTests.cs</secondary></indexterm>
+<indexterm><primary>HttpApiServiceTests.cs</primary><secondary>MsOptions</secondary></indexterm>
+<para><computeroutput>using <link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link> = Microsoft.Extensions.Options.Options</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00005">5</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+</section>
+</section>

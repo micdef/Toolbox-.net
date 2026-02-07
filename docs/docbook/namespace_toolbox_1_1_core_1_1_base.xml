@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_core_1_1_base" xml:lang="en-US">
+<title>Toolbox.Core.Base Namespace Reference</title>
+<indexterm><primary>Toolbox.Core.Base</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link></para>
+
+<para>Abstract base class providing asynchronous disposal with cancellation support and integrated telemetry. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link></para>
+
+<para>Abstract base class providing a thread-safe implementation of the dispose pattern with integrated telemetry support. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

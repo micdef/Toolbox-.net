@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service" xml:lang="en-US">
+<title>Toolbox.Core.Abstractions.IInstrumentedService Interface Reference</title>
+<indexterm><primary>Toolbox.Core.Abstractions.IInstrumentedService</primary></indexterm>
+<para>
+
+<para>Interface for services that expose OpenTelemetry instrumentation. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Abstractions.IInstrumentedService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>ActivitySource <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing. </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Interface for services that expose OpenTelemetry instrumentation. </para>
+
+
+
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Services</link> implementing this interface provide access to their telemetry primitives, enabling consistent observability across the application. </para>
+
+<para>The <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">ActivitySource</link> is used for distributed tracing, while the <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Meter</link> is used for metrics collection. </para>
+<para>
+Definition at line <link linkend="__i_instrumented_service_8cs_source_1l00021">21</link> of file <link linkend="__i_instrumented_service_8cs_source">IInstrumentedService.cs</link>.</para>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3"/><section>
+    <title>ActivitySource</title>
+<indexterm><primary>ActivitySource</primary><secondary>Toolbox.Core.Abstractions.IInstrumentedService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.IInstrumentedService</primary><secondary>ActivitySource</secondary></indexterm>
+<para><computeroutput>ActivitySource Toolbox.Core.Abstractions.IInstrumentedService.ActivitySource<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing. </para>
+</para>
+
+<para>The activity source used to create spans for this service.</para>
+
+<para>Activities created from this source will be included in traces when OpenTelemetry tracing is configured. </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">Toolbox.Core.Base.BaseDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__i_instrumented_service_8cs_source_1l00031">31</link> of file <link linkend="__i_instrumented_service_8cs_source">IInstrumentedService.cs</link>.</para>
+</section>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0"/><section>
+    <title>Meter</title>
+<indexterm><primary>Meter</primary><secondary>Toolbox.Core.Abstractions.IInstrumentedService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.IInstrumentedService</primary><secondary>Meter</secondary></indexterm>
+<para><computeroutput>Meter Toolbox.Core.Abstractions.IInstrumentedService.Meter<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection. </para>
+</para>
+
+<para>The meter used to create instruments for this service.</para>
+
+<para>Instruments created from this meter will report metrics when OpenTelemetry metrics is configured. </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068">Toolbox.Core.Base.BaseDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__i_instrumented_service_8cs_source_1l00041">41</link> of file <link linkend="__i_instrumented_service_8cs_source">IInstrumentedService.cs</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/<link linkend="__i_instrumented_service_8cs">IInstrumentedService.cs</link></section>
+</section>

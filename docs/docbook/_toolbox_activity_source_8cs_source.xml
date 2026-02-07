@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__toolbox_activity_source_8cs_source" xml:lang="en-US">
+<title>ToolboxActivitySource.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxActivitySource.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__toolbox_activity_source_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;ToolboxActivitySource.cs</emphasis>
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Shared&#32;ActivitySource&#32;for&#32;distributed&#32;tracing</emphasis>
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Provides&#32;a&#32;singleton&#32;ActivitySource&#32;for&#32;all&#32;Toolbox&#32;services</emphasis>
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Use&#32;this&#32;source&#32;for&#32;creating&#32;spans&#32;in&#32;service&#32;implementations</emphasis>
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00005"/>00005 
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00007"/>00007 
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00021"/>00021 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>ToolboxActivitySource
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00022"/>00022 {
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;thread-safe&#32;singleton</emphasis>
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;ActivitySource&gt;&#32;LazySource&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;ActivitySource(TelemetryConstants.ActivitySourceName,&#32;TelemetryConstants.Version),
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00027"/>00027 
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;ActivitySource&#32;Instance&#32;=&gt;&#32;LazySource.Value;
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00039"/>00039 
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Name&#32;=&gt;&#32;TelemetryConstants.ActivitySourceName;
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00045"/>00045 
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Version&#32;=&gt;&#32;TelemetryConstants.Version;
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00051"/>00051 
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Activity?&#32;StartActivity(
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;[CallerMemberName]&#32;<emphasis role="keywordtype">string</emphasis>&#32;name&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>,
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ActivityKind&#32;kind&#32;=&#32;ActivityKind.Internal)
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Instance.StartActivity(name,&#32;kind);
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_activity_source_8cs_source_1l00070"/>00070 }
+</programlisting></section>

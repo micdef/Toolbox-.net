@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__telemetry_constants_8cs_source" xml:lang="en-US">
+<title>TelemetryConstants.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__telemetry_constants_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;TelemetryConstants.cs</emphasis>
+<anchor xml:id="__telemetry_constants_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Constants&#32;for&#32;OpenTelemetry&#32;instrumentation</emphasis>
+<anchor xml:id="__telemetry_constants_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;standard&#32;names&#32;and&#32;versions&#32;for&#32;telemetry&#32;sources</emphasis>
+<anchor xml:id="__telemetry_constants_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;These&#32;constants&#32;ensure&#32;consistent&#32;naming&#32;across&#32;all&#32;instrumented&#32;services</emphasis>
+<anchor xml:id="__telemetry_constants_8cs_source_1l00005"/>00005 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00006"/><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">00006</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00007"/>00007 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00015"/>00015 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>TelemetryConstants
+<anchor xml:id="__telemetry_constants_8cs_source_1l00016"/>00016 {
+<anchor xml:id="__telemetry_constants_8cs_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;ActivitySourceName&#32;=&#32;<emphasis role="stringliteral">&quot;Toolbox.Core&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00021"/>00021 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;MeterName&#32;=&#32;<emphasis role="stringliteral">&quot;Toolbox.Core&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00026"/>00026 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Version&#32;=&#32;<emphasis role="stringliteral">&quot;1.0.0&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00035"/>00035 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>Attributes
+<anchor xml:id="__telemetry_constants_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;ServiceName&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.service.name&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00043"/>00043 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;OperationName&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.operation.name&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00046"/>00046 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;ErrorType&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.error.type&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00049"/>00049 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;DisposalReason&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.disposal.reason&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_8cs_source_1l00053"/>00053 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>Metrics
+<anchor xml:id="__telemetry_constants_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;OperationCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.operations.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00061"/>00061 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;OperationDuration&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.operations.duration&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00064"/>00064 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;DisposalCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.disposals.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00067"/>00067 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;ActiveInstances&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.instances.active&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00070"/>00070 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;CryptoEncryptCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.crypto.encrypt.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00073"/>00073 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;CryptoDecryptCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.crypto.decrypt.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00076"/>00076 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;CryptoDataSize&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.crypto.data.size&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00079"/>00079 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;FileTransferUploadCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.upload.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00082"/>00082 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;FileTransferDownloadCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.download.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00085"/>00085 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;FileTransferSize&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.size&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00088"/>00088 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;FileTransferErrorCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.errors.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00091"/>00091 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;EmailSentCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.mailing.sent.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00094"/>00094 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;ApiRequestCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.api.requests.count&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_8cs_source_1l00098"/>00098 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>CryptoAttributes
+<anchor xml:id="__telemetry_constants_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Algorithm&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.crypto.algorithm&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00106"/>00106 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;KeySize&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.crypto.keysize&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00109"/>00109 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;PaddingMode&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.crypto.padding&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_8cs_source_1l00113"/>00113 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>FileTransferAttributes
+<anchor xml:id="__telemetry_constants_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Protocol&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.protocol&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00121"/>00121 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Host&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.host&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00124"/>00124 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Direction&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.direction&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00127"/>00127 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;FilePath&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.path&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00130"/>00130 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;FileCount&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.filetransfer.filecount&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_8cs_source_1l00134"/>00134 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>MailingAttributes
+<anchor xml:id="__telemetry_constants_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Host&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.mailing.host&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00142"/>00142 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Recipients&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.mailing.recipients&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00145"/>00145 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;HasAttachments&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.mailing.has_attachments&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00148"/>00148 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;IsHtml&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.mailing.is_html&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_8cs_source_1l00152"/>00152 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>ApiAttributes
+<anchor xml:id="__telemetry_constants_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;HttpMethod&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.api.http_method&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00160"/>00160 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;HttpStatusCode&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.api.status_code&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00163"/>00163 
+<anchor xml:id="__telemetry_constants_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;HttpSuccess&#32;=&#32;<emphasis role="stringliteral">&quot;toolbox.api.success&quot;</emphasis>;
+<anchor xml:id="__telemetry_constants_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_8cs_source_1l00167"/>00167 }
+</programlisting></section>

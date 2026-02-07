@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__file_transfer_options_tests_8cs_source" xml:lang="en-US">
+<title>FileTransferOptionsTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/FileTransferOptionsTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__file_transfer_options_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00002"/>00002 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_options">Toolbox.Tests.Unit.Options</link>;
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00004"/>00004 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00008"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests">00008</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests">FileTransferOptionsTests</link>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00009"/>00009 {
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00010"/>00010 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00011"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a242dcaa6e6b95e8f9876e6f5bc97b49b">00011</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a242dcaa6e6b95e8f9876e6f5bc97b49b">GetDefaultPort_ForFtp_ShouldReturn21</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00012"/>00012 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00013"/>00013 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>&#32;{&#32;Protocol&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb">FileTransferProtocol.Ftp</link>&#32;};
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00015"/>00015 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;port&#32;=&#32;options.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b">GetDefaultPort</link>();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00018"/>00018 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;port.Should().Be(21);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00022"/>00022 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00024"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a550e5b1193017ee318c15eaac3176b93">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a550e5b1193017ee318c15eaac3176b93">GetDefaultPort_ForFtps_ShouldReturn990</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>&#32;{&#32;Protocol&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f">FileTransferProtocol.Ftps</link>&#32;};
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00028"/>00028 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;port&#32;=&#32;options.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b">GetDefaultPort</link>();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00031"/>00031 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;port.Should().Be(990);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00035"/>00035 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00037"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a7dace05bd04ed530f0add10903380ff6">00037</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a7dace05bd04ed530f0add10903380ff6">GetDefaultPort_ForSftp_ShouldReturn22</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>&#32;{&#32;Protocol&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">FileTransferProtocol.Sftp</link>&#32;};
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00041"/>00041 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;port&#32;=&#32;options.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b">GetDefaultPort</link>();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00044"/>00044 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;port.Should().Be(22);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00048"/>00048 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00050"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1ad1ef6f6860000e9330af768e05aa3bb8">00050</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1ad1ef6f6860000e9330af768e05aa3bb8">GetEffectivePort_WhenPortIsSet_ShouldReturnSetPort</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Protocol&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link>.Sftp,
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Port&#32;=&#32;2222
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00058"/>00058 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;port&#32;=&#32;options.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a2c798a4aab8c3364a81a0913747bb6db">GetEffectivePort</link>();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00061"/>00061 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;port.Should().Be(2222);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00065"/>00065 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00067"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1adfca657bbb6111496f5e47b3b9f2df85">00067</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1adfca657bbb6111496f5e47b3b9f2df85">GetEffectivePort_WhenPortIsNotSet_ShouldReturnDefaultPort</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Protocol&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link>.Sftp,
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Port&#32;=&#32;0
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00075"/>00075 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;port&#32;=&#32;options.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a2c798a4aab8c3364a81a0913747bb6db">GetEffectivePort</link>();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00078"/>00078 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;port.Should().Be(22);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00082"/>00082 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00084"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1aeda7b00391282acfeb1ba09823aee7e9">00084</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1aeda7b00391282acfeb1ba09823aee7e9">DefaultValues_ShouldBeCorrect</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange&#32;&amp;&#32;Act</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00088"/>00088 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.Host.Should().BeEmpty();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.Username.Should().BeEmpty();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.Password.Should().BeNull();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.PrivateKeyPath.Should().BeNull();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.PrivateKeyContent.Should().BeNull();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.PrivateKeyPassphrase.Should().BeNull();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.Protocol.Should().Be(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link>.Sftp);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.ConnectionTimeout.Should().Be(TimeSpan.FromSeconds(30));
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.OperationTimeout.Should().Be(TimeSpan.FromSeconds(60));
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.AutoCreateDirectory.Should().BeTrue();
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.BufferSize.Should().Be(32&#32;*&#32;1024);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00102"/>00102 
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00104"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a77b597b15191d70e048b7db668cee4c0">00104</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests_1a77b597b15191d70e048b7db668cee4c0">SectionName_ShouldBeCorrect</link>()
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ada6c9c5bc36991f94f147061b3dd922a">SectionName</link>.Should().Be(<emphasis role="stringliteral">&quot;Toolbox:FileTransfer&quot;</emphasis>);
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_options_tests_8cs_source_1l00109"/>00109 }
+</programlisting></section>

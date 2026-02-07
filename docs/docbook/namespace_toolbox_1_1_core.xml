@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_core" xml:lang="en-US">
+<title>Toolbox.Core Namespace Reference</title>
+<indexterm><primary>Toolbox.Core</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Abstractions</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_base">Base</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Extensions</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Options</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_services">Services</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Telemetry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

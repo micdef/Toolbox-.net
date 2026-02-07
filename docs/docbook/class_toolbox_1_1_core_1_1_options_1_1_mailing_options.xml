@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options" xml:lang="en-US">
+<title>Toolbox.Core.Options.MailingOptions Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary></indexterm>
+<para>
+
+<para>Configuration options for the SMTP mailing service. </para>
+ 
+</para>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a1973fb40f24a5029a0da0be3f7f93a9d">Host</link> = &quot;localhost&quot;<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the SMTP server hostname or IP address. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1acea60967c6520c8c575a6dc81310fc0d">Port</link> = 25<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the SMTP server port. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453">SmtpSecurityMode</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa0965c379cae15714a13ad998027d33b">SecurityMode</link> = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb">SmtpSecurityMode.Auto</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the security mode for the SMTP connection. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4757f2cb0756b8e12f0f5f174381c7c8">Username</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the username for SMTP authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1addde220b9b4243a94dbf9c6d5d5623e1">Password</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the password for SMTP authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b040ab32d447a2226acfdbec363e034">OAuth2AccessToken</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the OAuth2 access token for authentication. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa8936448acd23f7147be166d3b529514">ConnectionTimeout</link> = TimeSpan.FromSeconds(30)<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the connection timeout. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aebf39366b856983c2e3ef80f296a7a79">OperationTimeout</link> = TimeSpan.FromMinutes(2)<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the operation timeout for sending emails. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a13418293605c62830981c6fbc9f33262">ValidateCertificate</link> = true<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets whether to validate the server&apos;s SSL certificate. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8850d7ac80760e2bae3eb99a95e6559f">DefaultFrom</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the default sender address to use when not specified in the message. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b3119bb98f9a6c42971de5949475075">DefaultReplyTo</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the default reply-to address. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8edd367bcee0766e09aed546e09e7639">RequiresAuthentication</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether authentication is configured. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Configuration options for the SMTP mailing service. </para>
+
+
+
+<para>These options configure how the mailing service connects to an SMTP server. Authentication is optional for servers that support anonymous relay. </para>
+
+<para>For secure connections, use <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1">SmtpSecurityMode.StartTls</link> (port 587) or <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1">SmtpSecurityMode.SslOnConnect</link> (port 465). </para>
+
+<para><literallayout><computeroutput>var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;MailingOptions
+{
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a1973fb40f24a5029a0da0be3f7f93a9d">Host</link>&#32;=&#32;<emphasis role="stringliteral">&quot;smtp.example.com&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1acea60967c6520c8c575a6dc81310fc0d">Port</link>&#32;=&#32;587,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa0965c379cae15714a13ad998027d33b">SecurityMode</link>&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453">SmtpSecurityMode</link>.StartTls,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4757f2cb0756b8e12f0f5f174381c7c8">Username</link>&#32;=&#32;<emphasis role="stringliteral">&quot;user@example.com&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1addde220b9b4243a94dbf9c6d5d5623e1">Password</link>&#32;=&#32;<emphasis role="stringliteral">&quot;password&quot;</emphasis>
+};
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00033">33</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa8936448acd23f7147be166d3b529514"/><section>
+    <title>ConnectionTimeout</title>
+<indexterm><primary>ConnectionTimeout</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>ConnectionTimeout</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.MailingOptions.ConnectionTimeout = TimeSpan.FromSeconds(30)<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the connection timeout. </para>
+</para>
+
+<para>The connection timeout. Default is 30 seconds.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00082">82</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8850d7ac80760e2bae3eb99a95e6559f"/><section>
+    <title>DefaultFrom</title>
+<indexterm><primary>DefaultFrom</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>DefaultFrom</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? Toolbox.Core.Options.MailingOptions.DefaultFrom<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the default sender address to use when not specified in the message. </para>
+</para>
+
+<para>The default sender email address, or <computeroutput>null</computeroutput> if not set.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00104">104</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b3119bb98f9a6c42971de5949475075"/><section>
+    <title>DefaultReplyTo</title>
+<indexterm><primary>DefaultReplyTo</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>DefaultReplyTo</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? Toolbox.Core.Options.MailingOptions.DefaultReplyTo<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the default reply-to address. </para>
+</para>
+
+<para>The default reply-to email address, or <computeroutput>null</computeroutput> if not set.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00110">110</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a1973fb40f24a5029a0da0be3f7f93a9d"/><section>
+    <title>Host</title>
+<indexterm><primary>Host</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>Host</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.MailingOptions.Host = &quot;localhost&quot;<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the SMTP server hostname or IP address. </para>
+</para>
+
+<para>The SMTP server host. Default is <computeroutput>&quot;localhost&quot;</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00039">39</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4b040ab32d447a2226acfdbec363e034"/><section>
+    <title>OAuth2AccessToken</title>
+<indexterm><primary>OAuth2AccessToken</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>OAuth2AccessToken</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.MailingOptions.OAuth2AccessToken<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the OAuth2 access token for authentication. </para>
+</para>
+
+<para>The OAuth2 token, or <computeroutput>null</computeroutput> to use password authentication.</para>
+
+<para>When set, this takes precedence over password authentication. Useful for services like Gmail or Office 365 that require OAuth2. </para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00076">76</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aebf39366b856983c2e3ef80f296a7a79"/><section>
+    <title>OperationTimeout</title>
+<indexterm><primary>OperationTimeout</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>OperationTimeout</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.MailingOptions.OperationTimeout = TimeSpan.FromMinutes(2)<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the operation timeout for sending emails. </para>
+</para>
+
+<para>The operation timeout. Default is 2 minutes.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00088">88</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1addde220b9b4243a94dbf9c6d5d5623e1"/><section>
+    <title>Password</title>
+<indexterm><primary>Password</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>Password</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.MailingOptions.Password<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the password for SMTP authentication. </para>
+</para>
+
+<para>The password, or <computeroutput>null</computeroutput> for anonymous authentication.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00066">66</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1acea60967c6520c8c575a6dc81310fc0d"/><section>
+    <title>Port</title>
+<indexterm><primary>Port</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>Port</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.MailingOptions.Port = 25<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the SMTP server port. </para>
+</para>
+
+<para>The port number. Default is <computeroutput>25</computeroutput>. Common ports: 25 (unencrypted), 587 (STARTTLS), 465 (SSL/TLS). </para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00048">48</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a8edd367bcee0766e09aed546e09e7639"/><section>
+    <title>RequiresAuthentication</title>
+<indexterm><primary>RequiresAuthentication</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>RequiresAuthentication</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.MailingOptions.RequiresAuthentication<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether authentication is configured. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if username or OAuth2 token is set; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00116">116</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1aa0965c379cae15714a13ad998027d33b"/><section>
+    <title>SecurityMode</title>
+<indexterm><primary>SecurityMode</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>SecurityMode</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453">SmtpSecurityMode</link> Toolbox.Core.Options.MailingOptions.SecurityMode = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb">SmtpSecurityMode.Auto</link><computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the security mode for the SMTP connection. </para>
+</para>
+
+<para>The security mode. Default is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb">SmtpSecurityMode.Auto</link>.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00054">54</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a4757f2cb0756b8e12f0f5f174381c7c8"/><section>
+    <title>Username</title>
+<indexterm><primary>Username</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>Username</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.MailingOptions.Username<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the username for SMTP authentication. </para>
+</para>
+
+<para>The username, or <computeroutput>null</computeroutput> for anonymous authentication.</para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00060">60</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options_1a13418293605c62830981c6fbc9f33262"/><section>
+    <title>ValidateCertificate</title>
+<indexterm><primary>ValidateCertificate</primary><secondary>Toolbox.Core.Options.MailingOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.MailingOptions</primary><secondary>ValidateCertificate</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.MailingOptions.ValidateCertificate = true<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets whether to validate the server&apos;s SSL certificate. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> to validate certificates (recommended); <computeroutput>false</computeroutput> to accept all certificates (use only for testing). Default is <computeroutput>true</computeroutput>. </para>
+<para>
+Definition at line <link linkend="__mailing_options_8cs_source_1l00098">98</link> of file <link linkend="__mailing_options_8cs_source">MailingOptions.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__mailing_options_8cs">MailingOptions.cs</link></section>
+</section>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__aes_key_size_8cs_source" xml:lang="en-US">
+<title>AesKeySize.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/AesKeySize.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__aes_key_size_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;AesKeySize.cs</emphasis>
+<anchor xml:id="__aes_key_size_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Enumeration&#32;of&#32;valid&#32;AES&#32;key&#32;sizes</emphasis>
+<anchor xml:id="__aes_key_size_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;supported&#32;AES&#32;key&#32;sizes&#32;in&#32;bits</emphasis>
+<anchor xml:id="__aes_key_size_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;AES&#32;supports&#32;128,&#32;192,&#32;and&#32;256-bit&#32;keys</emphasis>
+<anchor xml:id="__aes_key_size_8cs_source_1l00005"/>00005 
+<anchor xml:id="__aes_key_size_8cs_source_1l00006"/><link linkend="_namespace_toolbox_1_1_core_1_1_options">00006</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__aes_key_size_8cs_source_1l00007"/>00007 
+<anchor xml:id="__aes_key_size_8cs_source_1l00015"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">00015</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link>
+<anchor xml:id="__aes_key_size_8cs_source_1l00016"/>00016 {
+<anchor xml:id="__aes_key_size_8cs_source_1l00023"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94">00023</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94">Aes128</link>&#32;=&#32;128,
+<anchor xml:id="__aes_key_size_8cs_source_1l00024"/>00024 
+<anchor xml:id="__aes_key_size_8cs_source_1l00031"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495">00031</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495">Aes192</link>&#32;=&#32;192,
+<anchor xml:id="__aes_key_size_8cs_source_1l00032"/>00032 
+<anchor xml:id="__aes_key_size_8cs_source_1l00040"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14">00040</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14">Aes256</link>&#32;=&#32;256
+<anchor xml:id="__aes_key_size_8cs_source_1l00041"/>00041 }
+</programlisting></section>

@@ -1,0 +1,235 @@
+.TH "Toolbox.Core.Base.BaseAsyncDisposableService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Base.BaseAsyncDisposableService \- Abstract base class providing asynchronous disposal with cancellation support and integrated telemetry\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP, and \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP\&.
+.PP
+Inherited by \fBSampleService\fP, \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.FileTransfer\&.FtpFileTransferService\fP, \fBToolbox\&.Core\&.Services\&.FileTransfer\&.SftpFileTransferService\fP, and \fBToolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP ()"
+.br
+.ti -1c
+.RI "async ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous disposal operation\&.
+.RE
+.PP
+
+.PP
+This method allows for graceful shutdown with timeout support\&. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately\&.  "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "void \fBDispose\fP ()"
+.br
+.RI "Releases all resources used by this service\&. "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBaseAsyncDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseAsyncDisposableService\fP class\&. "
+.ti -1c
+.RI "virtual ValueTask \fBDisposeAsyncCore\fP (CancellationToken cancellationToken)"
+.br
+.RI "Performs application-defined async cleanup operations\&. "
+.ti -1c
+.RI "override void \fBDispose\fP (bool disposing)"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseDisposableService\fP class\&. "
+.ti -1c
+.RI "void \fBThrowIfDisposed\fP ()"
+.br
+.RI "Throws an ObjectDisposedException if this service has been disposed\&. "
+.ti -1c
+.RI "void \fBRecordOperation\fP (string operationName, double durationMs)"
+.br
+.RI "Records an operation metric with the specified name and duration\&. "
+.ti -1c
+.RI "Activity? \fBStartActivity\fP ([CallerMemberName] string operationName='')"
+.br
+.RI "Starts a new activity for the specified operation\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&.
+
+.PP
+A human-readable name for logging and diagnostics\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&.
+
+.PP
+\fRtrue\fP if the service has been disposed; otherwise, \fRfalse\fP\&. "
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&.
+
+.PP
+The activity source used to create spans for this service\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&.
+
+.PP
+The meter used to create instruments for this service\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract base class providing asynchronous disposal with cancellation support and integrated telemetry\&. 
+
+This class extends \fBBaseDisposableService\fP to implement \fBIAsyncDisposableService\fP, enabling graceful async cleanup with timeout support through cancellation tokens\&. 
+
+.PP
+Derived classes should override \fBDisposeAsyncCore(CancellationToken)\fP to release their async resources\&. 
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBIAsyncDisposableService\fP, \fBBaseDisposableService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBBaseAsyncDisposableService\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Core\&.Base\&.BaseAsyncDisposableService\&.BaseAsyncDisposableService (string serviceName, ILogger logger)\fR [protected]\fP"
+
+.PP
+Initializes a new instance of the \fBBaseAsyncDisposableService\fP class\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIserviceName\fP The name identifying this service instance\&.
+.br
+\fIlogger\fP The logger for diagnostic output\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIserviceName\fP  or \fIlogger\fP  is \fRnull\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB44\fP of file \fBBaseAsyncDisposableService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override void Toolbox\&.Core\&.Base\&.BaseAsyncDisposableService\&.Dispose (bool disposing)\fR [protected]\fP, \fR [virtual]\fP"
+Releases the unmanaged resources used by this service and optionally releases managed resources\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisposing\fP \fRtrue\fP to release both managed and unmanaged resources; \fRfalse\fP to release only unmanaged resources\&. 
+.RE
+.PP
+
+.PP
+Override this method in derived classes to release resources\&. Always call the base implementation after releasing your resources\&.  
+
+.PP
+This override ensures that synchronous disposal also triggers async resource cleanup when the service hasn't been disposed asynchronously yet\&. 
+.PP
+Reimplemented from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.PP
+Definition at line \fB125\fP of file \fBBaseAsyncDisposableService\&.cs\fP\&.
+.SS "ValueTask Toolbox\&.Core\&.Base\&.BaseAsyncDisposableService\&.DisposeAsync ()"
+This implementation calls \fBDisposeAsync(CancellationToken)\fP with CancellationToken\&.None\&. 
+.PP
+Definition at line \fB55\fP of file \fBBaseAsyncDisposableService\&.cs\fP\&.
+.SS "async ValueTask Toolbox\&.Core\&.Base\&.BaseAsyncDisposableService\&.DisposeAsync (CancellationToken cancellationToken)"
+
+.PP
+Asynchronously releases resources with cancellation support\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous disposal operation\&.
+.RE
+.PP
+
+.PP
+This method allows for graceful shutdown with timeout support\&. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately\&.  
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP\&.
+.PP
+Definition at line \fB61\fP of file \fBBaseAsyncDisposableService\&.cs\fP\&.
+.SS "virtual ValueTask Toolbox\&.Core\&.Base\&.BaseAsyncDisposableService\&.DisposeAsyncCore (CancellationToken cancellationToken)\fR [protected]\fP, \fR [virtual]\fP"
+
+.PP
+Performs application-defined async cleanup operations\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous operation\&.
+.RE
+.PP
+
+.PP
+Override this method to release async resources such as streams, database connections, or other async-disposable objects\&. 
+
+.PP
+If the cancellation token is triggered, the implementation should attempt to release critical resources immediately and may throw OperationCanceledException\&. 
+.PP
+Reimplemented in \fBSampleService\fP, \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.AesCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\fP, \fBToolbox\&.Core\&.Services\&.FileTransfer\&.FtpFileTransferService\fP, \fBToolbox\&.Core\&.Services\&.FileTransfer\&.SftpFileTransferService\fP, and \fBToolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\fP\&.
+.PP
+Definition at line \fB115\fP of file \fBBaseAsyncDisposableService\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

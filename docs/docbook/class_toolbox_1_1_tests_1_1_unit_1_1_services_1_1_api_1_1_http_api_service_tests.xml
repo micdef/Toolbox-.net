@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece">HttpApiServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a5935100502e898d850c0c039e41c7576">Constructor_WithNullOptions_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1abeaa31e19b1d58233289eff7d4269a72">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1ad12a3920e966951df841ba13cde7460d">Constructor_WithValidOptions_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a683f2c7c6cb65499b7cabfe49a9599da">Constructor_WithDirectOptions_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a391947ef276858e1f23962b1a4bd9215">Constructor_WithBearerTokenAuth_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a16826b243591385e5120f933cacaf071">Constructor_WithBasicAuth_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a59a1cefd9180add432805680c092c7b8">Constructor_WithApiKeyAuth_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a8fdd72b9d76bc19999cc79824048469e">Constructor_WithHttpClient_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a49f2a0bb699fae5b08be0a9081a59153">Send_WithNullRequest_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aba098307ffbc27d5e86440b87bddca75">SendAsync_WithNullRequest_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a9900ad30e63606900d62f4272a41ebd9">SendAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aebeb8bc77c9ce36ef9e3e837feea5b84">Send_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1adb4ba66428b2a164e2feadb5601b4222">DisposeAsync_ShouldDisposeResources</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>. </para>
+
+
+
+<para>These tests verify argument validation and configuration. <link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests with real APIs would be in a separate test project. </para>
+<para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00016">16</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece"/><section>
+    <title>HttpApiServiceTests()</title>
+<indexterm><primary>HttpApiServiceTests</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>HttpApiServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.HttpApiServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00020">20</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a59a1cefd9180add432805680c092c7b8"/><section>
+    <title>Constructor_WithApiKeyAuth_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithApiKeyAuth_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithApiKeyAuth_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithApiKeyAuth_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00123">123</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a16826b243591385e5120f933cacaf071"/><section>
+    <title>Constructor_WithBasicAuth_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithBasicAuth_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithBasicAuth_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithBasicAuth_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00104">104</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a391947ef276858e1f23962b1a4bd9215"/><section>
+    <title>Constructor_WithBearerTokenAuth_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithBearerTokenAuth_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithBearerTokenAuth_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithBearerTokenAuth_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00086">86</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a683f2c7c6cb65499b7cabfe49a9599da"/><section>
+    <title>Constructor_WithDirectOptions_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithDirectOptions_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithDirectOptions_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithDirectOptions_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00073">73</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a8fdd72b9d76bc19999cc79824048469e"/><section>
+    <title>Constructor_WithHttpClient_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithHttpClient_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithHttpClient_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithHttpClient_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00142">142</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1abeaa31e19b1d58233289eff7d4269a72"/><section>
+    <title>Constructor_WithNullLogger_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00047">47</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a5935100502e898d850c0c039e41c7576"/><section>
+    <title>Constructor_WithNullOptions_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullOptions_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithNullOptions_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00035">35</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1ad12a3920e966951df841ba13cde7460d"/><section>
+    <title>Constructor_WithValidOptions_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithValidOptions_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Constructor_WithValidOptions_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Constructor_WithValidOptions_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00060">60</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1adb4ba66428b2a164e2feadb5601b4222"/><section>
+    <title>DisposeAsync_ShouldDisposeResources()</title>
+<indexterm><primary>DisposeAsync_ShouldDisposeResources</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>DisposeAsync_ShouldDisposeResources</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.DisposeAsync_ShouldDisposeResources ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00231">231</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aebeb8bc77c9ce36ef9e3e837feea5b84"/><section>
+    <title>Send_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>Send_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Send_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Send_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00213">213</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a49f2a0bb699fae5b08be0a9081a59153"/><section>
+    <title>Send_WithNullRequest_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Send_WithNullRequest_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>Send_WithNullRequest_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.Send_WithNullRequest_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00160">160</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a9900ad30e63606900d62f4272a41ebd9"/><section>
+    <title>SendAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>SendAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>SendAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.SendAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00190">190</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aba098307ffbc27d5e86440b87bddca75"/><section>
+    <title>SendAsync_WithNullRequest_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>SendAsync_WithNullRequest_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</primary><secondary>SendAsync_WithNullRequest_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests.SendAsync_WithNullRequest_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__http_api_service_tests_8cs_source_1l00175">175</link> of file <link linkend="__http_api_service_tests_8cs_source">HttpApiServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/<link linkend="__http_api_service_tests_8cs">HttpApiServiceTests.cs</link></section>
+</section>

@@ -1,0 +1,215 @@
+.TH "Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests \- \fBUnit\fP tests for \fBAesCryptographyService\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAesCryptographyServiceTests\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKey_WithAes128_ShouldReturn16ByteKey\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKey_WithAes192_ShouldReturn24ByteKey\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKey_WithAes256_ShouldReturn32ByteKey\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKey_WithIntKeySize_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBGenerateKey_WithInvalidKeySize_ShouldThrowArgumentException\fP (int invalidKeySize)"
+.br
+.ti -1c
+.RI "void \fBGenerateKey_ShouldGenerateUniqueKeys\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullKey_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullIv_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithInvalidKeySize_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithInvalidIvSize_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ShouldReturnBase64String\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_ShouldReturnOriginalText\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork\fP (\fBAesKeySize\fP keySize)"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithSameInput_ShouldProduceSameOutput\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithDifferentKeys_ShouldProduceDifferentOutput\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithWrongKey_ShouldThrowFormatException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithNullText_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithNullText_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDecrypt_WithInvalidBase64_ShouldThrowFormatException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBEncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBEncryptAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WhenDisposed_ShouldThrowObjectDisposedException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithEmptyString_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithUnicodeText_ShouldHandleCorrectly\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncrypt_WithLargeText_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDisposeAsync_ShouldClearSensitiveData\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBAesCryptographyService\fP\&. 
+.PP
+Definition at line \fB10\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.AesCryptographyServiceTests ()"
+
+.PP
+Definition at line \fB14\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Constructor_WithInvalidIvSize_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB129\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Constructor_WithInvalidKeySize_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB115\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Constructor_WithNullIv_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB102\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Constructor_WithNullKey_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB89\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Decrypt_WithInvalidBase64_ShouldThrowFormatException ()"
+
+.PP
+Definition at line \fB274\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Decrypt_WithNullText_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB260\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Decrypt_WithWrongKey_ShouldThrowFormatException ()"
+
+.PP
+Definition at line \fB228\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.DisposeAsync_ShouldClearSensitiveData ()"
+
+.PP
+Definition at line \fB382\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_ShouldReturnBase64String ()"
+
+.PP
+Definition at line \fB143\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_ThenDecrypt_ShouldReturnOriginalText ()"
+
+.PP
+Definition at line \fB159\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork (\fBAesKeySize\fP keySize)"
+
+.PP
+Definition at line \fB178\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException ()"
+
+.PP
+Definition at line \fB320\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput ()"
+
+.PP
+Definition at line \fB210\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WithEmptyString_ShouldWork ()"
+
+.PP
+Definition at line \fB335\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WithLargeText_ShouldWork ()"
+
+.PP
+Definition at line \fB366\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WithNullText_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB246\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WithSameInput_ShouldProduceSameOutput ()"
+
+.PP
+Definition at line \fB194\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.Encrypt_WithUnicodeText_ShouldHandleCorrectly ()"
+
+.PP
+Definition at line \fB350\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText ()"
+
+.PP
+Definition at line \fB288\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB304\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.GenerateKey_ShouldGenerateUniqueKeys ()"
+
+.PP
+Definition at line \fB77\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.GenerateKey_WithAes128_ShouldReturn16ByteKey ()"
+
+.PP
+Definition at line \fB20\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.GenerateKey_WithAes192_ShouldReturn24ByteKey ()"
+
+.PP
+Definition at line \fB31\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.GenerateKey_WithAes256_ShouldReturn32ByteKey ()"
+
+.PP
+Definition at line \fB42\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.GenerateKey_WithIntKeySize_ShouldWork ()"
+
+.PP
+Definition at line \fB53\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.Cryptography\&.AesCryptographyServiceTests\&.GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException (int invalidKeySize)"
+
+.PP
+Definition at line \fB67\fP of file \fBAesCryptographyServiceTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

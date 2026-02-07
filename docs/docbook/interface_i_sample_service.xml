@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_i_sample_service" xml:lang="en-US">
+<title>ISampleService Interface Reference</title>
+<indexterm><primary>ISampleService</primary></indexterm>
+<para>
+
+<para>Sample service interface demonstrating <link linkend="_namespace_toolbox">Toolbox</link> patterns. </para>
+ 
+</para>
+<para>Inheritance diagram for ISampleService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_i_sample_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>Task <link linkend="_interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b">DoWorkAsync</link> (string message, CancellationToken ct=default)</para>
+
+<para>Performs sample work asynchronously. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Sample service interface demonstrating <link linkend="_namespace_toolbox">Toolbox</link> patterns. </para>
+<para>
+Definition at line <link linkend="__program_8cs_source_1l00055">55</link> of file <link linkend="__program_8cs_source">Program.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b"/><section>
+    <title>DoWorkAsync()</title>
+<indexterm><primary>DoWorkAsync</primary><secondary>ISampleService</secondary></indexterm>
+<indexterm><primary>ISampleService</primary><secondary>DoWorkAsync</secondary></indexterm>
+<para><computeroutput>Task ISampleService.DoWorkAsync (string message, CancellationToken ct = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>Performs sample work asynchronously. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>The message to process.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ct</entry><entry>
+<para>Cancellation token.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the async operation.</para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_class_sample_service_1a9517e289671e8098655ef2563c31419b">SampleService</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/<link linkend="__program_8cs">Program.cs</link></section>
+</section>

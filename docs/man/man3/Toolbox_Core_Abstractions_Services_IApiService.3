@@ -1,0 +1,262 @@
+.TH "Toolbox.Core.Abstractions.Services.IApiService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Abstractions.Services.IApiService \- Defines the contract for HTTP API services\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Abstractions\&.IInstrumentedService\fP, and \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP\&.
+.PP
+Inherited by \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBApiResponse\fP \fBSend\fP (\fBApiRequest\fP request)"
+.br
+.RI "Sends an HTTP request synchronously\&. "
+.ti -1c
+.RI "Task< \fBApiResponse\fP > \fBSendAsync\fP (\fBApiRequest\fP request, CancellationToken cancellationToken=default)"
+.br
+.RI "Sends an HTTP request asynchronously\&. "
+.ti -1c
+.RI "T? \fBSend< T >\fP (\fBApiRequest\fP request)"
+.br
+.RI "Sends an HTTP request and deserializes the response\&. "
+.ti -1c
+.RI "Task< T?> \fBSendAsync< T >\fP (\fBApiRequest\fP request, CancellationToken cancellationToken=default)"
+.br
+.RI "Sends an HTTP request and deserializes the response asynchronously\&. "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IInstrumentedService\fP
+.in +1c
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&. "
+.in -1c
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines the contract for HTTP API services\&. 
+
+This interface provides methods for making HTTP requests with support for: 
+
+.PP
+.PD 0
+.IP "\(bu" 2
+All HTTP verbs (GET, POST, PUT, DELETE, PATCH, etc\&.) 
+.IP "\(bu" 2
+Multiple authentication modes (Bearer, Basic, API Key, Certificate) 
+.IP "\(bu" 2
+JSON serialization/deserialization 
+.IP "\(bu" 2
+Custom headers and query parameters 
+.IP "\(bu" 2
+Automatic retry with exponential backoff 
+.PP
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBIInstrumentedService\fP, \fBIAsyncDisposableService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB27\fP of file \fBIApiService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBApiResponse\fP Toolbox\&.Core\&.Abstractions\&.Services\&.IApiService\&.Send (\fBApiRequest\fP request)"
+
+.PP
+Sends an HTTP request synchronously\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequest\fP The request to send\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The API response\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIrequest\fP  is \fRnull\fP\&.
+.br
+\fIHttpRequestException\fP Thrown when the request fails\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var request = ApiRequest\&.Get("/users/123");
+var response = apiService\&.Send(request);
+
+if (response\&.IsSuccess)
+{
+    var user = response\&.Deserialize<User>();
+}
+.fi
+.PP
+ 
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP\&.
+.SS "T? \fBToolbox\&.Core\&.Abstractions\&.Services\&.IApiService\&.Send\fP< T > (\fBApiRequest\fP request)"
+
+.PP
+Sends an HTTP request and deserializes the response\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The response body type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequest\fP The request to send\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The deserialized response body\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIrequest\fP  is \fRnull\fP\&.
+.br
+\fIHttpRequestException\fP Thrown when the request fails or returns an error status\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var users = apiService\&.Send<List<User>>(ApiRequest\&.Get("/users"));
+.fi
+.PP
+ 
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP\&.
+.SS "Task< \fBApiResponse\fP > Toolbox\&.Core\&.Abstractions\&.Services\&.IApiService\&.SendAsync (\fBApiRequest\fP request, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Sends an HTTP request asynchronously\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequest\fP The request to send\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the API response\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIrequest\fP  is \fRnull\fP\&.
+.br
+\fIHttpRequestException\fP Thrown when the request fails\&.
+.br
+\fIOperationCanceledException\fP Thrown when the operation is cancelled\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var request = ApiRequest\&.Post("/users", new { Name = "John" });
+var response = await apiService\&.SendAsync(request);
+
+response\&.EnsureSuccess();
+var createdUser = response\&.Deserialize<User>();
+.fi
+.PP
+ 
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP\&.
+.SS "Task< T?> \fBToolbox\&.Core\&.Abstractions\&.Services\&.IApiService\&.SendAsync\fP< T > (\fBApiRequest\fP request, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Sends an HTTP request and deserializes the response asynchronously\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The response body type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequest\fP The request to send\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the deserialized response body\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIrequest\fP  is \fRnull\fP\&.
+.br
+\fIHttpRequestException\fP Thrown when the request fails or returns an error status\&.
+.br
+\fIOperationCanceledException\fP Thrown when the operation is cancelled\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var user = await apiService\&.SendAsync<User>(
+    ApiRequest\&.Get("/users/123"),
+    cancellationToken);
+.fi
+.PP
+ 
+.PP
+Implemented in \fBToolbox\&.Core\&.Services\&.Api\&.HttpApiService\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

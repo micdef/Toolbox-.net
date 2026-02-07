@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__rsa_key_size_8cs_source" xml:lang="en-US">
+<title>RsaKeySize.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeySize.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__rsa_key_size_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;RsaKeySize.cs</emphasis>
+<anchor xml:id="__rsa_key_size_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Enumeration&#32;of&#32;valid&#32;RSA&#32;key&#32;sizes</emphasis>
+<anchor xml:id="__rsa_key_size_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;supported&#32;RSA&#32;key&#32;sizes&#32;in&#32;bits</emphasis>
+<anchor xml:id="__rsa_key_size_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;RSA&#32;supports&#32;512,&#32;1024,&#32;2048,&#32;4096,&#32;8192,&#32;and&#32;16384-bit&#32;keys</emphasis>
+<anchor xml:id="__rsa_key_size_8cs_source_1l00005"/>00005 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__rsa_key_size_8cs_source_1l00007"/>00007 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00020"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">00020</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link>
+<anchor xml:id="__rsa_key_size_8cs_source_1l00021"/>00021 {
+<anchor xml:id="__rsa_key_size_8cs_source_1l00028"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21">00028</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21">Rsa512</link>&#32;=&#32;512,
+<anchor xml:id="__rsa_key_size_8cs_source_1l00029"/>00029 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00036"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395">00036</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395">Rsa1024</link>&#32;=&#32;1024,
+<anchor xml:id="__rsa_key_size_8cs_source_1l00037"/>00037 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00045"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a">00045</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a">Rsa2048</link>&#32;=&#32;2048,
+<anchor xml:id="__rsa_key_size_8cs_source_1l00046"/>00046 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00054"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433">00054</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433">Rsa4096</link>&#32;=&#32;4096,
+<anchor xml:id="__rsa_key_size_8cs_source_1l00055"/>00055 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00063"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3">00063</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3">Rsa8192</link>&#32;=&#32;8192,
+<anchor xml:id="__rsa_key_size_8cs_source_1l00064"/>00064 
+<anchor xml:id="__rsa_key_size_8cs_source_1l00072"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d">00072</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d">Rsa16384</link>&#32;=&#32;16384
+<anchor xml:id="__rsa_key_size_8cs_source_1l00073"/>00073 }
+</programlisting></section>

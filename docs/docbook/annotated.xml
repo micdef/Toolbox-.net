@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">Toolbox.Core.Services.Cryptography.AesCryptographyService</link>
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Cryptography</link> service implementation using AES symmetric encryption </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests">Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">AesCryptographyService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">Toolbox.Core.Options.ApiOptions</link>
+<para>Configuration options for the HTTP API service </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">Toolbox.Core.Options.ApiRequest</link>
+<para>Represents an HTTP API request </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests">Toolbox.Tests.Unit.Options.ApiRequestTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> and related classes </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">Toolbox.Core.Options.ApiResponse</link>
+<para>Represents an HTTP API response </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_response_tests">Toolbox.Tests.Unit.Options.ApiResponseTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests">Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for ApiServiceCollectionExtensions </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options">Toolbox.Core.Options.Base64CryptographyOptions</link>
+<para>Configuration options for the Base64 cryptography service </para>
+<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service">Toolbox.Core.Services.Cryptography.Base64CryptographyService</link>
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Cryptography</link> service implementation using Base64 encoding </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests">Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service">Base64CryptographyService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>
+<para>Abstract base class providing asynchronous disposal with cancellation support and integrated telemetry </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_async_disposable_service_tests">Toolbox.Tests.Unit.BaseAsyncDisposableServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>
+<para>Abstract base class providing a thread-safe implementation of the dispose pattern with integrated telemetry support </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests">Toolbox.Tests.Unit.BaseDisposableServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">Toolbox.Core.Options.EmailAttachment</link>
+<para>Represents an email attachment </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">Toolbox.Core.Options.EmailMessage</link>
+<para>Represents an email message to be sent </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests">Toolbox.Tests.Unit.Options.EmailMessageTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> and related classes </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">Toolbox.Core.Options.FileTransferOptions</link>
+<para>Configuration options for file transfer services </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_file_transfer_options_tests">Toolbox.Tests.Unit.Options.FileTransferOptionsTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service">Toolbox.Core.Services.FileTransfer.FtpFileTransferService</link>
+<para>File transfer service implementation using FTP/FTPS protocols </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests">Toolbox.Tests.Unit.Services.FileTransfer.FtpFileTransferServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service">FtpFileTransferService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">Toolbox.Core.Services.Api.HttpApiService</link>
+<para>HTTP API service implementation using HttpClient </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests">Toolbox.Tests.Unit.Services.Api.HttpApiServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link> </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">Toolbox.Core.Abstractions.Services.IApiService</link>
+<para>Defines the contract for HTTP API services </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">Toolbox.Core.Abstractions.IAsyncDisposableService</link>
+<para>Interface for services requiring asynchronous disposal with cancellation support </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service">Toolbox.Core.Abstractions.Services.ICryptographyService</link>
+<para>Interface for cryptography services providing text encryption and decryption </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">Toolbox.Core.Abstractions.IDisposableService</link>
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_base">Base</link> interface for disposable services providing lifecycle management </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service">Toolbox.Core.Abstractions.Services.IFileTransferService</link>
+<para>Defines the contract for file transfer services supporting FTP and SFTP protocols </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">Toolbox.Core.Abstractions.IInstrumentedService</link>
+<para>Interface for services that expose OpenTelemetry instrumentation </para>
+<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service">Toolbox.Core.Abstractions.Services.IMailingService</link>
+<para>Defines the contract for email sending services </para>
+<link linkend="_interface_i_sample_service">ISampleService</link>
+<para>Sample service interface demonstrating <link linkend="_namespace_toolbox">Toolbox</link> patterns </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options">Toolbox.Core.Options.MailingOptions</link>
+<para>Configuration options for the SMTP mailing service </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests">Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for MailingServiceCollectionExtensions </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests">Toolbox.Tests.Integration.OpenTelemetryExtensionsTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests for OpenTelemetryExtensions </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests">Toolbox.Tests.Regression.OptionsSchemaTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for options classes to detect breaking changes in configuration schema </para>
+<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">Toolbox.Core.Services.Cryptography.RsaCryptographyService</link>
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Cryptography</link> service implementation using RSA asymmetric encryption </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests">Toolbox.Tests.Unit.Services.Cryptography.RsaCryptographyServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">Toolbox.Core.Options.RsaKeyPair</link>
+<para>Represents an RSA key pair containing public and optionally private key data </para>
+<link linkend="_class_sample_service">SampleService</link>
+<para>Sample service implementation using BaseAsyncDisposableService </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests">Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests for ServiceCollectionExtensions </para>
+<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">Toolbox.Core.Services.FileTransfer.SftpFileTransferService</link>
+<para>File transfer service implementation using SFTP protocol </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests">Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link> </para>
+<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service">Toolbox.Core.Services.Mailing.SmtpMailingService</link>
+<para>Email sending service implementation using SMTP with MailKit </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests">Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service">SmtpMailingService</link> </para>
+<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests">Toolbox.Tests.Regression.TelemetryConstantsTests</link>
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for TelemetryConstants to detect breaking changes </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options">Toolbox.Core.Options.ToolboxOptions</link>
+<para>Configuration options for <link linkend="_namespace_toolbox">Toolbox</link> core services </para>
+<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options">Toolbox.Core.Options.ToolboxTelemetryOptions</link>
+<para>Configuration options for OpenTelemetry integration in <link linkend="_namespace_toolbox">Toolbox</link> </para>
+</section>

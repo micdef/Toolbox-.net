@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f22aa8fddce8dcf124f7a1964fc49c0b" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_4545b5be615a473c9a127332be7eb6bd">Abstractions</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_30b6d4f0a5dc51fa6d81d2a3a49b9829">Base</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_c945ddb9beeffc9cf85643aaa67e35d2">Extensions</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_5e3976146a5c9c5d3c016f6af0e4713f">obj</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_d27de8e9a8fedd922b0775e5e7f0fd69">Options</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_282f86989ac6d3b849143b291e7ac116">Services</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_a54edc53abcb778c6ee03589838377f1">Telemetry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_src_2_toolbox_8_core_2_global_usings_8cs">GlobalUsings.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

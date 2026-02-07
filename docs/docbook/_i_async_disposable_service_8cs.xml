@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__i_async_disposable_service_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">Toolbox.Core.Abstractions.IAsyncDisposableService</link></para>
+
+<para>Interface for services requiring asynchronous disposal with cancellation support. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Toolbox.Core.Abstractions</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

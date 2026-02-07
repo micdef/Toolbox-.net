@@ -1,0 +1,121 @@
+.TH "Toolbox.Core.Options.ToolboxTelemetryOptions" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.ToolboxTelemetryOptions \- Configuration options for OpenTelemetry integration in \fBToolbox\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const string \fBSectionName\fP = 'Toolbox:Telemetry'"
+.br
+.RI "The configuration section name for telemetry options\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "bool \fBEnableTracing\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether distributed tracing is enabled\&. "
+.ti -1c
+.RI "bool \fBEnableMetrics\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether metrics collection is enabled\&. "
+.ti -1c
+.RI "bool \fBEnableConsoleExport\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether console export is enabled\&. "
+.ti -1c
+.RI "string? \fBOtlpEndpoint\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the OTLP endpoint for telemetry export\&. "
+.ti -1c
+.RI "string \fBServiceName\fP = 'Toolbox'\fR [get, set]\fP"
+.br
+.RI "Gets or sets the service name for telemetry identification\&. "
+.ti -1c
+.RI "string \fBServiceVersion\fP = '1\&.0\&.0'\fR [get, set]\fP"
+.br
+.RI "Gets or sets the service version for telemetry identification\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration options for OpenTelemetry integration in \fBToolbox\fP\&. 
+
+These options can be configured via \fRappsettings\&.json\fP: 
+.PP
+.nf
+{
+  "Toolbox:Telemetry": {
+    "EnableTracing": true,
+    "EnableMetrics": true,
+    "OtlpEndpoint": "http://localhost:4317"
+  }
+}
+
+.fi
+.PP
+ 
+.PP
+Definition at line \fB23\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const string Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.SectionName = 'Toolbox:Telemetry'\fR [static]\fP"
+
+.PP
+The configuration section name for telemetry options\&. 
+.PP
+Definition at line \fB28\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "bool Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.EnableConsoleExport\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether console export is enabled\&. \fRtrue\fP to export telemetry to console; \fRfalse\fP to disable\&. Defaults to \fRfalse\fP\&. 
+
+.PP
+Enable this for debugging purposes only\&. Not recommended for production\&. 
+.PP
+Definition at line \fB55\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.EnableMetrics = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether metrics collection is enabled\&. \fRtrue\fP to enable metrics; \fRfalse\fP to disable\&. Defaults to \fRtrue\fP\&. 
+.PP
+Definition at line \fB44\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.EnableTracing = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether distributed tracing is enabled\&. \fRtrue\fP to enable tracing; \fRfalse\fP to disable\&. Defaults to \fRtrue\fP\&. 
+.PP
+Definition at line \fB36\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.OtlpEndpoint\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the OTLP endpoint for telemetry export\&. The OTLP endpoint URL\&. Defaults to \fRnull\fP (OTLP export disabled)\&. 
+
+.PP
+Example: \fRhttp://localhost:4317\fP for a local OTLP collector\&. 
+.PP
+Definition at line \fB66\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.ServiceName = 'Toolbox'\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the service name for telemetry identification\&. The service name used in telemetry\&. Defaults to \fR"Toolbox"\fP\&. 
+.PP
+Definition at line \fB74\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.ToolboxTelemetryOptions\&.ServiceVersion = '1\&.0\&.0'\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the service version for telemetry identification\&. The service version string\&. Defaults to \fR"1\&.0\&.0"\fP\&. 
+.PP
+Definition at line \fB82\fP of file \fBToolboxTelemetryOptions\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

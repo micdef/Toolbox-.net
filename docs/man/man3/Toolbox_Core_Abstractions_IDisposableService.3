@@ -1,0 +1,67 @@
+.TH "Toolbox.Core.Abstractions.IDisposableService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Abstractions.IDisposableService \- \fBBase\fP interface for disposable services providing lifecycle management\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits IDisposable\&.
+.PP
+Inherited by \fBToolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\fP, and \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBBase\fP interface for disposable services providing lifecycle management\&. 
+
+This interface extends IDisposable with additional properties for service identification and disposal state tracking\&. 
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBIAsyncDisposableService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB16\fP of file \fBIDisposableService\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "bool Toolbox\&.Core\&.Abstractions\&.IDisposableService\&.IsDisposed\fR [get]\fP"
+
+.PP
+Gets a value indicating whether this service has been disposed\&. \fRtrue\fP if the service has been disposed; otherwise, \fRfalse\fP\&.
+
+.PP
+This property should be checked before performing any operation on the service\&. Operations on disposed services should throw ObjectDisposedException\&. 
+.PP
+Implemented in \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.PP
+Definition at line \fB32\fP of file \fBIDisposableService\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Abstractions\&.IDisposableService\&.ServiceName\fR [get]\fP"
+
+.PP
+Gets the unique name identifying this service instance\&. A human-readable name for logging and diagnostics\&.
+.PP
+Implemented in \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP\&.
+.PP
+Definition at line \fB22\fP of file \fBIDisposableService\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

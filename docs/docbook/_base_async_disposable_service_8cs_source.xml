@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__base_async_disposable_service_8cs_source" xml:lang="en-US">
+<title>BaseAsyncDisposableService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/BaseAsyncDisposableService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__base_async_disposable_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;BaseAsyncDisposableService.cs</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Abstract&#32;base&#32;class&#32;for&#32;asynchronously&#32;disposable&#32;services</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Extends&#32;BaseDisposableService&#32;with&#32;async&#32;disposal&#32;and&#32;cancellation&#32;support</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Derive&#32;from&#32;this&#32;class&#32;for&#32;services&#32;managing&#32;async&#32;resources&#32;(streams,&#32;connections,&#32;etc.)</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Toolbox.Core.Abstractions</link>;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00008"/>00008 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00009"/><link linkend="_namespace_toolbox_1_1_core_1_1_base">00009</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_base">Toolbox.Core.Base</link>;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00010"/>00010 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00028"/><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">00028</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">abstract</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link>&#32;:&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0">BaseDisposableService</link>,&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">IAsyncDisposableService</link>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00029"/>00029 {
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Flag&#32;indicating&#32;async&#32;disposal&#32;state&#32;(0&#32;=&#32;not&#32;disposed,&#32;1&#32;=&#32;disposing/disposed)</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;_asyncDisposed;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00032"/>00032 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;logger&#32;instance&#32;for&#32;this&#32;service</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;ILogger&#32;_logger;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00035"/>00035 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00044"/><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">00044</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link>(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;ILogger&#32;logger)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(serviceName,&#32;logger)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger&#32;=&#32;logger;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00049"/>00049 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00055"/><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">00055</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ValueTask&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link>()
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link>(CancellationToken.None);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00059"/>00059 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00061"/><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">00061</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;ValueTask&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">DisposeAsync</link>(CancellationToken&#32;cancellationToken)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(Interlocked.Exchange(ref&#32;_asyncDisposed,&#32;1)&#32;==&#32;1)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00067"/>00067 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">ActivitySource</link>.StartActivity($<emphasis role="stringliteral">&quot;{ServiceName}.DisposeAsync&quot;</emphasis>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;activity?.SetTag(TelemetryConstants.Attributes.ServiceName,&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00070"/>00070 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(<emphasis role="stringliteral">&quot;Service&#32;{ServiceName}&#32;disposing&#32;asynchronously&quot;</emphasis>,&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00072"/>00072 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">DisposeAsyncCore</link>(cancellationToken).ConfigureAwait(<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(OperationCanceledException)&#32;when&#32;(cancellationToken.IsCancellationRequested)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogWarning(<emphasis role="stringliteral">&quot;Async&#32;disposal&#32;of&#32;{ServiceName}&#32;was&#32;cancelled&quot;</emphasis>,&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;activity?.SetStatus(ActivityStatusCode.Error,&#32;<emphasis role="stringliteral">&quot;Disposal&#32;cancelled&quot;</emphasis>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(ex,&#32;<emphasis role="stringliteral">&quot;Error&#32;during&#32;async&#32;disposal&#32;of&#32;{ServiceName}&quot;</emphasis>,&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;activity?.SetStatus(ActivityStatusCode.Error,&#32;ex.Message);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">finally</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link>(disposing:&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;GC.SuppressFinalize(<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00093"/>00093 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordDisposal(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;<emphasis role="stringliteral">&quot;async&quot;</emphasis>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00097"/>00097 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00115"/><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">00115</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keyword">virtual</emphasis>&#32;ValueTask&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">DisposeAsyncCore</link>(CancellationToken&#32;cancellationToken)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ValueTask.CompletedTask;
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00119"/>00119 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00125"/><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">00125</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keyword">override</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">Dispose</link>(<emphasis role="keywordtype">bool</emphasis>&#32;disposing)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(disposing&#32;&amp;&amp;&#32;Volatile.Read(ref&#32;_asyncDisposed)&#32;==&#32;0)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;If&#32;synchronous&#32;Dispose&#32;is&#32;called&#32;before&#32;DisposeAsync,</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;run&#32;the&#32;async&#32;disposal&#32;synchronously</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link>(CancellationToken.None).AsTask().GetAwaiter().GetResult();
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(ex,&#32;<emphasis role="stringliteral">&quot;Error&#32;during&#32;synchronous&#32;disposal&#32;of&#32;async&#32;service&#32;{ServiceName}&quot;</emphasis>,&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00140"/>00140 
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base.Dispose(disposing);
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_async_disposable_service_8cs_source_1l00143"/>00143 }
+</programlisting></section>

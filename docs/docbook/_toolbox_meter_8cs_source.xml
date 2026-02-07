@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__toolbox_meter_8cs_source" xml:lang="en-US">
+<title>ToolboxMeter.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/ToolboxMeter.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__toolbox_meter_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;ToolboxMeter.cs</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Shared&#32;Meter&#32;for&#32;metrics&#32;collection</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Provides&#32;a&#32;singleton&#32;Meter&#32;and&#32;pre-defined&#32;instruments&#32;for&#32;Toolbox&#32;services</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Use&#32;this&#32;meter&#32;for&#32;creating&#32;counters,&#32;histograms,&#32;and&#32;gauges&#32;in&#32;service&#32;implementations</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00005"/>00005 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00007"/>00007 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00020"/>00020 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>ToolboxMeter
+<anchor xml:id="__toolbox_meter_8cs_source_1l00021"/>00021 {
+<anchor xml:id="__toolbox_meter_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;thread-safe&#32;singleton&#32;meter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Meter&gt;&#32;LazyMeter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;Meter(TelemetryConstants.MeterName,&#32;TelemetryConstants.Version),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00026"/>00026 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;operation&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyOperationCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.OperationCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{operations}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;operations&#32;performed&#32;by&#32;Toolbox&#32;services&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00034"/>00034 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;operation&#32;duration&#32;histogram</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Histogram&lt;double&gt;&gt;&#32;LazyOperationDuration&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateHistogram&lt;<emphasis role="keywordtype">double</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.OperationDuration,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;ms&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Duration&#32;of&#32;operations&#32;performed&#32;by&#32;Toolbox&#32;services&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00042"/>00042 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;disposal&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyDisposalCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.DisposalCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{disposals}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;service&#32;disposal&#32;events&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00050"/>00050 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;active&#32;instances&#32;gauge</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;UpDownCounter&lt;long&gt;&gt;&#32;LazyActiveInstances&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateUpDownCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.ActiveInstances,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{instances}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;active&#32;Toolbox&#32;service&#32;instances&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00058"/>00058 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;crypto&#32;encrypt&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyCryptoEncryptCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.CryptoEncryptCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{operations}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;encryption&#32;operations&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00066"/>00066 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;crypto&#32;decrypt&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyCryptoDecryptCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.CryptoDecryptCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{operations}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;decryption&#32;operations&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00074"/>00074 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;crypto&#32;data&#32;size&#32;histogram</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Histogram&lt;long&gt;&gt;&#32;LazyCryptoDataSize&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateHistogram&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.CryptoDataSize,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;By&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Size&#32;of&#32;encrypted/decrypted&#32;data&#32;in&#32;bytes&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00082"/>00082 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;file&#32;transfer&#32;upload&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyFileTransferUploadCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.FileTransferUploadCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{files}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;file&#32;upload&#32;operations&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00090"/>00090 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;file&#32;transfer&#32;download&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyFileTransferDownloadCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.FileTransferDownloadCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{files}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;file&#32;download&#32;operations&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00098"/>00098 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;file&#32;transfer&#32;size&#32;histogram</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Histogram&lt;long&gt;&gt;&#32;LazyFileTransferSize&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateHistogram&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.FileTransferSize,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;By&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Size&#32;of&#32;transferred&#32;files&#32;in&#32;bytes&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00106"/>00106 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;file&#32;transfer&#32;error&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyFileTransferErrorCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.FileTransferErrorCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{errors}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;file&#32;transfer&#32;errors&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00114"/>00114 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;email&#32;sent&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyEmailSentCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.EmailSentCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{emails}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;emails&#32;sent&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00122"/>00122 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lazy&#32;initializer&#32;for&#32;API&#32;request&#32;counter</emphasis>
+<anchor xml:id="__toolbox_meter_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;readonly&#32;Lazy&lt;Counter&lt;long&gt;&gt;&#32;LazyApiRequestCounter&#32;=&#32;<emphasis role="keyword">new</emphasis>(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;()&#32;=&gt;&#32;Instance.CreateCounter&lt;<emphasis role="keywordtype">long</emphasis>&gt;(
+<anchor xml:id="__toolbox_meter_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.ApiRequestCount,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unit:&#32;<emphasis role="stringliteral">&quot;{requests}&quot;</emphasis>,
+<anchor xml:id="__toolbox_meter_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;description:&#32;<emphasis role="stringliteral">&quot;Number&#32;of&#32;API&#32;requests&quot;</emphasis>),
+<anchor xml:id="__toolbox_meter_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyThreadSafetyMode.ExecutionAndPublication);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00130"/>00130 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Meter&#32;Instance&#32;=&gt;&#32;LazyMeter.Value;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00136"/>00136 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Name&#32;=&gt;&#32;TelemetryConstants.MeterName;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00142"/>00142 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Version&#32;=&gt;&#32;TelemetryConstants.Version;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00148"/>00148 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Counter&lt;long&gt;&#32;OperationCounter&#32;=&gt;&#32;LazyOperationCounter.Value;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00154"/>00154 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Histogram&lt;double&gt;&#32;OperationDuration&#32;=&gt;&#32;LazyOperationDuration.Value;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00160"/>00160 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Counter&lt;long&gt;&#32;DisposalCounter&#32;=&gt;&#32;LazyDisposalCounter.Value;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00166"/>00166 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;UpDownCounter&lt;long&gt;&#32;ActiveInstances&#32;=&gt;&#32;LazyActiveInstances.Value;
+<anchor xml:id="__toolbox_meter_8cs_source_1l00172"/>00172 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordOperation(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;operationName,&#32;<emphasis role="keywordtype">double</emphasis>&#32;durationMs)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.OperationName,&#32;operationName&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00186"/>00186 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;OperationCounter.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;OperationDuration.Record(durationMs,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00190"/>00190 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordDisposal(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>?&#32;reason&#32;=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00202"/>00202 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(reason&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tags.Add(TelemetryConstants.Attributes.DisposalReason,&#32;reason);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00207"/>00207 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DisposalCounter.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ActiveInstances.Add(-1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00211"/>00211 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;IncrementActiveInstances(<emphasis role="keywordtype">string</emphasis>&#32;serviceName)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00217"/>00217 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00222"/>00222 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ActiveInstances.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00224"/>00224 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00225"/>00225 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordEncryption(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;algorithm,&#32;<emphasis role="keywordtype">long</emphasis>&#32;dataSize,&#32;<emphasis role="keywordtype">int</emphasis>?&#32;keySize&#32;=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00234"/>00234 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.CryptoAttributes.Algorithm,&#32;algorithm&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00240"/>00240 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(keySize.HasValue)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tags.Add(TelemetryConstants.CryptoAttributes.KeySize,&#32;keySize.Value);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00245"/>00245 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyCryptoEncryptCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyCryptoDataSize.Value.Record(dataSize,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00248"/>00248 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00249"/>00249 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00257"/>00257 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordDecryption(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;algorithm,&#32;<emphasis role="keywordtype">long</emphasis>&#32;dataSize,&#32;<emphasis role="keywordtype">int</emphasis>?&#32;keySize&#32;=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00258"/>00258 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00262"/>00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.CryptoAttributes.Algorithm,&#32;algorithm&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00264"/>00264 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(keySize.HasValue)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00267"/>00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tags.Add(TelemetryConstants.CryptoAttributes.KeySize,&#32;keySize.Value);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00269"/>00269 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyCryptoDecryptCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyCryptoDataSize.Value.Record(dataSize,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00272"/>00272 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00273"/>00273 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00281"/>00281 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordFileUpload(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;protocol,&#32;<emphasis role="keywordtype">string</emphasis>&#32;host,&#32;<emphasis role="keywordtype">long</emphasis>&#32;fileSize)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00282"/>00282 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Protocol,&#32;protocol&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Host,&#32;host&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Direction,&#32;<emphasis role="stringliteral">&quot;upload&quot;</emphasis>&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00290"/>00290 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyFileTransferUploadCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyFileTransferSize.Value.Record(fileSize,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00293"/>00293 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00294"/>00294 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00302"/>00302 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordFileDownload(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;protocol,&#32;<emphasis role="keywordtype">string</emphasis>&#32;host,&#32;<emphasis role="keywordtype">long</emphasis>&#32;fileSize)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00303"/>00303 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00304"/>00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00305"/>00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00306"/>00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Protocol,&#32;protocol&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Host,&#32;host&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00309"/>00309 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Direction,&#32;<emphasis role="stringliteral">&quot;download&quot;</emphasis>&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00310"/>00310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00311"/>00311 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyFileTransferDownloadCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00313"/>00313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyFileTransferSize.Value.Record(fileSize,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00314"/>00314 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00315"/>00315 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00324"/>00324 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordFileTransferError(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;protocol,&#32;<emphasis role="keywordtype">string</emphasis>&#32;host,&#32;<emphasis role="keywordtype">string</emphasis>&#32;direction,&#32;<emphasis role="keywordtype">string</emphasis>&#32;errorType)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00325"/>00325 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Protocol,&#32;protocol&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Host,&#32;host&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.FileTransferAttributes.Direction,&#32;direction&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ErrorType,&#32;errorType&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00334"/>00334 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00335"/>00335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyFileTransferErrorCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00336"/>00336 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00337"/>00337 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00346"/>00346 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordEmailSent(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;host,&#32;<emphasis role="keywordtype">int</emphasis>&#32;recipientCount,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;hasAttachments,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isHtml)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00347"/>00347 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00349"/>00349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.MailingAttributes.Host,&#32;host&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.MailingAttributes.Recipients,&#32;recipientCount&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.MailingAttributes.HasAttachments,&#32;hasAttachments&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00354"/>00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.MailingAttributes.IsHtml,&#32;isHtml&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00356"/>00356 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00357"/>00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyEmailSentCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00358"/>00358 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00359"/>00359 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00367"/>00367 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordApiRequest(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;<emphasis role="keywordtype">string</emphasis>&#32;httpMethod,&#32;<emphasis role="keywordtype">int</emphasis>&#32;statusCode,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isSuccess)
+<anchor xml:id="__toolbox_meter_8cs_source_1l00368"/>00368 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00369"/>00369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tags&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TagList
+<anchor xml:id="__toolbox_meter_8cs_source_1l00370"/>00370 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__toolbox_meter_8cs_source_1l00371"/>00371 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.Attributes.ServiceName,&#32;serviceName&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00372"/>00372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.ApiAttributes.HttpMethod,&#32;httpMethod&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00373"/>00373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.ApiAttributes.HttpStatusCode,&#32;statusCode&#32;},
+<anchor xml:id="__toolbox_meter_8cs_source_1l00374"/>00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;TelemetryConstants.ApiAttributes.HttpSuccess,&#32;isSuccess&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__toolbox_meter_8cs_source_1l00376"/>00376 
+<anchor xml:id="__toolbox_meter_8cs_source_1l00377"/>00377 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LazyApiRequestCounter.Value.Add(1,&#32;tags);
+<anchor xml:id="__toolbox_meter_8cs_source_1l00378"/>00378 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__toolbox_meter_8cs_source_1l00379"/>00379 }
+</programlisting></section>

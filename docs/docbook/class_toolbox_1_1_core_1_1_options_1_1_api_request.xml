@@ -1,0 +1,1134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request" xml:lang="en-US">
+<title>Toolbox.Core.Options.ApiRequest Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary></indexterm>
+<para>
+
+<para>Represents an HTTP API request. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> (string method, string url)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> class. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea">WithHeader</link> (string name, string value)</para>
+
+<para>Adds a header to the request. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9">WithQuery</link> (string name, string value)</para>
+
+<para>Adds a query parameter to the request. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1addb19820383e6d8a450841a49522ec82">WithTimeout</link> (TimeSpan timeout)</para>
+
+<para>Sets a custom timeout for this request. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6062cb6723b3dfbd0aaeba357ddf6365">SetJsonContent&lt; T &gt;</link> (T body, JsonSerializerOptions? options=null)</para>
+
+<para>Sets JSON content for the request body. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f06d44684caeb91b514078f9285003f">SetStringContent</link> (string content, string contentType=&quot;text/plain&quot;)</para>
+
+<para>Sets string content for the request body. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f54de7d78e3039400d846a5a6350071">SetFormContent</link> (IEnumerable&lt; KeyValuePair&lt; string, string &gt; &gt; formData)</para>
+
+<para>Sets form URL-encoded content for the request body. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a5d6dece7eb8a858c68da4662b33e62d4">SetBinaryContent</link> (byte[] bytes, string contentType=&quot;application/octet-stream&quot;)</para>
+
+<para>Sets binary content for the request body. </para>
+</listitem>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a4b421958cd4ae4ca01f43342be5722bd">SetStreamContent</link> (Stream stream, string contentType=&quot;application/octet-stream&quot;)</para>
+
+<para>Sets stream content for the request body. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e">BuildUrl</link> ()</para>
+
+<para>Builds the full URL with query parameters. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link> (string url)</para>
+
+<para>Creates a GET request. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2ea4daa4d8de703288c4f3c80d7c4ccf">Post&lt; T &gt;</link> (string url, T body, JsonSerializerOptions? options=null)</para>
+
+<para>Creates a POST request with JSON content. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link> (string url)</para>
+
+<para>Creates a POST request. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ad246e7b922cfe5fa71f2acf44f79592a">Put&lt; T &gt;</link> (string url, T body, JsonSerializerOptions? options=null)</para>
+
+<para>Creates a PUT request with JSON content. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab09b7cc8b377bd225d976fa846631ce4">Put</link> (string url)</para>
+
+<para>Creates a PUT request. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a300af8f887a6751cc77ac59dba56b587">Patch&lt; T &gt;</link> (string url, T body, JsonSerializerOptions? options=null)</para>
+
+<para>Creates a PATCH request with JSON content. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a7bd68f324636e566840020c0a6ac88e3">Patch</link> (string url)</para>
+
+<para>Creates a PATCH request. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6e1f77a9bb4eb5dd123961e26c2c300f">Delete</link> (string url)</para>
+
+<para>Creates a DELETE request. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a1bb959460ddb0199ab46d06fc901d92a">Head</link> (string url)</para>
+
+<para>Creates a HEAD request. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1acf3890bc53a094393fbbf1a4cab61308">Options</link> (string url)</para>
+
+<para>Creates an OPTIONS request. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the HTTP method. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae51362d8d5c7b263d9807ed1af4c08a6">Url</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the request URL or path. </para>
+</listitem>
+            <listitem><para>HttpContent? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6">Content</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the request body content. </para>
+</listitem>
+            <listitem><para>IDictionary&lt; string, string &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1af06149ec3b36c0585349a67fff366b03">Headers</link> = new Dictionary&lt;string, string&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the request headers. </para>
+</listitem>
+            <listitem><para>IDictionary&lt; string, string &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae2398a82589a5b98dc9d2f0595ecddcd">QueryParameters</link> = new Dictionary&lt;string, string&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the query parameters. </para>
+</listitem>
+            <listitem><para>TimeSpan? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1acb63d053a186e922ca0c4c75ffc8a129">Timeout</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the request timeout override. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents an HTTP API request. </para>
+
+
+
+<para>This class encapsulates all the data needed to make an HTTP request, including URL, method, headers, and body content. </para>
+
+<para><literallayout><computeroutput><emphasis role="comment">//&#32;GET&#32;request</emphasis>
+var&#32;request&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link>(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+
+<emphasis role="comment">//&#32;POST&#32;with&#32;JSON&#32;body</emphasis>
+var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link>.Post(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;{&#32;Name&#32;=&#32;<emphasis role="stringliteral">&quot;John&quot;</emphasis>&#32;});
+
+<emphasis role="comment">//&#32;With&#32;custom&#32;headers</emphasis>
+var&#32;request&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link>(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/data&quot;</emphasis>)
+&#32;&#32;&#32;&#32;.WithHeader(<emphasis role="stringliteral">&quot;X-Custom&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;value&quot;</emphasis>);
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00033">33</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735"/><section>
+    <title>ApiRequest()</title>
+<indexterm><primary>ApiRequest</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>ApiRequest</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Options.ApiRequest.ApiRequest (string method, string url)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>method</entry><entry>
+<para>The HTTP method.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when parameters are <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00077">77</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e"/><section>
+    <title>BuildUrl()</title>
+<indexterm><primary>BuildUrl</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>BuildUrl</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.ApiRequest.BuildUrl ( )</computeroutput></para><para>
+
+<para>Builds the full URL with query parameters. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The URL with query string.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00282">282</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6e1f77a9bb4eb5dd123961e26c2c300f"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Delete (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a DELETE request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00164">164</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1"/><section>
+    <title>Get()</title>
+<indexterm><primary>Get</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Get</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Get (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a GET request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00091">91</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a1bb959460ddb0199ab46d06fc901d92a"/><section>
+    <title>Head()</title>
+<indexterm><primary>Head</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Head</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Head (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a HEAD request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00171">171</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1acf3890bc53a094393fbbf1a4cab61308"/><section>
+    <title>Options()</title>
+<indexterm><primary>Options</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Options</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Options (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an OPTIONS request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00178">178</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a7bd68f324636e566840020c0a6ac88e3"/><section>
+    <title>Patch()</title>
+<indexterm><primary>Patch</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Patch</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Patch (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a PATCH request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00157">157</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a300af8f887a6751cc77ac59dba56b587"/><section>
+    <title>Patch&lt; T &gt;()</title>
+<indexterm><primary>Patch&lt; T &gt;</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Patch&lt; T &gt;</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a7bd68f324636e566840020c0a6ac88e3">Toolbox.Core.Options.ApiRequest.Patch</link>&lt; T &gt; (string url, T body, JsonSerializerOptions? options = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a PATCH request with JSON content. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>body</entry><entry>
+<para>The request body.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>options</entry><entry>
+<para>JSON serializer options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00145">145</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a"/><section>
+    <title>Post()</title>
+<indexterm><primary>Post</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Post</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Post (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a POST request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00113">113</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2ea4daa4d8de703288c4f3c80d7c4ccf"/><section>
+    <title>Post&lt; T &gt;()</title>
+<indexterm><primary>Post&lt; T &gt;</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Post&lt; T &gt;</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Toolbox.Core.Options.ApiRequest.Post</link>&lt; T &gt; (string url, T body, JsonSerializerOptions? options = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a POST request with JSON content. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>body</entry><entry>
+<para>The request body.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>options</entry><entry>
+<para>JSON serializer options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00101">101</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab09b7cc8b377bd225d976fa846631ce4"/><section>
+    <title>Put()</title>
+<indexterm><primary>Put</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Put</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.Put (string url)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a PUT request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00135">135</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ad246e7b922cfe5fa71f2acf44f79592a"/><section>
+    <title>Put&lt; T &gt;()</title>
+<indexterm><primary>Put&lt; T &gt;</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Put&lt; T &gt;</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab09b7cc8b377bd225d976fa846631ce4">Toolbox.Core.Options.ApiRequest.Put</link>&lt; T &gt; (string url, T body, JsonSerializerOptions? options = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a PUT request with JSON content. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>url</entry><entry>
+<para>The URL or path.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>body</entry><entry>
+<para>The request body.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>options</entry><entry>
+<para>JSON serializer options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00123">123</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a5d6dece7eb8a858c68da4662b33e62d4"/><section>
+    <title>SetBinaryContent()</title>
+<indexterm><primary>SetBinaryContent</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>SetBinaryContent</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.SetBinaryContent (byte[] bytes, string contentType = <computeroutput>&quot;application/octet-stream&quot;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Sets binary content for the request body. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bytes</entry><entry>
+<para>The byte array.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentType</entry><entry>
+<para>The content type. Default is &quot;application/octet-stream&quot;.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00258">258</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f54de7d78e3039400d846a5a6350071"/><section>
+    <title>SetFormContent()</title>
+<indexterm><primary>SetFormContent</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>SetFormContent</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.SetFormContent (IEnumerable&lt; KeyValuePair&lt; string, string &gt; &gt; formData)</computeroutput></para><para>
+
+<para>Sets form URL-encoded content for the request body. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>formData</entry><entry>
+<para>The form data.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00246">246</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6062cb6723b3dfbd0aaeba357ddf6365"/><section>
+    <title>SetJsonContent&lt; T &gt;()</title>
+<indexterm><primary>SetJsonContent&lt; T &gt;</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>SetJsonContent&lt; T &gt;</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.SetJsonContent&lt; T &gt; (T body, JsonSerializerOptions? options = <computeroutput>null</computeroutput>
+)</computeroutput></para><para>
+
+<para>Sets JSON content for the request body. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The body type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>body</entry><entry>
+<para>The request body.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>options</entry><entry>
+<para>JSON serializer options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00222">222</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a4b421958cd4ae4ca01f43342be5722bd"/><section>
+    <title>SetStreamContent()</title>
+<indexterm><primary>SetStreamContent</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>SetStreamContent</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.SetStreamContent (Stream stream, string contentType = <computeroutput>&quot;application/octet-stream&quot;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Sets stream content for the request body. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>stream</entry><entry>
+<para>The stream.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentType</entry><entry>
+<para>The content type. Default is &quot;application/octet-stream&quot;.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00271">271</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f06d44684caeb91b514078f9285003f"/><section>
+    <title>SetStringContent()</title>
+<indexterm><primary>SetStringContent</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>SetStringContent</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.SetStringContent (string content, string contentType = <computeroutput>&quot;text/plain&quot;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Sets string content for the request body. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>content</entry><entry>
+<para>The content string.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentType</entry><entry>
+<para>The content type. Default is &quot;text/plain&quot;.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00235">235</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea"/><section>
+    <title>WithHeader()</title>
+<indexterm><primary>WithHeader</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>WithHeader</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.WithHeader (string name, string value)</computeroutput></para><para>
+
+<para>Adds a header to the request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name</entry><entry>
+<para>The header name.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>The header value.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00186">186</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9"/><section>
+    <title>WithQuery()</title>
+<indexterm><primary>WithQuery</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>WithQuery</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.WithQuery (string name, string value)</computeroutput></para><para>
+
+<para>Adds a query parameter to the request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name</entry><entry>
+<para>The parameter name.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>The parameter value.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00198">198</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1addb19820383e6d8a450841a49522ec82"/><section>
+    <title>WithTimeout()</title>
+<indexterm><primary>WithTimeout</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>WithTimeout</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab58a94b0c5dfaa5cc9af263283273735">ApiRequest</link> Toolbox.Core.Options.ApiRequest.WithTimeout (TimeSpan timeout)</computeroutput></para><para>
+
+<para>Sets a custom timeout for this request. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>timeout</entry><entry>
+<para>The timeout.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>This request for chaining.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00209">209</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6"/><section>
+    <title>Content</title>
+<indexterm><primary>Content</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Content</secondary></indexterm>
+<para><computeroutput>HttpContent? Toolbox.Core.Options.ApiRequest.Content<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the request body content. </para>
+</para>
+
+<para>The body content, or <computeroutput>null</computeroutput> for no body.</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00051">51</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1af06149ec3b36c0585349a67fff366b03"/><section>
+    <title>Headers</title>
+<indexterm><primary>Headers</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Headers</secondary></indexterm>
+<para><computeroutput>IDictionary&lt;string, string&gt; Toolbox.Core.Options.ApiRequest.Headers = new Dictionary&lt;string, string&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the request headers. </para>
+</para>
+
+<para>Dictionary of header names and values.</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00057">57</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97"/><section>
+    <title>Method</title>
+<indexterm><primary>Method</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Method</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.ApiRequest.Method<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the HTTP method. </para>
+</para>
+
+<para>The HTTP method (GET, POST, PUT, DELETE, etc.).</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00039">39</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae2398a82589a5b98dc9d2f0595ecddcd"/><section>
+    <title>QueryParameters</title>
+<indexterm><primary>QueryParameters</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>QueryParameters</secondary></indexterm>
+<para><computeroutput>IDictionary&lt;string, string&gt; Toolbox.Core.Options.ApiRequest.QueryParameters = new Dictionary&lt;string, string&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the query parameters. </para>
+</para>
+
+<para>Dictionary of query parameter names and values.</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00063">63</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1acb63d053a186e922ca0c4c75ffc8a129"/><section>
+    <title>Timeout</title>
+<indexterm><primary>Timeout</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Timeout</secondary></indexterm>
+<para><computeroutput>TimeSpan? Toolbox.Core.Options.ApiRequest.Timeout<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the request timeout override. </para>
+</para>
+
+<para>Custom timeout, or <computeroutput>null</computeroutput> to use default.</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00069">69</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae51362d8d5c7b263d9807ed1af4c08a6"/><section>
+    <title>Url</title>
+<indexterm><primary>Url</primary><secondary>Toolbox.Core.Options.ApiRequest</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiRequest</primary><secondary>Url</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.ApiRequest.Url<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the request URL or path. </para>
+</para>
+
+<para>The URL or path. Can be relative if base URL is configured.</para>
+<para>
+Definition at line <link linkend="__api_request_8cs_source_1l00045">45</link> of file <link linkend="__api_request_8cs_source">ApiRequest.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__api_request_8cs">ApiRequest.cs</link></section>
+</section>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__rsa_key_size_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeySize.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeySize.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">Toolbox.Core.Options.RsaKeySize</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21">Toolbox.Core.Options.Rsa512</link> = 512
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395">Toolbox.Core.Options.Rsa1024</link> = 1024
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a">Toolbox.Core.Options.Rsa2048</link> = 2048
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433">Toolbox.Core.Options.Rsa4096</link> = 4096
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3">Toolbox.Core.Options.Rsa8192</link> = 8192
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d">Toolbox.Core.Options.Rsa16384</link> = 16384
+ }</para>
+
+<para>Specifies the RSA key size in bits. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

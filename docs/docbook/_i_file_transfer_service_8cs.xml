@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__i_file_transfer_service_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IFileTransferService.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_file_transfer_service">Toolbox.Core.Abstractions.Services.IFileTransferService</link></para>
+
+<para>Defines the contract for file transfer services supporting FTP and SFTP protocols. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Toolbox.Core.Abstractions</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

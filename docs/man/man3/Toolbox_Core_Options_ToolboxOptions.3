@@ -1,0 +1,90 @@
+.TH "Toolbox.Core.Options.ToolboxOptions" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.ToolboxOptions \- Configuration options for \fBToolbox\fP core services\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const string \fBSectionName\fP = 'Toolbox'"
+.br
+.RI "The configuration section name for \fBToolbox\fP options\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "bool \fBEnableDetailedTelemetry\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether detailed telemetry should be enabled\&. "
+.ti -1c
+.RI "string? \fBServicePrefix\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the prefix to use for service names in telemetry\&. "
+.ti -1c
+.RI "TimeSpan \fBAsyncDisposalTimeout\fP = TimeSpan\&.FromSeconds(30)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the default timeout for async disposal operations\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration options for \fBToolbox\fP core services\&. 
+
+These options can be configured via \fRappsettings\&.json\fP: 
+.PP
+.nf
+{
+  "Toolbox": {
+    "EnableDetailedTelemetry": true,
+    "ServicePrefix": "MyApp"
+  }
+}
+
+.fi
+.PP
+ 
+.PP
+Definition at line \fB22\fP of file \fBToolboxOptions\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const string Toolbox\&.Core\&.Options\&.ToolboxOptions\&.SectionName = 'Toolbox'\fR [static]\fP"
+
+.PP
+The configuration section name for \fBToolbox\fP options\&. 
+.PP
+Definition at line \fB27\fP of file \fBToolboxOptions\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.ToolboxOptions\&.AsyncDisposalTimeout = TimeSpan\&.FromSeconds(30)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the default timeout for async disposal operations\&. The timeout duration\&. Defaults to 30 seconds\&. 
+.PP
+Definition at line \fB59\fP of file \fBToolboxOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ToolboxOptions\&.EnableDetailedTelemetry\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether detailed telemetry should be enabled\&. \fRtrue\fP to enable detailed telemetry including all operations; \fRfalse\fP for minimal telemetry\&. Defaults to \fRfalse\fP\&. 
+
+.PP
+When enabled, additional spans and metrics are recorded for internal operations\&. This may increase telemetry volume but provides better debugging capabilities\&. 
+.PP
+Definition at line \fB40\fP of file \fBToolboxOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ToolboxOptions\&.ServicePrefix\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the prefix to use for service names in telemetry\&. A string prefix prepended to service names\&. Defaults to \fRnull\fP (no prefix)\&. 
+
+.PP
+Use this to distinguish services from different applications using the same \fBToolbox\fP library\&. 
+.PP
+Definition at line \fB51\fP of file \fBToolboxOptions\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">AesCryptographyService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a910962a858913f34b34eb0166d142524">AesCryptographyServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a84eef0da88771aed048ede1d870a4964">GenerateKey_WithAes128_ShouldReturn16ByteKey</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a28c91aa5187dccada8327844bdbb5719">GenerateKey_WithAes192_ShouldReturn24ByteKey</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1abad8ffe514a61b2708bfdf27cda85049">GenerateKey_WithAes256_ShouldReturn32ByteKey</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9e4b6b19effe32e744a6cb78d3f99100">GenerateKey_WithIntKeySize_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad6bbbfdec6de00f88ef5b39b40b4df3f">GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</link> (int invalidKeySize)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a997c471d42262a6025a93c937995383d">GenerateKey_ShouldGenerateUniqueKeys</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a57f11279df1efac66945c49c803b0f67">Constructor_WithNullKey_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af4ea51f86d8eb14e4b184a5a64db404a">Constructor_WithNullIv_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a2ce4216157866472d8db1fece341a409">Constructor_WithInvalidKeySize_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1b5f0a8a3f3913aad6737325598667ad">Constructor_WithInvalidIvSize_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ab4ba7356408aa0e1a185ef8385b07356">Encrypt_ShouldReturnBase64String</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1a07704d88a1b618a360d1ee8b40d72f">Encrypt_ThenDecrypt_ShouldReturnOriginalText</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1aff428bbab44961c0a2dfc126880d315b">Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</link> (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link> keySize)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1acaedc9e21d57ebd8691b015f05c2c3ac">Encrypt_WithSameInput_ShouldProduceSameOutput</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a116877c143e329dc8d22195faf37573e">Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af446010a39f04d103be3940818b3b9d8">Decrypt_WithWrongKey_ShouldThrowFormatException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad2b1fc1b8c886653bbd02a2f61da6019">Encrypt_WithNullText_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae74e0b3d522295369bdc5669c5a426c8">Decrypt_WithNullText_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1debd900c8def91cbaa59c15e0833aee">Decrypt_WithInvalidBase64_ShouldThrowFormatException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9f434f527a6b9b86525cb07d5ea6a6d2">EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a618d102a6b358be51aceaaaed48f8630">EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a4f99578cb215ad129a90ed70efb56762">Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a0f6a48cbc0bcf5c3749936ebd5449acf">Encrypt_WithEmptyString_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae0eaf0449f97c9174eb42365476d8dc5">Encrypt_WithUnicodeText_ShouldHandleCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a67da4707905842daac27a925caa8d49f">Encrypt_WithLargeText_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a5bbd33bfa303231211f81d1ad7460c5d">DisposeAsync_ShouldClearSensitiveData</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">AesCryptographyService</link>. </para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00010">10</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a910962a858913f34b34eb0166d142524"/><section>
+    <title>AesCryptographyServiceTests()</title>
+<indexterm><primary>AesCryptographyServiceTests</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>AesCryptographyServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.AesCryptographyServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00014">14</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1b5f0a8a3f3913aad6737325598667ad"/><section>
+    <title>Constructor_WithInvalidIvSize_ShouldThrowArgumentException()</title>
+<indexterm><primary>Constructor_WithInvalidIvSize_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Constructor_WithInvalidIvSize_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithInvalidIvSize_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00129">129</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a2ce4216157866472d8db1fece341a409"/><section>
+    <title>Constructor_WithInvalidKeySize_ShouldThrowArgumentException()</title>
+<indexterm><primary>Constructor_WithInvalidKeySize_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Constructor_WithInvalidKeySize_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithInvalidKeySize_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00115">115</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af4ea51f86d8eb14e4b184a5a64db404a"/><section>
+    <title>Constructor_WithNullIv_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullIv_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Constructor_WithNullIv_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithNullIv_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00102">102</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a57f11279df1efac66945c49c803b0f67"/><section>
+    <title>Constructor_WithNullKey_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullKey_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Constructor_WithNullKey_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Constructor_WithNullKey_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00089">89</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1debd900c8def91cbaa59c15e0833aee"/><section>
+    <title>Decrypt_WithInvalidBase64_ShouldThrowFormatException()</title>
+<indexterm><primary>Decrypt_WithInvalidBase64_ShouldThrowFormatException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Decrypt_WithInvalidBase64_ShouldThrowFormatException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00274">274</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae74e0b3d522295369bdc5669c5a426c8"/><section>
+    <title>Decrypt_WithNullText_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Decrypt_WithNullText_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Decrypt_WithNullText_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00260">260</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1af446010a39f04d103be3940818b3b9d8"/><section>
+    <title>Decrypt_WithWrongKey_ShouldThrowFormatException()</title>
+<indexterm><primary>Decrypt_WithWrongKey_ShouldThrowFormatException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Decrypt_WithWrongKey_ShouldThrowFormatException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Decrypt_WithWrongKey_ShouldThrowFormatException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00228">228</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a5bbd33bfa303231211f81d1ad7460c5d"/><section>
+    <title>DisposeAsync_ShouldClearSensitiveData()</title>
+<indexterm><primary>DisposeAsync_ShouldClearSensitiveData</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>DisposeAsync_ShouldClearSensitiveData</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.DisposeAsync_ShouldClearSensitiveData ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00382">382</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ab4ba7356408aa0e1a185ef8385b07356"/><section>
+    <title>Encrypt_ShouldReturnBase64String()</title>
+<indexterm><primary>Encrypt_ShouldReturnBase64String</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_ShouldReturnBase64String</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ShouldReturnBase64String ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00143">143</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a1a07704d88a1b618a360d1ee8b40d72f"/><section>
+    <title>Encrypt_ThenDecrypt_ShouldReturnOriginalText()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_ShouldReturnOriginalText</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_ShouldReturnOriginalText</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00159">159</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1aff428bbab44961c0a2dfc126880d315b"/><section>
+    <title>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_ThenDecrypt_WithDifferentKeySizes_ShouldWork (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link> keySize)</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00178">178</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a4f99578cb215ad129a90ed70efb56762"/><section>
+    <title>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00320">320</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a116877c143e329dc8d22195faf37573e"/><section>
+    <title>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput()</title>
+<indexterm><primary>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithDifferentKeys_ShouldProduceDifferentOutput ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00210">210</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a0f6a48cbc0bcf5c3749936ebd5449acf"/><section>
+    <title>Encrypt_WithEmptyString_ShouldWork()</title>
+<indexterm><primary>Encrypt_WithEmptyString_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WithEmptyString_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithEmptyString_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00335">335</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a67da4707905842daac27a925caa8d49f"/><section>
+    <title>Encrypt_WithLargeText_ShouldWork()</title>
+<indexterm><primary>Encrypt_WithLargeText_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WithLargeText_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithLargeText_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00366">366</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad2b1fc1b8c886653bbd02a2f61da6019"/><section>
+    <title>Encrypt_WithNullText_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Encrypt_WithNullText_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WithNullText_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00246">246</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1acaedc9e21d57ebd8691b015f05c2c3ac"/><section>
+    <title>Encrypt_WithSameInput_ShouldProduceSameOutput()</title>
+<indexterm><primary>Encrypt_WithSameInput_ShouldProduceSameOutput</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WithSameInput_ShouldProduceSameOutput</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithSameInput_ShouldProduceSameOutput ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00194">194</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ae0eaf0449f97c9174eb42365476d8dc5"/><section>
+    <title>Encrypt_WithUnicodeText_ShouldHandleCorrectly()</title>
+<indexterm><primary>Encrypt_WithUnicodeText_ShouldHandleCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>Encrypt_WithUnicodeText_ShouldHandleCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00350">350</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9f434f527a6b9b86525cb07d5ea6a6d2"/><section>
+    <title>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText()</title>
+<indexterm><primary>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.EncryptAsync_ThenDecryptAsync_ShouldReturnOriginalText ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00288">288</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a618d102a6b358be51aceaaaed48f8630"/><section>
+    <title>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00304">304</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a997c471d42262a6025a93c937995383d"/><section>
+    <title>GenerateKey_ShouldGenerateUniqueKeys()</title>
+<indexterm><primary>GenerateKey_ShouldGenerateUniqueKeys</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>GenerateKey_ShouldGenerateUniqueKeys</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_ShouldGenerateUniqueKeys ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00077">77</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a84eef0da88771aed048ede1d870a4964"/><section>
+    <title>GenerateKey_WithAes128_ShouldReturn16ByteKey()</title>
+<indexterm><primary>GenerateKey_WithAes128_ShouldReturn16ByteKey</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>GenerateKey_WithAes128_ShouldReturn16ByteKey</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes128_ShouldReturn16ByteKey ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00020">20</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a28c91aa5187dccada8327844bdbb5719"/><section>
+    <title>GenerateKey_WithAes192_ShouldReturn24ByteKey()</title>
+<indexterm><primary>GenerateKey_WithAes192_ShouldReturn24ByteKey</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>GenerateKey_WithAes192_ShouldReturn24ByteKey</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes192_ShouldReturn24ByteKey ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00031">31</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1abad8ffe514a61b2708bfdf27cda85049"/><section>
+    <title>GenerateKey_WithAes256_ShouldReturn32ByteKey()</title>
+<indexterm><primary>GenerateKey_WithAes256_ShouldReturn32ByteKey</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>GenerateKey_WithAes256_ShouldReturn32ByteKey</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithAes256_ShouldReturn32ByteKey ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00042">42</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1a9e4b6b19effe32e744a6cb78d3f99100"/><section>
+    <title>GenerateKey_WithIntKeySize_ShouldWork()</title>
+<indexterm><primary>GenerateKey_WithIntKeySize_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>GenerateKey_WithIntKeySize_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithIntKeySize_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00053">53</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests_1ad6bbbfdec6de00f88ef5b39b40b4df3f"/><section>
+    <title>GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException()</title>
+<indexterm><primary>GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests</primary><secondary>GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.AesCryptographyServiceTests.GenerateKey_WithInvalidKeySize_ShouldThrowArgumentException (int invalidKeySize)</computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_tests_8cs_source_1l00067">67</link> of file <link linkend="__aes_cryptography_service_tests_8cs_source">AesCryptographyServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/<link linkend="__aes_cryptography_service_tests_8cs">AesCryptographyServiceTests.cs</link></section>
+</section>

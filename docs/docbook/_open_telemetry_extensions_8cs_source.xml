@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__open_telemetry_extensions_8cs_source" xml:lang="en-US">
+<title>OpenTelemetryExtensions.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/OpenTelemetryExtensions.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__open_telemetry_extensions_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;OpenTelemetryExtensions.cs</emphasis>
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Extension&#32;methods&#32;for&#32;configuring&#32;OpenTelemetry&#32;with&#32;Toolbox</emphasis>
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Provides&#32;fluent&#32;API&#32;for&#32;adding&#32;Toolbox&#32;tracing&#32;and&#32;metrics&#32;to&#32;OpenTelemetry</emphasis>
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Use&#32;AddToolboxInstrumentation()&#32;on&#32;TracerProviderBuilder&#32;and&#32;MeterProviderBuilder</emphasis>
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00005"/>00005 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Configuration;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis>OpenTelemetry.Resources;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00008"/>00008 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00009"/>00009 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00010"/>00010 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00011"/>00011 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Toolbox.Core.Extensions</link>;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00012"/>00012 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00029"/>00029 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>OpenTelemetryExtensions
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00030"/>00030 {
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;TracerProviderBuilder&#32;AddToolboxInstrumentation(<emphasis role="keyword">this</emphasis>&#32;TracerProviderBuilder&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00046"/>00046 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.AddSource(ToolboxActivitySource.Name);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00049"/>00049 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;MeterProviderBuilder&#32;AddToolboxInstrumentation(<emphasis role="keyword">this</emphasis>&#32;MeterProviderBuilder&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00065"/>00065 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.AddMeter(ToolboxMeter.Name);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00068"/>00068 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddToolboxOpenTelemetry(<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services.AddToolboxOpenTelemetry(_&#32;=&gt;&#32;{&#32;});
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00082"/>00082 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddToolboxOpenTelemetry(
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Action&lt;ToolboxTelemetryOptions&gt;&#32;configureOptions)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configureOptions);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00108"/>00108 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ToolboxTelemetryOptions();
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;configureOptions(options);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00111"/>00111 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure(configureOptions);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00113"/>00113 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;otelBuilder&#32;=&#32;services.AddOpenTelemetry()
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ConfigureResource(resource&#32;=&gt;&#32;resource
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.AddService(
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;serviceName:&#32;options.ServiceName,
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;serviceVersion:&#32;options.ServiceVersion));
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00119"/>00119 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(options.EnableTracing)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;otelBuilder.WithTracing(tracing&#32;=&gt;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tracing.AddToolboxInstrumentation();
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00125"/>00125 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(options.EnableConsoleExport)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tracing.AddConsoleExporter();
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00132"/>00132 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(options.EnableMetrics)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;otelBuilder.WithMetrics(metrics&#32;=&gt;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;metrics.AddToolboxInstrumentation();
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00138"/>00138 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(options.EnableConsoleExport)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;metrics.AddConsoleExporter();
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00145"/>00145 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00148"/>00148 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddToolboxOpenTelemetry(
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IConfiguration&#32;configuration)
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configuration);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00167"/>00167 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ToolboxTelemetryOptions();
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;configuration.GetSection(ToolboxTelemetryOptions.SectionName).Bind(options);
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00170"/>00170 
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services.AddToolboxOpenTelemetry(opt&#32;=&gt;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;opt.EnableTracing&#32;=&#32;options.EnableTracing;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;opt.EnableMetrics&#32;=&#32;options.EnableMetrics;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;opt.EnableConsoleExport&#32;=&#32;options.EnableConsoleExport;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;opt.OtlpEndpoint&#32;=&#32;options.OtlpEndpoint;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;opt.ServiceName&#32;=&#32;options.ServiceName;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;opt.ServiceVersion&#32;=&#32;options.ServiceVersion;
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_8cs_source_1l00181"/>00181 }
+</programlisting></section>

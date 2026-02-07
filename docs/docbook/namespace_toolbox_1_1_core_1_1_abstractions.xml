@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_core_1_1_abstractions" xml:lang="en-US">
+<title>Toolbox.Core.Abstractions Namespace Reference</title>
+<indexterm><primary>Toolbox.Core.Abstractions</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Services</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">IAsyncDisposableService</link></para>
+
+<para>Interface for services requiring asynchronous disposal with cancellation support. </para>
+</listitem>
+            <listitem><para>interface <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_base">Base</link> interface for disposable services providing lifecycle management. </para>
+</listitem>
+            <listitem><para>interface <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">IInstrumentedService</link></para>
+
+<para>Interface for services that expose OpenTelemetry instrumentation. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

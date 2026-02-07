@@ -1,0 +1,1371 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e" xml:lang="en-US">
+<title>
+<para>Toolbox Usage Guide </para>
+</title>
+<indexterm><primary>Toolbox Usage Guide</primary></indexterm>
+
+<para><anchor xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md11"/></para>
+
+<para>This guide provides detailed instructions for using the <link linkend="_namespace_toolbox">Toolbox</link> library.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md12">
+<title>Table of Contents</title>
+<para><orderedlist>
+<listitem>
+<para>Getting Started</para>
+</listitem><listitem>
+<para>Cryptography Services<itemizedlist>
+<listitem>
+<para>Base64 Encoding</para>
+</listitem><listitem>
+<para>AES Encryption</para>
+</listitem><listitem>
+<para>RSA Encryption</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>File Transfer Services<itemizedlist>
+<listitem>
+<para>FTP/FTPS</para>
+</listitem><listitem>
+<para>SFTP</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Mailing Services</para>
+</listitem><listitem>
+<para>Creating Custom Services</para>
+</listitem><listitem>
+<para>OpenTelemetry Integration</para>
+</listitem><listitem>
+<para>Configuration Options</para>
+</listitem><listitem>
+<para>Best Practices</para>
+</listitem></orderedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md13">
+<title>Getting Started</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md14">
+<title>Basic Setup</title>
+<para>Add <link linkend="_namespace_toolbox">Toolbox</link> to your application:</para>
+
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+
+var&#32;builder&#32;=&#32;Host.CreateApplicationBuilder(args);
+
+//&#32;Register&#32;Toolbox&#32;core&#32;services
+builder.Services.AddToolboxCore();
+
+var&#32;app&#32;=&#32;builder.Build();
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md15">
+<title>Configuration via appsettings.json</title>
+<para><literallayout><computeroutput>{
+&#32;&#32;&quot;Toolbox&quot;:&#32;{
+&#32;&#32;&#32;&#32;&quot;EnableDetailedTelemetry&quot;:&#32;false,
+&#32;&#32;&#32;&#32;&quot;ServicePrefix&quot;:&#32;&quot;MyApp&quot;,
+&#32;&#32;&#32;&#32;&quot;AsyncDisposalTimeout&quot;:&#32;&quot;00:00:30&quot;
+&#32;&#32;},
+&#32;&#32;&quot;Toolbox:Telemetry&quot;:&#32;{
+&#32;&#32;&#32;&#32;&quot;EnableTracing&quot;:&#32;true,
+&#32;&#32;&#32;&#32;&quot;EnableMetrics&quot;:&#32;true,
+&#32;&#32;&#32;&#32;&quot;EnableConsoleExport&quot;:&#32;false,
+&#32;&#32;&#32;&#32;&quot;ServiceName&quot;:&#32;&quot;MyApplication&quot;,
+&#32;&#32;&#32;&#32;&quot;ServiceVersion&quot;:&#32;&quot;1.0.0&quot;
+&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para><literallayout><computeroutput>builder.Services.AddToolboxCore(builder.Configuration);
+builder.Services.AddToolboxOpenTelemetry(builder.Configuration);
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md17">
+<title>Cryptography Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md18">
+<title>Base64 Encoding</title>
+<para>Base64 encoding/decoding service for text obfuscation (not encryption).</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md19">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Standard&#32;Base64
+services.AddBase64Cryptography();
+
+//&#32;URL-safe&#32;Base64
+services.AddBase64Cryptography(Base64EncodingTable.UrlSafe);
+
+//&#32;With&#32;full&#32;options
+services.AddBase64Cryptography(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.EncodingTable&#32;=&#32;Base64EncodingTable.UrlSafe;
+&#32;&#32;&#32;&#32;options.IncludePadding&#32;=&#32;false;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md20">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;MyService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ICryptographyService&#32;_crypto;
+
+&#32;&#32;&#32;&#32;public&#32;MyService(ICryptographyService&#32;crypto)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_crypto&#32;=&#32;crypto;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;ProcessAsync()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Encode
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encoded&#32;=&#32;_crypto.Encrypt(&quot;Hello,&#32;World!&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Result:&#32;&quot;SGVsbG8sIFdvcmxkIQ==&quot;
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Decode
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decoded&#32;=&#32;_crypto.Decrypt(encoded);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Result:&#32;&quot;Hello,&#32;World!&quot;
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Async&#32;versions
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encodedAsync&#32;=&#32;await&#32;_crypto.EncryptAsync(&quot;Hello&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decodedAsync&#32;=&#32;await&#32;_crypto.DecryptAsync(encodedAsync);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md22">
+<title>AES Encryption</title>
+<para>Secure symmetric encryption using AES (CBC mode with PKCS7 padding).</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md23">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Generate&#32;new&#32;key&#32;and&#32;IV
+var&#32;(key,&#32;iv)&#32;=&#32;AesCryptographyService.GenerateKey(AesKeySize.Aes256);
+
+//&#32;Register&#32;with&#32;generated&#32;key
+services.AddAesCryptography(key,&#32;iv);
+
+//&#32;Or&#32;with&#32;key&#32;size&#32;enum
+services.AddAesCryptography(AesKeySize.Aes256);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md24">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;SecureService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ICryptographyService&#32;_crypto;
+
+&#32;&#32;&#32;&#32;public&#32;SecureService(ICryptographyService&#32;crypto)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_crypto&#32;=&#32;crypto;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;string&gt;&#32;EncryptDataAsync(string&#32;sensitiveData)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Encrypt&#32;(returns&#32;Base64-encoded&#32;ciphertext)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;await&#32;_crypto.EncryptAsync(sensitiveData);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Decrypt
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;await&#32;_crypto.DecryptAsync(encrypted);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;encrypted;
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md25">
+<title>Key Generation</title>
+<para><literallayout><computeroutput>//&#32;Generate&#32;AES-128&#32;key
+var&#32;(key128,&#32;iv128)&#32;=&#32;AesCryptographyService.GenerateKey(AesKeySize.Aes128);
+
+//&#32;Generate&#32;AES-192&#32;key
+var&#32;(key192,&#32;iv192)&#32;=&#32;AesCryptographyService.GenerateKey(AesKeySize.Aes192);
+
+//&#32;Generate&#32;AES-256&#32;key&#32;(recommended)
+var&#32;(key256,&#32;iv256)&#32;=&#32;AesCryptographyService.GenerateKey(AesKeySize.Aes256);
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md27">
+<title>RSA Encryption</title>
+<para>Asymmetric encryption using RSA with various key sizes and padding modes.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md28">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Generate&#32;key&#32;pair
+var&#32;keyPair&#32;=&#32;RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);
+
+//&#32;Register&#32;with&#32;full&#32;key&#32;pair&#32;(encrypt&#32;+&#32;decrypt)
+services.AddRsaCryptography(
+&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+&#32;&#32;&#32;&#32;RsaPaddingMode.OaepSha256,
+&#32;&#32;&#32;&#32;keyPair.PrivateKey);
+
+//&#32;Register&#32;with&#32;public&#32;key&#32;only&#32;(encrypt&#32;only)
+services.AddRsaCryptography(
+&#32;&#32;&#32;&#32;keyPair.PublicKey!,
+&#32;&#32;&#32;&#32;RsaPaddingMode.OaepSha256);
+
+//&#32;Register&#32;with&#32;X.509&#32;certificate
+var&#32;cert&#32;=&#32;new&#32;X509Certificate2(&quot;certificate.pfx&quot;,&#32;&quot;password&quot;);
+services.AddRsaCryptography(cert,&#32;RsaPaddingMode.OaepSha256);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md29">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;AsymmetricService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ICryptographyService&#32;_crypto;
+
+&#32;&#32;&#32;&#32;public&#32;AsymmetricService(ICryptographyService&#32;crypto)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_crypto&#32;=&#32;crypto;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;(string&#32;encrypted,&#32;string&#32;decrypted)&gt;&#32;ProcessAsync(string&#32;data)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Encrypt&#32;with&#32;public&#32;key
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;encrypted&#32;=&#32;await&#32;_crypto.EncryptAsync(data);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Decrypt&#32;with&#32;private&#32;key&#32;(requires&#32;private&#32;key)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;decrypted&#32;=&#32;await&#32;_crypto.DecryptAsync(encrypted);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;(encrypted,&#32;decrypted);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md30">
+<title>Key Generation</title>
+<para><literallayout><computeroutput>//&#32;Generate&#32;key&#32;pair&#32;(bytes)
+var&#32;keyPair&#32;=&#32;RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);
+byte[]&#32;publicKey&#32;=&#32;keyPair.PublicKey!;
+byte[]&#32;privateKey&#32;=&#32;keyPair.PrivateKey!;
+
+//&#32;Generate&#32;self-signed&#32;certificate
+var&#32;certKeyPair&#32;=&#32;RsaCryptographyService.GenerateCertificate(
+&#32;&#32;&#32;&#32;RsaKeySize.Rsa4096,
+&#32;&#32;&#32;&#32;&quot;CN=MyApplication&quot;,
+&#32;&#32;&#32;&#32;TimeSpan.FromDays(365));
+X509Certificate2&#32;certificate&#32;=&#32;certKeyPair.Certificate!;
+
+//&#32;Public&#32;key&#32;only&#32;(for&#32;sharing)
+var&#32;publicOnly&#32;=&#32;RsaCryptographyService.GenerateKeyPair(
+&#32;&#32;&#32;&#32;RsaKeySize.Rsa2048,
+&#32;&#32;&#32;&#32;includePrivateKey:&#32;false);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md31">
+<title>Padding Modes</title>
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Mode  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Pkcs1</computeroutput>  </para>
+</entry><entry>
+<para>PKCS#1 v1.5 padding (legacy)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OaepSha1</computeroutput>  </para>
+</entry><entry>
+<para>OAEP with SHA-1  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>OaepSha256</computeroutput>  </para>
+</entry><entry>
+<para>OAEP with SHA-256 (recommended)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OaepSha384</computeroutput>  </para>
+</entry><entry>
+<para>OAEP with SHA-384  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>OaepSha512</computeroutput>  </para>
+</entry><entry>
+<para>OAEP with SHA-512  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md33">
+<title>File Transfer Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md34">
+<title>FTP/FTPS</title>
+<para>File transfer service for FTP and FTPS (FTP over TLS) protocols.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md35">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Basic&#32;FTP
+services.AddFtpFileTransfer(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;ftp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;21;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;user&quot;;
+&#32;&#32;&#32;&#32;options.Password&#32;=&#32;&quot;password&quot;;
+&#32;&#32;&#32;&#32;options.Protocol&#32;=&#32;FileTransferProtocol.Ftp;
+});
+
+//&#32;Secure&#32;FTPS
+services.AddFtpFileTransfer(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;ftp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;21;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;user&quot;;
+&#32;&#32;&#32;&#32;options.Password&#32;=&#32;&quot;password&quot;;
+&#32;&#32;&#32;&#32;options.Protocol&#32;=&#32;FileTransferProtocol.Ftps;
+});
+
+//&#32;From&#32;configuration
+services.AddFtpFileTransfer(configuration.GetSection(&quot;Ftp&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md36">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;FileService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;IFileTransferService&#32;_ftp;
+
+&#32;&#32;&#32;&#32;public&#32;FileService(IFileTransferService&#32;ftp)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_ftp&#32;=&#32;ftp;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;TransferFilesAsync()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Upload&#32;single&#32;file
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_ftp.UploadOneAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localPath:&#32;@&quot;C:\local\file.txt&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;remotePath:&#32;&quot;/remote/file.txt&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;overwrite:&#32;true);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Download&#32;single&#32;file
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_ftp.DownloadOneAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;remotePath:&#32;&quot;/remote/file.txt&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localPath:&#32;@&quot;C:\local\downloaded.txt&quot;);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Batch&#32;upload
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;uploads&#32;=&#32;new[]
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(@&quot;C:\local\file1.txt&quot;,&#32;&quot;/remote/file1.txt&quot;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(@&quot;C:\local\file2.txt&quot;,&#32;&quot;/remote/file2.txt&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int&#32;successCount&#32;=&#32;await&#32;_ftp.UploadBatchAsync(uploads);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Batch&#32;download
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;downloads&#32;=&#32;new[]
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(&quot;/remote/file1.txt&quot;,&#32;@&quot;C:\local\file1.txt&quot;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(&quot;/remote/file2.txt&quot;,&#32;@&quot;C:\local\file2.txt&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int&#32;downloaded&#32;=&#32;await&#32;_ftp.DownloadBatchAsync(downloads);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md38">
+<title>SFTP</title>
+<para>Secure file transfer over SSH (SFTP protocol).</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md39">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Password&#32;authentication
+services.AddSftpFileTransfer(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;sftp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;22;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;user&quot;;
+&#32;&#32;&#32;&#32;options.Password&#32;=&#32;&quot;password&quot;;
+});
+
+//&#32;Private&#32;key&#32;authentication
+services.AddSftpFileTransfer(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;sftp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;22;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;user&quot;;
+&#32;&#32;&#32;&#32;options.PrivateKeyPath&#32;=&#32;@&quot;C:\keys\id_rsa&quot;;
+&#32;&#32;&#32;&#32;options.PrivateKeyPassphrase&#32;=&#32;&quot;passphrase&quot;;&#32;//&#32;Optional
+});
+
+//&#32;Private&#32;key&#32;from&#32;string
+services.AddSftpFileTransfer(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;sftp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;user&quot;;
+&#32;&#32;&#32;&#32;options.PrivateKeyContent&#32;=&#32;&quot;-----BEGIN&#32;RSA&#32;PRIVATE&#32;KEY-----\n...&quot;;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md40">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;SecureFileService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;IFileTransferService&#32;_sftp;
+
+&#32;&#32;&#32;&#32;public&#32;SecureFileService(IFileTransferService&#32;sftp)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_sftp&#32;=&#32;sftp;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;TransferAsync(CancellationToken&#32;ct)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Upload&#32;with&#32;cancellation&#32;support
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_sftp.UploadOneAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@&quot;C:\data\report.pdf&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;/uploads/report.pdf&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;overwrite:&#32;true,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ct);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Download
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_sftp.DownloadOneAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;/downloads/data.csv&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@&quot;C:\data\data.csv&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken:&#32;ct);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md41">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Host</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Server hostname  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Port</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>21/22  </para>
+</entry><entry>
+<para>Server port  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Username</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Login username  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Password</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Password (if using password auth)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>PrivateKeyPath</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Path to private key file  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>PrivateKeyContent</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Private key as string  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>PrivateKeyPassphrase</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Private key passphrase  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Protocol</computeroutput>  </para>
+</entry><entry>
+<para>FileTransferProtocol  </para>
+</entry><entry>
+<para>Ftp  </para>
+</entry><entry>
+<para>Ftp, Ftps, or Sftp  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ConnectionTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>30s  </para>
+</entry><entry>
+<para>Connection timeout  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OperationTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>5min  </para>
+</entry><entry>
+<para>Operation timeout  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>BufferSize</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>32KB  </para>
+</entry><entry>
+<para>Transfer buffer size  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>AutoCreateDirectory</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Auto-create remote directories  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md43">
+<title>Mailing Services</title>
+<para>SMTP email sending service with TLS/SSL, OAuth2, and attachment support.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md44">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Generic&#32;SMTP
+services.AddSmtpMailing(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;smtp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;587;
+&#32;&#32;&#32;&#32;options.SecurityMode&#32;=&#32;SmtpSecurityMode.StartTls;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;user@example.com&quot;;
+&#32;&#32;&#32;&#32;options.Password&#32;=&#32;&quot;password&quot;;
+&#32;&#32;&#32;&#32;options.DefaultFrom&#32;=&#32;new&#32;EmailAddress(&quot;noreply@example.com&quot;,&#32;&quot;My&#32;App&quot;);
+});
+
+//&#32;Gmail&#32;shortcut
+services.AddGmailMailing(
+&#32;&#32;&#32;&#32;email:&#32;&quot;myapp@gmail.com&quot;,
+&#32;&#32;&#32;&#32;appPassword:&#32;&quot;xxxx-xxxx-xxxx-xxxx&quot;);
+
+//&#32;Outlook/Office&#32;365&#32;shortcut
+services.AddOutlookMailing(
+&#32;&#32;&#32;&#32;email:&#32;&quot;myapp@outlook.com&quot;,
+&#32;&#32;&#32;&#32;password:&#32;&quot;password&quot;);
+
+//&#32;Anonymous&#32;relay&#32;(internal&#32;servers)
+services.AddSmtpMailing(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;mail.internal.local&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;25;
+&#32;&#32;&#32;&#32;options.SecurityMode&#32;=&#32;SmtpSecurityMode.None;
+});
+
+//&#32;From&#32;configuration
+services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md45">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;NotificationService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;IMailingService&#32;_mailing;
+
+&#32;&#32;&#32;&#32;public&#32;NotificationService(IMailingService&#32;mailing)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_mailing&#32;=&#32;mailing;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;SendWelcomeEmailAsync(string&#32;userEmail,&#32;string&#32;userName)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;message&#32;=&#32;new&#32;EmailMessage
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;From&#32;=&#32;new&#32;EmailAddress(&quot;noreply@example.com&quot;,&#32;&quot;My&#32;Application&quot;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Subject&#32;=&#32;&quot;Welcome&#32;to&#32;Our&#32;Service!&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Body&#32;=&#32;$&quot;&lt;h1&gt;Welcome,&#32;{userName}!&lt;/h1&gt;&lt;p&gt;Thank&#32;you&#32;for&#32;joining&#32;us.&lt;/p&gt;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IsBodyHtml&#32;=&#32;true,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;To&#32;=&#32;{&#32;new&#32;EmailAddress(userEmail,&#32;userName)&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_mailing.SendMailAsync(message);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;SendReportAsync(string[]&#32;recipients,&#32;byte[]&#32;pdfReport)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;message&#32;=&#32;new&#32;EmailMessage
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;From&#32;=&#32;new&#32;EmailAddress(&quot;reports@example.com&quot;,&#32;&quot;Report&#32;System&quot;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Subject&#32;=&#32;&quot;Monthly&#32;Report&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Body&#32;=&#32;&quot;Please&#32;find&#32;the&#32;monthly&#32;report&#32;attached.&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IsBodyHtml&#32;=&#32;false,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Attachments&#32;=
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EmailAttachment.FromBytes(pdfReport,&#32;&quot;report.pdf&quot;,&#32;&quot;application/pdf&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Multiple&#32;recipients
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;foreach&#32;(var&#32;recipient&#32;in&#32;recipients)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;message.To.Add(recipient);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_mailing.SendMailAsync(message);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;SendBccEmailAsync(string[]&#32;bccRecipients)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Email&#32;with&#32;BCC&#32;only&#32;(no&#32;visible&#32;recipients)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;message&#32;=&#32;new&#32;EmailMessage
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;From&#32;=&#32;new&#32;EmailAddress(&quot;newsletter@example.com&quot;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Subject&#32;=&#32;&quot;Newsletter&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Body&#32;=&#32;&quot;&lt;h1&gt;Monthly&#32;Newsletter&lt;/h1&gt;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IsBodyHtml&#32;=&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;foreach&#32;(var&#32;bcc&#32;in&#32;bccRecipients)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;message.Bcc.Add(bcc);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_mailing.SendMailAsync(message);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md46">
+<title>Email with Inline Images</title>
+<para><literallayout><computeroutput>var&#32;logoBytes&#32;=&#32;File.ReadAllBytes(&quot;logo.png&quot;);
+
+var&#32;message&#32;=&#32;new&#32;EmailMessage
+{
+&#32;&#32;&#32;&#32;From&#32;=&#32;new&#32;EmailAddress(&quot;noreply@example.com&quot;),
+&#32;&#32;&#32;&#32;Subject&#32;=&#32;&quot;Email&#32;with&#32;Logo&quot;,
+&#32;&#32;&#32;&#32;Body&#32;=&#32;@&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;html&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;body&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;img&#32;src=&apos;cid:company-logo&apos;&#32;alt=&apos;Logo&apos;&#32;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;h1&gt;Welcome!&lt;/h1&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/body&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/html&gt;&quot;,
+&#32;&#32;&#32;&#32;IsBodyHtml&#32;=&#32;true,
+&#32;&#32;&#32;&#32;To&#32;=&#32;{&#32;&quot;recipient@example.com&quot;&#32;},
+&#32;&#32;&#32;&#32;Attachments&#32;=
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EmailAttachment.CreateInline(logoBytes,&#32;&quot;logo.png&quot;,&#32;&quot;company-logo&quot;)
+&#32;&#32;&#32;&#32;}
+};
+
+await&#32;_mailing.SendMailAsync(message);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md47">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Host</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>&quot;localhost&quot;  </para>
+</entry><entry>
+<para>SMTP server hostname  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Port</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>25  </para>
+</entry><entry>
+<para>SMTP port (25, 587, 465)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>SecurityMode</computeroutput>  </para>
+</entry><entry>
+<para>SmtpSecurityMode  </para>
+</entry><entry>
+<para>Auto  </para>
+</entry><entry>
+<para>Security mode  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Username</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>SMTP username  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Password</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>SMTP password  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OAuth2AccessToken</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>OAuth2 token (Gmail, O365)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ConnectionTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>30s  </para>
+</entry><entry>
+<para>Connection timeout  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OperationTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>2min  </para>
+</entry><entry>
+<para>Send timeout  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ValidateCertificate</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Validate SSL certificate  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>DefaultFrom</computeroutput>  </para>
+</entry><entry>
+<para>EmailAddress?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Default sender address  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>DefaultReplyTo</computeroutput>  </para>
+</entry><entry>
+<para>EmailAddress?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Default reply-to address  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md48">
+<title>Security Modes</title>
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Mode  </para>
+</entry><entry>
+<para>Port  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Auto</computeroutput>  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Automatic detection  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>None</computeroutput>  </para>
+</entry><entry>
+<para>25  </para>
+</entry><entry>
+<para>No encryption (internal only)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>StartTls</computeroutput>  </para>
+</entry><entry>
+<para>587  </para>
+</entry><entry>
+<para>Upgrade to TLS (recommended)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>StartTlsWhenAvailable</computeroutput>  </para>
+</entry><entry>
+<para>587  </para>
+</entry><entry>
+<para>TLS if available  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>SslOnConnect</computeroutput>  </para>
+</entry><entry>
+<para>465  </para>
+</entry><entry>
+<para>Implicit SSL/TLS  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md50">
+<title>Creating Custom Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md51">
+<title>Synchronous Disposal</title>
+<para>For services with synchronous cleanup:</para>
+
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Base;
+
+public&#32;class&#32;MyService&#32;:&#32;BaseDisposableService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;SomeResource&#32;_resource;
+
+&#32;&#32;&#32;&#32;public&#32;MyService(ILogger&lt;MyService&gt;&#32;logger)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(&quot;MyService&quot;,&#32;logger)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_resource&#32;=&#32;new&#32;SomeResource();
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;void&#32;DoWork()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ThrowIfDisposed();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;using&#32;var&#32;activity&#32;=&#32;StartActivity();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;Stopwatch.StartNew();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_resource.Process();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;RecordOperation(&quot;DoWork&quot;,&#32;sw.ElapsedMilliseconds);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;protected&#32;override&#32;void&#32;Dispose(bool&#32;disposing)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(disposing)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_resource?.Dispose();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base.Dispose(disposing);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md52">
+<title>Asynchronous Disposal</title>
+<para>For services with async resources:</para>
+
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Base;
+
+public&#32;class&#32;MyAsyncService&#32;:&#32;BaseAsyncDisposableService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;Stream&#32;_stream;
+
+&#32;&#32;&#32;&#32;public&#32;MyAsyncService(ILogger&lt;MyAsyncService&gt;&#32;logger)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(&quot;MyAsyncService&quot;,&#32;logger)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_stream&#32;=&#32;new&#32;FileStream(&quot;data.bin&quot;,&#32;FileMode.OpenOrCreate);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;ProcessAsync(CancellationToken&#32;ct&#32;=&#32;default)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ThrowIfDisposed();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;using&#32;var&#32;activity&#32;=&#32;StartActivity();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;Stopwatch.StartNew();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_stream.WriteAsync(data,&#32;ct);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;RecordOperation(&quot;ProcessAsync&quot;,&#32;sw.ElapsedMilliseconds);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;protected&#32;override&#32;async&#32;ValueTask&#32;DisposeAsyncCore(CancellationToken&#32;ct)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_stream.DisposeAsync();
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md54">
+<title>OpenTelemetry Integration</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md55">
+<title>Basic Tracing and Metrics</title>
+<para><literallayout><computeroutput>builder.Services.AddToolboxOpenTelemetry(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.EnableTracing&#32;=&#32;true;
+&#32;&#32;&#32;&#32;options.EnableMetrics&#32;=&#32;true;
+&#32;&#32;&#32;&#32;options.ServiceName&#32;=&#32;&quot;MyApplication&quot;;
+&#32;&#32;&#32;&#32;options.ServiceVersion&#32;=&#32;&quot;1.0.0&quot;;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md56">
+<title>OTLP Export</title>
+<para><literallayout><computeroutput>builder.Services.AddToolboxOpenTelemetry(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.OtlpEndpoint&#32;=&#32;&quot;http://localhost:4317&quot;;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md57">
+<title>Custom Instrumentation</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Telemetry;
+
+//&#32;Start&#32;a&#32;custom&#32;activity
+using&#32;var&#32;activity&#32;=&#32;ToolboxActivitySource.StartActivity(&quot;CustomOperation&quot;);
+activity?.SetTag(&quot;custom.tag&quot;,&#32;&quot;value&quot;);
+
+//&#32;Record&#32;metrics
+ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#32;elapsedMs);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md58">
+<title>Available Metrics</title>
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Metric  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.operations.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Total operations  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.operations.duration</computeroutput>  </para>
+</entry><entry>
+<para>Histogram  </para>
+</entry><entry>
+<para>Operation duration (ms)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.crypto.encrypt.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Encryption operations  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.crypto.decrypt.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Decryption operations  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.crypto.data.size</computeroutput>  </para>
+</entry><entry>
+<para>Histogram  </para>
+</entry><entry>
+<para>Data size (bytes)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.filetransfer.upload.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>File uploads  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.filetransfer.download.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>File downloads  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.filetransfer.size</computeroutput>  </para>
+</entry><entry>
+<para>Histogram  </para>
+</entry><entry>
+<para>File size (bytes)  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md60">
+<title>Configuration Options</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md61">
+<title>ToolboxOptions</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>EnableDetailedTelemetry</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Enable detailed telemetry  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ServicePrefix</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Prefix for service names  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>AsyncDisposalTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>30s  </para>
+</entry><entry>
+<para>Timeout for async disposal  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md62">
+<title>ToolboxTelemetryOptions</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>EnableTracing</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Enable distributed tracing  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>EnableMetrics</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Enable metrics collection  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>EnableConsoleExport</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Export to console  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OtlpEndpoint</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>OTLP collector endpoint  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ServiceName</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>&quot;Toolbox&quot;  </para>
+</entry><entry>
+<para>Service name for telemetry  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ServiceVersion</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>&quot;1.0.0&quot;  </para>
+</entry><entry>
+<para>Service version  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md64">
+<title>Best Practices</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md65">
+<title>1. Always Check Disposal State</title>
+<para><literallayout><computeroutput>public&#32;void&#32;DoWork()
+{
+&#32;&#32;&#32;&#32;ThrowIfDisposed();&#32;&#32;//&#32;Call&#32;this&#32;first
+&#32;&#32;&#32;&#32;//&#32;...&#32;rest&#32;of&#32;method
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md66">
+<title>2. Use Activity Scopes for Tracing</title>
+<para><literallayout><computeroutput>public&#32;async&#32;Task&#32;DoWorkAsync()
+{
+&#32;&#32;&#32;&#32;using&#32;var&#32;activity&#32;=&#32;StartActivity();
+&#32;&#32;&#32;&#32;//&#32;Activity&#32;automatically&#32;ends&#32;when&#32;scope&#32;exits
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md67">
+<title>3. Record Metrics for Performance</title>
+<para><literallayout><computeroutput>var&#32;sw&#32;=&#32;Stopwatch.StartNew();
+//&#32;...&#32;operation
+RecordOperation(&quot;OperationName&quot;,&#32;sw.ElapsedMilliseconds);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md68">
+<title>4. Handle Cancellation in Async Operations</title>
+<para><literallayout><computeroutput>public&#32;async&#32;Task&#32;ProcessAsync(CancellationToken&#32;ct&#32;=&#32;default)
+{
+&#32;&#32;&#32;&#32;ct.ThrowIfCancellationRequested();
+&#32;&#32;&#32;&#32;await&#32;_service.DoWorkAsync(ct);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md69">
+<title>5. Use Appropriate Service Lifetimes</title>
+<para><literallayout><computeroutput>//&#32;Singleton&#32;for&#32;stateless&#32;services
+services.AddSingleton&lt;ICryptographyService,&#32;AesCryptographyService&gt;();
+
+//&#32;Scoped&#32;for&#32;per-request&#32;services
+services.AddScoped&lt;IFileTransferService,&#32;SftpFileTransferService&gt;();
+
+//&#32;Transient&#32;for&#32;lightweight&#32;services
+services.AddTransient&lt;IMailingService,&#32;SmtpMailingService&gt;();
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md70">
+<title>6. Secure Credential Management</title>
+<para><literallayout><computeroutput>//&#32;Use&#32;configuration/secrets,&#32;not&#32;hardcoded&#32;values
+services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));
+
+//&#32;Or&#32;use&#32;Azure&#32;Key&#32;Vault,&#32;AWS&#32;Secrets&#32;Manager,&#32;etc.
+var&#32;password&#32;=&#32;await&#32;secretsClient.GetSecretAsync(&quot;smtp-password&quot;);
+</computeroutput></literallayout> </para>
+</section>
+</section>
+</section>

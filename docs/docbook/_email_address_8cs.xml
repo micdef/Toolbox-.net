@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__email_address_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>record <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">Toolbox.Core.Options.EmailAddress</link> (string Address, string? DisplayName=null)</para>
+
+<para>Represents an email address with an optional display name. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

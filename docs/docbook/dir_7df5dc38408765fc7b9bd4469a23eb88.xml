@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_7df5dc38408765fc7b9bd4469a23eb88" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__ftp_file_transfer_service_tests_8cs">FtpFileTransferServiceTests.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__sftp_file_transfer_service_tests_8cs">SftpFileTransferServiceTests.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

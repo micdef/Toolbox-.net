@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__sftp_file_transfer_service_tests_8cs_source" xml:lang="en-US">
+<title>SftpFileTransferServiceTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/SftpFileTransferServiceTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Logging;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Options;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00004"/>00004 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer">Toolbox.Core.Services.FileTransfer</link>;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00005"/>00005 <emphasis role="keyword">using&#32;</emphasis><link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>&#32;=&#32;Microsoft.Extensions.Options.Options;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00006"/>00006 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00007"/>00007 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer">Toolbox.Tests.Unit.Services.FileTransfer</link>;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00008"/>00008 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00016"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests">00016</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774">SftpFileTransferServiceTests</link>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00017"/>00017 {
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;Mock&lt;ILogger&lt;SftpFileTransferService&gt;&gt;&#32;_loggerMock;
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00019"/>00019 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00020"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774">00020</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774">SftpFileTransferServiceTests</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;Mock&lt;ILogger&lt;SftpFileTransferService&gt;&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00024"/>00024 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>&#32;CreateValidOptions()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Host&#32;=&#32;<emphasis role="stringliteral">&quot;sftp.example.com&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;<emphasis role="stringliteral">&quot;testuser&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;<emphasis role="stringliteral">&quot;testpass&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Protocol&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">FileTransferProtocol.Sftp</link>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;};
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00032"/>00032 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00033"/>00033 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Constructor&#32;Tests</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00034"/>00034 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00036"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1aec58634296d0a159b8b2c24f090d0a3d">00036</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1aec58634296d0a159b8b2c24f090d0a3d">Constructor_WithNullOptions_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(IOptions&lt;FileTransferOptions&gt;)<emphasis role="keyword">null</emphasis>!,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00042"/>00042 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00046"/>00046 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00048"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a91efd5c5ad316decf23196055cd10ce9">00048</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a91efd5c5ad316decf23196055cd10ce9">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions());
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00052"/>00052 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(options,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00055"/>00055 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00059"/>00059 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00061"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ae39045faf5768ff2662472aa33d82a4b">00061</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ae39045faf5768ff2662472aa33d82a4b">Constructor_WithEmptyHost_ShouldThrowArgumentException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Host&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;<emphasis role="stringliteral">&quot;user&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;<emphasis role="stringliteral">&quot;pass&quot;</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00070"/>00070 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00073"/>00073 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentException&gt;()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMessage(<emphasis role="stringliteral">&quot;*Host*&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00078"/>00078 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00080"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a9b7c3c0983459655a79323dc143a4c78">00080</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a9b7c3c0983459655a79323dc143a4c78">Constructor_WithEmptyUsername_ShouldThrowArgumentException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Host&#32;=&#32;<emphasis role="stringliteral">&quot;sftp.example.com&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;<emphasis role="stringliteral">&quot;pass&quot;</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00089"/>00089 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00092"/>00092 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentException&gt;()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMessage(<emphasis role="stringliteral">&quot;*Username*&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00097"/>00097 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00099"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a3e7cc9d1e3f871dc4dd6eec80f2f1aa6">00099</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a3e7cc9d1e3f871dc4dd6eec80f2f1aa6">Constructor_WithNoAuthentication_ShouldThrowArgumentException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Host&#32;=&#32;<emphasis role="stringliteral">&quot;sftp.example.com&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;<emphasis role="stringliteral">&quot;user&quot;</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;PrivateKeyPath&#32;=&#32;<emphasis role="keyword">null</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00109"/>00109 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00112"/>00112 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentException&gt;()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMessage(<emphasis role="stringliteral">&quot;*authentication*&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00117"/>00117 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00119"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6f0ef8a8bc094069b9be87782007b2cb">00119</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6f0ef8a8bc094069b9be87782007b2cb">Constructor_WithPasswordAuth_ShouldInitialize</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions());
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00123"/>00123 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00126"/>00126 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00130"/>00130 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00132"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada457e12bf14895da4d111bea36675f6">00132</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada457e12bf14895da4d111bea36675f6">Constructor_WithDirectOptions_ShouldInitialize</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;CreateValidOptions();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00136"/>00136 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00139"/>00139 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00143"/>00143 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00144"/>00144 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00145"/>00145 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00146"/>00146 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;UploadOne&#32;Tests</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00147"/>00147 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00148"/>00148 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00149"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af2e70adad8e727d80ee42c0b90bcdf71">00149</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af2e70adad8e727d80ee42c0b90bcdf71">UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00155"/>00155 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.UploadOne(<emphasis role="keyword">null</emphasis>!,&#32;<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00158"/>00158 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00162"/>00162 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00164"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a2745ad3052675cd281561f7834c97ae3">00164</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a2745ad3052675cd281561f7834c97ae3">UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00170"/>00170 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.UploadOne(<emphasis role="stringliteral">&quot;C:\\local\\file.txt&quot;</emphasis>,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00173"/>00173 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00177"/>00177 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00179"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1accf28159a5d130e925b38ad1d2cabf45">00179</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1accf28159a5d130e925b38ad1d2cabf45">UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00185"/>00185 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.UploadOne(<emphasis role="stringliteral">&quot;C:\\nonexistent\\file.txt&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00188"/>00188 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;FileNotFoundException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00191"/>00191 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00192"/>00192 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00194"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6300b98a0f30a8192dd36ff11fb2c5ee">00194</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6300b98a0f30a8192dd36ff11fb2c5ee">UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00200"/>00200 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.UploadOneAsync(<emphasis role="keyword">null</emphasis>!,&#32;<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00203"/>00203 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00207"/>00207 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00208"/>00208 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00209"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a090018e7b1bb2c3e62e560427a3c5b89">00209</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a090018e7b1bb2c3e62e560427a3c5b89">UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;cts&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;CancellationTokenSource();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;cts.CancelAsync();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00217"/>00217 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Create&#32;a&#32;temporary&#32;file&#32;to&#32;avoid&#32;FileNotFoundException</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tempFile&#32;=&#32;Path.GetTempFileName();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.UploadOneAsync(tempFile,&#32;<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>,&#32;<emphasis role="keyword">true</emphasis>,&#32;cts.Token);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00224"/>00224 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;OperationCanceledException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">finally</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;File.Delete(tempFile);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00232"/>00232 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00233"/>00233 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00234"/>00234 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00235"/>00235 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00236"/>00236 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;UploadBatch&#32;Tests</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00237"/>00237 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00238"/>00238 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00239"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a51b5f1d140aa2524e0046da54f5f142d">00239</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a51b5f1d140aa2524e0046da54f5f142d">UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00240"/>00240 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00245"/>00245 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.UploadBatch(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00248"/>00248 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00251"/>00251 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00252"/>00252 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00253"/>00253 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00254"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a358eef0fc26b7276bd6e1eaab085fe80">00254</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a358eef0fc26b7276bd6e1eaab085fe80">UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00255"/>00255 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00260"/>00260 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00262"/>00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.UploadBatchAsync(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00263"/>00263 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00266"/>00266 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00267"/>00267 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00268"/>00268 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00269"/>00269 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00270"/>00270 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;DownloadOne&#32;Tests</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00271"/>00271 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00272"/>00272 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00273"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ab9335c7c1456d102b4d013484d6c1d0f">00273</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ab9335c7c1456d102b4d013484d6c1d0f">DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00274"/>00274 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00276"/>00276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00277"/>00277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00278"/>00278 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00279"/>00279 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.DownloadOne(<emphasis role="keyword">null</emphasis>!,&#32;<emphasis role="stringliteral">&quot;C:\\local\\file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00282"/>00282 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00285"/>00285 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00286"/>00286 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00287"/>00287 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00288"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acb9abc8354c6cad33fd08bae004af671">00288</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acb9abc8354c6cad33fd08bae004af671">DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00289"/>00289 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00294"/>00294 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.DownloadOne(<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00297"/>00297 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00300"/>00300 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00301"/>00301 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00302"/>00302 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00303"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a82bfb4c6caa6ece81d5caa6e67785d70">00303</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a82bfb4c6caa6ece81d5caa6e67785d70">DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00304"/>00304 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00305"/>00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00306"/>00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00309"/>00309 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00310"/>00310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.DownloadOneAsync(<emphasis role="keyword">null</emphasis>!,&#32;<emphasis role="stringliteral">&quot;C:\\local\\file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00312"/>00312 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00313"/>00313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00314"/>00314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00315"/>00315 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00316"/>00316 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00317"/>00317 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00318"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1afe55ce598c02c0d6ac4aeb17b0f360c9">00318</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1afe55ce598c02c0d6ac4aeb17b0f360c9">DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00319"/>00319 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00321"/>00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00323"/>00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;cts&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;CancellationTokenSource();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;cts.CancelAsync();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00326"/>00326 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.DownloadOneAsync(<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;C:\\local\\file.txt&quot;</emphasis>,&#32;<emphasis role="keyword">true</emphasis>,&#32;cts.Token);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00329"/>00329 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;OperationCanceledException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00332"/>00332 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00333"/>00333 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00334"/>00334 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00335"/>00335 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00336"/>00336 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;DownloadBatch&#32;Tests</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00337"/>00337 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00338"/>00338 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00339"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a906032fb3c144d71b6d8080b4ee53bee">00339</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a906032fb3c144d71b6d8080b4ee53bee">DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00340"/>00340 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00342"/>00342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00344"/>00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00345"/>00345 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00346"/>00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00347"/>00347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.DownloadBatch(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00348"/>00348 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00349"/>00349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00351"/>00351 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00352"/>00352 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00353"/>00353 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00354"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a8f02ece2059d159106b0799fb95972b2">00354</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a8f02ece2059d159106b0799fb95972b2">DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00355"/>00355 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00356"/>00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00357"/>00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00359"/>00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00360"/>00360 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00362"/>00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.DownloadBatchAsync(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00363"/>00363 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00364"/>00364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00365"/>00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;ArgumentNullException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00366"/>00366 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00367"/>00367 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00368"/>00368 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00369"/>00369 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00370"/>00370 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Dispose&#32;Tests</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00371"/>00371 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00372"/>00372 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00373"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acbf2707f55bd275090277e5010b048c9">00373</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acbf2707f55bd275090277e5010b048c9">UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00374"/>00374 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00377"/>00377 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00378"/>00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00379"/>00379 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00380"/>00380 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00381"/>00381 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00382"/>00382 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.UploadOne(<emphasis role="stringliteral">&quot;C:\\file.txt&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00383"/>00383 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00384"/>00384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00385"/>00385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00386"/>00386 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00387"/>00387 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00388"/>00388 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00389"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af6d53793872f080e3972aedabeb9e3cf">00389</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af6d53793872f080e3972aedabeb9e3cf">DisposeAsync_ShouldDisposeResources</link>()
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00390"/>00390 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00391"/>00391 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00392"/>00392 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>(
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00393"/>00393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00394"/>00394 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00395"/>00395 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;service.DisposeAsync();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00398"/>00398 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00399"/>00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00400"/>00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.UploadOne(<emphasis role="stringliteral">&quot;C:\\file.txt&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/remote/file.txt&quot;</emphasis>);
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00402"/>00402 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00403"/>00403 
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00404"/>00404 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__sftp_file_transfer_service_tests_8cs_source_1l00405"/>00405 }
+</programlisting></section>

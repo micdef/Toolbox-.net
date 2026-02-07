@@ -1,0 +1,189 @@
+.TH "Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests \- \fBUnit\fP tests for \fBSftpFileTransferService\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSftpFileTransferServiceTests\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullOptions_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullLogger_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithEmptyHost_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithEmptyUsername_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNoAuthentication_ShouldThrowArgumentException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithPasswordAuth_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithDirectOptions_ShouldInitialize\fP ()"
+.br
+.ti -1c
+.RI "void \fBUploadOne_WithNullLocalPath_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBUploadOne_WithNullRemotePath_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBUploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBUploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBUploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "void \fBUploadBatch_WithNullFiles_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBUploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException\fP ()"
+.br
+.ti -1c
+.RI "void \fBDownloadBatch_WithNullFiles_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBUploadOne_WhenDisposed_ShouldThrowObjectDisposedException\fP ()"
+.br
+.ti -1c
+.RI "async Task \fBDisposeAsync_ShouldDisposeResources\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBSftpFileTransferService\fP\&. 
+
+These tests verify argument validation and configuration\&. \fBIntegration\fP tests with a real SFTP server would be in a separate test project\&. 
+.PP
+Definition at line \fB16\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.SftpFileTransferServiceTests ()"
+
+.PP
+Definition at line \fB20\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithDirectOptions_ShouldInitialize ()"
+
+.PP
+Definition at line \fB132\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithEmptyHost_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB61\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithEmptyUsername_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB80\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithNoAuthentication_ShouldThrowArgumentException ()"
+
+.PP
+Definition at line \fB99\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithNullLogger_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB48\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithNullOptions_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB36\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.Constructor_WithPasswordAuth_ShouldInitialize ()"
+
+.PP
+Definition at line \fB119\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DisposeAsync_ShouldDisposeResources ()"
+
+.PP
+Definition at line \fB389\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB339\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB354\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB288\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB273\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB318\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB303\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadBatch_WithNullFiles_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB239\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB254\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadOne_WhenDisposed_ShouldThrowObjectDisposedException ()"
+
+.PP
+Definition at line \fB373\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException ()"
+
+.PP
+Definition at line \fB179\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB149\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB164\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException ()"
+
+.PP
+Definition at line \fB209\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+.SS "async Task Toolbox\&.Tests\&.Unit\&.Services\&.FileTransfer\&.SftpFileTransferServiceTests\&.UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB194\fP of file \fBSftpFileTransferServiceTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

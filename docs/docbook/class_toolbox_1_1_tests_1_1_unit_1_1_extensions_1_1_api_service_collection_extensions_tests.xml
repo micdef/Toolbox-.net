@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for ApiServiceCollectionExtensions. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a6a978f2a83d5d2923a80dbbab81c2e90">AddHttpApi_WithConfigureAction_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a3ee950624e2013c1f775a366b8b19e47">AddHttpApi_WithOptions_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1af0d59c990ce5fec9643e2dc17fc327c9">AddHttpApi_WithNullServices_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adfa389a4822e7533ea7614f3901a1cd9">AddHttpApi_WithNullConfigureAction_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a62f7084c3aa5c3b527fe821508478edc">AddHttpApiAnonymous_ShouldRegisterAnonymousService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1ae44850859d1382deba3676ffd1e0686a">AddHttpApiWithBearerToken_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aea544eaa757c46ef06d02d5063694016">AddHttpApiWithBearerToken_WithNullToken_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a4714f9f96205516f1d5f2e58630367b0">AddHttpApiWithBasicAuth_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa18ba8b219cb823f113ab54f44918d3e">AddHttpApiWithBasicAuth_WithNullUsername_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9e75c772e7789ab8e838cff34c9a5929">AddHttpApiWithApiKey_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adee208d84af582afed99b6ba96441572">AddHttpApiWithApiKey_WithQueryLocation_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa22102b208f71e439537720592e4ee4a">AddHttpApiWithOAuth2_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a858043c2e231df890ad51c07bb7f230d">AddHttpApiWithOAuth2_WithNullClientId_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9cd4f660e93cecf5758e4ec1ff1b90d5">AddHttpApi_MultipleCalls_ShouldNotDuplicate</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for ApiServiceCollectionExtensions. </para>
+<para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00012">12</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9cd4f660e93cecf5758e4ec1ff1b90d5"/><section>
+    <title>AddHttpApi_MultipleCalls_ShouldNotDuplicate()</title>
+<indexterm><primary>AddHttpApi_MultipleCalls_ShouldNotDuplicate</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApi_MultipleCalls_ShouldNotDuplicate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApi_MultipleCalls_ShouldNotDuplicate ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00229">229</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a6a978f2a83d5d2923a80dbbab81c2e90"/><section>
+    <title>AddHttpApi_WithConfigureAction_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApi_WithConfigureAction_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApi_WithConfigureAction_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApi_WithConfigureAction_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00015">15</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adfa389a4822e7533ea7614f3901a1cd9"/><section>
+    <title>AddHttpApi_WithNullConfigureAction_ShouldThrow()</title>
+<indexterm><primary>AddHttpApi_WithNullConfigureAction_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApi_WithNullConfigureAction_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApi_WithNullConfigureAction_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00068">68</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1af0d59c990ce5fec9643e2dc17fc327c9"/><section>
+    <title>AddHttpApi_WithNullServices_ShouldThrow()</title>
+<indexterm><primary>AddHttpApi_WithNullServices_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApi_WithNullServices_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApi_WithNullServices_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00055">55</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a3ee950624e2013c1f775a366b8b19e47"/><section>
+    <title>AddHttpApi_WithOptions_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApi_WithOptions_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApi_WithOptions_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApi_WithOptions_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00035">35</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a62f7084c3aa5c3b527fe821508478edc"/><section>
+    <title>AddHttpApiAnonymous_ShouldRegisterAnonymousService()</title>
+<indexterm><primary>AddHttpApiAnonymous_ShouldRegisterAnonymousService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiAnonymous_ShouldRegisterAnonymousService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiAnonymous_ShouldRegisterAnonymousService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00081">81</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9e75c772e7789ab8e838cff34c9a5929"/><section>
+    <title>AddHttpApiWithApiKey_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApiWithApiKey_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithApiKey_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithApiKey_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00155">155</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adee208d84af582afed99b6ba96441572"/><section>
+    <title>AddHttpApiWithApiKey_WithQueryLocation_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApiWithApiKey_WithQueryLocation_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithApiKey_WithQueryLocation_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithApiKey_WithQueryLocation_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00171">171</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a4714f9f96205516f1d5f2e58630367b0"/><section>
+    <title>AddHttpApiWithBasicAuth_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApiWithBasicAuth_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithBasicAuth_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithBasicAuth_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00126">126</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa18ba8b219cb823f113ab54f44918d3e"/><section>
+    <title>AddHttpApiWithBasicAuth_WithNullUsername_ShouldThrow()</title>
+<indexterm><primary>AddHttpApiWithBasicAuth_WithNullUsername_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithBasicAuth_WithNullUsername_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithBasicAuth_WithNullUsername_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00142">142</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1ae44850859d1382deba3676ffd1e0686a"/><section>
+    <title>AddHttpApiWithBearerToken_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApiWithBearerToken_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithBearerToken_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithBearerToken_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00097">97</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aea544eaa757c46ef06d02d5063694016"/><section>
+    <title>AddHttpApiWithBearerToken_WithNullToken_ShouldThrow()</title>
+<indexterm><primary>AddHttpApiWithBearerToken_WithNullToken_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithBearerToken_WithNullToken_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithBearerToken_WithNullToken_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00113">113</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa22102b208f71e439537720592e4ee4a"/><section>
+    <title>AddHttpApiWithOAuth2_ShouldRegisterService()</title>
+<indexterm><primary>AddHttpApiWithOAuth2_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithOAuth2_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithOAuth2_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00191">191</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a858043c2e231df890ad51c07bb7f230d"/><section>
+    <title>AddHttpApiWithOAuth2_WithNullClientId_ShouldThrow()</title>
+<indexterm><primary>AddHttpApiWithOAuth2_WithNullClientId_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests</primary><secondary>AddHttpApiWithOAuth2_WithNullClientId_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests.AddHttpApiWithOAuth2_WithNullClientId_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_service_collection_extensions_tests_8cs_source_1l00212">212</link> of file <link linkend="__api_service_collection_extensions_tests_8cs_source">ApiServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/<link linkend="__api_service_collection_extensions_tests_8cs">ApiServiceCollectionExtensionsTests.cs</link></section>
+</section>

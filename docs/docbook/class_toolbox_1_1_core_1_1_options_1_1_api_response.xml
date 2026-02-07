@@ -1,0 +1,653 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response" xml:lang="en-US">
+<title>Toolbox.Core.Options.ApiResponse Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary></indexterm>
+<para>
+
+<para>Represents an HTTP API response. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>T? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1afdbd9b36f4c01a02208a13cb3a093d54">Deserialize&lt; T &gt;</link> (JsonSerializerOptions? options=null)</para>
+
+<para>Deserializes the response body as JSON. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1af16c8db6718baf251aa6453821b551d3">TryDeserialize&lt; T &gt;</link> (out T? result, JsonSerializerOptions? options=null)</para>
+
+<para>Tries to deserialize the response body as JSON. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a5337b5d30a7f6809016a8c622c46d1f7">GetHeader</link> (string name)</para>
+
+<para>Gets a header value. </para>
+</listitem>
+            <listitem><para>IEnumerable&lt; string &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a031f554c076f51b7130314ff4589d2d1">GetHeaders</link> (string name)</para>
+
+<para>Gets all values for a header. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1aae1b1269892d6c0d5199218cea0d9cb7">EnsureSuccess</link> ()</para>
+
+<para>Throws an exception if the response indicates an error. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3766c05d32ac54a7e02f483c0113ed54">Success</link> (string? body=null, HttpStatusCode statusCode=HttpStatusCode.OK)</para>
+
+<para>Creates a successful response. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad7295a5f46737289d5aa1e13506e793d">Error</link> (HttpStatusCode statusCode, string? message=null)</para>
+
+<para>Creates an error response. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>HttpStatusCode <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3d0d03f1a691d1dcd7860def8714a74d">StatusCode</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the HTTP status code. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a939a87a416b603f0fe608377088908bd">StatusCodeValue</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the status code as an integer. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3361b19eafefcff0f5390938a90ba683">ReasonPhrase</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the reason phrase. </para>
+</listitem>
+            <listitem><para>IReadOnlyDictionary&lt; string, IEnumerable&lt; string &gt; &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1acebf1624cbf9d398cf5456a92049e765">Headers</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the response headers. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6b20dee2b29798ce6af9e75c52420ce4">Body</link> = new Dictionary&lt;string, IEnumerable&lt;string&gt;&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the response body as a string. </para>
+</listitem>
+            <listitem><para>byte?[] <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6cff539e246f1dc20045e97104ec8c22">BodyBytes</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the response body as bytes. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a32b240cd491afbd67b4544f4ddbc4a8d">ContentType</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the content type header value. </para>
+</listitem>
+            <listitem><para>long? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a60a3edcd4c95e4eacc10b147968978e4">ContentLength</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the content length. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a9cc29f2892a97bda50bcc1cf11b7e4cc">Duration</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the request duration. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad9882807aeabd1aeba8ccc0b57461e1a">IsSuccess</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether the response indicates success (2xx status). </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a1b30956dc36228b7d56acd95e8ecd0c7">IsClientError</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether the response indicates a client error (4xx status). </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a0d00fac5c1919222643ad826b2a90ccd">IsServerError</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether the response indicates a server error (5xx status). </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1ac29ced7049c785ba83fa9c3455be5a08">IsRedirect</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether the response is a redirect (3xx status). </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents an HTTP API response. </para>
+
+
+
+<para>This class encapsulates all data from an HTTP response, including status code, headers, and body content. </para>
+
+<para><literallayout><computeroutput>var&#32;response&#32;=&#32;await&#32;apiService.SendAsync(request);
+
+<emphasis role="keywordflow">if</emphasis>&#32;(response.IsSuccess)
+{
+&#32;&#32;&#32;&#32;var&#32;user&#32;=&#32;response.Deserialize&lt;User&gt;();
+}
+<emphasis role="keywordflow">else</emphasis>
+{
+&#32;&#32;&#32;&#32;Console.WriteLine($<emphasis role="stringliteral">&quot;Error:&#32;{response.StatusCode}&quot;</emphasis>);
+}
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00034">34</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1afdbd9b36f4c01a02208a13cb3a093d54"/><section>
+    <title>Deserialize&lt; T &gt;()</title>
+<indexterm><primary>Deserialize&lt; T &gt;</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>Deserialize&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>T? Toolbox.Core.Options.ApiResponse.Deserialize&lt; T &gt; (JsonSerializerOptions? options = <computeroutput>null</computeroutput>
+)</computeroutput></para><para>
+
+<para>Deserializes the response body as JSON. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The target type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>options</entry><entry>
+<para>JSON serializer options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The deserialized object, or default if body is empty.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>JsonException</entry><entry>
+<para>Thrown when deserialization fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00122">122</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1aae1b1269892d6c0d5199218cea0d9cb7"/><section>
+    <title>EnsureSuccess()</title>
+<indexterm><primary>EnsureSuccess</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>EnsureSuccess</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Options.ApiResponse.EnsureSuccess ( )</computeroutput></para><para>
+
+<para>Throws an exception if the response indicates an error. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>HttpRequestException</entry><entry>
+<para>Thrown when response is not successful.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00187">187</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad7295a5f46737289d5aa1e13506e793d"/><section>
+    <title>Error()</title>
+<indexterm><primary>Error</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>Error</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> Toolbox.Core.Options.ApiResponse.Error (HttpStatusCode statusCode, string? message = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an error response. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>statusCode</entry><entry>
+<para>The status code.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>message</entry><entry>
+<para>The error message.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00221">221</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a5337b5d30a7f6809016a8c622c46d1f7"/><section>
+    <title>GetHeader()</title>
+<indexterm><primary>GetHeader</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>GetHeader</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiResponse.GetHeader (string name)</computeroutput></para><para>
+
+<para>Gets a header value. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name</entry><entry>
+<para>The header name.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The first header value, or <computeroutput>null</computeroutput> if not found.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00164">164</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a031f554c076f51b7130314ff4589d2d1"/><section>
+    <title>GetHeaders()</title>
+<indexterm><primary>GetHeaders</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>GetHeaders</secondary></indexterm>
+<para><computeroutput>IEnumerable&lt; string &gt; Toolbox.Core.Options.ApiResponse.GetHeaders (string name)</computeroutput></para><para>
+
+<para>Gets all values for a header. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name</entry><entry>
+<para>The header name.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>All header values, or empty if not found.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00176">176</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3766c05d32ac54a7e02f483c0113ed54"/><section>
+    <title>Success()</title>
+<indexterm><primary>Success</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>Success</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link> Toolbox.Core.Options.ApiResponse.Success (string? body = <computeroutput>null</computeroutput>
+, HttpStatusCode statusCode = <computeroutput>HttpStatusCode::OK</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates a successful response. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>body</entry><entry>
+<para>The response body.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>statusCode</entry><entry>
+<para>The status code.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00204">204</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1af16c8db6718baf251aa6453821b551d3"/><section>
+    <title>TryDeserialize&lt; T &gt;()</title>
+<indexterm><primary>TryDeserialize&lt; T &gt;</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>TryDeserialize&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiResponse.TryDeserialize&lt; T &gt; (out T? result, JsonSerializerOptions? options = <computeroutput>null</computeroutput>
+)</computeroutput></para><para>
+
+<para>Tries to deserialize the response body as JSON. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The target type.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para>The deserialized object if successful.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>options</entry><entry>
+<para>JSON serializer options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para><computeroutput>true</computeroutput> if deserialization succeeded; otherwise, <computeroutput>false</computeroutput>.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00139">139</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6b20dee2b29798ce6af9e75c52420ce4"/><section>
+    <title>Body</title>
+<indexterm><primary>Body</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>Body</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiResponse.Body = new Dictionary&lt;string, IEnumerable&lt;string&gt;&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the response body as a string. </para>
+</para>
+
+<para>The body content, or <computeroutput>null</computeroutput> if no body.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00065">65</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a6cff539e246f1dc20045e97104ec8c22"/><section>
+    <title>BodyBytes</title>
+<indexterm><primary>BodyBytes</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>BodyBytes</secondary></indexterm>
+<para><computeroutput>byte? [] Toolbox.Core.Options.ApiResponse.BodyBytes<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the response body as bytes. </para>
+</para>
+
+<para>The body bytes, or <computeroutput>null</computeroutput> if no body.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00071">71</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a60a3edcd4c95e4eacc10b147968978e4"/><section>
+    <title>ContentLength</title>
+<indexterm><primary>ContentLength</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>ContentLength</secondary></indexterm>
+<para><computeroutput>long? Toolbox.Core.Options.ApiResponse.ContentLength<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the content length. </para>
+</para>
+
+<para>The content length in bytes, or <computeroutput>null</computeroutput> if not set.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00083">83</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a32b240cd491afbd67b4544f4ddbc4a8d"/><section>
+    <title>ContentType</title>
+<indexterm><primary>ContentType</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>ContentType</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiResponse.ContentType<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the content type header value. </para>
+</para>
+
+<para>The content type, or <computeroutput>null</computeroutput> if not set.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00077">77</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a9cc29f2892a97bda50bcc1cf11b7e4cc"/><section>
+    <title>Duration</title>
+<indexterm><primary>Duration</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>Duration</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.ApiResponse.Duration<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the request duration. </para>
+</para>
+
+<para>The time taken for the request.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00089">89</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1acebf1624cbf9d398cf5456a92049e765"/><section>
+    <title>Headers</title>
+<indexterm><primary>Headers</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>Headers</secondary></indexterm>
+<para><computeroutput>IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt; &gt; Toolbox.Core.Options.ApiResponse.Headers<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the response headers. </para>
+</para>
+
+<para>Dictionary of header names and values.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00058">58</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a1b30956dc36228b7d56acd95e8ecd0c7"/><section>
+    <title>IsClientError</title>
+<indexterm><primary>IsClientError</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>IsClientError</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiResponse.IsClientError<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether the response indicates a client error (4xx status). </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if status code is 4xx; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00101">101</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1ac29ced7049c785ba83fa9c3455be5a08"/><section>
+    <title>IsRedirect</title>
+<indexterm><primary>IsRedirect</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>IsRedirect</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiResponse.IsRedirect<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether the response is a redirect (3xx status). </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if status code is 3xx; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00113">113</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a0d00fac5c1919222643ad826b2a90ccd"/><section>
+    <title>IsServerError</title>
+<indexterm><primary>IsServerError</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>IsServerError</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiResponse.IsServerError<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether the response indicates a server error (5xx status). </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if status code is 5xx; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00107">107</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1ad9882807aeabd1aeba8ccc0b57461e1a"/><section>
+    <title>IsSuccess</title>
+<indexterm><primary>IsSuccess</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>IsSuccess</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiResponse.IsSuccess<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether the response indicates success (2xx status). </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if status code is 2xx; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00095">95</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3361b19eafefcff0f5390938a90ba683"/><section>
+    <title>ReasonPhrase</title>
+<indexterm><primary>ReasonPhrase</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>ReasonPhrase</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiResponse.ReasonPhrase<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the reason phrase. </para>
+</para>
+
+<para>The reason phrase (e.g., &quot;OK&quot;, &quot;Not Found&quot;).</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00052">52</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a3d0d03f1a691d1dcd7860def8714a74d"/><section>
+    <title>StatusCode</title>
+<indexterm><primary>StatusCode</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>StatusCode</secondary></indexterm>
+<para><computeroutput>HttpStatusCode Toolbox.Core.Options.ApiResponse.StatusCode<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the HTTP status code. </para>
+</para>
+
+<para>The status code.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00040">40</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_response_1a939a87a416b603f0fe608377088908bd"/><section>
+    <title>StatusCodeValue</title>
+<indexterm><primary>StatusCodeValue</primary><secondary>Toolbox.Core.Options.ApiResponse</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiResponse</primary><secondary>StatusCodeValue</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.ApiResponse.StatusCodeValue<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the status code as an integer. </para>
+</para>
+
+<para>The numeric status code.</para>
+<para>
+Definition at line <link linkend="__api_response_8cs_source_1l00046">46</link> of file <link linkend="__api_response_8cs_source">ApiResponse.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__api_response_8cs">ApiResponse.cs</link></section>
+</section>

@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774">SftpFileTransferServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1aec58634296d0a159b8b2c24f090d0a3d">Constructor_WithNullOptions_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a91efd5c5ad316decf23196055cd10ce9">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ae39045faf5768ff2662472aa33d82a4b">Constructor_WithEmptyHost_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a9b7c3c0983459655a79323dc143a4c78">Constructor_WithEmptyUsername_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a3e7cc9d1e3f871dc4dd6eec80f2f1aa6">Constructor_WithNoAuthentication_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6f0ef8a8bc094069b9be87782007b2cb">Constructor_WithPasswordAuth_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada457e12bf14895da4d111bea36675f6">Constructor_WithDirectOptions_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af2e70adad8e727d80ee42c0b90bcdf71">UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a2745ad3052675cd281561f7834c97ae3">UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1accf28159a5d130e925b38ad1d2cabf45">UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6300b98a0f30a8192dd36ff11fb2c5ee">UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a090018e7b1bb2c3e62e560427a3c5b89">UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a51b5f1d140aa2524e0046da54f5f142d">UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a358eef0fc26b7276bd6e1eaab085fe80">UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ab9335c7c1456d102b4d013484d6c1d0f">DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acb9abc8354c6cad33fd08bae004af671">DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a82bfb4c6caa6ece81d5caa6e67785d70">DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1afe55ce598c02c0d6ac4aeb17b0f360c9">DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a906032fb3c144d71b6d8080b4ee53bee">DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a8f02ece2059d159106b0799fb95972b2">DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acbf2707f55bd275090277e5010b048c9">UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af6d53793872f080e3972aedabeb9e3cf">DisposeAsync_ShouldDisposeResources</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>. </para>
+
+
+
+<para>These tests verify argument validation and configuration. <link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests with a real SFTP server would be in a separate test project. </para>
+<para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00016">16</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ac3e50de2709fedfe64b75f2c19ba8774"/><section>
+    <title>SftpFileTransferServiceTests()</title>
+<indexterm><primary>SftpFileTransferServiceTests</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>SftpFileTransferServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.SftpFileTransferServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00020">20</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ada457e12bf14895da4d111bea36675f6"/><section>
+    <title>Constructor_WithDirectOptions_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithDirectOptions_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithDirectOptions_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithDirectOptions_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00132">132</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ae39045faf5768ff2662472aa33d82a4b"/><section>
+    <title>Constructor_WithEmptyHost_ShouldThrowArgumentException()</title>
+<indexterm><primary>Constructor_WithEmptyHost_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithEmptyHost_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00061">61</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a9b7c3c0983459655a79323dc143a4c78"/><section>
+    <title>Constructor_WithEmptyUsername_ShouldThrowArgumentException()</title>
+<indexterm><primary>Constructor_WithEmptyUsername_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithEmptyUsername_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithEmptyUsername_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00080">80</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a3e7cc9d1e3f871dc4dd6eec80f2f1aa6"/><section>
+    <title>Constructor_WithNoAuthentication_ShouldThrowArgumentException()</title>
+<indexterm><primary>Constructor_WithNoAuthentication_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithNoAuthentication_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNoAuthentication_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00099">99</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a91efd5c5ad316decf23196055cd10ce9"/><section>
+    <title>Constructor_WithNullLogger_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00048">48</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1aec58634296d0a159b8b2c24f090d0a3d"/><section>
+    <title>Constructor_WithNullOptions_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullOptions_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithNullOptions_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00036">36</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6f0ef8a8bc094069b9be87782007b2cb"/><section>
+    <title>Constructor_WithPasswordAuth_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithPasswordAuth_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>Constructor_WithPasswordAuth_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.Constructor_WithPasswordAuth_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00119">119</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af6d53793872f080e3972aedabeb9e3cf"/><section>
+    <title>DisposeAsync_ShouldDisposeResources()</title>
+<indexterm><primary>DisposeAsync_ShouldDisposeResources</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DisposeAsync_ShouldDisposeResources</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DisposeAsync_ShouldDisposeResources ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00389">389</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a906032fb3c144d71b6d8080b4ee53bee"/><section>
+    <title>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadBatch_WithNullFiles_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00339">339</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a8f02ece2059d159106b0799fb95972b2"/><section>
+    <title>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00354">354</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acb9abc8354c6cad33fd08bae004af671"/><section>
+    <title>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOne_WithNullLocalPath_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00288">288</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1ab9335c7c1456d102b4d013484d6c1d0f"/><section>
+    <title>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOne_WithNullRemotePath_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00273">273</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1afe55ce598c02c0d6ac4aeb17b0f360c9"/><section>
+    <title>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOneAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00318">318</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a82bfb4c6caa6ece81d5caa6e67785d70"/><section>
+    <title>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.DownloadOneAsync_WithNullRemotePath_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00303">303</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a51b5f1d140aa2524e0046da54f5f142d"/><section>
+    <title>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadBatch_WithNullFiles_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadBatch_WithNullFiles_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00239">239</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a358eef0fc26b7276bd6e1eaab085fe80"/><section>
+    <title>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadBatchAsync_WithNullFiles_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00254">254</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1acbf2707f55bd275090277e5010b048c9"/><section>
+    <title>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadOne_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00373">373</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1accf28159a5d130e925b38ad1d2cabf45"/><section>
+    <title>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException()</title>
+<indexterm><primary>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNonExistentLocalFile_ShouldThrowFileNotFoundException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00179">179</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1af2e70adad8e727d80ee42c0b90bcdf71"/><section>
+    <title>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNullLocalPath_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00149">149</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a2745ad3052675cd281561f7834c97ae3"/><section>
+    <title>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOne_WithNullRemotePath_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00164">164</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a090018e7b1bb2c3e62e560427a3c5b89"/><section>
+    <title>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOneAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00209">209</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests_1a6300b98a0f30a8192dd36ff11fb2c5ee"/><section>
+    <title>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests</primary><secondary>UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.FileTransfer.SftpFileTransferServiceTests.UploadOneAsync_WithNullLocalPath_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__sftp_file_transfer_service_tests_8cs_source_1l00194">194</link> of file <link linkend="__sftp_file_transfer_service_tests_8cs_source">SftpFileTransferServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/FileTransfer/<link linkend="__sftp_file_transfer_service_tests_8cs">SftpFileTransferServiceTests.cs</link></section>
+</section>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_4e9795c81f02a13a612ea04ceef40cad" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__i_api_service_8cs">IApiService.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__i_cryptography_service_8cs">ICryptographyService.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__i_file_transfer_service_8cs">IFileTransferService.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__i_mailing_service_8cs">IMailingService.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

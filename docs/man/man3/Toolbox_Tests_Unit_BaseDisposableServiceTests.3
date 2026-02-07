@@ -1,0 +1,110 @@
+.TH "Toolbox.Tests.Unit.BaseDisposableServiceTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.BaseDisposableServiceTests \- \fBUnit\fP tests for \fBBaseDisposableService\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBaseDisposableServiceTests\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_ShouldSetServiceName\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullServiceName_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBConstructor_WithNullLogger_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBIsDisposed_WhenNotDisposed_ShouldReturnFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBIsDisposed_AfterDispose_ShouldReturnTrue\fP ()"
+.br
+.ti -1c
+.RI "void \fBDispose_ShouldBeIdempotent\fP ()"
+.br
+.ti -1c
+.RI "void \fBThrowIfDisposed_WhenNotDisposed_ShouldNotThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException\fP ()"
+.br
+.ti -1c
+.RI "void \fBActivitySource_ShouldReturnToolboxActivitySource\fP ()"
+.br
+.ti -1c
+.RI "void \fBMeter_ShouldReturnToolboxMeter\fP ()"
+.br
+.ti -1c
+.RI "void \fBDispose_ShouldBeThreadSafe\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBBaseDisposableService\fP\&. 
+.PP
+Definition at line \fB10\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.BaseDisposableServiceTests ()"
+
+.PP
+Definition at line \fB14\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.ActivitySource_ShouldReturnToolboxActivitySource ()"
+
+.PP
+Definition at line \fB117\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.Constructor_ShouldSetServiceName ()"
+
+.PP
+Definition at line \fB20\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.Constructor_WithNullLogger_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB41\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.Constructor_WithNullServiceName_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB30\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.Dispose_ShouldBeIdempotent ()"
+
+.PP
+Definition at line \fB75\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.Dispose_ShouldBeThreadSafe ()"
+
+.PP
+Definition at line \fB137\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.IsDisposed_AfterDispose_ShouldReturnTrue ()"
+
+.PP
+Definition at line \fB62\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.IsDisposed_WhenNotDisposed_ShouldReturnFalse ()"
+
+.PP
+Definition at line \fB52\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.Meter_ShouldReturnToolboxMeter ()"
+
+.PP
+Definition at line \fB127\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException ()"
+
+.PP
+Definition at line \fB103\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.BaseDisposableServiceTests\&.ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow ()"
+
+.PP
+Definition at line \fB90\fP of file \fBBaseDisposableServiceTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

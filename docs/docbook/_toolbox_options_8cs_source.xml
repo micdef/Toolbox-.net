@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__toolbox_options_8cs_source" xml:lang="en-US">
+<title>ToolboxOptions.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ToolboxOptions.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__toolbox_options_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;ToolboxOptions.cs</emphasis>
+<anchor xml:id="__toolbox_options_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Configuration&#32;options&#32;for&#32;Toolbox&#32;services</emphasis>
+<anchor xml:id="__toolbox_options_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;configuration&#32;options&#32;for&#32;core&#32;Toolbox&#32;functionality</emphasis>
+<anchor xml:id="__toolbox_options_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Configure&#32;these&#32;options&#32;via&#32;IConfiguration&#32;or&#32;direct&#32;instantiation</emphasis>
+<anchor xml:id="__toolbox_options_8cs_source_1l00005"/>00005 
+<anchor xml:id="__toolbox_options_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__toolbox_options_8cs_source_1l00007"/>00007 
+<anchor xml:id="__toolbox_options_8cs_source_1l00022"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options">00022</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options">ToolboxOptions</link>
+<anchor xml:id="__toolbox_options_8cs_source_1l00023"/>00023 {
+<anchor xml:id="__toolbox_options_8cs_source_1l00027"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a04306cd36618f56804e8622e6700dea2">00027</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a04306cd36618f56804e8622e6700dea2">SectionName</link>&#32;=&#32;<emphasis role="stringliteral">&quot;Toolbox&quot;</emphasis>;
+<anchor xml:id="__toolbox_options_8cs_source_1l00028"/>00028 
+<anchor xml:id="__toolbox_options_8cs_source_1l00040"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a70d6a07f94590e14b15ee1552b631534">00040</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a70d6a07f94590e14b15ee1552b631534">EnableDetailedTelemetry</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">set</emphasis>;&#32;}
+<anchor xml:id="__toolbox_options_8cs_source_1l00041"/>00041 
+<anchor xml:id="__toolbox_options_8cs_source_1l00051"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a0bf6b659534ce1a07f5e7e8c0a59138b">00051</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>?&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a0bf6b659534ce1a07f5e7e8c0a59138b">ServicePrefix</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">set</emphasis>;&#32;}
+<anchor xml:id="__toolbox_options_8cs_source_1l00052"/>00052 
+<anchor xml:id="__toolbox_options_8cs_source_1l00059"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a521a18cbf4960b456ee8213ab837d65e">00059</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;TimeSpan&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options_1a521a18cbf4960b456ee8213ab837d65e">AsyncDisposalTimeout</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">set</emphasis>;&#32;}&#32;=&#32;TimeSpan.FromSeconds(30);
+<anchor xml:id="__toolbox_options_8cs_source_1l00060"/>00060 }
+</programlisting></section>

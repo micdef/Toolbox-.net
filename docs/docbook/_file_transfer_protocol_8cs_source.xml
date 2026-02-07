@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__file_transfer_protocol_8cs_source" xml:lang="en-US">
+<title>FileTransferProtocol.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferProtocol.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__file_transfer_protocol_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;FileTransferProtocol.cs</emphasis>
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Enumeration&#32;of&#32;supported&#32;file&#32;transfer&#32;protocols</emphasis>
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;FTP&#32;and&#32;SFTP&#32;protocol&#32;options</emphasis>
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;SFTP&#32;is&#32;recommended&#32;for&#32;secure&#32;transfers</emphasis>
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00005"/>00005 
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00007"/>00007 
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00014"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">00014</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link>
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00015"/>00015 {
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00022"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb">00022</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb">Ftp</link>,
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00023"/>00023 
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00030"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f">00030</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f">Ftps</link>,
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00031"/>00031 
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00038"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">00038</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">Sftp</link>
+<anchor xml:id="__file_transfer_protocol_8cs_source_1l00039"/>00039 }
+</programlisting></section>

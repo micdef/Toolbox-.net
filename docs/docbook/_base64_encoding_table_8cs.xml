@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__base64_encoding_table_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64EncodingTable.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64EncodingTable.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Toolbox.Core.Options.Base64EncodingTable</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">Toolbox.Core.Options.Standard</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8">Toolbox.Core.Options.UrlSafe</link> = 1
+ }</para>
+
+<para>Specifies the Base64 encoding table to use. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

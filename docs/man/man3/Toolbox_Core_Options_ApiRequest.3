@@ -1,0 +1,595 @@
+.TH "Toolbox.Core.Options.ApiRequest" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.ApiRequest \- Represents an HTTP API request\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBApiRequest\fP (string method, string url)"
+.br
+.RI "Initializes a new instance of the \fBApiRequest\fP class\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBWithHeader\fP (string name, string value)"
+.br
+.RI "Adds a header to the request\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBWithQuery\fP (string name, string value)"
+.br
+.RI "Adds a query parameter to the request\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBWithTimeout\fP (TimeSpan timeout)"
+.br
+.RI "Sets a custom timeout for this request\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBSetJsonContent< T >\fP (T body, JsonSerializerOptions? options=null)"
+.br
+.RI "Sets JSON content for the request body\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBSetStringContent\fP (string content, string contentType='text/plain')"
+.br
+.RI "Sets string content for the request body\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBSetFormContent\fP (IEnumerable< KeyValuePair< string, string > > formData)"
+.br
+.RI "Sets form URL-encoded content for the request body\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBSetBinaryContent\fP (byte[] bytes, string contentType='application/octet\-stream')"
+.br
+.RI "Sets binary content for the request body\&. "
+.ti -1c
+.RI "\fBApiRequest\fP \fBSetStreamContent\fP (Stream stream, string contentType='application/octet\-stream')"
+.br
+.RI "Sets stream content for the request body\&. "
+.ti -1c
+.RI "string \fBBuildUrl\fP ()"
+.br
+.RI "Builds the full URL with query parameters\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBApiRequest\fP \fBGet\fP (string url)"
+.br
+.RI "Creates a GET request\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBPost< T >\fP (string url, T body, JsonSerializerOptions? options=null)"
+.br
+.RI "Creates a POST request with JSON content\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBPost\fP (string url)"
+.br
+.RI "Creates a POST request\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBPut< T >\fP (string url, T body, JsonSerializerOptions? options=null)"
+.br
+.RI "Creates a PUT request with JSON content\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBPut\fP (string url)"
+.br
+.RI "Creates a PUT request\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBPatch< T >\fP (string url, T body, JsonSerializerOptions? options=null)"
+.br
+.RI "Creates a PATCH request with JSON content\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBPatch\fP (string url)"
+.br
+.RI "Creates a PATCH request\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBDelete\fP (string url)"
+.br
+.RI "Creates a DELETE request\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBHead\fP (string url)"
+.br
+.RI "Creates a HEAD request\&. "
+.ti -1c
+.RI "static \fBApiRequest\fP \fBOptions\fP (string url)"
+.br
+.RI "Creates an OPTIONS request\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBMethod\fP\fR [get]\fP"
+.br
+.RI "Gets the HTTP method\&. "
+.ti -1c
+.RI "string \fBUrl\fP\fR [get]\fP"
+.br
+.RI "Gets the request URL or path\&. "
+.ti -1c
+.RI "HttpContent? \fBContent\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the request body content\&. "
+.ti -1c
+.RI "IDictionary< string, string > \fBHeaders\fP = new Dictionary<string, string>()\fR [get]\fP"
+.br
+.RI "Gets the request headers\&. "
+.ti -1c
+.RI "IDictionary< string, string > \fBQueryParameters\fP = new Dictionary<string, string>()\fR [get]\fP"
+.br
+.RI "Gets the query parameters\&. "
+.ti -1c
+.RI "TimeSpan? \fBTimeout\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the request timeout override\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents an HTTP API request\&. 
+
+This class encapsulates all the data needed to make an HTTP request, including URL, method, headers, and body content\&. 
+
+.PP
+.PP
+.nf
+// GET request
+var request = new ApiRequest("GET", "/users");
+
+// POST with JSON body
+var request = ApiRequest\&.Post("/users", new { Name = "John" });
+
+// With custom headers
+var request = new ApiRequest("GET", "/data")
+    \&.WithHeader("X\-Custom", "value");
+.fi
+.PP
+ 
+.PP
+Definition at line \fB33\fP of file \fBApiRequest\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Core\&.Options\&.ApiRequest\&.ApiRequest (string method, string url)"
+
+.PP
+Initializes a new instance of the \fBApiRequest\fP class\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImethod\fP The HTTP method\&.
+.br
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when parameters are \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB77\fP of file \fBApiRequest\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "string Toolbox\&.Core\&.Options\&.ApiRequest\&.BuildUrl ()"
+
+.PP
+Builds the full URL with query parameters\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The URL with query string\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB282\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Delete (string url)\fR [static]\fP"
+
+.PP
+Creates a DELETE request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB164\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Get (string url)\fR [static]\fP"
+
+.PP
+Creates a GET request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB91\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Head (string url)\fR [static]\fP"
+
+.PP
+Creates a HEAD request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB171\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Options (string url)\fR [static]\fP"
+
+.PP
+Creates an OPTIONS request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB178\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Patch (string url)\fR [static]\fP"
+
+.PP
+Creates a PATCH request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB157\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP \fBToolbox\&.Core\&.Options\&.ApiRequest\&.Patch\fP< T > (string url, T body, JsonSerializerOptions? options = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates a PATCH request with JSON content\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The body type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.br
+\fIbody\fP The request body\&.
+.br
+\fIoptions\fP JSON serializer options\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB145\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Post (string url)\fR [static]\fP"
+
+.PP
+Creates a POST request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB113\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP \fBToolbox\&.Core\&.Options\&.ApiRequest\&.Post\fP< T > (string url, T body, JsonSerializerOptions? options = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates a POST request with JSON content\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The body type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.br
+\fIbody\fP The request body\&.
+.br
+\fIoptions\fP JSON serializer options\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB101\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.Put (string url)\fR [static]\fP"
+
+.PP
+Creates a PUT request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB135\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP \fBToolbox\&.Core\&.Options\&.ApiRequest\&.Put\fP< T > (string url, T body, JsonSerializerOptions? options = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates a PUT request with JSON content\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The body type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIurl\fP The URL or path\&.
+.br
+\fIbody\fP The request body\&.
+.br
+\fIoptions\fP JSON serializer options\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBApiRequest\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB123\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.SetBinaryContent (byte[] bytes, string contentType = \fR'application/octet\-stream'\fP)"
+
+.PP
+Sets binary content for the request body\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbytes\fP The byte array\&.
+.br
+\fIcontentType\fP The content type\&. Default is "application/octet-stream"\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB258\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.SetFormContent (IEnumerable< KeyValuePair< string, string > > formData)"
+
+.PP
+Sets form URL-encoded content for the request body\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIformData\fP The form data\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB246\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.SetJsonContent< T > (T body, JsonSerializerOptions? options = \fRnull\fP)"
+
+.PP
+Sets JSON content for the request body\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The body type\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIbody\fP The request body\&.
+.br
+\fIoptions\fP JSON serializer options\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB222\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.SetStreamContent (Stream stream, string contentType = \fR'application/octet\-stream'\fP)"
+
+.PP
+Sets stream content for the request body\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstream\fP The stream\&.
+.br
+\fIcontentType\fP The content type\&. Default is "application/octet-stream"\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB271\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.SetStringContent (string content, string contentType = \fR'text/plain'\fP)"
+
+.PP
+Sets string content for the request body\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontent\fP The content string\&.
+.br
+\fIcontentType\fP The content type\&. Default is "text/plain"\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB235\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.WithHeader (string name, string value)"
+
+.PP
+Adds a header to the request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP The header name\&.
+.br
+\fIvalue\fP The header value\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB186\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.WithQuery (string name, string value)"
+
+.PP
+Adds a query parameter to the request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP The parameter name\&.
+.br
+\fIvalue\fP The parameter value\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB198\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "\fBApiRequest\fP Toolbox\&.Core\&.Options\&.ApiRequest\&.WithTimeout (TimeSpan timeout)"
+
+.PP
+Sets a custom timeout for this request\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP The timeout\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+This request for chaining\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB209\fP of file \fBApiRequest\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "HttpContent? Toolbox\&.Core\&.Options\&.ApiRequest\&.Content\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the request body content\&. The body content, or \fRnull\fP for no body\&.
+.PP
+Definition at line \fB51\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "IDictionary<string, string> Toolbox\&.Core\&.Options\&.ApiRequest\&.Headers = new Dictionary<string, string>()\fR [get]\fP"
+
+.PP
+Gets the request headers\&. Dictionary of header names and values\&.
+.PP
+Definition at line \fB57\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.ApiRequest\&.Method\fR [get]\fP"
+
+.PP
+Gets the HTTP method\&. The HTTP method (GET, POST, PUT, DELETE, etc\&.)\&.
+.PP
+Definition at line \fB39\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "IDictionary<string, string> Toolbox\&.Core\&.Options\&.ApiRequest\&.QueryParameters = new Dictionary<string, string>()\fR [get]\fP"
+
+.PP
+Gets the query parameters\&. Dictionary of query parameter names and values\&.
+.PP
+Definition at line \fB63\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "TimeSpan? Toolbox\&.Core\&.Options\&.ApiRequest\&.Timeout\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the request timeout override\&. Custom timeout, or \fRnull\fP to use default\&.
+.PP
+Definition at line \fB69\fP of file \fBApiRequest\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.ApiRequest\&.Url\fR [get]\fP"
+
+.PP
+Gets the request URL or path\&. The URL or path\&. Can be relative if base URL is configured\&.
+.PP
+Definition at line \fB45\fP of file \fBApiRequest\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

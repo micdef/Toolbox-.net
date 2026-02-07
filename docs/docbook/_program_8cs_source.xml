@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__program_8cs_source" xml:lang="en-US">
+<title>Program.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__program_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;Sample&#32;application&#32;demonstrating&#32;Toolbox&#32;usage</emphasis>
+<anchor xml:id="__program_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;Shows&#32;how&#32;to&#32;configure&#32;and&#32;use&#32;Toolbox&#32;services&#32;with&#32;DI&#32;and&#32;OpenTelemetry</emphasis>
+<anchor xml:id="__program_8cs_source_1l00003"/>00003 
+<anchor xml:id="__program_8cs_source_1l00004"/>00004 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.DependencyInjection;
+<anchor xml:id="__program_8cs_source_1l00005"/>00005 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Hosting;
+<anchor xml:id="__program_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Logging;
+<anchor xml:id="__program_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_base">Toolbox.Core.Base</link>;
+<anchor xml:id="__program_8cs_source_1l00008"/>00008 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Toolbox.Core.Extensions</link>;
+<anchor xml:id="__program_8cs_source_1l00009"/>00009 
+<anchor xml:id="__program_8cs_source_1l00010"/>00010 <emphasis role="comment">//&#32;Create&#32;and&#32;configure&#32;the&#32;host</emphasis>
+<anchor xml:id="__program_8cs_source_1l00011"/><link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">00011</link> var&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>&#32;=&#32;Host.CreateApplicationBuilder(args);
+<anchor xml:id="__program_8cs_source_1l00012"/>00012 
+<anchor xml:id="__program_8cs_source_1l00013"/>00013 <emphasis role="comment">//&#32;Add&#32;Toolbox&#32;core&#32;services</emphasis>
+<anchor xml:id="__program_8cs_source_1l00014"/><link linkend="__program_8cs_1ad612fa48b9074032108f9c5719face05">00014</link> <link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.Services.AddToolboxCore(options&#32;=&gt;
+<anchor xml:id="__program_8cs_source_1l00015"/>00015 {
+<anchor xml:id="__program_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;options.EnableDetailedTelemetry&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00017"/>00017 &#32;&#32;&#32;&#32;options.ServicePrefix&#32;=&#32;<emphasis role="stringliteral">&quot;Sample&quot;</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00018"/>00018 });
+<anchor xml:id="__program_8cs_source_1l00019"/>00019 
+<anchor xml:id="__program_8cs_source_1l00020"/>00020 <emphasis role="comment">//&#32;Add&#32;OpenTelemetry&#32;with&#32;console&#32;export&#32;for&#32;demonstration</emphasis>
+<anchor xml:id="__program_8cs_source_1l00021"/><link linkend="__program_8cs_1ab5be1f7721cc61e8cc139cba2c783407">00021</link> <link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.Services.AddToolboxOpenTelemetry(options&#32;=&gt;
+<anchor xml:id="__program_8cs_source_1l00022"/>00022 {
+<anchor xml:id="__program_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;options.EnableTracing&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;options.EnableMetrics&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;options.EnableConsoleExport&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;options.ServiceName&#32;=&#32;<emphasis role="stringliteral">&quot;Toolbox.Sample&quot;</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;options.ServiceVersion&#32;=&#32;<emphasis role="stringliteral">&quot;1.0.0&quot;</emphasis>;
+<anchor xml:id="__program_8cs_source_1l00028"/>00028 });
+<anchor xml:id="__program_8cs_source_1l00029"/>00029 
+<anchor xml:id="__program_8cs_source_1l00030"/>00030 <emphasis role="comment">//&#32;Register&#32;our&#32;sample&#32;service</emphasis>
+<anchor xml:id="__program_8cs_source_1l00031"/><link linkend="__program_8cs_1a1cab3cb58e15892058dd7b4b52016e91">00031</link> <link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.Services.AddScoped&lt;<link linkend="_interface_i_sample_service">ISampleService</link>,&#32;<link linkend="_class_sample_service">SampleService</link>&gt;();
+<anchor xml:id="__program_8cs_source_1l00032"/>00032 
+<anchor xml:id="__program_8cs_source_1l00033"/><link linkend="__program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d">00033</link> var&#32;<link linkend="__program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d">app</link>&#32;=&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.Build();
+<anchor xml:id="__program_8cs_source_1l00034"/>00034 
+<anchor xml:id="__program_8cs_source_1l00035"/>00035 <emphasis role="comment">//&#32;Demonstrate&#32;service&#32;usage</emphasis>
+<anchor xml:id="__program_8cs_source_1l00036"/><link linkend="__program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81">00036</link> <emphasis role="keyword">using</emphasis>&#32;(var&#32;<link linkend="__program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81">scope</link>&#32;=&#32;<link linkend="__program_8cs_1a7b225fcb720e4d5ed2bbf60e28a25e6d">app</link>.Services.CreateScope())
+<anchor xml:id="__program_8cs_source_1l00037"/>00037 {
+<anchor xml:id="__program_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;var&#32;logger&#32;=&#32;<link linkend="__program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81">scope</link>.ServiceProvider.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+<anchor xml:id="__program_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;logger.LogInformation(<emphasis role="stringliteral">&quot;Starting&#32;Toolbox&#32;Sample&#32;Application&quot;</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00040"/>00040 
+<anchor xml:id="__program_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<link linkend="__program_8cs_1a9c7e9f1318376a6625b27cbc10e0cf81">scope</link>.ServiceProvider.GetRequiredService&lt;<link linkend="_interface_i_sample_service">ISampleService</link>&gt;();
+<anchor xml:id="__program_8cs_source_1l00042"/>00042 
+<anchor xml:id="__program_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Perform&#32;some&#32;operations</emphasis>
+<anchor xml:id="__program_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;await&#32;service.<link linkend="_interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b">DoWorkAsync</link>(<emphasis role="stringliteral">&quot;Hello,&#32;Toolbox!&quot;</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00045"/>00045 
+<anchor xml:id="__program_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;logger.LogInformation(<emphasis role="stringliteral">&quot;Sample&#32;application&#32;completed&#32;successfully&quot;</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00047"/>00047 }
+<anchor xml:id="__program_8cs_source_1l00048"/>00048 
+<anchor xml:id="__program_8cs_source_1l00049"/>00049 Console.WriteLine(<emphasis role="stringliteral">&quot;Press&#32;any&#32;key&#32;to&#32;exit...&quot;</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00050"/><link linkend="__program_8cs_1a0f92e719a4715fdc376c5338f84ffbef">00050</link> Console.ReadKey();
+<anchor xml:id="__program_8cs_source_1l00051"/>00051 
+<anchor xml:id="__program_8cs_source_1l00055"/><link linkend="_interface_i_sample_service">00055</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">interface&#32;</emphasis><link linkend="_interface_i_sample_service">ISampleService</link>
+<anchor xml:id="__program_8cs_source_1l00056"/>00056 {
+<anchor xml:id="__program_8cs_source_1l00063"/><link linkend="_interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b">00063</link> &#32;&#32;&#32;&#32;Task&#32;<link linkend="_interface_i_sample_service_1af558448f0c3ea3c73b0235216186395b">DoWorkAsync</link>(<emphasis role="keywordtype">string</emphasis>&#32;message,&#32;CancellationToken&#32;ct&#32;=&#32;<emphasis role="keywordflow">default</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00064"/>00064 }
+<anchor xml:id="__program_8cs_source_1l00065"/>00065 
+<anchor xml:id="__program_8cs_source_1l00069"/><link linkend="_class_sample_service">00069</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7">SampleService</link>&#32;:&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link>,&#32;<link linkend="_interface_i_sample_service">ISampleService</link>
+<anchor xml:id="__program_8cs_source_1l00070"/>00070 {
+<anchor xml:id="__program_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;ILogger&lt;SampleService&gt;&#32;_logger;
+<anchor xml:id="__program_8cs_source_1l00072"/>00072 
+<anchor xml:id="__program_8cs_source_1l00077"/><link linkend="_class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7">00077</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_sample_service_1a3545afe78fb3e525d70ad0c3360ddcc7">SampleService</link>(ILogger&lt;SampleService&gt;&#32;logger)
+<anchor xml:id="__program_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(<emphasis role="stringliteral">&quot;SampleService&quot;</emphasis>,&#32;logger)
+<anchor xml:id="__program_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__program_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger&#32;=&#32;logger;
+<anchor xml:id="__program_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__program_8cs_source_1l00082"/>00082 
+<anchor xml:id="__program_8cs_source_1l00084"/><link linkend="_class_sample_service_1a9517e289671e8098655ef2563c31419b">00084</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_sample_service_1a9517e289671e8098655ef2563c31419b">DoWorkAsync</link>(<emphasis role="keywordtype">string</emphasis>&#32;message,&#32;CancellationToken&#32;ct&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__program_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__program_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__program_8cs_source_1l00087"/>00087 
+<anchor xml:id="__program_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__program_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__program_8cs_source_1l00090"/>00090 
+<anchor xml:id="__program_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogInformation(<emphasis role="stringliteral">&quot;Processing&#32;message:&#32;{Message}&quot;</emphasis>,&#32;message);
+<anchor xml:id="__program_8cs_source_1l00092"/>00092 
+<anchor xml:id="__program_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Simulate&#32;some&#32;async&#32;work</emphasis>
+<anchor xml:id="__program_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;Task.Delay(100,&#32;ct);
+<anchor xml:id="__program_8cs_source_1l00095"/>00095 
+<anchor xml:id="__program_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogInformation(<emphasis role="stringliteral">&quot;Message&#32;processed&#32;successfully&quot;</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00097"/>00097 
+<anchor xml:id="__program_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;DoWorkAsync&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__program_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__program_8cs_source_1l00100"/>00100 
+<anchor xml:id="__program_8cs_source_1l00102"/><link linkend="_class_sample_service_1ac667ccd31274fce29bb598b5a5f593c2">00102</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keyword">override</emphasis>&#32;async&#32;ValueTask&#32;<link linkend="_class_sample_service_1ac667ccd31274fce29bb598b5a5f593c2">DisposeAsyncCore</link>(CancellationToken&#32;cancellationToken)
+<anchor xml:id="__program_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__program_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogInformation(<emphasis role="stringliteral">&quot;SampleService&#32;is&#32;being&#32;disposed&quot;</emphasis>);
+<anchor xml:id="__program_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;Task.CompletedTask;
+<anchor xml:id="__program_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__program_8cs_source_1l00107"/>00107 }
+</programlisting></section>

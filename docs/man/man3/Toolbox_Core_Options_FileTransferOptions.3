@@ -1,0 +1,205 @@
+.TH "Toolbox.Core.Options.FileTransferOptions" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.FileTransferOptions \- Configuration options for file transfer services\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBGetDefaultPort\fP ()"
+.br
+.RI "Gets the default port for the current protocol\&. "
+.ti -1c
+.RI "int \fBGetEffectivePort\fP ()"
+.br
+.RI "Gets the effective port, using the default if not explicitly set\&. "
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const string \fBSectionName\fP = 'Toolbox:FileTransfer'"
+.br
+.RI "The configuration section name for binding\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBHost\fP = string\&.Empty\fR [get, set]\fP"
+.br
+.RI "Gets or sets the server hostname or IP address\&. "
+.ti -1c
+.RI "int \fBPort\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the server port\&. "
+.ti -1c
+.RI "string \fBUsername\fP = string\&.Empty\fR [get, set]\fP"
+.br
+.RI "Gets or sets the username for authentication\&. "
+.ti -1c
+.RI "string? \fBPassword\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the password for authentication\&. "
+.ti -1c
+.RI "string? \fBPrivateKeyPath\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the private key file path for SFTP key-based authentication\&. "
+.ti -1c
+.RI "string? \fBPrivateKeyContent\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the private key content for SFTP key-based authentication\&. "
+.ti -1c
+.RI "string? \fBPrivateKeyPassphrase\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the passphrase for the private key\&. "
+.ti -1c
+.RI "\fBFileTransferProtocol\fP \fBProtocol\fP = \fBFileTransferProtocol\&.Sftp\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the file transfer protocol to use\&. "
+.ti -1c
+.RI "TimeSpan \fBConnectionTimeout\fP = TimeSpan\&.FromSeconds(30)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the connection timeout\&. "
+.ti -1c
+.RI "TimeSpan \fBOperationTimeout\fP = TimeSpan\&.FromSeconds(60)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the operation timeout for read/write operations\&. "
+.ti -1c
+.RI "bool \fBAutoCreateDirectory\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets a value indicating whether to automatically create remote directories\&. "
+.ti -1c
+.RI "int \fBBufferSize\fP = 32 * 1024\fR [get, set]\fP"
+.br
+.RI "Gets or sets the buffer size for file transfers\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration options for file transfer services\&. 
+
+These options configure the connection to FTP/SFTP servers\&. 
+
+.PP
+For SFTP, you can use either password authentication or private key authentication\&. 
+.PP
+Definition at line \fB19\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "int Toolbox\&.Core\&.Options\&.FileTransferOptions\&.GetDefaultPort ()"
+
+.PP
+Gets the default port for the current protocol\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The default port number\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB102\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.FileTransferOptions\&.GetEffectivePort ()"
+
+.PP
+Gets the effective port, using the default if not explicitly set\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The port number to use\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB114\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const string Toolbox\&.Core\&.Options\&.FileTransferOptions\&.SectionName = 'Toolbox:FileTransfer'\fR [static]\fP"
+
+.PP
+The configuration section name for binding\&. 
+.PP
+Definition at line \fB24\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "bool Toolbox\&.Core\&.Options\&.FileTransferOptions\&.AutoCreateDirectory = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets a value indicating whether to automatically create remote directories\&. \fRtrue\fP to auto-create directories; otherwise, \fRfalse\fP\&. Default is \fRtrue\fP\&.
+.PP
+Definition at line \fB90\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.FileTransferOptions\&.BufferSize = 32 * 1024\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the buffer size for file transfers\&. The buffer size in bytes\&. Default is 32 KB\&.
+.PP
+Definition at line \fB96\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.FileTransferOptions\&.ConnectionTimeout = TimeSpan\&.FromSeconds(30)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the connection timeout\&. The timeout duration\&. Default is 30 seconds\&.
+.PP
+Definition at line \fB78\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.FileTransferOptions\&.Host = string\&.Empty\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the server hostname or IP address\&. The server address\&.
+.PP
+Definition at line \fB30\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.FileTransferOptions\&.OperationTimeout = TimeSpan\&.FromSeconds(60)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the operation timeout for read/write operations\&. The timeout duration\&. Default is 60 seconds\&.
+.PP
+Definition at line \fB84\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.FileTransferOptions\&.Password\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the password for authentication\&. The password, or \fRnull\fP for key-based authentication\&.
+.PP
+Definition at line \fB48\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.FileTransferOptions\&.Port\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the server port\&. The port number\&. Default is 21 for FTP, 22 for SFTP\&.
+.PP
+Definition at line \fB36\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.FileTransferOptions\&.PrivateKeyContent\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the private key content for SFTP key-based authentication\&. The private key content as a string, or \fRnull\fP\&.
+.PP
+Definition at line \fB60\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.FileTransferOptions\&.PrivateKeyPassphrase\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the passphrase for the private key\&. The passphrase, or \fRnull\fP if the key is not encrypted\&.
+.PP
+Definition at line \fB66\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.FileTransferOptions\&.PrivateKeyPath\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the private key file path for SFTP key-based authentication\&. The path to the private key file, or \fRnull\fP for password authentication\&.
+.PP
+Definition at line \fB54\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "\fBFileTransferProtocol\fP Toolbox\&.Core\&.Options\&.FileTransferOptions\&.Protocol = \fBFileTransferProtocol\&.Sftp\fP\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the file transfer protocol to use\&. The protocol\&. Default is \fBFileTransferProtocol\&.Sftp\fP\&.
+.PP
+Definition at line \fB72\fP of file \fBFileTransferOptions\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.FileTransferOptions\&.Username = string\&.Empty\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the username for authentication\&. The username\&.
+.PP
+Definition at line \fB42\fP of file \fBFileTransferOptions\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

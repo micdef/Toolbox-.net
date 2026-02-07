@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__email_address_8cs_source" xml:lang="en-US">
+<title>EmailAddress.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailAddress.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__email_address_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;EmailAddress.cs</emphasis>
+<anchor xml:id="__email_address_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Email&#32;address&#32;representation</emphasis>
+<anchor xml:id="__email_address_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Contains&#32;an&#32;email&#32;address&#32;with&#32;optional&#32;display&#32;name</emphasis>
+<anchor xml:id="__email_address_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Immutable&#32;record&#32;type&#32;for&#32;thread&#32;safety</emphasis>
+<anchor xml:id="__email_address_8cs_source_1l00005"/>00005 
+<anchor xml:id="__email_address_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__email_address_8cs_source_1l00007"/>00007 
+<anchor xml:id="__email_address_8cs_source_1l00028"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">00028</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;record&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="keywordtype">string</emphasis>&#32;Address,&#32;<emphasis role="keywordtype">string</emphasis>?&#32;DisplayName&#32;=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__email_address_8cs_source_1l00029"/>00029 {
+<anchor xml:id="__email_address_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;Address&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;init;&#32;}&#32;=&#32;Address&#32;??&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;ArgumentNullException(nameof(Address));
+<anchor xml:id="__email_address_8cs_source_1l00035"/>00035 
+<anchor xml:id="__email_address_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;implicit&#32;<emphasis role="keyword">operator</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="keywordtype">string</emphasis>&#32;address)&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>(address);
+<anchor xml:id="__email_address_8cs_source_1l00042"/>00042 
+<anchor xml:id="__email_address_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">override</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;ToString()&#32;=&gt;
+<anchor xml:id="__email_address_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">string</emphasis>.IsNullOrEmpty(DisplayName)
+<anchor xml:id="__email_address_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;Address
+<anchor xml:id="__email_address_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;$<emphasis role="stringliteral">&quot;\&quot;{DisplayName}\&quot;&#32;&lt;{Address}&gt;&quot;</emphasis>;
+<anchor xml:id="__email_address_8cs_source_1l00048"/>00048 }
+</programlisting></section>

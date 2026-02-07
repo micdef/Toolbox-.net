@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service" xml:lang="en-US">
+<title>Toolbox.Core.Abstractions.Services.IMailingService Interface Reference</title>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.IMailingService</primary></indexterm>
+<para>
+
+<para>Defines the contract for email sending services. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Abstractions.Services.IMailingService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381">SendMail</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> message)</para>
+
+<para>Sends an email synchronously. </para>
+</listitem>
+            <listitem><para>Task <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306">SendMailAsync</link> (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> message, CancellationToken cancellationToken=default)</para>
+
+<para>Sends an email asynchronously. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">Toolbox.Core.Abstractions.IAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>Asynchronously releases resources with cancellation support. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">Toolbox.Core.Abstractions.IInstrumentedService</link>        <itemizedlist>
+            <listitem><para>ActivitySource <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing. </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Properties inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">Toolbox.Core.Abstractions.IDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the unique name identifying this service instance. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether this service has been disposed. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Defines the contract for email sending services. </para>
+
+
+
+<para>This interface provides methods for sending emails with support for: </para>
+
+<para><itemizedlist>
+<listitem>
+
+<para>Single or multiple recipients (To, CC, BCC) </para>
+</listitem>
+<listitem>
+
+<para>File attachments </para>
+</listitem>
+<listitem>
+
+<para>HTML or plain text content </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">IInstrumentedService</link>, <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">IAsyncDisposableService</link></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__i_mailing_service_8cs_source_1l00025">25</link> of file <link linkend="__i_mailing_service_8cs_source">IMailingService.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381"/><section>
+    <title>SendMail()</title>
+<indexterm><primary>SendMail</primary><secondary>Toolbox.Core.Abstractions.Services.IMailingService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.IMailingService</primary><secondary>SendMail</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Abstractions.Services.IMailingService.SendMail (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> message)</computeroutput></para><para>
+
+<para>Sends an email synchronously. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>The email message to send.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>message</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when the message has no recipients (To or BCC).</para>
+</entry>
+                            </row>
+                            <row>
+<entry>InvalidOperationException</entry><entry>
+<para>Thrown when the SMTP connection fails.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;message&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;EmailMessage
+{
+&#32;&#32;&#32;&#32;From&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;sender@example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;Sender&#32;Name&quot;</emphasis>),
+&#32;&#32;&#32;&#32;Subject&#32;=&#32;<emphasis role="stringliteral">&quot;Hello&quot;</emphasis>,
+&#32;&#32;&#32;&#32;Body&#32;=&#32;<emphasis role="stringliteral">&quot;Hello,&#32;World!&quot;</emphasis>,
+&#32;&#32;&#32;&#32;To&#32;=&#32;{&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;recipient@example.com&quot;</emphasis>)&#32;}
+};
+mailingService.SendMail(message);
+</computeroutput></literallayout> </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_1a6196953505265e87710fe85710c77c03">Toolbox.Core.Services.Mailing.SmtpMailingService</link>.</para>
+</section>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306"/><section>
+    <title>SendMailAsync()</title>
+<indexterm><primary>SendMailAsync</primary><secondary>Toolbox.Core.Abstractions.Services.IMailingService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.IMailingService</primary><secondary>SendMailAsync</secondary></indexterm>
+<para><computeroutput>Task Toolbox.Core.Abstractions.Services.IMailingService.SendMailAsync (<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> message, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>Sends an email asynchronously. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>The email message to send.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task representing the asynchronous operation.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>message</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when the message has no recipients (To or BCC).</para>
+</entry>
+                            </row>
+                            <row>
+<entry>InvalidOperationException</entry><entry>
+<para>Thrown when the SMTP connection fails.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>OperationCanceledException</entry><entry>
+<para>Thrown when the operation is cancelled.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;message&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;EmailMessage
+{
+&#32;&#32;&#32;&#32;From&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;sender@example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;Sender&#32;Name&quot;</emphasis>),
+&#32;&#32;&#32;&#32;Subject&#32;=&#32;<emphasis role="stringliteral">&quot;Hello&quot;</emphasis>,
+&#32;&#32;&#32;&#32;Body&#32;=&#32;<emphasis role="stringliteral">&quot;&lt;h1&gt;Hello,&#32;World!&lt;/h1&gt;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;IsBodyHtml&#32;=&#32;<emphasis role="keyword">true</emphasis>,
+&#32;&#32;&#32;&#32;To&#32;=&#32;{&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;recipient@example.com&quot;</emphasis>)&#32;}
+};
+await&#32;mailingService.SendMailAsync(message);
+</computeroutput></literallayout> </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service_1aa946d4ab1fd7abe6fd5ec78ee2a5998b">Toolbox.Core.Services.Mailing.SmtpMailingService</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/<link linkend="__i_mailing_service_8cs">IMailingService.cs</link></section>
+</section>

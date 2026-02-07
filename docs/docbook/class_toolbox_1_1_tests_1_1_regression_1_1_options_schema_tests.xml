@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Regression.OptionsSchemaTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Regression.OptionsSchemaTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for options classes to detect breaking changes in configuration schema. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a14b1200bb842289fb5d9b450d50352b9">ToolboxOptions_SectionName_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1ab58f78b6f30351406b7c657e0954543d">ToolboxOptions_DefaultValues_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a50c4672587592be45780a97e33079ae6">ToolboxTelemetryOptions_SectionName_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a951b544a7a764ca7c793dd00a5f218c5">ToolboxTelemetryOptions_DefaultValues_ShouldNotChange</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for options classes to detect breaking changes in configuration schema. </para>
+<para>
+Definition at line <link linkend="__options_schema_tests_8cs_source_1l00008">8</link> of file <link linkend="__options_schema_tests_8cs_source">OptionsSchemaTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1ab58f78b6f30351406b7c657e0954543d"/><section>
+    <title>ToolboxOptions_DefaultValues_ShouldNotChange()</title>
+<indexterm><primary>ToolboxOptions_DefaultValues_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.OptionsSchemaTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.OptionsSchemaTests</primary><secondary>ToolboxOptions_DefaultValues_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.OptionsSchemaTests.ToolboxOptions_DefaultValues_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__options_schema_tests_8cs_source_1l00017">17</link> of file <link linkend="__options_schema_tests_8cs_source">OptionsSchemaTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a14b1200bb842289fb5d9b450d50352b9"/><section>
+    <title>ToolboxOptions_SectionName_ShouldNotChange()</title>
+<indexterm><primary>ToolboxOptions_SectionName_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.OptionsSchemaTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.OptionsSchemaTests</primary><secondary>ToolboxOptions_SectionName_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.OptionsSchemaTests.ToolboxOptions_SectionName_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__options_schema_tests_8cs_source_1l00011">11</link> of file <link linkend="__options_schema_tests_8cs_source">OptionsSchemaTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a951b544a7a764ca7c793dd00a5f218c5"/><section>
+    <title>ToolboxTelemetryOptions_DefaultValues_ShouldNotChange()</title>
+<indexterm><primary>ToolboxTelemetryOptions_DefaultValues_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.OptionsSchemaTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.OptionsSchemaTests</primary><secondary>ToolboxTelemetryOptions_DefaultValues_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.OptionsSchemaTests.ToolboxTelemetryOptions_DefaultValues_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__options_schema_tests_8cs_source_1l00033">33</link> of file <link linkend="__options_schema_tests_8cs_source">OptionsSchemaTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_options_schema_tests_1a50c4672587592be45780a97e33079ae6"/><section>
+    <title>ToolboxTelemetryOptions_SectionName_ShouldNotChange()</title>
+<indexterm><primary>ToolboxTelemetryOptions_SectionName_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.OptionsSchemaTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.OptionsSchemaTests</primary><secondary>ToolboxTelemetryOptions_SectionName_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.OptionsSchemaTests.ToolboxTelemetryOptions_SectionName_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__options_schema_tests_8cs_source_1l00027">27</link> of file <link linkend="__options_schema_tests_8cs_source">OptionsSchemaTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/<link linkend="__options_schema_tests_8cs">OptionsSchemaTests.cs</link></section>
+</section>

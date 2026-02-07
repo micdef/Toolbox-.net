@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__rsa_padding_mode_8cs_source" xml:lang="en-US">
+<title>RsaPaddingMode.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaPaddingMode.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__rsa_padding_mode_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;RsaPaddingMode.cs</emphasis>
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Enumeration&#32;of&#32;RSA&#32;padding&#32;modes</emphasis>
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;supported&#32;RSA&#32;encryption&#32;padding&#32;modes</emphasis>
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;OAEP&#32;with&#32;SHA-256&#32;is&#32;recommended&#32;for&#32;new&#32;applications</emphasis>
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00005"/>00005 
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00007"/>00007 
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00017"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">00017</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00018"/>00018 {
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00026"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387">00026</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387">Pkcs1</link>,
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00027"/>00027 
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00035"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003">00035</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003">OaepSha1</link>,
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00036"/>00036 
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00044"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c">00044</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c">OaepSha256</link>,
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00045"/>00045 
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00052"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe">00052</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe">OaepSha384</link>,
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00053"/>00053 
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00061"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3">00061</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3">OaepSha512</link>
+<anchor xml:id="__rsa_padding_mode_8cs_source_1l00062"/>00062 }
+</programlisting></section>

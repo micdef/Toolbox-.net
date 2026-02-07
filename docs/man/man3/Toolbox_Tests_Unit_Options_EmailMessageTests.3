@@ -1,0 +1,220 @@
+.TH "Toolbox.Tests.Unit.Options.EmailMessageTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Options.EmailMessageTests \- \fBUnit\fP tests for \fBEmailMessage\fP and related classes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBEmailAddress_WithAddressOnly_ShouldCreate\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAddress_WithDisplayName_ShouldCreate\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAddress_WithNullAddress_ShouldThrowArgumentNullException\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAddress_ImplicitConversion_ShouldWork\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_NewInstance_ShouldHaveEmptyCollections\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_NewInstance_ShouldHaveDefaultValues\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_TotalRecipients_ShouldCountAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_Validate_WithNoRecipients_ShouldThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_Validate_WithToRecipient_ShouldNotThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailMessage_Validate_WithBccOnly_ShouldNotThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromFile_WithNonExistentFile_ShouldThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromFile_WithNullPath_ShouldThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromBytes_WithValidData_ShouldCreate\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromBytes_WithNullContent_ShouldThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromBytes_WithNullFileName_ShouldThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_CreateInline_ShouldCreateInlineAttachment\fP ()"
+.br
+.ti -1c
+.RI "void \fBEmailAttachment_FromBytes_ShouldDetectContentType\fP (string extension, string expectedContentType)"
+.br
+.ti -1c
+.RI "void \fBMailingOptions_DefaultValues_ShouldBeCorrect\fP ()"
+.br
+.ti -1c
+.RI "void \fBMailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBMailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue\fP ()"
+.br
+.ti -1c
+.RI "void \fBMailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBEmailMessage\fP and related classes\&. 
+.PP
+Definition at line \fB8\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAddress_ImplicitConversion_ShouldWork ()"
+
+.PP
+Definition at line \fB45\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress ()"
+
+.PP
+Definition at line \fB69\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress ()"
+
+.PP
+Definition at line \fB56\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAddress_WithAddressOnly_ShouldCreate ()"
+
+.PP
+Definition at line \fB13\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAddress_WithDisplayName_ShouldCreate ()"
+
+.PP
+Definition at line \fB24\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAddress_WithNullAddress_ShouldThrowArgumentNullException ()"
+
+.PP
+Definition at line \fB35\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_CreateInline_ShouldCreateInlineAttachment ()"
+
+.PP
+Definition at line \fB286\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromBytes_ShouldDetectContentType (string extension, string expectedContentType)"
+
+.PP
+Definition at line \fB314\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt ()"
+
+.PP
+Definition at line \fB273\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromBytes_WithNullContent_ShouldThrow ()"
+
+.PP
+Definition at line \fB253\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromBytes_WithNullFileName_ShouldThrow ()"
+
+.PP
+Definition at line \fB263\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromBytes_WithValidData_ShouldCreate ()"
+
+.PP
+Definition at line \fB236\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow ()"
+
+.PP
+Definition at line \fB216\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailAttachment_FromFile_WithNullPath_ShouldThrow ()"
+
+.PP
+Definition at line \fB226\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue ()"
+
+.PP
+Definition at line \fB134\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse ()"
+
+.PP
+Definition at line \fB145\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse ()"
+
+.PP
+Definition at line \fB113\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue ()"
+
+.PP
+Definition at line \fB123\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_NewInstance_ShouldHaveDefaultValues ()"
+
+.PP
+Definition at line \fB100\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_NewInstance_ShouldHaveEmptyCollections ()"
+
+.PP
+Definition at line \fB86\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_TotalRecipients_ShouldCountAll ()"
+
+.PP
+Definition at line \fB156\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_Validate_WithBccOnly_ShouldNotThrow ()"
+
+.PP
+Definition at line \fB198\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_Validate_WithNoRecipients_ShouldThrow ()"
+
+.PP
+Definition at line \fB170\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.EmailMessage_Validate_WithToRecipient_ShouldNotThrow ()"
+
+.PP
+Definition at line \fB184\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.MailingOptions_DefaultValues_ShouldBeCorrect ()"
+
+.PP
+Definition at line \fB331\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse ()"
+
+.PP
+Definition at line \fB351\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue ()"
+
+.PP
+Definition at line \fB371\fP of file \fBEmailMessageTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.EmailMessageTests\&.MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue ()"
+
+.PP
+Definition at line \fB361\fP of file \fBEmailMessageTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

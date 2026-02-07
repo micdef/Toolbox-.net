@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['head_0',['Head',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#a1bb959460ddb0199ab46d06fc901d92a',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['head_5fshouldcreateheadrequest_1',['Head_ShouldCreateHeadRequest',['../class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests.html#a9666360faaf6640eaea0b43d4701ad63',1,'Toolbox::Tests::Unit::Options::ApiRequestTests']]],
-  ['httpapiservice_2',['HttpApiService',['../class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service.html#a13db9bf8c57aa5cdb1fdc5454edc34c8',1,'Toolbox.Core.Services.Api.HttpApiService.HttpApiService(IOptions&lt; ApiOptions &gt; options, ILogger&lt; HttpApiService &gt; logger)'],['../class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service.html#a2e0327bd457d140986ae3b5dcae62c49',1,'Toolbox.Core.Services.Api.HttpApiService.HttpApiService(HttpClient httpClient, IOptions&lt; ApiOptions &gt; options, ILogger&lt; HttpApiService &gt; logger)'],['../class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service.html#a5b6a7d2f7dffc37af3a16a464f1ba9cf',1,'Toolbox.Core.Services.Api.HttpApiService.HttpApiService(ApiOptions options, ILogger&lt; HttpApiService &gt; logger)']]],
-  ['httpapiservicetests_3',['HttpApiServiceTests',['../class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests.html#a79375397fb523d447f9758f2ed737ece',1,'Toolbox::Tests::Unit::Services::Api::HttpApiServiceTests']]]
-];

@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message" xml:lang="en-US">
+<title>Toolbox.Core.Options.EmailMessage Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary></indexterm>
+<para>
+
+<para>Represents an email message to be sent. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a631a28ef3c2b8a847205df409b4d83a2">Validate</link> ()</para>
+
+<para>Validates the message and throws if invalid. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ae81d3000119c9b12dfffe302a6ed34e1">From</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the sender&apos;s email address. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ad1e2b8d83269be70648b1ea4c001c428">ReplyTo</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the reply-to email address. </para>
+</listitem>
+            <listitem><para>IList&lt; <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link> &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e">To</link> = new List&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the list of primary recipients. </para>
+</listitem>
+            <listitem><para>IList&lt; <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link> &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a30f5834090bbf7c36de92bd0de29f290">Cc</link> = new List&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the list of carbon copy recipients. </para>
+</listitem>
+            <listitem><para>IList&lt; <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link> &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b">Bcc</link> = new List&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the list of blind carbon copy recipients. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2878058a0675907e71f46085dd7c1e0f">Subject</link> = string.Empty<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the email subject. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1acc148135731267f616b58707b0e4132d">Body</link> = string.Empty<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the email body content. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf">IsBodyHtml</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets a value indicating whether the body is HTML. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a667aa502ae68efb886b63e93b06a695b">PlainTextBody</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the plain text version of the body for HTML emails. </para>
+</listitem>
+            <listitem><para>IList&lt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a7ec40f4c0801e9d635c33cdcd29cbf03">Attachments</link> = new List&lt;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link>&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the list of attachments. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778">EmailPriority</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1abfe1f4e9814f5b67aa2122fafef4804a">Priority</link> = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0">EmailPriority.Normal</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the email priority. </para>
+</listitem>
+            <listitem><para>IDictionary&lt; string, string &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ac8af8d8afbb92f19ee7e9584906778d3">Headers</link> = new Dictionary&lt;string, string&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the custom headers to include in the email. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a3e25efe03279f3b48fbf34eabcde53e2">TotalRecipients</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the total number of recipients (To + CC + BCC). </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a6e9f18a8cfe7ea88b2547402868d41ce">HasRecipients</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether this message has any recipients. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents an email message to be sent. </para>
+
+
+
+<para>This class contains all the information needed to compose and send an email, including recipients, subject, body, and attachments. </para>
+
+<para>At least one recipient must be specified in <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e">To</link> or <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b">Bcc</link>. If <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e">To</link> is empty, at least one <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b">Bcc</link> recipient is required. </para>
+
+<para><literallayout><computeroutput>var&#32;message&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;EmailMessage
+{
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ae81d3000119c9b12dfffe302a6ed34e1">From</link>&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;sender@example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;Sender&quot;</emphasis>),
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2878058a0675907e71f46085dd7c1e0f">Subject</link>&#32;=&#32;<emphasis role="stringliteral">&quot;Monthly&#32;Report&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1acc148135731267f616b58707b0e4132d">Body</link>&#32;=&#32;<emphasis role="stringliteral">&quot;&lt;h1&gt;Report&lt;/h1&gt;&lt;p&gt;See&#32;attached.&lt;/p&gt;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf">IsBodyHtml</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e">To</link>&#32;=&#32;{&#32;<emphasis role="stringliteral">&quot;recipient@example.com&quot;</emphasis>&#32;},
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a30f5834090bbf7c36de92bd0de29f290">Cc</link>&#32;=&#32;{&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;manager@example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;Manager&quot;</emphasis>)&#32;},
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a7ec40f4c0801e9d635c33cdcd29cbf03">Attachments</link>&#32;=&#32;{&#32;EmailAttachment.FromFile(<emphasis role="stringliteral">&quot;report.pdf&quot;</emphasis>)&#32;}
+};
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00035">35</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a631a28ef3c2b8a847205df409b4d83a2"/><section>
+    <title>Validate()</title>
+<indexterm><primary>Validate</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Validate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Options.EmailMessage.Validate ( )</computeroutput></para><para>
+
+<para>Validates the message and throws if invalid. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when the message is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00128">128</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a7ec40f4c0801e9d635c33cdcd29cbf03"/><section>
+    <title>Attachments</title>
+<indexterm><primary>Attachments</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Attachments</secondary></indexterm>
+<para><computeroutput>IList&lt;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link>&gt; Toolbox.Core.Options.EmailMessage.Attachments = new List&lt;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link>&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the list of attachments. </para>
+</para>
+
+<para>The list of file attachments.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00098">98</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a1fde3f15e549c1ce10418ea24a8ee79b"/><section>
+    <title>Bcc</title>
+<indexterm><primary>Bcc</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Bcc</secondary></indexterm>
+<para><computeroutput>IList&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt; Toolbox.Core.Options.EmailMessage.Bcc = new List&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the list of blind carbon copy recipients. </para>
+</para>
+
+<para>The list of &quot;BCC&quot; recipients.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00065">65</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1acc148135731267f616b58707b0e4132d"/><section>
+    <title>Body</title>
+<indexterm><primary>Body</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Body</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.EmailMessage.Body = string.Empty<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the email body content. </para>
+</para>
+
+<para>The body content in HTML or plain text format.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00077">77</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a30f5834090bbf7c36de92bd0de29f290"/><section>
+    <title>Cc</title>
+<indexterm><primary>Cc</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Cc</secondary></indexterm>
+<para><computeroutput>IList&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt; Toolbox.Core.Options.EmailMessage.Cc = new List&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the list of carbon copy recipients. </para>
+</para>
+
+<para>The list of &quot;CC&quot; recipients.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00059">59</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ae81d3000119c9b12dfffe302a6ed34e1"/><section>
+    <title>From</title>
+<indexterm><primary>From</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>From</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? Toolbox.Core.Options.EmailMessage.From<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the sender&apos;s email address. </para>
+</para>
+
+<para>The sender address. If <computeroutput>null</computeroutput>, uses the service&apos;s default sender.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00041">41</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a6e9f18a8cfe7ea88b2547402868d41ce"/><section>
+    <title>HasRecipients</title>
+<indexterm><primary>HasRecipients</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>HasRecipients</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.EmailMessage.HasRecipients<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether this message has any recipients. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if there is at least one recipient; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00122">122</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ac8af8d8afbb92f19ee7e9584906778d3"/><section>
+    <title>Headers</title>
+<indexterm><primary>Headers</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Headers</secondary></indexterm>
+<para><computeroutput>IDictionary&lt;string, string&gt; Toolbox.Core.Options.EmailMessage.Headers = new Dictionary&lt;string, string&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the custom headers to include in the email. </para>
+</para>
+
+<para>A dictionary of custom header names and values.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00110">110</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf"/><section>
+    <title>IsBodyHtml</title>
+<indexterm><primary>IsBodyHtml</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>IsBodyHtml</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.EmailMessage.IsBodyHtml<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets a value indicating whether the body is HTML. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if the body is HTML; <computeroutput>false</computeroutput> for plain text. Default is <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00083">83</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a667aa502ae68efb886b63e93b06a695b"/><section>
+    <title>PlainTextBody</title>
+<indexterm><primary>PlainTextBody</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>PlainTextBody</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.EmailMessage.PlainTextBody<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the plain text version of the body for HTML emails. </para>
+</para>
+
+<para>The plain text alternative, or <computeroutput>null</computeroutput> to auto-generate from HTML. Only used when <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a82878f0f02674c42c078a1d0a85bc1bf">IsBodyHtml</link> is <computeroutput>true</computeroutput>. </para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00092">92</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1abfe1f4e9814f5b67aa2122fafef4804a"/><section>
+    <title>Priority</title>
+<indexterm><primary>Priority</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Priority</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778">EmailPriority</link> Toolbox.Core.Options.EmailMessage.Priority = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0">EmailPriority.Normal</link><computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the email priority. </para>
+</para>
+
+<para>The message priority. Default is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0">EmailPriority.Normal</link>.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00104">104</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1ad1e2b8d83269be70648b1ea4c001c428"/><section>
+    <title>ReplyTo</title>
+<indexterm><primary>ReplyTo</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>ReplyTo</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>? Toolbox.Core.Options.EmailMessage.ReplyTo<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the reply-to email address. </para>
+</para>
+
+<para>The reply-to address, or <computeroutput>null</computeroutput> to use the sender&apos;s address.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00047">47</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2878058a0675907e71f46085dd7c1e0f"/><section>
+    <title>Subject</title>
+<indexterm><primary>Subject</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>Subject</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.EmailMessage.Subject = string.Empty<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the email subject. </para>
+</para>
+
+<para>The subject line.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00071">71</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a2a22cf3d9bd7c67d8ac73aab098fa24e"/><section>
+    <title>To</title>
+<indexterm><primary>To</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>To</secondary></indexterm>
+<para><computeroutput>IList&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt; Toolbox.Core.Options.EmailMessage.To = new List&lt;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the list of primary recipients. </para>
+</para>
+
+<para>The list of &quot;To&quot; recipients.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00053">53</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_message_1a3e25efe03279f3b48fbf34eabcde53e2"/><section>
+    <title>TotalRecipients</title>
+<indexterm><primary>TotalRecipients</primary><secondary>Toolbox.Core.Options.EmailMessage</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailMessage</primary><secondary>TotalRecipients</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.EmailMessage.TotalRecipients<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the total number of recipients (To + CC + BCC). </para>
+</para>
+
+<para>The total recipient count.</para>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00116">116</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__email_message_8cs">EmailMessage.cs</link></section>
+</section>

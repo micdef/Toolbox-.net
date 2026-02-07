@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_4545b5be615a473c9a127332be7eb6bd" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_4e9795c81f02a13a612ea04ceef40cad">Services</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__i_async_disposable_service_8cs">IAsyncDisposableService.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__i_disposable_service_8cs">IDisposableService.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__i_instrumented_service_8cs">IInstrumentedService.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

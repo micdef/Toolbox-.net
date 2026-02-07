@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_core_1_1_telemetry" xml:lang="en-US">
+<title>Toolbox.Core.Telemetry Namespace Reference</title>
+<indexterm><primary>Toolbox.Core.Telemetry</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">TelemetryConstants</emphasis></para>
+
+<para>Constants used for OpenTelemetry instrumentation across <link linkend="_namespace_toolbox">Toolbox</link> services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">ToolboxActivitySource</emphasis></para>
+
+<para>Provides a shared ActivitySource for distributed tracing across <link linkend="_namespace_toolbox">Toolbox</link> services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">ToolboxMeter</emphasis></para>
+
+<para>Provides a shared Meter and pre-defined instruments for metrics collection. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

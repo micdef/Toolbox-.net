@@ -1,0 +1,100 @@
+.TH "C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/Program.cs
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "interface \fBISampleService\fP"
+.br
+.RI "Sample service interface demonstrating \fBToolbox\fP patterns\&. "
+.ti -1c
+.RI "class \fBSampleService\fP"
+.br
+.RI "Sample service implementation using BaseAsyncDisposableService\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBscope\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "builder\&.Services\&. \fBAddToolboxCore\fP (options=> { options\&.EnableDetailedTelemetry=true;options\&.ServicePrefix='Sample';})"
+.br
+.ti -1c
+.RI "builder\&.Services\&. \fBAddToolboxOpenTelemetry\fP (options=> { options\&.EnableTracing=true;options\&.EnableMetrics=true;options\&.EnableConsoleExport=true;options\&.ServiceName='Toolbox\&.Sample';options\&.ServiceVersion='1\&.0\&.0';})"
+.br
+.ti -1c
+.RI "builder\&.Services\&. \fBAddScoped< ISampleService, SampleService >\fP ()"
+.br
+.ti -1c
+.RI "Console\&. \fBReadKey\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "var \fBbuilder\fP = Host\&.CreateApplicationBuilder(args)"
+.br
+.ti -1c
+.RI "var \fBapp\fP = builder\&.Build()"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBscope\fP"
+\fBInitial value:\fP
+.nf
+ app\&.Services\&.CreateScope())
+{
+    var logger = scope\&.ServiceProvider\&.GetRequiredService<ILogger<Program>>();
+    logger\&.LogInformation("Starting Toolbox Sample Application");
+
+    var service = scope\&.ServiceProvider\&.GetRequiredService<ISampleService>();
+
+    
+    await service\&.DoWorkAsync("Hello, Toolbox!");
+
+    logger\&.LogInformation("Sample application completed successfully");
+}
+
+Console\&.WriteLine("Press any key to exit\&.\&.\&.")
+.PP
+.fi
+
+.PP
+Definition at line \fB36\fP of file \fBProgram\&.cs\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "builder\&.Services\&. AddScoped< \fBISampleService\fP, \fBSampleService\fP > ()"
+
+.SS "builder\&.Services\&. AddToolboxCore (options , { options\&.EnableDetailedTelemetry=true;options\&.ServicePrefix='Sample';} )"
+
+.SS "builder\&.Services\&. AddToolboxOpenTelemetry (options , { options\&.EnableTracing=true;options\&.EnableMetrics=true;options\&.EnableConsoleExport=true;options\&.ServiceName='Toolbox\&.Sample';options\&.ServiceVersion='1\&.0\&.0';} )"
+
+.SS "Console\&. ReadKey ()"
+
+.SH "Variable Documentation"
+.PP 
+.SS "var app = builder\&.Build()"
+
+.PP
+Definition at line \fB33\fP of file \fBProgram\&.cs\fP\&.
+.SS "var builder = Host\&.CreateApplicationBuilder(args)"
+
+.PP
+Definition at line \fB11\fP of file \fBProgram\&.cs\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__open_telemetry_extensions_tests_8cs_source" xml:lang="en-US">
+<title>OpenTelemetryExtensionsTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/OpenTelemetryExtensionsTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.DependencyInjection;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Options;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis>OpenTelemetry.Metrics;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00004"/>00004 <emphasis role="keyword">using&#32;</emphasis>OpenTelemetry.Trace;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00005"/>00005 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Toolbox.Core.Extensions</link>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00008"/>00008 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00009"/><link linkend="_namespace_toolbox_1_1_tests">00009</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Toolbox.Tests.Integration</link>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00010"/>00010 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00014"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests">00014</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests">OpenTelemetryExtensionsTests</link>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00015"/>00015 {
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00017"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a696f36109b9ca8f35235ff8467dbf8b8">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a696f36109b9ca8f35235ff8467dbf8b8">AddToolboxInstrumentation_Tracing_ShouldAddActivitySource</link>()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00021"/>00021 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddOpenTelemetry()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithTracing(<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>&#32;=&gt;&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.AddToolboxInstrumentation());
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00026"/>00026 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tracerProvider&#32;=&#32;provider.GetService&lt;TracerProvider&gt;();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tracerProvider.Should().NotBeNull();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00031"/>00031 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00033"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1aa895e759a485cbedd0c6bd55d16008ec">00033</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1aa895e759a485cbedd0c6bd55d16008ec">AddToolboxInstrumentation_Metrics_ShouldAddMeter</link>()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00037"/>00037 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddOpenTelemetry()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMetrics(<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>&#32;=&gt;&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.AddToolboxInstrumentation());
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00042"/>00042 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;meterProvider&#32;=&#32;provider.GetService&lt;MeterProvider&gt;();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;meterProvider.Should().NotBeNull();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00047"/>00047 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00049"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a7a0116bc9d378fe6286174c148498de2">00049</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a7a0116bc9d378fe6286174c148498de2">AddToolboxOpenTelemetry_ShouldRegisterTelemetryOptions</link>()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00053"/>00053 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddToolboxOpenTelemetry();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00057"/>00057 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;provider.GetService&lt;IOptions&lt;ToolboxTelemetryOptions&gt;&gt;();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.Should().NotBeNull();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00062"/>00062 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00064"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ac2ea716fd6bdb8b4e034dce2ed911b54">00064</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ac2ea716fd6bdb8b4e034dce2ed911b54">AddToolboxOpenTelemetry_WithCustomOptions_ShouldApplyConfiguration</link>()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00068"/>00068 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddToolboxOpenTelemetry(options&#32;=&gt;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableTracing&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableMetrics&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.ServiceName&#32;=&#32;<emphasis role="stringliteral">&quot;CustomService&quot;</emphasis>;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00077"/>00077 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;provider.GetRequiredService&lt;IOptions&lt;ToolboxTelemetryOptions&gt;&gt;().Value;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableTracing.Should().BeFalse();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EnableMetrics.Should().BeFalse();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.ServiceName.Should().Be(<emphasis role="stringliteral">&quot;CustomService&quot;</emphasis>);
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00084"/>00084 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00086"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a77fd11cf8dada75d666f57eed4ab21b5">00086</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1a77fd11cf8dada75d666f57eed4ab21b5">AddToolboxInstrumentation_WithNullBuilder_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TracerProviderBuilder&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>&#32;=&#32;<emphasis role="keyword">null</emphasis>!;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00090"/>00090 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<link linkend="__program_8cs_1a2f78352277081c620fd4cf92a5ce15e5">builder</link>.AddToolboxInstrumentation();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00093"/>00093 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00097"/>00097 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00099"/><link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ae2877b5684a8d70f6de89fea55e5728d">00099</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_open_telemetry_extensions_tests_1ae2877b5684a8d70f6de89fea55e5728d">AddToolboxOpenTelemetry_WithNullServices_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IServiceCollection&#32;services&#32;=&#32;<emphasis role="keyword">null</emphasis>!;
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00103"/>00103 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;services.AddToolboxOpenTelemetry();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00106"/>00106 
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__open_telemetry_extensions_tests_8cs_source_1l00110"/>00110 }
+</programlisting></section>

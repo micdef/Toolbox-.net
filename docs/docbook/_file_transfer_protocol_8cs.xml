@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__file_transfer_protocol_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferProtocol.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/FileTransferProtocol.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">Toolbox.Core.Options.FileTransferProtocol</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb">Toolbox.Core.Options.Ftp</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f">Toolbox.Core.Options.Ftps</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">Toolbox.Core.Options.Sftp</link>
+ }</para>
+
+<para>Specifies the file transfer protocol to use. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

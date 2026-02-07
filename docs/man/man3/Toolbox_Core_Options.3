@@ -1,0 +1,347 @@
+.TH "Toolbox.Core.Options" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBApiOptions\fP"
+.br
+.RI "Configuration options for the HTTP API service\&. "
+.ti -1c
+.RI "class \fBApiRequest\fP"
+.br
+.RI "Represents an HTTP API request\&. "
+.ti -1c
+.RI "class \fBApiResponse\fP"
+.br
+.RI "Represents an HTTP API response\&. "
+.ti -1c
+.RI "class \fBBase64CryptographyOptions\fP"
+.br
+.RI "Configuration options for the Base64 cryptography service\&. "
+.ti -1c
+.RI "class \fBEmailAttachment\fP"
+.br
+.RI "Represents an email attachment\&. "
+.ti -1c
+.RI "class \fBEmailMessage\fP"
+.br
+.RI "Represents an email message to be sent\&. "
+.ti -1c
+.RI "class \fBFileTransferOptions\fP"
+.br
+.RI "Configuration options for file transfer services\&. "
+.ti -1c
+.RI "class \fBMailingOptions\fP"
+.br
+.RI "Configuration options for the SMTP mailing service\&. "
+.ti -1c
+.RI "class \fBRsaKeyPair\fP"
+.br
+.RI "Represents an RSA key pair containing public and optionally private key data\&. "
+.ti -1c
+.RI "class \fBToolboxOptions\fP"
+.br
+.RI "Configuration options for \fBToolbox\fP core services\&. "
+.ti -1c
+.RI "class \fBToolboxTelemetryOptions\fP"
+.br
+.RI "Configuration options for OpenTelemetry integration in \fBToolbox\fP\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAesKeySize\fP { \fBAes128\fP = 128, \fBAes192\fP = 192, \fBAes256\fP = 256 }"
+.br
+.RI "Specifies the AES key size in bits\&. "
+.ti -1c
+.RI "enum \fBApiAuthenticationMode\fP { \fBAnonymous\fP = 0, \fBBearerToken\fP = 1, \fBBasic\fP = 2, \fBApiKey\fP = 3, \fBCertificate\fP = 4, \fBOAuth2ClientCredentials\fP = 5 }"
+.br
+.RI "Specifies the authentication mode for API requests\&. "
+.ti -1c
+.RI "enum \fBApiKeyLocation\fP { \fBHeader\fP = 0, \fBQueryString\fP = 1 }"
+.br
+.RI "Specifies where to send the API key\&. "
+.ti -1c
+.RI "enum \fBBase64EncodingTable\fP { \fBStandard\fP = 0, \fBUrlSafe\fP = 1 }"
+.br
+.RI "Specifies the Base64 encoding table to use\&. "
+.ti -1c
+.RI "enum \fBEmailPriority\fP { \fBLow\fP = 0, \fBNormal\fP = 1, \fBHigh\fP = 2 }"
+.br
+.RI "Specifies the priority of an email message\&. "
+.ti -1c
+.RI "enum \fBFileTransferProtocol\fP { \fBFtp\fP, \fBFtps\fP, \fBSftp\fP }"
+.br
+.RI "Specifies the file transfer protocol to use\&. "
+.ti -1c
+.RI "enum \fBRsaKeySize\fP { \fBRsa512\fP = 512, \fBRsa1024\fP = 1024, \fBRsa2048\fP = 2048, \fBRsa4096\fP = 4096, \fBRsa8192\fP = 8192, \fBRsa16384\fP = 16384 }"
+.br
+.RI "Specifies the RSA key size in bits\&. "
+.ti -1c
+.RI "enum \fBRsaPaddingMode\fP { \fBPkcs1\fP, \fBOaepSha1\fP, \fBOaepSha256\fP, \fBOaepSha384\fP, \fBOaepSha512\fP }"
+.br
+.RI "Specifies the RSA encryption padding mode\&. "
+.ti -1c
+.RI "enum \fBSmtpSecurityMode\fP { \fBAuto\fP = 0, \fBNone\fP = 1, \fBStartTls\fP = 2, \fBStartTlsWhenAvailable\fP = 3, \fBSslOnConnect\fP = 4 }"
+.br
+.RI "Specifies the security mode for SMTP connections\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "record \fBEmailAddress\fP (string Address, string? DisplayName=null)"
+.br
+.RI "Represents an email address with an optional display name\&. "
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBToolbox\&.Core\&.Options\&.AesKeySize\fP"
+
+.PP
+Specifies the AES key size in bits\&. Larger key sizes provide stronger encryption but may have slightly higher performance overhead\&. AES-256 is recommended for most security-sensitive applications\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIAes128 \fP
+128-bit key (16 bytes)\&. Provides good security and is the fastest option\&. 
+.TP
+\f(BIAes192 \fP
+192-bit key (24 bytes)\&. Provides stronger security than 128-bit\&. 
+.TP
+\f(BIAes256 \fP
+256-bit key (32 bytes)\&. Provides the strongest security\&. Recommended for highly sensitive data\&. 
+.PP
+Definition at line \fB15\fP of file \fBAesKeySize\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.ApiAuthenticationMode\fP"
+
+.PP
+Specifies the authentication mode for API requests\&. Choose the appropriate authentication mode based on the API requirements\&. Each mode requires specific configuration in \fBApiOptions\fP\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIAnonymous \fP
+No authentication required\&. 
+.TP
+\f(BIBearerToken \fP
+Bearer token authentication\&. Uses the Authorization header with "Bearer {token}" format\&. 
+.TP
+\f(BIBasic \fP
+Basic authentication with username and password\&. Uses the Authorization header with Base64-encoded credentials\&. 
+.TP
+\f(BIApiKey \fP
+API key authentication\&. Can be sent as a header or query parameter\&. 
+.TP
+\f(BICertificate \fP
+Client certificate authentication\&. Uses X\&.509 certificate for mutual TLS (mTLS)\&. 
+.TP
+\f(BIOAuth2ClientCredentials \fP
+OAuth2 client credentials flow\&. Automatically obtains and refreshes access tokens\&. 
+.PP
+Definition at line \fB17\fP of file \fBApiAuthenticationMode\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.ApiKeyLocation\fP"
+
+.PP
+Specifies where to send the API key\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIHeader \fP
+Send API key in a header\&. 
+.TP
+\f(BIQueryString \fP
+Send API key as a query parameter\&. 
+.PP
+Definition at line \fB58\fP of file \fBApiAuthenticationMode\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.Base64EncodingTable\fP"
+
+.PP
+Specifies the Base64 encoding table to use\&. Different encoding tables are suitable for different use cases\&. The URL-safe variant is recommended for use in URLs and filenames\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIStandard \fP
+Standard Base64 alphabet as defined in RFC 4648\&. Uses '+' and '/' characters, with '=' padding\&. Alphabet: A-Z, a-z, 0-9, +, / 
+.TP
+\f(BIUrlSafe \fP
+URL and filename safe Base64 alphabet as defined in RFC 4648 Section 5\&. Uses '-' and '_' characters instead of '+' and '/'\&. Alphabet: A-Z, a-z, 0-9, -, _ This variant is safe for use in URLs and filenames\&. 
+.PP
+Definition at line \fB15\fP of file \fBBase64EncodingTable\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.EmailPriority\fP"
+
+.PP
+Specifies the priority of an email message\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILow \fP
+Low priority\&. 
+.TP
+\f(BINormal \fP
+Normal priority (default)\&. 
+.TP
+\f(BIHigh \fP
+High priority\&. 
+.PP
+Definition at line \fB140\fP of file \fBEmailMessage\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.FileTransferProtocol\fP"
+
+.PP
+Specifies the file transfer protocol to use\&. SFTP provides encrypted transfers and is recommended for sensitive data\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIFtp \fP
+File Transfer Protocol (unencrypted)\&. \fBWarning:\fP FTP transfers data in plain text\&. Use FTPS or SFTP for sensitive data\&. 
+.TP
+\f(BIFtps \fP
+FTP over TLS/SSL (encrypted)\&. Provides encryption for FTP connections using TLS/SSL\&. 
+.TP
+\f(BISftp \fP
+SSH File Transfer Protocol (encrypted)\&. Provides secure file transfer over SSH\&. Recommended for sensitive data\&. 
+.PP
+Definition at line \fB14\fP of file \fBFileTransferProtocol\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.RsaKeySize\fP"
+
+.PP
+Specifies the RSA key size in bits\&. Larger key sizes provide stronger security but have significantly higher performance overhead\&. 
+
+.PP
+RSA-2048 is the minimum recommended for production use\&. RSA-4096 is recommended for highly sensitive data\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIRsa512 \fP
+512-bit key\&. \fBWarning:\fP This key size is considered insecure and should only be used for testing\&. 
+.TP
+\f(BIRsa1024 \fP
+1024-bit key\&. \fBWarning:\fP This key size is considered weak and not recommended for production use\&. 
+.TP
+\f(BIRsa2048 \fP
+2048-bit key\&. Minimum recommended key size for production use\&. Provides good balance between security and performance\&. 
+.TP
+\f(BIRsa4096 \fP
+4096-bit key\&. Recommended for highly sensitive data\&. Provides stronger security with moderate performance impact\&. 
+.TP
+\f(BIRsa8192 \fP
+8192-bit key\&. Very strong security with significant performance impact\&. Use only when maximum security is required\&. 
+.TP
+\f(BIRsa16384 \fP
+16384-bit key\&. Maximum security with very high performance impact\&. Key generation and operations can be very slow\&. 
+.PP
+Definition at line \fB20\fP of file \fBRsaKeySize\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.RsaPaddingMode\fP"
+
+.PP
+Specifies the RSA encryption padding mode\&. The padding mode affects both security and compatibility\&. OAEP (Optimal Asymmetric Encryption Padding) is more secure than PKCS#1 v1\&.5\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIPkcs1 \fP
+PKCS#1 v1\&.5 padding\&. Legacy padding mode\&. Compatible with older systems but vulnerable to certain attacks\&. Not recommended for new applications\&. 
+.TP
+\f(BIOaepSha1 \fP
+OAEP with SHA-1 hash\&. More secure than PKCS#1 v1\&.5\&. SHA-1 is considered weak; prefer SHA-256 or SHA-384 for new applications\&. 
+.TP
+\f(BIOaepSha256 \fP
+OAEP with SHA-256 hash\&. Recommended padding mode for most applications\&. Provides good security with reasonable performance\&. 
+.TP
+\f(BIOaepSha384 \fP
+OAEP with SHA-384 hash\&. Stronger than SHA-256 with slightly higher overhead\&. 
+.TP
+\f(BIOaepSha512 \fP
+OAEP with SHA-512 hash\&. Strongest OAEP variant\&. Recommended for highly sensitive data\&. 
+.PP
+Definition at line \fB17\fP of file \fBRsaPaddingMode\&.cs\fP\&.
+.SS "enum \fBToolbox\&.Core\&.Options\&.SmtpSecurityMode\fP"
+
+.PP
+Specifies the security mode for SMTP connections\&. Choose the appropriate mode based on your SMTP server's requirements\&. When in doubt, use Auto for automatic negotiation\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIAuto \fP
+Automatically determine the best security mode\&. Will attempt STARTTLS if available, otherwise use implicit SSL/TLS\&. 
+.TP
+\f(BINone \fP
+No encryption (not recommended for production)\&. Use only for local development or internal networks\&. 
+.TP
+\f(BIStartTls \fP
+Use STARTTLS to upgrade an unencrypted connection\&. Standard for port 587\&. 
+.TP
+\f(BIStartTlsWhenAvailable \fP
+Use STARTTLS if available, otherwise continue unencrypted\&. Less secure than StartTls but more compatible\&. 
+.TP
+\f(BISslOnConnect \fP
+Use implicit SSL/TLS from the start\&. Standard for port 465\&. 
+.PP
+Definition at line \fB17\fP of file \fBSmtpSecurityMode\&.cs\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "record Toolbox\&.Core\&.Options\&.EmailAddress (string Address, string? DisplayName = \fRnull\fP)\fR [sealed]\fP"
+
+.PP
+Represents an email address with an optional display name\&. This is an immutable record type that combines an email address with an optional human-readable display name\&. 
+
+.PP
+.PP
+.nf
+// With display name
+var sender = new EmailAddress("john\&.doe@example\&.com", "John Doe");
+
+// Without display name
+var recipient = new EmailAddress("jane@example\&.com");
+.fi
+.PP
+ 
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIAddress\fP The email address (e\&.g\&., "user@example\&.com")\&.
+.br
+\fIDisplayName\fP The optional display name (e\&.g\&., "John Doe")\&.
+.RE
+.PP
+Gets the email address\&.
+
+.PP
+The email address string\&.
+
+.PP
+Implicitly converts a string to an \fBEmailAddress\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP The email address string\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBEmailAddress\fP with no display name\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBEmailAddress\&.cs\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__i_mailing_service_8cs_source" xml:lang="en-US">
+<title>IMailingService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/IMailingService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__i_mailing_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;IMailingService.cs</emphasis>
+<anchor xml:id="__i_mailing_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Interface&#32;for&#32;email&#32;sending&#32;services</emphasis>
+<anchor xml:id="__i_mailing_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;contract&#32;for&#32;sending&#32;emails&#32;via&#32;SMTP</emphasis>
+<anchor xml:id="__i_mailing_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Supports&#32;single&#32;and&#32;multiple&#32;recipients,&#32;attachments,&#32;and&#32;HTML/plain&#32;text&#32;content</emphasis>
+<anchor xml:id="__i_mailing_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__i_mailing_service_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__i_mailing_service_8cs_source_1l00007"/>00007 
+<anchor xml:id="__i_mailing_service_8cs_source_1l00008"/>00008 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link>;
+<anchor xml:id="__i_mailing_service_8cs_source_1l00009"/>00009 
+<anchor xml:id="__i_mailing_service_8cs_source_1l00025"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service">00025</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">interface&#32;</emphasis><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service">IMailingService</link>&#32;:&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">IInstrumentedService</link>,&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">IAsyncDisposableService</link>
+<anchor xml:id="__i_mailing_service_8cs_source_1l00026"/>00026 {
+<anchor xml:id="__i_mailing_service_8cs_source_1l00046"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381">00046</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a2d1c6b6cef15eb73bea48a0934cf8381">SendMail</link>(<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link>&#32;message);
+<anchor xml:id="__i_mailing_service_8cs_source_1l00047"/>00047 
+<anchor xml:id="__i_mailing_service_8cs_source_1l00071"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306">00071</link> &#32;&#32;&#32;&#32;Task&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_mailing_service_1a96bf02139942f62ee0009fe3b2247306">SendMailAsync</link>(<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link>&#32;message,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>);
+<anchor xml:id="__i_mailing_service_8cs_source_1l00072"/>00072 }
+</programlisting></section>

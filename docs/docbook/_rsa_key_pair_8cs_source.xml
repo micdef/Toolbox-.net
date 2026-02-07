@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__rsa_key_pair_8cs_source" xml:lang="en-US">
+<title>RsaKeyPair.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/RsaKeyPair.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__rsa_key_pair_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;RsaKeyPair.cs</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Container&#32;for&#32;RSA&#32;key&#32;pair&#32;data</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Holds&#32;public&#32;and&#32;optional&#32;private&#32;key&#32;in&#32;various&#32;formats</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Use&#32;the&#32;static&#32;factory&#32;methods&#32;to&#32;create&#32;instances</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00005"/>00005 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>System.Security.Cryptography.X509Certificates;
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00007"/>00007 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00008"/>00008 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00009"/>00009 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00022"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">00022</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>RsaKeyPair&#32;:&#32;IDisposable
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00023"/>00023 {
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Flag&#32;indicating&#32;if&#32;the&#32;object&#32;has&#32;been&#32;disposed</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_disposed;
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00026"/>00026 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00031"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">00031</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">byte</emphasis>[]?&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">private</emphasis>&#32;init;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00032"/>00032 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00037"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">00037</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">byte</emphasis>[]?&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">private</emphasis>&#32;init;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00038"/>00038 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00043"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">00043</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;X509Certificate2?&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">private</emphasis>&#32;init;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00044"/>00044 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00049"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a3fb77c5e71b39fb255e0267b629a1717">00049</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a3fb77c5e71b39fb255e0267b629a1717">HasPrivateKey</link>&#32;=&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>&#32;||&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>?.HasPrivateKey&#32;==&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00050"/>00050 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00055"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">00055</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">private</emphasis>&#32;init;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00056"/>00056 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link>()
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00066"/>00066 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00075"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a11d9cb712cd59fd30f03885a47d95b0c">00075</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;RsaKeyPair&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a11d9cb712cd59fd30f03885a47d95b0c">FromBytes</link>(<emphasis role="keywordtype">byte</emphasis>[]&#32;publicKey,&#32;<emphasis role="keywordtype">byte</emphasis>[]?&#32;privateKey,&#32;<emphasis role="keywordtype">int</emphasis>&#32;keySize)
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(publicKey);
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00078"/>00078 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RsaKeyPair
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;=&#32;(<emphasis role="keywordtype">byte</emphasis>[])publicKey.Clone(),
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;=&#32;privateKey&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>&#32;?&#32;(<emphasis role="keywordtype">byte</emphasis>[])privateKey.Clone()&#32;:&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>&#32;=&#32;keySize
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00086"/>00086 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00094"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aab9750348bf4c7e81179a2d14a0a42e0">00094</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;RsaKeyPair&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aab9750348bf4c7e81179a2d14a0a42e0">FromCertificate</link>(X509Certificate2&#32;certificate)
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(certificate);
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00097"/>00097 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;rsa&#32;=&#32;certificate.GetRSAPublicKey()
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;??&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;ArgumentException(<emphasis role="stringliteral">&quot;Certificate&#32;does&#32;not&#32;contain&#32;an&#32;RSA&#32;public&#32;key.&quot;</emphasis>,&#32;nameof(certificate));
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00100"/>00100 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RsaKeyPair
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>&#32;=&#32;certificate,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;=&#32;rsa.ExportSubjectPublicKeyInfo(),
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;=&#32;certificate.HasPrivateKey&#32;?&#32;certificate.GetRSAPrivateKey()?.ExportPkcs8PrivateKey()&#32;:&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>&#32;=&#32;rsa.KeySize
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00109"/>00109 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00115"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3">00115</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;RsaKeyPair&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3">ToPublicOnly</link>()
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ObjectDisposedException.ThrowIf(_disposed,&#32;<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00118"/>00118 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Create&#32;certificate&#32;without&#32;private&#32;key</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;publicCert&#32;=&#32;X509CertificateLoader.LoadCertificate(<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>.RawData);
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RsaKeyPair
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>&#32;=&#32;publicCert,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>&#32;?&#32;(<emphasis role="keywordtype">byte</emphasis>[])<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Clone()&#32;:&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;=&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00131"/>00131 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RsaKeyPair
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>&#32;?&#32;(<emphasis role="keywordtype">byte</emphasis>[])<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>.Clone()&#32;:&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;=&#32;<emphasis role="keyword">null</emphasis>,
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00139"/>00139 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00141"/><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a529d31ae26cc534d47ff61d57e2b8b34">00141</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a529d31ae26cc534d47ff61d57e2b8b34">Dispose</link>()
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_disposed)
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00147"/>00147 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Clear&#32;sensitive&#32;private&#32;key&#32;data</emphasis>
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Array.Clear(<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>,&#32;0,&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>.Length);
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00153"/>00153 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>?.Dispose();
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00155"/>00155 
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_disposed&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__rsa_key_pair_8cs_source_1l00158"/>00158 }
+</programlisting></section>

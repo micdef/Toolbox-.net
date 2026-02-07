@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service">Base64CryptographyService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1af9f1574a89ba249660ca8539f1e72393">Base64CryptographyServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2204617f7cb65a2201f5fd604f31baf4">Encrypt_WithStandardTable_ShouldEncodeCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a69991f788258af9b59bb36f2a881f6f6">Decrypt_WithStandardTable_ShouldDecodeCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a5443c2acf140864901235e16607f9b38">Encrypt_ThenDecrypt_ShouldReturnOriginalText</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2dfa437a5e67ec2d58d28cfd00dba61c">Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a16ac3c127bf38bad8a674a9233aaf360">Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac37f38b3668cb7ccf97087aadd7fe4a0">Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a0d5ff561b3ddb2ab689c601ad82cb171">Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a9abdce7b65b4fe65c24de17baaf64324">Encrypt_WithNullText_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac9843de52ebf8af8f4f4a7d420811892">Decrypt_WithNullText_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ae29f3d09f22ffe41ec6393be191e67de">Decrypt_WithInvalidBase64_ShouldThrowFormatException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2a0ebe26093a0d66946ff0902db8d22f">EncryptAsync_ShouldEncodeCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a11208a9ad3be4fe34b884f108ab9ce80">DecryptAsync_ShouldDecodeCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1adf08739890c31b31a5db315270768754">EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a428a6b5d2e1f4a4cb6e15aa9d4d19d76">Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a7cff486da88f86d12d1940d706855ae5">Encrypt_WithEmptyString_ShouldReturnEmptyBase64</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2187af6a2849b6b9480956bb9e456ad2">Encrypt_WithUnicodeText_ShouldHandleCorrectly</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service">Base64CryptographyService</link>. </para>
+<para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00012">12</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1af9f1574a89ba249660ca8539f1e72393"/><section>
+    <title>Base64CryptographyServiceTests()</title>
+<indexterm><primary>Base64CryptographyServiceTests</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Base64CryptographyServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Base64CryptographyServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00016">16</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ae29f3d09f22ffe41ec6393be191e67de"/><section>
+    <title>Decrypt_WithInvalidBase64_ShouldThrowFormatException()</title>
+<indexterm><primary>Decrypt_WithInvalidBase64_ShouldThrowFormatException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Decrypt_WithInvalidBase64_ShouldThrowFormatException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithInvalidBase64_ShouldThrowFormatException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00171">171</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac9843de52ebf8af8f4f4a7d420811892"/><section>
+    <title>Decrypt_WithNullText_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Decrypt_WithNullText_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Decrypt_WithNullText_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithNullText_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00156">156</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a0d5ff561b3ddb2ab689c601ad82cb171"/><section>
+    <title>Decrypt_WithoutPadding_ShouldStillDecodeCorrectly()</title>
+<indexterm><primary>Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Decrypt_WithoutPadding_ShouldStillDecodeCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithoutPadding_ShouldStillDecodeCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00123">123</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a69991f788258af9b59bb36f2a881f6f6"/><section>
+    <title>Decrypt_WithStandardTable_ShouldDecodeCorrectly()</title>
+<indexterm><primary>Decrypt_WithStandardTable_ShouldDecodeCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Decrypt_WithStandardTable_ShouldDecodeCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithStandardTable_ShouldDecodeCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00037">37</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a16ac3c127bf38bad8a674a9233aaf360"/><section>
+    <title>Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters()</title>
+<indexterm><primary>Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Decrypt_WithUrlSafeTable_ShouldDecodeUrlSafeCharacters ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00088">88</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a11208a9ad3be4fe34b884f108ab9ce80"/><section>
+    <title>DecryptAsync_ShouldDecodeCorrectly()</title>
+<indexterm><primary>DecryptAsync_ShouldDecodeCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>DecryptAsync_ShouldDecodeCorrectly</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.DecryptAsync_ShouldDecodeCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00201">201</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a5443c2acf140864901235e16607f9b38"/><section>
+    <title>Encrypt_ThenDecrypt_ShouldReturnOriginalText()</title>
+<indexterm><primary>Encrypt_ThenDecrypt_ShouldReturnOriginalText</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_ThenDecrypt_ShouldReturnOriginalText</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_ThenDecrypt_ShouldReturnOriginalText ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00052">52</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a428a6b5d2e1f4a4cb6e15aa9d4d19d76"/><section>
+    <title>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00233">233</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a7cff486da88f86d12d1940d706855ae5"/><section>
+    <title>Encrypt_WithEmptyString_ShouldReturnEmptyBase64()</title>
+<indexterm><primary>Encrypt_WithEmptyString_ShouldReturnEmptyBase64</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WithEmptyString_ShouldReturnEmptyBase64</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithEmptyString_ShouldReturnEmptyBase64 ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00249">249</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1ac37f38b3668cb7ccf97087aadd7fe4a0"/><section>
+    <title>Encrypt_WithNoPadding_ShouldOmitPaddingCharacters()</title>
+<indexterm><primary>Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WithNoPadding_ShouldOmitPaddingCharacters</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithNoPadding_ShouldOmitPaddingCharacters ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00104">104</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a9abdce7b65b4fe65c24de17baaf64324"/><section>
+    <title>Encrypt_WithNullText_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Encrypt_WithNullText_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WithNullText_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithNullText_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00141">141</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2204617f7cb65a2201f5fd604f31baf4"/><section>
+    <title>Encrypt_WithStandardTable_ShouldEncodeCorrectly()</title>
+<indexterm><primary>Encrypt_WithStandardTable_ShouldEncodeCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WithStandardTable_ShouldEncodeCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithStandardTable_ShouldEncodeCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00022">22</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2187af6a2849b6b9480956bb9e456ad2"/><section>
+    <title>Encrypt_WithUnicodeText_ShouldHandleCorrectly()</title>
+<indexterm><primary>Encrypt_WithUnicodeText_ShouldHandleCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WithUnicodeText_ShouldHandleCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithUnicodeText_ShouldHandleCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00264">264</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2dfa437a5e67ec2d58d28cfd00dba61c"/><section>
+    <title>Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters()</title>
+<indexterm><primary>Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.Encrypt_WithUrlSafeTable_ShouldUseUrlSafeCharacters ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00069">69</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1a2a0ebe26093a0d66946ff0902db8d22f"/><section>
+    <title>EncryptAsync_ShouldEncodeCorrectly()</title>
+<indexterm><primary>EncryptAsync_ShouldEncodeCorrectly</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>EncryptAsync_ShouldEncodeCorrectly</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.EncryptAsync_ShouldEncodeCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00186">186</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests_1adf08739890c31b31a5db315270768754"/><section>
+    <title>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests</primary><secondary>EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Cryptography.Base64CryptographyServiceTests.EncryptAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base64_cryptography_service_tests_8cs_source_1l00216">216</link> of file <link linkend="__base64_cryptography_service_tests_8cs_source">Base64CryptographyServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Cryptography/<link linkend="__base64_cryptography_service_tests_8cs">Base64CryptographyServiceTests.cs</link></section>
+</section>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__file_transfer_service_collection_extensions_8cs_source" xml:lang="en-US">
+<title>FileTransferServiceCollectionExtensions.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/FileTransferServiceCollectionExtensions.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;FileTransferServiceCollectionExtensions.cs</emphasis>
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Extension&#32;methods&#32;for&#32;registering&#32;file&#32;transfer&#32;services</emphasis>
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Provides&#32;fluent&#32;API&#32;for&#32;adding&#32;FTP/SFTP&#32;services&#32;to&#32;DI</emphasis>
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Use&#32;AddFtpFileTransfer()&#32;or&#32;AddSftpFileTransfer()&#32;to&#32;register&#32;services</emphasis>
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00005"/>00005 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Configuration;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link>;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00008"/>00008 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00009"/>00009 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_file_transfer">Toolbox.Core.Services.FileTransfer</link>;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00010"/>00010 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00011"/>00011 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Toolbox.Core.Extensions</link>;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00012"/>00012 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00019"/>00019 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>FileTransferServiceCollectionExtensions
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00020"/>00020 {
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddFtpFileTransfer(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Action&lt;FileTransferOptions&gt;&#32;configureOptions)
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configureOptions);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00047"/>00047 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure(configureOptions);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;IFileTransferService,&#32;FtpFileTransferService&gt;();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00050"/>00050 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00053"/>00053 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddFtpFileTransfer(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IConfiguration&#32;configuration)
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configuration);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00072"/>00072 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure&lt;FileTransferOptions&gt;(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;configuration.GetSection(FileTransferOptions.SectionName));
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00075"/>00075 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;IFileTransferService,&#32;FtpFileTransferService&gt;();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00077"/>00077 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00080"/>00080 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddSftpFileTransfer(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Action&lt;FileTransferOptions&gt;&#32;configureOptions)
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configureOptions);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00106"/>00106 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure(configureOptions);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;IFileTransferService,&#32;SftpFileTransferService&gt;();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00109"/>00109 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00112"/>00112 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddSftpFileTransfer(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IConfiguration&#32;configuration)
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configuration);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00131"/>00131 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure&lt;FileTransferOptions&gt;(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;configuration.GetSection(FileTransferOptions.SectionName));
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00134"/>00134 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;IFileTransferService,&#32;SftpFileTransferService&gt;();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00136"/>00136 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00139"/>00139 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddFileTransfer(
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Action&lt;FileTransferOptions&gt;&#32;configureOptions)
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configureOptions);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00169"/>00169 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;FileTransferOptions();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;configureOptions(options);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00172"/>00172 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure(configureOptions);
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00174"/>00174 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(options.Protocol&#32;==&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link>.Sftp)
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;IFileTransferService,&#32;SftpFileTransferService&gt;();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;IFileTransferService,&#32;FtpFileTransferService&gt;();
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00183"/>00183 
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__file_transfer_service_collection_extensions_8cs_source_1l00186"/>00186 }
+</programlisting></section>

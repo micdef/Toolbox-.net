@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__cryptography_service_collection_extensions_8cs_source" xml:lang="en-US">
+<title>CryptographyServiceCollectionExtensions.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions/CryptographyServiceCollectionExtensions.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;CryptographyServiceCollectionExtensions.cs</emphasis>
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Extension&#32;methods&#32;for&#32;registering&#32;cryptography&#32;services</emphasis>
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Provides&#32;fluent&#32;API&#32;for&#32;adding&#32;cryptography&#32;services&#32;to&#32;DI</emphasis>
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Use&#32;AddBase64Cryptography()&#32;or&#32;AddAesCryptography()&#32;to&#32;register&#32;services</emphasis>
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00005"/>00005 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>System.Security.Cryptography.X509Certificates;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Configuration;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00008"/>00008 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link>;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00009"/>00009 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00010"/>00010 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Toolbox.Core.Services.Cryptography</link>;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00011"/>00011 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00012"/>00012 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Toolbox.Core.Extensions</link>;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00013"/>00013 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00020"/>00020 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>CryptographyServiceCollectionExtensions
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00021"/>00021 {
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddBase64Cryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link>&#32;encodingTable)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00039"/>00039 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure&lt;Base64CryptographyOptions&gt;(options&#32;=&gt;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.EncodingTable&#32;=&#32;encodingTable;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00044"/>00044 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;ICryptographyService,&#32;Base64CryptographyService&gt;();
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00046"/>00046 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00049"/>00049 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddBase64Cryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Action&lt;Base64CryptographyOptions&gt;&#32;configureOptions)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configureOptions);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00074"/>00074 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure(configureOptions);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;ICryptographyService,&#32;Base64CryptographyService&gt;();
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00077"/>00077 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00080"/>00080 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddBase64Cryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IConfiguration&#32;configuration)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(configuration);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00099"/>00099 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.Configure&lt;Base64CryptographyOptions&gt;(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;configuration.GetSection(Base64CryptographyOptions.SectionName));
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00102"/>00102 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;ICryptographyService,&#32;Base64CryptographyService&gt;();
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00104"/>00104 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00107"/>00107 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddAesCryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>[]&#32;key,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>[]&#32;iv)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(key);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(iv);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00133"/>00133 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;ICryptographyService&gt;(sp&#32;=&gt;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;logger&#32;=&#32;sp.GetRequiredService&lt;ILogger&lt;AesCryptographyService&gt;&gt;();
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;AesCryptographyService(key,&#32;iv,&#32;logger);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00139"/>00139 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00142"/>00142 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddRsaCryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>[]&#32;publicKey,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>&#32;paddingMode,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>[]?&#32;privateKey&#32;=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(publicKey);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00168"/>00168 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;ICryptographyService&gt;(sp&#32;=&gt;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;logger&#32;=&#32;sp.GetRequiredService&lt;ILogger&lt;RsaCryptographyService&gt;&gt;();
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RsaCryptographyService(publicKey,&#32;paddingMode,&#32;logger,&#32;privateKey);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00174"/>00174 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00177"/>00177 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddRsaCryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;X509Certificate2&#32;certificate,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>&#32;paddingMode)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(certificate);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00202"/>00202 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddScoped&lt;ICryptographyService&gt;(sp&#32;=&gt;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;logger&#32;=&#32;sp.GetRequiredService&lt;ILogger&lt;RsaCryptographyService&gt;&gt;();
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RsaCryptographyService(certificate,&#32;paddingMode,&#32;logger);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00208"/>00208 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services;
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00211"/>00211 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00229"/>00229 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;IServiceCollection&#32;AddRsaCryptography(
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>&#32;IServiceCollection&#32;services,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;RsaKeyPair&#32;keyPair,
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link>&#32;paddingMode)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(services);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(keyPair);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00236"/>00236 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>&#32;is&#32;not&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services.AddRsaCryptography(keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link>,&#32;paddingMode);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00241"/>00241 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>&#32;is&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;InvalidOperationException(<emphasis role="stringliteral">&quot;Key&#32;pair&#32;must&#32;have&#32;a&#32;public&#32;key.&quot;</emphasis>);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00246"/>00246 
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;services.AddRsaCryptography(keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link>,&#32;paddingMode,&#32;keyPair.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link>);
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00248"/>00248 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__cryptography_service_collection_extensions_8cs_source_1l00249"/>00249 }
+</programlisting></section>

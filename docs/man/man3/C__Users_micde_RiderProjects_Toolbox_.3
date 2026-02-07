@@ -1,0 +1,130 @@
+.TH "C:/Users/micde/RiderProjects/Toolbox Directory Reference" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/micde/RiderProjects/Toolbox Directory Reference
+.SH SYNOPSIS
+.br
+.PP
+.SS "Directories"
+
+.in +1c
+.ti -1c
+.RI "directory \fBsamples\fP"
+.br
+.ti -1c
+.RI "directory \fBsrc\fP"
+.br
+.ti -1c
+.RI "directory \fBtests\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Toolbox"
+.PP
+A \&.NET 10 library providing base services, telemetry, and dependency injection extensions\&.
+.SH "Features"
+.PP
+.IP "\(bu" 2
+\fBDisposable Services\fP: Thread-safe base classes for synchronous and asynchronous disposal
+.IP "\(bu" 2
+\fBOpenTelemetry Integration\fP: Built-in distributed tracing and metrics collection
+.IP "\(bu" 2
+\fBDependency Injection\fP: Fluent extensions for easy service registration
+.IP "\(bu" 2
+\fBComprehensive Documentation\fP: Full Doxygen documentation support
+.PP
+.SH "Requirements"
+.PP
+.IP "\(bu" 2
+\&.NET 10\&.0 or later
+.IP "\(bu" 2
+C# 14\&.0
+.PP
+.SH "Installation"
+.PP
+Add the project reference to your solution:
+
+.PP
+.PP
+.nf
+<ProjectReference Include="\&.\&.\\src\\Toolbox\&.Core\\Toolbox\&.Core\&.csproj" />
+.fi
+.PP
+.SH "Quick Start"
+.PP
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+
+var builder = Host\&.CreateApplicationBuilder(args);
+
+// Add Toolbox core services
+builder\&.Services\&.AddToolboxCore(options =>
+{
+    options\&.EnableDetailedTelemetry = true;
+});
+
+// Add OpenTelemetry integration
+builder\&.Services\&.AddToolboxOpenTelemetry(options =>
+{
+    options\&.EnableTracing = true;
+    options\&.EnableMetrics = true;
+    options\&.EnableConsoleExport = true;
+});
+
+var app = builder\&.Build();
+app\&.Run();
+.fi
+.PP
+.SH "Documentation"
+.PP
+.IP "\(bu" 2
+\fBUsage Guide\fP - Detailed usage instructions
+.IP "\(bu" 2
+\fRAPI Documentation\fP - Generated Doxygen documentation
+.PP
+.SS "Generating Documentation"
+.PP
+.nf
+doxygen Doxyfile
+.fi
+.PP
+.SH "Project Structure"
+.PP
+.PP
+.nf
+Toolbox/
+├── src/
+│   └── Toolbox\&.Core/           # Core library
+│       ├── Abstractions/       # Interfaces
+│       ├── Base/               # Base classes
+│       ├── Extensions/         # DI extensions
+│       ├── Options/            # Configuration options
+│       └── Telemetry/          # OpenTelemetry infrastructure
+├── tests/
+│   └── Toolbox\&.Tests/          # Unit and integration tests
+├── samples/
+│   └── Toolbox\&.Sample/         # Sample application
+└── docs/                       # Generated documentation
+.fi
+.PP
+.SH "Building"
+.PP
+.PP
+.nf
+dotnet build
+.fi
+.PP
+.SH "Testing"
+.PP
+.PP
+.nf
+dotnet test
+.fi
+.PP
+.SH "License"
+.PP
+This project is licensed under the MIT License\&. 

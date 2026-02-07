@@ -1,0 +1,213 @@
+.TH "Toolbox.Core.Options.EmailAttachment" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.EmailAttachment \- Represents an email attachment\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBEmailAttachment\fP \fBFromFile\fP (string filePath, string? contentType=null, string? fileName=null)"
+.br
+.RI "Creates an attachment from a file path\&. "
+.ti -1c
+.RI "static \fBEmailAttachment\fP \fBFromBytes\fP (byte[] content, string fileName, string? contentType=null)"
+.br
+.RI "Creates an attachment from a byte array\&. "
+.ti -1c
+.RI "static \fBEmailAttachment\fP \fBCreateInline\fP (byte[] content, string fileName, string contentId, string? contentType=null)"
+.br
+.RI "Creates an inline attachment for embedding in HTML\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "required string \fBFileName\fP\fR [get]\fP"
+.br
+.RI "Gets the filename of the attachment\&. "
+.ti -1c
+.RI "required string \fBContentType\fP\fR [get]\fP"
+.br
+.RI "Gets the MIME content type of the attachment\&. "
+.ti -1c
+.RI "byte?[] \fBContent\fP\fR [get]\fP"
+.br
+.RI "Gets the attachment content as a byte array\&. "
+.ti -1c
+.RI "string? \fBFilePath\fP\fR [get]\fP"
+.br
+.RI "Gets the file path of the attachment\&. "
+.ti -1c
+.RI "bool \fBIsInline\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this attachment is inline (embedded in HTML)\&. "
+.ti -1c
+.RI "string? \fBContentId\fP\fR [get]\fP"
+.br
+.RI "Gets the Content-ID for inline attachments\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents an email attachment\&. 
+
+An attachment can be created from either a file path or raw byte data\&. The content type is automatically detected from the filename if not specified\&. 
+
+.PP
+.PP
+.nf
+// From file path
+var attachment1 = EmailAttachment\&.FromFile("document\&.pdf");
+
+// From byte array
+var attachment2 = EmailAttachment\&.FromBytes(
+    pdfBytes,
+    "report\&.pdf",
+    "application/pdf");
+.fi
+.PP
+ 
+.PP
+Definition at line \fB29\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEmailAttachment\fP Toolbox\&.Core\&.Options\&.EmailAttachment\&.CreateInline (byte[] content, string fileName, string contentId, string? contentType = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates an inline attachment for embedding in HTML\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontent\fP The attachment content\&.
+.br
+\fIfileName\fP The filename\&.
+.br
+\fIcontentId\fP The Content-ID for referencing in HTML (without angle brackets)\&.
+.br
+\fIcontentType\fP The content type, or \fRnull\fP to auto-detect\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An inline \fBEmailAttachment\fP\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when required parameters are \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var logo = EmailAttachment\&.CreateInline(logoBytes, "logo\&.png", "company\-logo");
+message\&.Body = "<img src='cid:company\-logo' />";
+message\&.Attachments\&.Add(logo);
+.fi
+.PP
+ 
+.PP
+Definition at line \fB136\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "\fBEmailAttachment\fP Toolbox\&.Core\&.Options\&.EmailAttachment\&.FromBytes (byte[] content, string fileName, string? contentType = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates an attachment from a byte array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontent\fP The attachment content\&.
+.br
+\fIfileName\fP The filename to use in the email\&.
+.br
+\fIcontentType\fP The content type, or \fRnull\fP to auto-detect from filename\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBEmailAttachment\fP representing the content\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIcontent\fP  or \fIfileName\fP  is \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB104\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "\fBEmailAttachment\fP Toolbox\&.Core\&.Options\&.EmailAttachment\&.FromFile (string filePath, string? contentType = \fRnull\fP, string? fileName = \fRnull\fP)\fR [static]\fP"
+
+.PP
+Creates an attachment from a file path\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilePath\fP The path to the file\&.
+.br
+\fIcontentType\fP The content type, or \fRnull\fP to auto-detect\&.
+.br
+\fIfileName\fP The filename to use, or \fRnull\fP to use the file's name\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBEmailAttachment\fP representing the file\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIfilePath\fP  is \fRnull\fP\&.
+.br
+\fIFileNotFoundException\fP Thrown when the file does not exist\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB76\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "byte? [] Toolbox\&.Core\&.Options\&.EmailAttachment\&.Content\fR [get]\fP"
+
+.PP
+Gets the attachment content as a byte array\&. The raw content bytes, or \fRnull\fP if using a file path\&.
+.PP
+Definition at line \fB47\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.EmailAttachment\&.ContentId\fR [get]\fP"
+
+.PP
+Gets the Content-ID for inline attachments\&. The Content-ID for referencing in HTML, or \fRnull\fP\&.
+.PP
+Definition at line \fB65\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "required string Toolbox\&.Core\&.Options\&.EmailAttachment\&.ContentType\fR [get]\fP"
+
+.PP
+Gets the MIME content type of the attachment\&. The content type (e\&.g\&., "application/pdf")\&.
+.PP
+Definition at line \fB41\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "required string Toolbox\&.Core\&.Options\&.EmailAttachment\&.FileName\fR [get]\fP"
+
+.PP
+Gets the filename of the attachment\&. The filename to use in the email\&.
+.PP
+Definition at line \fB35\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.EmailAttachment\&.FilePath\fR [get]\fP"
+
+.PP
+Gets the file path of the attachment\&. The file path, or \fRnull\fP if using byte content\&.
+.PP
+Definition at line \fB53\fP of file \fBEmailAttachment\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.EmailAttachment\&.IsInline\fR [get]\fP"
+
+.PP
+Gets a value indicating whether this attachment is inline (embedded in HTML)\&. \fRtrue\fP if inline; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB59\fP of file \fBEmailAttachment\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

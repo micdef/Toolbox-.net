@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_d27de8e9a8fedd922b0775e5e7f0fd69" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__aes_key_size_8cs">AesKeySize.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__api_authentication_mode_8cs">ApiAuthenticationMode.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__api_options_8cs">ApiOptions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__api_request_8cs">ApiRequest.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__api_response_8cs">ApiResponse.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__base64_cryptography_options_8cs">Base64CryptographyOptions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__base64_encoding_table_8cs">Base64EncodingTable.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__email_address_8cs">EmailAddress.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__email_attachment_8cs">EmailAttachment.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__email_message_8cs">EmailMessage.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__file_transfer_options_8cs">FileTransferOptions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__file_transfer_protocol_8cs">FileTransferProtocol.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__mailing_options_8cs">MailingOptions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__rsa_key_pair_8cs">RsaKeyPair.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__rsa_key_size_8cs">RsaKeySize.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__rsa_padding_mode_8cs">RsaPaddingMode.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__smtp_security_mode_8cs">SmtpSecurityMode.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__toolbox_options_8cs">ToolboxOptions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__toolbox_telemetry_options_8cs">ToolboxTelemetryOptions.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

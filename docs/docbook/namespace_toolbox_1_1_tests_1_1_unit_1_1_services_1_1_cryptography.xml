@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.Cryptography Namespace Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Cryptography</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_tests">AesCryptographyServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">AesCryptographyService</link>. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_tests">Base64CryptographyServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service">Base64CryptographyService</link>. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_tests">RsaCryptographyServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service">RsaCryptographyService</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

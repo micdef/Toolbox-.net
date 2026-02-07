@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__base_disposable_service_tests_8cs_source" xml:lang="en-US">
+<title>BaseDisposableServiceTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/BaseDisposableServiceTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__base_disposable_service_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Logging;
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_base">Toolbox.Core.Base</link>;
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00004"/>00004 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00005"/>00005 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Toolbox.Tests.Unit</link>;
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00006"/>00006 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00010"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests">00010</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152">BaseDisposableServiceTests</link>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00011"/>00011 {
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00012"/>00012 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;Mock&lt;ILogger&gt;&#32;_loggerMock;
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00013"/>00013 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00014"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152">00014</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152">BaseDisposableServiceTests</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00015"/>00015 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;Mock&lt;ILogger&gt;();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00017"/>00017 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00018"/>00018 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00020"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ab968db008c26c3e95840e894cd5b3a5e">00020</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ab968db008c26c3e95840e894cd5b3a5e">Constructor_ShouldSetServiceName</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange&#32;&amp;&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00024"/>00024 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.ServiceName.Should().Be(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00028"/>00028 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00030"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a42482755bb1152e1903d56c89640b06a">00030</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a42482755bb1152e1903d56c89640b06a">Constructor_WithNullServiceName_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange&#32;&amp;&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="keyword">null</emphasis>!,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00034"/>00034 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithParameterName(<emphasis role="stringliteral">&quot;serviceName&quot;</emphasis>);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00039"/>00039 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00041"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9c7abe12937f10d4194e70d6a8dba7ee">00041</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9c7abe12937f10d4194e70d6a8dba7ee">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange&#32;&amp;&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00045"/>00045 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithParameterName(<emphasis role="stringliteral">&quot;logger&quot;</emphasis>);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00050"/>00050 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00052"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a8f0d4ba996103b3f1e3cd08c38e6a642">00052</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a8f0d4ba996103b3f1e3cd08c38e6a642">IsDisposed_WhenNotDisposed_ShouldReturnFalse</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00056"/>00056 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.IsDisposed.Should().BeFalse();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00060"/>00060 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00062"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a48cede2a84fe8a0fb8b5a64b1a0ab723">00062</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a48cede2a84fe8a0fb8b5a64b1a0ab723">IsDisposed_AfterDispose_ShouldReturnTrue</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00066"/>00066 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00069"/>00069 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.IsDisposed.Should().BeTrue();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00073"/>00073 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00075"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a842f041f72d1ff7154cb208104641a98">00075</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a842f041f72d1ff7154cb208104641a98">Dispose_ShouldBeIdempotent</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00079"/>00079 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00084"/>00084 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.DisposeCallCount.Should().Be(1);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00088"/>00088 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00090"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ac4733d2a15b4c459b4ae96a12ce83cba">00090</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ac4733d2a15b4c459b4ae96a12ce83cba">ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00094"/>00094 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.TestThrowIfDisposed();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00097"/>00097 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().NotThrow();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00101"/>00101 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00103"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9e9576babedfcaccf6a65e8416566f24">00103</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9e9576babedfcaccf6a65e8416566f24">ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00108"/>00108 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.TestThrowIfDisposed();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00111"/>00111 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00115"/>00115 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00117"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a123a31640f9d7d7a1ff85c06a5b43381">00117</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a123a31640f9d7d7a1ff85c06a5b43381">ActivitySource_ShouldReturnToolboxActivitySource</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00121"/>00121 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.ActivitySource.Should().BeSameAs(ToolboxActivitySource.Instance);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00125"/>00125 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00127"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a678289211577806055471776fea65995">00127</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a678289211577806055471776fea65995">Meter_ShouldReturnToolboxMeter</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00131"/>00131 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Meter.Should().BeSameAs(ToolboxMeter.Instance);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00135"/>00135 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00137"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a70cde4accd521d78c9287bcbd864e5cb">00137</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a70cde4accd521d78c9287bcbd864e5cb">Dispose_ShouldBeThreadSafe</link>()
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;TestDisposableService(<emphasis role="stringliteral">&quot;TestService&quot;</emphasis>,&#32;_loggerMock.Object);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;tasks&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;List&lt;Task&gt;();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00142"/>00142 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(var&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;100;&#32;i++)
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tasks.Add(Task.Run(()&#32;=&gt;&#32;service.Dispose()));
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00148"/>00148 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Task.WaitAll(tasks.ToArray());
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00150"/>00150 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.DisposeCallCount.Should().Be(1);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00154"/>00154 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00158"/>00158 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>TestDisposableService&#32;:&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;DisposeCallCount&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">set</emphasis>;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00161"/>00161 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;TestDisposableService(<emphasis role="keywordtype">string</emphasis>&#32;serviceName,&#32;ILogger&#32;logger)
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(serviceName,&#32;logger)
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00166"/>00166 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;TestThrowIfDisposed()&#32;=&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00168"/>00168 
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keyword">override</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link>(<emphasis role="keywordtype">bool</emphasis>&#32;disposing)
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Only&#32;count&#32;if&#32;not&#32;already&#32;disposed&#32;(before&#32;base.Dispose&#32;changes&#32;state)</emphasis>
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(disposing&#32;&amp;&amp;&#32;!<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link>)
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DisposeCallCount++;
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base.Dispose(disposing);
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base_disposable_service_tests_8cs_source_1l00179"/>00179 }
+</programlisting></section>

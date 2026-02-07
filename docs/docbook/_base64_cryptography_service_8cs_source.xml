@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__base64_cryptography_service_8cs_source" xml:lang="en-US">
+<title>Base64CryptographyService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/Base64CryptographyService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__base64_cryptography_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;Base64CryptographyService.cs</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Base64&#32;encoding/decoding&#32;cryptography&#32;service</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Implements&#32;ICryptographyService&#32;using&#32;Base64&#32;encoding</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Supports&#32;both&#32;standard&#32;and&#32;URL-safe&#32;encoding&#32;tables</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00006"/>00006 <emphasis role="keyword">using&#32;</emphasis>System.Buffers.Text;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00007"/>00007 <emphasis role="keyword">using&#32;</emphasis>System.Text;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00008"/>00008 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00009"/>00009 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_base">Toolbox.Core.Base</link>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00010"/>00010 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00011"/>00011 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00012"/>00012 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00013"/>00013 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Toolbox.Core.Services.Cryptography</link>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00014"/>00014 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00030"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service">00030</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">sealed</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1ae78dcf4067c1104dd2b5cfb1c136ae46">Base64CryptographyService</link>&#32;:&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link>,&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service">ICryptographyService</link>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00031"/>00031 {
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;encoding&#32;table&#32;configuration</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link>&#32;_encodingTable;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00034"/>00034 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Whether&#32;to&#32;include&#32;padding&#32;in&#32;output</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_includePadding;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00037"/>00037 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;logger&#32;instance</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;ILogger&lt;Base64CryptographyService&gt;&#32;_logger;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00040"/>00040 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00046"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1ae78dcf4067c1104dd2b5cfb1c136ae46">00046</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1ae78dcf4067c1104dd2b5cfb1c136ae46">Base64CryptographyService</link>(
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link>&#32;encodingTable,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ILogger&lt;Base64CryptographyService&gt;&#32;logger)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(<emphasis role="stringliteral">&quot;Base64CryptographyService&quot;</emphasis>,&#32;logger)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_encodingTable&#32;=&#32;encodingTable;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_includePadding&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger&#32;=&#32;logger;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00054"/>00054 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Base64CryptographyService&#32;initialized&#32;with&#32;encoding&#32;table:&#32;{EncodingTable}&quot;</emphasis>,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;encodingTable);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00059"/>00059 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00067"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1af163e7b25a167285f1e5575043e2882e">00067</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1af163e7b25a167285f1e5575043e2882e">Base64CryptographyService</link>(
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IOptions&lt;Base64CryptographyOptions&gt;&#32;options,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ILogger&lt;Base64CryptographyService&gt;&#32;logger)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;base(<emphasis role="stringliteral">&quot;Base64CryptographyService&quot;</emphasis>,&#32;logger)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(options);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00073"/>00073 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;opts&#32;=&#32;options.Value;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_encodingTable&#32;=&#32;opts.EncodingTable;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_includePadding&#32;=&#32;opts.IncludePadding;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger&#32;=&#32;logger;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00078"/>00078 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Base64CryptographyService&#32;initialized&#32;with&#32;encoding&#32;table:&#32;{EncodingTable},&#32;padding:&#32;{IncludePadding}&quot;</emphasis>,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_encodingTable,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_includePadding);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00084"/>00084 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00086"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a367b25c280d280f5ecf469e94da66d04">00086</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a367b25c280d280f5ecf469e94da66d04">Encrypt</link>(<emphasis role="keywordtype">string</emphasis>&#32;plainText)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(plainText);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00090"/>00090 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00093"/>00093 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;bytes&#32;=&#32;Encoding.UTF8.GetBytes(plainText);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result&#32;=&#32;EncodeToBase64(bytes);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00098"/>00098 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Encrypted&#32;{InputLength}&#32;characters&#32;to&#32;{OutputLength}&#32;characters&quot;</emphasis>,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;plainText.Length,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.Length);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00103"/>00103 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;Encrypt&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordEncryption(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;<emphasis role="stringliteral">&quot;Base64&quot;</emphasis>,&#32;bytes.Length);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;result;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(ex,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;encrypt&#32;text&quot;</emphasis>);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00114"/>00114 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00116"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1aa061bb1de53760c740b7c16b2e273129">00116</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;Task&lt;string&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1aa061bb1de53760c740b7c16b2e273129">EncryptAsync</link>(<emphasis role="keywordtype">string</emphasis>&#32;plainText,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(plainText);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00120"/>00120 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken.ThrowIfCancellationRequested();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00122"/>00122 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Base64&#32;encoding&#32;is&#32;CPU-bound&#32;and&#32;fast,&#32;so&#32;we&#32;run&#32;it&#32;synchronously</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;but&#32;wrap&#32;in&#32;Task.FromResult&#32;for&#32;the&#32;async&#32;interface</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Task.FromResult(<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a367b25c280d280f5ecf469e94da66d04">Encrypt</link>(plainText));
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00127"/>00127 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00129"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1adc6af0a05226f77128990a579635ed43">00129</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1adc6af0a05226f77128990a579635ed43">Decrypt</link>(<emphasis role="keywordtype">string</emphasis>&#32;encryptedText)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(encryptedText);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00133"/>00133 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;activity&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link>();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;sw&#32;=&#32;System.Diagnostics.Stopwatch.StartNew();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00136"/>00136 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;bytes&#32;=&#32;DecodeFromBase64(encryptedText);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result&#32;=&#32;Encoding.UTF8.GetString(bytes);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00141"/>00141 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogDebug(
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Decrypted&#32;{InputLength}&#32;characters&#32;to&#32;{OutputLength}&#32;characters&quot;</emphasis>,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;encryptedText.Length,
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.Length);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00146"/>00146 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link>(<emphasis role="stringliteral">&quot;Decrypt&quot;</emphasis>,&#32;sw.ElapsedMilliseconds);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ToolboxMeter.RecordDecryption(<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link>,&#32;<emphasis role="stringliteral">&quot;Base64&quot;</emphasis>,&#32;bytes.Length);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;result;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(FormatException)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(<emphasis role="stringliteral">&quot;Failed&#32;to&#32;decrypt&#32;text:&#32;invalid&#32;Base64&#32;format&quot;</emphasis>);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(Exception&#32;ex)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_logger.LogError(ex,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;decrypt&#32;text&quot;</emphasis>);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00162"/>00162 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00164"/><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a9ac221788e4ac3ca1fb3a0408f65f692">00164</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;Task&lt;string&gt;&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a9ac221788e4ac3ca1fb3a0408f65f692">DecryptAsync</link>(<emphasis role="keywordtype">string</emphasis>&#32;encryptedText,&#32;CancellationToken&#32;cancellationToken&#32;=&#32;<emphasis role="keywordflow">default</emphasis>)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link>();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgumentNullException.ThrowIfNull(encryptedText);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00168"/>00168 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cancellationToken.ThrowIfCancellationRequested();
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00170"/>00170 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Base64&#32;decoding&#32;is&#32;CPU-bound&#32;and&#32;fast,&#32;so&#32;we&#32;run&#32;it&#32;synchronously</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;but&#32;wrap&#32;in&#32;Task.FromResult&#32;for&#32;the&#32;async&#32;interface</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Task.FromResult(<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1adc6af0a05226f77128990a579635ed43">Decrypt</link>(encryptedText));
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00175"/>00175 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00181"/>00181 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;EncodeToBase64(<emphasis role="keywordtype">byte</emphasis>[]&#32;bytes)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;base64&#32;=&#32;Convert.ToBase64String(bytes);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00184"/>00184 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Convert&#32;to&#32;URL-safe&#32;if&#32;needed</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_encodingTable&#32;==&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link>.UrlSafe)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base64&#32;=&#32;base64.Replace(<emphasis role="charliteral">&apos;+&apos;</emphasis>,&#32;<emphasis role="charliteral">&apos;-&apos;</emphasis>).Replace(<emphasis role="charliteral">&apos;/&apos;</emphasis>,&#32;<emphasis role="charliteral">&apos;_&apos;</emphasis>);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00190"/>00190 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Remove&#32;padding&#32;if&#32;configured</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_includePadding)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base64&#32;=&#32;base64.TrimEnd(<emphasis role="charliteral">&apos;=&apos;</emphasis>);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00196"/>00196 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;base64;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00198"/>00198 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00199"/>00199 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">byte</emphasis>[]&#32;DecodeFromBase64(<emphasis role="keywordtype">string</emphasis>&#32;base64)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00207"/>00207 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Convert&#32;from&#32;URL-safe&#32;if&#32;needed</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_encodingTable&#32;==&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link>.UrlSafe)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base64&#32;=&#32;base64.Replace(<emphasis role="charliteral">&apos;-&apos;</emphasis>,&#32;<emphasis role="charliteral">&apos;+&apos;</emphasis>).Replace(<emphasis role="charliteral">&apos;_&apos;</emphasis>,&#32;<emphasis role="charliteral">&apos;/&apos;</emphasis>);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00213"/>00213 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Add&#32;padding&#32;if&#32;missing</emphasis>
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;paddingNeeded&#32;=&#32;base64.Length&#32;%&#32;4;
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(paddingNeeded&#32;&gt;&#32;0)
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base64&#32;+=&#32;<emphasis role="keyword">new</emphasis>&#32;string(<emphasis role="charliteral">&apos;=&apos;</emphasis>,&#32;4&#32;-&#32;paddingNeeded);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00220"/>00220 
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Convert.FromBase64String(base64);
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00222"/>00222 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__base64_cryptography_service_8cs_source_1l00223"/>00223 }
+</programlisting></section>

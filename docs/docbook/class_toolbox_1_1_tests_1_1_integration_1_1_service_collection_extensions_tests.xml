@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests for ServiceCollectionExtensions. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a05082e3b853b8d91f8a971c9fb0e0e6b">AddToolboxCore_ShouldRegisterOptions</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1ab0518cd9828d15663daacec14ed8d130">AddToolboxCore_WithConfiguration_ShouldApplyOptions</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a10584dd879a109f9bf2108b887224a87">AddToolboxCore_FromConfiguration_ShouldBindOptions</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1abdd6aa08df21b0cdc44003f0065ed0cd">AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1aa03b7db6f70c5a059df176e7255a5f16">AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests for ServiceCollectionExtensions. </para>
+<para>
+Definition at line <link linkend="__service_collection_extensions_tests_8cs_source_1l00012">12</link> of file <link linkend="__service_collection_extensions_tests_8cs_source">ServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a10584dd879a109f9bf2108b887224a87"/><section>
+    <title>AddToolboxCore_FromConfiguration_ShouldBindOptions()</title>
+<indexterm><primary>AddToolboxCore_FromConfiguration_ShouldBindOptions</primary><secondary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</primary><secondary>AddToolboxCore_FromConfiguration_ShouldBindOptions</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_FromConfiguration_ShouldBindOptions ( )</computeroutput></para><para>
+Definition at line <link linkend="__service_collection_extensions_tests_8cs_source_1l00050">50</link> of file <link linkend="__service_collection_extensions_tests_8cs_source">ServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1a05082e3b853b8d91f8a971c9fb0e0e6b"/><section>
+    <title>AddToolboxCore_ShouldRegisterOptions()</title>
+<indexterm><primary>AddToolboxCore_ShouldRegisterOptions</primary><secondary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</primary><secondary>AddToolboxCore_ShouldRegisterOptions</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_ShouldRegisterOptions ( )</computeroutput></para><para>
+Definition at line <link linkend="__service_collection_extensions_tests_8cs_source_1l00015">15</link> of file <link linkend="__service_collection_extensions_tests_8cs_source">ServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1ab0518cd9828d15663daacec14ed8d130"/><section>
+    <title>AddToolboxCore_WithConfiguration_ShouldApplyOptions()</title>
+<indexterm><primary>AddToolboxCore_WithConfiguration_ShouldApplyOptions</primary><secondary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</primary><secondary>AddToolboxCore_WithConfiguration_ShouldApplyOptions</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithConfiguration_ShouldApplyOptions ( )</computeroutput></para><para>
+Definition at line <link linkend="__service_collection_extensions_tests_8cs_source_1l00030">30</link> of file <link linkend="__service_collection_extensions_tests_8cs_source">ServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1aa03b7db6f70c5a059df176e7255a5f16"/><section>
+    <title>AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</primary><secondary>AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithNullConfigureAction_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__service_collection_extensions_tests_8cs_source_1l00086">86</link> of file <link linkend="__service_collection_extensions_tests_8cs_source">ServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_integration_1_1_service_collection_extensions_tests_1abdd6aa08df21b0cdc44003f0065ed0cd"/><section>
+    <title>AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Integration.ServiceCollectionExtensionsTests</primary><secondary>AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Integration.ServiceCollectionExtensionsTests.AddToolboxCore_WithNullServices_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__service_collection_extensions_tests_8cs_source_1l00073">73</link> of file <link linkend="__service_collection_extensions_tests_8cs_source">ServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Integration/<link linkend="__service_collection_extensions_tests_8cs">ServiceCollectionExtensionsTests.cs</link></section>
+</section>

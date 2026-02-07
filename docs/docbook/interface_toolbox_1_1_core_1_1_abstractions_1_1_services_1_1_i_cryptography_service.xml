@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service" xml:lang="en-US">
+<title>Toolbox.Core.Abstractions.Services.ICryptographyService Interface Reference</title>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.ICryptographyService</primary></indexterm>
+<para>
+
+<para>Interface for cryptography services providing text encryption and decryption. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Abstractions.Services.ICryptographyService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59">Encrypt</link> (string plainText)</para>
+
+<para>Encrypts the specified plain text. </para>
+</listitem>
+            <listitem><para>Task&lt; string &gt; <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf">EncryptAsync</link> (string plainText, CancellationToken cancellationToken=default)</para>
+
+<para>Asynchronously encrypts the specified plain text. </para>
+</listitem>
+            <listitem><para>string <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f">Decrypt</link> (string encryptedText)</para>
+
+<para>Decrypts the specified encrypted text. </para>
+</listitem>
+            <listitem><para>Task&lt; string &gt; <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a">DecryptAsync</link> (string encryptedText, CancellationToken cancellationToken=default)</para>
+
+<para>Asynchronously decrypts the specified encrypted text. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">Toolbox.Core.Abstractions.IAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>Asynchronously releases resources with cancellation support. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">Toolbox.Core.Abstractions.IInstrumentedService</link>        <itemizedlist>
+            <listitem><para>ActivitySource <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing. </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Properties inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">Toolbox.Core.Abstractions.IDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the unique name identifying this service instance. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether this service has been disposed. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Interface for cryptography services providing text encryption and decryption. </para>
+
+
+
+<para>This interface defines a simple contract for encrypting and decrypting text. Implementations may use various algorithms (Base64, AES, RSA, etc.). </para>
+
+<para>All methods accept and return string values for ease of use. </para>
+<para>
+Definition at line <link linkend="__i_cryptography_service_8cs_source_1l00020">20</link> of file <link linkend="__i_cryptography_service_8cs_source">ICryptographyService.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f"/><section>
+    <title>Decrypt()</title>
+<indexterm><primary>Decrypt</primary><secondary>Toolbox.Core.Abstractions.Services.ICryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.ICryptographyService</primary><secondary>Decrypt</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Abstractions.Services.ICryptographyService.Decrypt (string encryptedText)</computeroutput></para><para>
+
+<para>Decrypts the specified encrypted text. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>encryptedText</entry><entry>
+<para>The text to decrypt.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The decrypted plain text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FormatException</entry><entry>
+<para>Thrown when the encrypted text format is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a3f723805255f3988a36130df6990b91f">Toolbox.Core.Services.Cryptography.AesCryptographyService</link>, <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1adc6af0a05226f77128990a579635ed43">Toolbox.Core.Services.Cryptography.Base64CryptographyService</link>, and <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a49a9ab566b0355bb6991a839cb27801c">Toolbox.Core.Services.Cryptography.RsaCryptographyService</link>.</para>
+</section>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a"/><section>
+    <title>DecryptAsync()</title>
+<indexterm><primary>DecryptAsync</primary><secondary>Toolbox.Core.Abstractions.Services.ICryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.ICryptographyService</primary><secondary>DecryptAsync</secondary></indexterm>
+<para><computeroutput>Task&lt; string &gt; Toolbox.Core.Abstractions.Services.ICryptographyService.DecryptAsync (string encryptedText, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>Asynchronously decrypts the specified encrypted text. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>encryptedText</entry><entry>
+<para>The text to decrypt.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the decrypted plain text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FormatException</entry><entry>
+<para>Thrown when the encrypted text format is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ac0d76348e1fb0d832893e94ac14c19e0">Toolbox.Core.Services.Cryptography.AesCryptographyService</link>, <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a9ac221788e4ac3ca1fb3a0408f65f692">Toolbox.Core.Services.Cryptography.Base64CryptographyService</link>, and <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a12dc875ff5bd879d7b5ccbe17413ec7e">Toolbox.Core.Services.Cryptography.RsaCryptographyService</link>.</para>
+</section>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59"/><section>
+    <title>Encrypt()</title>
+<indexterm><primary>Encrypt</primary><secondary>Toolbox.Core.Abstractions.Services.ICryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.ICryptographyService</primary><secondary>Encrypt</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Abstractions.Services.ICryptographyService.Encrypt (string plainText)</computeroutput></para><para>
+
+<para>Encrypts the specified plain text. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>plainText</entry><entry>
+<para>The text to encrypt.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The encrypted text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1acca78d079b5b61766b44df902ded3865">Toolbox.Core.Services.Cryptography.AesCryptographyService</link>, <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1a367b25c280d280f5ecf469e94da66d04">Toolbox.Core.Services.Cryptography.Base64CryptographyService</link>, and <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a0d6440aa8b8df80575e7c69873fc3dca">Toolbox.Core.Services.Cryptography.RsaCryptographyService</link>.</para>
+</section>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf"/><section>
+    <title>EncryptAsync()</title>
+<indexterm><primary>EncryptAsync</primary><secondary>Toolbox.Core.Abstractions.Services.ICryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.Services.ICryptographyService</primary><secondary>EncryptAsync</secondary></indexterm>
+<para><computeroutput>Task&lt; string &gt; Toolbox.Core.Abstractions.Services.ICryptographyService.EncryptAsync (string plainText, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>Asynchronously encrypts the specified plain text. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>plainText</entry><entry>
+<para>The text to encrypt.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the encrypted text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a912ab62911fa9f0ec93297f2a918f351">Toolbox.Core.Services.Cryptography.AesCryptographyService</link>, <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_base64_cryptography_service_1aa061bb1de53760c740b7c16b2e273129">Toolbox.Core.Services.Cryptography.Base64CryptographyService</link>, and <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_rsa_cryptography_service_1a8d65b30e83ed3be8cb39bfa1d9cd2227">Toolbox.Core.Services.Cryptography.RsaCryptographyService</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/Services/<link linkend="__i_cryptography_service_8cs">ICryptographyService.cs</link></section>
+</section>

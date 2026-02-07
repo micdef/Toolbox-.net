@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Options.EmailMessageTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> and related classes. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1abc20b962462c7f7d37796572847cf3cd">EmailAddress_WithAddressOnly_ShouldCreate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a928b52bb69e4589c1b6eca1689d9f34f">EmailAddress_WithDisplayName_ShouldCreate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a731abdf87473b2e998a0d36629a713d3">EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a9e35dbacdc2ba4a9bdfe96ca866b850b">EmailAddress_ImplicitConversion_ShouldWork</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ab9b8c8659669932cbbc560744a630d4f">EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5c53f94c17d282f42a2d2fdc5a1fd144">EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1ae7f8eebfe7651456d281daa7ce60c5">EmailMessage_NewInstance_ShouldHaveEmptyCollections</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1eb7d554445b71553550f036342b04f2">EmailMessage_NewInstance_ShouldHaveDefaultValues</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6d05f26d89f848cad542516da33027c2">EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5a4d8b89203985d243488060b2d6f1fc">EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aca97a5868672f5f3ee51d54d97035636">EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6687ae2c08f14391bfead86b5b23077d">EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0c0dafef3605e247494e868ef152486c">EmailMessage_TotalRecipients_ShouldCountAll</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a65de4a56e6f4c54f5e151e78ece07cca">EmailMessage_Validate_WithNoRecipients_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac09fd7e838c765f8358ce0f1e67072d">EmailMessage_Validate_WithToRecipient_ShouldNotThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a7753930381938442b502b375e42b2348">EmailMessage_Validate_WithBccOnly_ShouldNotThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ad97c6772356b996b36af035ddc476f41">EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a190102a0d5ab226020bc4f7195f16bd2">EmailAttachment_FromFile_WithNullPath_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0421ecb39be760cf9508d3baa63790d1">EmailAttachment_FromBytes_WithValidData_ShouldCreate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a3a3d32fefab51d71e3e4ee15a69e89db">EmailAttachment_FromBytes_WithNullContent_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a163cdf2e9fbad7ba60576203c928945b">EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1afa6c594d9353e51336d8b4b44ad4c4eb">EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a803e67d13501ca9726f98de2d5c6a6f9">EmailAttachment_CreateInline_ShouldCreateInlineAttachment</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a25498d656eceb91ca8afd55bba7af77e">EmailAttachment_FromBytes_ShouldDetectContentType</link> (string extension, string expectedContentType)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac88ffb6cc0ab426b0571108a8e1fdb1">MailingOptions_DefaultValues_ShouldBeCorrect</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a4af9d14f316486c132863917ff53b053">MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a87f97d25200c2cfe6c2ce521c296175c">MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a47af5f8bf27d57da51d45d671b620cf0">MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link> and related classes. </para>
+<para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00008">8</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a9e35dbacdc2ba4a9bdfe96ca866b850b"/><section>
+    <title>EmailAddress_ImplicitConversion_ShouldWork()</title>
+<indexterm><primary>EmailAddress_ImplicitConversion_ShouldWork</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAddress_ImplicitConversion_ShouldWork</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ImplicitConversion_ShouldWork ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00045">45</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5c53f94c17d282f42a2d2fdc5a1fd144"/><section>
+    <title>EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress()</title>
+<indexterm><primary>EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ToString_WithDisplayName_ShouldReturnFormattedAddress ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00069">69</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ab9b8c8659669932cbbc560744a630d4f"/><section>
+    <title>EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress()</title>
+<indexterm><primary>EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_ToString_WithoutDisplayName_ShouldReturnAddress ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00056">56</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1abc20b962462c7f7d37796572847cf3cd"/><section>
+    <title>EmailAddress_WithAddressOnly_ShouldCreate()</title>
+<indexterm><primary>EmailAddress_WithAddressOnly_ShouldCreate</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAddress_WithAddressOnly_ShouldCreate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithAddressOnly_ShouldCreate ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00013">13</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a928b52bb69e4589c1b6eca1689d9f34f"/><section>
+    <title>EmailAddress_WithDisplayName_ShouldCreate()</title>
+<indexterm><primary>EmailAddress_WithDisplayName_ShouldCreate</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAddress_WithDisplayName_ShouldCreate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithDisplayName_ShouldCreate ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00024">24</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a731abdf87473b2e998a0d36629a713d3"/><section>
+    <title>EmailAddress_WithNullAddress_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAddress_WithNullAddress_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAddress_WithNullAddress_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00035">35</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a803e67d13501ca9726f98de2d5c6a6f9"/><section>
+    <title>EmailAttachment_CreateInline_ShouldCreateInlineAttachment()</title>
+<indexterm><primary>EmailAttachment_CreateInline_ShouldCreateInlineAttachment</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_CreateInline_ShouldCreateInlineAttachment</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_CreateInline_ShouldCreateInlineAttachment ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00286">286</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a25498d656eceb91ca8afd55bba7af77e"/><section>
+    <title>EmailAttachment_FromBytes_ShouldDetectContentType()</title>
+<indexterm><primary>EmailAttachment_FromBytes_ShouldDetectContentType</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromBytes_ShouldDetectContentType</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_ShouldDetectContentType (string extension, string expectedContentType)</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00314">314</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1afa6c594d9353e51336d8b4b44ad4c4eb"/><section>
+    <title>EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt()</title>
+<indexterm><primary>EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithCustomContentType_ShouldUseIt ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00273">273</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a3a3d32fefab51d71e3e4ee15a69e89db"/><section>
+    <title>EmailAttachment_FromBytes_WithNullContent_ShouldThrow()</title>
+<indexterm><primary>EmailAttachment_FromBytes_WithNullContent_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromBytes_WithNullContent_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithNullContent_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00253">253</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a163cdf2e9fbad7ba60576203c928945b"/><section>
+    <title>EmailAttachment_FromBytes_WithNullFileName_ShouldThrow()</title>
+<indexterm><primary>EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromBytes_WithNullFileName_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithNullFileName_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00263">263</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0421ecb39be760cf9508d3baa63790d1"/><section>
+    <title>EmailAttachment_FromBytes_WithValidData_ShouldCreate()</title>
+<indexterm><primary>EmailAttachment_FromBytes_WithValidData_ShouldCreate</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromBytes_WithValidData_ShouldCreate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromBytes_WithValidData_ShouldCreate ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00236">236</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1ad97c6772356b996b36af035ddc476f41"/><section>
+    <title>EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow()</title>
+<indexterm><primary>EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromFile_WithNonExistentFile_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00216">216</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a190102a0d5ab226020bc4f7195f16bd2"/><section>
+    <title>EmailAttachment_FromFile_WithNullPath_ShouldThrow()</title>
+<indexterm><primary>EmailAttachment_FromFile_WithNullPath_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailAttachment_FromFile_WithNullPath_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailAttachment_FromFile_WithNullPath_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00226">226</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aca97a5868672f5f3ee51d54d97035636"/><section>
+    <title>EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue()</title>
+<indexterm><primary>EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithBccOnly_ShouldReturnTrue ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00134">134</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6687ae2c08f14391bfead86b5b23077d"/><section>
+    <title>EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse()</title>
+<indexterm><primary>EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithCcOnly_ShouldReturnFalse ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00145">145</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a6d05f26d89f848cad542516da33027c2"/><section>
+    <title>EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse()</title>
+<indexterm><primary>EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithNoRecipients_ShouldReturnFalse ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00113">113</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a5a4d8b89203985d243488060b2d6f1fc"/><section>
+    <title>EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue()</title>
+<indexterm><primary>EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_HasRecipients_WithToRecipient_ShouldReturnTrue ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00123">123</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1eb7d554445b71553550f036342b04f2"/><section>
+    <title>EmailMessage_NewInstance_ShouldHaveDefaultValues()</title>
+<indexterm><primary>EmailMessage_NewInstance_ShouldHaveDefaultValues</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_NewInstance_ShouldHaveDefaultValues</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_NewInstance_ShouldHaveDefaultValues ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00100">100</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a1ae7f8eebfe7651456d281daa7ce60c5"/><section>
+    <title>EmailMessage_NewInstance_ShouldHaveEmptyCollections()</title>
+<indexterm><primary>EmailMessage_NewInstance_ShouldHaveEmptyCollections</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_NewInstance_ShouldHaveEmptyCollections</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_NewInstance_ShouldHaveEmptyCollections ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00086">86</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a0c0dafef3605e247494e868ef152486c"/><section>
+    <title>EmailMessage_TotalRecipients_ShouldCountAll()</title>
+<indexterm><primary>EmailMessage_TotalRecipients_ShouldCountAll</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_TotalRecipients_ShouldCountAll</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_TotalRecipients_ShouldCountAll ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00156">156</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a7753930381938442b502b375e42b2348"/><section>
+    <title>EmailMessage_Validate_WithBccOnly_ShouldNotThrow()</title>
+<indexterm><primary>EmailMessage_Validate_WithBccOnly_ShouldNotThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_Validate_WithBccOnly_ShouldNotThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithBccOnly_ShouldNotThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00198">198</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a65de4a56e6f4c54f5e151e78ece07cca"/><section>
+    <title>EmailMessage_Validate_WithNoRecipients_ShouldThrow()</title>
+<indexterm><primary>EmailMessage_Validate_WithNoRecipients_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_Validate_WithNoRecipients_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithNoRecipients_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00170">170</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac09fd7e838c765f8358ce0f1e67072d"/><section>
+    <title>EmailMessage_Validate_WithToRecipient_ShouldNotThrow()</title>
+<indexterm><primary>EmailMessage_Validate_WithToRecipient_ShouldNotThrow</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>EmailMessage_Validate_WithToRecipient_ShouldNotThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.EmailMessage_Validate_WithToRecipient_ShouldNotThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00184">184</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1aac88ffb6cc0ab426b0571108a8e1fdb1"/><section>
+    <title>MailingOptions_DefaultValues_ShouldBeCorrect()</title>
+<indexterm><primary>MailingOptions_DefaultValues_ShouldBeCorrect</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>MailingOptions_DefaultValues_ShouldBeCorrect</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_DefaultValues_ShouldBeCorrect ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00331">331</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a4af9d14f316486c132863917ff53b053"/><section>
+    <title>MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse()</title>
+<indexterm><primary>MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithNoCredentials_ShouldReturnFalse ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00351">351</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a47af5f8bf27d57da51d45d671b620cf0"/><section>
+    <title>MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue()</title>
+<indexterm><primary>MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithOAuth2_ShouldReturnTrue ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00371">371</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_email_message_tests_1a87f97d25200c2cfe6c2ce521c296175c"/><section>
+    <title>MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue()</title>
+<indexterm><primary>MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</primary><secondary>Toolbox.Tests.Unit.Options.EmailMessageTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.EmailMessageTests</primary><secondary>MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.EmailMessageTests.MailingOptions_RequiresAuthentication_WithUsername_ShouldReturnTrue ( )</computeroutput></para><para>
+Definition at line <link linkend="__email_message_tests_8cs_source_1l00361">361</link> of file <link linkend="__email_message_tests_8cs_source">EmailMessageTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/<link linkend="__email_message_tests_8cs">EmailMessageTests.cs</link></section>
+</section>

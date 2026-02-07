@@ -1,5 +1,0 @@
-var namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer =
-[
-    [ "FtpFileTransferServiceTests", "class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests.html", "class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests" ],
-    [ "SftpFileTransferServiceTests", "class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests.html", "class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests" ]
-];

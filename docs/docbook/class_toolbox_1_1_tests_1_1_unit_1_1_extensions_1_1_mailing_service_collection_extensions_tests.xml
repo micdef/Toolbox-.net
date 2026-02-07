@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for MailingServiceCollectionExtensions. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a8a17cfc821acc65824a623d4be2a08fa">AddSmtpMailing_WithConfigureAction_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1aa3ad399a900e8f40c126080859608133">AddSmtpMailing_WithOptions_ShouldRegisterService</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a40980ee4e1d56f943b84bc0e0dbca81e">AddSmtpMailing_WithNullServices_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a4edd5eaaad88c1dfe3d1bb12d4fc83a3">AddSmtpMailing_WithNullConfigureAction_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a011105e9247c20e5a25d675b8dee72fc">AddSmtpMailing_WithNullOptions_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a83d225e38fea01b1b4ac451558ded193">AddGmailMailing_ShouldConfigureCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a793783e4aa56c68dd7edf11fd9d20bd3">AddGmailMailing_WithNullEmail_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1abc45a8c45da031fde087e1658bab1d5e">AddGmailMailing_WithNullPassword_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a400e69071dfff575d1a1cf43e86a76df">AddOutlookMailing_ShouldConfigureCorrectly</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a7ae6b7da5097cfcdf135532163867681">AddOutlookMailing_WithNullEmail_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1ac065c58ecd16ca3db13e9941d6f2bdac">AddOutlookMailing_WithNullPassword_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a2b0d944712729b842574a3b9efb54bbb">AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for MailingServiceCollectionExtensions. </para>
+<para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00012">12</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a83d225e38fea01b1b4ac451558ded193"/><section>
+    <title>AddGmailMailing_ShouldConfigureCorrectly()</title>
+<indexterm><primary>AddGmailMailing_ShouldConfigureCorrectly</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddGmailMailing_ShouldConfigureCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_ShouldConfigureCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00096">96</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a793783e4aa56c68dd7edf11fd9d20bd3"/><section>
+    <title>AddGmailMailing_WithNullEmail_ShouldThrow()</title>
+<indexterm><primary>AddGmailMailing_WithNullEmail_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddGmailMailing_WithNullEmail_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_WithNullEmail_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00112">112</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1abc45a8c45da031fde087e1658bab1d5e"/><section>
+    <title>AddGmailMailing_WithNullPassword_ShouldThrow()</title>
+<indexterm><primary>AddGmailMailing_WithNullPassword_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddGmailMailing_WithNullPassword_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddGmailMailing_WithNullPassword_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00125">125</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a400e69071dfff575d1a1cf43e86a76df"/><section>
+    <title>AddOutlookMailing_ShouldConfigureCorrectly()</title>
+<indexterm><primary>AddOutlookMailing_ShouldConfigureCorrectly</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddOutlookMailing_ShouldConfigureCorrectly</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_ShouldConfigureCorrectly ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00138">138</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a7ae6b7da5097cfcdf135532163867681"/><section>
+    <title>AddOutlookMailing_WithNullEmail_ShouldThrow()</title>
+<indexterm><primary>AddOutlookMailing_WithNullEmail_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddOutlookMailing_WithNullEmail_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_WithNullEmail_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00154">154</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1ac065c58ecd16ca3db13e9941d6f2bdac"/><section>
+    <title>AddOutlookMailing_WithNullPassword_ShouldThrow()</title>
+<indexterm><primary>AddOutlookMailing_WithNullPassword_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddOutlookMailing_WithNullPassword_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddOutlookMailing_WithNullPassword_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00167">167</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a2b0d944712729b842574a3b9efb54bbb"/><section>
+    <title>AddSmtpMailing_MultipleCalls_ShouldNotDuplicate()</title>
+<indexterm><primary>AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddSmtpMailing_MultipleCalls_ShouldNotDuplicate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_MultipleCalls_ShouldNotDuplicate ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00180">180</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a8a17cfc821acc65824a623d4be2a08fa"/><section>
+    <title>AddSmtpMailing_WithConfigureAction_ShouldRegisterService()</title>
+<indexterm><primary>AddSmtpMailing_WithConfigureAction_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddSmtpMailing_WithConfigureAction_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithConfigureAction_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00015">15</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a4edd5eaaad88c1dfe3d1bb12d4fc83a3"/><section>
+    <title>AddSmtpMailing_WithNullConfigureAction_ShouldThrow()</title>
+<indexterm><primary>AddSmtpMailing_WithNullConfigureAction_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddSmtpMailing_WithNullConfigureAction_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullConfigureAction_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00070">70</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a011105e9247c20e5a25d675b8dee72fc"/><section>
+    <title>AddSmtpMailing_WithNullOptions_ShouldThrow()</title>
+<indexterm><primary>AddSmtpMailing_WithNullOptions_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddSmtpMailing_WithNullOptions_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullOptions_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00083">83</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1a40980ee4e1d56f943b84bc0e0dbca81e"/><section>
+    <title>AddSmtpMailing_WithNullServices_ShouldThrow()</title>
+<indexterm><primary>AddSmtpMailing_WithNullServices_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddSmtpMailing_WithNullServices_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithNullServices_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00057">57</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_mailing_service_collection_extensions_tests_1aa3ad399a900e8f40c126080859608133"/><section>
+    <title>AddSmtpMailing_WithOptions_ShouldRegisterService()</title>
+<indexterm><primary>AddSmtpMailing_WithOptions_ShouldRegisterService</primary><secondary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests</primary><secondary>AddSmtpMailing_WithOptions_ShouldRegisterService</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Extensions.MailingServiceCollectionExtensionsTests.AddSmtpMailing_WithOptions_ShouldRegisterService ( )</computeroutput></para><para>
+Definition at line <link linkend="__mailing_service_collection_extensions_tests_8cs_source_1l00036">36</link> of file <link linkend="__mailing_service_collection_extensions_tests_8cs_source">MailingServiceCollectionExtensionsTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/<link linkend="__mailing_service_collection_extensions_tests_8cs">MailingServiceCollectionExtensionsTests.cs</link></section>
+</section>

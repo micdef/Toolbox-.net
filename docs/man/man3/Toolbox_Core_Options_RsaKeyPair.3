@@ -1,0 +1,182 @@
+.TH "Toolbox.Core.Options.RsaKeyPair" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.RsaKeyPair \- Represents an RSA key pair containing public and optionally private key data\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits IDisposable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "RsaKeyPair \fBToPublicOnly\fP ()"
+.br
+.RI "Creates an \fBRsaKeyPair\fP containing only the public key from this pair\&. "
+.ti -1c
+.RI "void \fBDispose\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static RsaKeyPair \fBFromBytes\fP (byte[] publicKey, byte[]? privateKey, int keySize)"
+.br
+.RI "Creates an \fBRsaKeyPair\fP from raw byte arrays\&. "
+.ti -1c
+.RI "static RsaKeyPair \fBFromCertificate\fP (X509Certificate2 certificate)"
+.br
+.RI "Creates an \fBRsaKeyPair\fP from an X\&.509 certificate\&. "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "byte?[] \fBPublicKey\fP\fR [get]\fP"
+.br
+.RI "Gets the public key in DER-encoded SubjectPublicKeyInfo format\&. "
+.ti -1c
+.RI "byte?[] \fBPrivateKey\fP\fR [get]\fP"
+.br
+.RI "Gets the private key in DER-encoded PKCS#8 format\&. "
+.ti -1c
+.RI "X509Certificate2? \fBCertificate\fP\fR [get]\fP"
+.br
+.RI "Gets the X\&.509 certificate containing the public key\&. "
+.ti -1c
+.RI "bool \fBHasPrivateKey\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this key pair contains a private key\&. "
+.ti -1c
+.RI "int \fBKeySize\fP\fR [get]\fP"
+.br
+.RI "Gets the key size in bits\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents an RSA key pair containing public and optionally private key data\&. 
+
+This class provides multiple formats for RSA keys: raw byte arrays and X\&.509 certificates\&. 
+
+.PP
+The private key is optional - some operations (like encryption) only require the public key\&. 
+.PP
+Definition at line \fB22\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Core\&.Options\&.RsaKeyPair\&.Dispose ()"
+
+.PP
+
+.PP
+Definition at line \fB141\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "RsaKeyPair Toolbox\&.Core\&.Options\&.RsaKeyPair\&.FromBytes (byte[] publicKey, byte?[] privateKey, int keySize)\fR [static]\fP"
+
+.PP
+Creates an \fBRsaKeyPair\fP from raw byte arrays\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpublicKey\fP The public key in SubjectPublicKeyInfo format\&.
+.br
+\fIprivateKey\fP The private key in PKCS#8 format, or \fRnull\fP for public-only\&.
+.br
+\fIkeySize\fP The key size in bits\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBRsaKeyPair\fP instance\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIpublicKey\fP  is \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB75\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "RsaKeyPair Toolbox\&.Core\&.Options\&.RsaKeyPair\&.FromCertificate (X509Certificate2 certificate)\fR [static]\fP"
+
+.PP
+Creates an \fBRsaKeyPair\fP from an X\&.509 certificate\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcertificate\fP The certificate containing the RSA public key\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBRsaKeyPair\fP instance\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIcertificate\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the certificate does not contain an RSA key\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB94\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "RsaKeyPair Toolbox\&.Core\&.Options\&.RsaKeyPair\&.ToPublicOnly ()"
+
+.PP
+Creates an \fBRsaKeyPair\fP containing only the public key from this pair\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A new \fBRsaKeyPair\fP with only the public key\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIObjectDisposedException\fP Thrown when the object has been disposed\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB115\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "X509Certificate2? Toolbox\&.Core\&.Options\&.RsaKeyPair\&.Certificate\fR [get]\fP"
+
+.PP
+Gets the X\&.509 certificate containing the public key\&. The certificate, or \fRnull\fP if not available in this format\&.
+.PP
+Definition at line \fB43\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.RsaKeyPair\&.HasPrivateKey\fR [get]\fP"
+
+.PP
+Gets a value indicating whether this key pair contains a private key\&. \fRtrue\fP if a private key is available; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB49\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.RsaKeyPair\&.KeySize\fR [get]\fP"
+
+.PP
+Gets the key size in bits\&. The RSA key size\&.
+.PP
+Definition at line \fB55\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "byte? [] Toolbox\&.Core\&.Options\&.RsaKeyPair\&.PrivateKey\fR [get]\fP"
+
+.PP
+Gets the private key in DER-encoded PKCS#8 format\&. The private key bytes, or \fRnull\fP if not available or not included\&.
+.PP
+Definition at line \fB37\fP of file \fBRsaKeyPair\&.cs\fP\&.
+.SS "byte? [] Toolbox\&.Core\&.Options\&.RsaKeyPair\&.PublicKey\fR [get]\fP"
+
+.PP
+Gets the public key in DER-encoded SubjectPublicKeyInfo format\&. The public key bytes, or \fRnull\fP if not available in this format\&.
+.PP
+Definition at line \fB31\fP of file \fBRsaKeyPair\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

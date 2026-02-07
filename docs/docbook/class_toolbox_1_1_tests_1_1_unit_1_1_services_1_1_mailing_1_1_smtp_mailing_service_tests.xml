@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service">SmtpMailingService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1aeae79c79a05e3875c656625b6a5b5b8a">SmtpMailingServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a48cb868c2b2be78a4a74debfcc24edb6">Constructor_WithNullOptions_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a1973d275befbddb084e6d13f6151972b">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a430643fc6c6a955de9306bfcd40ffc15">Constructor_WithEmptyHost_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a8e043ad3b58d4b49b254fdd247e87e5a">Constructor_WithValidOptions_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a5b97f024969e91aa33aacc02a3eb8454">Constructor_WithDirectOptions_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1abe457abae7afec7e9fbbe3f5495845e6">Constructor_WithAnonymousAuth_ShouldInitialize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1ae02aa7b934059630091662e7507100a3">SendMail_WithNullMessage_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a0a7c3797ea46ab93884580f4b3d20e42">SendMail_WithNoRecipients_ShouldThrowArgumentException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a248c7556bd578d71735daf45fe3c0e7a">SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a91a2af1eede0d05e815513fea8f720f2">SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1acfb8c80baedc93743b5c8a52b0fa3129">SendMail_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>async Task <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1af597aadf53f52229f6cd46a9562000ba">DisposeAsync_ShouldDisposeResources</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_mailing_1_1_smtp_mailing_service">SmtpMailingService</link>. </para>
+
+
+
+<para>These tests verify argument validation and configuration. <link linkend="_namespace_toolbox_1_1_tests_1_1_integration">Integration</link> tests with a real SMTP server would be in a separate test project. </para>
+<para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00016">16</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1aeae79c79a05e3875c656625b6a5b5b8a"/><section>
+    <title>SmtpMailingServiceTests()</title>
+<indexterm><primary>SmtpMailingServiceTests</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>SmtpMailingServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SmtpMailingServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00020">20</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1abe457abae7afec7e9fbbe3f5495845e6"/><section>
+    <title>Constructor_WithAnonymousAuth_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithAnonymousAuth_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>Constructor_WithAnonymousAuth_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithAnonymousAuth_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00105">105</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a5b97f024969e91aa33aacc02a3eb8454"/><section>
+    <title>Constructor_WithDirectOptions_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithDirectOptions_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>Constructor_WithDirectOptions_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithDirectOptions_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00092">92</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a430643fc6c6a955de9306bfcd40ffc15"/><section>
+    <title>Constructor_WithEmptyHost_ShouldThrowArgumentException()</title>
+<indexterm><primary>Constructor_WithEmptyHost_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>Constructor_WithEmptyHost_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithEmptyHost_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00062">62</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a1973d275befbddb084e6d13f6151972b"/><section>
+    <title>Constructor_WithNullLogger_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00049">49</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a48cb868c2b2be78a4a74debfcc24edb6"/><section>
+    <title>Constructor_WithNullOptions_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullOptions_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>Constructor_WithNullOptions_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithNullOptions_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00037">37</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a8e043ad3b58d4b49b254fdd247e87e5a"/><section>
+    <title>Constructor_WithValidOptions_ShouldInitialize()</title>
+<indexterm><primary>Constructor_WithValidOptions_ShouldInitialize</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>Constructor_WithValidOptions_ShouldInitialize</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.Constructor_WithValidOptions_ShouldInitialize ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00079">79</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1af597aadf53f52229f6cd46a9562000ba"/><section>
+    <title>DisposeAsync_ShouldDisposeResources()</title>
+<indexterm><primary>DisposeAsync_ShouldDisposeResources</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>DisposeAsync_ShouldDisposeResources</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.DisposeAsync_ShouldDisposeResources ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00233">233</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1acfb8c80baedc93743b5c8a52b0fa3129"/><section>
+    <title>SendMail_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>SendMail_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>SendMail_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00209">209</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a0a7c3797ea46ab93884580f4b3d20e42"/><section>
+    <title>SendMail_WithNoRecipients_ShouldThrowArgumentException()</title>
+<indexterm><primary>SendMail_WithNoRecipients_ShouldThrowArgumentException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>SendMail_WithNoRecipients_ShouldThrowArgumentException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WithNoRecipients_ShouldThrowArgumentException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00142">142</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1ae02aa7b934059630091662e7507100a3"/><section>
+    <title>SendMail_WithNullMessage_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>SendMail_WithNullMessage_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>SendMail_WithNullMessage_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMail_WithNullMessage_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00127">127</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a91a2af1eede0d05e815513fea8f720f2"/><section>
+    <title>SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException()</title>
+<indexterm><primary>SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMailAsync_WithCancellation_ShouldThrowOperationCanceledException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00180">180</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_mailing_1_1_smtp_mailing_service_tests_1a248c7556bd578d71735daf45fe3c0e7a"/><section>
+    <title>SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests</primary><secondary>SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>async Task Toolbox.Tests.Unit.Services.Mailing.SmtpMailingServiceTests.SendMailAsync_WithNullMessage_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__smtp_mailing_service_tests_8cs_source_1l00165">165</link> of file <link linkend="__smtp_mailing_service_tests_8cs_source">SmtpMailingServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Mailing/<link linkend="__smtp_mailing_service_tests_8cs">SmtpMailingServiceTests.cs</link></section>
+</section>

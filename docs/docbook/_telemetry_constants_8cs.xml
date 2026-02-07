@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__telemetry_constants_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Telemetry/TelemetryConstants.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants</emphasis></para>
+
+<para>Constants used for OpenTelemetry instrumentation across <link linkend="_namespace_toolbox">Toolbox</link> services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants.Attributes</emphasis></para>
+
+<para>Standard attribute names for service telemetry. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants.Metrics</emphasis></para>
+
+<para>Standard metric names for service instrumentation. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants.CryptoAttributes</emphasis></para>
+
+<para>Additional attribute names for specific service categories. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants.FileTransferAttributes</emphasis></para>
+
+<para>Additional attribute names for file transfer services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants.MailingAttributes</emphasis></para>
+
+<para>Additional attribute names for mailing services. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Toolbox.Core.Telemetry.TelemetryConstants.ApiAttributes</emphasis></para>
+
+<para>Additional attribute names for API services. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

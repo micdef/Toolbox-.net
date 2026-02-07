@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Services.FileTransfer Namespace Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Services.FileTransfer</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service_tests">FtpFileTransferServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_ftp_file_transfer_service">FtpFileTransferService</link>. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service_tests">SftpFileTransferServiceTests</link></para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_file_transfer_1_1_sftp_file_transfer_service">SftpFileTransferService</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

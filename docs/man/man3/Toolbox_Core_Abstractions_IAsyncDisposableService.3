@@ -1,0 +1,81 @@
+.TH "Toolbox.Core.Abstractions.IAsyncDisposableService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Abstractions.IAsyncDisposableService \- Interface for services requiring asynchronous disposal with cancellation support\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Abstractions\&.IDisposableService\fP, and IAsyncDisposable\&.
+.PP
+Inherited by \fBToolbox\&.Core\&.Abstractions\&.Services\&.IApiService\fP, \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP, \fBToolbox\&.Core\&.Abstractions\&.Services\&.IFileTransferService\fP, \fBToolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\fP, and \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Abstractions\&.IDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for services requiring asynchronous disposal with cancellation support\&. 
+
+This interface combines \fBIDisposableService\fP and IAsyncDisposable with an additional method supporting cancellation tokens for graceful shutdown scenarios\&. 
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBIDisposableService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB16\fP of file \fBIAsyncDisposableService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "ValueTask Toolbox\&.Core\&.Abstractions\&.IAsyncDisposableService\&.DisposeAsync (CancellationToken cancellationToken)"
+
+.PP
+Asynchronously releases resources with cancellation support\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous disposal operation\&.
+.RE
+.PP
+
+.PP
+This method allows for graceful shutdown with timeout support\&. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately\&. 
+
+.PP
+The standard IAsyncDisposable\&.DisposeAsync method should call this method with CancellationToken\&.None\&. 
+.PP
+Implemented in \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

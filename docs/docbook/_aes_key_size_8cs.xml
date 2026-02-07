@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__aes_key_size_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/AesKeySize.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/AesKeySize.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">Toolbox.Core.Options.AesKeySize</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94">Toolbox.Core.Options.Aes128</link> = 128
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495">Toolbox.Core.Options.Aes192</link> = 192
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14">Toolbox.Core.Options.Aes256</link> = 256
+ }</para>
+
+<para>Specifies the AES key size in bits. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

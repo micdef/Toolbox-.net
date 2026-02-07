@@ -1,0 +1,1504 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dirs" xml:lang="en-US">
+<title>Directories</title>
+
+<para>Abstractions </para>
+
+<para>Services </para>
+
+<para>IApiService.cs </para>
+
+<para>ICryptographyService.cs </para>
+
+<para>IFileTransferService.cs </para>
+
+<para>IMailingService.cs </para>
+
+<para>IAsyncDisposableService.cs </para>
+
+<para>IDisposableService.cs </para>
+
+<para>IInstrumentedService.cs </para>
+
+<para>Api </para>
+
+<para>HttpApiService.cs </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Base </para>
+
+<para>BaseAsyncDisposableService.cs </para>
+
+<para>BaseDisposableService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyService.cs </para>
+
+<para>Base64CryptographyService.cs </para>
+
+<para>RsaCryptographyService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensions.cs </para>
+
+<para>CryptographyServiceCollectionExtensions.cs </para>
+
+<para>FileTransferServiceCollectionExtensions.cs </para>
+
+<para>MailingServiceCollectionExtensions.cs </para>
+
+<para>OpenTelemetryExtensions.cs </para>
+
+<para>ServiceCollectionExtensions.cs </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensionsTests.cs </para>
+
+<para>MailingServiceCollectionExtensionsTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferService.cs </para>
+
+<para>SftpFileTransferService.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Integration </para>
+
+<para>OpenTelemetryExtensionsTests.cs </para>
+
+<para>ServiceCollectionExtensionsTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingService.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Options </para>
+
+<para>AesKeySize.cs </para>
+
+<para>ApiAuthenticationMode.cs </para>
+
+<para>ApiOptions.cs </para>
+
+<para>ApiRequest.cs </para>
+
+<para>ApiResponse.cs </para>
+
+<para>Base64CryptographyOptions.cs </para>
+
+<para>Base64EncodingTable.cs </para>
+
+<para>EmailAddress.cs </para>
+
+<para>EmailAttachment.cs </para>
+
+<para>EmailMessage.cs </para>
+
+<para>FileTransferOptions.cs </para>
+
+<para>FileTransferProtocol.cs </para>
+
+<para>MailingOptions.cs </para>
+
+<para>RsaKeyPair.cs </para>
+
+<para>RsaKeySize.cs </para>
+
+<para>RsaPaddingMode.cs </para>
+
+<para>SmtpSecurityMode.cs </para>
+
+<para>ToolboxOptions.cs </para>
+
+<para>ToolboxTelemetryOptions.cs </para>
+
+<para>Options </para>
+
+<para>ApiRequestTests.cs </para>
+
+<para>ApiResponseTests.cs </para>
+
+<para>EmailMessageTests.cs </para>
+
+<para>FileTransferOptionsTests.cs </para>
+
+<para>Regression </para>
+
+<para>OptionsSchemaTests.cs </para>
+
+<para>TelemetryConstantsTests.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>RiderProjects </para>
+
+<para>Toolbox </para>
+
+<para>samples </para>
+
+<para>Toolbox.Sample </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Program.cs </para>
+
+<para>src </para>
+
+<para>Toolbox.Core </para>
+
+<para>Abstractions </para>
+
+<para>Services </para>
+
+<para>IApiService.cs </para>
+
+<para>ICryptographyService.cs </para>
+
+<para>IFileTransferService.cs </para>
+
+<para>IMailingService.cs </para>
+
+<para>IAsyncDisposableService.cs </para>
+
+<para>IDisposableService.cs </para>
+
+<para>IInstrumentedService.cs </para>
+
+<para>Base </para>
+
+<para>BaseAsyncDisposableService.cs </para>
+
+<para>BaseDisposableService.cs </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensions.cs </para>
+
+<para>CryptographyServiceCollectionExtensions.cs </para>
+
+<para>FileTransferServiceCollectionExtensions.cs </para>
+
+<para>MailingServiceCollectionExtensions.cs </para>
+
+<para>OpenTelemetryExtensions.cs </para>
+
+<para>ServiceCollectionExtensions.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Options </para>
+
+<para>AesKeySize.cs </para>
+
+<para>ApiAuthenticationMode.cs </para>
+
+<para>ApiOptions.cs </para>
+
+<para>ApiRequest.cs </para>
+
+<para>ApiResponse.cs </para>
+
+<para>Base64CryptographyOptions.cs </para>
+
+<para>Base64EncodingTable.cs </para>
+
+<para>EmailAddress.cs </para>
+
+<para>EmailAttachment.cs </para>
+
+<para>EmailMessage.cs </para>
+
+<para>FileTransferOptions.cs </para>
+
+<para>FileTransferProtocol.cs </para>
+
+<para>MailingOptions.cs </para>
+
+<para>RsaKeyPair.cs </para>
+
+<para>RsaKeySize.cs </para>
+
+<para>RsaPaddingMode.cs </para>
+
+<para>SmtpSecurityMode.cs </para>
+
+<para>ToolboxOptions.cs </para>
+
+<para>ToolboxTelemetryOptions.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyService.cs </para>
+
+<para>Base64CryptographyService.cs </para>
+
+<para>RsaCryptographyService.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferService.cs </para>
+
+<para>SftpFileTransferService.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingService.cs </para>
+
+<para>Telemetry </para>
+
+<para>TelemetryConstants.cs </para>
+
+<para>ToolboxActivitySource.cs </para>
+
+<para>ToolboxMeter.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>tests </para>
+
+<para>Toolbox.Tests </para>
+
+<para>Integration </para>
+
+<para>OpenTelemetryExtensionsTests.cs </para>
+
+<para>ServiceCollectionExtensionsTests.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Regression </para>
+
+<para>OptionsSchemaTests.cs </para>
+
+<para>TelemetryConstantsTests.cs </para>
+
+<para>Unit </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensionsTests.cs </para>
+
+<para>MailingServiceCollectionExtensionsTests.cs </para>
+
+<para>Options </para>
+
+<para>ApiRequestTests.cs </para>
+
+<para>ApiResponseTests.cs </para>
+
+<para>EmailMessageTests.cs </para>
+
+<para>FileTransferOptionsTests.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>BaseAsyncDisposableServiceTests.cs </para>
+
+<para>BaseDisposableServiceTests.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>samples </para>
+
+<para>Toolbox.Sample </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Program.cs </para>
+
+<para>Services </para>
+
+<para>IApiService.cs </para>
+
+<para>ICryptographyService.cs </para>
+
+<para>IFileTransferService.cs </para>
+
+<para>IMailingService.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyService.cs </para>
+
+<para>Base64CryptographyService.cs </para>
+
+<para>RsaCryptographyService.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferService.cs </para>
+
+<para>SftpFileTransferService.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingService.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>src </para>
+
+<para>Toolbox.Core </para>
+
+<para>Abstractions </para>
+
+<para>Services </para>
+
+<para>IApiService.cs </para>
+
+<para>ICryptographyService.cs </para>
+
+<para>IFileTransferService.cs </para>
+
+<para>IMailingService.cs </para>
+
+<para>IAsyncDisposableService.cs </para>
+
+<para>IDisposableService.cs </para>
+
+<para>IInstrumentedService.cs </para>
+
+<para>Base </para>
+
+<para>BaseAsyncDisposableService.cs </para>
+
+<para>BaseDisposableService.cs </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensions.cs </para>
+
+<para>CryptographyServiceCollectionExtensions.cs </para>
+
+<para>FileTransferServiceCollectionExtensions.cs </para>
+
+<para>MailingServiceCollectionExtensions.cs </para>
+
+<para>OpenTelemetryExtensions.cs </para>
+
+<para>ServiceCollectionExtensions.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Options </para>
+
+<para>AesKeySize.cs </para>
+
+<para>ApiAuthenticationMode.cs </para>
+
+<para>ApiOptions.cs </para>
+
+<para>ApiRequest.cs </para>
+
+<para>ApiResponse.cs </para>
+
+<para>Base64CryptographyOptions.cs </para>
+
+<para>Base64EncodingTable.cs </para>
+
+<para>EmailAddress.cs </para>
+
+<para>EmailAttachment.cs </para>
+
+<para>EmailMessage.cs </para>
+
+<para>FileTransferOptions.cs </para>
+
+<para>FileTransferProtocol.cs </para>
+
+<para>MailingOptions.cs </para>
+
+<para>RsaKeyPair.cs </para>
+
+<para>RsaKeySize.cs </para>
+
+<para>RsaPaddingMode.cs </para>
+
+<para>SmtpSecurityMode.cs </para>
+
+<para>ToolboxOptions.cs </para>
+
+<para>ToolboxTelemetryOptions.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyService.cs </para>
+
+<para>Base64CryptographyService.cs </para>
+
+<para>RsaCryptographyService.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferService.cs </para>
+
+<para>SftpFileTransferService.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingService.cs </para>
+
+<para>Telemetry </para>
+
+<para>TelemetryConstants.cs </para>
+
+<para>ToolboxActivitySource.cs </para>
+
+<para>ToolboxMeter.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>Telemetry </para>
+
+<para>TelemetryConstants.cs </para>
+
+<para>ToolboxActivitySource.cs </para>
+
+<para>ToolboxMeter.cs </para>
+
+<para>tests </para>
+
+<para>Toolbox.Tests </para>
+
+<para>Integration </para>
+
+<para>OpenTelemetryExtensionsTests.cs </para>
+
+<para>ServiceCollectionExtensionsTests.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Regression </para>
+
+<para>OptionsSchemaTests.cs </para>
+
+<para>TelemetryConstantsTests.cs </para>
+
+<para>Unit </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensionsTests.cs </para>
+
+<para>MailingServiceCollectionExtensionsTests.cs </para>
+
+<para>Options </para>
+
+<para>ApiRequestTests.cs </para>
+
+<para>ApiResponseTests.cs </para>
+
+<para>EmailMessageTests.cs </para>
+
+<para>FileTransferOptionsTests.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>BaseAsyncDisposableServiceTests.cs </para>
+
+<para>BaseDisposableServiceTests.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>Toolbox </para>
+
+<para>samples </para>
+
+<para>Toolbox.Sample </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Program.cs </para>
+
+<para>src </para>
+
+<para>Toolbox.Core </para>
+
+<para>Abstractions </para>
+
+<para>Services </para>
+
+<para>IApiService.cs </para>
+
+<para>ICryptographyService.cs </para>
+
+<para>IFileTransferService.cs </para>
+
+<para>IMailingService.cs </para>
+
+<para>IAsyncDisposableService.cs </para>
+
+<para>IDisposableService.cs </para>
+
+<para>IInstrumentedService.cs </para>
+
+<para>Base </para>
+
+<para>BaseAsyncDisposableService.cs </para>
+
+<para>BaseDisposableService.cs </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensions.cs </para>
+
+<para>CryptographyServiceCollectionExtensions.cs </para>
+
+<para>FileTransferServiceCollectionExtensions.cs </para>
+
+<para>MailingServiceCollectionExtensions.cs </para>
+
+<para>OpenTelemetryExtensions.cs </para>
+
+<para>ServiceCollectionExtensions.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Options </para>
+
+<para>AesKeySize.cs </para>
+
+<para>ApiAuthenticationMode.cs </para>
+
+<para>ApiOptions.cs </para>
+
+<para>ApiRequest.cs </para>
+
+<para>ApiResponse.cs </para>
+
+<para>Base64CryptographyOptions.cs </para>
+
+<para>Base64EncodingTable.cs </para>
+
+<para>EmailAddress.cs </para>
+
+<para>EmailAttachment.cs </para>
+
+<para>EmailMessage.cs </para>
+
+<para>FileTransferOptions.cs </para>
+
+<para>FileTransferProtocol.cs </para>
+
+<para>MailingOptions.cs </para>
+
+<para>RsaKeyPair.cs </para>
+
+<para>RsaKeySize.cs </para>
+
+<para>RsaPaddingMode.cs </para>
+
+<para>SmtpSecurityMode.cs </para>
+
+<para>ToolboxOptions.cs </para>
+
+<para>ToolboxTelemetryOptions.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyService.cs </para>
+
+<para>Base64CryptographyService.cs </para>
+
+<para>RsaCryptographyService.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferService.cs </para>
+
+<para>SftpFileTransferService.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingService.cs </para>
+
+<para>Telemetry </para>
+
+<para>TelemetryConstants.cs </para>
+
+<para>ToolboxActivitySource.cs </para>
+
+<para>ToolboxMeter.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>tests </para>
+
+<para>Toolbox.Tests </para>
+
+<para>Integration </para>
+
+<para>OpenTelemetryExtensionsTests.cs </para>
+
+<para>ServiceCollectionExtensionsTests.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Regression </para>
+
+<para>OptionsSchemaTests.cs </para>
+
+<para>TelemetryConstantsTests.cs </para>
+
+<para>Unit </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensionsTests.cs </para>
+
+<para>MailingServiceCollectionExtensionsTests.cs </para>
+
+<para>Options </para>
+
+<para>ApiRequestTests.cs </para>
+
+<para>ApiResponseTests.cs </para>
+
+<para>EmailMessageTests.cs </para>
+
+<para>FileTransferOptionsTests.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>BaseAsyncDisposableServiceTests.cs </para>
+
+<para>BaseDisposableServiceTests.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>Toolbox.Core </para>
+
+<para>Abstractions </para>
+
+<para>Services </para>
+
+<para>IApiService.cs </para>
+
+<para>ICryptographyService.cs </para>
+
+<para>IFileTransferService.cs </para>
+
+<para>IMailingService.cs </para>
+
+<para>IAsyncDisposableService.cs </para>
+
+<para>IDisposableService.cs </para>
+
+<para>IInstrumentedService.cs </para>
+
+<para>Base </para>
+
+<para>BaseAsyncDisposableService.cs </para>
+
+<para>BaseDisposableService.cs </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensions.cs </para>
+
+<para>CryptographyServiceCollectionExtensions.cs </para>
+
+<para>FileTransferServiceCollectionExtensions.cs </para>
+
+<para>MailingServiceCollectionExtensions.cs </para>
+
+<para>OpenTelemetryExtensions.cs </para>
+
+<para>ServiceCollectionExtensions.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Core.AssemblyInfo.cs </para>
+
+<para>Toolbox.Core.GlobalUsings.g.cs </para>
+
+<para>Options </para>
+
+<para>AesKeySize.cs </para>
+
+<para>ApiAuthenticationMode.cs </para>
+
+<para>ApiOptions.cs </para>
+
+<para>ApiRequest.cs </para>
+
+<para>ApiResponse.cs </para>
+
+<para>Base64CryptographyOptions.cs </para>
+
+<para>Base64EncodingTable.cs </para>
+
+<para>EmailAddress.cs </para>
+
+<para>EmailAttachment.cs </para>
+
+<para>EmailMessage.cs </para>
+
+<para>FileTransferOptions.cs </para>
+
+<para>FileTransferProtocol.cs </para>
+
+<para>MailingOptions.cs </para>
+
+<para>RsaKeyPair.cs </para>
+
+<para>RsaKeySize.cs </para>
+
+<para>RsaPaddingMode.cs </para>
+
+<para>SmtpSecurityMode.cs </para>
+
+<para>ToolboxOptions.cs </para>
+
+<para>ToolboxTelemetryOptions.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiService.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyService.cs </para>
+
+<para>Base64CryptographyService.cs </para>
+
+<para>RsaCryptographyService.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferService.cs </para>
+
+<para>SftpFileTransferService.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingService.cs </para>
+
+<para>Telemetry </para>
+
+<para>TelemetryConstants.cs </para>
+
+<para>ToolboxActivitySource.cs </para>
+
+<para>ToolboxMeter.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>Toolbox.Sample </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Sample.AssemblyInfo.cs </para>
+
+<para>Toolbox.Sample.GlobalUsings.g.cs </para>
+
+<para>Program.cs </para>
+
+<para>Toolbox.Tests </para>
+
+<para>Integration </para>
+
+<para>OpenTelemetryExtensionsTests.cs </para>
+
+<para>ServiceCollectionExtensionsTests.cs </para>
+
+<para>obj </para>
+
+<para>Debug </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Release </para>
+
+<para>net10.0 </para>
+
+<para>.NETCoreApp,Version=v10.0.AssemblyAttributes.cs </para>
+
+<para>Toolbox.Tests.AssemblyInfo.cs </para>
+
+<para>Toolbox.Tests.GlobalUsings.g.cs </para>
+
+<para>Verify.Attributes.cs </para>
+
+<para>VerifyXunit.Attributes.cs </para>
+
+<para>Regression </para>
+
+<para>OptionsSchemaTests.cs </para>
+
+<para>TelemetryConstantsTests.cs </para>
+
+<para>Unit </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensionsTests.cs </para>
+
+<para>MailingServiceCollectionExtensionsTests.cs </para>
+
+<para>Options </para>
+
+<para>ApiRequestTests.cs </para>
+
+<para>ApiResponseTests.cs </para>
+
+<para>EmailMessageTests.cs </para>
+
+<para>FileTransferOptionsTests.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>BaseAsyncDisposableServiceTests.cs </para>
+
+<para>BaseDisposableServiceTests.cs </para>
+
+<para>GlobalUsings.cs </para>
+
+<para>Unit </para>
+
+<para>Extensions </para>
+
+<para>ApiServiceCollectionExtensionsTests.cs </para>
+
+<para>MailingServiceCollectionExtensionsTests.cs </para>
+
+<para>Options </para>
+
+<para>ApiRequestTests.cs </para>
+
+<para>ApiResponseTests.cs </para>
+
+<para>EmailMessageTests.cs </para>
+
+<para>FileTransferOptionsTests.cs </para>
+
+<para>Services </para>
+
+<para>Api </para>
+
+<para>HttpApiServiceTests.cs </para>
+
+<para>Cryptography </para>
+
+<para>AesCryptographyServiceTests.cs </para>
+
+<para>Base64CryptographyServiceTests.cs </para>
+
+<para>RsaCryptographyServiceTests.cs </para>
+
+<para>FileTransfer </para>
+
+<para>FtpFileTransferServiceTests.cs </para>
+
+<para>SftpFileTransferServiceTests.cs </para>
+
+<para>Mailing </para>
+
+<para>SmtpMailingServiceTests.cs </para>
+
+<para>BaseAsyncDisposableServiceTests.cs </para>
+
+<para>BaseDisposableServiceTests.cs </para>
+</section>

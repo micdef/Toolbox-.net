@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__telemetry_constants_tests_8cs_source" xml:lang="en-US">
+<title>TelemetryConstantsTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/TelemetryConstantsTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__telemetry_constants_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_telemetry">Toolbox.Core.Telemetry</link>;
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00002"/>00002 
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Toolbox.Tests.Regression</link>;
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00004"/>00004 
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00008"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests">00008</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests">TelemetryConstantsTests</link>
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00009"/>00009 {
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00010"/>00010 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00011"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a1e2aebcc9b5f38fa219c8f21e47daac1">00011</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a1e2aebcc9b5f38fa219c8f21e47daac1">ActivitySourceName_ShouldNotChange</link>()
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00012"/>00012 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00013"/>00013 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.ActivitySourceName.Should().Be(<emphasis role="stringliteral">&quot;Toolbox.Core&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00014"/>00014 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00015"/>00015 
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00017"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a93b74b7c64f6190fad1460aef9abd4e7">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a93b74b7c64f6190fad1460aef9abd4e7">MeterName_ShouldNotChange</link>()
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.MeterName.Should().Be(<emphasis role="stringliteral">&quot;Toolbox.Core&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00020"/>00020 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00021"/>00021 
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00023"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1ab67ad42099fa07e37502f1a0bb6e32f5">00023</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1ab67ad42099fa07e37502f1a0bb6e32f5">Version_ShouldNotChange</link>()
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Version.Should().Be(<emphasis role="stringliteral">&quot;1.0.0&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00027"/>00027 
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00029"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a6e24d67d83470d22bcf343deb9ebd428">00029</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a6e24d67d83470d22bcf343deb9ebd428">AttributeNames_ShouldNotChange</link>()
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Attributes.ServiceName.Should().Be(<emphasis role="stringliteral">&quot;toolbox.service.name&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Attributes.OperationName.Should().Be(<emphasis role="stringliteral">&quot;toolbox.operation.name&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Attributes.ErrorType.Should().Be(<emphasis role="stringliteral">&quot;toolbox.error.type&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Attributes.DisposalReason.Should().Be(<emphasis role="stringliteral">&quot;toolbox.disposal.reason&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00036"/>00036 
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00038"/><link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a3c432937de6b31d41dde20ff924a1533">00038</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a3c432937de6b31d41dde20ff924a1533">MetricNames_ShouldNotChange</link>()
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.OperationCount.Should().Be(<emphasis role="stringliteral">&quot;toolbox.operations.count&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.OperationDuration.Should().Be(<emphasis role="stringliteral">&quot;toolbox.operations.duration&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.DisposalCount.Should().Be(<emphasis role="stringliteral">&quot;toolbox.disposals.count&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;TelemetryConstants.Metrics.ActiveInstances.Should().Be(<emphasis role="stringliteral">&quot;toolbox.instances.active&quot;</emphasis>);
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__telemetry_constants_tests_8cs_source_1l00045"/>00045 }
+</programlisting></section>

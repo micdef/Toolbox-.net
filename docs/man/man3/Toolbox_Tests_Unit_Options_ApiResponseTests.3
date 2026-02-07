@@ -1,0 +1,150 @@
+.TH "Toolbox.Tests.Unit.Options.ApiResponseTests" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Tests.Unit.Options.ApiResponseTests \- \fBUnit\fP tests for \fBApiResponse\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBIsSuccess_ShouldReturnCorrectValue\fP (HttpStatusCode statusCode, bool expected)"
+.br
+.ti -1c
+.RI "void \fBIsClientError_ShouldReturnCorrectValue\fP (HttpStatusCode statusCode, bool expected)"
+.br
+.ti -1c
+.RI "void \fBIsServerError_ShouldReturnCorrectValue\fP (HttpStatusCode statusCode, bool expected)"
+.br
+.ti -1c
+.RI "void \fBIsRedirect_ShouldReturnCorrectValue\fP (HttpStatusCode statusCode, bool expected)"
+.br
+.ti -1c
+.RI "void \fBStatusCodeValue_ShouldReturnNumericValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBDeserialize_WithValidJson_ShouldReturnObject\fP ()"
+.br
+.ti -1c
+.RI "void \fBDeserialize_WithEmptyBody_ShouldReturnDefault\fP ()"
+.br
+.ti -1c
+.RI "void \fBDeserialize_WithInvalidJson_ShouldThrowJsonException\fP ()"
+.br
+.ti -1c
+.RI "void \fBTryDeserialize_WithValidJson_ShouldReturnTrue\fP ()"
+.br
+.ti -1c
+.RI "void \fBTryDeserialize_WithInvalidJson_ShouldReturnFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBTryDeserialize_WithEmptyBody_ShouldReturnFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetHeader_WithExistingHeader_ShouldReturnValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetHeader_WithNonExistingHeader_ShouldReturnNull\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetHeaders_WithMultipleValues_ShouldReturnAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBEnsureSuccess_WithSuccessStatus_ShouldNotThrow\fP ()"
+.br
+.ti -1c
+.RI "void \fBEnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException\fP ()"
+.br
+.ti -1c
+.RI "void \fBSuccess_ShouldCreateSuccessResponse\fP ()"
+.br
+.ti -1c
+.RI "void \fBError_ShouldCreateErrorResponse\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBUnit\fP tests for \fBApiResponse\fP\&. 
+.PP
+Definition at line \fB10\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.Deserialize_WithEmptyBody_ShouldReturnDefault ()"
+
+.PP
+Definition at line \fB107\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.Deserialize_WithInvalidJson_ShouldThrowJsonException ()"
+
+.PP
+Definition at line \fB124\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.Deserialize_WithValidJson_ShouldReturnObject ()"
+
+.PP
+Definition at line \fB88\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.EnsureSuccess_WithErrorStatus_ShouldThrowHttpRequestException ()"
+
+.PP
+Definition at line \fB274\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.EnsureSuccess_WithSuccessStatus_ShouldNotThrow ()"
+
+.PP
+Definition at line \fB261\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.Error_ShouldCreateErrorResponse ()"
+
+.PP
+Definition at line \fB309\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.GetHeader_WithExistingHeader_ShouldReturnValue ()"
+
+.PP
+Definition at line \fB198\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.GetHeader_WithNonExistingHeader_ShouldReturnNull ()"
+
+.PP
+Definition at line \fB219\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.GetHeaders_WithMultipleValues_ShouldReturnAll ()"
+
+.PP
+Definition at line \fB236\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.IsClientError_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)"
+
+.PP
+Definition at line \fB35\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.IsRedirect_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)"
+
+.PP
+Definition at line \fB64\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.IsServerError_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)"
+
+.PP
+Definition at line \fB50\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.IsSuccess_ShouldReturnCorrectValue (HttpStatusCode statusCode, bool expected)"
+
+.PP
+Definition at line \fB20\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.StatusCodeValue_ShouldReturnNumericValue ()"
+
+.PP
+Definition at line \fB74\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.Success_ShouldCreateSuccessResponse ()"
+
+.PP
+Definition at line \fB297\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.TryDeserialize_WithEmptyBody_ShouldReturnFalse ()"
+
+.PP
+Definition at line \fB177\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.TryDeserialize_WithInvalidJson_ShouldReturnFalse ()"
+
+.PP
+Definition at line \fB159\fP of file \fBApiResponseTests\&.cs\fP\&.
+.SS "void Toolbox\&.Tests\&.Unit\&.Options\&.ApiResponseTests\&.TryDeserialize_WithValidJson_ShouldReturnTrue ()"
+
+.PP
+Definition at line \fB141\fP of file \fBApiResponseTests\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

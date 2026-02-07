@@ -1,0 +1,397 @@
+.TH "Toolbox.Core.Services.Cryptography.Base64CryptographyService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Services.Cryptography.Base64CryptographyService \- \fBCryptography\fP service implementation using Base64 encoding\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP, and \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBase64CryptographyService\fP (\fBBase64EncodingTable\fP encodingTable, ILogger< Base64CryptographyService > logger)"
+.br
+.RI "Initializes a new instance of the \fBBase64CryptographyService\fP class\&. "
+.ti -1c
+.RI "\fBBase64CryptographyService\fP (IOptions< \fBBase64CryptographyOptions\fP > options, ILogger< Base64CryptographyService > logger)"
+.br
+.RI "Initializes a new instance of the \fBBase64CryptographyService\fP class with full options\&. "
+.ti -1c
+.RI "string \fBEncrypt\fP (string plainText)"
+.br
+.RI "Encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ "
+.ti -1c
+.RI "Task< string > \fBEncryptAsync\fP (string plainText, CancellationToken cancellationToken=default)"
+.br
+.RI "Asynchronously encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ "
+.ti -1c
+.RI "string \fBDecrypt\fP (string encryptedText)"
+.br
+.RI "Decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ "
+.ti -1c
+.RI "Task< string > \fBDecryptAsync\fP (string encryptedText, CancellationToken cancellationToken=default)"
+.br
+.RI "Asynchronously decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP ()"
+.br
+.ti -1c
+.RI "async ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous disposal operation\&.
+.RE
+.PP
+
+.PP
+This method allows for graceful shutdown with timeout support\&. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately\&.  "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "void \fBDispose\fP ()"
+.br
+.RI "Releases all resources used by this service\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseAsyncDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseAsyncDisposableService\fP class\&. "
+.ti -1c
+.RI "virtual ValueTask \fBDisposeAsyncCore\fP (CancellationToken cancellationToken)"
+.br
+.RI "Performs application-defined async cleanup operations\&. "
+.ti -1c
+.RI "override void \fBDispose\fP (bool disposing)"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseDisposableService\fP class\&. "
+.ti -1c
+.RI "void \fBThrowIfDisposed\fP ()"
+.br
+.RI "Throws an ObjectDisposedException if this service has been disposed\&. "
+.ti -1c
+.RI "void \fBRecordOperation\fP (string operationName, double durationMs)"
+.br
+.RI "Records an operation metric with the specified name and duration\&. "
+.ti -1c
+.RI "Activity? \fBStartActivity\fP ([CallerMemberName] string operationName='')"
+.br
+.RI "Starts a new activity for the specified operation\&. "
+.in -1c
+
+Properties inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&.
+
+.PP
+A human-readable name for logging and diagnostics\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&.
+
+.PP
+\fRtrue\fP if the service has been disposed; otherwise, \fRfalse\fP\&. "
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&.
+
+.PP
+The activity source used to create spans for this service\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&.
+
+.PP
+The meter used to create instruments for this service\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCryptography\fP service implementation using Base64 encoding\&. 
+
+This service provides text encryption and decryption using Base64 encoding\&. It supports both standard and URL-safe encoding tables\&. 
+
+.PP
+Note: Base64 is an encoding scheme, not encryption\&. It provides obfuscation but not security\&. For secure encryption, use a proper encryption algorithm\&. 
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBICryptographyService\fP, \fBBase64CryptographyOptions\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB30\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\&.Base64CryptographyService (\fBBase64EncodingTable\fP encodingTable, ILogger< Base64CryptographyService > logger)"
+
+.PP
+Initializes a new instance of the \fBBase64CryptographyService\fP class\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIencodingTable\fP The Base64 encoding table to use\&.
+.br
+\fIlogger\fP The logger instance\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB46\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+.SS "Toolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\&.Base64CryptographyService (IOptions< \fBBase64CryptographyOptions\fP > options, ILogger< Base64CryptographyService > logger)"
+
+.PP
+Initializes a new instance of the \fBBase64CryptographyService\fP class with full options\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIoptions\fP The configuration options\&.
+.br
+\fIlogger\fP The logger instance\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIoptions\fP  is \fRnull\fP\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB67\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "string Toolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\&.Decrypt (string encryptedText)"
+
+.PP
+Decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB129\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+.SS "Task< string > Toolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\&.DecryptAsync (string encryptedText, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Asynchronously decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB164\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\&.Encrypt (string plainText)"
+
+.PP
+Encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB86\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+.SS "Task< string > Toolbox\&.Core\&.Services\&.Cryptography\&.Base64CryptographyService\&.EncryptAsync (string plainText, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Asynchronously encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB116\fP of file \fBBase64CryptographyService\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

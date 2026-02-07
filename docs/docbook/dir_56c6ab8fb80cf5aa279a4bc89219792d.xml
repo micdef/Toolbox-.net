@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_56c6ab8fb80cf5aa279a4bc89219792d" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_960a5ebd707c8495b18e199f9de577e2">Extensions</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_ab5c5782fcc63985ffea340f9ec7165b">Options</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_53ecca869a8324fc94617a474c1c668b">Services</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__base_async_disposable_service_tests_8cs">BaseAsyncDisposableServiceTests.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__base_disposable_service_tests_8cs">BaseDisposableServiceTests.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_c945ddb9beeffc9cf85643aaa67e35d2" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Extensions Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__api_service_collection_extensions_8cs">ApiServiceCollectionExtensions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__cryptography_service_collection_extensions_8cs">CryptographyServiceCollectionExtensions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__file_transfer_service_collection_extensions_8cs">FileTransferServiceCollectionExtensions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__mailing_service_collection_extensions_8cs">MailingServiceCollectionExtensions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__open_telemetry_extensions_8cs">OpenTelemetryExtensions.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__service_collection_extensions_8cs">ServiceCollectionExtensions.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

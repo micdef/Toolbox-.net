@@ -1,4 +1,0 @@
-var _api_service_collection_extensions_tests_8cs =
-[
-    [ "Toolbox.Tests.Unit.Extensions.ApiServiceCollectionExtensionsTests", "class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests.html", "class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests" ]
-];

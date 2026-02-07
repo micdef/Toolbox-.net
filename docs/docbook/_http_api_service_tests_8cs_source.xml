@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__http_api_service_tests_8cs_source" xml:lang="en-US">
+<title>HttpApiServiceTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Services/Api/HttpApiServiceTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__http_api_service_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Logging;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.Options;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00004"/>00004 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_api">Toolbox.Core.Services.Api</link>;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00005"/><link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">00005</link> <emphasis role="keyword">using&#32;</emphasis><link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>&#32;=&#32;Microsoft.Extensions.Options.Options;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00006"/>00006 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00007"/><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services">00007</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api">Toolbox.Tests.Unit.Services.Api</link>;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00008"/>00008 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00016"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests">00016</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece">HttpApiServiceTests</link>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00017"/>00017 {
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;readonly&#32;Mock&lt;ILogger&lt;HttpApiService&gt;&gt;&#32;_loggerMock;
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00019"/>00019 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00020"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece">00020</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a79375397fb523d447f9758f2ed737ece">HttpApiServiceTests</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;Mock&lt;ILogger&lt;HttpApiService&gt;&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00024"/>00024 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link>&#32;CreateValidOptions()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AuthenticationMode&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link>.Anonymous,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Timeout&#32;=&#32;TimeSpan.FromSeconds(30)
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;};
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00031"/>00031 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00032"/>00032 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Constructor&#32;Tests</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00033"/>00033 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00035"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a5935100502e898d850c0c039e41c7576">00035</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a5935100502e898d850c0c039e41c7576">Constructor_WithNullOptions_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(IOptions&lt;ApiOptions&gt;)<emphasis role="keyword">null</emphasis>!,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00041"/>00041 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00045"/>00045 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00047"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1abeaa31e19b1d58233289eff7d4269a72">00047</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1abeaa31e19b1d58233289eff7d4269a72">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions());
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00051"/>00051 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(options,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00054"/>00054 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00058"/>00058 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00060"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1ad12a3920e966951df841ba13cde7460d">00060</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1ad12a3920e966951df841ba13cde7460d">Constructor_WithValidOptions_ShouldInitialize</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions());
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00064"/>00064 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00067"/>00067 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00071"/>00071 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00073"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a683f2c7c6cb65499b7cabfe49a9599da">00073</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a683f2c7c6cb65499b7cabfe49a9599da">Constructor_WithDirectOptions_ShouldInitialize</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;CreateValidOptions();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00077"/>00077 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00080"/>00080 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00084"/>00084 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00086"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a391947ef276858e1f23962b1a4bd9215">00086</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a391947ef276858e1f23962b1a4bd9215">Constructor_WithBearerTokenAuth_ShouldInitialize</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AuthenticationMode&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link>.BearerToken,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30">BearerToken</link>&#32;=&#32;<emphasis role="stringliteral">&quot;test-token&quot;</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00095"/>00095 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00098"/>00098 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00102"/>00102 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00104"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a16826b243591385e5120f933cacaf071">00104</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a16826b243591385e5120f933cacaf071">Constructor_WithBasicAuth_ShouldInitialize</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AuthenticationMode&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link>.Basic,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;<emphasis role="stringliteral">&quot;user&quot;</emphasis>,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;<emphasis role="stringliteral">&quot;pass&quot;</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00114"/>00114 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00117"/>00117 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00121"/>00121 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00122"/>00122 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00123"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a59a1cefd9180add432805680c092c7b8">00123</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a59a1cefd9180add432805680c092c7b8">Constructor_WithApiKeyAuth_ShouldInitialize</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00124"/>00124 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AuthenticationMode&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link>.ApiKey,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac">ApiKey</link>&#32;=&#32;<emphasis role="stringliteral">&quot;my-api-key&quot;</emphasis>,
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ApiKeyName&#32;=&#32;<emphasis role="stringliteral">&quot;X-API-Key&quot;</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00133"/>00133 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(options,&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00136"/>00136 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00140"/>00140 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00142"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a8fdd72b9d76bc19999cc79824048469e">00142</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a8fdd72b9d76bc19999cc79824048469e">Constructor_WithHttpClient_ShouldInitialize</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;httpClient&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;HttpClient();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions());
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00147"/>00147 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(httpClient,&#32;options,&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00150"/>00150 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00154"/>00154 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00155"/>00155 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00156"/>00156 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00157"/>00157 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Send&#32;Tests</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00158"/>00158 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00160"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a49f2a0bb699fae5b08be0a9081a59153">00160</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a49f2a0bb699fae5b08be0a9081a59153">Send_WithNullRequest_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00166"/>00166 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Send(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00169"/>00169 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00173"/>00173 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00175"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aba098307ffbc27d5e86440b87bddca75">00175</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aba098307ffbc27d5e86440b87bddca75">SendAsync_WithNullRequest_ShouldThrowArgumentNullException</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00181"/>00181 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.SendAsync(<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00184"/>00184 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;ArgumentNullException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00188"/>00188 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00190"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a9900ad30e63606900d62f4272a41ebd9">00190</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1a9900ad30e63606900d62f4272a41ebd9">SendAsync_WithCancellation_ShouldThrowOperationCanceledException</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00191"/>00191 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>var&#32;cts&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;CancellationTokenSource();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;cts.CancelAsync();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00198"/>00198 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/test&quot;</emphasis>);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00200"/>00200 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;async&#32;()&#32;=&gt;&#32;await&#32;service.SendAsync(request,&#32;cts.Token);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00203"/>00203 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;act.Should().ThrowAsync&lt;OperationCanceledException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00207"/>00207 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00208"/>00208 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00209"/>00209 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00210"/>00210 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Dispose&#32;Tests</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00211"/>00211 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00212"/>00212 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00213"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aebeb8bc77c9ce36ef9e3e837feea5b84">00213</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1aebeb8bc77c9ce36ef9e3e837feea5b84">Send_WhenDisposed_ShouldThrowObjectDisposedException</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00214"/>00214 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Dispose();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00220"/>00220 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/test&quot;</emphasis>);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00222"/>00222 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Send(request);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00225"/>00225 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00228"/>00228 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00229"/>00229 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00230"/>00230 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00231"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1adb4ba66428b2a164e2feadb5601b4222">00231</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;async&#32;Task&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_services_1_1_api_1_1_http_api_service_tests_1adb4ba66428b2a164e2feadb5601b4222">DisposeAsync_ShouldDisposeResources</link>()
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00232"/>00232 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>(
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__http_api_service_tests_8cs_1aaa2599d4a7a65783f2155e2a162454f9">MsOptions</link>.Create(CreateValidOptions()),
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_loggerMock.Object);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00237"/>00237 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;service.DisposeAsync();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00240"/>00240 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/test&quot;</emphasis>);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;service.Send(request);
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ObjectDisposedException&gt;();
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00245"/>00245 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00246"/>00246 
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00247"/>00247 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__http_api_service_tests_8cs_source_1l00248"/>00248 }
+</programlisting></section>

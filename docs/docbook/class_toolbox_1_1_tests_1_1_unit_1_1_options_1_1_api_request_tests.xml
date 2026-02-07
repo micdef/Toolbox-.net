@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.Options.ApiRequestTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> and related classes. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9192bd0b0154a3dab056ba59fdbfb12c">Constructor_WithValidParameters_ShouldCreate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab13c818c4f7482934734dc434aa9547e">Constructor_ShouldUppercaseMethod</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a2ea600570fe9a57c5d094667a9e149fb">Constructor_WithNullMethod_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1461f901b40a40d8b2724dfeb307a23b">Constructor_WithNullUrl_ShouldThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a78e138bb215d9334958b1cfb33be2982">Get_ShouldCreateGetRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaaabac086d44280bbc48601562490788">Post_ShouldCreatePostRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a5c560e400bc454836ecaa139bc6022b8">Post_WithBody_ShouldSetJsonContent</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ac77e7c783fffddce49deda043eb8732c">Put_ShouldCreatePutRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a23db8d15b2fd7272ecb05202445b0aac">Patch_ShouldCreatePatchRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a7e7521cb196f50d92818428ad59c0594">Delete_ShouldCreateDeleteRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9666360faaf6640eaea0b43d4701ad63">Head_ShouldCreateHeadRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a6ff82adfa33f87fe41e0214f9c393e40">Options_ShouldCreateOptionsRequest</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab75f4ece2d268741df7edeeac97e9473">WithHeader_ShouldAddHeader</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1abed525e1f4076a3079f074ee800a09ec">WithHeader_ShouldSupportChaining</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a684492780e7694e654f4faa5f4fe0fef">WithQuery_ShouldAddQueryParameter</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaf9249416551d932abbdfe1bf39af9e5">WithTimeout_ShouldSetTimeout</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af778f73957e5e3cb599e8a2cd60ed302">SetJsonContent_ShouldSetContent</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1bb54d2cebdca52cfe2874c605cec95d">SetStringContent_ShouldSetContent</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ae8e0609e864fa109d1f43cf958c6290a">SetFormContent_ShouldSetContent</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a8b50228fb7c3e8d151c878adfa121e0b">SetBinaryContent_ShouldSetContent</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a4c955dc36ffd841fc73ec0c0251567e8">BuildUrl_WithNoQueryParams_ShouldReturnUrl</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af246712202b0ffc30e2bb012fa30cd3e">BuildUrl_WithQueryParams_ShouldAppendQueryString</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a81b58e97d2c3797840e732fc8ec0bbe7">BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a564ee753f72df49505608e3b6d9ee804">BuildUrl_ShouldEncodeSpecialCharacters</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link> and related classes. </para>
+<para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00008">8</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a564ee753f72df49505608e3b6d9ee804"/><section>
+    <title>BuildUrl_ShouldEncodeSpecialCharacters()</title>
+<indexterm><primary>BuildUrl_ShouldEncodeSpecialCharacters</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>BuildUrl_ShouldEncodeSpecialCharacters</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_ShouldEncodeSpecialCharacters ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00309">309</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a81b58e97d2c3797840e732fc8ec0bbe7"/><section>
+    <title>BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand()</title>
+<indexterm><primary>BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00294">294</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a4c955dc36ffd841fc73ec0c0251567e8"/><section>
+    <title>BuildUrl_WithNoQueryParams_ShouldReturnUrl()</title>
+<indexterm><primary>BuildUrl_WithNoQueryParams_ShouldReturnUrl</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>BuildUrl_WithNoQueryParams_ShouldReturnUrl</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithNoQueryParams_ShouldReturnUrl ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00264">264</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af246712202b0ffc30e2bb012fa30cd3e"/><section>
+    <title>BuildUrl_WithQueryParams_ShouldAppendQueryString()</title>
+<indexterm><primary>BuildUrl_WithQueryParams_ShouldAppendQueryString</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>BuildUrl_WithQueryParams_ShouldAppendQueryString</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.BuildUrl_WithQueryParams_ShouldAppendQueryString ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00277">277</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab13c818c4f7482934734dc434aa9547e"/><section>
+    <title>Constructor_ShouldUppercaseMethod()</title>
+<indexterm><primary>Constructor_ShouldUppercaseMethod</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Constructor_ShouldUppercaseMethod</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_ShouldUppercaseMethod ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00024">24</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a2ea600570fe9a57c5d094667a9e149fb"/><section>
+    <title>Constructor_WithNullMethod_ShouldThrow()</title>
+<indexterm><primary>Constructor_WithNullMethod_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Constructor_WithNullMethod_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithNullMethod_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00034">34</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1461f901b40a40d8b2724dfeb307a23b"/><section>
+    <title>Constructor_WithNullUrl_ShouldThrow()</title>
+<indexterm><primary>Constructor_WithNullUrl_ShouldThrow</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Constructor_WithNullUrl_ShouldThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithNullUrl_ShouldThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00044">44</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9192bd0b0154a3dab056ba59fdbfb12c"/><section>
+    <title>Constructor_WithValidParameters_ShouldCreate()</title>
+<indexterm><primary>Constructor_WithValidParameters_ShouldCreate</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Constructor_WithValidParameters_ShouldCreate</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Constructor_WithValidParameters_ShouldCreate ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00013">13</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a7e7521cb196f50d92818428ad59c0594"/><section>
+    <title>Delete_ShouldCreateDeleteRequest()</title>
+<indexterm><primary>Delete_ShouldCreateDeleteRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Delete_ShouldCreateDeleteRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Delete_ShouldCreateDeleteRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00114">114</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a78e138bb215d9334958b1cfb33be2982"/><section>
+    <title>Get_ShouldCreateGetRequest()</title>
+<indexterm><primary>Get_ShouldCreateGetRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Get_ShouldCreateGetRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Get_ShouldCreateGetRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00058">58</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9666360faaf6640eaea0b43d4701ad63"/><section>
+    <title>Head_ShouldCreateHeadRequest()</title>
+<indexterm><primary>Head_ShouldCreateHeadRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Head_ShouldCreateHeadRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Head_ShouldCreateHeadRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00124">124</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a6ff82adfa33f87fe41e0214f9c393e40"/><section>
+    <title>Options_ShouldCreateOptionsRequest()</title>
+<indexterm><primary>Options_ShouldCreateOptionsRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Options_ShouldCreateOptionsRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Options_ShouldCreateOptionsRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00134">134</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a23db8d15b2fd7272ecb05202445b0aac"/><section>
+    <title>Patch_ShouldCreatePatchRequest()</title>
+<indexterm><primary>Patch_ShouldCreatePatchRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Patch_ShouldCreatePatchRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Patch_ShouldCreatePatchRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00104">104</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaaabac086d44280bbc48601562490788"/><section>
+    <title>Post_ShouldCreatePostRequest()</title>
+<indexterm><primary>Post_ShouldCreatePostRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Post_ShouldCreatePostRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Post_ShouldCreatePostRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00069">69</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a5c560e400bc454836ecaa139bc6022b8"/><section>
+    <title>Post_WithBody_ShouldSetJsonContent()</title>
+<indexterm><primary>Post_WithBody_ShouldSetJsonContent</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Post_WithBody_ShouldSetJsonContent</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Post_WithBody_ShouldSetJsonContent ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00080">80</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ac77e7c783fffddce49deda043eb8732c"/><section>
+    <title>Put_ShouldCreatePutRequest()</title>
+<indexterm><primary>Put_ShouldCreatePutRequest</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>Put_ShouldCreatePutRequest</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.Put_ShouldCreatePutRequest ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00094">94</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a8b50228fb7c3e8d151c878adfa121e0b"/><section>
+    <title>SetBinaryContent_ShouldSetContent()</title>
+<indexterm><primary>SetBinaryContent_ShouldSetContent</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>SetBinaryContent_ShouldSetContent</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetBinaryContent_ShouldSetContent ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00246">246</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ae8e0609e864fa109d1f43cf958c6290a"/><section>
+    <title>SetFormContent_ShouldSetContent()</title>
+<indexterm><primary>SetFormContent_ShouldSetContent</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>SetFormContent_ShouldSetContent</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetFormContent_ShouldSetContent ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00228">228</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af778f73957e5e3cb599e8a2cd60ed302"/><section>
+    <title>SetJsonContent_ShouldSetContent()</title>
+<indexterm><primary>SetJsonContent_ShouldSetContent</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>SetJsonContent_ShouldSetContent</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetJsonContent_ShouldSetContent ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00201">201</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1bb54d2cebdca52cfe2874c605cec95d"/><section>
+    <title>SetStringContent_ShouldSetContent()</title>
+<indexterm><primary>SetStringContent_ShouldSetContent</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>SetStringContent_ShouldSetContent</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.SetStringContent_ShouldSetContent ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00215">215</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab75f4ece2d268741df7edeeac97e9473"/><section>
+    <title>WithHeader_ShouldAddHeader()</title>
+<indexterm><primary>WithHeader_ShouldAddHeader</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>WithHeader_ShouldAddHeader</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithHeader_ShouldAddHeader ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00148">148</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1abed525e1f4076a3079f074ee800a09ec"/><section>
+    <title>WithHeader_ShouldSupportChaining()</title>
+<indexterm><primary>WithHeader_ShouldSupportChaining</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>WithHeader_ShouldSupportChaining</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithHeader_ShouldSupportChaining ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00162">162</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a684492780e7694e654f4faa5f4fe0fef"/><section>
+    <title>WithQuery_ShouldAddQueryParameter()</title>
+<indexterm><primary>WithQuery_ShouldAddQueryParameter</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>WithQuery_ShouldAddQueryParameter</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithQuery_ShouldAddQueryParameter ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00174">174</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaf9249416551d932abbdfe1bf39af9e5"/><section>
+    <title>WithTimeout_ShouldSetTimeout()</title>
+<indexterm><primary>WithTimeout_ShouldSetTimeout</primary><secondary>Toolbox.Tests.Unit.Options.ApiRequestTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.Options.ApiRequestTests</primary><secondary>WithTimeout_ShouldSetTimeout</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.Options.ApiRequestTests.WithTimeout_ShouldSetTimeout ( )</computeroutput></para><para>
+Definition at line <link linkend="__api_request_tests_8cs_source_1l00188">188</link> of file <link linkend="__api_request_tests_8cs_source">ApiRequestTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/<link linkend="__api_request_tests_8cs">ApiRequestTests.cs</link></section>
+</section>

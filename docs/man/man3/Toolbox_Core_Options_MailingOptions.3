@@ -1,0 +1,167 @@
+.TH "Toolbox.Core.Options.MailingOptions" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.MailingOptions \- Configuration options for the SMTP mailing service\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBHost\fP = 'localhost'\fR [get, set]\fP"
+.br
+.RI "Gets or sets the SMTP server hostname or IP address\&. "
+.ti -1c
+.RI "int \fBPort\fP = 25\fR [get, set]\fP"
+.br
+.RI "Gets or sets the SMTP server port\&. "
+.ti -1c
+.RI "\fBSmtpSecurityMode\fP \fBSecurityMode\fP = \fBSmtpSecurityMode\&.Auto\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the security mode for the SMTP connection\&. "
+.ti -1c
+.RI "string? \fBUsername\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the username for SMTP authentication\&. "
+.ti -1c
+.RI "string? \fBPassword\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the password for SMTP authentication\&. "
+.ti -1c
+.RI "string? \fBOAuth2AccessToken\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the OAuth2 access token for authentication\&. "
+.ti -1c
+.RI "TimeSpan \fBConnectionTimeout\fP = TimeSpan\&.FromSeconds(30)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the connection timeout\&. "
+.ti -1c
+.RI "TimeSpan \fBOperationTimeout\fP = TimeSpan\&.FromMinutes(2)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the operation timeout for sending emails\&. "
+.ti -1c
+.RI "bool \fBValidateCertificate\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets whether to validate the server's SSL certificate\&. "
+.ti -1c
+.RI "\fBEmailAddress\fP? \fBDefaultFrom\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the default sender address to use when not specified in the message\&. "
+.ti -1c
+.RI "\fBEmailAddress\fP? \fBDefaultReplyTo\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the default reply-to address\&. "
+.ti -1c
+.RI "bool \fBRequiresAuthentication\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether authentication is configured\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration options for the SMTP mailing service\&. 
+
+These options configure how the mailing service connects to an SMTP server\&. Authentication is optional for servers that support anonymous relay\&. 
+
+.PP
+For secure connections, use \fBSmtpSecurityMode\&.StartTls\fP (port 587) or \fBSmtpSecurityMode\&.SslOnConnect\fP (port 465)\&. 
+
+.PP
+.PP
+.nf
+var options = new MailingOptions
+{
+    Host = "smtp\&.example\&.com",
+    Port = 587,
+    SecurityMode = SmtpSecurityMode\&.StartTls,
+    Username = "user@example\&.com",
+    Password = "password"
+};
+.fi
+.PP
+ 
+.PP
+Definition at line \fB33\fP of file \fBMailingOptions\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.MailingOptions\&.ConnectionTimeout = TimeSpan\&.FromSeconds(30)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the connection timeout\&. The connection timeout\&. Default is 30 seconds\&.
+.PP
+Definition at line \fB82\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "\fBEmailAddress\fP? Toolbox\&.Core\&.Options\&.MailingOptions\&.DefaultFrom\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the default sender address to use when not specified in the message\&. The default sender email address, or \fRnull\fP if not set\&.
+.PP
+Definition at line \fB104\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "\fBEmailAddress\fP? Toolbox\&.Core\&.Options\&.MailingOptions\&.DefaultReplyTo\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the default reply-to address\&. The default reply-to email address, or \fRnull\fP if not set\&.
+.PP
+Definition at line \fB110\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.MailingOptions\&.Host = 'localhost'\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the SMTP server hostname or IP address\&. The SMTP server host\&. Default is \fR"localhost"\fP\&.
+.PP
+Definition at line \fB39\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.MailingOptions\&.OAuth2AccessToken\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the OAuth2 access token for authentication\&. The OAuth2 token, or \fRnull\fP to use password authentication\&.
+
+.PP
+When set, this takes precedence over password authentication\&. Useful for services like Gmail or Office 365 that require OAuth2\&. 
+.PP
+Definition at line \fB76\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.MailingOptions\&.OperationTimeout = TimeSpan\&.FromMinutes(2)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the operation timeout for sending emails\&. The operation timeout\&. Default is 2 minutes\&.
+.PP
+Definition at line \fB88\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.MailingOptions\&.Password\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the password for SMTP authentication\&. The password, or \fRnull\fP for anonymous authentication\&.
+.PP
+Definition at line \fB66\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.MailingOptions\&.Port = 25\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the SMTP server port\&. The port number\&. Default is \fR25\fP\&. Common ports: 25 (unencrypted), 587 (STARTTLS), 465 (SSL/TLS)\&. 
+.PP
+Definition at line \fB48\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.MailingOptions\&.RequiresAuthentication\fR [get]\fP"
+
+.PP
+Gets a value indicating whether authentication is configured\&. \fRtrue\fP if username or OAuth2 token is set; otherwise, \fRfalse\fP\&.
+.PP
+Definition at line \fB116\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "\fBSmtpSecurityMode\fP Toolbox\&.Core\&.Options\&.MailingOptions\&.SecurityMode = \fBSmtpSecurityMode\&.Auto\fP\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the security mode for the SMTP connection\&. The security mode\&. Default is \fBSmtpSecurityMode\&.Auto\fP\&.
+.PP
+Definition at line \fB54\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.MailingOptions\&.Username\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the username for SMTP authentication\&. The username, or \fRnull\fP for anonymous authentication\&.
+.PP
+Definition at line \fB60\fP of file \fBMailingOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.MailingOptions\&.ValidateCertificate = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets whether to validate the server's SSL certificate\&. \fRtrue\fP to validate certificates (recommended); \fRfalse\fP to accept all certificates (use only for testing)\&. Default is \fRtrue\fP\&. 
+.PP
+Definition at line \fB98\fP of file \fBMailingOptions\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__base64_encoding_table_8cs_source" xml:lang="en-US">
+<title>Base64EncodingTable.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/Base64EncodingTable.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__base64_encoding_table_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;Base64EncodingTable.cs</emphasis>
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Enumeration&#32;of&#32;Base64&#32;encoding&#32;tables</emphasis>
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;available&#32;Base64&#32;alphabet&#32;variants</emphasis>
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Standard&#32;and&#32;UrlSafe&#32;are&#32;the&#32;most&#32;commonly&#32;used&#32;tables</emphasis>
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00005"/>00005 
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00007"/>00007 
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00015"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">00015</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link>
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00016"/>00016 {
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00024"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">00024</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">Standard</link>&#32;=&#32;0,
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00025"/>00025 
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00034"/><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8">00034</link> &#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8">UrlSafe</link>&#32;=&#32;1
+<anchor xml:id="__base64_encoding_table_8cs_source_1l00035"/>00035 }
+</programlisting></section>

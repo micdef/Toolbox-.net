@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__email_message_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/EmailMessage.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">Toolbox.Core.Options.EmailMessage</link></para>
+
+<para>Represents an email message to be sent. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778">Toolbox.Core.Options.EmailPriority</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef">Toolbox.Core.Options.Low</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0">Toolbox.Core.Options.Normal</link> = 1
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35">Toolbox.Core.Options.High</link> = 2
+ }</para>
+
+<para>Specifies the priority of an email message. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

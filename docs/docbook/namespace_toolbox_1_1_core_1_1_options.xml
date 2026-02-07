@@ -1,0 +1,599 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_toolbox_1_1_core_1_1_options" xml:lang="en-US">
+<title>Toolbox.Core.Options Namespace Reference</title>
+<indexterm><primary>Toolbox.Core.Options</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link></para>
+
+<para>Configuration options for the HTTP API service. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link></para>
+
+<para>Represents an HTTP API request. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_response">ApiResponse</link></para>
+
+<para>Represents an HTTP API response. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options">Base64CryptographyOptions</link></para>
+
+<para>Configuration options for the Base64 cryptography service. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link></para>
+
+<para>Represents an email attachment. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_message">EmailMessage</link></para>
+
+<para>Represents an email message to be sent. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options">FileTransferOptions</link></para>
+
+<para>Configuration options for file transfer services. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_mailing_options">MailingOptions</link></para>
+
+<para>Configuration options for the SMTP mailing service. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link></para>
+
+<para>Represents an RSA key pair containing public and optionally private key data. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_options">ToolboxOptions</link></para>
+
+<para>Configuration options for <link linkend="_namespace_toolbox">Toolbox</link> core services. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_toolbox_telemetry_options">ToolboxTelemetryOptions</link></para>
+
+<para>Configuration options for OpenTelemetry integration in <link linkend="_namespace_toolbox">Toolbox</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94">Aes128</link> = 128
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495">Aes192</link> = 192
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14">Aes256</link> = 256
+ }</para>
+
+<para>Specifies the AES key size in bits. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0">Anonymous</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30">BearerToken</link> = 1
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94">Basic</link> = 2
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac">ApiKey</link> = 3
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6">Certificate</link> = 4
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1">OAuth2ClientCredentials</link> = 5
+ }</para>
+
+<para>Specifies the authentication mode for API requests. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30">ApiKeyLocation</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7">Header</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477">QueryString</link> = 1
+ }</para>
+
+<para>Specifies where to send the API key. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">Standard</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8">UrlSafe</link> = 1
+ }</para>
+
+<para>Specifies the Base64 encoding table to use. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778">EmailPriority</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef">Low</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0">Normal</link> = 1
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35">High</link> = 2
+ }</para>
+
+<para>Specifies the priority of an email message. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb">Ftp</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f">Ftps</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">Sftp</link>
+ }</para>
+
+<para>Specifies the file transfer protocol to use. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">RsaKeySize</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21">Rsa512</link> = 512
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395">Rsa1024</link> = 1024
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a">Rsa2048</link> = 2048
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433">Rsa4096</link> = 4096
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3">Rsa8192</link> = 8192
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d">Rsa16384</link> = 16384
+ }</para>
+
+<para>Specifies the RSA key size in bits. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">RsaPaddingMode</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387">Pkcs1</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003">OaepSha1</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c">OaepSha256</link>
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe">OaepSha384</link>
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3">OaepSha512</link>
+ }</para>
+
+<para>Specifies the RSA encryption padding mode. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453">SmtpSecurityMode</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb">Auto</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754">None</link> = 1
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1">StartTls</link> = 2
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377">StartTlsWhenAvailable</link> = 3
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1">SslOnConnect</link> = 4
+ }</para>
+
+<para>Specifies the security mode for SMTP connections. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>record <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link> (string Address, string? DisplayName=null)</para>
+
+<para>Represents an email address with an optional display name. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea"/><section>
+    <title>AesKeySize</title>
+<indexterm><primary>AesKeySize</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>AesKeySize</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">Toolbox.Core.Options.AesKeySize</link></computeroutput></para><para>
+
+<para>Specifies the AES key size in bits. </para>
+</para>
+
+<para>Larger key sizes provide stronger encryption but may have slightly higher performance overhead. AES-256 is recommended for most security-sensitive applications. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Aes128</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Aes128</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa55fe7f2e654e04ef5115bbf10aa33c94"/>Aes128</entry><entry>
+<para>128-bit key (16 bytes). </para>
+
+<para>Provides good security and is the fastest option. </para>
+</entry></row><row><entry><indexterm><primary>Aes192</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Aes192</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaa8a1fc6599151509347ecf9e6886c9495"/>Aes192</entry><entry>
+<para>192-bit key (24 bytes). </para>
+
+<para>Provides stronger security than 128-bit. </para>
+</entry></row><row><entry><indexterm><primary>Aes256</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Aes256</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3beaaa05da21a0b7ce6170eb0e952257d5b14"/>Aes256</entry><entry>
+<para>256-bit key (32 bytes). </para>
+
+<para>Provides the strongest security. Recommended for highly sensitive data. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__aes_key_size_8cs_source_1l00015">15</link> of file <link linkend="__aes_key_size_8cs_source">AesKeySize.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249"/><section>
+    <title>ApiAuthenticationMode</title>
+<indexterm><primary>ApiAuthenticationMode</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>ApiAuthenticationMode</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">Toolbox.Core.Options.ApiAuthenticationMode</link></computeroutput></para><para>
+
+<para>Specifies the authentication mode for API requests. </para>
+</para>
+
+<para>Choose the appropriate authentication mode based on the API requirements. Each mode requires specific configuration in <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link>. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Anonymous</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Anonymous</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0"/>Anonymous</entry><entry>
+<para>No authentication required. </para>
+</entry></row><row><entry><indexterm><primary>BearerToken</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>BearerToken</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30"/>BearerToken</entry><entry>
+<para>Bearer token authentication. Uses the Authorization header with &quot;Bearer {token}&quot; format. </para>
+</entry></row><row><entry><indexterm><primary>Basic</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Basic</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94"/>Basic</entry><entry>
+<para>Basic authentication with username and password. Uses the Authorization header with Base64-encoded credentials. </para>
+</entry></row><row><entry><indexterm><primary>ApiKey</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>ApiKey</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac"/>ApiKey</entry><entry>
+<para>API key authentication. Can be sent as a header or query parameter. </para>
+</entry></row><row><entry><indexterm><primary>Certificate</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Certificate</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6"/>Certificate</entry><entry>
+<para>Client certificate authentication. Uses X.509 certificate for mutual TLS (mTLS). </para>
+</entry></row><row><entry><indexterm><primary>OAuth2ClientCredentials</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>OAuth2ClientCredentials</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1"/>OAuth2ClientCredentials</entry><entry>
+<para>OAuth2 client credentials flow. Automatically obtains and refreshes access tokens. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__api_authentication_mode_8cs_source_1l00017">17</link> of file <link linkend="__api_authentication_mode_8cs_source">ApiAuthenticationMode.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30"/><section>
+    <title>ApiKeyLocation</title>
+<indexterm><primary>ApiKeyLocation</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>ApiKeyLocation</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30">Toolbox.Core.Options.ApiKeyLocation</link></computeroutput></para><para>
+
+<para>Specifies where to send the API key. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Header</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Header</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7"/>Header</entry><entry>
+<para>Send API key in a header. </para>
+</entry></row><row><entry><indexterm><primary>QueryString</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>QueryString</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477"/>QueryString</entry><entry>
+<para>Send API key as a query parameter. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__api_authentication_mode_8cs_source_1l00058">58</link> of file <link linkend="__api_authentication_mode_8cs_source">ApiAuthenticationMode.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287"/><section>
+    <title>Base64EncodingTable</title>
+<indexterm><primary>Base64EncodingTable</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Base64EncodingTable</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Toolbox.Core.Options.Base64EncodingTable</link></computeroutput></para><para>
+
+<para>Specifies the Base64 encoding table to use. </para>
+</para>
+
+<para>Different encoding tables are suitable for different use cases. The URL-safe variant is recommended for use in URLs and filenames. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Standard</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Standard</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b"/>Standard</entry><entry>
+<para>Standard Base64 alphabet as defined in RFC 4648. Uses &apos;+&apos; and &apos;/&apos; characters, with &apos;=&apos; padding. </para>
+
+<para>Alphabet: A-Z, a-z, 0-9, +, / </para>
+</entry></row><row><entry><indexterm><primary>UrlSafe</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>UrlSafe</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287ad4936ec7e9ad91bcbb8b7ba05ef30ff8"/>UrlSafe</entry><entry>
+<para>URL and filename safe Base64 alphabet as defined in RFC 4648 Section 5. Uses &apos;-&apos; and &apos;_&apos; characters instead of &apos;+&apos; and &apos;/&apos;. </para>
+
+<para>Alphabet: A-Z, a-z, 0-9, -, _ This variant is safe for use in URLs and filenames. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__base64_encoding_table_8cs_source_1l00015">15</link> of file <link linkend="__base64_encoding_table_8cs_source">Base64EncodingTable.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778"/><section>
+    <title>EmailPriority</title>
+<indexterm><primary>EmailPriority</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>EmailPriority</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778">Toolbox.Core.Options.EmailPriority</link></computeroutput></para><para>
+
+<para>Specifies the priority of an email message. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Low</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Low</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a28d0edd045e05cf5af64e35ae0c4c6ef"/>Low</entry><entry>
+<para>Low priority. </para>
+</entry></row><row><entry><indexterm><primary>Normal</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Normal</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a960b44c579bc2f6818d2daaf9e4c16f0"/>Normal</entry><entry>
+<para>Normal priority (default). </para>
+</entry></row><row><entry><indexterm><primary>High</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>High</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1ae7d22020ff38ac3c9033e77d09540778a655d20c1ca69519ca647684edbb2db35"/>High</entry><entry>
+<para>High priority. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__email_message_8cs_source_1l00140">140</link> of file <link linkend="__email_message_8cs_source">EmailMessage.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c"/><section>
+    <title>FileTransferProtocol</title>
+<indexterm><primary>FileTransferProtocol</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>FileTransferProtocol</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">Toolbox.Core.Options.FileTransferProtocol</link></computeroutput></para><para>
+
+<para>Specifies the file transfer protocol to use. </para>
+</para>
+
+<para>SFTP provides encrypted transfers and is recommended for sensitive data. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Ftp</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Ftp</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086cad0fd87c447cf407eb99b635393f4dacb"/>Ftp</entry><entry>
+<para>File Transfer Protocol (unencrypted). </para>
+
+<para><emphasis role="bold">Warning:</emphasis> FTP transfers data in plain text. Use FTPS or SFTP for sensitive data. </para>
+</entry></row><row><entry><indexterm><primary>Ftps</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Ftps</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086ca1efd1c1b8282cdf729025c164794ed5f"/>Ftps</entry><entry>
+<para>FTP over TLS/SSL (encrypted). </para>
+
+<para>Provides encryption for FTP connections using TLS/SSL. </para>
+</entry></row><row><entry><indexterm><primary>Sftp</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Sftp</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484"/>Sftp</entry><entry>
+<para>SSH File Transfer Protocol (encrypted). </para>
+
+<para>Provides secure file transfer over SSH. Recommended for sensitive data. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__file_transfer_protocol_8cs_source_1l00014">14</link> of file <link linkend="__file_transfer_protocol_8cs_source">FileTransferProtocol.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c"/><section>
+    <title>RsaKeySize</title>
+<indexterm><primary>RsaKeySize</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>RsaKeySize</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917c">Toolbox.Core.Options.RsaKeySize</link></computeroutput></para><para>
+
+<para>Specifies the RSA key size in bits. </para>
+</para>
+
+<para>Larger key sizes provide stronger security but have significantly higher performance overhead. </para>
+
+<para>RSA-2048 is the minimum recommended for production use. RSA-4096 is recommended for highly sensitive data. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Rsa512</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Rsa512</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cac99db3d877fd3c833bf4504e9ebcfa21"/>Rsa512</entry><entry>
+<para>512-bit key. </para>
+
+<para><emphasis role="bold">Warning:</emphasis> This key size is considered insecure and should only be used for testing. </para>
+</entry></row><row><entry><indexterm><primary>Rsa1024</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Rsa1024</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca847a80a85b21658a62d2f5f879244395"/>Rsa1024</entry><entry>
+<para>1024-bit key. </para>
+
+<para><emphasis role="bold">Warning:</emphasis> This key size is considered weak and not recommended for production use. </para>
+</entry></row><row><entry><indexterm><primary>Rsa2048</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Rsa2048</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917ca281bd1c9bfdba587622c814cd394b41a"/>Rsa2048</entry><entry>
+<para>2048-bit key. </para>
+
+<para>Minimum recommended key size for production use. Provides good balance between security and performance. </para>
+</entry></row><row><entry><indexterm><primary>Rsa4096</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Rsa4096</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad880f3537020087a6b59cba347c4c433"/>Rsa4096</entry><entry>
+<para>4096-bit key. </para>
+
+<para>Recommended for highly sensitive data. Provides stronger security with moderate performance impact. </para>
+</entry></row><row><entry><indexterm><primary>Rsa8192</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Rsa8192</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917cad92762b7bfde758ccf96421e542c08f3"/>Rsa8192</entry><entry>
+<para>8192-bit key. </para>
+
+<para>Very strong security with significant performance impact. Use only when maximum security is required. </para>
+</entry></row><row><entry><indexterm><primary>Rsa16384</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Rsa16384</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a7c28c5d4278a7f74d61438430114917caeabebb294a15ff04cc95d9b0cabe210d"/>Rsa16384</entry><entry>
+<para>16384-bit key. </para>
+
+<para>Maximum security with very high performance impact. Key generation and operations can be very slow. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__rsa_key_size_8cs_source_1l00020">20</link> of file <link linkend="__rsa_key_size_8cs_source">RsaKeySize.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448"/><section>
+    <title>RsaPaddingMode</title>
+<indexterm><primary>RsaPaddingMode</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>RsaPaddingMode</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448">Toolbox.Core.Options.RsaPaddingMode</link></computeroutput></para><para>
+
+<para>Specifies the RSA encryption padding mode. </para>
+</para>
+
+<para>The padding mode affects both security and compatibility. OAEP (Optimal Asymmetric Encryption Padding) is more secure than PKCS#1 v1.5. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Pkcs1</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Pkcs1</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387"/>Pkcs1</entry><entry>
+<para>PKCS#1 v1.5 padding. </para>
+
+<para>Legacy padding mode. Compatible with older systems but vulnerable to certain attacks. Not recommended for new applications. </para>
+</entry></row><row><entry><indexterm><primary>OaepSha1</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>OaepSha1</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448aa6f1ce2e7f0f2230793ff1bcbe0f7003"/>OaepSha1</entry><entry>
+<para>OAEP with SHA-1 hash. </para>
+
+<para>More secure than PKCS#1 v1.5. SHA-1 is considered weak; prefer SHA-256 or SHA-384 for new applications. </para>
+</entry></row><row><entry><indexterm><primary>OaepSha256</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>OaepSha256</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448ae5be65bae7bdb25d6c2bc73c3cd46d3c"/>OaepSha256</entry><entry>
+<para>OAEP with SHA-256 hash. </para>
+
+<para>Recommended padding mode for most applications. Provides good security with reasonable performance. </para>
+</entry></row><row><entry><indexterm><primary>OaepSha384</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>OaepSha384</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a3b386a8b979e012ecd5dd94348635fbe"/>OaepSha384</entry><entry>
+<para>OAEP with SHA-384 hash. </para>
+
+<para>Stronger than SHA-256 with slightly higher overhead. </para>
+</entry></row><row><entry><indexterm><primary>OaepSha512</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>OaepSha512</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a37c881e3211938fcd305b625a9671448a868eb13c1858c183935887b7d7aa81a3"/>OaepSha512</entry><entry>
+<para>OAEP with SHA-512 hash. </para>
+
+<para>Strongest OAEP variant. Recommended for highly sensitive data. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__rsa_padding_mode_8cs_source_1l00017">17</link> of file <link linkend="__rsa_padding_mode_8cs_source">RsaPaddingMode.cs</link>.</para>
+</section>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453"/><section>
+    <title>SmtpSecurityMode</title>
+<indexterm><primary>SmtpSecurityMode</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>SmtpSecurityMode</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453">Toolbox.Core.Options.SmtpSecurityMode</link></computeroutput></para><para>
+
+<para>Specifies the security mode for SMTP connections. </para>
+</para>
+
+<para>Choose the appropriate mode based on your SMTP server&apos;s requirements. When in doubt, use Auto for automatic negotiation. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Auto</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>Auto</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb"/>Auto</entry><entry>
+<para>Automatically determine the best security mode. Will attempt STARTTLS if available, otherwise use implicit SSL/TLS. </para>
+</entry></row><row><entry><indexterm><primary>None</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>None</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754"/>None</entry><entry>
+<para>No encryption (not recommended for production). Use only for local development or internal networks. </para>
+</entry></row><row><entry><indexterm><primary>StartTls</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>StartTls</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1"/>StartTls</entry><entry>
+<para>Use STARTTLS to upgrade an unencrypted connection. Standard for port 587. </para>
+</entry></row><row><entry><indexterm><primary>StartTlsWhenAvailable</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>StartTlsWhenAvailable</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377"/>StartTlsWhenAvailable</entry><entry>
+<para>Use STARTTLS if available, otherwise continue unencrypted. Less secure than StartTls but more compatible. </para>
+</entry></row><row><entry><indexterm><primary>SslOnConnect</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>SslOnConnect</secondary></indexterm>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1"/>SslOnConnect</entry><entry>
+<para>Use implicit SSL/TLS from the start. Standard for port 465. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__smtp_security_mode_8cs_source_1l00017">17</link> of file <link linkend="__smtp_security_mode_8cs_source">SmtpSecurityMode.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3"/><section>
+    <title>EmailAddress()</title>
+<indexterm><primary>EmailAddress</primary><secondary>Toolbox.Core.Options</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options</primary><secondary>EmailAddress</secondary></indexterm>
+<para><computeroutput>record Toolbox.Core.Options.EmailAddress (string Address, string? DisplayName = <computeroutput>null</computeroutput>
+)<computeroutput>[sealed]</computeroutput></computeroutput></para><para>
+
+<para>Represents an email address with an optional display name. </para>
+</para>
+
+<para>This is an immutable record type that combines an email address with an optional human-readable display name. </para>
+
+<para><literallayout><computeroutput><emphasis role="comment">//&#32;With&#32;display&#32;name</emphasis>
+var&#32;sender&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;john.doe@example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;John&#32;Doe&quot;</emphasis>);
+
+<emphasis role="comment">//&#32;Without&#32;display&#32;name</emphasis>
+var&#32;recipient&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>(<emphasis role="stringliteral">&quot;jane@example.com&quot;</emphasis>);
+</computeroutput></literallayout> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Address</entry><entry>
+<para>The email address (e.g., &quot;user@example.com&quot;).</para>
+</entry>
+                            </row>
+                            <row>
+<entry>DisplayName</entry><entry>
+<para>The optional display name (e.g., &quot;John Doe&quot;).</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para>Gets the email address.</para>
+
+<para>The email address string.</para>
+
+<para>Implicitly converts a string to an <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>address</entry><entry>
+<para>The email address string.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>An <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</link> with no display name.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__email_address_8cs_source_1l00028">28</link> of file <link linkend="__email_address_8cs_source">EmailAddress.cs</link>.</para>
+</section>
+</section>
+</section>

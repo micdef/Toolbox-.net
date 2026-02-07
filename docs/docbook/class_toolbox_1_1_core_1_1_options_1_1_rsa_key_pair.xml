@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair" xml:lang="en-US">
+<title>Toolbox.Core.Options.RsaKeyPair Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary></indexterm>
+<para>
+
+<para>Represents an RSA key pair containing public and optionally private key data. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Options.RsaKeyPair:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>RsaKeyPair <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3">ToPublicOnly</link> ()</para>
+
+<para>Creates an <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> containing only the public key from this pair. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a529d31ae26cc534d47ff61d57e2b8b34">Dispose</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static RsaKeyPair <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a11d9cb712cd59fd30f03885a47d95b0c">FromBytes</link> (byte[] publicKey, byte[]? privateKey, int keySize)</para>
+
+<para>Creates an <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> from raw byte arrays. </para>
+</listitem>
+            <listitem><para>static RsaKeyPair <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aab9750348bf4c7e81179a2d14a0a42e0">FromCertificate</link> (X509Certificate2 certificate)</para>
+
+<para>Creates an <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> from an X.509 certificate. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>byte?[] <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5">PublicKey</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the public key in DER-encoded SubjectPublicKeyInfo format. </para>
+</listitem>
+            <listitem><para>byte?[] <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104">PrivateKey</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the private key in DER-encoded PKCS#8 format. </para>
+</listitem>
+            <listitem><para>X509Certificate2? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108">Certificate</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the X.509 certificate containing the public key. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a3fb77c5e71b39fb255e0267b629a1717">HasPrivateKey</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether this key pair contains a private key. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2">KeySize</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the key size in bits. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents an RSA key pair containing public and optionally private key data. </para>
+
+
+
+<para>This class provides multiple formats for RSA keys: raw byte arrays and X.509 certificates. </para>
+
+<para>The private key is optional - some operations (like encryption) only require the public key. </para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00022">22</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a529d31ae26cc534d47ff61d57e2b8b34"/><section>
+    <title>Dispose()</title>
+<indexterm><primary>Dispose</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>Dispose</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Options.RsaKeyPair.Dispose ( )</computeroutput></para><para>
+</para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00141">141</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a11d9cb712cd59fd30f03885a47d95b0c"/><section>
+    <title>FromBytes()</title>
+<indexterm><primary>FromBytes</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>FromBytes</secondary></indexterm>
+<para><computeroutput>RsaKeyPair Toolbox.Core.Options.RsaKeyPair.FromBytes (byte[] publicKey, byte?[] privateKey, int keySize)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> from raw byte arrays. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>publicKey</entry><entry>
+<para>The public key in SubjectPublicKeyInfo format.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>privateKey</entry><entry>
+<para>The private key in PKCS#8 format, or <computeroutput>null</computeroutput> for public-only.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>keySize</entry><entry>
+<para>The key size in bits.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> instance.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>publicKey</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00075">75</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1aab9750348bf4c7e81179a2d14a0a42e0"/><section>
+    <title>FromCertificate()</title>
+<indexterm><primary>FromCertificate</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>FromCertificate</secondary></indexterm>
+<para><computeroutput>RsaKeyPair Toolbox.Core.Options.RsaKeyPair.FromCertificate (X509Certificate2 certificate)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> from an X.509 certificate. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>certificate</entry><entry>
+<para>The certificate containing the RSA public key.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> instance.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>certificate</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when the certificate does not contain an RSA key.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00094">94</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a15c37cc950b13377826ad776c130b1f3"/><section>
+    <title>ToPublicOnly()</title>
+<indexterm><primary>ToPublicOnly</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>ToPublicOnly</secondary></indexterm>
+<para><computeroutput>RsaKeyPair Toolbox.Core.Options.RsaKeyPair.ToPublicOnly ( )</computeroutput></para><para>
+
+<para>Creates an <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> containing only the public key from this pair. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A new <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair">RsaKeyPair</link> with only the public key.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ObjectDisposedException</entry><entry>
+<para>Thrown when the object has been disposed.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00115">115</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ad50951d095162719319f04e7a569b108"/><section>
+    <title>Certificate</title>
+<indexterm><primary>Certificate</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>Certificate</secondary></indexterm>
+<para><computeroutput>X509Certificate2? Toolbox.Core.Options.RsaKeyPair.Certificate<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the X.509 certificate containing the public key. </para>
+</para>
+
+<para>The certificate, or <computeroutput>null</computeroutput> if not available in this format.</para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00043">43</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a3fb77c5e71b39fb255e0267b629a1717"/><section>
+    <title>HasPrivateKey</title>
+<indexterm><primary>HasPrivateKey</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>HasPrivateKey</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.RsaKeyPair.HasPrivateKey<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether this key pair contains a private key. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if a private key is available; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00049">49</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1ae2631c69bf8487916142d64c41e165a2"/><section>
+    <title>KeySize</title>
+<indexterm><primary>KeySize</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>KeySize</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.RsaKeyPair.KeySize<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the key size in bits. </para>
+</para>
+
+<para>The RSA key size.</para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00055">55</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a2e05dabe536cf7b9a543b9bf84dc5104"/><section>
+    <title>PrivateKey</title>
+<indexterm><primary>PrivateKey</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>PrivateKey</secondary></indexterm>
+<para><computeroutput>byte? [] Toolbox.Core.Options.RsaKeyPair.PrivateKey<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the private key in DER-encoded PKCS#8 format. </para>
+</para>
+
+<para>The private key bytes, or <computeroutput>null</computeroutput> if not available or not included.</para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00037">37</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair_1a8744b4471d6363247ac464c63f73f9a5"/><section>
+    <title>PublicKey</title>
+<indexterm><primary>PublicKey</primary><secondary>Toolbox.Core.Options.RsaKeyPair</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.RsaKeyPair</primary><secondary>PublicKey</secondary></indexterm>
+<para><computeroutput>byte? [] Toolbox.Core.Options.RsaKeyPair.PublicKey<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the public key in DER-encoded SubjectPublicKeyInfo format. </para>
+</para>
+
+<para>The public key bytes, or <computeroutput>null</computeroutput> if not available in this format.</para>
+<para>
+Definition at line <link linkend="__rsa_key_pair_8cs_source_1l00031">31</link> of file <link linkend="__rsa_key_pair_8cs_source">RsaKeyPair.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__rsa_key_pair_8cs">RsaKeyPair.cs</link></section>
+</section>

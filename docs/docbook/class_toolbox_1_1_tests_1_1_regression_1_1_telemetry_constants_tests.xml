@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Regression.TelemetryConstantsTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Regression.TelemetryConstantsTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for TelemetryConstants to detect breaking changes. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a1e2aebcc9b5f38fa219c8f21e47daac1">ActivitySourceName_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a93b74b7c64f6190fad1460aef9abd4e7">MeterName_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1ab67ad42099fa07e37502f1a0bb6e32f5">Version_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a6e24d67d83470d22bcf343deb9ebd428">AttributeNames_ShouldNotChange</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a3c432937de6b31d41dde20ff924a1533">MetricNames_ShouldNotChange</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_regression">Regression</link> tests for TelemetryConstants to detect breaking changes. </para>
+<para>
+Definition at line <link linkend="__telemetry_constants_tests_8cs_source_1l00008">8</link> of file <link linkend="__telemetry_constants_tests_8cs_source">TelemetryConstantsTests.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a1e2aebcc9b5f38fa219c8f21e47daac1"/><section>
+    <title>ActivitySourceName_ShouldNotChange()</title>
+<indexterm><primary>ActivitySourceName_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.TelemetryConstantsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.TelemetryConstantsTests</primary><secondary>ActivitySourceName_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.TelemetryConstantsTests.ActivitySourceName_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__telemetry_constants_tests_8cs_source_1l00011">11</link> of file <link linkend="__telemetry_constants_tests_8cs_source">TelemetryConstantsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a6e24d67d83470d22bcf343deb9ebd428"/><section>
+    <title>AttributeNames_ShouldNotChange()</title>
+<indexterm><primary>AttributeNames_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.TelemetryConstantsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.TelemetryConstantsTests</primary><secondary>AttributeNames_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.TelemetryConstantsTests.AttributeNames_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__telemetry_constants_tests_8cs_source_1l00029">29</link> of file <link linkend="__telemetry_constants_tests_8cs_source">TelemetryConstantsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a93b74b7c64f6190fad1460aef9abd4e7"/><section>
+    <title>MeterName_ShouldNotChange()</title>
+<indexterm><primary>MeterName_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.TelemetryConstantsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.TelemetryConstantsTests</primary><secondary>MeterName_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.TelemetryConstantsTests.MeterName_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__telemetry_constants_tests_8cs_source_1l00017">17</link> of file <link linkend="__telemetry_constants_tests_8cs_source">TelemetryConstantsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1a3c432937de6b31d41dde20ff924a1533"/><section>
+    <title>MetricNames_ShouldNotChange()</title>
+<indexterm><primary>MetricNames_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.TelemetryConstantsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.TelemetryConstantsTests</primary><secondary>MetricNames_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.TelemetryConstantsTests.MetricNames_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__telemetry_constants_tests_8cs_source_1l00038">38</link> of file <link linkend="__telemetry_constants_tests_8cs_source">TelemetryConstantsTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_regression_1_1_telemetry_constants_tests_1ab67ad42099fa07e37502f1a0bb6e32f5"/><section>
+    <title>Version_ShouldNotChange()</title>
+<indexterm><primary>Version_ShouldNotChange</primary><secondary>Toolbox.Tests.Regression.TelemetryConstantsTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Regression.TelemetryConstantsTests</primary><secondary>Version_ShouldNotChange</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Regression.TelemetryConstantsTests.Version_ShouldNotChange ( )</computeroutput></para><para>
+Definition at line <link linkend="__telemetry_constants_tests_8cs_source_1l00023">23</link> of file <link linkend="__telemetry_constants_tests_8cs_source">TelemetryConstantsTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Regression/<link linkend="__telemetry_constants_tests_8cs">TelemetryConstantsTests.cs</link></section>
+</section>

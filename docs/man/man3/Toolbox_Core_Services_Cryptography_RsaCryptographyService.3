@@ -1,0 +1,597 @@
+.TH "Toolbox.Core.Services.Cryptography.RsaCryptographyService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Services.Cryptography.RsaCryptographyService \- \fBCryptography\fP service implementation using RSA asymmetric encryption\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP, and \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRsaCryptographyService\fP (byte[] publicKey, \fBRsaPaddingMode\fP paddingMode, ILogger< RsaCryptographyService > logger, byte[]? privateKey=null)"
+.br
+.RI "Initializes a new instance of the \fBRsaCryptographyService\fP class using raw key bytes\&. "
+.ti -1c
+.RI "\fBRsaCryptographyService\fP (X509Certificate2 certificate, \fBRsaPaddingMode\fP paddingMode, ILogger< RsaCryptographyService > logger)"
+.br
+.RI "Initializes a new instance of the \fBRsaCryptographyService\fP class using an X\&.509 certificate\&. "
+.ti -1c
+.RI "string \fBEncrypt\fP (string plainText)"
+.br
+.ti -1c
+.RI "async Task< string > \fBEncryptAsync\fP (string plainText, CancellationToken cancellationToken=default)"
+.br
+.RI "Asynchronously encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ "
+.ti -1c
+.RI "string \fBDecrypt\fP (string encryptedText)"
+.br
+.ti -1c
+.RI "async Task< string > \fBDecryptAsync\fP (string encryptedText, CancellationToken cancellationToken=default)"
+.br
+.RI "Asynchronously decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP ()"
+.br
+.ti -1c
+.RI "async ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous disposal operation\&.
+.RE
+.PP
+
+.PP
+This method allows for graceful shutdown with timeout support\&. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately\&.  "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "void \fBDispose\fP ()"
+.br
+.RI "Releases all resources used by this service\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBRsaKeyPair\fP \fBGenerateKeyPair\fP (\fBRsaKeySize\fP keySize, bool includePrivateKey=true)"
+.br
+.RI "Generates a new RSA key pair\&. "
+.ti -1c
+.RI "static \fBRsaKeyPair\fP \fBGenerateKeyPair\fP (int keySize, bool includePrivateKey=true)"
+.br
+.RI "Generates a new RSA key pair\&. "
+.ti -1c
+.RI "static \fBRsaKeyPair\fP \fBGenerateCertificate\fP (\fBRsaKeySize\fP keySize, string subjectName, TimeSpan validityPeriod, bool includePrivateKey=true)"
+.br
+.RI "Generates a self-signed X\&.509 certificate containing an RSA key pair\&. "
+.ti -1c
+.RI "static \fBRsaKeyPair\fP \fBGenerateCertificate\fP (int keySize, string subjectName, TimeSpan validityPeriod, bool includePrivateKey=true)"
+.br
+.RI "Generates a self-signed X\&.509 certificate containing an RSA key pair\&. "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override ValueTask \fBDisposeAsyncCore\fP (CancellationToken cancellationToken)"
+.br
+.RI "Performs application-defined async cleanup operations\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous operation\&.
+.RE
+.PP
+
+.PP
+Override this method to release async resources such as streams, database connections, or other async-disposable objects\&.  "
+.in -1c
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseAsyncDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseAsyncDisposableService\fP class\&. "
+.ti -1c
+.RI "override void \fBDispose\fP (bool disposing)"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseDisposableService\fP class\&. "
+.ti -1c
+.RI "void \fBThrowIfDisposed\fP ()"
+.br
+.RI "Throws an ObjectDisposedException if this service has been disposed\&. "
+.ti -1c
+.RI "void \fBRecordOperation\fP (string operationName, double durationMs)"
+.br
+.RI "Records an operation metric with the specified name and duration\&. "
+.ti -1c
+.RI "Activity? \fBStartActivity\fP ([CallerMemberName] string operationName='')"
+.br
+.RI "Starts a new activity for the specified operation\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&.
+
+.PP
+A human-readable name for logging and diagnostics\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&.
+
+.PP
+\fRtrue\fP if the service has been disposed; otherwise, \fRfalse\fP\&. "
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&.
+
+.PP
+The activity source used to create spans for this service\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&.
+
+.PP
+The meter used to create instruments for this service\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCryptography\fP service implementation using RSA asymmetric encryption\&. 
+
+This service provides secure text encryption and decryption using the RSA algorithm\&. It supports various key sizes and padding modes\&. 
+
+.PP
+Encryption requires only the public key, while decryption requires the private key\&. 
+
+.PP
+The encrypted output is Base64-encoded for safe text transmission\&. 
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBICryptographyService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB32\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.RsaCryptographyService (byte[] publicKey, \fBRsaPaddingMode\fP paddingMode, ILogger< RsaCryptographyService > logger, byte?[] privateKey = \fRnull\fP)"
+
+.PP
+Initializes a new instance of the \fBRsaCryptographyService\fP class using raw key bytes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpublicKey\fP The public key in SubjectPublicKeyInfo format\&.
+.br
+\fIpaddingMode\fP The padding mode to use for encryption/decryption\&.
+.br
+\fIlogger\fP The logger instance\&.
+.br
+\fIprivateKey\fP The private key in PKCS#8 format, or \fRnull\fP if decryption is not needed\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIpublicKey\fP  or \fIlogger\fP  is \fRnull\fP\&. 
+.br
+\fICryptographicException\fP Thrown when the key format is invalid\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var keyPair = RsaCryptographyService\&.GenerateKeyPair(RsaKeySize\&.Rsa2048);
+using var service = new RsaCryptographyService(
+    keyPair\&.PublicKey!,
+    RsaPaddingMode\&.OaepSha256,
+    logger,
+    keyPair\&.PrivateKey);
+.fi
+.PP
+ 
+.PP
+Definition at line \fB67\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.RsaCryptographyService (X509Certificate2 certificate, \fBRsaPaddingMode\fP paddingMode, ILogger< RsaCryptographyService > logger)"
+
+.PP
+Initializes a new instance of the \fBRsaCryptographyService\fP class using an X\&.509 certificate\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcertificate\fP The X\&.509 certificate containing the RSA key(s)\&.
+.br
+\fIpaddingMode\fP The padding mode to use for encryption/decryption\&.
+.br
+\fIlogger\fP The logger instance\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIcertificate\fP  or \fIlogger\fP  is \fRnull\fP\&. 
+.br
+\fIArgumentException\fP Thrown when the certificate does not contain an RSA key\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var cert = new X509Certificate2("certificate\&.pfx", "password");
+using var service = new RsaCryptographyService(cert, RsaPaddingMode\&.OaepSha256, logger);
+.fi
+.PP
+ 
+.PP
+Definition at line \fB120\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "string Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.Decrypt (string encryptedText)"
+Decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIInvalidOperationException\fP Thrown when private key is not available\&.
+.br
+\fIFormatException\fP Thrown when decryption fails due to invalid data\&.
+.RE
+.PP
+
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB348\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "async Task< string > Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.DecryptAsync (string encryptedText, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Asynchronously decrypts the specified encrypted text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIencryptedText\fP The text to decrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the decrypted plain text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIencryptedText\fP  is \fRnull\fP\&.
+.br
+\fIFormatException\fP Thrown when the encrypted text format is invalid\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB395\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "override ValueTask Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.DisposeAsyncCore (CancellationToken cancellationToken)\fR [protected]\fP, \fR [virtual]\fP"
+
+.PP
+Performs application-defined async cleanup operations\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous operation\&.
+.RE
+.PP
+
+.PP
+Override this method to release async resources such as streams, database connections, or other async-disposable objects\&.  
+.PP
+Reimplemented from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP\&.
+.PP
+Definition at line \fB407\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.Encrypt (string plainText)"
+Encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ 
+.PP
+\fBExceptions\fP
+.RS 4
+\fICryptographicException\fP Thrown when encryption fails\&.
+.RE
+.PP
+
+.PP
+RSA can only encrypt data smaller than the key size minus padding overhead\&. For larger data, consider using hybrid encryption (RSA + AES)\&. 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB294\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "async Task< string > Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.EncryptAsync (string plainText, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Asynchronously encrypts the specified plain text\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIplainText\fP The text to encrypt\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task containing the encrypted text\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIplainText\fP  is \fRnull\fP\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.ICryptographyService\fP\&.
+.PP
+Definition at line \fB334\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "\fBRsaKeyPair\fP Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.GenerateCertificate (int keySize, string subjectName, TimeSpan validityPeriod, bool includePrivateKey = \fRtrue\fP)\fR [static]\fP"
+
+.PP
+Generates a self-signed X\&.509 certificate containing an RSA key pair\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeySize\fP The key size in bits\&.
+.br
+\fIsubjectName\fP The certificate subject name\&.
+.br
+\fIvalidityPeriod\fP The certificate validity period\&.
+.br
+\fIincludePrivateKey\fP Whether to include the private key in the certificate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBRsaKeyPair\fP containing the generated certificate\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB278\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "\fBRsaKeyPair\fP Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.GenerateCertificate (\fBRsaKeySize\fP keySize, string subjectName, TimeSpan validityPeriod, bool includePrivateKey = \fRtrue\fP)\fR [static]\fP"
+
+.PP
+Generates a self-signed X\&.509 certificate containing an RSA key pair\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeySize\fP The key size to generate\&.
+.br
+\fIsubjectName\fP The certificate subject name (e\&.g\&., "CN=MyApp")\&.
+.br
+\fIvalidityPeriod\fP The certificate validity period\&.
+.br
+\fIincludePrivateKey\fP Whether to include the private key in the certificate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBRsaKeyPair\fP containing the generated certificate\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fIsubjectName\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when \fIkeySize\fP  is not valid\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var keyPair = RsaCryptographyService\&.GenerateCertificate(
+    RsaKeySize\&.Rsa2048,
+    "CN=MyApplication",
+    TimeSpan\&.FromDays(365));
+.fi
+.PP
+ 
+.PP
+Definition at line \fB231\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "\fBRsaKeyPair\fP Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.GenerateKeyPair (int keySize, bool includePrivateKey = \fRtrue\fP)\fR [static]\fP"
+
+.PP
+Generates a new RSA key pair\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeySize\fP The key size in bits (512, 1024, 2048, 4096, 8192, or 16384)\&.
+.br
+\fIincludePrivateKey\fP Whether to include the private key in the result\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBRsaKeyPair\fP containing the generated keys\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentException\fP Thrown when \fIkeySize\fP  is not valid\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB201\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+.SS "\fBRsaKeyPair\fP Toolbox\&.Core\&.Services\&.Cryptography\&.RsaCryptographyService\&.GenerateKeyPair (\fBRsaKeySize\fP keySize, bool includePrivateKey = \fRtrue\fP)\fR [static]\fP"
+
+.PP
+Generates a new RSA key pair\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeySize\fP The key size to generate\&.
+.br
+\fIincludePrivateKey\fP Whether to include the private key in the result\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An \fBRsaKeyPair\fP containing the generated keys\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentException\fP Thrown when \fIkeySize\fP  is not a valid RSA key size\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+// Generate full key pair
+var keyPair = RsaCryptographyService\&.GenerateKeyPair(RsaKeySize\&.Rsa2048);
+
+// Generate public key only (useful for sharing)
+var publicOnly = RsaCryptographyService\&.GenerateKeyPair(RsaKeySize\&.Rsa2048, includePrivateKey: false);
+.fi
+.PP
+ 
+.PP
+Definition at line \fB182\fP of file \fBRsaCryptographyService\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

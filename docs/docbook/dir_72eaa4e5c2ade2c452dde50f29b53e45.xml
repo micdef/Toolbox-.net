@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_72eaa4e5c2ade2c452dde50f29b53e45" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/Debug/net10.0 Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/obj/Debug/net10.0 Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_src_2_toolbox_8_core_2obj_2_debug_2net10_80_2_8_n_e_t_core_app_00_version_0av10_80_8_assembly_attributes_8cs">.NETCoreApp,Version=v10.0.AssemblyAttributes.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__debug_2net10_80_2_toolbox_8_core_8_assembly_info_8cs">Toolbox.Core.AssemblyInfo.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__debug_2net10_80_2_toolbox_8_core_8_global_usings_8g_8cs">Toolbox.Core.GlobalUsings.g.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

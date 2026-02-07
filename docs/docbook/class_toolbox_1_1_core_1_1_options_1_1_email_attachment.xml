@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment" xml:lang="en-US">
+<title>Toolbox.Core.Options.EmailAttachment Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary></indexterm>
+<para>
+
+<para>Represents an email attachment. </para>
+ 
+</para>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a853dc810e2df93594ae0a484f53ce974">FromFile</link> (string filePath, string? contentType=null, string? fileName=null)</para>
+
+<para>Creates an attachment from a file path. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a2b0f649a7f6e17f0b20df2172fee173b">FromBytes</link> (byte[] content, string fileName, string? contentType=null)</para>
+
+<para>Creates an attachment from a byte array. </para>
+</listitem>
+            <listitem><para>static <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a62b587e360cc79b519da2568a8b0f6f5">CreateInline</link> (byte[] content, string fileName, string contentId, string? contentType=null)</para>
+
+<para>Creates an inline attachment for embedding in HTML. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>required string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a3178dcb477c3e739acfb83d1b4000785">FileName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the filename of the attachment. </para>
+</listitem>
+            <listitem><para>required string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ae714a842f714c3f159cb91cf9b000369">ContentType</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the MIME content type of the attachment. </para>
+</listitem>
+            <listitem><para>byte?[] <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ac6f99591d53cb530223e3dbb884c37ba">Content</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the attachment content as a byte array. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1af5ee3aee9da198e3e9024a6e26e2afdd">FilePath</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the file path of the attachment. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a87c92e4fc41de2261fd60c2bb5177f84">IsInline</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether this attachment is inline (embedded in HTML). </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a80b0a2f8893ae4c3cb7e9c21e98e0863">ContentId</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the Content-ID for inline attachments. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents an email attachment. </para>
+
+
+
+<para>An attachment can be created from either a file path or raw byte data. The content type is automatically detected from the filename if not specified. </para>
+
+<para><literallayout><computeroutput><emphasis role="comment">//&#32;From&#32;file&#32;path</emphasis>
+var&#32;attachment1&#32;=&#32;EmailAttachment.FromFile(<emphasis role="stringliteral">&quot;document.pdf&quot;</emphasis>);
+
+<emphasis role="comment">//&#32;From&#32;byte&#32;array</emphasis>
+var&#32;attachment2&#32;=&#32;EmailAttachment.FromBytes(
+&#32;&#32;&#32;&#32;pdfBytes,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;report.pdf&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;application/pdf&quot;</emphasis>);
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00029">29</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a62b587e360cc79b519da2568a8b0f6f5"/><section>
+    <title>CreateInline()</title>
+<indexterm><primary>CreateInline</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>CreateInline</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> Toolbox.Core.Options.EmailAttachment.CreateInline (byte[] content, string fileName, string contentId, string? contentType = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an inline attachment for embedding in HTML. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>content</entry><entry>
+<para>The attachment content.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>fileName</entry><entry>
+<para>The filename.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentId</entry><entry>
+<para>The Content-ID for referencing in HTML (without angle brackets).</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentType</entry><entry>
+<para>The content type, or <computeroutput>null</computeroutput> to auto-detect.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>An inline <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link>.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when required parameters are <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;logo&#32;=&#32;EmailAttachment.CreateInline(logoBytes,&#32;<emphasis role="stringliteral">&quot;logo.png&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;company-logo&quot;</emphasis>);
+message.Body&#32;=&#32;<emphasis role="stringliteral">&quot;&lt;img&#32;src=&apos;cid:company-logo&apos;&#32;/&gt;&quot;</emphasis>;
+message.Attachments.Add(logo);
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00136">136</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a2b0f649a7f6e17f0b20df2172fee173b"/><section>
+    <title>FromBytes()</title>
+<indexterm><primary>FromBytes</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>FromBytes</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> Toolbox.Core.Options.EmailAttachment.FromBytes (byte[] content, string fileName, string? contentType = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an attachment from a byte array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>content</entry><entry>
+<para>The attachment content.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>fileName</entry><entry>
+<para>The filename to use in the email.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentType</entry><entry>
+<para>The content type, or <computeroutput>null</computeroutput> to auto-detect from filename.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>An <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> representing the content.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>content</emphasis>  or <emphasis>fileName</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00104">104</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a853dc810e2df93594ae0a484f53ce974"/><section>
+    <title>FromFile()</title>
+<indexterm><primary>FromFile</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>FromFile</secondary></indexterm>
+<para><computeroutput><link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> Toolbox.Core.Options.EmailAttachment.FromFile (string filePath, string? contentType = <computeroutput>null</computeroutput>
+, string? fileName = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Creates an attachment from a file path. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>filePath</entry><entry>
+<para>The path to the file.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>contentType</entry><entry>
+<para>The content type, or <computeroutput>null</computeroutput> to auto-detect.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>fileName</entry><entry>
+<para>The filename to use, or <computeroutput>null</computeroutput> to use the file&apos;s name.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>An <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment">EmailAttachment</link> representing the file.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>filePath</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FileNotFoundException</entry><entry>
+<para>Thrown when the file does not exist.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00076">76</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ac6f99591d53cb530223e3dbb884c37ba"/><section>
+    <title>Content</title>
+<indexterm><primary>Content</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>Content</secondary></indexterm>
+<para><computeroutput>byte? [] Toolbox.Core.Options.EmailAttachment.Content<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the attachment content as a byte array. </para>
+</para>
+
+<para>The raw content bytes, or <computeroutput>null</computeroutput> if using a file path.</para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00047">47</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a80b0a2f8893ae4c3cb7e9c21e98e0863"/><section>
+    <title>ContentId</title>
+<indexterm><primary>ContentId</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>ContentId</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.EmailAttachment.ContentId<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the Content-ID for inline attachments. </para>
+</para>
+
+<para>The Content-ID for referencing in HTML, or <computeroutput>null</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00065">65</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1ae714a842f714c3f159cb91cf9b000369"/><section>
+    <title>ContentType</title>
+<indexterm><primary>ContentType</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>ContentType</secondary></indexterm>
+<para><computeroutput>required string Toolbox.Core.Options.EmailAttachment.ContentType<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the MIME content type of the attachment. </para>
+</para>
+
+<para>The content type (e.g., &quot;application/pdf&quot;).</para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00041">41</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a3178dcb477c3e739acfb83d1b4000785"/><section>
+    <title>FileName</title>
+<indexterm><primary>FileName</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>FileName</secondary></indexterm>
+<para><computeroutput>required string Toolbox.Core.Options.EmailAttachment.FileName<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the filename of the attachment. </para>
+</para>
+
+<para>The filename to use in the email.</para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00035">35</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1af5ee3aee9da198e3e9024a6e26e2afdd"/><section>
+    <title>FilePath</title>
+<indexterm><primary>FilePath</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>FilePath</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.EmailAttachment.FilePath<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the file path of the attachment. </para>
+</para>
+
+<para>The file path, or <computeroutput>null</computeroutput> if using byte content.</para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00053">53</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_email_attachment_1a87c92e4fc41de2261fd60c2bb5177f84"/><section>
+    <title>IsInline</title>
+<indexterm><primary>IsInline</primary><secondary>Toolbox.Core.Options.EmailAttachment</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.EmailAttachment</primary><secondary>IsInline</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.EmailAttachment.IsInline<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets a value indicating whether this attachment is inline (embedded in HTML). </para>
+</para>
+
+<para><computeroutput>true</computeroutput> if inline; otherwise, <computeroutput>false</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__email_attachment_8cs_source_1l00059">59</link> of file <link linkend="__email_attachment_8cs_source">EmailAttachment.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__email_attachment_8cs">EmailAttachment.cs</link></section>
+</section>

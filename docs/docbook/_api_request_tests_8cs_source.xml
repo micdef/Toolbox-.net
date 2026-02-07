@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__api_request_tests_8cs_source" xml:lang="en-US">
+<title>ApiRequestTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Options/ApiRequestTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__api_request_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__api_request_tests_8cs_source_1l00002"/>00002 
+<anchor xml:id="__api_request_tests_8cs_source_1l00003"/><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_options">00003</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_options">Toolbox.Tests.Unit.Options</link>;
+<anchor xml:id="__api_request_tests_8cs_source_1l00004"/>00004 
+<anchor xml:id="__api_request_tests_8cs_source_1l00008"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests">00008</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests">ApiRequestTests</link>
+<anchor xml:id="__api_request_tests_8cs_source_1l00009"/>00009 {
+<anchor xml:id="__api_request_tests_8cs_source_1l00010"/>00010 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Constructor&#32;Tests</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00011"/>00011 
+<anchor xml:id="__api_request_tests_8cs_source_1l00012"/>00012 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00013"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9192bd0b0154a3dab056ba59fdbfb12c">00013</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9192bd0b0154a3dab056ba59fdbfb12c">Constructor_WithValidParameters_ShouldCreate</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00014"/>00014 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange&#32;&amp;&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00017"/>00017 
+<anchor xml:id="__api_request_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Method.Should().Be(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Url.Should().Be(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00022"/>00022 
+<anchor xml:id="__api_request_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00024"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab13c818c4f7482934734dc434aa9547e">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab13c818c4f7482934734dc434aa9547e">Constructor_ShouldUppercaseMethod</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange&#32;&amp;&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>(<emphasis role="stringliteral">&quot;get&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00028"/>00028 
+<anchor xml:id="__api_request_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Method.Should().Be(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00032"/>00032 
+<anchor xml:id="__api_request_tests_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00034"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a2ea600570fe9a57c5d094667a9e149fb">00034</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a2ea600570fe9a57c5d094667a9e149fb">Constructor_WithNullMethod_ShouldThrow</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>(<emphasis role="keyword">null</emphasis>!,&#32;<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00038"/>00038 
+<anchor xml:id="__api_request_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_request_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00042"/>00042 
+<anchor xml:id="__api_request_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00044"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1461f901b40a40d8b2724dfeb307a23b">00044</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1461f901b40a40d8b2724dfeb307a23b">Constructor_WithNullUrl_ShouldThrow</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__api_request_tests_8cs_source_1l00048"/>00048 
+<anchor xml:id="__api_request_tests_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_request_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00052"/>00052 
+<anchor xml:id="__api_request_tests_8cs_source_1l00053"/>00053 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00054"/>00054 
+<anchor xml:id="__api_request_tests_8cs_source_1l00055"/>00055 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Factory&#32;Methods&#32;Tests</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00056"/>00056 
+<anchor xml:id="__api_request_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00058"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a78e138bb215d9334958b1cfb33be2982">00058</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a78e138bb215d9334958b1cfb33be2982">Get_ShouldCreateGetRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00062"/>00062 
+<anchor xml:id="__api_request_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;GET&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Url.Should().Be(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00067"/>00067 
+<anchor xml:id="__api_request_tests_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00069"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaaabac086d44280bbc48601562490788">00069</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaaabac086d44280bbc48601562490788">Post_ShouldCreatePostRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00073"/>00073 
+<anchor xml:id="__api_request_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;POST&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Url.Should().Be(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00078"/>00078 
+<anchor xml:id="__api_request_tests_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00080"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a5c560e400bc454836ecaa139bc6022b8">00080</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a5c560e400bc454836ecaa139bc6022b8">Post_WithBody_ShouldSetJsonContent</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;body&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;{&#32;Name&#32;=&#32;<emphasis role="stringliteral">&quot;John&quot;</emphasis>,&#32;Age&#32;=&#32;30&#32;};
+<anchor xml:id="__api_request_tests_8cs_source_1l00084"/>00084 
+<anchor xml:id="__api_request_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>,&#32;body);
+<anchor xml:id="__api_request_tests_8cs_source_1l00087"/>00087 
+<anchor xml:id="__api_request_tests_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;POST&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Content.Should().NotBeNull();
+<anchor xml:id="__api_request_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00092"/>00092 
+<anchor xml:id="__api_request_tests_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00094"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ac77e7c783fffddce49deda043eb8732c">00094</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ac77e7c783fffddce49deda043eb8732c">Put_ShouldCreatePutRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ab09b7cc8b377bd225d976fa846631ce4">Put</link>(<emphasis role="stringliteral">&quot;/users/1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00098"/>00098 
+<anchor xml:id="__api_request_tests_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;PUT&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00102"/>00102 
+<anchor xml:id="__api_request_tests_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00104"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a23db8d15b2fd7272ecb05202445b0aac">00104</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a23db8d15b2fd7272ecb05202445b0aac">Patch_ShouldCreatePatchRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a7bd68f324636e566840020c0a6ac88e3">Patch</link>(<emphasis role="stringliteral">&quot;/users/1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00108"/>00108 
+<anchor xml:id="__api_request_tests_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;PATCH&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00112"/>00112 
+<anchor xml:id="__api_request_tests_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00114"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a7e7521cb196f50d92818428ad59c0594">00114</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a7e7521cb196f50d92818428ad59c0594">Delete_ShouldCreateDeleteRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a6e1f77a9bb4eb5dd123961e26c2c300f">Delete</link>(<emphasis role="stringliteral">&quot;/users/1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00118"/>00118 
+<anchor xml:id="__api_request_tests_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;DELETE&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00122"/>00122 
+<anchor xml:id="__api_request_tests_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00124"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9666360faaf6640eaea0b43d4701ad63">00124</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a9666360faaf6640eaea0b43d4701ad63">Head_ShouldCreateHeadRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a1bb959460ddb0199ab46d06fc901d92a">Head</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00128"/>00128 
+<anchor xml:id="__api_request_tests_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;HEAD&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00132"/>00132 
+<anchor xml:id="__api_request_tests_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00134"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a6ff82adfa33f87fe41e0214f9c393e40">00134</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a6ff82adfa33f87fe41e0214f9c393e40">Options_ShouldCreateOptionsRequest</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1acf3890bc53a094393fbbf1a4cab61308">Options</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00138"/>00138 
+<anchor xml:id="__api_request_tests_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a06e9e8057655d57c61ed531091f56a97">Method</link>.Should().Be(<emphasis role="stringliteral">&quot;OPTIONS&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00142"/>00142 
+<anchor xml:id="__api_request_tests_8cs_source_1l00143"/>00143 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00144"/>00144 
+<anchor xml:id="__api_request_tests_8cs_source_1l00145"/>00145 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;Fluent&#32;Methods&#32;Tests</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00146"/>00146 
+<anchor xml:id="__api_request_tests_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00148"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab75f4ece2d268741df7edeeac97e9473">00148</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ab75f4ece2d268741df7edeeac97e9473">WithHeader_ShouldAddHeader</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00149"/>00149 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00152"/>00152 
+<anchor xml:id="__api_request_tests_8cs_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea">WithHeader</link>(<emphasis role="stringliteral">&quot;X-Custom&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;value&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00155"/>00155 
+<anchor xml:id="__api_request_tests_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1af06149ec3b36c0585349a67fff366b03">Headers</link>.Should().ContainKey(<emphasis role="stringliteral">&quot;X-Custom&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.Headers[<emphasis role="stringliteral">&quot;X-Custom&quot;</emphasis>].Should().Be(<emphasis role="stringliteral">&quot;value&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00160"/>00160 
+<anchor xml:id="__api_request_tests_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00162"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1abed525e1f4076a3079f074ee800a09ec">00162</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1abed525e1f4076a3079f074ee800a09ec">WithHeader_ShouldSupportChaining</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>)
+<anchor xml:id="__api_request_tests_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea">WithHeader</link>(<emphasis role="stringliteral">&quot;X-First&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;1&quot;</emphasis>)
+<anchor xml:id="__api_request_tests_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a849109ef628b7c9e34a546c1415a19ea">WithHeader</link>(<emphasis role="stringliteral">&quot;X-Second&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;2&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00168"/>00168 
+<anchor xml:id="__api_request_tests_8cs_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1af06149ec3b36c0585349a67fff366b03">Headers</link>.Should().HaveCount(2);
+<anchor xml:id="__api_request_tests_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00172"/>00172 
+<anchor xml:id="__api_request_tests_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00174"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a684492780e7694e654f4faa5f4fe0fef">00174</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a684492780e7694e654f4faa5f4fe0fef">WithQuery_ShouldAddQueryParameter</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00178"/>00178 
+<anchor xml:id="__api_request_tests_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9">WithQuery</link>(<emphasis role="stringliteral">&quot;page&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00181"/>00181 
+<anchor xml:id="__api_request_tests_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1ae2398a82589a5b98dc9d2f0595ecddcd">QueryParameters</link>.Should().ContainKey(<emphasis role="stringliteral">&quot;page&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.QueryParameters[<emphasis role="stringliteral">&quot;page&quot;</emphasis>].Should().Be(<emphasis role="stringliteral">&quot;1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00186"/>00186 
+<anchor xml:id="__api_request_tests_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00188"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaf9249416551d932abbdfe1bf39af9e5">00188</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1aaf9249416551d932abbdfe1bf39af9e5">WithTimeout_ShouldSetTimeout</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00189"/>00189 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00192"/>00192 
+<anchor xml:id="__api_request_tests_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1addb19820383e6d8a450841a49522ec82">WithTimeout</link>(TimeSpan.FromMinutes(5));
+<anchor xml:id="__api_request_tests_8cs_source_1l00195"/>00195 
+<anchor xml:id="__api_request_tests_8cs_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1acb63d053a186e922ca0c4c75ffc8a129">Timeout</link>.Should().Be(TimeSpan.FromMinutes(5));
+<anchor xml:id="__api_request_tests_8cs_source_1l00198"/>00198 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00199"/>00199 
+<anchor xml:id="__api_request_tests_8cs_source_1l00200"/>00200 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00201"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af778f73957e5e3cb599e8a2cd60ed302">00201</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af778f73957e5e3cb599e8a2cd60ed302">SetJsonContent_ShouldSetContent</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00202"/>00202 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;body&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;{&#32;Name&#32;=&#32;<emphasis role="stringliteral">&quot;John&quot;</emphasis>&#32;};
+<anchor xml:id="__api_request_tests_8cs_source_1l00206"/>00206 
+<anchor xml:id="__api_request_tests_8cs_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.SetJsonContent(body);
+<anchor xml:id="__api_request_tests_8cs_source_1l00209"/>00209 
+<anchor xml:id="__api_request_tests_8cs_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6">Content</link>.Should().NotBeNull();
+<anchor xml:id="__api_request_tests_8cs_source_1l00212"/>00212 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00213"/>00213 
+<anchor xml:id="__api_request_tests_8cs_source_1l00214"/>00214 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00215"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1bb54d2cebdca52cfe2874c605cec95d">00215</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a1bb54d2cebdca52cfe2874c605cec95d">SetStringContent_ShouldSetContent</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00216"/>00216 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00219"/>00219 
+<anchor xml:id="__api_request_tests_8cs_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f06d44684caeb91b514078f9285003f">SetStringContent</link>(<emphasis role="stringliteral">&quot;&lt;xml/&gt;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;application/xml&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00222"/>00222 
+<anchor xml:id="__api_request_tests_8cs_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6">Content</link>.Should().NotBeNull();
+<anchor xml:id="__api_request_tests_8cs_source_1l00225"/>00225 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00226"/>00226 
+<anchor xml:id="__api_request_tests_8cs_source_1l00227"/>00227 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00228"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ae8e0609e864fa109d1f43cf958c6290a">00228</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1ae8e0609e864fa109d1f43cf958c6290a">SetFormContent_ShouldSetContent</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00229"/>00229 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link>(<emphasis role="stringliteral">&quot;/login&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;formData&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;Dictionary&lt;string,&#32;string&gt;
+<anchor xml:id="__api_request_tests_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;[<emphasis role="stringliteral">&quot;username&quot;</emphasis>]&#32;=&#32;<emphasis role="stringliteral">&quot;user&quot;</emphasis>,
+<anchor xml:id="__api_request_tests_8cs_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;[<emphasis role="stringliteral">&quot;password&quot;</emphasis>]&#32;=&#32;<emphasis role="stringliteral">&quot;pass&quot;</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__api_request_tests_8cs_source_1l00237"/>00237 
+<anchor xml:id="__api_request_tests_8cs_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a8f54de7d78e3039400d846a5a6350071">SetFormContent</link>(formData);
+<anchor xml:id="__api_request_tests_8cs_source_1l00240"/>00240 
+<anchor xml:id="__api_request_tests_8cs_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6">Content</link>.Should().NotBeNull();
+<anchor xml:id="__api_request_tests_8cs_source_1l00243"/>00243 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00244"/>00244 
+<anchor xml:id="__api_request_tests_8cs_source_1l00245"/>00245 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00246"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a8b50228fb7c3e8d151c878adfa121e0b">00246</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a8b50228fb7c3e8d151c878adfa121e0b">SetBinaryContent_ShouldSetContent</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00247"/>00247 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a3e3e1e01010dfda0201ac9344f485b6a">Post</link>(<emphasis role="stringliteral">&quot;/upload&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;bytes&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<emphasis role="keywordtype">byte</emphasis>[]&#32;{&#32;1,&#32;2,&#32;3&#32;};
+<anchor xml:id="__api_request_tests_8cs_source_1l00251"/>00251 
+<anchor xml:id="__api_request_tests_8cs_source_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00253"/>00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a5d6dece7eb8a858c68da4662b33e62d4">SetBinaryContent</link>(bytes);
+<anchor xml:id="__api_request_tests_8cs_source_1l00254"/>00254 
+<anchor xml:id="__api_request_tests_8cs_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2b00fca70433944fb157a10bca840cc6">Content</link>.Should().NotBeNull();
+<anchor xml:id="__api_request_tests_8cs_source_1l00257"/>00257 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00258"/>00258 
+<anchor xml:id="__api_request_tests_8cs_source_1l00259"/>00259 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00260"/>00260 
+<anchor xml:id="__api_request_tests_8cs_source_1l00261"/>00261 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#region&#32;BuildUrl&#32;Tests</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00262"/>00262 
+<anchor xml:id="__api_request_tests_8cs_source_1l00263"/>00263 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00264"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a4c955dc36ffd841fc73ec0c0251567e8">00264</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a4c955dc36ffd841fc73ec0c0251567e8">BuildUrl_WithNoQueryParams_ShouldReturnUrl</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00265"/>00265 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00267"/>00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00268"/>00268 
+<anchor xml:id="__api_request_tests_8cs_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;url&#32;=&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e">BuildUrl</link>();
+<anchor xml:id="__api_request_tests_8cs_source_1l00271"/>00271 
+<anchor xml:id="__api_request_tests_8cs_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().Be(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00274"/>00274 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00275"/>00275 
+<anchor xml:id="__api_request_tests_8cs_source_1l00276"/>00276 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00277"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af246712202b0ffc30e2bb012fa30cd3e">00277</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1af246712202b0ffc30e2bb012fa30cd3e">BuildUrl_WithQueryParams_ShouldAppendQueryString</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00278"/>00278 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users&quot;</emphasis>)
+<anchor xml:id="__api_request_tests_8cs_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9">WithQuery</link>(<emphasis role="stringliteral">&quot;page&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;1&quot;</emphasis>)
+<anchor xml:id="__api_request_tests_8cs_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9">WithQuery</link>(<emphasis role="stringliteral">&quot;limit&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;10&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00283"/>00283 
+<anchor xml:id="__api_request_tests_8cs_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;url&#32;=&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e">BuildUrl</link>();
+<anchor xml:id="__api_request_tests_8cs_source_1l00286"/>00286 
+<anchor xml:id="__api_request_tests_8cs_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().Contain(<emphasis role="stringliteral">&quot;page=1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().Contain(<emphasis role="stringliteral">&quot;limit=10&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().StartWith(<emphasis role="stringliteral">&quot;/users?&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00291"/>00291 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00292"/>00292 
+<anchor xml:id="__api_request_tests_8cs_source_1l00293"/>00293 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00294"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a81b58e97d2c3797840e732fc8ec0bbe7">00294</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a81b58e97d2c3797840e732fc8ec0bbe7">BuildUrl_WithExistingQueryString_ShouldAppendWithAmpersand</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00295"/>00295 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/users?active=true&quot;</emphasis>)
+<anchor xml:id="__api_request_tests_8cs_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9">WithQuery</link>(<emphasis role="stringliteral">&quot;page&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00299"/>00299 
+<anchor xml:id="__api_request_tests_8cs_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;url&#32;=&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e">BuildUrl</link>();
+<anchor xml:id="__api_request_tests_8cs_source_1l00302"/>00302 
+<anchor xml:id="__api_request_tests_8cs_source_1l00303"/>00303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00304"/>00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().StartWith(<emphasis role="stringliteral">&quot;/users?active=true&amp;&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00305"/>00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().Contain(<emphasis role="stringliteral">&quot;page=1&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00306"/>00306 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00307"/>00307 
+<anchor xml:id="__api_request_tests_8cs_source_1l00308"/>00308 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_request_tests_8cs_source_1l00309"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a564ee753f72df49505608e3b6d9ee804">00309</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests_1a564ee753f72df49505608e3b6d9ee804">BuildUrl_ShouldEncodeSpecialCharacters</link>()
+<anchor xml:id="__api_request_tests_8cs_source_1l00310"/>00310 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_request_tests_8cs_source_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request">ApiRequest</link>.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1adc19541ba616263136091218814e80d1">Get</link>(<emphasis role="stringliteral">&quot;/search&quot;</emphasis>)
+<anchor xml:id="__api_request_tests_8cs_source_1l00313"/>00313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a771b292001c6ac98d1c22ef3140521f9">WithQuery</link>(<emphasis role="stringliteral">&quot;q&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;hello&#32;world&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00314"/>00314 
+<anchor xml:id="__api_request_tests_8cs_source_1l00315"/>00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;url&#32;=&#32;request.<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_request_1a2276786ed9a920a6a9d54f9b4a72796e">BuildUrl</link>();
+<anchor xml:id="__api_request_tests_8cs_source_1l00317"/>00317 
+<anchor xml:id="__api_request_tests_8cs_source_1l00318"/>00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;url.Should().Contain(<emphasis role="stringliteral">&quot;hello%20world&quot;</emphasis>);
+<anchor xml:id="__api_request_tests_8cs_source_1l00320"/>00320 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_request_tests_8cs_source_1l00321"/>00321 
+<anchor xml:id="__api_request_tests_8cs_source_1l00322"/>00322 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endregion</emphasis>
+<anchor xml:id="__api_request_tests_8cs_source_1l00323"/>00323 }
+</programlisting></section>

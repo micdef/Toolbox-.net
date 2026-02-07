@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service" xml:lang="en-US">
+<title>Toolbox.Core.Abstractions.IAsyncDisposableService Interface Reference</title>
+<indexterm><primary>Toolbox.Core.Abstractions.IAsyncDisposableService</primary></indexterm>
+<para>
+
+<para>Interface for services requiring asynchronous disposal with cancellation support. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Abstractions.IAsyncDisposableService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>Asynchronously releases resources with cancellation support. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">Toolbox.Core.Abstractions.IDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the unique name identifying this service instance. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets a value indicating whether this service has been disposed. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Interface for services requiring asynchronous disposal with cancellation support. </para>
+
+
+
+<para>This interface combines <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link> and IAsyncDisposable with an additional method supporting cancellation tokens for graceful shutdown scenarios. </para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__i_async_disposable_service_8cs_source_1l00016">16</link> of file <link linkend="__i_async_disposable_service_8cs_source">IAsyncDisposableService.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb"/><section>
+    <title>DisposeAsync()</title>
+<indexterm><primary>DisposeAsync</primary><secondary>Toolbox.Core.Abstractions.IAsyncDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Abstractions.IAsyncDisposableService</primary><secondary>DisposeAsync</secondary></indexterm>
+<para><computeroutput>ValueTask Toolbox.Core.Abstractions.IAsyncDisposableService.DisposeAsync (CancellationToken cancellationToken)</computeroutput></para><para>
+
+<para>Asynchronously releases resources with cancellation support. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous disposal operation.</para>
+</formalpara>
+</para>
+
+<para>This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. </para>
+
+<para>The standard IAsyncDisposable.DisposeAsync method should call this method with CancellationToken.None. </para>
+<para>
+Implemented in <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">Toolbox.Core.Base.BaseAsyncDisposableService</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/<link linkend="__i_async_disposable_service_8cs">IAsyncDisposableService.cs</link></section>
+</section>

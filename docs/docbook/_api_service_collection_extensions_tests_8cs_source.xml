@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__api_service_collection_extensions_tests_8cs_source" xml:lang="en-US">
+<title>ApiServiceCollectionExtensionsTests.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/Extensions/ApiServiceCollectionExtensionsTests.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>Microsoft.Extensions.DependencyInjection;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions_1_1_services">Toolbox.Core.Abstractions.Services</link>;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_extensions">Toolbox.Core.Extensions</link>;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00004"/>00004 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link>;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00005"/>00005 <emphasis role="keyword">using&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_api">Toolbox.Core.Services.Api</link>;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00006"/>00006 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00007"/><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_extensions">00007</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_tests_1_1_unit_1_1_extensions">Toolbox.Tests.Unit.Extensions</link>;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00008"/>00008 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00012"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests">00012</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests">ApiServiceCollectionExtensionsTests</link>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00013"/>00013 {
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00014"/>00014 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00015"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a6a978f2a83d5d2923a80dbbab81c2e90">00015</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a6a978f2a83d5d2923a80dbbab81c2e90">AddHttpApi_WithConfigureAction_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00016"/>00016 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00020"/>00020 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApi(options&#32;=&gt;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;options.BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00026"/>00026 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().BeOfType&lt;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_api_1_1_http_api_service">HttpApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00033"/>00033 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00035"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a3ee950624e2013c1f775a366b8b19e47">00035</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a3ee950624e2013c1f775a366b8b19e47">AddHttpApi_WithOptions_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options">ApiOptions</link>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00044"/>00044 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApi(options);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00047"/>00047 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00053"/>00053 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00055"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1af0d59c990ce5fec9643e2dc17fc327c9">00055</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1af0d59c990ce5fec9643e2dc17fc327c9">AddHttpApi_WithNullServices_ShouldThrow</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IServiceCollection&#32;services&#32;=&#32;<emphasis role="keyword">null</emphasis>!;
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00059"/>00059 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;services.AddHttpApi(options&#32;=&gt;&#32;{&#32;});
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00062"/>00062 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00066"/>00066 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00068"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adfa389a4822e7533ea7614f3901a1cd9">00068</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adfa389a4822e7533ea7614f3901a1cd9">AddHttpApi_WithNullConfigureAction_ShouldThrow</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00072"/>00072 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;services.AddHttpApi((Action&lt;ApiOptions&gt;)<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00075"/>00075 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00079"/>00079 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00081"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a62f7084c3aa5c3b527fe821508478edc">00081</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a62f7084c3aa5c3b527fe821508478edc">AddHttpApiAnonymous_ShouldRegisterAnonymousService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00086"/>00086 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApiAnonymous(<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00089"/>00089 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00095"/>00095 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00097"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1ae44850859d1382deba3676ffd1e0686a">00097</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1ae44850859d1382deba3676ffd1e0686a">AddHttpApiWithBearerToken_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00102"/>00102 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApiWithBearerToken(<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;test-token&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00105"/>00105 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00111"/>00111 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00113"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aea544eaa757c46ef06d02d5063694016">00113</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aea544eaa757c46ef06d02d5063694016">AddHttpApiWithBearerToken_WithNullToken_ShouldThrow</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00117"/>00117 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;services.AddHttpApiWithBearerToken(<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,&#32;<emphasis role="keyword">null</emphasis>!);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00120"/>00120 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00123"/>00123 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00124"/>00124 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00125"/>00125 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00126"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a4714f9f96205516f1d5f2e58630367b0">00126</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a4714f9f96205516f1d5f2e58630367b0">AddHttpApiWithBasicAuth_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00131"/>00131 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApiWithBasicAuth(<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;user&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;pass&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00134"/>00134 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00140"/>00140 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00141"/>00141 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00142"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa18ba8b219cb823f113ab54f44918d3e">00142</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa18ba8b219cb823f113ab54f44918d3e">AddHttpApiWithBasicAuth_WithNullUsername_ShouldThrow</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00143"/>00143 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00146"/>00146 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;services.AddHttpApiWithBasicAuth(<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,&#32;<emphasis role="keyword">null</emphasis>!,&#32;<emphasis role="stringliteral">&quot;pass&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00149"/>00149 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00152"/>00152 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00153"/>00153 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00154"/>00154 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00155"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9e75c772e7789ab8e838cff34c9a5929">00155</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9e75c772e7789ab8e838cff34c9a5929">AddHttpApiWithApiKey_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00156"/>00156 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00160"/>00160 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApiWithApiKey(<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;my-api-key&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00163"/>00163 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00168"/>00168 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00169"/>00169 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00171"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adee208d84af582afed99b6ba96441572">00171</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1adee208d84af582afed99b6ba96441572">AddHttpApiWithApiKey_WithQueryLocation_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00176"/>00176 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApiWithApiKey(
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;my-api-key&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;api_key&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30">ApiKeyLocation</link>.QueryString);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00183"/>00183 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00188"/>00188 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00189"/>00189 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00190"/>00190 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00191"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa22102b208f71e439537720592e4ee4a">00191</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1aa22102b208f71e439537720592e4ee4a">AddHttpApiWithOAuth2_ShouldRegisterService</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00192"/>00192 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00196"/>00196 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApiWithOAuth2(
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;https://auth.example.com/token&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;client-id&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;client-secret&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;read&#32;write&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00204"/>00204 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;provider&#32;=&#32;services.BuildServiceProvider();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;service&#32;=&#32;provider.GetService&lt;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;service.Should().NotBeNull();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00209"/>00209 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00210"/>00210 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00211"/>00211 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00212"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a858043c2e231df890ad51c07bb7f230d">00212</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a858043c2e231df890ad51c07bb7f230d">AddHttpApiWithOAuth2_WithNullClientId_ShouldThrow</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00213"/>00213 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00216"/>00216 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;act&#32;=&#32;()&#32;=&gt;&#32;services.AddHttpApiWithOAuth2(
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;https://auth.example.com/token&quot;</emphasis>,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">null</emphasis>!,
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;secret&quot;</emphasis>);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00223"/>00223 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;act.Should().Throw&lt;ArgumentNullException&gt;();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00226"/>00226 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00227"/>00227 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00228"/>00228 &#32;&#32;&#32;&#32;[Fact]
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00229"/><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9cd4f660e93cecf5758e4ec1ff1b90d5">00229</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_extensions_1_1_api_service_collection_extensions_tests_1a9cd4f660e93cecf5758e4ec1ff1b90d5">AddHttpApi_MultipleCalls_ShouldNotDuplicate</link>()
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00230"/>00230 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Arrange</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;services&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ServiceCollection();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddLogging();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00234"/>00234 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Act</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApi(options&#32;=&gt;&#32;{&#32;options.BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api1.example.com&quot;</emphasis>;&#32;});
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;services.AddHttpApi(options&#32;=&gt;&#32;{&#32;options.BaseUrl&#32;=&#32;<emphasis role="stringliteral">&quot;https://api2.example.com&quot;</emphasis>;&#32;});
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00238"/>00238 
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Assert</emphasis>
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;descriptors&#32;=&#32;services.Where(d&#32;=&gt;&#32;d.ServiceType&#32;==&#32;typeof(<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_api_service">IApiService</link>)).ToList();
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;descriptors.Should().HaveCount(1);
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00242"/>00242 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__api_service_collection_extensions_tests_8cs_source_1l00243"/>00243 }
+</programlisting></section>

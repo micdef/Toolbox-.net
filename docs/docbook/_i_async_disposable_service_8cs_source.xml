@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__i_async_disposable_service_8cs_source" xml:lang="en-US">
+<title>IAsyncDisposableService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IAsyncDisposableService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__i_async_disposable_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;IAsyncDisposableService.cs</emphasis>
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Interface&#32;for&#32;asynchronously&#32;disposable&#32;services</emphasis>
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Extends&#32;IDisposableService&#32;with&#32;async&#32;disposal&#32;capabilities&#32;and&#32;cancellation&#32;support</emphasis>
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Prefer&#32;this&#32;interface&#32;for&#32;services&#32;that&#32;manage&#32;async&#32;resources&#32;(streams,&#32;connections,&#32;etc.)</emphasis>
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00006"/><link linkend="_namespace_toolbox">00006</link> <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Toolbox.Core.Abstractions</link>;
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00007"/>00007 
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00016"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">00016</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">interface&#32;</emphasis><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service">IAsyncDisposableService</link>&#32;:&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link>,&#32;IAsyncDisposable
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00017"/>00017 {
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00035"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb">00035</link> &#32;&#32;&#32;&#32;ValueTask&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_async_disposable_service_1a3bcb31cb213a921cbfc4b548b1571abb">DisposeAsync</link>(CancellationToken&#32;cancellationToken);
+<anchor xml:id="__i_async_disposable_service_8cs_source_1l00036"/>00036 }
+</programlisting></section>

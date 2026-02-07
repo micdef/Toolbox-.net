@@ -1,0 +1,295 @@
+.TH "Toolbox.Core.Options.ApiOptions" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Options.ApiOptions \- Configuration options for the HTTP API service\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string? \fBBaseUrl\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the base URL for API requests\&. "
+.ti -1c
+.RI "\fBApiAuthenticationMode\fP \fBAuthenticationMode\fP = \fBApiAuthenticationMode\&.Anonymous\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the authentication mode\&. "
+.ti -1c
+.RI "string? \fBBearerToken\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the bearer token for authentication\&. "
+.ti -1c
+.RI "string? \fBUsername\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the username for basic authentication\&. "
+.ti -1c
+.RI "string? \fBPassword\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the password for basic authentication\&. "
+.ti -1c
+.RI "string? \fBApiKey\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the API key value\&. "
+.ti -1c
+.RI "string \fBApiKeyName\fP = 'X\-API\-Key'\fR [get, set]\fP"
+.br
+.RI "Gets or sets the API key header or parameter name\&. "
+.ti -1c
+.RI "\fBApiKeyLocation\fP \fBApiKeyLocation\fP = \fBApiKeyLocation\&.Header\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets where to send the API key\&. "
+.ti -1c
+.RI "X509Certificate2? \fBClientCertificate\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the client certificate for authentication\&. "
+.ti -1c
+.RI "string? \fBCertificatePath\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the path to a PFX/PKCS#12 certificate file\&. "
+.ti -1c
+.RI "string? \fBCertificatePassword\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the certificate password\&. "
+.ti -1c
+.RI "string? \fBOAuth2TokenUrl\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the OAuth2 token endpoint URL\&. "
+.ti -1c
+.RI "string? \fBOAuth2ClientId\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the OAuth2 client ID\&. "
+.ti -1c
+.RI "string? \fBOAuth2ClientSecret\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the OAuth2 client secret\&. "
+.ti -1c
+.RI "string? \fBOAuth2Scopes\fP\fR [get, set]\fP"
+.br
+.RI "Gets or sets the OAuth2 scopes\&. "
+.ti -1c
+.RI "TimeSpan \fBTimeout\fP = TimeSpan\&.FromSeconds(30)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the request timeout\&. "
+.ti -1c
+.RI "int \fBMaxRetries\fP = 3\fR [get, set]\fP"
+.br
+.RI "Gets or sets the maximum number of retry attempts\&. "
+.ti -1c
+.RI "TimeSpan \fBRetryDelay\fP = TimeSpan\&.FromSeconds(1)\fR [get, set]\fP"
+.br
+.RI "Gets or sets the delay between retries\&. "
+.ti -1c
+.RI "bool \fBUseExponentialBackoff\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets whether to use exponential backoff for retries\&. "
+.ti -1c
+.RI "bool \fBValidateCertificate\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets whether to validate SSL certificates\&. "
+.ti -1c
+.RI "bool \fBFollowRedirects\fP = true\fR [get, set]\fP"
+.br
+.RI "Gets or sets whether to follow redirects automatically\&. "
+.ti -1c
+.RI "int \fBMaxRedirects\fP = 10\fR [get, set]\fP"
+.br
+.RI "Gets or sets the maximum number of redirects to follow\&. "
+.ti -1c
+.RI "string? \fBUserAgent\fP = 'Toolbox\&.Core\&.HttpApiService/1\&.0'\fR [get, set]\fP"
+.br
+.RI "Gets or sets the default User-Agent header\&. "
+.ti -1c
+.RI "IDictionary< string, string > \fBDefaultHeaders\fP = new Dictionary<string, string>()\fR [get]\fP"
+.br
+.RI "Gets the default headers to include in all requests\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration options for the HTTP API service\&. 
+
+These options configure HTTP client behavior and authentication\&. The authentication mode determines which credential properties are used\&. 
+
+.PP
+.PP
+.nf
+var options = new ApiOptions
+{
+    BaseUrl = "https://api\&.example\&.com",
+    AuthenticationMode = ApiAuthenticationMode\&.BearerToken,
+    BearerToken = "your\-token\-here",
+    Timeout = TimeSpan\&.FromSeconds(30)
+};
+.fi
+.PP
+ 
+.PP
+Definition at line \fB30\fP of file \fBApiOptions\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.ApiKey\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the API key value\&. The API key\&.
+
+.PP
+Used when \fBAuthenticationMode\fP is \fBApiAuthenticationMode\&.ApiKey\fP\&.
+.PP
+Definition at line \fB80\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "\fBApiKeyLocation\fP Toolbox\&.Core\&.Options\&.ApiOptions\&.ApiKeyLocation = \fBApiKeyLocation\&.Header\fP\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets where to send the API key\&. The location\&. Default is \fBApiKeyLocation\&.Header\fP\&.
+.PP
+Definition at line \fB92\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string Toolbox\&.Core\&.Options\&.ApiOptions\&.ApiKeyName = 'X\-API\-Key'\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the API key header or parameter name\&. The name (e\&.g\&., "X-API-Key" or "api_key")\&. Default is "X-API-Key"\&.
+.PP
+Definition at line \fB86\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "\fBApiAuthenticationMode\fP Toolbox\&.Core\&.Options\&.ApiOptions\&.AuthenticationMode = \fBApiAuthenticationMode\&.Anonymous\fP\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the authentication mode\&. The authentication mode\&. Default is \fBApiAuthenticationMode\&.Anonymous\fP\&.
+.PP
+Definition at line \fB42\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.BaseUrl\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the base URL for API requests\&. The base URL (e\&.g\&., "https://api\&.example\&.com")\&.
+.PP
+Definition at line \fB36\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.BearerToken\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the bearer token for authentication\&. The bearer token (without "Bearer" prefix)\&.
+
+.PP
+Used when \fBAuthenticationMode\fP is \fBApiAuthenticationMode\&.BearerToken\fP\&.
+.PP
+Definition at line \fB51\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.CertificatePassword\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the certificate password\&. The password for the certificate file\&.
+.PP
+Definition at line \fB115\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.CertificatePath\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the path to a PFX/PKCS#12 certificate file\&. The file path\&.
+.PP
+Definition at line \fB109\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "X509Certificate2? Toolbox\&.Core\&.Options\&.ApiOptions\&.ClientCertificate\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the client certificate for authentication\&. The X\&.509 certificate\&.
+
+.PP
+Used when \fBAuthenticationMode\fP is \fBApiAuthenticationMode\&.Certificate\fP\&.
+.PP
+Definition at line \fB103\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "IDictionary<string, string> Toolbox\&.Core\&.Options\&.ApiOptions\&.DefaultHeaders = new Dictionary<string, string>()\fR [get]\fP"
+
+.PP
+Gets the default headers to include in all requests\&. Dictionary of header names and values\&.
+.PP
+Definition at line \fB201\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiOptions\&.FollowRedirects = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets whether to follow redirects automatically\&. \fRtrue\fP to follow redirects; \fRfalse\fP to return redirect responses\&. Default is \fRtrue\fP\&.
+.PP
+Definition at line \fB183\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.ApiOptions\&.MaxRedirects = 10\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the maximum number of redirects to follow\&. The maximum redirects\&. Default is 10\&.
+.PP
+Definition at line \fB189\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "int Toolbox\&.Core\&.Options\&.ApiOptions\&.MaxRetries = 3\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the maximum number of retry attempts\&. The retry count\&. Default is 3\&.
+.PP
+Definition at line \fB159\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.OAuth2ClientId\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the OAuth2 client ID\&. The client ID\&.
+.PP
+Definition at line \fB131\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.OAuth2ClientSecret\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the OAuth2 client secret\&. The client secret\&.
+.PP
+Definition at line \fB137\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.OAuth2Scopes\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the OAuth2 scopes\&. Space-separated scopes (e\&.g\&., "read write")\&.
+.PP
+Definition at line \fB143\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.OAuth2TokenUrl\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the OAuth2 token endpoint URL\&. The token endpoint (e\&.g\&., "https://auth\&.example\&.com/oauth/token")\&.
+.PP
+Definition at line \fB125\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.Password\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the password for basic authentication\&. The password\&.
+
+.PP
+Used when \fBAuthenticationMode\fP is \fBApiAuthenticationMode\&.Basic\fP\&.
+.PP
+Definition at line \fB69\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.ApiOptions\&.RetryDelay = TimeSpan\&.FromSeconds(1)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the delay between retries\&. The retry delay\&. Default is 1 second\&.
+.PP
+Definition at line \fB165\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "TimeSpan Toolbox\&.Core\&.Options\&.ApiOptions\&.Timeout = TimeSpan\&.FromSeconds(30)\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the request timeout\&. The timeout\&. Default is 30 seconds\&.
+.PP
+Definition at line \fB153\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiOptions\&.UseExponentialBackoff = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets whether to use exponential backoff for retries\&. \fRtrue\fP for exponential backoff; \fRfalse\fP for fixed delay\&. Default is \fRtrue\fP\&.
+.PP
+Definition at line \fB171\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.UserAgent = 'Toolbox\&.Core\&.HttpApiService/1\&.0'\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the default User-Agent header\&. The User-Agent string\&.
+.PP
+Definition at line \fB195\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "string? Toolbox\&.Core\&.Options\&.ApiOptions\&.Username\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets the username for basic authentication\&. The username\&.
+
+.PP
+Used when \fBAuthenticationMode\fP is \fBApiAuthenticationMode\&.Basic\fP\&.
+.PP
+Definition at line \fB62\fP of file \fBApiOptions\&.cs\fP\&.
+.SS "bool Toolbox\&.Core\&.Options\&.ApiOptions\&.ValidateCertificate = true\fR [get]\fP, \fR [set]\fP"
+
+.PP
+Gets or sets whether to validate SSL certificates\&. \fRtrue\fP to validate (recommended); \fRfalse\fP to skip\&. Default is \fRtrue\fP\&.
+.PP
+Definition at line \fB177\fP of file \fBApiOptions\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__api_authentication_mode_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiAuthenticationMode.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/ApiAuthenticationMode.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">Toolbox.Core.Options.ApiAuthenticationMode</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0">Toolbox.Core.Options.Anonymous</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30">Toolbox.Core.Options.BearerToken</link> = 1
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94">Toolbox.Core.Options.Basic</link> = 2
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac">Toolbox.Core.Options.ApiKey</link> = 3
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6">Toolbox.Core.Options.Certificate</link> = 4
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249ab15bc0261f674d0bf43c084d770315b1">Toolbox.Core.Options.OAuth2ClientCredentials</link> = 5
+ }</para>
+
+<para>Specifies the authentication mode for API requests. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30">Toolbox.Core.Options.ApiKeyLocation</link> { <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7">Toolbox.Core.Options.Header</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477">Toolbox.Core.Options.QueryString</link> = 1
+ }</para>
+
+<para>Specifies where to send the API key. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

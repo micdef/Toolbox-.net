@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__smtp_security_mode_8cs" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/SmtpSecurityMode.cs File Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/SmtpSecurityMode.cs</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_toolbox">Toolbox</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core">Toolbox.Core</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_toolbox_1_1_core_1_1_options">Toolbox.Core.Options</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453">Toolbox.Core.Options.SmtpSecurityMode</link> { <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a06b9281e396db002010bde1de57262eb">Toolbox.Core.Options.Auto</link> = 0
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a6adf97f83acf6453d4a6a4b1070f3754">Toolbox.Core.Options.None</link> = 1
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a645e26a3aaab46321ec5ea64e6ebcbb1">Toolbox.Core.Options.StartTls</link> = 2
+, <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453af30af5d1ee9276422e8c482cd42fc377">Toolbox.Core.Options.StartTlsWhenAvailable</link> = 3
+, <?linebreak?><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a0a1f76d9ade3c05f751b22ef05061453a1ae39b3b0584084d66a8b31f7f43b6b1">Toolbox.Core.Options.SslOnConnect</link> = 4
+ }</para>
+
+<para>Specifies the security mode for SMTP connections. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

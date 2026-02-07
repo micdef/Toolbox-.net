@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_c307e4d7c35fdc24bd4af22505a28e67" xml:lang="en-US">
+<title>C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/obj Directory Reference</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/samples/Toolbox.Sample/obj Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_3f62e647bb2caf8850be3d5e9c776265">Debug</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_7c9b339cdd8cf6ba8a3b426849febd40">Release</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

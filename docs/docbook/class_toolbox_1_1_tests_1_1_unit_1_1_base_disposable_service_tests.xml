@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests" xml:lang="en-US">
+<title>Toolbox.Tests.Unit.BaseDisposableServiceTests Class Reference</title>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link>. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152">BaseDisposableServiceTests</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ab968db008c26c3e95840e894cd5b3a5e">Constructor_ShouldSetServiceName</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a42482755bb1152e1903d56c89640b06a">Constructor_WithNullServiceName_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9c7abe12937f10d4194e70d6a8dba7ee">Constructor_WithNullLogger_ShouldThrowArgumentNullException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a8f0d4ba996103b3f1e3cd08c38e6a642">IsDisposed_WhenNotDisposed_ShouldReturnFalse</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a48cede2a84fe8a0fb8b5a64b1a0ab723">IsDisposed_AfterDispose_ShouldReturnTrue</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a842f041f72d1ff7154cb208104641a98">Dispose_ShouldBeIdempotent</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ac4733d2a15b4c459b4ae96a12ce83cba">ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9e9576babedfcaccf6a65e8416566f24">ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a123a31640f9d7d7a1ff85c06a5b43381">ActivitySource_ShouldReturnToolboxActivitySource</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a678289211577806055471776fea65995">Meter_ShouldReturnToolboxMeter</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a70cde4accd521d78c9287bcbd864e5cb">Dispose_ShouldBeThreadSafe</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_tests_1_1_unit">Unit</link> tests for <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link>. </para>
+<para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00010">10</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a974934398011a8bf5f6e3e60f5178152"/><section>
+    <title>BaseDisposableServiceTests()</title>
+<indexterm><primary>BaseDisposableServiceTests</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>BaseDisposableServiceTests</secondary></indexterm>
+<para><computeroutput>Toolbox.Tests.Unit.BaseDisposableServiceTests.BaseDisposableServiceTests ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00014">14</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a123a31640f9d7d7a1ff85c06a5b43381"/><section>
+    <title>ActivitySource_ShouldReturnToolboxActivitySource()</title>
+<indexterm><primary>ActivitySource_ShouldReturnToolboxActivitySource</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>ActivitySource_ShouldReturnToolboxActivitySource</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.ActivitySource_ShouldReturnToolboxActivitySource ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00117">117</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ab968db008c26c3e95840e894cd5b3a5e"/><section>
+    <title>Constructor_ShouldSetServiceName()</title>
+<indexterm><primary>Constructor_ShouldSetServiceName</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>Constructor_ShouldSetServiceName</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_ShouldSetServiceName ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00020">20</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9c7abe12937f10d4194e70d6a8dba7ee"/><section>
+    <title>Constructor_WithNullLogger_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>Constructor_WithNullLogger_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_WithNullLogger_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00041">41</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a42482755bb1152e1903d56c89640b06a"/><section>
+    <title>Constructor_WithNullServiceName_ShouldThrowArgumentNullException()</title>
+<indexterm><primary>Constructor_WithNullServiceName_ShouldThrowArgumentNullException</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>Constructor_WithNullServiceName_ShouldThrowArgumentNullException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Constructor_WithNullServiceName_ShouldThrowArgumentNullException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00030">30</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a842f041f72d1ff7154cb208104641a98"/><section>
+    <title>Dispose_ShouldBeIdempotent()</title>
+<indexterm><primary>Dispose_ShouldBeIdempotent</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>Dispose_ShouldBeIdempotent</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Dispose_ShouldBeIdempotent ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00075">75</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a70cde4accd521d78c9287bcbd864e5cb"/><section>
+    <title>Dispose_ShouldBeThreadSafe()</title>
+<indexterm><primary>Dispose_ShouldBeThreadSafe</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>Dispose_ShouldBeThreadSafe</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Dispose_ShouldBeThreadSafe ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00137">137</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a48cede2a84fe8a0fb8b5a64b1a0ab723"/><section>
+    <title>IsDisposed_AfterDispose_ShouldReturnTrue()</title>
+<indexterm><primary>IsDisposed_AfterDispose_ShouldReturnTrue</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>IsDisposed_AfterDispose_ShouldReturnTrue</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.IsDisposed_AfterDispose_ShouldReturnTrue ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00062">62</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a8f0d4ba996103b3f1e3cd08c38e6a642"/><section>
+    <title>IsDisposed_WhenNotDisposed_ShouldReturnFalse()</title>
+<indexterm><primary>IsDisposed_WhenNotDisposed_ShouldReturnFalse</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>IsDisposed_WhenNotDisposed_ShouldReturnFalse</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.IsDisposed_WhenNotDisposed_ShouldReturnFalse ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00052">52</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a678289211577806055471776fea65995"/><section>
+    <title>Meter_ShouldReturnToolboxMeter()</title>
+<indexterm><primary>Meter_ShouldReturnToolboxMeter</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>Meter_ShouldReturnToolboxMeter</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.Meter_ShouldReturnToolboxMeter ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00127">127</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1a9e9576babedfcaccf6a65e8416566f24"/><section>
+    <title>ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException()</title>
+<indexterm><primary>ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.ThrowIfDisposed_WhenDisposed_ShouldThrowObjectDisposedException ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00103">103</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_tests_1_1_unit_1_1_base_disposable_service_tests_1ac4733d2a15b4c459b4ae96a12ce83cba"/><section>
+    <title>ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow()</title>
+<indexterm><primary>ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</primary><secondary>Toolbox.Tests.Unit.BaseDisposableServiceTests</secondary></indexterm>
+<indexterm><primary>Toolbox.Tests.Unit.BaseDisposableServiceTests</primary><secondary>ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow</secondary></indexterm>
+<para><computeroutput>void Toolbox.Tests.Unit.BaseDisposableServiceTests.ThrowIfDisposed_WhenNotDisposed_ShouldNotThrow ( )</computeroutput></para><para>
+Definition at line <link linkend="__base_disposable_service_tests_8cs_source_1l00090">90</link> of file <link linkend="__base_disposable_service_tests_8cs_source">BaseDisposableServiceTests.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/tests/Toolbox.Tests/Unit/<link linkend="__base_disposable_service_tests_8cs">BaseDisposableServiceTests.cs</link></section>
+</section>

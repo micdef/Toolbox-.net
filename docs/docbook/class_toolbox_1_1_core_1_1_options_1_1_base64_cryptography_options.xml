@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options" xml:lang="en-US">
+<title>Toolbox.Core.Options.Base64CryptographyOptions Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.Base64CryptographyOptions</primary></indexterm>
+<para>
+
+<para>Configuration options for the Base64 cryptography service. </para>
+ 
+</para>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>const string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1ad44e2c1a33e08fd0c76ec687525cccc9">SectionName</link> = &quot;Toolbox:Cryptography:Base64&quot;</para>
+
+<para>The configuration section name for Base64 cryptography options. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a214c81a47799865e51cf7e56b7edf13e">EncodingTable</link> = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">Base64EncodingTable.Standard</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the encoding table to use. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a9f2d8fa3947244e6872b3cca8748d79d">IncludePadding</link> = true<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets a value indicating whether padding should be included. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Configuration options for the Base64 cryptography service. </para>
+
+
+
+<para>These options control the encoding behavior of the Base64 service. </para>
+<para>
+Definition at line <link linkend="__base64_cryptography_options_8cs_source_1l00014">14</link> of file <link linkend="__base64_cryptography_options_8cs_source">Base64CryptographyOptions.cs</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1ad44e2c1a33e08fd0c76ec687525cccc9"/><section>
+    <title>SectionName</title>
+<indexterm><primary>SectionName</primary><secondary>Toolbox.Core.Options.Base64CryptographyOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.Base64CryptographyOptions</primary><secondary>SectionName</secondary></indexterm>
+<para><computeroutput>const string Toolbox.Core.Options.Base64CryptographyOptions.SectionName = &quot;Toolbox:Cryptography:Base64&quot;<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>The configuration section name for Base64 cryptography options. </para>
+</para>
+<para>
+Definition at line <link linkend="__base64_cryptography_options_8cs_source_1l00019">19</link> of file <link linkend="__base64_cryptography_options_8cs_source">Base64CryptographyOptions.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a214c81a47799865e51cf7e56b7edf13e"/><section>
+    <title>EncodingTable</title>
+<indexterm><primary>EncodingTable</primary><secondary>Toolbox.Core.Options.Base64CryptographyOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.Base64CryptographyOptions</primary><secondary>EncodingTable</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</link> Toolbox.Core.Options.Base64CryptographyOptions.EncodingTable = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">Base64EncodingTable.Standard</link><computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the encoding table to use. </para>
+</para>
+
+<para>The Base64 encoding table. Defaults to <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aae4ac17f23177c2ad802591f98604287aeb6d8ae6f20283755b339c0dc273988b">Base64EncodingTable.Standard</link>. </para>
+<para>
+Definition at line <link linkend="__base64_cryptography_options_8cs_source_1l00027">27</link> of file <link linkend="__base64_cryptography_options_8cs_source">Base64CryptographyOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_base64_cryptography_options_1a9f2d8fa3947244e6872b3cca8748d79d"/><section>
+    <title>IncludePadding</title>
+<indexterm><primary>IncludePadding</primary><secondary>Toolbox.Core.Options.Base64CryptographyOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.Base64CryptographyOptions</primary><secondary>IncludePadding</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.Base64CryptographyOptions.IncludePadding = true<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets a value indicating whether padding should be included. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> to include &apos;=&apos; padding characters; <computeroutput>false</computeroutput> to omit them. Defaults to <computeroutput>true</computeroutput>. </para>
+
+<para>Padding is required by the Base64 standard but can be omitted in some contexts. When decoding, the service handles both padded and unpadded input. </para>
+<para>
+Definition at line <link linkend="__base64_cryptography_options_8cs_source_1l00040">40</link> of file <link linkend="__base64_cryptography_options_8cs_source">Base64CryptographyOptions.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__base64_cryptography_options_8cs">Base64CryptographyOptions.cs</link></section>
+</section>

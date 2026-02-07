@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__i_instrumented_service_8cs_source" xml:lang="en-US">
+<title>IInstrumentedService.cs</title>
+<indexterm><primary>C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Abstractions/IInstrumentedService.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__i_instrumented_service_8cs_source_1l00001"/>00001 <emphasis role="comment">//&#32;@file&#32;IInstrumentedService.cs</emphasis>
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00002"/>00002 <emphasis role="comment">//&#32;@brief&#32;Interface&#32;for&#32;services&#32;with&#32;OpenTelemetry&#32;instrumentation</emphasis>
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00003"/>00003 <emphasis role="comment">//&#32;@details&#32;Defines&#32;the&#32;contract&#32;for&#32;services&#32;that&#32;expose&#32;telemetry&#32;through&#32;ActivitySource&#32;and&#32;Meter</emphasis>
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00004"/>00004 <emphasis role="comment">//&#32;@note&#32;Services&#32;implementing&#32;this&#32;interface&#32;participate&#32;in&#32;distributed&#32;tracing&#32;and&#32;metrics&#32;collection</emphasis>
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00005"/>00005 
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00006"/>00006 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_toolbox_1_1_core_1_1_abstractions">Toolbox.Core.Abstractions</link>;
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00007"/>00007 
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00021"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">00021</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">interface&#32;</emphasis><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">IInstrumentedService</link>
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00022"/>00022 {
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00031"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">00031</link> &#32;&#32;&#32;&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">ActivitySource</link>&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">ActivitySource</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;}
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00032"/>00032 
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00041"/><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">00041</link> &#32;&#32;&#32;&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Meter</link>&#32;<link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Meter</link>&#32;{&#32;<emphasis role="keyword">get</emphasis>;&#32;}
+<anchor xml:id="__i_instrumented_service_8cs_source_1l00042"/>00042 }
+</programlisting></section>

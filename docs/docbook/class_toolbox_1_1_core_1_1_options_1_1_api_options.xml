@@ -1,0 +1,482 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options" xml:lang="en-US">
+<title>Toolbox.Core.Options.ApiOptions Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary></indexterm>
+<para>
+
+<para>Configuration options for the HTTP API service. </para>
+ 
+</para>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1ab7fbf158825dcfdab7fdb56edd8eb652">BaseUrl</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the base URL for API requests. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link> = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0">ApiAuthenticationMode.Anonymous</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the authentication mode. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1adaa7ce66c1939d638d19244193f26837">BearerToken</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the bearer token for authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a97a7365ec0769e038aaeea4be4b0bb50">Username</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the username for basic authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a58e0a0c3c1f54b81fd8d8f406a684869">Password</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the password for basic authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1aab45300e4a1a09f2fd4d830a25999006">ApiKey</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the API key value. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a07786e9a5413d5a9c9556c2c45e06c90">ApiKeyName</link> = &quot;X-API-Key&quot;<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the API key header or parameter name. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30">ApiKeyLocation</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a494b64c3abe07a88097daa454855e6f4">ApiKeyLocation</link> = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7">ApiKeyLocation.Header</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets where to send the API key. </para>
+</listitem>
+            <listitem><para>X509Certificate2? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a52c2418d08cd8e2abd3ac18007f0b062">ClientCertificate</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the client certificate for authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a091dc62a1f1c8c73993c8e023e385b40">CertificatePath</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the path to a PFX/PKCS#12 certificate file. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fbbdeb293875a6794fd8d14f6f8f491">CertificatePassword</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the certificate password. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a5e8fb0aa4595eafad53d1eb80dfe3757">OAuth2TokenUrl</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the OAuth2 token endpoint URL. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4c490b62f0b75becbfa4245d6f1f0d5a">OAuth2ClientId</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the OAuth2 client ID. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1af3c6ddb9688e27881baff0c41ddcb37f">OAuth2ClientSecret</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the OAuth2 client secret. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a6413ef1fa1ac2f837dcded107d180e49">OAuth2Scopes</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the OAuth2 scopes. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a60ec33964b858f8522f6fc41e7d1d20e">Timeout</link> = TimeSpan.FromSeconds(30)<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the request timeout. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a57f0285af6fe846c5613690aa42ffa04">MaxRetries</link> = 3<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the maximum number of retry attempts. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1af7b1d566cbbe3694b5584abf7ba797bc">RetryDelay</link> = TimeSpan.FromSeconds(1)<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the delay between retries. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a9c9db36422b7f6f98c438a22a5b8869a">UseExponentialBackoff</link> = true<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets whether to use exponential backoff for retries. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fa72ff5b9e293a649c6c567e71fa98f">ValidateCertificate</link> = true<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets whether to validate SSL certificates. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a0033c861e010757102e58400ea48c00c">FollowRedirects</link> = true<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets whether to follow redirects automatically. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1b349cf42ca14eb0d4da7fa2ed1217d8">MaxRedirects</link> = 10<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the maximum number of redirects to follow. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a75f953ecee87a17859cebaa00fdd4bcc">UserAgent</link> = &quot;Toolbox.Core.HttpApiService/1.0&quot;<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the default User-Agent header. </para>
+</listitem>
+            <listitem><para>IDictionary&lt; string, string &gt; <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a330e944f0f05473cd9636241ad7a1d85">DefaultHeaders</link> = new Dictionary&lt;string, string&gt;()<computeroutput> [get]</computeroutput>
+</para>
+
+<para>Gets the default headers to include in all requests. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Configuration options for the HTTP API service. </para>
+
+
+
+<para>These options configure HTTP client behavior and authentication. The authentication mode determines which credential properties are used. </para>
+
+<para><literallayout><computeroutput>var&#32;options&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;ApiOptions
+{
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1ab7fbf158825dcfdab7fdb56edd8eb652">BaseUrl</link>&#32;=&#32;<emphasis role="stringliteral">&quot;https://api.example.com&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link>&#32;=&#32;<link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link>.BearerToken,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1adaa7ce66c1939d638d19244193f26837">BearerToken</link>&#32;=&#32;<emphasis role="stringliteral">&quot;your-token-here&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a60ec33964b858f8522f6fc41e7d1d20e">Timeout</link>&#32;=&#32;TimeSpan.FromSeconds(30)
+};
+</computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00030">30</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1aab45300e4a1a09f2fd4d830a25999006"/><section>
+    <title>ApiKey</title>
+<indexterm><primary>ApiKey</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>ApiKey</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.ApiKey<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the API key value. </para>
+</para>
+
+<para>The API key.</para>
+
+<para>Used when <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link> is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a806737984ab19be2fd08ba36030549ac">ApiAuthenticationMode.ApiKey</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00080">80</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a494b64c3abe07a88097daa454855e6f4"/><section>
+    <title>ApiKeyLocation</title>
+<indexterm><primary>ApiKeyLocation</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>ApiKeyLocation</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30">ApiKeyLocation</link> Toolbox.Core.Options.ApiOptions.ApiKeyLocation = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7">ApiKeyLocation.Header</link><computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets where to send the API key. </para>
+</para>
+
+<para>The location. Default is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1a5fee6f0e4a878865f082011a3248da30abf50d5e661106d0abe925af3c2e6f7e7">ApiKeyLocation.Header</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00092">92</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a07786e9a5413d5a9c9556c2c45e06c90"/><section>
+    <title>ApiKeyName</title>
+<indexterm><primary>ApiKeyName</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>ApiKeyName</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.ApiOptions.ApiKeyName = &quot;X-API-Key&quot;<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the API key header or parameter name. </para>
+</para>
+
+<para>The name (e.g., &quot;X-API-Key&quot; or &quot;api_key&quot;). Default is &quot;X-API-Key&quot;.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00086">86</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef"/><section>
+    <title>AuthenticationMode</title>
+<indexterm><primary>AuthenticationMode</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>AuthenticationMode</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249">ApiAuthenticationMode</link> Toolbox.Core.Options.ApiOptions.AuthenticationMode = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0">ApiAuthenticationMode.Anonymous</link><computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the authentication mode. </para>
+</para>
+
+<para>The authentication mode. Default is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a7079c72c21415131774625ba1d64f4b0">ApiAuthenticationMode.Anonymous</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00042">42</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1ab7fbf158825dcfdab7fdb56edd8eb652"/><section>
+    <title>BaseUrl</title>
+<indexterm><primary>BaseUrl</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>BaseUrl</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.BaseUrl<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the base URL for API requests. </para>
+</para>
+
+<para>The base URL (e.g., &quot;https://api.example.com&quot;).</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00036">36</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1adaa7ce66c1939d638d19244193f26837"/><section>
+    <title>BearerToken</title>
+<indexterm><primary>BearerToken</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>BearerToken</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.BearerToken<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the bearer token for authentication. </para>
+</para>
+
+<para>The bearer token (without &quot;Bearer&quot; prefix).</para>
+
+<para>Used when <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link> is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a253785399f3b6ebad2e59af8f9d80b30">ApiAuthenticationMode.BearerToken</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00051">51</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fbbdeb293875a6794fd8d14f6f8f491"/><section>
+    <title>CertificatePassword</title>
+<indexterm><primary>CertificatePassword</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>CertificatePassword</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.CertificatePassword<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the certificate password. </para>
+</para>
+
+<para>The password for the certificate file.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00115">115</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a091dc62a1f1c8c73993c8e023e385b40"/><section>
+    <title>CertificatePath</title>
+<indexterm><primary>CertificatePath</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>CertificatePath</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.CertificatePath<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the path to a PFX/PKCS#12 certificate file. </para>
+</para>
+
+<para>The file path.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00109">109</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a52c2418d08cd8e2abd3ac18007f0b062"/><section>
+    <title>ClientCertificate</title>
+<indexterm><primary>ClientCertificate</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>ClientCertificate</secondary></indexterm>
+<para><computeroutput>X509Certificate2? Toolbox.Core.Options.ApiOptions.ClientCertificate<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the client certificate for authentication. </para>
+</para>
+
+<para>The X.509 certificate.</para>
+
+<para>Used when <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link> is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249aeb0f48a107df1a0f343d4cd513b555e6">ApiAuthenticationMode.Certificate</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00103">103</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a330e944f0f05473cd9636241ad7a1d85"/><section>
+    <title>DefaultHeaders</title>
+<indexterm><primary>DefaultHeaders</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>DefaultHeaders</secondary></indexterm>
+<para><computeroutput>IDictionary&lt;string, string&gt; Toolbox.Core.Options.ApiOptions.DefaultHeaders = new Dictionary&lt;string, string&gt;()<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Gets the default headers to include in all requests. </para>
+</para>
+
+<para>Dictionary of header names and values.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00201">201</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a0033c861e010757102e58400ea48c00c"/><section>
+    <title>FollowRedirects</title>
+<indexterm><primary>FollowRedirects</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>FollowRedirects</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiOptions.FollowRedirects = true<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets whether to follow redirects automatically. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> to follow redirects; <computeroutput>false</computeroutput> to return redirect responses. Default is <computeroutput>true</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00183">183</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1b349cf42ca14eb0d4da7fa2ed1217d8"/><section>
+    <title>MaxRedirects</title>
+<indexterm><primary>MaxRedirects</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>MaxRedirects</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.ApiOptions.MaxRedirects = 10<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the maximum number of redirects to follow. </para>
+</para>
+
+<para>The maximum redirects. Default is 10.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00189">189</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a57f0285af6fe846c5613690aa42ffa04"/><section>
+    <title>MaxRetries</title>
+<indexterm><primary>MaxRetries</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>MaxRetries</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.ApiOptions.MaxRetries = 3<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the maximum number of retry attempts. </para>
+</para>
+
+<para>The retry count. Default is 3.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00159">159</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4c490b62f0b75becbfa4245d6f1f0d5a"/><section>
+    <title>OAuth2ClientId</title>
+<indexterm><primary>OAuth2ClientId</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>OAuth2ClientId</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.OAuth2ClientId<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the OAuth2 client ID. </para>
+</para>
+
+<para>The client ID.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00131">131</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1af3c6ddb9688e27881baff0c41ddcb37f"/><section>
+    <title>OAuth2ClientSecret</title>
+<indexterm><primary>OAuth2ClientSecret</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>OAuth2ClientSecret</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.OAuth2ClientSecret<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the OAuth2 client secret. </para>
+</para>
+
+<para>The client secret.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00137">137</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a6413ef1fa1ac2f837dcded107d180e49"/><section>
+    <title>OAuth2Scopes</title>
+<indexterm><primary>OAuth2Scopes</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>OAuth2Scopes</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.OAuth2Scopes<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the OAuth2 scopes. </para>
+</para>
+
+<para>Space-separated scopes (e.g., &quot;read write&quot;).</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00143">143</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a5e8fb0aa4595eafad53d1eb80dfe3757"/><section>
+    <title>OAuth2TokenUrl</title>
+<indexterm><primary>OAuth2TokenUrl</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>OAuth2TokenUrl</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.OAuth2TokenUrl<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the OAuth2 token endpoint URL. </para>
+</para>
+
+<para>The token endpoint (e.g., &quot;https://auth.example.com/oauth/token&quot;).</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00125">125</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a58e0a0c3c1f54b81fd8d8f406a684869"/><section>
+    <title>Password</title>
+<indexterm><primary>Password</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>Password</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.Password<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the password for basic authentication. </para>
+</para>
+
+<para>The password.</para>
+
+<para>Used when <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link> is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94">ApiAuthenticationMode.Basic</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00069">69</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1af7b1d566cbbe3694b5584abf7ba797bc"/><section>
+    <title>RetryDelay</title>
+<indexterm><primary>RetryDelay</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>RetryDelay</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.ApiOptions.RetryDelay = TimeSpan.FromSeconds(1)<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the delay between retries. </para>
+</para>
+
+<para>The retry delay. Default is 1 second.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00165">165</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a60ec33964b858f8522f6fc41e7d1d20e"/><section>
+    <title>Timeout</title>
+<indexterm><primary>Timeout</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>Timeout</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.ApiOptions.Timeout = TimeSpan.FromSeconds(30)<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the request timeout. </para>
+</para>
+
+<para>The timeout. Default is 30 seconds.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00153">153</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a9c9db36422b7f6f98c438a22a5b8869a"/><section>
+    <title>UseExponentialBackoff</title>
+<indexterm><primary>UseExponentialBackoff</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>UseExponentialBackoff</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiOptions.UseExponentialBackoff = true<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets whether to use exponential backoff for retries. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> for exponential backoff; <computeroutput>false</computeroutput> for fixed delay. Default is <computeroutput>true</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00171">171</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a75f953ecee87a17859cebaa00fdd4bcc"/><section>
+    <title>UserAgent</title>
+<indexterm><primary>UserAgent</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>UserAgent</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.UserAgent = &quot;Toolbox.Core.HttpApiService/1.0&quot;<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the default User-Agent header. </para>
+</para>
+
+<para>The User-Agent string.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00195">195</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a97a7365ec0769e038aaeea4be4b0bb50"/><section>
+    <title>Username</title>
+<indexterm><primary>Username</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>Username</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.ApiOptions.Username<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the username for basic authentication. </para>
+</para>
+
+<para>The username.</para>
+
+<para>Used when <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a4f8948ba94f1beeaabbad315f4f181ef">AuthenticationMode</link> is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1ab22b6f43cc1f7c3dbad33cb7aa555249a972e73b7a882d0802a4e3a16946a2f94">ApiAuthenticationMode.Basic</link>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00062">62</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_api_options_1a1fa72ff5b9e293a649c6c567e71fa98f"/><section>
+    <title>ValidateCertificate</title>
+<indexterm><primary>ValidateCertificate</primary><secondary>Toolbox.Core.Options.ApiOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.ApiOptions</primary><secondary>ValidateCertificate</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.ApiOptions.ValidateCertificate = true<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets whether to validate SSL certificates. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> to validate (recommended); <computeroutput>false</computeroutput> to skip. Default is <computeroutput>true</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__api_options_8cs_source_1l00177">177</link> of file <link linkend="__api_options_8cs_source">ApiOptions.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__api_options_8cs">ApiOptions.cs</link></section>
+</section>

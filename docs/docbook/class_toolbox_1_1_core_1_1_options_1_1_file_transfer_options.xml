@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options" xml:lang="en-US">
+<title>Toolbox.Core.Options.FileTransferOptions Class Reference</title>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary></indexterm>
+<para>
+
+<para>Configuration options for file transfer services. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b">GetDefaultPort</link> ()</para>
+
+<para>Gets the default port for the current protocol. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a2c798a4aab8c3364a81a0913747bb6db">GetEffectivePort</link> ()</para>
+
+<para>Gets the effective port, using the default if not explicitly set. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>const string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ada6c9c5bc36991f94f147061b3dd922a">SectionName</link> = &quot;Toolbox:FileTransfer&quot;</para>
+
+<para>The configuration section name for binding. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a73afc07437abda81838a9319394b68af">Host</link> = string.Empty<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the server hostname or IP address. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a970c1d03c039471cad314f80af179c04">Port</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the server port. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa28f8b568093e1c0151fef417a0bd8e0">Username</link> = string.Empty<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the username for authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab06f316edd65c9230b21a4855bd24948">Password</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the password for authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a75bd8e0fb9ac0f1a306d584c21581ded">PrivateKeyPath</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the private key file path for SFTP key-based authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab94e3d4e8625bb6c1f327556d2212337">PrivateKeyContent</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the private key content for SFTP key-based authentication. </para>
+</listitem>
+            <listitem><para>string? <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1af5d39a7a27cd05c27b717b4548f9c707">PrivateKeyPassphrase</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the passphrase for the private key. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link> <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a300625ffc14d0f4b71421214ba75cd22">Protocol</link> = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">FileTransferProtocol.Sftp</link><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the file transfer protocol to use. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa0fb481aaa49ac52598cf12d8703dae0">ConnectionTimeout</link> = TimeSpan.FromSeconds(30)<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the connection timeout. </para>
+</listitem>
+            <listitem><para>TimeSpan <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ac54159454fd2e283a8801db7fadbad">OperationTimeout</link> = TimeSpan.FromSeconds(60)<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the operation timeout for read/write operations. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa62a9edcfa5074516330e0b81b3bec64">AutoCreateDirectory</link> = true<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets a value indicating whether to automatically create remote directories. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ee3b55b533fd77b39dd73ca2159c77a">BufferSize</link> = 32 * 1024<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Gets or sets the buffer size for file transfers. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Configuration options for file transfer services. </para>
+
+
+
+<para>These options configure the connection to FTP/SFTP servers. </para>
+
+<para>For SFTP, you can use either password authentication or private key authentication. </para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00019">19</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a04947fbfcad2d865623906c932e4472b"/><section>
+    <title>GetDefaultPort()</title>
+<indexterm><primary>GetDefaultPort</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>GetDefaultPort</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.FileTransferOptions.GetDefaultPort ( )</computeroutput></para><para>
+
+<para>Gets the default port for the current protocol. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The default port number.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00102">102</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a2c798a4aab8c3364a81a0913747bb6db"/><section>
+    <title>GetEffectivePort()</title>
+<indexterm><primary>GetEffectivePort</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>GetEffectivePort</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.FileTransferOptions.GetEffectivePort ( )</computeroutput></para><para>
+
+<para>Gets the effective port, using the default if not explicitly set. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The port number to use.</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00114">114</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ada6c9c5bc36991f94f147061b3dd922a"/><section>
+    <title>SectionName</title>
+<indexterm><primary>SectionName</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>SectionName</secondary></indexterm>
+<para><computeroutput>const string Toolbox.Core.Options.FileTransferOptions.SectionName = &quot;Toolbox:FileTransfer&quot;<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>The configuration section name for binding. </para>
+</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00024">24</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa62a9edcfa5074516330e0b81b3bec64"/><section>
+    <title>AutoCreateDirectory</title>
+<indexterm><primary>AutoCreateDirectory</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>AutoCreateDirectory</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Options.FileTransferOptions.AutoCreateDirectory = true<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets a value indicating whether to automatically create remote directories. </para>
+</para>
+
+<para><computeroutput>true</computeroutput> to auto-create directories; otherwise, <computeroutput>false</computeroutput>. Default is <computeroutput>true</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00090">90</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ee3b55b533fd77b39dd73ca2159c77a"/><section>
+    <title>BufferSize</title>
+<indexterm><primary>BufferSize</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>BufferSize</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.FileTransferOptions.BufferSize = 32 * 1024<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the buffer size for file transfers. </para>
+</para>
+
+<para>The buffer size in bytes. Default is 32 KB.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00096">96</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa0fb481aaa49ac52598cf12d8703dae0"/><section>
+    <title>ConnectionTimeout</title>
+<indexterm><primary>ConnectionTimeout</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>ConnectionTimeout</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.FileTransferOptions.ConnectionTimeout = TimeSpan.FromSeconds(30)<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the connection timeout. </para>
+</para>
+
+<para>The timeout duration. Default is 30 seconds.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00078">78</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a73afc07437abda81838a9319394b68af"/><section>
+    <title>Host</title>
+<indexterm><primary>Host</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>Host</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.FileTransferOptions.Host = string.Empty<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the server hostname or IP address. </para>
+</para>
+
+<para>The server address.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00030">30</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a4ac54159454fd2e283a8801db7fadbad"/><section>
+    <title>OperationTimeout</title>
+<indexterm><primary>OperationTimeout</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>OperationTimeout</secondary></indexterm>
+<para><computeroutput>TimeSpan Toolbox.Core.Options.FileTransferOptions.OperationTimeout = TimeSpan.FromSeconds(60)<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the operation timeout for read/write operations. </para>
+</para>
+
+<para>The timeout duration. Default is 60 seconds.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00084">84</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab06f316edd65c9230b21a4855bd24948"/><section>
+    <title>Password</title>
+<indexterm><primary>Password</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>Password</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.FileTransferOptions.Password<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the password for authentication. </para>
+</para>
+
+<para>The password, or <computeroutput>null</computeroutput> for key-based authentication.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00048">48</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a970c1d03c039471cad314f80af179c04"/><section>
+    <title>Port</title>
+<indexterm><primary>Port</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>Port</secondary></indexterm>
+<para><computeroutput>int Toolbox.Core.Options.FileTransferOptions.Port<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the server port. </para>
+</para>
+
+<para>The port number. Default is 21 for FTP, 22 for SFTP.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00036">36</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1ab94e3d4e8625bb6c1f327556d2212337"/><section>
+    <title>PrivateKeyContent</title>
+<indexterm><primary>PrivateKeyContent</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>PrivateKeyContent</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.FileTransferOptions.PrivateKeyContent<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the private key content for SFTP key-based authentication. </para>
+</para>
+
+<para>The private key content as a string, or <computeroutput>null</computeroutput>.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00060">60</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1af5d39a7a27cd05c27b717b4548f9c707"/><section>
+    <title>PrivateKeyPassphrase</title>
+<indexterm><primary>PrivateKeyPassphrase</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>PrivateKeyPassphrase</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.FileTransferOptions.PrivateKeyPassphrase<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the passphrase for the private key. </para>
+</para>
+
+<para>The passphrase, or <computeroutput>null</computeroutput> if the key is not encrypted.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00066">66</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a75bd8e0fb9ac0f1a306d584c21581ded"/><section>
+    <title>PrivateKeyPath</title>
+<indexterm><primary>PrivateKeyPath</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>PrivateKeyPath</secondary></indexterm>
+<para><computeroutput>string? Toolbox.Core.Options.FileTransferOptions.PrivateKeyPath<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the private key file path for SFTP key-based authentication. </para>
+</para>
+
+<para>The path to the private key file, or <computeroutput>null</computeroutput> for password authentication.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00054">54</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1a300625ffc14d0f4b71421214ba75cd22"/><section>
+    <title>Protocol</title>
+<indexterm><primary>Protocol</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>Protocol</secondary></indexterm>
+<para><computeroutput><link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</link> Toolbox.Core.Options.FileTransferOptions.Protocol = <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">FileTransferProtocol.Sftp</link><computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the file transfer protocol to use. </para>
+</para>
+
+<para>The protocol. Default is <link linkend="_namespace_toolbox_1_1_core_1_1_options_1aa64f23a5d7659cdbe89265ce2d23086caefa3f4451afa6d5c9afddae2d8a81484">FileTransferProtocol.Sftp</link>.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00072">72</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options_1aa28f8b568093e1c0151fef417a0bd8e0"/><section>
+    <title>Username</title>
+<indexterm><primary>Username</primary><secondary>Toolbox.Core.Options.FileTransferOptions</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Options.FileTransferOptions</primary><secondary>Username</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Options.FileTransferOptions.Username = string.Empty<computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Gets or sets the username for authentication. </para>
+</para>
+
+<para>The username.</para>
+<para>
+Definition at line <link linkend="__file_transfer_options_8cs_source_1l00042">42</link> of file <link linkend="__file_transfer_options_8cs_source">FileTransferOptions.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Options/<link linkend="__file_transfer_options_8cs">FileTransferOptions.cs</link></section>
+</section>

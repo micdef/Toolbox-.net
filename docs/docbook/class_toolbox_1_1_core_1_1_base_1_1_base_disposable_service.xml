@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service" xml:lang="en-US">
+<title>Toolbox.Core.Base.BaseDisposableService Class Reference</title>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary></indexterm>
+<para>
+
+<para>Abstract base class providing a thread-safe implementation of the dispose pattern with integrated telemetry support. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Base.BaseDisposableService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link> ()</para>
+
+<para>Releases all resources used by this service. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0">BaseDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1abe66f7a1e36466851f1a3df7ce2cc51c">Dispose</link> (bool disposing)</para>
+
+<para>Releases the unmanaged resources used by this service and optionally releases managed resources. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link> ()</para>
+
+<para>Throws an ObjectDisposedException if this service has been disposed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link> (string operationName, double durationMs)</para>
+
+<para>Records an operation metric with the specified name and duration. </para>
+</listitem>
+            <listitem><para>Activity? <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link> ([CallerMemberName] string operationName=&quot;&quot;)</para>
+
+<para>Starts a new activity for the specified operation. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the unique name identifying this service instance.</para>
+
+<para>A human-readable name for logging and diagnostics.</para>
+ </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets a value indicating whether this service has been disposed.</para>
+
+<para><computeroutput>true</computeroutput> if the service has been disposed; otherwise, <computeroutput>false</computeroutput>.</para>
+ </para>
+</listitem>
+            <listitem><para>ActivitySource <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing.</para>
+
+<para>The activity source used to create spans for this service.</para>
+ </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection.</para>
+
+<para>The meter used to create instruments for this service.</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Abstract base class providing a thread-safe implementation of the dispose pattern with integrated telemetry support. </para>
+
+
+
+<para>This class implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link> and <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">IInstrumentedService</link>, providing a consistent foundation for building disposable services. </para>
+
+<para>Derived classes should override <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1abe66f7a1e36466851f1a3df7ce2cc51c">Dispose(bool)</link> to release their resources. The base implementation handles thread-safety and telemetry automatically. </para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service">IDisposableService</link>, <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service">IInstrumentedService</link></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00027">27</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0"/><section>
+    <title>BaseDisposableService()</title>
+<indexterm><primary>BaseDisposableService</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>BaseDisposableService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Base.BaseDisposableService.BaseDisposableService (string serviceName, ILogger logger)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>serviceName</entry><entry>
+<para>The name identifying this service instance.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger for diagnostic output.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>serviceName</emphasis>  or <emphasis>logger</emphasis>  is <computeroutput>null</computeroutput>. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00043">43</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89"/><section>
+    <title>Dispose()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Dispose</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>Dispose</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Base.BaseDisposableService.Dispose ( )</computeroutput></para><para>
+
+<para>Releases all resources used by this service. </para>
+</para>
+
+<para>This method is thread-safe and can be called multiple times. Only the first call will release resources. </para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00071">71</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1abe66f7a1e36466851f1a3df7ce2cc51c"/><section>
+    <title>Dispose()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Dispose</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>Dispose</secondary></indexterm>
+<para><computeroutput>virtual void Toolbox.Core.Base.BaseDisposableService.Dispose (bool disposing)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Releases the unmanaged resources used by this service and optionally releases managed resources. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>disposing</entry><entry>
+<para><computeroutput>true</computeroutput> to release both managed and unmanaged resources; <computeroutput>false</computeroutput> to release only unmanaged resources. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para>Override this method in derived classes to release resources. Always call the base implementation after releasing your resources. </para>
+
+<para>This method is thread-safe. The <emphasis>disposing</emphasis>  parameter will only be <computeroutput>true</computeroutput> for the first caller when called concurrently. </para>
+<para>
+Reimplemented in <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">Toolbox.Core.Base.BaseAsyncDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00094">94</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4"/><section>
+    <title>RecordOperation()</title>
+<indexterm><primary>RecordOperation</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>RecordOperation</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Base.BaseDisposableService.RecordOperation (string operationName, double durationMs)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Records an operation metric with the specified name and duration. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>operationName</entry><entry>
+<para>The name of the operation.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>durationMs</entry><entry>
+<para>The duration in milliseconds.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00130">130</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29"/><section>
+    <title>StartActivity()</title>
+<indexterm><primary>StartActivity</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>StartActivity</secondary></indexterm>
+<para><computeroutput>Activity? Toolbox.Core.Base.BaseDisposableService.StartActivity ([CallerMemberName] string operationName = <computeroutput>&quot;&quot;</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Starts a new activity for the specified operation. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>operationName</entry><entry>
+<para>The name of the operation. Defaults to the calling method name.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The started Activity if tracing is enabled; otherwise, <computeroutput>null</computeroutput>. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00142">142</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5"/><section>
+    <title>ThrowIfDisposed()</title>
+<indexterm><primary>ThrowIfDisposed</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>ThrowIfDisposed</secondary></indexterm>
+<para><computeroutput>void Toolbox.Core.Base.BaseDisposableService.ThrowIfDisposed ( )<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Throws an ObjectDisposedException if this service has been disposed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ObjectDisposedException</entry><entry>
+<para>Thrown when <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link> is <computeroutput>true</computeroutput>. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para>Call this method at the beginning of public methods to ensure the service is still usable. </para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00120">120</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8"/><section>
+    <title>ActivitySource</title>
+<indexterm><primary>ActivitySource</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>ActivitySource</secondary></indexterm>
+<para><computeroutput>ActivitySource Toolbox.Core.Base.BaseDisposableService.ActivitySource<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing.</para>
+
+<para>The activity source used to create spans for this service.</para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a44e9295e7ed5f4fac7beaad46a3599e3">Toolbox.Core.Abstractions.IInstrumentedService</link>.</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00059">59</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7"/><section>
+    <title>IsDisposed</title>
+<indexterm><primary>IsDisposed</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>IsDisposed</secondary></indexterm>
+<para><computeroutput>bool Toolbox.Core.Base.BaseDisposableService.IsDisposed<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Gets a value indicating whether this service has been disposed.</para>
+
+<para><computeroutput>true</computeroutput> if the service has been disposed; otherwise, <computeroutput>false</computeroutput>.</para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a7b631cf1b2439a4c95cc6149170bd1b1">Toolbox.Core.Abstractions.IDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00056">56</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068"/><section>
+    <title>Meter</title>
+<indexterm><primary>Meter</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>Meter</secondary></indexterm>
+<para><computeroutput>Meter Toolbox.Core.Base.BaseDisposableService.Meter<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection.</para>
+
+<para>The meter used to create instruments for this service.</para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_instrumented_service_1a1b5982d055e61a3e027c2d5ee45c69a0">Toolbox.Core.Abstractions.IInstrumentedService</link>.</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00062">62</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe"/><section>
+    <title>ServiceName</title>
+<indexterm><primary>ServiceName</primary><secondary>Toolbox.Core.Base.BaseDisposableService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Base.BaseDisposableService</primary><secondary>ServiceName</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Base.BaseDisposableService.ServiceName<computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Gets the unique name identifying this service instance.</para>
+
+<para>A human-readable name for logging and diagnostics.</para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_i_disposable_service_1a639988028cfcc5b5704fdbacb7032b74">Toolbox.Core.Abstractions.IDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__base_disposable_service_8cs_source_1l00053">53</link> of file <link linkend="__base_disposable_service_8cs_source">BaseDisposableService.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Base/<link linkend="__base_disposable_service_8cs">BaseDisposableService.cs</link></section>
+</section>

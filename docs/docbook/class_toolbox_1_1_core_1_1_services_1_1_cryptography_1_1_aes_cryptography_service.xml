@@ -1,0 +1,951 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service" xml:lang="en-US">
+<title>Toolbox.Core.Services.Cryptography.AesCryptographyService Class Reference</title>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary></indexterm>
+<para>
+
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Cryptography</link> service implementation using AES symmetric encryption. </para>
+ 
+</para>
+<para>Inheritance diagram for Toolbox.Core.Services.Cryptography.AesCryptographyService:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f">AesCryptographyService</link> (byte[] key, byte[] iv, ILogger&lt; AesCryptographyService &gt; logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">AesCryptographyService</link> class. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1acca78d079b5b61766b44df902ded3865">Encrypt</link> (string plainText)</para>
+
+<para>
+<para>Encrypts the specified plain text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>plainText</entry><entry>
+<para>The text to encrypt.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The encrypted text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>async Task&lt; string &gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a912ab62911fa9f0ec93297f2a918f351">EncryptAsync</link> (string plainText, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Asynchronously encrypts the specified plain text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>plainText</entry><entry>
+<para>The text to encrypt.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the encrypted text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a3f723805255f3988a36130df6990b91f">Decrypt</link> (string encryptedText)</para>
+
+<para>
+<para>Decrypts the specified encrypted text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>encryptedText</entry><entry>
+<para>The text to decrypt.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The decrypted plain text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FormatException</entry><entry>
+<para>Thrown when the encrypted text format is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+            <listitem><para>async Task&lt; string &gt; <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ac0d76348e1fb0d832893e94ac14c19e0">DecryptAsync</link> (string encryptedText, CancellationToken cancellationToken=default)</para>
+
+<para>
+<para>Asynchronously decrypts the specified encrypted text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>encryptedText</entry><entry>
+<para>The text to decrypt.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the decrypted plain text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FormatException</entry><entry>
+<para>Thrown when the encrypted text format is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para>ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1acadc42721759683aa816d5d250150bd9">DisposeAsync</link> ()</para>
+</listitem>
+            <listitem><para>async ValueTask <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a5d073243b9ad1f5edb5a47cff9576317">DisposeAsync</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Asynchronously releases resources with cancellation support.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous disposal operation.</para>
+</formalpara>
+</para>
+
+<para>This method allows for graceful shutdown with timeout support. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+Public Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a5bccf3c546513ac18851a08b1ad80d89">Dispose</link> ()</para>
+
+<para>Releases all resources used by this service. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static byte[] byte[] Iv <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a08ffcbf1022ac5cfb494ae028eb98b91">GenerateKey</link> (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link> keySize)</para>
+</listitem>
+            <listitem><para>static byte[] byte[] Iv <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ae46961cca02c4830fd98e47fd89d6f1e">GenerateKey</link> (int keySize)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static byte[] <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aed41df33ef97ec4a2c9e015ce3aa4bdb">Key</link></para>
+
+<para>Generates a new AES key and initialization vector. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>override ValueTask <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a66430c765f915913cfbbd49f8bbd09f1">DisposeAsyncCore</link> (CancellationToken cancellationToken)</para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">Toolbox.Core.Base.BaseAsyncDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a76d3918a8e1cbb2d9df627886b0650ea">BaseAsyncDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service">BaseAsyncDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>override void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1a2186c55a24d954449b92b2f58d8c5b5f">Dispose</link> (bool disposing)</para>
+</listitem>
+        </itemizedlist>
+Protected Member Functions inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a70d80274845dd844928e00c3ab630ec0">BaseDisposableService</link> (string serviceName, ILogger logger)</para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">BaseDisposableService</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a773c264af63233c53c4a9974073753b5">ThrowIfDisposed</link> ()</para>
+
+<para>Throws an ObjectDisposedException if this service has been disposed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1ab9bb57dbeef02f41d313f0516d5ba9b4">RecordOperation</link> (string operationName, double durationMs)</para>
+
+<para>Records an operation metric with the specified name and duration. </para>
+</listitem>
+            <listitem><para>Activity? <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a8cae6c0b80bf9525c1d3e5a0a23b5e29">StartActivity</link> ([CallerMemberName] string operationName=&quot;&quot;)</para>
+
+<para>Starts a new activity for the specified operation. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Properties inherited from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service">Toolbox.Core.Base.BaseDisposableService</link>        <itemizedlist>
+            <listitem><para>string <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a629b72dfa8c6b42881909f8336c0dcbe">ServiceName</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the unique name identifying this service instance.</para>
+
+<para>A human-readable name for logging and diagnostics.</para>
+ </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1af000ffed9733f0bc1b39998b081fe8e7">IsDisposed</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets a value indicating whether this service has been disposed.</para>
+
+<para><computeroutput>true</computeroutput> if the service has been disposed; otherwise, <computeroutput>false</computeroutput>.</para>
+ </para>
+</listitem>
+            <listitem><para>ActivitySource <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a0dd2f79ae2fbe7efd3ff6c4a373053f8">ActivitySource</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.ActivitySource for distributed tracing.</para>
+
+<para>The activity source used to create spans for this service.</para>
+ </para>
+</listitem>
+            <listitem><para>Meter <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_1a1a6603570442645f31abbcad1d225068">Meter</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>
+<para>Gets the System.Diagnostics.Metrics.Meter for metrics collection.</para>
+
+<para>The meter used to create instruments for this service.</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_namespace_toolbox_1_1_core_1_1_services_1_1_cryptography">Cryptography</link> service implementation using AES symmetric encryption. </para>
+
+
+
+<para>This service provides secure text encryption and decryption using the AES algorithm. It uses CBC mode with PKCS7 padding. </para>
+
+<para>The encrypted output is Base64-encoded for safe text transmission. </para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service">ICryptographyService</link></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00028">28</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f"/><section>
+    <title>AesCryptographyService()</title>
+<indexterm><primary>AesCryptographyService</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>AesCryptographyService</secondary></indexterm>
+<para><computeroutput>Toolbox.Core.Services.Cryptography.AesCryptographyService.AesCryptographyService (byte[] key, byte[] iv, ILogger&lt; AesCryptographyService &gt; logger)</computeroutput></para><para>
+
+<para>Initializes a new instance of the <link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service">AesCryptographyService</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>key</entry><entry>
+<para>The AES encryption key (16, 24, or 32 bytes for AES-128, AES-192, or AES-256).</para>
+</entry>
+                            </row>
+                            <row>
+<entry>iv</entry><entry>
+<para>The initialization vector (must be 16 bytes).</para>
+</entry>
+                            </row>
+                            <row>
+<entry>logger</entry><entry>
+<para>The logger instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>key</emphasis> , <emphasis>iv</emphasis> , or <emphasis>logger</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when key or IV size is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00047">47</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a3f723805255f3988a36130df6990b91f"/><section>
+    <title>Decrypt()</title>
+<indexterm><primary>Decrypt</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>Decrypt</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Services.Cryptography.AesCryptographyService.Decrypt (string encryptedText)</computeroutput></para><para>
+
+<para>
+<para>Decrypts the specified encrypted text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>encryptedText</entry><entry>
+<para>The text to decrypt.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The decrypted plain text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FormatException</entry><entry>
+<para>Thrown when the encrypted text format is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a013a7019090a0e9fe9ce39604993d04f">Toolbox.Core.Abstractions.Services.ICryptographyService</link>.</para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00194">194</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ac0d76348e1fb0d832893e94ac14c19e0"/><section>
+    <title>DecryptAsync()</title>
+<indexterm><primary>DecryptAsync</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>DecryptAsync</secondary></indexterm>
+<para><computeroutput>async Task&lt; string &gt; Toolbox.Core.Services.Cryptography.AesCryptographyService.DecryptAsync (string encryptedText, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Asynchronously decrypts the specified encrypted text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>encryptedText</entry><entry>
+<para>The text to decrypt.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the decrypted plain text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>encryptedText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>FormatException</entry><entry>
+<para>Thrown when the encrypted text format is invalid.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a5b20b3deb70835815fd7dcd53ea4b36a">Toolbox.Core.Abstractions.Services.ICryptographyService</link>.</para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00242">242</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a66430c765f915913cfbbd49f8bbd09f1"/><section>
+    <title>DisposeAsyncCore()</title>
+<indexterm><primary>DisposeAsyncCore</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>DisposeAsyncCore</secondary></indexterm>
+<para><computeroutput>override ValueTask Toolbox.Core.Services.Cryptography.AesCryptographyService.DisposeAsyncCore (CancellationToken cancellationToken)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>
+<para>Performs application-defined async cleanup operations.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A CancellationToken that can be used to cancel the disposal operation. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A ValueTask representing the asynchronous operation.</para>
+</formalpara>
+</para>
+
+<para>Override this method to release async resources such as streams, database connections, or other async-disposable objects. </para>
+ </para>
+</para>
+<para>
+Reimplemented from <link linkend="_class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_1af67f7795ee7795cbe84c409e7c48af62">Toolbox.Core.Base.BaseAsyncDisposableService</link>.</para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00297">297</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1acca78d079b5b61766b44df902ded3865"/><section>
+    <title>Encrypt()</title>
+<indexterm><primary>Encrypt</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>Encrypt</secondary></indexterm>
+<para><computeroutput>string Toolbox.Core.Services.Cryptography.AesCryptographyService.Encrypt (string plainText)</computeroutput></para><para>
+
+<para>
+<para>Encrypts the specified plain text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>plainText</entry><entry>
+<para>The text to encrypt.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The encrypted text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1af7d5a5001f53ab7db2bee41b919e8b59">Toolbox.Core.Abstractions.Services.ICryptographyService</link>.</para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00111">111</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a912ab62911fa9f0ec93297f2a918f351"/><section>
+    <title>EncryptAsync()</title>
+<indexterm><primary>EncryptAsync</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>EncryptAsync</secondary></indexterm>
+<para><computeroutput>async Task&lt; string &gt; Toolbox.Core.Services.Cryptography.AesCryptographyService.EncryptAsync (string plainText, CancellationToken cancellationToken = <computeroutput>default</computeroutput>
+)</computeroutput></para><para>
+
+<para>
+<para>Asynchronously encrypts the specified plain text.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>plainText</entry><entry>
+<para>The text to encrypt.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>cancellationToken</entry><entry>
+<para>A token to cancel the operation.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A task containing the encrypted text.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentNullException</entry><entry>
+<para>Thrown when <emphasis>plainText</emphasis>  is <computeroutput>null</computeroutput>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interface_toolbox_1_1_core_1_1_abstractions_1_1_services_1_1_i_cryptography_service_1a05ababf7768be976af8ab8b6b96e60bf">Toolbox.Core.Abstractions.Services.ICryptographyService</link>.</para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00149">149</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1a08ffcbf1022ac5cfb494ae028eb98b91"/><section>
+    <title>GenerateKey()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>GenerateKey</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>GenerateKey</secondary></indexterm>
+<para><computeroutput>byte[] byte[] Iv Toolbox.Core.Services.Cryptography.AesCryptographyService.GenerateKey (<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link> keySize)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00080">80</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1ae46961cca02c4830fd98e47fd89d6f1e"/><section>
+    <title>GenerateKey()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>GenerateKey</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>GenerateKey</secondary></indexterm>
+<para><computeroutput>byte[] byte[] Iv Toolbox.Core.Services.Cryptography.AesCryptographyService.GenerateKey (int keySize)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00098">98</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aed41df33ef97ec4a2c9e015ce3aa4bdb"/><section>
+    <title>Key</title>
+<indexterm><primary>Key</primary><secondary>Toolbox.Core.Services.Cryptography.AesCryptographyService</secondary></indexterm>
+<indexterm><primary>Toolbox.Core.Services.Cryptography.AesCryptographyService</primary><secondary>Key</secondary></indexterm>
+<para><computeroutput>byte [] Toolbox.Core.Services.Cryptography.AesCryptographyService.Key<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Generates a new AES key and initialization vector. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>keySize</entry><entry>
+<para>The key size (128, 192, or 256 bits).</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A tuple containing the generated key and IV.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when <emphasis>keySize</emphasis>  is not 128, 192, or 256.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><literallayout><computeroutput>var&#32;(key,&#32;iv)&#32;=&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f">AesCryptographyService</link>.GenerateKey(<link linkend="_namespace_toolbox_1_1_core_1_1_options_1a6d6346e53e425a00b206f68d826e3bea">AesKeySize</link>.Aes256);
+var&#32;service&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_toolbox_1_1_core_1_1_services_1_1_cryptography_1_1_aes_cryptography_service_1aadc55a35328a94992637b4dbb298416f">AesCryptographyService</link>(key,&#32;iv,&#32;logger);
+</computeroutput></literallayout> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>keySize</entry><entry>
+<para>The key size in bits (128, 192, or 256).</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A tuple containing the generated key and IV.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Thrown when <emphasis>keySize</emphasis>  is not 128, 192, or 256.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__aes_cryptography_service_8cs_source_1l00080">80</link> of file <link linkend="__aes_cryptography_service_8cs_source">AesCryptographyService.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/micde/RiderProjects/Toolbox/src/Toolbox.Core/Services/Cryptography/<link linkend="__aes_cryptography_service_8cs">AesCryptographyService.cs</link></section>
+</section>

@@ -1,0 +1,414 @@
+.TH "Toolbox.Core.Services.Mailing.SmtpMailingService" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Toolbox.Core.Services.Mailing.SmtpMailingService \- Email sending service implementation using SMTP with MailKit\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP, and \fBToolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSmtpMailingService\fP (IOptions< \fBMailingOptions\fP > options, ILogger< SmtpMailingService > logger)"
+.br
+.RI "Initializes a new instance of the \fBSmtpMailingService\fP class\&. "
+.ti -1c
+.RI "\fBSmtpMailingService\fP (\fBMailingOptions\fP options, ILogger< SmtpMailingService > logger)"
+.br
+.RI "Initializes a new instance of the \fBSmtpMailingService\fP class\&. "
+.ti -1c
+.RI "void \fBSendMail\fP (\fBEmailMessage\fP message)"
+.br
+.RI "Sends an email synchronously\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP The email message to send\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fImessage\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the message has no recipients (To or BCC)\&.
+.br
+\fIInvalidOperationException\fP Thrown when the SMTP connection fails\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender Name"),
+    Subject = "Hello",
+    Body = "Hello, World!",
+    To = { new EmailAddress("recipient@example\&.com") }
+};
+mailingService\&.SendMail(message);
+.fi
+.PP
+  "
+.ti -1c
+.RI "async Task \fBSendMailAsync\fP (\fBEmailMessage\fP message, CancellationToken cancellationToken=default)"
+.br
+.RI "Sends an email asynchronously\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP The email message to send\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task representing the asynchronous operation\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fImessage\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the message has no recipients (To or BCC)\&.
+.br
+\fIInvalidOperationException\fP Thrown when the SMTP connection fails\&.
+.br
+\fIOperationCanceledException\fP Thrown when the operation is cancelled\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender Name"),
+    Subject = "Hello",
+    Body = "<h1>Hello, World!</h1>",
+    IsBodyHtml = true,
+    To = { new EmailAddress("recipient@example\&.com") }
+};
+await mailingService\&.SendMailAsync(message);
+.fi
+.PP
+  "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "ValueTask \fBDisposeAsync\fP ()"
+.br
+.ti -1c
+.RI "async ValueTask \fBDisposeAsync\fP (CancellationToken cancellationToken)"
+.br
+.RI "Asynchronously releases resources with cancellation support\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous disposal operation\&.
+.RE
+.PP
+
+.PP
+This method allows for graceful shutdown with timeout support\&. If the cancellation token is triggered, the implementation should attempt to release critical resources immediately\&.  "
+.in -1c
+
+Public Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "void \fBDispose\fP ()"
+.br
+.RI "Releases all resources used by this service\&. "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override async ValueTask \fBDisposeAsyncCore\fP (CancellationToken cancellationToken)"
+.br
+.RI "Performs application-defined async cleanup operations\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous operation\&.
+.RE
+.PP
+
+.PP
+Override this method to release async resources such as streams, database connections, or other async-disposable objects\&.  "
+.in -1c
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseAsyncDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseAsyncDisposableService\fP class\&. "
+.ti -1c
+.RI "override void \fBDispose\fP (bool disposing)"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "\fBBaseDisposableService\fP (string serviceName, ILogger logger)"
+.br
+.RI "Initializes a new instance of the \fBBaseDisposableService\fP class\&. "
+.ti -1c
+.RI "void \fBThrowIfDisposed\fP ()"
+.br
+.RI "Throws an ObjectDisposedException if this service has been disposed\&. "
+.ti -1c
+.RI "void \fBRecordOperation\fP (string operationName, double durationMs)"
+.br
+.RI "Records an operation metric with the specified name and duration\&. "
+.ti -1c
+.RI "Activity? \fBStartActivity\fP ([CallerMemberName] string operationName='')"
+.br
+.RI "Starts a new activity for the specified operation\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Properties inherited from \fBToolbox\&.Core\&.Base\&.BaseDisposableService\fP
+.in +1c
+.ti -1c
+.RI "string \fBServiceName\fP\fR [get]\fP"
+.br
+.RI "Gets the unique name identifying this service instance\&.
+
+.PP
+A human-readable name for logging and diagnostics\&. "
+.ti -1c
+.RI "bool \fBIsDisposed\fP\fR [get]\fP"
+.br
+.RI "Gets a value indicating whether this service has been disposed\&.
+
+.PP
+\fRtrue\fP if the service has been disposed; otherwise, \fRfalse\fP\&. "
+.ti -1c
+.RI "ActivitySource \fBActivitySource\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.ActivitySource for distributed tracing\&.
+
+.PP
+The activity source used to create spans for this service\&. "
+.ti -1c
+.RI "Meter \fBMeter\fP\fR [get]\fP"
+.br
+.RI "Gets the System\&.Diagnostics\&.Metrics\&.Meter for metrics collection\&.
+
+.PP
+The meter used to create instruments for this service\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Email sending service implementation using SMTP with MailKit\&. 
+
+This service provides secure email sending via SMTP with support for: 
+
+.PP
+.PD 0
+.IP "\(bu" 2
+TLS/SSL encryption (STARTTLS and implicit SSL) 
+.IP "\(bu" 2
+Password and OAuth2 authentication 
+.IP "\(bu" 2
+Anonymous connections for internal relays 
+.IP "\(bu" 2
+Multiple recipients (To, CC, BCC) 
+.IP "\(bu" 2
+HTML and plain text content 
+.IP "\(bu" 2
+File attachments and inline images 
+.PP
+
+.PP
+\fBSee also\fP
+.RS 4
+\fBIMailingService\fP
+
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB35\fP of file \fBSmtpMailingService\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Toolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\&.SmtpMailingService (IOptions< \fBMailingOptions\fP > options, ILogger< SmtpMailingService > logger)"
+
+.PP
+Initializes a new instance of the \fBSmtpMailingService\fP class\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIoptions\fP The mailing service options\&.
+.br
+\fIlogger\fP The logger instance\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when options or logger is null\&.
+.br
+\fIArgumentException\fP Thrown when host is empty\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB59\fP of file \fBSmtpMailingService\&.cs\fP\&.
+.SS "Toolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\&.SmtpMailingService (\fBMailingOptions\fP options, ILogger< SmtpMailingService > logger)"
+
+.PP
+Initializes a new instance of the \fBSmtpMailingService\fP class\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIoptions\fP The mailing service options\&.
+.br
+\fIlogger\fP The logger instance\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB95\fP of file \fBSmtpMailingService\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override async ValueTask Toolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\&.DisposeAsyncCore (CancellationToken cancellationToken)\fR [protected]\fP, \fR [virtual]\fP"
+
+.PP
+Performs application-defined async cleanup operations\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcancellationToken\fP A CancellationToken that can be used to cancel the disposal operation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A ValueTask representing the asynchronous operation\&.
+.RE
+.PP
+
+.PP
+Override this method to release async resources such as streams, database connections, or other async-disposable objects\&.  
+.PP
+Reimplemented from \fBToolbox\&.Core\&.Base\&.BaseAsyncDisposableService\fP\&.
+.PP
+Definition at line \fB164\fP of file \fBSmtpMailingService\&.cs\fP\&.
+.SS "void Toolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\&.SendMail (\fBEmailMessage\fP message)"
+
+.PP
+Sends an email synchronously\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP The email message to send\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fImessage\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the message has no recipients (To or BCC)\&.
+.br
+\fIInvalidOperationException\fP Thrown when the SMTP connection fails\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender Name"),
+    Subject = "Hello",
+    Body = "Hello, World!",
+    To = { new EmailAddress("recipient@example\&.com") }
+};
+mailingService\&.SendMail(message);
+.fi
+.PP
+  
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\fP\&.
+.PP
+Definition at line \fB103\fP of file \fBSmtpMailingService\&.cs\fP\&.
+.SS "async Task Toolbox\&.Core\&.Services\&.Mailing\&.SmtpMailingService\&.SendMailAsync (\fBEmailMessage\fP message, CancellationToken cancellationToken = \fRdefault\fP)"
+
+.PP
+Sends an email asynchronously\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP The email message to send\&.
+.br
+\fIcancellationToken\fP A token to cancel the operation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A task representing the asynchronous operation\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIArgumentNullException\fP Thrown when \fImessage\fP  is \fRnull\fP\&.
+.br
+\fIArgumentException\fP Thrown when the message has no recipients (To or BCC)\&.
+.br
+\fIInvalidOperationException\fP Thrown when the SMTP connection fails\&.
+.br
+\fIOperationCanceledException\fP Thrown when the operation is cancelled\&.
+.RE
+.PP
+
+.PP
+.PP
+.nf
+var message = new EmailMessage
+{
+    From = new EmailAddress("sender@example\&.com", "Sender Name"),
+    Subject = "Hello",
+    Body = "<h1>Hello, World!</h1>",
+    IsBodyHtml = true,
+    To = { new EmailAddress("recipient@example\&.com") }
+};
+await mailingService\&.SendMailAsync(message);
+.fi
+.PP
+  
+.PP
+Implements \fBToolbox\&.Core\&.Abstractions\&.Services\&.IMailingService\fP\&.
+.PP
+Definition at line \fB109\fP of file \fBSmtpMailingService\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Toolbox from the source code\&.
