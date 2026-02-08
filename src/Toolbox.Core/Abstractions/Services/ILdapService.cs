@@ -166,4 +166,123 @@ public interface ILdapService : IInstrumentedService, IAsyncDisposableService
     /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
     /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
     Task<IEnumerable<string>> GetUserGroupsAsync(string username, CancellationToken cancellationToken = default);
+
+    #region Paginated Search Methods
+
+    /// <summary>
+    /// Gets all users with pagination.
+    /// </summary>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of users per page. Default is 50.</param>
+    /// <returns>A paged result containing users.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.GetAllUsers(page: 1, pageSize: 25);
+    /// Console.WriteLine($"Found {result.TotalCount} users");
+    /// foreach (var user in result.Items)
+    /// {
+    ///     Console.WriteLine(user.DisplayName);
+    /// }
+    /// </code>
+    /// </example>
+    PagedResult<LdapUser> GetAllUsers(int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Gets all users with pagination asynchronously.
+    /// </summary>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of users per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of users.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<PagedResult<LdapUser>> GetAllUsersAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Searches for users matching the specified criteria with pagination.
+    /// </summary>
+    /// <param name="criteria">The search criteria.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of users per page. Default is 50.</param>
+    /// <returns>A paged result containing matching users.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="criteria"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// // Search by department
+    /// var criteria = new LdapSearchCriteria { Department = "Engineering" };
+    /// var result = ldapService.SearchUsers(criteria, page: 1, pageSize: 25);
+    ///
+    /// // Search by name pattern
+    /// var criteria = LdapSearchCriteria.Create()
+    ///     .WithDisplayName("John*")
+    ///     .EnabledOnly();
+    /// var result = ldapService.SearchUsers(criteria);
+    ///
+    /// // Search by group membership
+    /// var criteria = LdapSearchCriteria.Create()
+    ///     .InGroup("CN=Developers,OU=Groups,DC=example,DC=com");
+    /// var result = ldapService.SearchUsers(criteria);
+    /// </code>
+    /// </example>
+    PagedResult<LdapUser> SearchUsers(LdapSearchCriteria criteria, int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Searches for users matching the specified criteria with pagination asynchronously.
+    /// </summary>
+    /// <param name="criteria">The search criteria.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of users per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of matching users.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="criteria"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    /// <example>
+    /// <code>
+    /// var criteria = LdapSearchCriteria.Create()
+    ///     .WithLastName("Smith")
+    ///     .WithDepartment("Sales")
+    ///     .EnabledOnly();
+    ///
+    /// var result = await ldapService.SearchUsersAsync(criteria, page: 1, pageSize: 25);
+    ///
+    /// while (result.HasNextPage)
+    /// {
+    ///     foreach (var user in result.Items)
+    ///     {
+    ///         Console.WriteLine($"{user.DisplayName} - {user.Email}");
+    ///     }
+    ///     result = await ldapService.SearchUsersAsync(criteria, result.Page + 1, pageSize: 25);
+    /// }
+    /// </code>
+    /// </example>
+    Task<PagedResult<LdapUser>> SearchUsersAsync(LdapSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets users who are members of the specified group with pagination.
+    /// </summary>
+    /// <param name="groupDnOrName">The group distinguished name or display name.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of users per page. Default is 50.</param>
+    /// <returns>A paged result containing group members.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="groupDnOrName"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    PagedResult<LdapUser> GetGroupMembers(string groupDnOrName, int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Gets users who are members of the specified group with pagination asynchronously.
+    /// </summary>
+    /// <param name="groupDnOrName">The group distinguished name or display name.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of users per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of group members.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="groupDnOrName"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<PagedResult<LdapUser>> GetGroupMembersAsync(string groupDnOrName, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    #endregion
 }

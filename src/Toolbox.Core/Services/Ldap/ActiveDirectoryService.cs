@@ -295,6 +295,246 @@ public sealed class ActiveDirectoryService : BaseAsyncDisposableService, ILdapSe
         }
     }
 
+    #region Paginated Search Methods
+
+    /// <inheritdoc />
+    public PagedResult<LdapUser> GetAllUsers(int page = 1, int pageSize = 50)
+    {
+        return GetAllUsersAsync(page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapUser>> GetAllUsersAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            // Filter for all user objects
+            const string filter = "(&(objectClass=user)(objectCategory=person))";
+            var result = await SearchUsersPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("GetAllUsers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllUsers", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error getting all users");
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapUser> SearchUsers(LdapSearchCriteria criteria, int page = 1, int pageSize = 50)
+    {
+        return SearchUsersAsync(criteria, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapUser>> SearchUsersAsync(LdapSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(criteria);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var filter = BuildLdapFilter(criteria);
+            var result = await SearchUsersPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching users with criteria");
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapUser> GetGroupMembers(string groupDnOrName, int page = 1, int pageSize = 50)
+    {
+        return GetGroupMembersAsync(groupDnOrName, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapUser>> GetGroupMembersAsync(string groupDnOrName, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(groupDnOrName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            // Build filter for group membership
+            var escapedGroup = EscapeLdapFilter(groupDnOrName);
+            var filter = $"(&(objectClass=user)(objectCategory=person)(memberOf={escapedGroup}))";
+
+            var result = await SearchUsersPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("GetGroupMembers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupMembers", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error getting group members: {Group}", groupDnOrName);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    private async Task<PagedResult<LdapUser>> SearchUsersPagedAsync(string filter, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        // Calculate skip for pagination
+        var skip = (page - 1) * pageSize;
+
+        // First, get total count (optional - can be expensive for large directories)
+        var countRequest = new SearchRequest(
+            GetBaseDn(),
+            filter,
+            SearchScope.Subtree,
+            "objectGUID"); // Only request one attribute for count
+
+        var countResponse = await Task.Run(
+            () => (SearchResponse)_connection!.SendRequest(countRequest),
+            cancellationToken);
+
+        var totalCount = countResponse.Entries.Count;
+
+        // Now get the actual page of results
+        var searchRequest = new SearchRequest(
+            GetBaseDn(),
+            filter,
+            SearchScope.Subtree,
+            GetUserAttributes());
+
+        // Note: LDAP doesn't have native pagination like SQL
+        // We retrieve all matching entries and paginate in memory
+        // For very large directories, consider using VLV or paged results control
+        searchRequest.SizeLimit = skip + pageSize + 1; // Get one extra to check if there are more
+
+        var response = await Task.Run(
+            () => (SearchResponse)_connection!.SendRequest(searchRequest),
+            cancellationToken);
+
+        var allEntries = response.Entries.Cast<SearchResultEntry>().ToList();
+        var pagedEntries = allEntries.Skip(skip).Take(pageSize).ToList();
+
+        var users = pagedEntries.Select(MapToLdapUser).ToList();
+
+        return PagedResult<LdapUser>.Create(users, page, pageSize, totalCount);
+    }
+
+    private static string BuildLdapFilter(LdapSearchCriteria criteria)
+    {
+        var filters = new List<string>
+        {
+            "(objectClass=user)",
+            "(objectCategory=person)"
+        };
+
+        if (!string.IsNullOrEmpty(criteria.Username))
+            filters.Add($"(sAMAccountName={EscapeLdapFilterWithWildcard(criteria.Username)})");
+
+        if (!string.IsNullOrEmpty(criteria.DisplayName))
+            filters.Add($"(displayName={EscapeLdapFilterWithWildcard(criteria.DisplayName)})");
+
+        if (!string.IsNullOrEmpty(criteria.FirstName))
+            filters.Add($"(givenName={EscapeLdapFilterWithWildcard(criteria.FirstName)})");
+
+        if (!string.IsNullOrEmpty(criteria.LastName))
+            filters.Add($"(sn={EscapeLdapFilterWithWildcard(criteria.LastName)})");
+
+        if (!string.IsNullOrEmpty(criteria.Email))
+            filters.Add($"(mail={EscapeLdapFilterWithWildcard(criteria.Email)})");
+
+        if (!string.IsNullOrEmpty(criteria.Department))
+            filters.Add($"(department={EscapeLdapFilter(criteria.Department)})");
+
+        if (!string.IsNullOrEmpty(criteria.JobTitle))
+            filters.Add($"(title={EscapeLdapFilterWithWildcard(criteria.JobTitle)})");
+
+        if (!string.IsNullOrEmpty(criteria.Company))
+            filters.Add($"(company={EscapeLdapFilter(criteria.Company)})");
+
+        if (!string.IsNullOrEmpty(criteria.Office))
+            filters.Add($"(physicalDeliveryOfficeName={EscapeLdapFilter(criteria.Office)})");
+
+        if (!string.IsNullOrEmpty(criteria.City))
+            filters.Add($"(l={EscapeLdapFilter(criteria.City)})");
+
+        if (!string.IsNullOrEmpty(criteria.Country))
+            filters.Add($"(co={EscapeLdapFilter(criteria.Country)})");
+
+        if (!string.IsNullOrEmpty(criteria.MemberOfGroup))
+            filters.Add($"(memberOf={EscapeLdapFilter(criteria.MemberOfGroup)})");
+
+        if (criteria.MemberOfAnyGroup?.Count > 0)
+        {
+            var groupFilters = criteria.MemberOfAnyGroup
+                .Select(g => $"(memberOf={EscapeLdapFilter(g)})")
+                .ToList();
+            filters.Add($"(|{string.Join("", groupFilters)})");
+        }
+
+        if (criteria.IsEnabled.HasValue)
+        {
+            // userAccountControl: 0x2 = ACCOUNTDISABLE
+            filters.Add(criteria.IsEnabled.Value
+                ? "(!(userAccountControl:1.2.840.113556.1.4.803:=2))"
+                : "(userAccountControl:1.2.840.113556.1.4.803:=2)");
+        }
+
+        if (criteria.CustomAttributes != null)
+        {
+            foreach (var (attr, value) in criteria.CustomAttributes)
+            {
+                filters.Add($"({EscapeLdapFilter(attr)}={EscapeLdapFilterWithWildcard(value)})");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.CustomFilter))
+        {
+            filters.Add(criteria.CustomFilter);
+        }
+
+        return $"(&{string.Join("", filters)})";
+    }
+
+    private static string EscapeLdapFilterWithWildcard(string value)
+    {
+        // Preserve * as wildcard, escape everything else
+        return value
+            .Replace("\\", "\\5c")
+            .Replace("(", "\\28")
+            .Replace(")", "\\29")
+            .Replace("\0", "\\00");
+    }
+
+    #endregion
+
     /// <inheritdoc />
     protected override async ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

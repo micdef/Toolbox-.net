@@ -311,6 +311,309 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    #region Paginated Search Methods
+
+    /// <inheritdoc />
+    public PagedResult<LdapUser> GetAllUsers(int page = 1, int pageSize = 50)
+    {
+        return GetAllUsersAsync(page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapUser>> GetAllUsersAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var result = await FetchUsersPagedAsync(null, page, pageSize, cancellationToken);
+
+            RecordOperation("GetAllUsers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllUsers", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error getting all users");
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapUser> SearchUsers(LdapSearchCriteria criteria, int page = 1, int pageSize = 50)
+    {
+        return SearchUsersAsync(criteria, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapUser>> SearchUsersAsync(LdapSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(criteria);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var filter = BuildODataFilter(criteria);
+            var result = await FetchUsersPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching users with criteria");
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    private async Task<PagedResult<LdapUser>> FetchUsersPagedAsync(string? filter, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        // Microsoft Graph doesn't support $skip, so we need to iterate through pages
+        // For efficiency, we request larger batches and skip in memory
+        var skip = (page - 1) * pageSize;
+        var allUsers = new List<User>();
+        var totalCount = -1;
+
+        // First request to get count
+        var response = await _graphClient.Value.Users
+            .GetAsync(config =>
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    config.QueryParameters.Filter = filter;
+                }
+                config.QueryParameters.Select = _options.SelectProperties.ToArray();
+                config.QueryParameters.Top = 999; // Max allowed by Graph API
+                config.QueryParameters.Count = true;
+                config.Headers.Add("ConsistencyLevel", "eventual");
+            }, cancellationToken);
+
+        if (response?.Value != null)
+        {
+            allUsers.AddRange(response.Value);
+            totalCount = (int)(response.OdataCount ?? allUsers.Count);
+        }
+
+        // If we need more pages and there's a next link, keep fetching
+        while (response?.OdataNextLink != null && allUsers.Count < skip + pageSize)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            response = await _graphClient.Value.Users
+                .WithUrl(response.OdataNextLink)
+                .GetAsync(cancellationToken: cancellationToken);
+
+            if (response?.Value != null)
+            {
+                allUsers.AddRange(response.Value);
+            }
+        }
+
+        // Apply pagination in memory
+        var pagedUsers = allUsers.Skip(skip).Take(pageSize).Select(MapToLdapUser).ToList();
+
+        return PagedResult<LdapUser>.Create(pagedUsers, page, pageSize, totalCount);
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapUser> GetGroupMembers(string groupDnOrName, int page = 1, int pageSize = 50)
+    {
+        return GetGroupMembersAsync(groupDnOrName, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapUser>> GetGroupMembersAsync(string groupDnOrName, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(groupDnOrName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            // First, find the group by ID or display name
+            var groupId = groupDnOrName;
+
+            // If it doesn't look like a GUID, search by display name
+            if (!Guid.TryParse(groupDnOrName, out _))
+            {
+                var groups = await _graphClient.Value.Groups
+                    .GetAsync(config =>
+                    {
+                        config.QueryParameters.Filter = $"displayName eq '{EscapeODataFilter(groupDnOrName)}'";
+                        config.QueryParameters.Select = ["id"];
+                        config.QueryParameters.Top = 1;
+                    }, cancellationToken);
+
+                var group = groups?.Value?.FirstOrDefault();
+                if (group == null)
+                {
+                    _logger.LogDebug("Group not found: {Group}", groupDnOrName);
+                    return PagedResult<LdapUser>.Empty(page, pageSize);
+                }
+                groupId = group.Id!;
+            }
+
+            var skip = (page - 1) * pageSize;
+
+            // Get group members
+            var members = await _graphClient.Value.Groups[groupId].Members
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Top = pageSize;
+                    config.QueryParameters.Skip = skip;
+                    config.QueryParameters.Count = true;
+                    config.Headers.Add("ConsistencyLevel", "eventual");
+                }, cancellationToken);
+
+            // Filter only users and map them
+            var userMembers = (members?.Value ?? [])
+                .OfType<User>()
+                .Select(MapToLdapUser)
+                .ToList();
+
+            var totalCount = (int)(members?.OdataCount ?? -1);
+
+            RecordOperation("GetGroupMembers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupMembers", true);
+
+            return PagedResult<LdapUser>.Create(userMembers, page, pageSize, totalCount);
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error getting group members: {Group}", groupDnOrName);
+            throw new InvalidOperationException($"Failed to get group members: {ex.Message}", ex);
+        }
+    }
+
+    private static string BuildODataFilter(LdapSearchCriteria criteria)
+    {
+        var filters = new List<string>();
+
+        if (!string.IsNullOrEmpty(criteria.Username))
+        {
+            var escaped = EscapeODataFilter(criteria.Username);
+            if (criteria.Username.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(mailNickname, '{pattern}') or startsWith(userPrincipalName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"(mailNickname eq '{escaped}' or userPrincipalName eq '{escaped}')");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.DisplayName))
+        {
+            var escaped = EscapeODataFilter(criteria.DisplayName);
+            if (criteria.DisplayName.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(displayName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"displayName eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.FirstName))
+        {
+            var escaped = EscapeODataFilter(criteria.FirstName);
+            if (criteria.FirstName.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(givenName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"givenName eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.LastName))
+        {
+            var escaped = EscapeODataFilter(criteria.LastName);
+            if (criteria.LastName.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(surname, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"surname eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.Email))
+        {
+            var escaped = EscapeODataFilter(criteria.Email);
+            filters.Add($"mail eq '{escaped}'");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.Department))
+        {
+            filters.Add($"department eq '{EscapeODataFilter(criteria.Department)}'");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.JobTitle))
+        {
+            var escaped = EscapeODataFilter(criteria.JobTitle);
+            if (criteria.JobTitle.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(jobTitle, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"jobTitle eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.Company))
+        {
+            filters.Add($"companyName eq '{EscapeODataFilter(criteria.Company)}'");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.City))
+        {
+            filters.Add($"city eq '{EscapeODataFilter(criteria.City)}'");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.Country))
+        {
+            filters.Add($"country eq '{EscapeODataFilter(criteria.Country)}'");
+        }
+
+        if (criteria.IsEnabled.HasValue)
+        {
+            filters.Add($"accountEnabled eq {criteria.IsEnabled.Value.ToString().ToLowerInvariant()}");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.CustomFilter))
+        {
+            filters.Add(criteria.CustomFilter);
+        }
+
+        return string.Join(" and ", filters);
+    }
+
+    #endregion
+
     /// <inheritdoc />
     protected override ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {
