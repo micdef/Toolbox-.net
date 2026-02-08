@@ -128,6 +128,14 @@ public static class ToolboxMeter
             description: "Number of API requests"),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
+    // Lazy initializer for LDAP query counter
+    private static readonly Lazy<Counter<long>> LazyLdapQueryCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.Metrics.LdapQueryCount,
+            unit: "{queries}",
+            description: "Number of LDAP query operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
     /// <summary>
     /// Gets the shared <see cref="Meter"/> instance for Toolbox services.
     /// </summary>
@@ -375,5 +383,23 @@ public static class ToolboxMeter
         };
 
         LazyApiRequestCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an LDAP query operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="operationName">The name of the operation.</param>
+    /// <param name="success">Whether the query found results.</param>
+    public static void RecordLdapQuery(string serviceName, string operationName, bool success)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.Attributes.OperationName, operationName },
+            { TelemetryConstants.LdapAttributes.QuerySuccess, success }
+        };
+
+        LazyLdapQueryCounter.Value.Add(1, tags);
     }
 }

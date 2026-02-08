@@ -30,6 +30,13 @@
     <PackageVersion Include="SSH.NET" Version="2024.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <!-- LDAP / Directory Services -->
+    <PackageVersion Include="Microsoft.Graph" Version="5.68.0" />
+    <PackageVersion Include="Azure.Identity" Version="1.13.1" />
+    <PackageVersion Include="Novell.Directory.Ldap.NETStandard" Version="3.6.0" />
+    <PackageVersion Include="System.DirectoryServices.Protocols" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
     <!-- Testing -->
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="xunit" Version="2.9.2" />

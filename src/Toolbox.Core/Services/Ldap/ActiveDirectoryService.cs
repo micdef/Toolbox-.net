@@ -1,0 +1,580 @@
+// @file ActiveDirectoryService.cs
+// @brief Active Directory service implementation
+// @details Implements ILdapService for Windows Active Directory
+// @note Uses System.DirectoryServices.Protocols for cross-platform support
+
+using System.DirectoryServices.Protocols;
+using System.Net;
+using Microsoft.Extensions.Options;
+using Toolbox.Core.Abstractions.Services;
+using Toolbox.Core.Base;
+using Toolbox.Core.Options;
+using Toolbox.Core.Telemetry;
+
+namespace Toolbox.Core.Services.Ldap;
+
+/// <summary>
+/// LDAP service implementation for Windows Active Directory.
+/// </summary>
+/// <remarks>
+/// <para>
+/// This service provides access to Windows Active Directory using
+/// the LDAP protocol via System.DirectoryServices.Protocols.
+/// </para>
+/// <para>
+/// Features:
+/// </para>
+/// <list type="bullet">
+///   <item><description>User lookup by username (sAMAccountName) or email</description></item>
+///   <item><description>Custom LDAP filter search</description></item>
+///   <item><description>Credential validation</description></item>
+///   <item><description>Group membership retrieval</description></item>
+///   <item><description>SSL/TLS support</description></item>
+/// </list>
+/// </remarks>
+/// <seealso cref="ILdapService"/>
+public sealed class ActiveDirectoryService : BaseAsyncDisposableService, ILdapService
+{
+    private readonly ActiveDirectoryOptions _options;
+    private readonly ILogger<ActiveDirectoryService> _logger;
+    private readonly SemaphoreSlim _connectionLock = new(1, 1);
+    private LdapConnection? _connection;
+    private bool _isConnected;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ActiveDirectoryService"/> class.
+    /// </summary>
+    /// <param name="options">The Active Directory options.</param>
+    /// <param name="logger">The logger instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown when options or logger is null.</exception>
+    /// <exception cref="ArgumentException">Thrown when domain is empty.</exception>
+    public ActiveDirectoryService(
+        IOptions<ActiveDirectoryOptions> options,
+        ILogger<ActiveDirectoryService> logger)
+        : base("ActiveDirectoryService", logger)
+    {
+        ArgumentNullException.ThrowIfNull(options);
+        ArgumentNullException.ThrowIfNull(logger);
+
+        _options = options.Value;
+        _logger = logger;
+
+        if (string.IsNullOrWhiteSpace(_options.Domain))
+        {
+            throw new ArgumentException("Domain cannot be empty.", nameof(options));
+        }
+
+        _logger.LogDebug(
+            "ActiveDirectoryService initialized for domain {Domain}",
+            _options.Domain);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ActiveDirectoryService"/> class.
+    /// </summary>
+    /// <param name="options">The Active Directory options.</param>
+    /// <param name="logger">The logger instance.</param>
+    public ActiveDirectoryService(
+        ActiveDirectoryOptions options,
+        ILogger<ActiveDirectoryService> logger)
+        : this(Microsoft.Extensions.Options.Options.Create(options), logger)
+    {
+    }
+
+    /// <inheritdoc />
+    public LdapUser? GetUserByUsername(string username)
+    {
+        return GetUserByUsernameAsync(username).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapUser?> GetUserByUsernameAsync(string username, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(username);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var filter = string.Format(_options.UserSearchFilter, EscapeLdapFilter(username));
+            var user = await SearchSingleUserAsync(filter, cancellationToken);
+
+            RecordOperation("GetUserByUsername", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByUsername", user != null);
+
+            return user;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching for user: {Username}", username);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapUser? GetUserByEmail(string email)
+    {
+        return GetUserByEmailAsync(email).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapUser?> GetUserByEmailAsync(string email, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(email);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var filter = string.Format(_options.EmailSearchFilter, EscapeLdapFilter(email));
+            var user = await SearchSingleUserAsync(filter, cancellationToken);
+
+            RecordOperation("GetUserByEmail", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByEmail", user != null);
+
+            return user;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching for user by email: {Email}", email);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<LdapUser> SearchUsers(string searchFilter, int maxResults = 100)
+    {
+        return SearchUsersAsync(searchFilter, maxResults).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<LdapUser>> SearchUsersAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(searchFilter);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var searchRequest = new SearchRequest(
+                GetBaseDn(),
+                searchFilter,
+                SearchScope.Subtree,
+                GetUserAttributes());
+
+            searchRequest.SizeLimit = maxResults;
+
+            var response = await Task.Run(
+                () => (SearchResponse)_connection!.SendRequest(searchRequest),
+                cancellationToken);
+
+            var users = response.Entries
+                .Cast<SearchResultEntry>()
+                .Select(MapToLdapUser)
+                .ToList();
+
+            RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+
+            return users;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching users with filter: {Filter}", searchFilter);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public bool ValidateCredentials(string username, string password)
+    {
+        return ValidateCredentialsAsync(username, password).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ValidateCredentialsAsync(string username, string password, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(username);
+        ArgumentNullException.ThrowIfNull(password);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var server = _options.Server ?? _options.Domain;
+            var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+            using var connection = new LdapConnection(identifier)
+            {
+                Timeout = _options.ConnectionTimeout
+            };
+
+            connection.SessionOptions.ProtocolVersion = 3;
+            connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+
+            if (!_options.ValidateCertificate)
+            {
+                connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+            }
+
+            var credential = new NetworkCredential(username, password, _options.Domain);
+
+            await Task.Run(() => connection.Bind(credential), cancellationToken);
+
+            RecordOperation("ValidateCredentials", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "ValidateCredentials", true);
+
+            _logger.LogDebug("Credentials validated for user: {Username}", username);
+            return true;
+        }
+        catch (LdapException ex) when (ex.ErrorCode == 49) // Invalid credentials
+        {
+            _logger.LogDebug("Invalid credentials for user: {Username}", username);
+            RecordOperation("ValidateCredentials", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "ValidateCredentials", false);
+            return false;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error validating credentials for user: {Username}", username);
+            throw new InvalidOperationException($"Credential validation failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<string> GetUserGroups(string username)
+    {
+        return GetUserGroupsAsync(username).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<string>> GetUserGroupsAsync(string username, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(username);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var user = await GetUserByUsernameAsync(username, cancellationToken);
+
+            if (user == null)
+            {
+                _logger.LogDebug("User not found for group lookup: {Username}", username);
+                return [];
+            }
+
+            RecordOperation("GetUserGroups", sw.ElapsedMilliseconds);
+            return user.Groups;
+        }
+        catch (Exception ex) when (ex is not InvalidOperationException)
+        {
+            _logger.LogError(ex, "Error getting groups for user: {Username}", username);
+            throw new InvalidOperationException($"Failed to get user groups: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    protected override async ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
+    {
+        await _connectionLock.WaitAsync(cancellationToken);
+        try
+        {
+            _connection?.Dispose();
+            _connection = null;
+            _isConnected = false;
+        }
+        finally
+        {
+            _connectionLock.Release();
+        }
+
+        _connectionLock.Dispose();
+    }
+
+    private async Task EnsureConnectedAsync(CancellationToken cancellationToken)
+    {
+        if (_isConnected && _connection != null)
+        {
+            return;
+        }
+
+        await _connectionLock.WaitAsync(cancellationToken);
+        try
+        {
+            if (_isConnected && _connection != null)
+            {
+                return;
+            }
+
+            var server = _options.Server ?? _options.Domain;
+            var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+            _connection = new LdapConnection(identifier)
+            {
+                Timeout = _options.ConnectionTimeout
+            };
+
+            _connection.SessionOptions.ProtocolVersion = 3;
+            _connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+            _connection.SessionOptions.ReferralChasing = _options.FollowReferrals
+                ? ReferralChasingOptions.All
+                : ReferralChasingOptions.None;
+
+            if (!_options.ValidateCertificate)
+            {
+                _connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+            }
+
+            if (_options.UseCurrentCredentials)
+            {
+                await Task.Run(() => _connection.Bind(), cancellationToken);
+            }
+            else if (!string.IsNullOrEmpty(_options.Username))
+            {
+                var credential = new NetworkCredential(_options.Username, _options.Password, _options.Domain);
+                await Task.Run(() => _connection.Bind(credential), cancellationToken);
+            }
+            else
+            {
+                await Task.Run(() => _connection.Bind(), cancellationToken);
+            }
+
+            _isConnected = true;
+            _logger.LogDebug("Connected to Active Directory: {Server}", server);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            _logger.LogError(ex, "Failed to connect to Active Directory");
+            throw new InvalidOperationException($"Failed to connect to Active Directory: {ex.Message}", ex);
+        }
+        finally
+        {
+            _connectionLock.Release();
+        }
+    }
+
+    private async Task<LdapUser?> SearchSingleUserAsync(string filter, CancellationToken cancellationToken)
+    {
+        var searchRequest = new SearchRequest(
+            GetBaseDn(),
+            filter,
+            SearchScope.Subtree,
+            GetUserAttributes());
+
+        searchRequest.SizeLimit = 1;
+
+        var response = await Task.Run(
+            () => (SearchResponse)_connection!.SendRequest(searchRequest),
+            cancellationToken);
+
+        if (response.Entries.Count == 0)
+        {
+            return null;
+        }
+
+        return MapToLdapUser((SearchResultEntry)response.Entries[0]!);
+    }
+
+    private LdapUser MapToLdapUser(SearchResultEntry entry)
+    {
+        var user = new LdapUser
+        {
+            DirectoryType = LdapDirectoryType.ActiveDirectory,
+            Id = GetAttributeValue(entry, "objectGUID"),
+            Username = GetAttributeValue(entry, "sAMAccountName") ?? string.Empty,
+            UserPrincipalName = GetAttributeValue(entry, "userPrincipalName"),
+            DistinguishedName = entry.DistinguishedName,
+            DisplayName = GetAttributeValue(entry, "displayName"),
+            FirstName = GetAttributeValue(entry, "givenName"),
+            LastName = GetAttributeValue(entry, "sn"),
+            Email = GetAttributeValue(entry, "mail"),
+            PhoneNumber = GetAttributeValue(entry, "telephoneNumber"),
+            MobilePhone = GetAttributeValue(entry, "mobile"),
+            JobTitle = GetAttributeValue(entry, "title"),
+            Department = GetAttributeValue(entry, "department"),
+            Company = GetAttributeValue(entry, "company"),
+            Office = GetAttributeValue(entry, "physicalDeliveryOfficeName"),
+            Manager = GetAttributeValue(entry, "manager"),
+            StreetAddress = GetAttributeValue(entry, "streetAddress"),
+            City = GetAttributeValue(entry, "l"),
+            State = GetAttributeValue(entry, "st"),
+            PostalCode = GetAttributeValue(entry, "postalCode"),
+            Country = GetAttributeValue(entry, "co"),
+            IsEnabled = !IsAccountDisabled(entry),
+            IsLockedOut = IsAccountLockedOut(entry),
+            CreatedAt = ParseDateTime(GetAttributeValue(entry, "whenCreated")),
+            ModifiedAt = ParseDateTime(GetAttributeValue(entry, "whenChanged")),
+            LastLogon = ParseFileTime(GetAttributeValue(entry, "lastLogon")),
+            Groups = GetGroupMembership(entry)
+        };
+
+        // Add custom attributes
+        foreach (var attrName in _options.CustomAttributes)
+        {
+            var value = GetAttributeValue(entry, attrName);
+            if (value != null)
+            {
+                user.CustomAttributes[attrName] = value;
+            }
+        }
+
+        return user;
+    }
+
+    private static string? GetAttributeValue(SearchResultEntry entry, string attributeName)
+    {
+        if (!entry.Attributes.Contains(attributeName))
+        {
+            return null;
+        }
+
+        var values = entry.Attributes[attributeName].GetValues(typeof(string));
+        return values.Length > 0 ? values[0] as string : null;
+    }
+
+    private static bool IsAccountDisabled(SearchResultEntry entry)
+    {
+        var uacValue = GetAttributeValue(entry, "userAccountControl");
+        if (uacValue == null || !int.TryParse(uacValue, out var uac))
+        {
+            return false;
+        }
+
+        // 0x2 = ACCOUNTDISABLE
+        return (uac & 0x2) != 0;
+    }
+
+    private static bool IsAccountLockedOut(SearchResultEntry entry)
+    {
+        var lockoutTime = GetAttributeValue(entry, "lockoutTime");
+        return lockoutTime != null && lockoutTime != "0";
+    }
+
+    private static IList<string> GetGroupMembership(SearchResultEntry entry)
+    {
+        if (!entry.Attributes.Contains("memberOf"))
+        {
+            return [];
+        }
+
+        var values = entry.Attributes["memberOf"].GetValues(typeof(string));
+        return values.Cast<string>().ToList();
+    }
+
+    private static DateTimeOffset? ParseDateTime(string? value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return null;
+        }
+
+        // AD format: "yyyyMMddHHmmss.0Z"
+        if (DateTime.TryParseExact(
+                value.Split('.')[0],
+                "yyyyMMddHHmmss",
+                null,
+                System.Globalization.DateTimeStyles.AssumeUniversal,
+                out var dt))
+        {
+            return new DateTimeOffset(dt, TimeSpan.Zero);
+        }
+
+        return null;
+    }
+
+    private static DateTimeOffset? ParseFileTime(string? value)
+    {
+        if (string.IsNullOrEmpty(value) || value == "0")
+        {
+            return null;
+        }
+
+        if (long.TryParse(value, out var fileTime) && fileTime > 0)
+        {
+            try
+            {
+                return DateTimeOffset.FromFileTime(fileTime);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    private string GetBaseDn()
+    {
+        if (!string.IsNullOrEmpty(_options.BaseDn))
+        {
+            return _options.BaseDn;
+        }
+
+        // Generate from domain
+        var parts = _options.Domain.Split('.');
+        return string.Join(",", parts.Select(p => $"DC={p}"));
+    }
+
+    private static string EscapeLdapFilter(string value)
+    {
+        return value
+            .Replace("\\", "\\5c")
+            .Replace("*", "\\2a")
+            .Replace("(", "\\28")
+            .Replace(")", "\\29")
+            .Replace("\0", "\\00");
+    }
+
+    private static string[] GetUserAttributes() =>
+    [
+        "objectGUID",
+        "sAMAccountName",
+        "userPrincipalName",
+        "distinguishedName",
+        "displayName",
+        "givenName",
+        "sn",
+        "mail",
+        "telephoneNumber",
+        "mobile",
+        "title",
+        "department",
+        "company",
+        "physicalDeliveryOfficeName",
+        "manager",
+        "streetAddress",
+        "l",
+        "st",
+        "postalCode",
+        "co",
+        "userAccountControl",
+        "lockoutTime",
+        "memberOf",
+        "whenCreated",
+        "whenChanged",
+        "lastLogon"
+    ];
+}

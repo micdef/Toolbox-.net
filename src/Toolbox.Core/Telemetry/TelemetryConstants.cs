@@ -94,6 +94,9 @@ public static class TelemetryConstants
 
         /// <summary>Counter for API request operations.</summary>
         public const string ApiRequestCount = "toolbox.api.requests.count";
+
+        /// <summary>Counter for LDAP query operations.</summary>
+        public const string LdapQueryCount = "toolbox.ldap.queries.count";
     }
 
     /// <summary>
@@ -163,5 +166,23 @@ public static class TelemetryConstants
 
         /// <summary>Attribute name for success indicator.</summary>
         public const string HttpSuccess = "toolbox.api.success";
+    }
+
+    /// <summary>
+    /// Additional attribute names for LDAP services.
+    /// </summary>
+    public static class LdapAttributes
+    {
+        /// <summary>Attribute name for directory type.</summary>
+        public const string DirectoryType = "toolbox.ldap.directory_type";
+
+        /// <summary>Attribute name for LDAP host.</summary>
+        public const string Host = "toolbox.ldap.host";
+
+        /// <summary>Attribute name for query success.</summary>
+        public const string QuerySuccess = "toolbox.ldap.query_success";
+
+        /// <summary>Attribute name for user found.</summary>
+        public const string UserFound = "toolbox.ldap.user_found";
     }
 }
