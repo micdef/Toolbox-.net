@@ -125,10 +125,22 @@ public sealed class AppleDirectoryOptions
     public string UniqueIdAttribute { get; set; } = "apple-generateduid";
 
     /// <summary>
-    /// Gets or sets the group membership attribute.
+    /// Gets or sets the group membership attribute (on user objects).
     /// </summary>
     /// <value>Default is "memberOf".</value>
     public string GroupMembershipAttribute { get; set; } = "memberOf";
+
+    /// <summary>
+    /// Gets or sets the group object class.
+    /// </summary>
+    /// <value>Default is "apple-group".</value>
+    public string GroupObjectClass { get; set; } = "apple-group";
+
+    /// <summary>
+    /// Gets or sets the group member attribute (on group objects).
+    /// </summary>
+    /// <value>Default is "member".</value>
+    public string GroupMemberAttribute { get; set; } = "member";
 
     /// <summary>
     /// Gets or sets the user search filter.

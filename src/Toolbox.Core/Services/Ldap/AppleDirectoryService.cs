@@ -539,6 +539,416 @@ public sealed class AppleDirectoryService : BaseAsyncDisposableService, ILdapSer
 
     #endregion
 
+    #region Group Search Methods
+
+    /// <inheritdoc />
+    public LdapGroup? GetGroupByName(string groupName)
+    {
+        return GetGroupByNameAsync(groupName).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroup?> GetGroupByNameAsync(string groupName, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(groupName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var escapedName = EscapeLdapFilter(groupName);
+            var filter = $"(&(objectClass={_options.GroupObjectClass})(|(cn={escapedName})(displayName={escapedName})))";
+            var group = await SearchSingleGroupAsync(filter, cancellationToken);
+
+            RecordOperation("GetGroupByName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByName", group != null);
+
+            return group;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching for group: {GroupName}", groupName);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapGroup? GetGroupByDistinguishedName(string distinguishedNameOrId)
+    {
+        return GetGroupByDistinguishedNameAsync(distinguishedNameOrId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroup?> GetGroupByDistinguishedNameAsync(string distinguishedNameOrId, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(distinguishedNameOrId);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var searchConstraints = new LdapSearchConstraints
+            {
+                MaxResults = 1,
+                TimeLimit = (int)_options.OperationTimeout.TotalMilliseconds
+            };
+
+            var results = await Task.Run(
+                () => _connection!.Search(
+                    distinguishedNameOrId,
+                    LdapConnection.ScopeBase,
+                    $"(objectClass={_options.GroupObjectClass})",
+                    GetGroupAttributes(),
+                    false,
+                    searchConstraints),
+                cancellationToken);
+
+            if (!results.HasMore())
+            {
+                RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+                return null;
+            }
+
+            try
+            {
+                var entry = results.Next();
+                var group = MapToLdapGroup(entry);
+                RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", true);
+                return group;
+            }
+            catch (LdapReferralException)
+            {
+                RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+                return null;
+            }
+        }
+        catch (LdapException ex) when (ex.ResultCode == LdapException.NoSuchObject)
+        {
+            RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+            return null;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching for group by DN: {DN}", distinguishedNameOrId);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<LdapGroup> SearchGroups(string searchFilter, int maxResults = 100)
+    {
+        return SearchGroupsAsync(searchFilter, maxResults).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<LdapGroup>> SearchGroupsAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(searchFilter);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var searchConstraints = new LdapSearchConstraints
+            {
+                MaxResults = maxResults,
+                TimeLimit = (int)_options.OperationTimeout.TotalMilliseconds
+            };
+
+            var results = await Task.Run(
+                () => _connection!.Search(
+                    _options.BaseDn,
+                    LdapConnection.ScopeSub,
+                    searchFilter,
+                    GetGroupAttributes(),
+                    false,
+                    searchConstraints),
+                cancellationToken);
+
+            var groups = new List<LdapGroup>();
+            while (results.HasMore() && groups.Count < maxResults)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                try
+                {
+                    var entry = results.Next();
+                    groups.Add(MapToLdapGroup(entry));
+                }
+                catch (LdapReferralException)
+                {
+                    // Skip referrals
+                }
+            }
+
+            RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+
+            return groups;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching groups with filter: {Filter}", searchFilter);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapGroup> GetAllGroups(int page = 1, int pageSize = 50)
+    {
+        return GetAllGroupsAsync(page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapGroup>> GetAllGroupsAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var filter = $"(objectClass={_options.GroupObjectClass})";
+            var result = await SearchGroupsPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("GetAllGroups", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllGroups", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error getting all groups");
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapGroup> SearchGroups(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50)
+    {
+        return SearchGroupsAsync(criteria, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapGroup>> SearchGroupsAsync(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(criteria);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var filter = BuildGroupLdapFilter(criteria);
+            var result = await SearchGroupsPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching groups with criteria");
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    private async Task<LdapGroup?> SearchSingleGroupAsync(string filter, CancellationToken cancellationToken)
+    {
+        var searchConstraints = new LdapSearchConstraints
+        {
+            MaxResults = 1,
+            TimeLimit = (int)_options.OperationTimeout.TotalMilliseconds
+        };
+
+        var results = await Task.Run(
+            () => _connection!.Search(
+                _options.BaseDn,
+                LdapConnection.ScopeSub,
+                filter,
+                GetGroupAttributes(),
+                false,
+                searchConstraints),
+            cancellationToken);
+
+        if (!results.HasMore())
+        {
+            return null;
+        }
+
+        try
+        {
+            var entry = results.Next();
+            return MapToLdapGroup(entry);
+        }
+        catch (LdapReferralException)
+        {
+            return null;
+        }
+    }
+
+    private async Task<PagedResult<LdapGroup>> SearchGroupsPagedAsync(string filter, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        var skip = (page - 1) * pageSize;
+
+        var searchConstraints = new LdapSearchConstraints
+        {
+            MaxResults = 0,
+            TimeLimit = (int)_options.OperationTimeout.TotalMilliseconds
+        };
+
+        var results = await Task.Run(
+            () => _connection!.Search(
+                _options.BaseDn,
+                LdapConnection.ScopeSub,
+                filter,
+                GetGroupAttributes(),
+                false,
+                searchConstraints),
+            cancellationToken);
+
+        var allGroups = new List<LdapGroup>();
+        while (results.HasMore())
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            try
+            {
+                var entry = results.Next();
+                allGroups.Add(MapToLdapGroup(entry));
+            }
+            catch (LdapReferralException)
+            {
+                // Skip referrals
+            }
+        }
+
+        var totalCount = allGroups.Count;
+        var pagedGroups = allGroups.Skip(skip).Take(pageSize).ToList();
+
+        return PagedResult<LdapGroup>.Create(pagedGroups, page, pageSize, totalCount);
+    }
+
+    private string BuildGroupLdapFilter(LdapGroupSearchCriteria criteria)
+    {
+        var filters = new List<string>
+        {
+            $"(objectClass={_options.GroupObjectClass})"
+        };
+
+        if (!string.IsNullOrEmpty(criteria.Name))
+            filters.Add($"(cn={EscapeLdapFilterWithWildcard(criteria.Name)})");
+
+        if (!string.IsNullOrEmpty(criteria.DisplayName))
+            filters.Add($"(displayName={EscapeLdapFilterWithWildcard(criteria.DisplayName)})");
+
+        if (!string.IsNullOrEmpty(criteria.Description))
+            filters.Add($"(description={EscapeLdapFilterWithWildcard(criteria.Description)})");
+
+        if (!string.IsNullOrEmpty(criteria.Email))
+            filters.Add($"(mail={EscapeLdapFilterWithWildcard(criteria.Email)})");
+
+        if (!string.IsNullOrEmpty(criteria.HasMember))
+            filters.Add($"({_options.GroupMemberAttribute}={EscapeLdapFilter(criteria.HasMember)})");
+
+        if (!string.IsNullOrEmpty(criteria.MemberOfGroup))
+            filters.Add($"({_options.GroupMembershipAttribute}={EscapeLdapFilter(criteria.MemberOfGroup)})");
+
+        if (criteria.CustomAttributes != null)
+        {
+            foreach (var (attr, value) in criteria.CustomAttributes)
+            {
+                filters.Add($"({EscapeLdapFilter(attr)}={EscapeLdapFilterWithWildcard(value)})");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.CustomFilter))
+        {
+            filters.Add(criteria.CustomFilter);
+        }
+
+        return $"(&{string.Join("", filters)})";
+    }
+
+    private LdapGroup MapToLdapGroup(LdapEntry entry)
+    {
+        var group = new LdapGroup
+        {
+            DirectoryType = LdapDirectoryType.AppleDirectory,
+            Id = GetAttributeValue(entry, _options.UniqueIdAttribute),
+            Name = GetAttributeValue(entry, "cn") ?? string.Empty,
+            DistinguishedName = entry.Dn,
+            DisplayName = GetAttributeValue(entry, "displayName") ?? GetAttributeValue(entry, "cn"),
+            Description = GetAttributeValue(entry, "description"),
+            Email = GetAttributeValue(entry, "mail"),
+            IsMailEnabled = !string.IsNullOrEmpty(GetAttributeValue(entry, "mail")),
+            Members = GetMultiValueAttribute(entry, _options.GroupMemberAttribute),
+            MemberOf = GetMultiValueAttribute(entry, _options.GroupMembershipAttribute)
+        };
+
+        group.MemberCount = group.Members.Count;
+
+        return group;
+    }
+
+    private static IList<string> GetMultiValueAttribute(LdapEntry entry, string attributeName)
+    {
+        try
+        {
+            var attr = entry.GetAttribute(attributeName);
+            if (attr == null)
+            {
+                return [];
+            }
+
+            return attr.StringValueArray.ToList();
+        }
+        catch
+        {
+            return [];
+        }
+    }
+
+    private string[] GetGroupAttributes() =>
+    [
+        _options.UniqueIdAttribute,
+        "cn",
+        "displayName",
+        "description",
+        "mail",
+        _options.GroupMemberAttribute,
+        _options.GroupMembershipAttribute
+    ];
+
+    #endregion
+
     /// <inheritdoc />
     protected override async ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

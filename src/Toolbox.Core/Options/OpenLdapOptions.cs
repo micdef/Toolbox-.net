@@ -119,10 +119,22 @@ public sealed class OpenLdapOptions
     public string LastNameAttribute { get; set; } = "sn";
 
     /// <summary>
-    /// Gets or sets the group membership attribute.
+    /// Gets or sets the group membership attribute (on user objects).
     /// </summary>
     /// <value>Default is "memberOf".</value>
     public string GroupMembershipAttribute { get; set; } = "memberOf";
+
+    /// <summary>
+    /// Gets or sets the group object class.
+    /// </summary>
+    /// <value>Default is "groupOfNames".</value>
+    public string GroupObjectClass { get; set; } = "groupOfNames";
+
+    /// <summary>
+    /// Gets or sets the group member attribute (on group objects).
+    /// </summary>
+    /// <value>Default is "member".</value>
+    public string GroupMemberAttribute { get; set; } = "member";
 
     /// <summary>
     /// Gets or sets the user search filter template.

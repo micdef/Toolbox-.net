@@ -1,6 +1,6 @@
 // @file ILdapService.cs
 // @brief Interface for LDAP directory services
-// @details Defines contract for querying users from directory services
+// @details Defines contract for querying users and groups from directory services
 // @note Supports Active Directory, Azure AD, OpenLDAP, and Apple Directory Services
 
 using Toolbox.Core.Options;
@@ -12,7 +12,7 @@ namespace Toolbox.Core.Abstractions.Services;
 /// </summary>
 /// <remarks>
 /// <para>
-/// This interface provides methods for querying user information
+/// This interface provides methods for querying user and group information
 /// from various directory services including:
 /// </para>
 /// <list type="bullet">
@@ -283,6 +283,175 @@ public interface ILdapService : IInstrumentedService, IAsyncDisposableService
     /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
     /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
     Task<PagedResult<LdapUser>> GetGroupMembersAsync(string groupDnOrName, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Group Search Methods
+
+    /// <summary>
+    /// Gets a group by its name synchronously.
+    /// </summary>
+    /// <param name="groupName">The group name to search for (cn, displayName, or sAMAccountName).</param>
+    /// <returns>The group if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="groupName"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// var group = ldapService.GetGroupByName("Developers");
+    /// if (group != null)
+    /// {
+    ///     Console.WriteLine($"Found: {group.DisplayName} ({group.MemberCount} members)");
+    /// }
+    /// </code>
+    /// </example>
+    LdapGroup? GetGroupByName(string groupName);
+
+    /// <summary>
+    /// Gets a group by its name asynchronously.
+    /// </summary>
+    /// <param name="groupName">The group name to search for (cn, displayName, or sAMAccountName).</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the group if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="groupName"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapGroup?> GetGroupByNameAsync(string groupName, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets a group by its distinguished name or unique ID synchronously.
+    /// </summary>
+    /// <param name="distinguishedNameOrId">The group DN (for AD/LDAP) or ID (for Azure AD).</param>
+    /// <returns>The group if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="distinguishedNameOrId"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    LdapGroup? GetGroupByDistinguishedName(string distinguishedNameOrId);
+
+    /// <summary>
+    /// Gets a group by its distinguished name or unique ID asynchronously.
+    /// </summary>
+    /// <param name="distinguishedNameOrId">The group DN (for AD/LDAP) or ID (for Azure AD).</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the group if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="distinguishedNameOrId"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapGroup?> GetGroupByDistinguishedNameAsync(string distinguishedNameOrId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Searches for groups matching the specified filter.
+    /// </summary>
+    /// <param name="searchFilter">The search filter (LDAP filter syntax or provider-specific query).</param>
+    /// <param name="maxResults">Maximum number of results to return. Default is 100.</param>
+    /// <returns>A collection of matching groups.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="searchFilter"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// // LDAP filter syntax for Active Directory/OpenLDAP
+    /// var groups = ldapService.SearchGroups("(cn=*Admin*)", maxResults: 50);
+    ///
+    /// // For Azure AD, use OData filter syntax
+    /// var groups = ldapService.SearchGroups("startsWith(displayName, 'Admin')", maxResults: 50);
+    /// </code>
+    /// </example>
+    IEnumerable<LdapGroup> SearchGroups(string searchFilter, int maxResults = 100);
+
+    /// <summary>
+    /// Searches for groups matching the specified filter asynchronously.
+    /// </summary>
+    /// <param name="searchFilter">The search filter (LDAP filter syntax or provider-specific query).</param>
+    /// <param name="maxResults">Maximum number of results to return. Default is 100.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a collection of matching groups.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="searchFilter"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<IEnumerable<LdapGroup>> SearchGroupsAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all groups with pagination.
+    /// </summary>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of groups per page. Default is 50.</param>
+    /// <returns>A paged result containing groups.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.GetAllGroups(page: 1, pageSize: 25);
+    /// Console.WriteLine($"Found {result.TotalCount} groups");
+    /// foreach (var group in result.Items)
+    /// {
+    ///     Console.WriteLine(group.DisplayName);
+    /// }
+    /// </code>
+    /// </example>
+    PagedResult<LdapGroup> GetAllGroups(int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Gets all groups with pagination asynchronously.
+    /// </summary>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of groups per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of groups.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<PagedResult<LdapGroup>> GetAllGroupsAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Searches for groups matching the specified criteria with pagination.
+    /// </summary>
+    /// <param name="criteria">The search criteria.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of groups per page. Default is 50.</param>
+    /// <returns>A paged result containing matching groups.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="criteria"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// // Search by name pattern
+    /// var criteria = new LdapGroupSearchCriteria { Name = "*Admins" };
+    /// var result = ldapService.SearchGroups(criteria, page: 1, pageSize: 25);
+    ///
+    /// // Using fluent API
+    /// var criteria = LdapGroupSearchCriteria.Create()
+    ///     .WithName("Dev*")
+    ///     .SecurityGroupsOnly();
+    /// var result = ldapService.SearchGroups(criteria);
+    /// </code>
+    /// </example>
+    PagedResult<LdapGroup> SearchGroups(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Searches for groups matching the specified criteria with pagination asynchronously.
+    /// </summary>
+    /// <param name="criteria">The search criteria.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of groups per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of matching groups.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="criteria"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    /// <example>
+    /// <code>
+    /// var criteria = LdapGroupSearchCriteria.Create()
+    ///     .WithName("*Developers*")
+    ///     .SecurityGroupsOnly();
+    ///
+    /// var result = await ldapService.SearchGroupsAsync(criteria, page: 1, pageSize: 25);
+    ///
+    /// while (result.HasNextPage)
+    /// {
+    ///     foreach (var group in result.Items)
+    ///     {
+    ///         Console.WriteLine($"{group.DisplayName} - {group.MemberCount} members");
+    ///     }
+    ///     result = await ldapService.SearchGroupsAsync(criteria, result.Page + 1, pageSize: 25);
+    /// }
+    /// </code>
+    /// </example>
+    Task<PagedResult<LdapGroup>> SearchGroupsAsync(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
 
     #endregion
 }

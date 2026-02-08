@@ -614,6 +614,361 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 
     #endregion
 
+    #region Group Search Methods
+
+    /// <inheritdoc />
+    public LdapGroup? GetGroupByName(string groupName)
+    {
+        return GetGroupByNameAsync(groupName).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroup?> GetGroupByNameAsync(string groupName, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(groupName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var escapedName = EscapeODataFilter(groupName);
+            var filter = $"displayName eq '{escapedName}' or mailNickname eq '{escapedName}'";
+
+            var groups = await _graphClient.Value.Groups
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = filter;
+                    config.QueryParameters.Select = GetGroupSelectProperties();
+                    config.QueryParameters.Top = 1;
+                }, cancellationToken);
+
+            var graphGroup = groups?.Value?.FirstOrDefault();
+            if (graphGroup == null)
+            {
+                _logger.LogDebug("Group not found in Azure AD: {GroupName}", groupName);
+                RecordOperation("GetGroupByName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByName", false);
+                return null;
+            }
+
+            var group = MapToLdapGroup(graphGroup);
+            RecordOperation("GetGroupByName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByName", true);
+
+            return group;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching for group: {GroupName}", groupName);
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapGroup? GetGroupByDistinguishedName(string distinguishedNameOrId)
+    {
+        return GetGroupByDistinguishedNameAsync(distinguishedNameOrId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroup?> GetGroupByDistinguishedNameAsync(string distinguishedNameOrId, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(distinguishedNameOrId);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var graphGroup = await _graphClient.Value.Groups[distinguishedNameOrId]
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Select = GetGroupSelectProperties();
+                }, cancellationToken);
+
+            if (graphGroup == null)
+            {
+                RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+                return null;
+            }
+
+            var group = MapToLdapGroup(graphGroup);
+            RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", true);
+
+            return group;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex) when (ex.ResponseStatusCode == 404)
+        {
+            RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+            return null;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching for group by ID: {Id}", distinguishedNameOrId);
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<LdapGroup> SearchGroups(string searchFilter, int maxResults = 100)
+    {
+        return SearchGroupsAsync(searchFilter, maxResults).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<LdapGroup>> SearchGroupsAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(searchFilter);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var groups = await _graphClient.Value.Groups
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = searchFilter;
+                    config.QueryParameters.Select = GetGroupSelectProperties();
+                    config.QueryParameters.Top = maxResults;
+                }, cancellationToken);
+
+            var result = (groups?.Value ?? [])
+                .Select(MapToLdapGroup)
+                .ToList();
+
+            RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching groups with filter: {Filter}", searchFilter);
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapGroup> GetAllGroups(int page = 1, int pageSize = 50)
+    {
+        return GetAllGroupsAsync(page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapGroup>> GetAllGroupsAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var result = await FetchGroupsPagedAsync(null, page, pageSize, cancellationToken);
+
+            RecordOperation("GetAllGroups", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllGroups", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error getting all groups");
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapGroup> SearchGroups(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50)
+    {
+        return SearchGroupsAsync(criteria, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapGroup>> SearchGroupsAsync(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(criteria);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var filter = BuildGroupODataFilter(criteria);
+            var result = await FetchGroupsPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching groups with criteria");
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    private async Task<PagedResult<LdapGroup>> FetchGroupsPagedAsync(string? filter, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        var skip = (page - 1) * pageSize;
+        var allGroups = new List<Group>();
+        var totalCount = -1;
+
+        var response = await _graphClient.Value.Groups
+            .GetAsync(config =>
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    config.QueryParameters.Filter = filter;
+                }
+                config.QueryParameters.Select = GetGroupSelectProperties();
+                config.QueryParameters.Top = 999;
+                config.QueryParameters.Count = true;
+                config.Headers.Add("ConsistencyLevel", "eventual");
+            }, cancellationToken);
+
+        if (response?.Value != null)
+        {
+            allGroups.AddRange(response.Value);
+            totalCount = (int)(response.OdataCount ?? allGroups.Count);
+        }
+
+        while (response?.OdataNextLink != null && allGroups.Count < skip + pageSize)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            response = await _graphClient.Value.Groups
+                .WithUrl(response.OdataNextLink)
+                .GetAsync(cancellationToken: cancellationToken);
+
+            if (response?.Value != null)
+            {
+                allGroups.AddRange(response.Value);
+            }
+        }
+
+        var pagedGroups = allGroups.Skip(skip).Take(pageSize).Select(MapToLdapGroup).ToList();
+
+        return PagedResult<LdapGroup>.Create(pagedGroups, page, pageSize, totalCount);
+    }
+
+    private static string BuildGroupODataFilter(LdapGroupSearchCriteria criteria)
+    {
+        var filters = new List<string>();
+
+        if (!string.IsNullOrEmpty(criteria.Name))
+        {
+            var escaped = EscapeODataFilter(criteria.Name);
+            if (criteria.Name.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(displayName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"displayName eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.DisplayName))
+        {
+            var escaped = EscapeODataFilter(criteria.DisplayName);
+            if (criteria.DisplayName.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(displayName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"displayName eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.Description))
+        {
+            var escaped = EscapeODataFilter(criteria.Description);
+            filters.Add($"description eq '{escaped}'");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.Email))
+        {
+            var escaped = EscapeODataFilter(criteria.Email);
+            filters.Add($"mail eq '{escaped}'");
+        }
+
+        if (criteria.IsSecurityGroup.HasValue)
+        {
+            filters.Add($"securityEnabled eq {criteria.IsSecurityGroup.Value.ToString().ToLowerInvariant()}");
+        }
+
+        if (criteria.IsMailEnabled.HasValue)
+        {
+            filters.Add($"mailEnabled eq {criteria.IsMailEnabled.Value.ToString().ToLowerInvariant()}");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.CustomFilter))
+        {
+            filters.Add(criteria.CustomFilter);
+        }
+
+        return string.Join(" and ", filters);
+    }
+
+    private static LdapGroup MapToLdapGroup(Group graphGroup)
+    {
+        var groupTypes = graphGroup.GroupTypes ?? [];
+        var isUnified = groupTypes.Contains("Unified");
+
+        string? groupType = null;
+        if (isUnified) groupType = "Unified";
+        else if (graphGroup.SecurityEnabled == true && graphGroup.MailEnabled != true) groupType = "Security";
+        else if (graphGroup.MailEnabled == true) groupType = "MailEnabled";
+
+        return new LdapGroup
+        {
+            DirectoryType = LdapDirectoryType.AzureActiveDirectory,
+            Id = graphGroup.Id,
+            Name = graphGroup.MailNickname ?? graphGroup.DisplayName ?? string.Empty,
+            DisplayName = graphGroup.DisplayName,
+            Description = graphGroup.Description,
+            Email = graphGroup.Mail,
+            GroupType = groupType,
+            IsSecurityGroup = graphGroup.SecurityEnabled,
+            IsMailEnabled = graphGroup.MailEnabled,
+            CreatedAt = graphGroup.CreatedDateTime
+        };
+    }
+
+    private static string[] GetGroupSelectProperties() =>
+    [
+        "id",
+        "displayName",
+        "mailNickname",
+        "description",
+        "mail",
+        "securityEnabled",
+        "mailEnabled",
+        "groupTypes",
+        "createdDateTime"
+    ];
+
+    #endregion
+
     /// <inheritdoc />
     protected override ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {
