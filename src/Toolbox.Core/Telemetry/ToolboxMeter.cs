@@ -136,6 +136,46 @@ public static class ToolboxMeter
             description: "Number of LDAP query operations"),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
+    // Lazy initializer for LDAP connection counter
+    private static readonly Lazy<Counter<long>> LazyLdapConnectionCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.LdapMetrics.ConnectionCount,
+            unit: "{connections}",
+            description: "Number of LDAP connection operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for LDAP authentication counter
+    private static readonly Lazy<Counter<long>> LazyLdapAuthCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.LdapMetrics.AuthenticationCount,
+            unit: "{authentications}",
+            description: "Number of LDAP authentication operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for LDAP query result count histogram
+    private static readonly Lazy<Histogram<long>> LazyLdapResultCountHistogram = new(
+        () => Instance.CreateHistogram<long>(
+            TelemetryConstants.LdapMetrics.QueryResultCount,
+            unit: "{results}",
+            description: "Number of results returned by LDAP queries"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for LDAP error counter
+    private static readonly Lazy<Counter<long>> LazyLdapErrorCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.LdapMetrics.ErrorCount,
+            unit: "{errors}",
+            description: "Number of LDAP operation errors"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for LDAP query duration histogram
+    private static readonly Lazy<Histogram<double>> LazyLdapQueryDuration = new(
+        () => Instance.CreateHistogram<double>(
+            TelemetryConstants.LdapMetrics.QueryDuration,
+            unit: "ms",
+            description: "Duration of LDAP query operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
     /// <summary>
     /// Gets the shared <see cref="Meter"/> instance for Toolbox services.
     /// </summary>
@@ -401,5 +441,125 @@ public static class ToolboxMeter
         };
 
         LazyLdapQueryCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records a detailed LDAP query operation with result count and duration.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="operationName">The name of the operation.</param>
+    /// <param name="objectType">The type of object queried (user, group, computer).</param>
+    /// <param name="resultCount">The number of results returned.</param>
+    /// <param name="durationMs">The duration of the query in milliseconds.</param>
+    /// <param name="success">Whether the query was successful.</param>
+    public static void RecordLdapQueryDetailed(
+        string serviceName,
+        string operationName,
+        string objectType,
+        int resultCount,
+        double durationMs,
+        bool success)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.Attributes.OperationName, operationName },
+            { TelemetryConstants.LdapAttributes.ObjectType, objectType },
+            { TelemetryConstants.LdapAttributes.QuerySuccess, success }
+        };
+
+        LazyLdapQueryCounter.Value.Add(1, tags);
+        LazyLdapResultCountHistogram.Value.Record(resultCount, tags);
+        LazyLdapQueryDuration.Value.Record(durationMs, tags);
+    }
+
+    /// <summary>
+    /// Records a paged LDAP query operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="operationName">The name of the operation.</param>
+    /// <param name="objectType">The type of object queried (user, group, computer).</param>
+    /// <param name="resultCount">The number of results returned on this page.</param>
+    /// <param name="page">The page number.</param>
+    /// <param name="pageSize">The page size.</param>
+    /// <param name="durationMs">The duration of the query in milliseconds.</param>
+    public static void RecordLdapPagedQuery(
+        string serviceName,
+        string operationName,
+        string objectType,
+        int resultCount,
+        int page,
+        int pageSize,
+        double durationMs)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.Attributes.OperationName, operationName },
+            { TelemetryConstants.LdapAttributes.ObjectType, objectType },
+            { TelemetryConstants.LdapAttributes.PageNumber, page },
+            { TelemetryConstants.LdapAttributes.PageSize, pageSize },
+            { TelemetryConstants.LdapAttributes.QuerySuccess, true }
+        };
+
+        LazyLdapQueryCounter.Value.Add(1, tags);
+        LazyLdapResultCountHistogram.Value.Record(resultCount, tags);
+        LazyLdapQueryDuration.Value.Record(durationMs, tags);
+    }
+
+    /// <summary>
+    /// Records an LDAP connection operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="directoryType">The type of directory (ActiveDirectory, AzureAD, OpenLdap, AppleDirectory).</param>
+    /// <param name="host">The LDAP host.</param>
+    /// <param name="success">Whether the connection was successful.</param>
+    public static void RecordLdapConnection(string serviceName, string directoryType, string host, bool success)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.LdapAttributes.DirectoryType, directoryType },
+            { TelemetryConstants.LdapAttributes.Host, host },
+            { TelemetryConstants.LdapAttributes.QuerySuccess, success }
+        };
+
+        LazyLdapConnectionCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an LDAP authentication operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="directoryType">The type of directory.</param>
+    /// <param name="success">Whether the authentication was successful.</param>
+    public static void RecordLdapAuthentication(string serviceName, string directoryType, bool success)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.LdapAttributes.DirectoryType, directoryType },
+            { TelemetryConstants.LdapAttributes.AuthSuccess, success }
+        };
+
+        LazyLdapAuthCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an LDAP error.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="operationName">The name of the operation that failed.</param>
+    /// <param name="errorType">The type of error.</param>
+    public static void RecordLdapError(string serviceName, string operationName, string errorType)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.Attributes.OperationName, operationName },
+            { TelemetryConstants.Attributes.ErrorType, errorType }
+        };
+
+        LazyLdapErrorCounter.Value.Add(1, tags);
     }
 }

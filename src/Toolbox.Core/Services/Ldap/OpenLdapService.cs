@@ -111,12 +111,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var user = await SearchSingleUserAsync(filter, cancellationToken);
 
             RecordOperation("GetUserByUsername", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByUsername", user != null);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetUserByUsername", "user", user != null ? 1 : 0, sw.ElapsedMilliseconds, true);
 
             return user;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetUserByUsername", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching for user: {Username}", username);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -146,12 +147,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var user = await SearchSingleUserAsync(filter, cancellationToken);
 
             RecordOperation("GetUserByEmail", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByEmail", user != null);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetUserByEmail", "user", user != null ? 1 : 0, sw.ElapsedMilliseconds, true);
 
             return user;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetUserByEmail", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching for user by email: {Email}", email);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -210,12 +212,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             }
 
             RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "SearchUsers", "user", users.Count, sw.ElapsedMilliseconds, true);
 
             return users;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchUsers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching users with filter: {Filter}", searchFilter);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -266,7 +269,7 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             await Task.Run(() => connection.Bind(user.DistinguishedName, password), cancellationToken);
 
             RecordOperation("ValidateCredentials", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "ValidateCredentials", true);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "OpenLdap", true);
 
             _logger.LogDebug("Credentials validated for user: {Username}", username);
             return true;
@@ -275,11 +278,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         {
             _logger.LogDebug("Invalid credentials for user: {Username}", username);
             RecordOperation("ValidateCredentials", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "ValidateCredentials", false);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "OpenLdap", false);
             return false;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "ValidateCredentials", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error validating credentials for user: {Username}", username);
             throw new InvalidOperationException($"Credential validation failed: {ex.Message}", ex);
         }
@@ -316,6 +320,7 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
         catch (Exception ex) when (ex is not InvalidOperationException)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetUserGroups", ex.GetType().Name);
             _logger.LogError(ex, "Error getting groups for user: {Username}", username);
             throw new InvalidOperationException($"Failed to get user groups: {ex.Message}", ex);
         }
@@ -346,12 +351,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchUsersPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("GetAllUsers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllUsers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetAllUsers", "user", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetAllUsers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error getting all users");
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -381,12 +387,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchUsersPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "SearchUsers", "user", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchUsers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching users with criteria");
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -418,12 +425,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchUsersPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("GetGroupMembers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupMembers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetGroupMembers", "user", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetGroupMembers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error getting group members: {Group}", groupDnOrName);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -572,12 +580,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var group = await SearchSingleGroupAsync(filter, cancellationToken);
 
             RecordOperation("GetGroupByName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByName", group != null);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByName", "group", group != null ? 1 : 0, sw.ElapsedMilliseconds, true);
 
             return group;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetGroupByName", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching for group: {GroupName}", groupName);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -622,7 +631,7 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             if (!results.HasMore())
             {
                 RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
@@ -631,24 +640,25 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
                 var entry = results.Next();
                 var group = MapToLdapGroup(entry);
                 RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", true);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 1, sw.ElapsedMilliseconds, true);
                 return group;
             }
             catch (LdapReferralException)
             {
                 RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
         }
         catch (LdapException ex) when (ex.ResultCode == LdapException.NoSuchObject)
         {
             RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 0, sw.ElapsedMilliseconds, true);
             return null;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetGroupByDistinguishedName", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching for group by DN: {DN}", distinguishedNameOrId);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -707,12 +717,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             }
 
             RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "SearchGroups", "group", groups.Count, sw.ElapsedMilliseconds, true);
 
             return groups;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchGroups", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching groups with filter: {Filter}", searchFilter);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -741,12 +752,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchGroupsPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("GetAllGroups", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllGroups", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetAllGroups", "group", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetAllGroups", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error getting all groups");
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -776,12 +788,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchGroupsPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "SearchGroups", "group", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchGroups", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching groups with criteria");
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -982,12 +995,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var computer = await SearchSingleComputerAsync(filter, cancellationToken);
 
             RecordOperation("GetComputerByName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByName", computer != null);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByName", "computer", computer != null ? 1 : 0, sw.ElapsedMilliseconds, true);
 
             return computer;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetComputerByName", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching for computer: {ComputerName}", computerName);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -1032,7 +1046,7 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             if (!results.HasMore())
             {
                 RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
@@ -1041,24 +1055,25 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
                 var entry = results.Next();
                 var computer = MapToLdapComputer(entry);
                 RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", true);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 1, sw.ElapsedMilliseconds, true);
                 return computer;
             }
             catch (LdapReferralException)
             {
                 RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
         }
         catch (LdapException ex) when (ex.ResultCode == LdapException.NoSuchObject)
         {
             RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 0, sw.ElapsedMilliseconds, true);
             return null;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetComputerByDistinguishedName", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching for computer by DN: {DN}", distinguishedNameOrId);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -1117,12 +1132,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             }
 
             RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "SearchComputers", "computer", computers.Count, sw.ElapsedMilliseconds, true);
 
             return computers;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchComputers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching computers with filter: {Filter}", searchFilter);
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -1151,12 +1167,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchComputersPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("GetAllComputers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllComputers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetAllComputers", "computer", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetAllComputers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error getting all computers");
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -1186,12 +1203,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             var result = await SearchComputersPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "SearchComputers", "computer", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (LdapException ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchComputers", ex.GetType().Name);
             _logger.LogError(ex, "LDAP error searching computers with criteria");
             throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
         }
@@ -1413,10 +1431,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             }
 
             _isConnected = true;
+            ToolboxMeter.RecordLdapConnection(ServiceName, "OpenLdap", _options.Host, true);
             _logger.LogDebug("Connected to OpenLDAP: {Host}:{Port}", _options.Host, _options.Port);
         }
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
+            ToolboxMeter.RecordLdapConnection(ServiceName, "OpenLdap", _options.Host, false);
+            ToolboxMeter.RecordLdapError(ServiceName, "EnsureConnected", ex.GetType().Name);
             _logger.LogError(ex, "Failed to connect to OpenLDAP");
             throw new InvalidOperationException($"Failed to connect to OpenLDAP: {ex.Message}", ex);
         }

@@ -184,5 +184,41 @@ public static class TelemetryConstants
 
         /// <summary>Attribute name for user found.</summary>
         public const string UserFound = "toolbox.ldap.user_found";
+
+        /// <summary>Attribute name for object type (user, group, computer).</summary>
+        public const string ObjectType = "toolbox.ldap.object_type";
+
+        /// <summary>Attribute name for result count.</summary>
+        public const string ResultCount = "toolbox.ldap.result_count";
+
+        /// <summary>Attribute name for page number.</summary>
+        public const string PageNumber = "toolbox.ldap.page_number";
+
+        /// <summary>Attribute name for page size.</summary>
+        public const string PageSize = "toolbox.ldap.page_size";
+
+        /// <summary>Attribute name for authentication success.</summary>
+        public const string AuthSuccess = "toolbox.ldap.auth_success";
+    }
+
+    /// <summary>
+    /// LDAP-specific metric names.
+    /// </summary>
+    public static class LdapMetrics
+    {
+        /// <summary>Counter for LDAP connection operations.</summary>
+        public const string ConnectionCount = "toolbox.ldap.connections.count";
+
+        /// <summary>Counter for LDAP authentication operations.</summary>
+        public const string AuthenticationCount = "toolbox.ldap.auth.count";
+
+        /// <summary>Histogram for LDAP query result count.</summary>
+        public const string QueryResultCount = "toolbox.ldap.query.result_count";
+
+        /// <summary>Counter for LDAP errors.</summary>
+        public const string ErrorCount = "toolbox.ldap.errors.count";
+
+        /// <summary>Histogram for LDAP query duration.</summary>
+        public const string QueryDuration = "toolbox.ldap.query.duration";
     }
 }

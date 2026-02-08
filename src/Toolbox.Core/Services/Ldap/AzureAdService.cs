@@ -128,18 +128,19 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             {
                 _logger.LogDebug("User not found in Azure AD: {Username}", username);
                 RecordOperation("GetUserByUsername", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByUsername", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetUserByUsername", "user", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
             var user = MapToLdapUser(graphUser);
             RecordOperation("GetUserByUsername", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByUsername", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetUserByUsername", "user", 1, sw.ElapsedMilliseconds, true);
 
             return user;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetUserByUsername", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching for user: {Username}", username);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -179,18 +180,19 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             {
                 _logger.LogDebug("User not found by email in Azure AD: {Email}", email);
                 RecordOperation("GetUserByEmail", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByEmail", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetUserByEmail", "user", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
             var user = MapToLdapUser(graphUser);
             RecordOperation("GetUserByEmail", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetUserByEmail", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetUserByEmail", "user", 1, sw.ElapsedMilliseconds, true);
 
             return user;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetUserByEmail", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching for user by email: {Email}", email);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -227,12 +229,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
                 .ToList();
 
             RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "SearchUsers", "user", result.Count, sw.ElapsedMilliseconds, true);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchUsers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching users with filter: {Filter}", searchFilter);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -306,6 +309,7 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetUserGroups", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error getting groups for user: {Username}", username);
             throw new InvalidOperationException($"Failed to get user groups: {ex.Message}", ex);
         }
@@ -333,12 +337,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var result = await FetchUsersPagedAsync(null, page, pageSize, cancellationToken);
 
             RecordOperation("GetAllUsers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllUsers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetAllUsers", "user", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetAllUsers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error getting all users");
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -366,12 +371,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var result = await FetchUsersPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("SearchUsers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchUsers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "SearchUsers", "user", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchUsers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching users with criteria");
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -488,12 +494,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var totalCount = (int)(members?.OdataCount ?? -1);
 
             RecordOperation("GetGroupMembers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupMembers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetGroupMembers", "user", userMembers.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return PagedResult<LdapUser>.Create(userMembers, page, pageSize, totalCount);
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetGroupMembers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error getting group members: {Group}", groupDnOrName);
             throw new InvalidOperationException($"Failed to get group members: {ex.Message}", ex);
         }
@@ -650,18 +657,19 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             {
                 _logger.LogDebug("Group not found in Azure AD: {GroupName}", groupName);
                 RecordOperation("GetGroupByName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByName", "group", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
             var group = MapToLdapGroup(graphGroup);
             RecordOperation("GetGroupByName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByName", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByName", "group", 1, sw.ElapsedMilliseconds, true);
 
             return group;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetGroupByName", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching for group: {GroupName}", groupName);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -694,24 +702,25 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             if (graphGroup == null)
             {
                 RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
             var group = MapToLdapGroup(graphGroup);
             RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 1, sw.ElapsedMilliseconds, true);
 
             return group;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex) when (ex.ResponseStatusCode == 404)
         {
             RecordOperation("GetGroupByDistinguishedName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetGroupByDistinguishedName", false);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetGroupByDistinguishedName", "group", 0, sw.ElapsedMilliseconds, true);
             return null;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetGroupByDistinguishedName", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching for group by ID: {Id}", distinguishedNameOrId);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -748,12 +757,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
                 .ToList();
 
             RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "SearchGroups", "group", result.Count, sw.ElapsedMilliseconds, true);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchGroups", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching groups with filter: {Filter}", searchFilter);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -779,12 +789,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var result = await FetchGroupsPagedAsync(null, page, pageSize, cancellationToken);
 
             RecordOperation("GetAllGroups", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllGroups", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetAllGroups", "group", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetAllGroups", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error getting all groups");
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -812,12 +823,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var result = await FetchGroupsPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("SearchGroups", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchGroups", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "SearchGroups", "group", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchGroups", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching groups with criteria");
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -1005,18 +1017,19 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             {
                 _logger.LogDebug("Device not found in Azure AD: {ComputerName}", computerName);
                 RecordOperation("GetComputerByName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByName", "computer", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
             var computer = MapToLdapComputer(graphDevice);
             RecordOperation("GetComputerByName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByName", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByName", "computer", 1, sw.ElapsedMilliseconds, true);
 
             return computer;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetComputerByName", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching for device: {ComputerName}", computerName);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -1049,24 +1062,25 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             if (graphDevice == null)
             {
                 RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+                ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 0, sw.ElapsedMilliseconds, true);
                 return null;
             }
 
             var computer = MapToLdapComputer(graphDevice);
             RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 1, sw.ElapsedMilliseconds, true);
 
             return computer;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex) when (ex.ResponseStatusCode == 404)
         {
             RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "GetComputerByDistinguishedName", "computer", 0, sw.ElapsedMilliseconds, true);
             return null;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetComputerByDistinguishedName", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching for device by ID: {Id}", distinguishedNameOrId);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -1103,12 +1117,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
                 .ToList();
 
             RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+            ToolboxMeter.RecordLdapQueryDetailed(ServiceName, "SearchComputers", "computer", result.Count, sw.ElapsedMilliseconds, true);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchComputers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching devices with filter: {Filter}", searchFilter);
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -1134,12 +1149,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var result = await FetchDevicesPagedAsync(null, page, pageSize, cancellationToken);
 
             RecordOperation("GetAllComputers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllComputers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "GetAllComputers", "computer", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "GetAllComputers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error getting all devices");
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -1167,12 +1183,13 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             var result = await FetchDevicesPagedAsync(filter, page, pageSize, cancellationToken);
 
             RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
-            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+            ToolboxMeter.RecordLdapPagedQuery(ServiceName, "SearchComputers", "computer", result.Items.Count, page, pageSize, sw.ElapsedMilliseconds);
 
             return result;
         }
         catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
         {
+            ToolboxMeter.RecordLdapError(ServiceName, "SearchComputers", ex.GetType().Name);
             _logger.LogError(ex, "Graph API error searching devices with criteria");
             throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
         }
@@ -1345,22 +1362,33 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 
     private GraphServiceClient CreateGraphClient()
     {
-        var credential = _options.AuthenticationMode switch
+        try
         {
-            AzureAdAuthMode.ClientSecret when !string.IsNullOrEmpty(_options.ClientSecret) =>
-                new ClientSecretCredential(_options.TenantId, _options.ClientId, _options.ClientSecret),
+            var credential = _options.AuthenticationMode switch
+            {
+                AzureAdAuthMode.ClientSecret when !string.IsNullOrEmpty(_options.ClientSecret) =>
+                    new ClientSecretCredential(_options.TenantId, _options.ClientId, _options.ClientSecret),
 
-            AzureAdAuthMode.Certificate => CreateCertificateCredential(),
+                AzureAdAuthMode.Certificate => CreateCertificateCredential(),
 
-            AzureAdAuthMode.ManagedIdentity or _ when _options.UseManagedIdentity =>
-                (Azure.Core.TokenCredential)new ManagedIdentityCredential(),
+                AzureAdAuthMode.ManagedIdentity or _ when _options.UseManagedIdentity =>
+                    (Azure.Core.TokenCredential)new ManagedIdentityCredential(),
 
-            _ => throw new InvalidOperationException(
-                "No valid authentication method configured. " +
-                "Provide ClientSecret, Certificate, or enable ManagedIdentity.")
-        };
+                _ => throw new InvalidOperationException(
+                    "No valid authentication method configured. " +
+                    "Provide ClientSecret, Certificate, or enable ManagedIdentity.")
+            };
 
-        return new GraphServiceClient(credential, ["https://graph.microsoft.com/.default"]);
+            var client = new GraphServiceClient(credential, ["https://graph.microsoft.com/.default"]);
+            ToolboxMeter.RecordLdapConnection(ServiceName, "AzureActiveDirectory", "graph.microsoft.com", true);
+            return client;
+        }
+        catch (Exception ex)
+        {
+            ToolboxMeter.RecordLdapConnection(ServiceName, "AzureActiveDirectory", "graph.microsoft.com", false);
+            ToolboxMeter.RecordLdapError(ServiceName, "CreateGraphClient", ex.GetType().Name);
+            throw;
+        }
     }
 
     private ClientCertificateCredential CreateCertificateCredential()
