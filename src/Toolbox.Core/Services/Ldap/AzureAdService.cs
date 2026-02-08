@@ -969,6 +969,373 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 
     #endregion
 
+    #region Computer Search Methods
+
+    /// <inheritdoc />
+    public LdapComputer? GetComputerByName(string computerName)
+    {
+        return GetComputerByNameAsync(computerName).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapComputer?> GetComputerByNameAsync(string computerName, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(computerName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var escapedName = EscapeODataFilter(computerName);
+            var filter = $"displayName eq '{escapedName}'";
+
+            var devices = await _graphClient.Value.Devices
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = filter;
+                    config.QueryParameters.Select = GetDeviceSelectProperties();
+                    config.QueryParameters.Top = 1;
+                }, cancellationToken);
+
+            var graphDevice = devices?.Value?.FirstOrDefault();
+            if (graphDevice == null)
+            {
+                _logger.LogDebug("Device not found in Azure AD: {ComputerName}", computerName);
+                RecordOperation("GetComputerByName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByName", false);
+                return null;
+            }
+
+            var computer = MapToLdapComputer(graphDevice);
+            RecordOperation("GetComputerByName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByName", true);
+
+            return computer;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching for device: {ComputerName}", computerName);
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapComputer? GetComputerByDistinguishedName(string distinguishedNameOrId)
+    {
+        return GetComputerByDistinguishedNameAsync(distinguishedNameOrId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapComputer?> GetComputerByDistinguishedNameAsync(string distinguishedNameOrId, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(distinguishedNameOrId);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var graphDevice = await _graphClient.Value.Devices[distinguishedNameOrId]
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Select = GetDeviceSelectProperties();
+                }, cancellationToken);
+
+            if (graphDevice == null)
+            {
+                RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+                return null;
+            }
+
+            var computer = MapToLdapComputer(graphDevice);
+            RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", true);
+
+            return computer;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex) when (ex.ResponseStatusCode == 404)
+        {
+            RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+            return null;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching for device by ID: {Id}", distinguishedNameOrId);
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<LdapComputer> SearchComputers(string searchFilter, int maxResults = 100)
+    {
+        return SearchComputersAsync(searchFilter, maxResults).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<LdapComputer>> SearchComputersAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(searchFilter);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var devices = await _graphClient.Value.Devices
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = searchFilter;
+                    config.QueryParameters.Select = GetDeviceSelectProperties();
+                    config.QueryParameters.Top = maxResults;
+                }, cancellationToken);
+
+            var result = (devices?.Value ?? [])
+                .Select(MapToLdapComputer)
+                .ToList();
+
+            RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching devices with filter: {Filter}", searchFilter);
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapComputer> GetAllComputers(int page = 1, int pageSize = 50)
+    {
+        return GetAllComputersAsync(page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapComputer>> GetAllComputersAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var result = await FetchDevicesPagedAsync(null, page, pageSize, cancellationToken);
+
+            RecordOperation("GetAllComputers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllComputers", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error getting all devices");
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapComputer> SearchComputers(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50)
+    {
+        return SearchComputersAsync(criteria, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapComputer>> SearchComputersAsync(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(criteria);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var filter = BuildDeviceODataFilter(criteria);
+            var result = await FetchDevicesPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+
+            return result;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Graph API error searching devices with criteria");
+            throw new InvalidOperationException($"Azure AD query failed: {ex.Message}", ex);
+        }
+    }
+
+    private async Task<PagedResult<LdapComputer>> FetchDevicesPagedAsync(string? filter, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        var skip = (page - 1) * pageSize;
+        var allDevices = new List<Device>();
+        var totalCount = -1;
+
+        var response = await _graphClient.Value.Devices
+            .GetAsync(config =>
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    config.QueryParameters.Filter = filter;
+                }
+                config.QueryParameters.Select = GetDeviceSelectProperties();
+                config.QueryParameters.Top = 999;
+                config.QueryParameters.Count = true;
+                config.Headers.Add("ConsistencyLevel", "eventual");
+            }, cancellationToken);
+
+        if (response?.Value != null)
+        {
+            allDevices.AddRange(response.Value);
+            totalCount = (int)(response.OdataCount ?? allDevices.Count);
+        }
+
+        while (response?.OdataNextLink != null && allDevices.Count < skip + pageSize)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            response = await _graphClient.Value.Devices
+                .WithUrl(response.OdataNextLink)
+                .GetAsync(cancellationToken: cancellationToken);
+
+            if (response?.Value != null)
+            {
+                allDevices.AddRange(response.Value);
+            }
+        }
+
+        var pagedDevices = allDevices.Skip(skip).Take(pageSize).Select(MapToLdapComputer).ToList();
+
+        return PagedResult<LdapComputer>.Create(pagedDevices, page, pageSize, totalCount);
+    }
+
+    private static string BuildDeviceODataFilter(LdapComputerSearchCriteria criteria)
+    {
+        var filters = new List<string>();
+
+        if (!string.IsNullOrEmpty(criteria.Name))
+        {
+            var escaped = EscapeODataFilter(criteria.Name);
+            if (criteria.Name.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(displayName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"displayName eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.DisplayName))
+        {
+            var escaped = EscapeODataFilter(criteria.DisplayName);
+            if (criteria.DisplayName.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(displayName, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"displayName eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.OperatingSystem))
+        {
+            var escaped = EscapeODataFilter(criteria.OperatingSystem);
+            if (criteria.OperatingSystem.Contains('*'))
+            {
+                var pattern = escaped.Replace("*", "");
+                filters.Add($"startsWith(operatingSystem, '{pattern}')");
+            }
+            else
+            {
+                filters.Add($"operatingSystem eq '{escaped}'");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.OperatingSystemVersion))
+        {
+            var escaped = EscapeODataFilter(criteria.OperatingSystemVersion);
+            filters.Add($"operatingSystemVersion eq '{escaped}'");
+        }
+
+        if (criteria.IsEnabled.HasValue)
+        {
+            filters.Add($"accountEnabled eq {criteria.IsEnabled.Value.ToString().ToLowerInvariant()}");
+        }
+
+        if (criteria.IsManaged.HasValue)
+        {
+            filters.Add($"isManaged eq {criteria.IsManaged.Value.ToString().ToLowerInvariant()}");
+        }
+
+        if (criteria.IsCompliant.HasValue)
+        {
+            filters.Add($"isCompliant eq {criteria.IsCompliant.Value.ToString().ToLowerInvariant()}");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.TrustType))
+        {
+            filters.Add($"trustType eq '{EscapeODataFilter(criteria.TrustType)}'");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.CustomFilter))
+        {
+            filters.Add(criteria.CustomFilter);
+        }
+
+        return string.Join(" and ", filters);
+    }
+
+    private static LdapComputer MapToLdapComputer(Device graphDevice)
+    {
+        return new LdapComputer
+        {
+            DirectoryType = LdapDirectoryType.AzureActiveDirectory,
+            Id = graphDevice.DeviceId,
+            Name = graphDevice.DisplayName ?? string.Empty,
+            DisplayName = graphDevice.DisplayName,
+            OperatingSystem = graphDevice.OperatingSystem,
+            OperatingSystemVersion = graphDevice.OperatingSystemVersion,
+            IsEnabled = graphDevice.AccountEnabled,
+            IsManaged = graphDevice.IsManaged,
+            IsCompliant = graphDevice.IsCompliant,
+            TrustType = graphDevice.TrustType,
+            LastLogon = graphDevice.ApproximateLastSignInDateTime
+        };
+    }
+
+    private static string[] GetDeviceSelectProperties() =>
+    [
+        "id",
+        "deviceId",
+        "displayName",
+        "operatingSystem",
+        "operatingSystemVersion",
+        "accountEnabled",
+        "isManaged",
+        "isCompliant",
+        "trustType",
+        "approximateLastSignInDateTime"
+    ];
+
+    #endregion
+
     /// <inheritdoc />
     protected override ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

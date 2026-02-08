@@ -143,6 +143,12 @@ public sealed class AppleDirectoryOptions
     public string GroupMemberAttribute { get; set; } = "member";
 
     /// <summary>
+    /// Gets or sets the computer object class.
+    /// </summary>
+    /// <value>Default is "apple-computer".</value>
+    public string ComputerObjectClass { get; set; } = "apple-computer";
+
+    /// <summary>
     /// Gets or sets the user search filter.
     /// </summary>
     /// <value>Use {0} as placeholder for the username.</value>

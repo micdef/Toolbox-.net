@@ -1,6 +1,6 @@
 // @file ILdapService.cs
 // @brief Interface for LDAP directory services
-// @details Defines contract for querying users and groups from directory services
+// @details Defines contract for querying users, groups, and computers from directory services
 // @note Supports Active Directory, Azure AD, OpenLDAP, and Apple Directory Services
 
 using Toolbox.Core.Options;
@@ -12,7 +12,7 @@ namespace Toolbox.Core.Abstractions.Services;
 /// </summary>
 /// <remarks>
 /// <para>
-/// This interface provides methods for querying user and group information
+/// This interface provides methods for querying user, group, and computer information
 /// from various directory services including:
 /// </para>
 /// <list type="bullet">
@@ -452,6 +452,175 @@ public interface ILdapService : IInstrumentedService, IAsyncDisposableService
     /// </code>
     /// </example>
     Task<PagedResult<LdapGroup>> SearchGroupsAsync(LdapGroupSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Computer Search Methods
+
+    /// <summary>
+    /// Gets a computer by its name synchronously.
+    /// </summary>
+    /// <param name="computerName">The computer name to search for (cn, hostname, or sAMAccountName).</param>
+    /// <returns>The computer if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="computerName"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// var computer = ldapService.GetComputerByName("SERVER01");
+    /// if (computer != null)
+    /// {
+    ///     Console.WriteLine($"Found: {computer.DnsHostName} ({computer.OperatingSystem})");
+    /// }
+    /// </code>
+    /// </example>
+    LdapComputer? GetComputerByName(string computerName);
+
+    /// <summary>
+    /// Gets a computer by its name asynchronously.
+    /// </summary>
+    /// <param name="computerName">The computer name to search for (cn, hostname, or sAMAccountName).</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the computer if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="computerName"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapComputer?> GetComputerByNameAsync(string computerName, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets a computer by its distinguished name or unique ID synchronously.
+    /// </summary>
+    /// <param name="distinguishedNameOrId">The computer DN (for AD/LDAP) or device ID (for Azure AD).</param>
+    /// <returns>The computer if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="distinguishedNameOrId"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    LdapComputer? GetComputerByDistinguishedName(string distinguishedNameOrId);
+
+    /// <summary>
+    /// Gets a computer by its distinguished name or unique ID asynchronously.
+    /// </summary>
+    /// <param name="distinguishedNameOrId">The computer DN (for AD/LDAP) or device ID (for Azure AD).</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the computer if found; otherwise, <c>null</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="distinguishedNameOrId"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapComputer?> GetComputerByDistinguishedNameAsync(string distinguishedNameOrId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Searches for computers matching the specified filter.
+    /// </summary>
+    /// <param name="searchFilter">The search filter (LDAP filter syntax or provider-specific query).</param>
+    /// <param name="maxResults">Maximum number of results to return. Default is 100.</param>
+    /// <returns>A collection of matching computers.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="searchFilter"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// // LDAP filter syntax for Active Directory
+    /// var computers = ldapService.SearchComputers("(operatingSystem=Windows Server*)", maxResults: 50);
+    ///
+    /// // For Azure AD, use OData filter syntax
+    /// var devices = ldapService.SearchComputers("startsWith(displayName, 'PC')", maxResults: 50);
+    /// </code>
+    /// </example>
+    IEnumerable<LdapComputer> SearchComputers(string searchFilter, int maxResults = 100);
+
+    /// <summary>
+    /// Searches for computers matching the specified filter asynchronously.
+    /// </summary>
+    /// <param name="searchFilter">The search filter (LDAP filter syntax or provider-specific query).</param>
+    /// <param name="maxResults">Maximum number of results to return. Default is 100.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a collection of matching computers.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="searchFilter"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<IEnumerable<LdapComputer>> SearchComputersAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all computers with pagination.
+    /// </summary>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of computers per page. Default is 50.</param>
+    /// <returns>A paged result containing computers.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.GetAllComputers(page: 1, pageSize: 25);
+    /// Console.WriteLine($"Found {result.TotalCount} computers");
+    /// foreach (var computer in result.Items)
+    /// {
+    ///     Console.WriteLine($"{computer.Name} - {computer.OperatingSystem}");
+    /// }
+    /// </code>
+    /// </example>
+    PagedResult<LdapComputer> GetAllComputers(int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Gets all computers with pagination asynchronously.
+    /// </summary>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of computers per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of computers.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<PagedResult<LdapComputer>> GetAllComputersAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Searches for computers matching the specified criteria with pagination.
+    /// </summary>
+    /// <param name="criteria">The search criteria.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of computers per page. Default is 50.</param>
+    /// <returns>A paged result containing matching computers.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="criteria"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <example>
+    /// <code>
+    /// // Search by operating system
+    /// var criteria = new LdapComputerSearchCriteria { OperatingSystem = "Windows Server*" };
+    /// var result = ldapService.SearchComputers(criteria, page: 1, pageSize: 25);
+    ///
+    /// // Using fluent API
+    /// var criteria = LdapComputerSearchCriteria.Create()
+    ///     .WithName("SRV*")
+    ///     .EnabledOnly();
+    /// var result = ldapService.SearchComputers(criteria);
+    /// </code>
+    /// </example>
+    PagedResult<LdapComputer> SearchComputers(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50);
+
+    /// <summary>
+    /// Searches for computers matching the specified criteria with pagination asynchronously.
+    /// </summary>
+    /// <param name="criteria">The search criteria.</param>
+    /// <param name="page">The page number (1-based). Default is 1.</param>
+    /// <param name="pageSize">The number of computers per page. Default is 50.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing a paged result of matching computers.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="criteria"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when connection to directory fails.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    /// <example>
+    /// <code>
+    /// var criteria = LdapComputerSearchCriteria.Create()
+    ///     .WithOperatingSystem("Windows 10*")
+    ///     .EnabledOnly();
+    ///
+    /// var result = await ldapService.SearchComputersAsync(criteria, page: 1, pageSize: 25);
+    ///
+    /// while (result.HasNextPage)
+    /// {
+    ///     foreach (var computer in result.Items)
+    ///     {
+    ///         Console.WriteLine($"{computer.Name} - {computer.OperatingSystem}");
+    ///     }
+    ///     result = await ldapService.SearchComputersAsync(criteria, result.Page + 1, pageSize: 25);
+    /// }
+    /// </code>
+    /// </example>
+    Task<PagedResult<LdapComputer>> SearchComputersAsync(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
 
     #endregion
 }

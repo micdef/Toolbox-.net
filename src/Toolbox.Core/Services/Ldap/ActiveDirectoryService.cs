@@ -954,6 +954,393 @@ public sealed class ActiveDirectoryService : BaseAsyncDisposableService, ILdapSe
 
     #endregion
 
+    #region Computer Search Methods
+
+    /// <inheritdoc />
+    public LdapComputer? GetComputerByName(string computerName)
+    {
+        return GetComputerByNameAsync(computerName).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapComputer?> GetComputerByNameAsync(string computerName, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(computerName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var escapedName = EscapeLdapFilter(computerName.TrimEnd('$'));
+            var filter = $"(&(objectClass=computer)(|(cn={escapedName})(sAMAccountName={escapedName}$)(dNSHostName={escapedName}*)))";
+            var computer = await SearchSingleComputerAsync(filter, cancellationToken);
+
+            RecordOperation("GetComputerByName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByName", computer != null);
+
+            return computer;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching for computer: {ComputerName}", computerName);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapComputer? GetComputerByDistinguishedName(string distinguishedNameOrId)
+    {
+        return GetComputerByDistinguishedNameAsync(distinguishedNameOrId).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapComputer?> GetComputerByDistinguishedNameAsync(string distinguishedNameOrId, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(distinguishedNameOrId);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var searchRequest = new SearchRequest(
+                distinguishedNameOrId,
+                "(objectClass=computer)",
+                SearchScope.Base,
+                GetComputerAttributes());
+
+            searchRequest.SizeLimit = 1;
+
+            var response = await Task.Run(
+                () => (SearchResponse)_connection!.SendRequest(searchRequest),
+                cancellationToken);
+
+            if (response.Entries.Count == 0)
+            {
+                RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
+                ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+                return null;
+            }
+
+            var computer = MapToLdapComputer((SearchResultEntry)response.Entries[0]!);
+
+            RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", true);
+
+            return computer;
+        }
+        catch (LdapException ex) when (ex.ErrorCode == 32) // No such object
+        {
+            RecordOperation("GetComputerByDistinguishedName", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetComputerByDistinguishedName", false);
+            return null;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching for computer by DN: {DN}", distinguishedNameOrId);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<LdapComputer> SearchComputers(string searchFilter, int maxResults = 100)
+    {
+        return SearchComputersAsync(searchFilter, maxResults).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<LdapComputer>> SearchComputersAsync(string searchFilter, int maxResults = 100, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(searchFilter);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var searchRequest = new SearchRequest(
+                GetBaseDn(),
+                searchFilter,
+                SearchScope.Subtree,
+                GetComputerAttributes());
+
+            searchRequest.SizeLimit = maxResults;
+
+            var response = await Task.Run(
+                () => (SearchResponse)_connection!.SendRequest(searchRequest),
+                cancellationToken);
+
+            var computers = response.Entries
+                .Cast<SearchResultEntry>()
+                .Select(MapToLdapComputer)
+                .ToList();
+
+            RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+
+            return computers;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching computers with filter: {Filter}", searchFilter);
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapComputer> GetAllComputers(int page = 1, int pageSize = 50)
+    {
+        return GetAllComputersAsync(page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapComputer>> GetAllComputersAsync(int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            const string filter = "(objectClass=computer)";
+            var result = await SearchComputersPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("GetAllComputers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "GetAllComputers", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error getting all computers");
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public PagedResult<LdapComputer> SearchComputers(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50)
+    {
+        return SearchComputersAsync(criteria, page, pageSize).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResult<LdapComputer>> SearchComputersAsync(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(criteria);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var filter = BuildComputerLdapFilter(criteria);
+            var result = await SearchComputersPagedAsync(filter, page, pageSize, cancellationToken);
+
+            RecordOperation("SearchComputers", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapQuery(ServiceName, "SearchComputers", true);
+
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "LDAP error searching computers with criteria");
+            throw new InvalidOperationException($"LDAP query failed: {ex.Message}", ex);
+        }
+    }
+
+    private async Task<LdapComputer?> SearchSingleComputerAsync(string filter, CancellationToken cancellationToken)
+    {
+        var searchRequest = new SearchRequest(
+            GetBaseDn(),
+            filter,
+            SearchScope.Subtree,
+            GetComputerAttributes());
+
+        searchRequest.SizeLimit = 1;
+
+        var response = await Task.Run(
+            () => (SearchResponse)_connection!.SendRequest(searchRequest),
+            cancellationToken);
+
+        if (response.Entries.Count == 0)
+        {
+            return null;
+        }
+
+        return MapToLdapComputer((SearchResultEntry)response.Entries[0]!);
+    }
+
+    private async Task<PagedResult<LdapComputer>> SearchComputersPagedAsync(string filter, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        var skip = (page - 1) * pageSize;
+
+        var countRequest = new SearchRequest(
+            GetBaseDn(),
+            filter,
+            SearchScope.Subtree,
+            "objectGUID");
+
+        var countResponse = await Task.Run(
+            () => (SearchResponse)_connection!.SendRequest(countRequest),
+            cancellationToken);
+
+        var totalCount = countResponse.Entries.Count;
+
+        var searchRequest = new SearchRequest(
+            GetBaseDn(),
+            filter,
+            SearchScope.Subtree,
+            GetComputerAttributes());
+
+        searchRequest.SizeLimit = skip + pageSize + 1;
+
+        var response = await Task.Run(
+            () => (SearchResponse)_connection!.SendRequest(searchRequest),
+            cancellationToken);
+
+        var allEntries = response.Entries.Cast<SearchResultEntry>().ToList();
+        var pagedEntries = allEntries.Skip(skip).Take(pageSize).ToList();
+
+        var computers = pagedEntries.Select(MapToLdapComputer).ToList();
+
+        return PagedResult<LdapComputer>.Create(computers, page, pageSize, totalCount);
+    }
+
+    private static string BuildComputerLdapFilter(LdapComputerSearchCriteria criteria)
+    {
+        var filters = new List<string>
+        {
+            "(objectClass=computer)"
+        };
+
+        if (!string.IsNullOrEmpty(criteria.Name))
+            filters.Add($"(cn={EscapeLdapFilterWithWildcard(criteria.Name)})");
+
+        if (!string.IsNullOrEmpty(criteria.DisplayName))
+            filters.Add($"(displayName={EscapeLdapFilterWithWildcard(criteria.DisplayName)})");
+
+        if (!string.IsNullOrEmpty(criteria.Description))
+            filters.Add($"(description={EscapeLdapFilterWithWildcard(criteria.Description)})");
+
+        if (!string.IsNullOrEmpty(criteria.DnsHostName))
+            filters.Add($"(dNSHostName={EscapeLdapFilterWithWildcard(criteria.DnsHostName)})");
+
+        if (!string.IsNullOrEmpty(criteria.OperatingSystem))
+            filters.Add($"(operatingSystem={EscapeLdapFilterWithWildcard(criteria.OperatingSystem)})");
+
+        if (!string.IsNullOrEmpty(criteria.OperatingSystemVersion))
+            filters.Add($"(operatingSystemVersion={EscapeLdapFilterWithWildcard(criteria.OperatingSystemVersion)})");
+
+        if (!string.IsNullOrEmpty(criteria.Location))
+            filters.Add($"(location={EscapeLdapFilterWithWildcard(criteria.Location)})");
+
+        if (criteria.IsEnabled.HasValue)
+        {
+            // userAccountControl: 0x2 = ACCOUNTDISABLE
+            filters.Add(criteria.IsEnabled.Value
+                ? "(!(userAccountControl:1.2.840.113556.1.4.803:=2))"
+                : "(userAccountControl:1.2.840.113556.1.4.803:=2)");
+        }
+
+        if (!string.IsNullOrEmpty(criteria.ManagedBy))
+            filters.Add($"(managedBy={EscapeLdapFilter(criteria.ManagedBy)})");
+
+        if (!string.IsNullOrEmpty(criteria.MemberOfGroup))
+            filters.Add($"(memberOf={EscapeLdapFilter(criteria.MemberOfGroup)})");
+
+        if (criteria.CustomAttributes != null)
+        {
+            foreach (var (attr, value) in criteria.CustomAttributes)
+            {
+                filters.Add($"({EscapeLdapFilter(attr)}={EscapeLdapFilterWithWildcard(value)})");
+            }
+        }
+
+        if (!string.IsNullOrEmpty(criteria.CustomFilter))
+        {
+            filters.Add(criteria.CustomFilter);
+        }
+
+        return $"(&{string.Join("", filters)})";
+    }
+
+    private LdapComputer MapToLdapComputer(SearchResultEntry entry)
+    {
+        var computer = new LdapComputer
+        {
+            DirectoryType = LdapDirectoryType.ActiveDirectory,
+            Id = GetAttributeValue(entry, "objectGUID"),
+            Name = GetAttributeValue(entry, "cn") ?? string.Empty,
+            DistinguishedName = entry.DistinguishedName,
+            DisplayName = GetAttributeValue(entry, "displayName"),
+            Description = GetAttributeValue(entry, "description"),
+            DnsHostName = GetAttributeValue(entry, "dNSHostName"),
+            SamAccountName = GetAttributeValue(entry, "sAMAccountName"),
+            OperatingSystem = GetAttributeValue(entry, "operatingSystem"),
+            OperatingSystemVersion = GetAttributeValue(entry, "operatingSystemVersion"),
+            OperatingSystemServicePack = GetAttributeValue(entry, "operatingSystemServicePack"),
+            Location = GetAttributeValue(entry, "location"),
+            ManagedBy = GetAttributeValue(entry, "managedBy"),
+            IsEnabled = !IsAccountDisabled(entry),
+            CreatedAt = ParseDateTime(GetAttributeValue(entry, "whenCreated")),
+            ModifiedAt = ParseDateTime(GetAttributeValue(entry, "whenChanged")),
+            LastLogon = ParseFileTime(GetAttributeValue(entry, "lastLogon")),
+            LastLogonTimestamp = ParseFileTime(GetAttributeValue(entry, "lastLogonTimestamp")),
+            PasswordLastSet = ParseFileTime(GetAttributeValue(entry, "pwdLastSet")),
+            MemberOf = GetMultiValueAttribute(entry, "memberOf"),
+            ServicePrincipalNames = GetMultiValueAttribute(entry, "servicePrincipalName")
+        };
+
+        return computer;
+    }
+
+    private static string[] GetComputerAttributes() =>
+    [
+        "objectGUID",
+        "cn",
+        "sAMAccountName",
+        "distinguishedName",
+        "displayName",
+        "description",
+        "dNSHostName",
+        "operatingSystem",
+        "operatingSystemVersion",
+        "operatingSystemServicePack",
+        "location",
+        "managedBy",
+        "userAccountControl",
+        "memberOf",
+        "servicePrincipalName",
+        "whenCreated",
+        "whenChanged",
+        "lastLogon",
+        "lastLogonTimestamp",
+        "pwdLastSet"
+    ];
+
+    #endregion
+
     /// <inheritdoc />
     protected override async ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

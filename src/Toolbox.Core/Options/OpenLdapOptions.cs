@@ -137,6 +137,12 @@ public sealed class OpenLdapOptions
     public string GroupMemberAttribute { get; set; } = "member";
 
     /// <summary>
+    /// Gets or sets the computer/device object class.
+    /// </summary>
+    /// <value>Default is "device". Can also be "ipHost" or custom class.</value>
+    public string ComputerObjectClass { get; set; } = "device";
+
+    /// <summary>
     /// Gets or sets the user search filter template.
     /// </summary>
     /// <value>Use {0} as placeholder for the username.</value>
