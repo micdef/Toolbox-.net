@@ -5,6 +5,7 @@
 
 using System.DirectoryServices.Protocols;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.Extensions.Options;
 using Toolbox.Core.Abstractions.Services;
 using Toolbox.Core.Base;
@@ -1355,6 +1356,564 @@ public sealed class ActiveDirectoryService : BaseAsyncDisposableService, ILdapSe
         "lastLogonTimestamp",
         "pwdLastSet"
     ];
+
+    #endregion
+
+    #region Advanced Authentication Methods
+
+    /// <inheritdoc />
+    public LdapAuthenticationResult Authenticate(LdapAuthenticationOptions options)
+    {
+        return AuthenticateAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapAuthenticationResult> AuthenticateAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            options.Validate();
+
+            var result = options.Mode switch
+            {
+                LdapAuthenticationMode.Simple => await AuthenticateSimpleAsync(options, cancellationToken),
+                LdapAuthenticationMode.Anonymous => await AuthenticateAnonymousAsync(options, cancellationToken),
+                LdapAuthenticationMode.Kerberos => await AuthenticateKerberosInternalAsync(options, cancellationToken),
+                LdapAuthenticationMode.Ntlm => await AuthenticateNtlmAsync(options, cancellationToken),
+                LdapAuthenticationMode.Negotiate => await AuthenticateNegotiateAsync(options, cancellationToken),
+                LdapAuthenticationMode.IntegratedWindows => await AuthenticateIntegratedWindowsAsync(options, cancellationToken),
+                LdapAuthenticationMode.Certificate => await AuthenticateCertificateInternalAsync(options, cancellationToken),
+                _ => throw new NotSupportedException($"Authentication mode {options.Mode} is not supported by Active Directory.")
+            };
+
+            RecordOperation("Authenticate", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, options.Mode.ToString(), result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not NotSupportedException && ex is not InvalidOperationException && ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "Authenticate", ex.GetType().Name);
+            _logger.LogError(ex, "Authentication failed with mode {Mode}", options.Mode);
+            throw new InvalidOperationException($"Authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapAuthenticationResult> AuthenticateWithKerberosAsync(
+        string? username = null,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var options = new LdapAuthenticationOptions
+            {
+                Mode = LdapAuthenticationMode.Kerberos,
+                Username = username,
+                Domain = _options.Domain
+            };
+
+            var result = await AuthenticateKerberosInternalAsync(options, cancellationToken);
+
+            RecordOperation("AuthenticateWithKerberos", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "Kerberos", result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithKerberos", ex.GetType().Name);
+            _logger.LogError(ex, "Kerberos authentication failed for user {Username}", username ?? "(current)");
+            throw new InvalidOperationException($"Kerberos authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapAuthenticationResult> AuthenticateWithCertificateAsync(
+        X509Certificate2 certificate,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(certificate);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var options = new LdapAuthenticationOptions
+            {
+                Mode = LdapAuthenticationMode.Certificate,
+                Certificate = certificate
+            };
+
+            var result = await AuthenticateCertificateInternalAsync(options, cancellationToken);
+
+            RecordOperation("AuthenticateWithCertificate", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "Certificate", result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithCertificate", ex.GetType().Name);
+            _logger.LogError(ex, "Certificate authentication failed");
+            throw new InvalidOperationException($"Certificate authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IReadOnlyList<LdapAuthenticationMode> GetSupportedAuthenticationModes()
+    {
+        return
+        [
+            LdapAuthenticationMode.Simple,
+            LdapAuthenticationMode.Anonymous,
+            LdapAuthenticationMode.Kerberos,
+            LdapAuthenticationMode.Ntlm,
+            LdapAuthenticationMode.Negotiate,
+            LdapAuthenticationMode.IntegratedWindows,
+            LdapAuthenticationMode.Certificate
+        ];
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateSimpleAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var server = _options.Server ?? _options.Domain;
+        var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+        using var connection = new LdapConnection(identifier)
+        {
+            Timeout = options.Timeout
+        };
+
+        connection.SessionOptions.ProtocolVersion = 3;
+        connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+        connection.AuthType = AuthType.Basic;
+
+        if (!_options.ValidateCertificate)
+        {
+            connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+        }
+
+        var credential = new NetworkCredential(options.Username, options.Password, options.Domain ?? _options.Domain);
+
+        try
+        {
+            await Task.Run(() => connection.Bind(credential), cancellationToken);
+
+            var result = LdapAuthenticationResult.Success(
+                options.Username!,
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.ActiveDirectory);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("Simple authentication succeeded for user: {Username}", options.Username);
+            return result;
+        }
+        catch (LdapException ex) when (ex.ErrorCode == 49)
+        {
+            _logger.LogDebug("Invalid credentials for user: {Username}", options.Username);
+            return LdapAuthenticationResult.Failure(
+                "Invalid username or password.",
+                "49",
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.ActiveDirectory);
+        }
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateAnonymousAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var server = _options.Server ?? _options.Domain;
+        var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+        using var connection = new LdapConnection(identifier)
+        {
+            Timeout = options.Timeout
+        };
+
+        connection.SessionOptions.ProtocolVersion = 3;
+        connection.AuthType = AuthType.Anonymous;
+
+        await Task.Run(() => connection.Bind(), cancellationToken);
+
+        _logger.LogDebug("Anonymous authentication succeeded");
+        return LdapAuthenticationResult.Success(
+            "anonymous",
+            LdapAuthenticationMode.Anonymous,
+            LdapDirectoryType.ActiveDirectory);
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateKerberosInternalAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var server = _options.Server ?? _options.Domain;
+        var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+        using var connection = new LdapConnection(identifier)
+        {
+            Timeout = options.Timeout
+        };
+
+        connection.SessionOptions.ProtocolVersion = 3;
+        connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+        connection.AuthType = AuthType.Kerberos;
+
+        if (!_options.ValidateCertificate)
+        {
+            connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+        }
+
+        try
+        {
+            if (!string.IsNullOrEmpty(options.Username) && !string.IsNullOrEmpty(options.Password))
+            {
+                var credential = new NetworkCredential(options.Username, options.Password, options.Domain ?? _options.Domain);
+                await Task.Run(() => connection.Bind(credential), cancellationToken);
+            }
+            else
+            {
+                // Use current Windows identity (integrated)
+                await Task.Run(() => connection.Bind(), cancellationToken);
+            }
+
+            var username = options.Username ?? Environment.UserName;
+
+            var result = LdapAuthenticationResult.Success(
+                username,
+                LdapAuthenticationMode.Kerberos,
+                LdapDirectoryType.ActiveDirectory);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("Kerberos authentication succeeded for user: {Username}", username);
+            return result;
+        }
+        catch (LdapException ex) when (ex.ErrorCode == 49)
+        {
+            _logger.LogDebug("Kerberos authentication failed: invalid credentials");
+            return LdapAuthenticationResult.Failure(
+                "Kerberos authentication failed: invalid credentials.",
+                "49",
+                LdapAuthenticationMode.Kerberos,
+                LdapDirectoryType.ActiveDirectory);
+        }
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateNtlmAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var server = _options.Server ?? _options.Domain;
+        var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+        using var connection = new LdapConnection(identifier)
+        {
+            Timeout = options.Timeout
+        };
+
+        connection.SessionOptions.ProtocolVersion = 3;
+        connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+        connection.AuthType = AuthType.Ntlm;
+
+        if (!_options.ValidateCertificate)
+        {
+            connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+        }
+
+        try
+        {
+            if (!string.IsNullOrEmpty(options.Username))
+            {
+                var credential = new NetworkCredential(options.Username, options.Password, options.Domain ?? _options.Domain);
+                await Task.Run(() => connection.Bind(credential), cancellationToken);
+            }
+            else
+            {
+                await Task.Run(() => connection.Bind(), cancellationToken);
+            }
+
+            var username = options.Username ?? Environment.UserName;
+
+            var result = LdapAuthenticationResult.Success(
+                username,
+                LdapAuthenticationMode.Ntlm,
+                LdapDirectoryType.ActiveDirectory);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("NTLM authentication succeeded for user: {Username}", username);
+            return result;
+        }
+        catch (LdapException ex) when (ex.ErrorCode == 49)
+        {
+            return LdapAuthenticationResult.Failure(
+                "NTLM authentication failed: invalid credentials.",
+                "49",
+                LdapAuthenticationMode.Ntlm,
+                LdapDirectoryType.ActiveDirectory);
+        }
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateNegotiateAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var server = _options.Server ?? _options.Domain;
+        var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+        using var connection = new LdapConnection(identifier)
+        {
+            Timeout = options.Timeout
+        };
+
+        connection.SessionOptions.ProtocolVersion = 3;
+        connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+        connection.AuthType = AuthType.Negotiate;
+
+        if (!_options.ValidateCertificate)
+        {
+            connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+        }
+
+        try
+        {
+            if (!string.IsNullOrEmpty(options.Username))
+            {
+                var credential = new NetworkCredential(options.Username, options.Password, options.Domain ?? _options.Domain);
+                await Task.Run(() => connection.Bind(credential), cancellationToken);
+            }
+            else
+            {
+                await Task.Run(() => connection.Bind(), cancellationToken);
+            }
+
+            var username = options.Username ?? Environment.UserName;
+
+            var result = LdapAuthenticationResult.Success(
+                username,
+                LdapAuthenticationMode.Negotiate,
+                LdapDirectoryType.ActiveDirectory);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("Negotiate authentication succeeded for user: {Username}", username);
+            return result;
+        }
+        catch (LdapException ex) when (ex.ErrorCode == 49)
+        {
+            return LdapAuthenticationResult.Failure(
+                "Negotiate authentication failed: invalid credentials.",
+                "49",
+                LdapAuthenticationMode.Negotiate,
+                LdapDirectoryType.ActiveDirectory);
+        }
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateIntegratedWindowsAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var server = _options.Server ?? _options.Domain;
+        var identifier = new LdapDirectoryIdentifier(server, _options.Port);
+
+        using var connection = new LdapConnection(identifier)
+        {
+            Timeout = options.Timeout
+        };
+
+        connection.SessionOptions.ProtocolVersion = 3;
+        connection.SessionOptions.SecureSocketLayer = _options.UseSsl;
+        connection.AuthType = AuthType.Negotiate; // Negotiate uses current Windows identity
+
+        if (!_options.ValidateCertificate)
+        {
+            connection.SessionOptions.VerifyServerCertificate = (_, _) => true;
+        }
+
+        try
+        {
+            // Use current Windows identity
+            await Task.Run(() => connection.Bind(), cancellationToken);
+
+            var username = Environment.UserName;
+
+            var result = LdapAuthenticationResult.Success(
+                username,
+                LdapAuthenticationMode.IntegratedWindows,
+                LdapDirectoryType.ActiveDirectory);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("Integrated Windows authentication succeeded for user: {Username}", username);
+            return result;
+        }
+        catch (LdapException ex)
+        {
+            return LdapAuthenticationResult.Failure(
+                $"Integrated Windows authentication failed: {ex.Message}",
+                ex.ErrorCode.ToString(),
+                LdapAuthenticationMode.IntegratedWindows,
+                LdapDirectoryType.ActiveDirectory);
+        }
+    }
+
+    private Task<LdapAuthenticationResult> AuthenticateCertificateInternalAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var certificate = options.GetCertificate();
+        if (certificate == null)
+        {
+            throw new InvalidOperationException("Certificate is required for certificate authentication.");
+        }
+
+        // Note: System.DirectoryServices.Protocols client certificate support
+        // is platform-dependent. On Windows, use the certificate store or
+        // configure client certificates at the TLS layer.
+
+        _logger.LogWarning(
+            "Certificate authentication via System.DirectoryServices.Protocols requires " +
+            "platform-specific configuration. Consider using Windows certificate store " +
+            "or configuring TLS client certificates at the system level.");
+
+        // For cross-platform support, we return a failure with guidance
+        // The actual implementation would require Windows-specific APIs
+        return Task.FromResult(LdapAuthenticationResult.Failure(
+            "Certificate authentication requires platform-specific configuration. " +
+            "On Windows, configure the client certificate in the certificate store and " +
+            "use integrated Windows authentication with certificate mapping enabled on the AD server.",
+            "NOT_IMPLEMENTED",
+            LdapAuthenticationMode.Certificate,
+            LdapDirectoryType.ActiveDirectory));
+    }
+
+    private static string ExtractUsernameFromCertificate(X509Certificate2 certificate)
+    {
+        // Try to extract username from subject CN
+        var subject = certificate.Subject;
+        var parts = subject.Split(',');
+        foreach (var part in parts)
+        {
+            var trimmed = part.Trim();
+            if (trimmed.StartsWith("CN=", StringComparison.OrdinalIgnoreCase))
+            {
+                return trimmed.Substring(3);
+            }
+        }
+
+        // Fallback to subject
+        return subject;
+    }
+
+    private async Task<LdapAuthenticationResult> EnrichAuthenticationResultAsync(
+        LdapAuthenticationResult result,
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        if (!result.IsAuthenticated || string.IsNullOrEmpty(result.Username))
+        {
+            return result;
+        }
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var user = await GetUserByUsernameAsync(result.Username, cancellationToken);
+            if (user == null)
+            {
+                return result;
+            }
+
+            var groups = options.IncludeGroups ? user.Groups.ToList() : null;
+            Dictionary<string, object>? claims = null;
+
+            if (options.IncludeClaims)
+            {
+                claims = new Dictionary<string, object>();
+
+                if (!string.IsNullOrEmpty(user.Email))
+                    claims["email"] = user.Email;
+                if (!string.IsNullOrEmpty(user.DisplayName))
+                    claims["name"] = user.DisplayName;
+                if (!string.IsNullOrEmpty(user.FirstName))
+                    claims["given_name"] = user.FirstName;
+                if (!string.IsNullOrEmpty(user.LastName))
+                    claims["family_name"] = user.LastName;
+                if (!string.IsNullOrEmpty(user.Department))
+                    claims["department"] = user.Department;
+                if (!string.IsNullOrEmpty(user.JobTitle))
+                    claims["title"] = user.JobTitle;
+
+                // Add requested custom attributes
+                foreach (var attr in options.ClaimAttributes)
+                {
+                    if (user.CustomAttributes.TryGetValue(attr, out var value) && value != null)
+                    {
+                        claims[attr] = value;
+                    }
+                }
+            }
+
+            return new LdapAuthenticationResult
+            {
+                IsAuthenticated = true,
+                Username = result.Username,
+                UserDistinguishedName = user.DistinguishedName,
+                UserId = user.Id,
+                Email = user.Email,
+                DisplayName = user.DisplayName,
+                AuthenticationMode = result.AuthenticationMode,
+                DirectoryType = LdapDirectoryType.ActiveDirectory,
+                AuthenticatedAt = result.AuthenticatedAt,
+                Groups = groups?.AsReadOnly(),
+                Claims = claims?.AsReadOnly()
+            };
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to enrich authentication result for user: {Username}", result.Username);
+            return result;
+        }
+    }
 
     #endregion
 

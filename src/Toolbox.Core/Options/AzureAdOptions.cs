@@ -136,4 +136,33 @@ public sealed class AzureAdOptions
     /// </summary>
     /// <value>Default is 60 seconds.</value>
     public TimeSpan OperationTimeout { get; set; } = TimeSpan.FromSeconds(60);
+
+    /// <summary>
+    /// Gets or sets the redirect URI for interactive authentication flows.
+    /// </summary>
+    /// <value>
+    /// The URI where the authentication response will be sent.
+    /// Default is <c>http://localhost</c> for desktop applications.
+    /// </value>
+    /// <remarks>
+    /// Used by <see cref="AzureAdAuthMode"/> interactive flows.
+    /// </remarks>
+    public Uri? RedirectUri { get; set; } = new Uri("http://localhost");
+
+    /// <summary>
+    /// Gets or sets the OAuth2 scopes to request during authentication.
+    /// </summary>
+    /// <value>
+    /// A list of permission scopes. Default includes Graph API default scope.
+    /// </value>
+    /// <example>
+    /// <code>
+    /// options.Scopes = new List&lt;string&gt;
+    /// {
+    ///     "https://graph.microsoft.com/User.Read",
+    ///     "https://graph.microsoft.com/Group.Read.All"
+    /// };
+    /// </code>
+    /// </example>
+    public IList<string> Scopes { get; set; } = ["https://graph.microsoft.com/.default"];
 }

@@ -433,4 +433,151 @@ public class ActiveDirectoryServiceTests
     }
 
     #endregion
+
+    #region Authentication Tests
+
+    /// <summary>
+    /// Tests that AuthenticateAsync with null options throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WithNullOptions_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        using var service = new ActiveDirectoryService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateAsync when disposed throws ObjectDisposedException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WhenDisposed_ShouldThrowObjectDisposedException()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        var service = new ActiveDirectoryService(options, _loggerMock.Object);
+        await service.DisposeAsync();
+
+        var authOptions = new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode.Simple,
+            Username = "testuser",
+            Password = "password"
+        };
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(authOptions);
+
+        // Assert
+        await act.Should().ThrowAsync<ObjectDisposedException>();
+    }
+
+    /// <summary>
+    /// Tests that Authenticate synchronous version with null options throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public void Authenticate_WithNullOptions_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        using var service = new ActiveDirectoryService(options, _loggerMock.Object);
+
+        // Act
+        var act = () => service.Authenticate(null!);
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that GetSupportedAuthenticationModes returns expected modes for Active Directory.
+    /// </summary>
+    [Fact]
+    public void GetSupportedAuthenticationModes_ShouldReturnExpectedModes()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        using var service = new ActiveDirectoryService(options, _loggerMock.Object);
+
+        // Act
+        var modes = service.GetSupportedAuthenticationModes();
+
+        // Assert
+        modes.Should().NotBeEmpty();
+        modes.Should().Contain(LdapAuthenticationMode.Simple);
+        modes.Should().Contain(LdapAuthenticationMode.Anonymous);
+        modes.Should().Contain(LdapAuthenticationMode.Kerberos);
+        modes.Should().Contain(LdapAuthenticationMode.Ntlm);
+        modes.Should().Contain(LdapAuthenticationMode.Negotiate);
+        modes.Should().Contain(LdapAuthenticationMode.IntegratedWindows);
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithKerberosAsync when disposed throws ObjectDisposedException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithKerberosAsync_WhenDisposed_ShouldThrowObjectDisposedException()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        var service = new ActiveDirectoryService(options, _loggerMock.Object);
+        await service.DisposeAsync();
+
+        // Act
+        var act = async () => await service.AuthenticateWithKerberosAsync();
+
+        // Assert
+        await act.Should().ThrowAsync<ObjectDisposedException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithCertificateAsync with null certificate throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithCertificateAsync_WithNullCertificate_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        using var service = new ActiveDirectoryService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithCertificateAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateAsync with cancellation throws OperationCanceledException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WithCancellation_ShouldThrowOperationCanceledException()
+    {
+        // Arrange
+        var options = new ActiveDirectoryOptions { Domain = "test.local" };
+        using var service = new ActiveDirectoryService(options, _loggerMock.Object);
+        using var cts = new CancellationTokenSource();
+        await cts.CancelAsync();
+
+        var authOptions = new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode.Simple,
+            Username = "testuser",
+            Password = "password"
+        };
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(authOptions, cts.Token);
+
+        // Assert
+        await act.Should().ThrowAsync<OperationCanceledException>();
+    }
+
+    #endregion
 }

@@ -1353,6 +1353,440 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 
     #endregion
 
+    #region Advanced Authentication Methods
+
+    /// <inheritdoc />
+    public LdapAuthenticationResult Authenticate(LdapAuthenticationOptions options)
+    {
+        return AuthenticateAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// <para>
+    /// Azure AD does not support traditional LDAP authentication modes.
+    /// Only <see cref="LdapAuthenticationMode.Simple"/> is supported, which maps to
+    /// Resource Owner Password Credentials (ROPC) flow (deprecated and not recommended).
+    /// </para>
+    /// <para>
+    /// For production scenarios, use:
+    /// <list type="bullet">
+    ///   <item><see cref="AuthenticateWithDeviceCodeAsync"/> for CLI/IoT scenarios</item>
+    ///   <item><see cref="AuthenticateWithInteractiveBrowserAsync"/> for desktop apps</item>
+    /// </list>
+    /// </para>
+    /// </remarks>
+    public async Task<LdapAuthenticationResult> AuthenticateAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            options.Validate();
+
+            var result = options.Mode switch
+            {
+                LdapAuthenticationMode.Simple => await AuthenticateWithRopcAsync(options, cancellationToken),
+                LdapAuthenticationMode.Certificate => await AuthenticateWithCertificateInternalAsync(options, cancellationToken),
+                _ => throw new NotSupportedException(
+                    $"Authentication mode {options.Mode} is not supported by Azure AD. " +
+                    "Use AuthenticateWithDeviceCodeAsync or AuthenticateWithInteractiveBrowserAsync instead.")
+            };
+
+            RecordOperation("Authenticate", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, options.Mode.ToString(), result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not NotSupportedException && ex is not InvalidOperationException && ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "Authenticate", ex.GetType().Name);
+            _logger.LogError(ex, "Azure AD authentication failed with mode {Mode}", options.Mode);
+            throw new InvalidOperationException($"Authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    /// <exception cref="NotSupportedException">Kerberos is not supported by Azure AD.</exception>
+    public Task<LdapAuthenticationResult> AuthenticateWithKerberosAsync(
+        string? username = null,
+        CancellationToken cancellationToken = default)
+    {
+        throw new NotSupportedException(
+            "Kerberos authentication is not supported by Azure AD. " +
+            "Use AuthenticateWithDeviceCodeAsync or AuthenticateWithInteractiveBrowserAsync instead.");
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapAuthenticationResult> AuthenticateWithCertificateAsync(
+        X509Certificate2 certificate,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(certificate);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var options = new LdapAuthenticationOptions
+            {
+                Mode = LdapAuthenticationMode.Certificate,
+                Certificate = certificate
+            };
+
+            var result = await AuthenticateWithCertificateInternalAsync(options, cancellationToken);
+
+            RecordOperation("AuthenticateWithCertificate", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "Certificate", result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithCertificate", ex.GetType().Name);
+            _logger.LogError(ex, "Certificate authentication failed");
+            throw new InvalidOperationException($"Certificate authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IReadOnlyList<LdapAuthenticationMode> GetSupportedAuthenticationModes()
+    {
+        return
+        [
+            LdapAuthenticationMode.Simple, // Maps to ROPC
+            LdapAuthenticationMode.Certificate
+        ];
+    }
+
+    /// <summary>
+    /// Authenticates using the OAuth2 Device Code flow.
+    /// </summary>
+    /// <param name="deviceCodeCallback">
+    /// A callback function that receives the device code information.
+    /// The callback should display the user code and verification URL to the user.
+    /// </param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result with access token.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="deviceCodeCallback"/> is null.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when device code authentication fails.</exception>
+    /// <example>
+    /// <code>
+    /// var result = await azureAdService.AuthenticateWithDeviceCodeAsync(async info =>
+    /// {
+    ///     Console.WriteLine(info.Message);
+    ///     Console.WriteLine($"Go to {info.VerificationUri} and enter code: {info.UserCode}");
+    ///     await Task.CompletedTask;
+    /// });
+    ///
+    /// if (result.IsAuthenticated)
+    /// {
+    ///     Console.WriteLine($"Authenticated as {result.Username}");
+    ///     // Use result.Token for API calls
+    /// }
+    /// </code>
+    /// </example>
+    public async Task<LdapAuthenticationResult> AuthenticateWithDeviceCodeAsync(
+        Func<Options.DeviceCodeInfo, Task> deviceCodeCallback,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(deviceCodeCallback);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var scopes = _options.Scopes?.ToArray() ?? ["https://graph.microsoft.com/.default"];
+
+            var credential = new DeviceCodeCredential(
+                async (codeInfo, ct) =>
+                {
+                    var info = new Options.DeviceCodeInfo
+                    {
+                        UserCode = codeInfo.UserCode,
+                        VerificationUri = codeInfo.VerificationUri.ToString(),
+                        VerificationUriComplete = codeInfo.VerificationUri.ToString() + "?otc=" + codeInfo.UserCode,
+                        Message = codeInfo.Message,
+                        ExpiresOn = codeInfo.ExpiresOn,
+                        ClientId = codeInfo.ClientId
+                    };
+                    await deviceCodeCallback(info);
+                },
+                _options.TenantId,
+                _options.ClientId);
+
+            var tokenRequest = new Azure.Core.TokenRequestContext(scopes);
+            var token = await credential.GetTokenAsync(tokenRequest, cancellationToken);
+
+            // Get user info using the token
+            var graphClient = new GraphServiceClient(credential, scopes);
+            var me = await graphClient.Me.GetAsync(cancellationToken: cancellationToken);
+
+            var result = new LdapAuthenticationResult
+            {
+                IsAuthenticated = true,
+                Username = me?.UserPrincipalName ?? me?.Mail ?? "unknown",
+                UserId = me?.Id,
+                Email = me?.Mail,
+                DisplayName = me?.DisplayName,
+                AuthenticationMode = LdapAuthenticationMode.Simple, // Mapped
+                DirectoryType = LdapDirectoryType.AzureActiveDirectory,
+                Token = token.Token,
+                ExpiresAt = token.ExpiresOn,
+                AuthenticatedAt = DateTimeOffset.UtcNow
+            };
+
+            RecordOperation("AuthenticateWithDeviceCode", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "DeviceCode", true);
+
+            _logger.LogDebug("Device code authentication succeeded for user: {Username}", result.Username);
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithDeviceCode", ex.GetType().Name);
+            _logger.LogError(ex, "Device code authentication failed");
+            return LdapAuthenticationResult.Failure(
+                $"Device code authentication failed: {ex.Message}",
+                null,
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.AzureActiveDirectory);
+        }
+    }
+
+    /// <summary>
+    /// Authenticates using the OAuth2 Interactive Browser flow.
+    /// </summary>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result with access token.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method opens a browser window for the user to authenticate.
+    /// Best suited for desktop applications.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var result = await azureAdService.AuthenticateWithInteractiveBrowserAsync();
+    /// if (result.IsAuthenticated)
+    /// {
+    ///     Console.WriteLine($"Welcome, {result.DisplayName}!");
+    /// }
+    /// </code>
+    /// </example>
+    public async Task<LdapAuthenticationResult> AuthenticateWithInteractiveBrowserAsync(
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var scopes = _options.Scopes?.ToArray() ?? ["https://graph.microsoft.com/.default"];
+
+            var credentialOptions = new InteractiveBrowserCredentialOptions
+            {
+                TenantId = _options.TenantId,
+                ClientId = _options.ClientId,
+                RedirectUri = _options.RedirectUri ?? new Uri("http://localhost")
+            };
+
+            var credential = new InteractiveBrowserCredential(credentialOptions);
+
+            var tokenRequest = new Azure.Core.TokenRequestContext(scopes);
+            var token = await credential.GetTokenAsync(tokenRequest, cancellationToken);
+
+            // Get user info using the token
+            var graphClient = new GraphServiceClient(credential, scopes);
+            var me = await graphClient.Me.GetAsync(cancellationToken: cancellationToken);
+
+            var result = new LdapAuthenticationResult
+            {
+                IsAuthenticated = true,
+                Username = me?.UserPrincipalName ?? me?.Mail ?? "unknown",
+                UserId = me?.Id,
+                Email = me?.Mail,
+                DisplayName = me?.DisplayName,
+                AuthenticationMode = LdapAuthenticationMode.Simple,
+                DirectoryType = LdapDirectoryType.AzureActiveDirectory,
+                Token = token.Token,
+                ExpiresAt = token.ExpiresOn,
+                AuthenticatedAt = DateTimeOffset.UtcNow
+            };
+
+            RecordOperation("AuthenticateWithInteractiveBrowser", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "InteractiveBrowser", true);
+
+            _logger.LogDebug("Interactive browser authentication succeeded for user: {Username}", result.Username);
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithInteractiveBrowser", ex.GetType().Name);
+            _logger.LogError(ex, "Interactive browser authentication failed");
+            return LdapAuthenticationResult.Failure(
+                $"Interactive browser authentication failed: {ex.Message}",
+                null,
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.AzureActiveDirectory);
+        }
+    }
+
+    /// <summary>
+    /// Authenticates using the Resource Owner Password Credentials (ROPC) flow.
+    /// </summary>
+    /// <param name="username">The user's username or email.</param>
+    /// <param name="password">The user's password.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result.</returns>
+    /// <remarks>
+    /// <para>
+    /// ROPC is a legacy flow and is NOT recommended for production use.
+    /// It does not support MFA and has security limitations.
+    /// Use <see cref="AuthenticateWithDeviceCodeAsync"/> or
+    /// <see cref="AuthenticateWithInteractiveBrowserAsync"/> instead.
+    /// </para>
+    /// </remarks>
+    public async Task<LdapAuthenticationResult> AuthenticateWithUsernamePasswordAsync(
+        string username,
+        string password,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(username);
+        ArgumentNullException.ThrowIfNull(password);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        _logger.LogWarning(
+            "Using ROPC flow for authentication. This is deprecated and not recommended. " +
+            "Consider using AuthenticateWithDeviceCodeAsync or AuthenticateWithInteractiveBrowserAsync.");
+
+        try
+        {
+            var scopes = _options.Scopes?.ToArray() ?? ["https://graph.microsoft.com/.default"];
+
+            var credential = new UsernamePasswordCredential(
+                username,
+                password,
+                _options.TenantId,
+                _options.ClientId);
+
+            var tokenRequest = new Azure.Core.TokenRequestContext(scopes);
+            var token = await credential.GetTokenAsync(tokenRequest, cancellationToken);
+
+            // Get user info
+            var graphClient = new GraphServiceClient(credential, scopes);
+            var me = await graphClient.Me.GetAsync(cancellationToken: cancellationToken);
+
+            var result = new LdapAuthenticationResult
+            {
+                IsAuthenticated = true,
+                Username = me?.UserPrincipalName ?? username,
+                UserId = me?.Id,
+                Email = me?.Mail,
+                DisplayName = me?.DisplayName,
+                AuthenticationMode = LdapAuthenticationMode.Simple,
+                DirectoryType = LdapDirectoryType.AzureActiveDirectory,
+                Token = token.Token,
+                ExpiresAt = token.ExpiresOn,
+                AuthenticatedAt = DateTimeOffset.UtcNow
+            };
+
+            RecordOperation("AuthenticateWithUsernamePassword", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "UsernamePassword", true);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithUsernamePassword", ex.GetType().Name);
+            _logger.LogError(ex, "Username/password authentication failed for user: {Username}", username);
+            return LdapAuthenticationResult.Failure(
+                $"Authentication failed: {ex.Message}",
+                null,
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.AzureActiveDirectory);
+        }
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateWithRopcAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        return await AuthenticateWithUsernamePasswordAsync(
+            options.Username!,
+            options.Password!,
+            cancellationToken);
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateWithCertificateInternalAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        var certificate = options.GetCertificate();
+        if (certificate == null)
+        {
+            throw new InvalidOperationException("Certificate is required for certificate authentication.");
+        }
+
+        try
+        {
+            var scopes = _options.Scopes?.ToArray() ?? ["https://graph.microsoft.com/.default"];
+
+            var credential = new ClientCertificateCredential(
+                _options.TenantId,
+                _options.ClientId,
+                certificate);
+
+            var tokenRequest = new Azure.Core.TokenRequestContext(scopes);
+            var token = await credential.GetTokenAsync(tokenRequest, cancellationToken);
+
+            // For service principal auth, we can't get /me
+            var result = new LdapAuthenticationResult
+            {
+                IsAuthenticated = true,
+                Username = _options.ClientId,
+                AuthenticationMode = LdapAuthenticationMode.Certificate,
+                DirectoryType = LdapDirectoryType.AzureActiveDirectory,
+                Token = token.Token,
+                ExpiresAt = token.ExpiresOn,
+                AuthenticatedAt = DateTimeOffset.UtcNow
+            };
+
+            _logger.LogDebug("Certificate authentication succeeded for client: {ClientId}", _options.ClientId);
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return LdapAuthenticationResult.Failure(
+                $"Certificate authentication failed: {ex.Message}",
+                null,
+                LdapAuthenticationMode.Certificate,
+                LdapDirectoryType.AzureActiveDirectory);
+        }
+    }
+
+    #endregion
+
     /// <inheritdoc />
     protected override ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

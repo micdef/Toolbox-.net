@@ -250,6 +250,193 @@ public class AzureAdServiceTests
 
     #endregion
 
+    #region Authentication Tests
+
+    /// <summary>
+    /// Tests that AuthenticateAsync with null options throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WithNullOptions_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateAsync with unsupported mode throws NotSupportedException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WithUnsupportedMode_ShouldThrowNotSupportedException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        var authOptions = new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode.Kerberos // Not supported by Azure AD
+        };
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(authOptions);
+
+        // Assert
+        await act.Should().ThrowAsync<NotSupportedException>();
+    }
+
+    /// <summary>
+    /// Tests that GetSupportedAuthenticationModes returns expected modes for Azure AD.
+    /// </summary>
+    [Fact]
+    public void GetSupportedAuthenticationModes_ShouldReturnExpectedModes()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var modes = service.GetSupportedAuthenticationModes();
+
+        // Assert
+        modes.Should().NotBeEmpty();
+        modes.Should().Contain(LdapAuthenticationMode.Simple); // Maps to ROPC
+        modes.Should().Contain(LdapAuthenticationMode.Certificate);
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithKerberosAsync throws NotSupportedException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithKerberosAsync_ShouldThrowNotSupportedException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithKerberosAsync();
+
+        // Assert
+        await act.Should().ThrowAsync<NotSupportedException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithCertificateAsync with null certificate throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithCertificateAsync_WithNullCertificate_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithCertificateAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithUsernamePasswordAsync with null username throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithUsernamePasswordAsync_WithNullUsername_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithUsernamePasswordAsync(null!, "password");
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithUsernamePasswordAsync with null password throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithUsernamePasswordAsync_WithNullPassword_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithUsernamePasswordAsync("user", null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithDeviceCodeAsync with null callback throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithDeviceCodeAsync_WithNullCallback_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new AzureAdOptions
+        {
+            TenantId = "tenant-id",
+            ClientId = "client-id",
+            ClientSecret = "secret"
+        };
+        using var service = new AzureAdService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithDeviceCodeAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    #endregion
+
     #region Disposal Tests
 
     /// <summary>

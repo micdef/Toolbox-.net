@@ -242,6 +242,105 @@ public class OpenLdapServiceTests
 
     #endregion
 
+    #region Authentication Tests
+
+    /// <summary>
+    /// Tests that AuthenticateAsync with null options throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WithNullOptions_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new OpenLdapOptions
+        {
+            Host = "ldap.example.com",
+            BaseDn = "dc=example,dc=com"
+        };
+        using var service = new OpenLdapService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateAsync when disposed throws ObjectDisposedException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateAsync_WhenDisposed_ShouldThrowObjectDisposedException()
+    {
+        // Arrange
+        var options = new OpenLdapOptions
+        {
+            Host = "ldap.example.com",
+            BaseDn = "dc=example,dc=com"
+        };
+        var service = new OpenLdapService(options, _loggerMock.Object);
+        await service.DisposeAsync();
+
+        var authOptions = new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode.Simple,
+            Username = "testuser",
+            Password = "password"
+        };
+
+        // Act
+        var act = async () => await service.AuthenticateAsync(authOptions);
+
+        // Assert
+        await act.Should().ThrowAsync<ObjectDisposedException>();
+    }
+
+    /// <summary>
+    /// Tests that GetSupportedAuthenticationModes returns expected modes for OpenLDAP.
+    /// </summary>
+    [Fact]
+    public void GetSupportedAuthenticationModes_ShouldReturnExpectedModes()
+    {
+        // Arrange
+        var options = new OpenLdapOptions
+        {
+            Host = "ldap.example.com",
+            BaseDn = "dc=example,dc=com"
+        };
+        using var service = new OpenLdapService(options, _loggerMock.Object);
+
+        // Act
+        var modes = service.GetSupportedAuthenticationModes();
+
+        // Assert
+        modes.Should().NotBeEmpty();
+        modes.Should().Contain(LdapAuthenticationMode.Simple);
+        modes.Should().Contain(LdapAuthenticationMode.Anonymous);
+        modes.Should().Contain(LdapAuthenticationMode.SaslPlain);
+    }
+
+    /// <summary>
+    /// Tests that AuthenticateWithCertificateAsync with null certificate throws ArgumentNullException.
+    /// </summary>
+    [Fact]
+    public async Task AuthenticateWithCertificateAsync_WithNullCertificate_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var options = new OpenLdapOptions
+        {
+            Host = "ldap.example.com",
+            BaseDn = "dc=example,dc=com"
+        };
+        using var service = new OpenLdapService(options, _loggerMock.Object);
+
+        // Act
+        var act = async () => await service.AuthenticateWithCertificateAsync(null!);
+
+        // Assert
+        await act.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    #endregion
+
     #region Disposal Tests
 
     /// <summary>

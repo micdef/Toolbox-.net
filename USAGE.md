@@ -19,6 +19,7 @@ This guide provides detailed instructions for using the Toolbox library.
    - [Azure AD / Entra ID](#azure-ad--entra-id)
    - [OpenLDAP](#openldap)
    - [Apple Directory](#apple-directory)
+   - [Advanced Authentication](#advanced-authentication)
 7. [Creating Custom Services](#creating-custom-services)
 8. [OpenTelemetry Integration](#opentelemetry-integration)
 9. [Configuration Options](#configuration-options)
@@ -1154,6 +1155,163 @@ public class MacUserService
 | `UserObjectClass` | string | apple-user | Apple user object class |
 | `GroupObjectClass` | string | apple-group | Apple group object class |
 | `UniqueIdAttribute` | string | apple-generateduid | Unique ID attribute |
+
+---
+
+### Advanced Authentication
+
+All LDAP services support advanced authentication methods beyond simple username/password authentication.
+
+#### Authentication Modes
+
+| Mode | AD | Azure AD | OpenLDAP | Apple | Description |
+|------|:--:|:--------:|:--------:|:-----:|-------------|
+| `Simple` | ✓ | ✓* | ✓ | ✓ | DN + Password |
+| `Anonymous` | ✓ | ✗ | ✓ | ✓ | No credentials |
+| `Kerberos` | ✓ | ✗ | ✓** | ✗ | GSSAPI/SPNEGO |
+| `Ntlm` | ✓ | ✗ | ✗ | ✗ | NTLM legacy |
+| `Negotiate` | ✓ | ✗ | ✗ | ✗ | Auto Kerberos/NTLM |
+| `IntegratedWindows` | ✓ | ✗ | ✗ | ✗ | Current Windows context |
+| `Certificate` | ✓ | ✓ | ✓** | ✓** | X.509 client certificate |
+| `SaslPlain` | ✗ | ✗ | ✓ | ✓ | SASL PLAIN |
+| `SaslExternal` | ✗ | ✗ | ✓** | ✓** | SASL EXTERNAL (certificate) |
+| `SaslGssapi` | ✗ | ✗ | ✓** | ✗ | SASL GSSAPI (Kerberos) |
+
+\* Azure AD Simple maps to ROPC (Resource Owner Password Credentials) OAuth2 flow
+\*\* Limited support - may return failure with guidance
+
+#### Usage with Options
+
+```csharp
+using Toolbox.Core.Options;
+
+// Authenticate with options
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode.Simple,
+    Username = "john.doe",
+    Password = "password",
+    IncludeGroups = true,
+    IncludeClaims = true,
+    Timeout = TimeSpan.FromSeconds(30)
+};
+
+var result = await ldapService.AuthenticateAsync(authOptions);
+
+if (result.IsAuthenticated)
+{
+    Console.WriteLine($"Authenticated: {result.Username}");
+    Console.WriteLine($"DN: {result.UserDistinguishedName}");
+    Console.WriteLine($"Groups: {string.Join(", ", result.Groups ?? [])}");
+}
+else
+{
+    Console.WriteLine($"Failed: {result.ErrorMessage} ({result.ErrorCode})");
+}
+```
+
+#### Kerberos Authentication (Active Directory)
+
+```csharp
+// Using current Windows ticket (SSO)
+var result = await adService.AuthenticateWithKerberosAsync();
+
+// Using explicit credentials
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode.Kerberos,
+    Username = "john.doe@CORP.EXAMPLE.COM",
+    Password = "password",
+    Domain = "CORP"
+};
+var result = await adService.AuthenticateAsync(authOptions);
+```
+
+#### Integrated Windows Authentication
+
+```csharp
+// Uses the Windows identity of the current process
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode.IntegratedWindows
+};
+var result = await adService.AuthenticateAsync(authOptions);
+```
+
+#### Certificate Authentication
+
+```csharp
+using System.Security.Cryptography.X509Certificates;
+
+// Using certificate object
+var cert = new X509Certificate2("client.pfx", "password");
+var result = await ldapService.AuthenticateWithCertificateAsync(cert);
+
+// Using options with certificate path
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode.Certificate,
+    CertificatePath = "/path/to/client.pfx",
+    CertificatePassword = "password"
+};
+var result = await ldapService.AuthenticateAsync(authOptions);
+```
+
+#### Azure AD Interactive Authentication
+
+```csharp
+// Device code flow (for CLI apps)
+var result = await azureAdService.AuthenticateWithDeviceCodeAsync(async deviceCode =>
+{
+    Console.WriteLine($"Go to {deviceCode.VerificationUri}");
+    Console.WriteLine($"Enter code: {deviceCode.UserCode}");
+});
+
+if (result.IsAuthenticated)
+{
+    Console.WriteLine($"Token: {result.Token}");
+    Console.WriteLine($"Expires: {result.ExpiresAt}");
+}
+
+// Interactive browser flow (for desktop apps)
+var result = await azureAdService.AuthenticateWithInteractiveBrowserAsync();
+
+// Username/Password (ROPC - not recommended)
+var result = await azureAdService.AuthenticateWithUsernamePasswordAsync(
+    "user@domain.com",
+    "password");
+```
+
+#### Querying Supported Modes
+
+```csharp
+// Get supported authentication modes for the service
+var supportedModes = ldapService.GetSupportedAuthenticationModes();
+
+foreach (var mode in supportedModes)
+{
+    Console.WriteLine($"Supported: {mode}");
+}
+```
+
+#### Authentication Result
+
+The `LdapAuthenticationResult` contains:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `IsAuthenticated` | bool | Whether authentication succeeded |
+| `Username` | string? | Authenticated username |
+| `UserDistinguishedName` | string? | User's DN |
+| `AuthenticationMode` | LdapAuthenticationMode | Mode used |
+| `DirectoryType` | LdapDirectoryType | Directory type |
+| `ErrorMessage` | string? | Error description (if failed) |
+| `ErrorCode` | string? | LDAP error code |
+| `Groups` | IReadOnlyList<string>? | User's groups (if requested) |
+| `Claims` | IDictionary<string, object>? | Additional claims |
+| `AuthenticatedAt` | DateTimeOffset? | Authentication timestamp |
+| `Token` | string? | OAuth token (Azure AD) |
+| `ExpiresAt` | DateTimeOffset? | Token expiration |
 
 ---
 

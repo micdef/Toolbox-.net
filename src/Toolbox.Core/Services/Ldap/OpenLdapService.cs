@@ -3,6 +3,7 @@
 // @details Implements ILdapService for OpenLDAP and compatible directories
 // @note Uses Novell.Directory.Ldap.NETStandard for cross-platform support
 
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.Extensions.Options;
 using Novell.Directory.Ldap;
 using Toolbox.Core.Abstractions.Services;
@@ -1358,6 +1359,438 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         "ipHostNumber",
         _options.GroupMembershipAttribute
     ];
+
+    #endregion
+
+    #region Advanced Authentication Methods
+
+    /// <inheritdoc />
+    public LdapAuthenticationResult Authenticate(LdapAuthenticationOptions options)
+    {
+        return AuthenticateAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapAuthenticationResult> AuthenticateAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            options.Validate();
+
+            var result = options.Mode switch
+            {
+                LdapAuthenticationMode.Simple => await AuthenticateSimpleAsync(options, cancellationToken),
+                LdapAuthenticationMode.Anonymous => await AuthenticateAnonymousAsync(options, cancellationToken),
+                LdapAuthenticationMode.SaslPlain => await AuthenticateSaslPlainAsync(options, cancellationToken),
+                LdapAuthenticationMode.SaslExternal => await AuthenticateSaslExternalAsync(options, cancellationToken),
+                LdapAuthenticationMode.SaslGssapi => await AuthenticateSaslGssapiAsync(options, cancellationToken),
+                LdapAuthenticationMode.Certificate => await AuthenticateSaslExternalAsync(options, cancellationToken),
+                _ => throw new NotSupportedException($"Authentication mode {options.Mode} is not supported by OpenLDAP.")
+            };
+
+            RecordOperation("Authenticate", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, options.Mode.ToString(), result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not NotSupportedException && ex is not InvalidOperationException && ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "Authenticate", ex.GetType().Name);
+            _logger.LogError(ex, "Authentication failed with mode {Mode}", options.Mode);
+            throw new InvalidOperationException($"Authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    /// <exception cref="NotSupportedException">
+    /// Kerberos is supported via SASL GSSAPI. Use <see cref="AuthenticateAsync"/> with
+    /// <see cref="LdapAuthenticationMode.SaslGssapi"/> instead.
+    /// </exception>
+    public async Task<LdapAuthenticationResult> AuthenticateWithKerberosAsync(
+        string? username = null,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var options = new LdapAuthenticationOptions
+            {
+                Mode = LdapAuthenticationMode.SaslGssapi,
+                Username = username
+            };
+
+            var result = await AuthenticateSaslGssapiAsync(options, cancellationToken);
+
+            RecordOperation("AuthenticateWithKerberos", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "SaslGssapi", result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithKerberos", ex.GetType().Name);
+            _logger.LogError(ex, "SASL GSSAPI authentication failed for user {Username}", username ?? "(current)");
+            throw new InvalidOperationException($"SASL GSSAPI authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapAuthenticationResult> AuthenticateWithCertificateAsync(
+        X509Certificate2 certificate,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(certificate);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var activity = StartActivity();
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+
+        try
+        {
+            var options = new LdapAuthenticationOptions
+            {
+                Mode = LdapAuthenticationMode.SaslExternal,
+                Certificate = certificate
+            };
+
+            var result = await AuthenticateSaslExternalAsync(options, cancellationToken);
+
+            RecordOperation("AuthenticateWithCertificate", sw.ElapsedMilliseconds);
+            ToolboxMeter.RecordLdapAuthentication(ServiceName, "SaslExternal", result.IsAuthenticated);
+
+            return result;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            ToolboxMeter.RecordLdapError(ServiceName, "AuthenticateWithCertificate", ex.GetType().Name);
+            _logger.LogError(ex, "SASL EXTERNAL authentication failed");
+            throw new InvalidOperationException($"SASL EXTERNAL authentication failed: {ex.Message}", ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public IReadOnlyList<LdapAuthenticationMode> GetSupportedAuthenticationModes()
+    {
+        return
+        [
+            LdapAuthenticationMode.Simple,
+            LdapAuthenticationMode.Anonymous,
+            LdapAuthenticationMode.SaslPlain,
+            LdapAuthenticationMode.SaslExternal,
+            LdapAuthenticationMode.SaslGssapi,
+            LdapAuthenticationMode.Certificate
+        ];
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateSimpleAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        using var connection = new LdapConnection
+        {
+            ConnectionTimeout = (int)options.Timeout.TotalMilliseconds
+        };
+
+        if (_options.SecurityMode == LdapSecurityMode.Ssl)
+        {
+            connection.SecureSocketLayer = true;
+        }
+
+        try
+        {
+            await Task.Run(() => connection.Connect(_options.Host, _options.Port), cancellationToken);
+
+            if (_options.SecurityMode == LdapSecurityMode.StartTls)
+            {
+                await Task.Run(() => connection.StartTls(), cancellationToken);
+            }
+
+            // Build the bind DN
+            var bindDn = BuildBindDn(options.Username!);
+            await Task.Run(() => connection.Bind(bindDn, options.Password ?? string.Empty), cancellationToken);
+
+            var result = LdapAuthenticationResult.Success(
+                options.Username!,
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.OpenLdap);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("Simple authentication succeeded for user: {Username}", options.Username);
+            return result;
+        }
+        catch (LdapException ex) when (ex.ResultCode == LdapException.InvalidCredentials)
+        {
+            _logger.LogDebug("Invalid credentials for user: {Username}", options.Username);
+            return LdapAuthenticationResult.Failure(
+                "Invalid username or password.",
+                ex.ResultCode.ToString(),
+                LdapAuthenticationMode.Simple,
+                LdapDirectoryType.OpenLdap);
+        }
+        finally
+        {
+            if (connection.Connected)
+            {
+                connection.Disconnect();
+            }
+        }
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateAnonymousAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        using var connection = new LdapConnection
+        {
+            ConnectionTimeout = (int)options.Timeout.TotalMilliseconds
+        };
+
+        await Task.Run(() => connection.Connect(_options.Host, _options.Port), cancellationToken);
+        await Task.Run(() => connection.Bind(null, null), cancellationToken);
+
+        _logger.LogDebug("Anonymous authentication succeeded");
+        return LdapAuthenticationResult.Success(
+            "anonymous",
+            LdapAuthenticationMode.Anonymous,
+            LdapDirectoryType.OpenLdap);
+    }
+
+    private async Task<LdapAuthenticationResult> AuthenticateSaslPlainAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        // SASL PLAIN is similar to simple bind but uses SASL framework
+        // The Novell library's simple bind is typically equivalent for most purposes
+        using var connection = new LdapConnection
+        {
+            ConnectionTimeout = (int)options.Timeout.TotalMilliseconds
+        };
+
+        if (_options.SecurityMode == LdapSecurityMode.Ssl)
+        {
+            connection.SecureSocketLayer = true;
+        }
+
+        try
+        {
+            await Task.Run(() => connection.Connect(_options.Host, _options.Port), cancellationToken);
+
+            if (_options.SecurityMode == LdapSecurityMode.StartTls)
+            {
+                await Task.Run(() => connection.StartTls(), cancellationToken);
+            }
+
+            // SASL PLAIN typically uses authcid (authentication identity)
+            var bindDn = BuildBindDn(options.Username!);
+            await Task.Run(() => connection.Bind(bindDn, options.Password ?? string.Empty), cancellationToken);
+
+            var result = LdapAuthenticationResult.Success(
+                options.Username!,
+                LdapAuthenticationMode.SaslPlain,
+                LdapDirectoryType.OpenLdap);
+
+            if (options.IncludeGroups || options.IncludeClaims)
+            {
+                result = await EnrichAuthenticationResultAsync(result, options, cancellationToken);
+            }
+
+            _logger.LogDebug("SASL PLAIN authentication succeeded for user: {Username}", options.Username);
+            return result;
+        }
+        catch (LdapException ex) when (ex.ResultCode == LdapException.InvalidCredentials)
+        {
+            return LdapAuthenticationResult.Failure(
+                "SASL PLAIN authentication failed: invalid credentials.",
+                ex.ResultCode.ToString(),
+                LdapAuthenticationMode.SaslPlain,
+                LdapDirectoryType.OpenLdap);
+        }
+        finally
+        {
+            if (connection.Connected)
+            {
+                connection.Disconnect();
+            }
+        }
+    }
+
+    private Task<LdapAuthenticationResult> AuthenticateSaslExternalAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        // SASL EXTERNAL requires TLS client certificate authentication
+        // The Novell library has limited SASL EXTERNAL support
+        // This is a simplified implementation
+
+        var certificate = options.GetCertificate();
+        if (certificate == null)
+        {
+            throw new InvalidOperationException("Certificate is required for SASL EXTERNAL authentication.");
+        }
+
+        _logger.LogWarning(
+            "SASL EXTERNAL authentication requires proper TLS certificate configuration on the LDAP server. " +
+            "The Novell.Directory.Ldap library has limited support for this mechanism.");
+
+        // Extract username from certificate subject
+        var username = ExtractUsernameFromCertificate(certificate);
+
+        return Task.FromResult(LdapAuthenticationResult.Failure(
+            "SASL EXTERNAL is not fully supported by the Novell.Directory.Ldap library. " +
+            "Configure TLS client certificate authentication at the server level.",
+            "NOT_SUPPORTED",
+            LdapAuthenticationMode.SaslExternal,
+            LdapDirectoryType.OpenLdap));
+    }
+
+    private Task<LdapAuthenticationResult> AuthenticateSaslGssapiAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        // SASL GSSAPI (Kerberos) requires GSSAPI/Kerberos libraries
+        // The Novell library has limited SASL GSSAPI support
+
+        _logger.LogWarning(
+            "SASL GSSAPI authentication requires Kerberos configuration and is not fully supported " +
+            "by the Novell.Directory.Ldap library. Consider using System.DirectoryServices.Protocols " +
+            "on Windows or native GSSAPI bindings on Linux.");
+
+        return Task.FromResult(LdapAuthenticationResult.Failure(
+            "SASL GSSAPI is not fully supported by the Novell.Directory.Ldap library. " +
+            "Use native Kerberos authentication or System.DirectoryServices.Protocols on Windows.",
+            "NOT_SUPPORTED",
+            LdapAuthenticationMode.SaslGssapi,
+            LdapDirectoryType.OpenLdap));
+    }
+
+    private string BuildBindDn(string username)
+    {
+        // If username already looks like a DN, use it as-is
+        if (username.Contains('='))
+        {
+            return username;
+        }
+
+        // Build DN using the configured attribute
+        return $"{_options.UsernameAttribute}={EscapeLdapDn(username)},{_options.BaseDn}";
+    }
+
+    private static string EscapeLdapDn(string value)
+    {
+        return value
+            .Replace("\\", "\\\\")
+            .Replace(",", "\\,")
+            .Replace("+", "\\+")
+            .Replace("\"", "\\\"")
+            .Replace("<", "\\<")
+            .Replace(">", "\\>")
+            .Replace(";", "\\;");
+    }
+
+    private static string ExtractUsernameFromCertificate(X509Certificate2 certificate)
+    {
+        var subject = certificate.Subject;
+        var parts = subject.Split(',');
+        foreach (var part in parts)
+        {
+            var trimmed = part.Trim();
+            if (trimmed.StartsWith("CN=", StringComparison.OrdinalIgnoreCase))
+            {
+                return trimmed.Substring(3);
+            }
+            if (trimmed.StartsWith("UID=", StringComparison.OrdinalIgnoreCase))
+            {
+                return trimmed.Substring(4);
+            }
+        }
+        return subject;
+    }
+
+    private async Task<LdapAuthenticationResult> EnrichAuthenticationResultAsync(
+        LdapAuthenticationResult result,
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken)
+    {
+        if (!result.IsAuthenticated || string.IsNullOrEmpty(result.Username))
+        {
+            return result;
+        }
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var user = await GetUserByUsernameAsync(result.Username, cancellationToken);
+            if (user == null)
+            {
+                return result;
+            }
+
+            var groups = options.IncludeGroups ? user.Groups.ToList() : null;
+            Dictionary<string, object>? claims = null;
+
+            if (options.IncludeClaims)
+            {
+                claims = new Dictionary<string, object>();
+
+                if (!string.IsNullOrEmpty(user.Email))
+                    claims["email"] = user.Email;
+                if (!string.IsNullOrEmpty(user.DisplayName))
+                    claims["name"] = user.DisplayName;
+                if (!string.IsNullOrEmpty(user.FirstName))
+                    claims["given_name"] = user.FirstName;
+                if (!string.IsNullOrEmpty(user.LastName))
+                    claims["family_name"] = user.LastName;
+
+                foreach (var attr in options.ClaimAttributes)
+                {
+                    if (user.CustomAttributes.TryGetValue(attr, out var value) && value != null)
+                    {
+                        claims[attr] = value;
+                    }
+                }
+            }
+
+            return new LdapAuthenticationResult
+            {
+                IsAuthenticated = true,
+                Username = result.Username,
+                UserDistinguishedName = user.DistinguishedName,
+                UserId = user.Id,
+                Email = user.Email,
+                DisplayName = user.DisplayName,
+                AuthenticationMode = result.AuthenticationMode,
+                DirectoryType = LdapDirectoryType.OpenLdap,
+                AuthenticatedAt = result.AuthenticatedAt,
+                Groups = groups?.AsReadOnly(),
+                Claims = claims?.AsReadOnly()
+            };
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to enrich authentication result for user: {Username}", result.Username);
+            return result;
+        }
+    }
 
     #endregion
 

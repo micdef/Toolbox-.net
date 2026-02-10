@@ -3,6 +3,7 @@
 // @details Defines contract for querying users, groups, and computers from directory services
 // @note Supports Active Directory, Azure AD, OpenLDAP, and Apple Directory Services
 
+using System.Security.Cryptography.X509Certificates;
 using Toolbox.Core.Options;
 
 namespace Toolbox.Core.Abstractions.Services;
@@ -621,6 +622,166 @@ public interface ILdapService : IInstrumentedService, IAsyncDisposableService
     /// </code>
     /// </example>
     Task<PagedResult<LdapComputer>> SearchComputersAsync(LdapComputerSearchCriteria criteria, int page = 1, int pageSize = 50, CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Advanced Authentication Methods
+
+    /// <summary>
+    /// Authenticates using the specified options synchronously.
+    /// </summary>
+    /// <param name="options">The authentication options.</param>
+    /// <returns>The authentication result.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when authentication options are invalid.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the authentication mode is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = new LdapAuthenticationOptions
+    /// {
+    ///     Mode = LdapAuthenticationMode.Simple,
+    ///     Username = "jdoe",
+    ///     Password = "password123"
+    /// };
+    /// var result = ldapService.Authenticate(options);
+    /// if (result.IsAuthenticated)
+    /// {
+    ///     Console.WriteLine($"Welcome, {result.Username}!");
+    /// }
+    /// </code>
+    /// </example>
+    LdapAuthenticationResult Authenticate(LdapAuthenticationOptions options);
+
+    /// <summary>
+    /// Authenticates using the specified options asynchronously.
+    /// </summary>
+    /// <param name="options">The authentication options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when authentication options are invalid.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the authentication mode is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    /// <example>
+    /// <code>
+    /// var options = new LdapAuthenticationOptions
+    /// {
+    ///     Mode = LdapAuthenticationMode.Kerberos,
+    ///     IncludeGroups = true,
+    ///     IncludeClaims = true
+    /// };
+    /// var result = await ldapService.AuthenticateAsync(options);
+    /// if (result.IsAuthenticated)
+    /// {
+    ///     Console.WriteLine($"Groups: {string.Join(", ", result.Groups ?? [])}");
+    /// }
+    /// </code>
+    /// </example>
+    Task<LdapAuthenticationResult> AuthenticateAsync(
+        LdapAuthenticationOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Authenticates with Kerberos using the current Windows security context.
+    /// </summary>
+    /// <param name="username">Optional username for explicit credentials. If null, uses current context.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result.</returns>
+    /// <exception cref="NotSupportedException">Thrown when Kerberos is not supported by this provider.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when Kerberos authentication fails.</exception>
+    /// <remarks>
+    /// <para>
+    /// When <paramref name="username"/> is null, the method uses the current Windows
+    /// security context (integrated Windows authentication).
+    /// </para>
+    /// <para>
+    /// Supported by: Active Directory (primary), OpenLDAP with GSSAPI.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// // Use current Windows user
+    /// var result = await ldapService.AuthenticateWithKerberosAsync();
+    ///
+    /// // Use specific user (requires password via AuthenticateAsync)
+    /// var result = await ldapService.AuthenticateWithKerberosAsync("jdoe@DOMAIN.COM");
+    /// </code>
+    /// </example>
+    Task<LdapAuthenticationResult> AuthenticateWithKerberosAsync(
+        string? username = null,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Authenticates with a client certificate.
+    /// </summary>
+    /// <param name="certificate">The X.509 client certificate.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="certificate"/> is <c>null</c>.</exception>
+    /// <exception cref="NotSupportedException">Thrown when certificate authentication is not supported.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when certificate authentication fails.</exception>
+    /// <remarks>
+    /// <para>
+    /// The certificate must contain a private key and be trusted by the directory server.
+    /// User mapping depends on certificate subject or SAN fields.
+    /// </para>
+    /// <para>
+    /// Supported by: Active Directory, OpenLDAP (SASL EXTERNAL).
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// using var cert = new X509Certificate2("user.pfx", "password");
+    /// var result = await ldapService.AuthenticateWithCertificateAsync(cert);
+    /// if (result.IsAuthenticated)
+    /// {
+    ///     Console.WriteLine($"Authenticated as: {result.Username}");
+    /// }
+    /// </code>
+    /// </example>
+    Task<LdapAuthenticationResult> AuthenticateWithCertificateAsync(
+        X509Certificate2 certificate,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets the authentication modes supported by this provider.
+    /// </summary>
+    /// <returns>A read-only list of supported authentication modes.</returns>
+    /// <remarks>
+    /// <para>
+    /// Use this method to check which authentication modes are available
+    /// before attempting to authenticate.
+    /// </para>
+    /// <para>
+    /// Typical supported modes by provider:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>Active Directory: Simple, Kerberos, NTLM, Negotiate, IntegratedWindows, Certificate</description></item>
+    ///   <item><description>Azure AD: Simple (via OAuth), Certificate</description></item>
+    ///   <item><description>OpenLDAP: Simple, SaslPlain, SaslExternal, SaslGssapi, Certificate</description></item>
+    ///   <item><description>Apple Directory: Simple, SaslPlain, Certificate</description></item>
+    /// </list>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var modes = ldapService.GetSupportedAuthenticationModes();
+    /// if (modes.Contains(LdapAuthenticationMode.Kerberos))
+    /// {
+    ///     var result = await ldapService.AuthenticateWithKerberosAsync();
+    /// }
+    /// else
+    /// {
+    ///     // Fall back to simple authentication
+    ///     var result = await ldapService.AuthenticateAsync(new LdapAuthenticationOptions
+    ///     {
+    ///         Mode = LdapAuthenticationMode.Simple,
+    ///         Username = "user",
+    ///         Password = "password"
+    ///     });
+    /// }
+    /// </code>
+    /// </example>
+    IReadOnlyList<LdapAuthenticationMode> GetSupportedAuthenticationModes();
 
     #endregion
 }
