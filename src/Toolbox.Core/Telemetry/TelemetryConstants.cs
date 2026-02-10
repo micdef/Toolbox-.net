@@ -34,6 +34,11 @@ public static class TelemetryConstants
     public const string Version = "1.0.0";
 
     /// <summary>
+    /// The version of the activity source.
+    /// </summary>
+    public const string ActivitySourceVersion = "1.0.0";
+
+    /// <summary>
     /// Standard attribute names for service telemetry.
     /// </summary>
     public static class Attributes
@@ -220,5 +225,53 @@ public static class TelemetryConstants
 
         /// <summary>Histogram for LDAP query duration.</summary>
         public const string QueryDuration = "toolbox.ldap.query.duration";
+    }
+
+    /// <summary>
+    /// Additional attribute names for SSO services.
+    /// </summary>
+    public static class SsoAttributes
+    {
+        /// <summary>Attribute name for directory type.</summary>
+        public const string DirectoryType = "toolbox.sso.directory_type";
+
+        /// <summary>Attribute name for user ID.</summary>
+        public const string UserId = "toolbox.sso.user_id";
+
+        /// <summary>Attribute name for session ID.</summary>
+        public const string SessionId = "toolbox.sso.session_id";
+
+        /// <summary>Attribute name for validation success.</summary>
+        public const string ValidationSuccess = "toolbox.sso.validation_success";
+
+        /// <summary>Attribute name for refresh success.</summary>
+        public const string RefreshSuccess = "toolbox.sso.refresh_success";
+
+        /// <summary>Attribute name for failure reason.</summary>
+        public const string FailureReason = "toolbox.sso.failure_reason";
+    }
+
+    /// <summary>
+    /// SSO-specific metric names.
+    /// </summary>
+    public static class SsoMetrics
+    {
+        /// <summary>Counter for SSO sessions created.</summary>
+        public const string SessionCreatedCount = "toolbox.sso.sessions.created";
+
+        /// <summary>Counter for SSO session validations.</summary>
+        public const string ValidationCount = "toolbox.sso.validations.count";
+
+        /// <summary>Counter for SSO session refreshes.</summary>
+        public const string RefreshCount = "toolbox.sso.refresh.count";
+
+        /// <summary>Counter for SSO sessions expired.</summary>
+        public const string ExpiredCount = "toolbox.sso.sessions.expired";
+
+        /// <summary>Gauge for active SSO sessions.</summary>
+        public const string ActiveSessionCount = "toolbox.sso.sessions.active";
+
+        /// <summary>Histogram for SSO session duration.</summary>
+        public const string SessionDuration = "toolbox.sso.session.duration";
     }
 }

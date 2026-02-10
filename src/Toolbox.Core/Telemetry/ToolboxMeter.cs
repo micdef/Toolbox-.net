@@ -176,6 +176,46 @@ public static class ToolboxMeter
             description: "Duration of LDAP query operations"),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
+    // Lazy initializer for SSO session created counter
+    private static readonly Lazy<Counter<long>> LazySsoSessionCreatedCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.SsoMetrics.SessionCreatedCount,
+            unit: "{sessions}",
+            description: "Number of SSO sessions created"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for SSO session validation counter
+    private static readonly Lazy<Counter<long>> LazySsoValidationCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.SsoMetrics.ValidationCount,
+            unit: "{validations}",
+            description: "Number of SSO session validations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for SSO session refresh counter
+    private static readonly Lazy<Counter<long>> LazySsoRefreshCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.SsoMetrics.RefreshCount,
+            unit: "{refreshes}",
+            description: "Number of SSO session refreshes"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for SSO session expired counter
+    private static readonly Lazy<Counter<long>> LazySsoExpiredCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.SsoMetrics.ExpiredCount,
+            unit: "{expirations}",
+            description: "Number of SSO sessions expired"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
+    // Lazy initializer for SSO active sessions gauge
+    private static readonly Lazy<UpDownCounter<long>> LazySsoActiveSessionsGauge = new(
+        () => Instance.CreateUpDownCounter<long>(
+            TelemetryConstants.SsoMetrics.ActiveSessionCount,
+            unit: "{sessions}",
+            description: "Number of active SSO sessions"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
     /// <summary>
     /// Gets the shared <see cref="Meter"/> instance for Toolbox services.
     /// </summary>
@@ -561,5 +601,79 @@ public static class ToolboxMeter
         };
 
         LazyLdapErrorCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an SSO session creation.
+    /// </summary>
+    /// <param name="serviceName">The name of the SSO service.</param>
+    /// <param name="directoryType">The type of directory that authenticated the user.</param>
+    /// <param name="userId">The user ID.</param>
+    public static void RecordSsoSessionCreated(string serviceName, string directoryType, string userId)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.SsoAttributes.DirectoryType, directoryType },
+            { TelemetryConstants.SsoAttributes.UserId, userId }
+        };
+
+        LazySsoSessionCreatedCounter.Value.Add(1, tags);
+        LazySsoActiveSessionsGauge.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an SSO session validation.
+    /// </summary>
+    /// <param name="serviceName">The name of the SSO service.</param>
+    /// <param name="isValid">Whether the session was valid.</param>
+    /// <param name="failureReason">The failure reason if invalid.</param>
+    public static void RecordSsoSessionValidation(string serviceName, bool isValid, string? failureReason)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.SsoAttributes.ValidationSuccess, isValid }
+        };
+
+        if (failureReason != null)
+        {
+            tags.Add(TelemetryConstants.SsoAttributes.FailureReason, failureReason);
+        }
+
+        LazySsoValidationCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an SSO session refresh.
+    /// </summary>
+    /// <param name="serviceName">The name of the SSO service.</param>
+    /// <param name="success">Whether the refresh was successful.</param>
+    public static void RecordSsoSessionRefresh(string serviceName, bool success)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.SsoAttributes.RefreshSuccess, success }
+        };
+
+        LazySsoRefreshCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an SSO session expiration.
+    /// </summary>
+    /// <param name="serviceName">The name of the SSO service.</param>
+    /// <param name="userId">The user ID.</param>
+    public static void RecordSsoSessionExpired(string serviceName, string userId)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.SsoAttributes.UserId, userId }
+        };
+
+        LazySsoExpiredCounter.Value.Add(1, tags);
+        LazySsoActiveSessionsGauge.Value.Add(-1, tags);
     }
 }
