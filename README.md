@@ -8,6 +8,7 @@ A .NET 10 library providing base services, telemetry, and dependency injection e
 - **File Transfer Services**: FTP, FTPS, and SFTP with batch operations
 - **Mailing Services**: SMTP with TLS/SSL, OAuth2, and attachment support
 - **API Services**: HTTP client with multiple authentication modes and retry policies
+- **LDAP Services**: Active Directory, Azure AD, OpenLDAP, and Apple Directory integration
 - **Disposable Services**: Thread-safe base classes for synchronous and asynchronous disposal
 - **OpenTelemetry Integration**: Built-in distributed tracing and metrics collection
 - **Dependency Injection**: Fluent extensions for easy service registration
@@ -89,6 +90,7 @@ Toolbox/
 │       │   ├── Api/            # HTTP API service
 │       │   ├── Cryptography/   # AES, RSA, Base64 services
 │       │   ├── FileTransfer/   # FTP, SFTP services
+│       │   ├── Ldap/           # Active Directory, Azure AD, OpenLDAP, Apple Directory
 │       │   └── Mailing/        # SMTP service
 │       └── Telemetry/          # OpenTelemetry infrastructure
 ├── tests/

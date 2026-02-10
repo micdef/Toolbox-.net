@@ -14,10 +14,15 @@ This guide provides detailed instructions for using the Toolbox library.
    - [SFTP](#sftp)
 4. [Mailing Services](#mailing-services)
 5. [API Services](#api-services)
-6. [Creating Custom Services](#creating-custom-services)
-7. [OpenTelemetry Integration](#opentelemetry-integration)
-8. [Configuration Options](#configuration-options)
-9. [Best Practices](#best-practices)
+6. [LDAP Services](#ldap-services)
+   - [Active Directory](#active-directory)
+   - [Azure AD / Entra ID](#azure-ad--entra-id)
+   - [OpenLDAP](#openldap)
+   - [Apple Directory](#apple-directory)
+7. [Creating Custom Services](#creating-custom-services)
+8. [OpenTelemetry Integration](#opentelemetry-integration)
+9. [Configuration Options](#configuration-options)
+10. [Best Practices](#best-practices)
 
 ## Getting Started
 
@@ -803,6 +808,352 @@ public class AdvancedApiService
 | `ApiKey` | API key in header or query string |
 | `Certificate` | Client certificate authentication |
 | `OAuth2ClientCredentials` | OAuth2 client credentials flow |
+
+---
+
+## LDAP Services
+
+Directory services for querying users, groups, and computers from various LDAP providers.
+
+### Active Directory
+
+Windows Active Directory service using LDAP protocol.
+
+#### Registration
+
+```csharp
+using Toolbox.Core.Extensions;
+using Toolbox.Core.Options;
+
+// Using current Windows credentials
+services.AddActiveDirectory(options =>
+{
+    options.Domain = "corp.example.com";
+    options.UseCurrentCredentials = true;
+    options.UseSsl = true;
+});
+
+// Using explicit credentials
+services.AddActiveDirectory(options =>
+{
+    options.Domain = "corp.example.com";
+    options.Server = "dc01.corp.example.com";
+    options.Port = 636;
+    options.UseSsl = true;
+    options.Username = "CORP\\serviceaccount";
+    options.Password = "password";
+});
+
+// From configuration
+services.AddActiveDirectory(configuration.GetSection("Toolbox:Ldap:ActiveDirectory"));
+```
+
+#### Usage
+
+```csharp
+public class UserService
+{
+    private readonly ILdapService _ldap;
+
+    public UserService(ILdapService ldap)
+    {
+        _ldap = ldap;
+    }
+
+    public async Task<LdapUser?> FindUserAsync(string username)
+    {
+        var user = await _ldap.GetUserByUsernameAsync(username);
+
+        if (user != null)
+        {
+            Console.WriteLine($"Found: {user.DisplayName} ({user.Email})");
+            Console.WriteLine($"Department: {user.Department}");
+        }
+
+        return user;
+    }
+
+    public async Task<bool> ValidateUserAsync(string username, string password)
+    {
+        return await _ldap.ValidateCredentialsAsync(username, password);
+    }
+
+    public async Task<PagedResult<LdapUser>> SearchUsersAsync(string department)
+    {
+        var criteria = LdapSearchCriteria.Create()
+            .WithDepartment(department)
+            .EnabledOnly();
+
+        return await _ldap.SearchUsersAsync(criteria, page: 1, pageSize: 25);
+    }
+}
+```
+
+#### Group and Computer Operations
+
+```csharp
+// Get group by name
+var group = await _ldap.GetGroupByNameAsync("Developers");
+
+// Get group members with pagination
+var members = await _ldap.GetGroupMembersAsync("CN=Developers,OU=Groups,DC=example,DC=com", page: 1, pageSize: 50);
+
+// Get computer by name
+var computer = await _ldap.GetComputerByNameAsync("SERVER01");
+
+// Search servers
+var criteria = LdapComputerSearchCriteria.Create()
+    .WithOperatingSystem("Windows Server*")
+    .EnabledOnly();
+var servers = await _ldap.SearchComputersAsync(criteria, page: 1, pageSize: 25);
+```
+
+#### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `Domain` | string | - | Fully qualified domain name |
+| `Server` | string? | null | Domain controller (auto-discovers if null) |
+| `Port` | int | 389 | LDAP port (636 for SSL) |
+| `BaseDn` | string? | null | Base DN for searches |
+| `Username` | string? | null | Bind username |
+| `Password` | string? | null | Bind password |
+| `UseSsl` | bool | false | Use SSL/TLS (LDAPS) |
+| `UseCurrentCredentials` | bool | false | Use Windows integrated auth |
+| `ValidateCertificate` | bool | true | Validate SSL certificate |
+| `ConnectionTimeout` | TimeSpan | 30s | Connection timeout |
+| `OperationTimeout` | TimeSpan | 60s | Operation timeout |
+
+---
+
+### Azure AD / Entra ID
+
+Azure Active Directory service using Microsoft Graph API.
+
+#### Registration
+
+```csharp
+using Toolbox.Core.Extensions;
+using Toolbox.Core.Options;
+
+// Client secret authentication
+services.AddAzureAd(options =>
+{
+    options.TenantId = "your-tenant-id";
+    options.ClientId = "your-client-id";
+    options.ClientSecret = "your-client-secret";
+    options.AuthenticationMode = AzureAdAuthMode.ClientSecret;
+});
+
+// Managed identity (Azure-hosted apps)
+services.AddAzureAdWithManagedIdentity(
+    tenantId: "your-tenant-id",
+    clientId: "your-client-id");
+
+// Certificate authentication
+services.AddAzureAd(options =>
+{
+    options.TenantId = "your-tenant-id";
+    options.ClientId = "your-client-id";
+    options.CertificatePath = "/path/to/cert.pfx";
+    options.CertificatePassword = "password";
+    options.AuthenticationMode = AzureAdAuthMode.Certificate;
+});
+
+// From configuration
+services.AddAzureAd(configuration.GetSection("Toolbox:Ldap:AzureAd"));
+```
+
+#### Usage
+
+```csharp
+public class AzureUserService
+{
+    private readonly ILdapService _azureAd;
+
+    public AzureUserService(ILdapService azureAd)
+    {
+        _azureAd = azureAd;
+    }
+
+    public async Task<LdapUser?> GetUserAsync(string email)
+    {
+        return await _azureAd.GetUserByEmailAsync(email);
+    }
+
+    public async Task<IEnumerable<LdapUser>> SearchByDepartmentAsync(string department)
+    {
+        // Azure AD uses OData filter syntax
+        return await _azureAd.SearchUsersAsync($"department eq '{department}'", maxResults: 50);
+    }
+
+    public async Task<IEnumerable<LdapGroup>> GetSecurityGroupsAsync()
+    {
+        return await _azureAd.SearchGroupsAsync("securityEnabled eq true", maxResults: 100);
+    }
+}
+```
+
+#### Important Notes
+
+- Azure AD does not support `ValidateCredentials()` - use Azure AD authentication flows instead
+- Search filters use OData syntax, not LDAP filter syntax
+- Computer queries return Azure AD joined devices
+
+#### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `TenantId` | string | - | Azure AD tenant ID or domain |
+| `ClientId` | string | - | Application (client) ID |
+| `ClientSecret` | string? | null | Client secret |
+| `AuthenticationMode` | AzureAdAuthMode | ClientSecret | Authentication method |
+| `UseManagedIdentity` | bool | false | Use Azure Managed Identity |
+| `CertificatePath` | string? | null | Path to certificate file |
+| `CertificateThumbprint` | string? | null | Certificate thumbprint |
+| `GraphApiBaseUrl` | string | v1.0 endpoint | Microsoft Graph API URL |
+
+---
+
+### OpenLDAP
+
+OpenLDAP or compatible Linux directory service.
+
+#### Registration
+
+```csharp
+using Toolbox.Core.Extensions;
+using Toolbox.Core.Options;
+
+// Basic configuration
+services.AddOpenLdap(options =>
+{
+    options.Host = "ldap.example.com";
+    options.Port = 389;
+    options.BaseDn = "dc=example,dc=com";
+    options.BindDn = "cn=admin,dc=example,dc=com";
+    options.BindPassword = "secret";
+    options.SecurityMode = LdapSecurityMode.StartTls;
+});
+
+// FreeIPA configuration
+services.AddOpenLdap(options =>
+{
+    options.Host = "ipa.example.com";
+    options.Port = 636;
+    options.BaseDn = "dc=example,dc=com";
+    options.BindDn = "uid=admin,cn=users,cn=accounts,dc=example,dc=com";
+    options.BindPassword = "secret";
+    options.SecurityMode = LdapSecurityMode.Ssl;
+    options.UserObjectClass = "inetOrgPerson";
+    options.GroupObjectClass = "groupOfNames";
+});
+
+// From configuration
+services.AddOpenLdap(configuration.GetSection("Toolbox:Ldap:OpenLdap"));
+```
+
+#### Usage
+
+```csharp
+public class LinuxUserService
+{
+    private readonly ILdapService _ldap;
+
+    public LinuxUserService(ILdapService ldap)
+    {
+        _ldap = ldap;
+    }
+
+    public async Task<LdapUser?> GetUserAsync(string uid)
+    {
+        return await _ldap.GetUserByUsernameAsync(uid);
+    }
+
+    public async Task<bool> AuthenticateAsync(string uid, string password)
+    {
+        return await _ldap.ValidateCredentialsAsync(uid, password);
+    }
+}
+```
+
+#### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `Host` | string | - | LDAP server hostname |
+| `Port` | int | 389 | LDAP port |
+| `BaseDn` | string | - | Base DN for searches |
+| `BindDn` | string? | null | Bind DN for authentication |
+| `BindPassword` | string? | null | Bind password |
+| `SecurityMode` | LdapSecurityMode | None | Security mode (None, Ssl, StartTls) |
+| `UserObjectClass` | string | inetOrgPerson | User object class |
+| `GroupObjectClass` | string | groupOfNames | Group object class |
+| `UsernameAttribute` | string | uid | Username attribute |
+
+---
+
+### Apple Directory
+
+Apple Open Directory service for macOS environments.
+
+#### Registration
+
+```csharp
+using Toolbox.Core.Extensions;
+using Toolbox.Core.Options;
+
+services.AddAppleDirectory(options =>
+{
+    options.Host = "od.example.com";
+    options.Port = 389;
+    options.BaseDn = "dc=example,dc=com";
+    options.BindDn = "uid=admin,cn=users,dc=example,dc=com";
+    options.BindPassword = "secret";
+    options.UseSsl = true;
+});
+
+// From configuration
+services.AddAppleDirectory(configuration.GetSection("Toolbox:Ldap:AppleDirectory"));
+```
+
+#### Usage
+
+```csharp
+public class MacUserService
+{
+    private readonly ILdapService _ldap;
+
+    public MacUserService(ILdapService ldap)
+    {
+        _ldap = ldap;
+    }
+
+    public async Task<LdapUser?> GetMacUserAsync(string uid)
+    {
+        return await _ldap.GetUserByUsernameAsync(uid);
+    }
+
+    public async Task<IEnumerable<string>> GetUserGroupsAsync(string uid)
+    {
+        return await _ldap.GetUserGroupsAsync(uid);
+    }
+}
+```
+
+#### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `Host` | string | - | Directory server hostname |
+| `Port` | int | 389 | LDAP port |
+| `BaseDn` | string | - | Base DN |
+| `BindDn` | string? | null | Bind DN |
+| `BindPassword` | string? | null | Bind password |
+| `UseSsl` | bool | false | Use SSL |
+| `UserObjectClass` | string | apple-user | Apple user object class |
+| `GroupObjectClass` | string | apple-group | Apple group object class |
+| `UniqueIdAttribute` | string | apple-generateduid | Unique ID attribute |
 
 ---
 
