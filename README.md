@@ -9,6 +9,7 @@ A .NET 10 library providing base services, telemetry, and dependency injection e
 - **Mailing Services**: SMTP with TLS/SSL, OAuth2, and attachment support
 - **API Services**: HTTP client with multiple authentication modes and retry policies
 - **LDAP Services**: Active Directory, Azure AD, OpenLDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL)
+- **SSO Services**: Single Sign-On session management, automatic token refresh, and secure credential storage (Windows Credential Manager, encrypted file)
 - **Disposable Services**: Thread-safe base classes for synchronous and asynchronous disposal
 - **OpenTelemetry Integration**: Built-in distributed tracing and metrics collection
 - **Dependency Injection**: Fluent extensions for easy service registration
@@ -91,7 +92,8 @@ Toolbox/
 │       │   ├── Cryptography/   # AES, RSA, Base64 services
 │       │   ├── FileTransfer/   # FTP, SFTP services
 │       │   ├── Ldap/           # Active Directory, Azure AD, OpenLDAP, Apple Directory
-│       │   └── Mailing/        # SMTP service
+│       │   ├── Mailing/        # SMTP service
+│       │   └── Sso/            # SSO session management, credential stores
 │       └── Telemetry/          # OpenTelemetry infrastructure
 ├── tests/
 │   └── Toolbox.Tests/          # Unit and integration tests

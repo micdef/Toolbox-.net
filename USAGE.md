@@ -20,10 +20,14 @@ This guide provides detailed instructions for using the Toolbox library.
    - [OpenLDAP](#openldap)
    - [Apple Directory](#apple-directory)
    - [Advanced Authentication](#advanced-authentication)
-7. [Creating Custom Services](#creating-custom-services)
-8. [OpenTelemetry Integration](#opentelemetry-integration)
-9. [Configuration Options](#configuration-options)
-10. [Best Practices](#best-practices)
+7. [SSO Services](#sso-services)
+   - [Session Management](#session-management)
+   - [Credential Storage](#credential-storage)
+   - [Automatic Token Refresh](#automatic-token-refresh)
+8. [Creating Custom Services](#creating-custom-services)
+9. [OpenTelemetry Integration](#opentelemetry-integration)
+10. [Configuration Options](#configuration-options)
+11. [Best Practices](#best-practices)
 
 ## Getting Started
 
@@ -1315,6 +1319,397 @@ The `LdapAuthenticationResult` contains:
 
 ---
 
+## SSO Services
+
+Single Sign-On services for session management, credential storage, and automatic token refresh.
+
+### Registration
+
+```csharp
+using Toolbox.Core.Extensions;
+using Toolbox.Core.Options;
+
+// Basic SSO services
+services.AddSsoServices();
+
+// With custom configuration
+services.AddSsoServices(
+    sso =>
+    {
+        sso.DefaultSessionDuration = TimeSpan.FromHours(8);
+        sso.MaxSessionDuration = TimeSpan.FromDays(7);
+        sso.EnableAutoRefresh = true;
+        sso.RefreshThreshold = 0.8; // Refresh at 80% of lifetime
+        sso.MaxSessionsPerUser = 5;
+        sso.PersistSessions = true;
+    },
+    credStore =>
+    {
+        credStore.Provider = CredentialStoreProvider.Auto; // Auto-detect platform
+        credStore.ApplicationName = "MyApp";
+    });
+
+// From configuration
+services.AddSsoServices(configuration);
+```
+
+### Session Management
+
+```csharp
+public class AuthController
+{
+    private readonly ISsoSessionManager _sessionManager;
+    private readonly ILdapService _ldapService;
+
+    public AuthController(ISsoSessionManager sessionManager, ILdapService ldapService)
+    {
+        _sessionManager = sessionManager;
+        _ldapService = ldapService;
+    }
+
+    public async Task<SsoSession> LoginAsync(string username, string password)
+    {
+        // Authenticate with LDAP
+        var authResult = await _ldapService.AuthenticateAsync(new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode.Simple,
+            Username = username,
+            Password = password,
+            IncludeGroups = true
+        });
+
+        if (!authResult.IsAuthenticated)
+            throw new AuthenticationException(authResult.ErrorMessage);
+
+        // Create SSO session
+        return await _sessionManager.CreateSessionAsync(authResult, _ldapService);
+    }
+
+    public async Task<SsoSession> LoginWithDeviceBindingAsync(
+        string username,
+        string password,
+        string deviceId,
+        string ipAddress,
+        string userAgent)
+    {
+        var authResult = await _ldapService.AuthenticateAsync(new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode.Simple,
+            Username = username,
+            Password = password
+        });
+
+        if (!authResult.IsAuthenticated)
+            throw new AuthenticationException(authResult.ErrorMessage);
+
+        // Create session with device binding
+        return await _sessionManager.CreateSessionAsync(
+            authResult,
+            _ldapService,
+            deviceId,
+            ipAddress,
+            userAgent);
+    }
+
+    public async Task<bool> ValidateSessionAsync(string sessionId)
+    {
+        var result = await _sessionManager.ValidateSessionAsync(sessionId);
+        return result.IsValid;
+    }
+
+    public async Task LogoutAsync(string sessionId)
+    {
+        await _sessionManager.RevokeSessionAsync(sessionId);
+    }
+
+    public async Task LogoutAllDevicesAsync(string userId)
+    {
+        await _sessionManager.RevokeAllUserSessionsAsync(userId);
+    }
+
+    public async Task LogoutOtherDevicesAsync(string userId, string currentSessionId)
+    {
+        await _sessionManager.RevokeOtherSessionsAsync(userId, currentSessionId);
+    }
+}
+```
+
+### Session Validation
+
+```csharp
+public class SessionMiddleware
+{
+    private readonly ISsoSessionManager _sessionManager;
+
+    public SessionMiddleware(ISsoSessionManager sessionManager)
+    {
+        _sessionManager = sessionManager;
+    }
+
+    public async Task<SsoSessionValidationResult> ValidateAsync(
+        string sessionId,
+        string? deviceId = null,
+        string? ipAddress = null)
+    {
+        var result = await _sessionManager.ValidateSessionAsync(sessionId, deviceId, ipAddress);
+
+        if (!result.IsValid)
+        {
+            switch (result.FailureReason)
+            {
+                case SsoValidationFailureReason.SessionNotFound:
+                    // Session doesn't exist
+                    break;
+                case SsoValidationFailureReason.SessionExpired:
+                    // Session has expired
+                    break;
+                case SsoValidationFailureReason.SessionRevoked:
+                    // Session was explicitly revoked
+                    break;
+                case SsoValidationFailureReason.DeviceMismatch:
+                    // Request from different device
+                    break;
+                case SsoValidationFailureReason.IpMismatch:
+                    // Request from different IP
+                    break;
+            }
+        }
+
+        return result;
+    }
+}
+```
+
+### Session Events
+
+```csharp
+public class SessionEventHandler
+{
+    public SessionEventHandler(ISsoSessionManager sessionManager)
+    {
+        sessionManager.SessionCreated += OnSessionCreated;
+        sessionManager.SessionExpiring += OnSessionExpiring;
+        sessionManager.SessionRefreshed += OnSessionRefreshed;
+        sessionManager.SessionExpired += OnSessionExpired;
+        sessionManager.SessionRevoked += OnSessionRevoked;
+    }
+
+    private void OnSessionCreated(object? sender, SsoSessionCreatedEventArgs e)
+    {
+        Console.WriteLine($"Session created: {e.Session.SessionId} for {e.Session.UserId}");
+    }
+
+    private void OnSessionExpiring(object? sender, SsoSessionExpiringEventArgs e)
+    {
+        Console.WriteLine($"Session expiring in {e.TimeToExpiry}: {e.Session.SessionId}");
+    }
+
+    private void OnSessionRefreshed(object? sender, SsoSessionRefreshedEventArgs e)
+    {
+        Console.WriteLine($"Session refreshed: {e.Session.SessionId}, new expiry: {e.NewExpiresAt}");
+    }
+
+    private void OnSessionExpired(object? sender, SsoSessionExpiredEventArgs e)
+    {
+        Console.WriteLine($"Session expired: {e.SessionId}");
+    }
+
+    private void OnSessionRevoked(object? sender, SsoSessionRevokedEventArgs e)
+    {
+        Console.WriteLine($"Session revoked: {e.SessionId}, reason: {e.Reason}");
+    }
+}
+```
+
+---
+
+### Credential Storage
+
+Secure credential storage with platform-specific implementations.
+
+#### Providers
+
+| Provider | Platform | Description |
+|----------|----------|-------------|
+| `Auto` | All | Auto-detect best provider |
+| `WindowsCredentialManager` | Windows | Windows Credential Manager with DPAPI |
+| `MacOsKeychain` | macOS | macOS Keychain Services (planned) |
+| `LinuxSecretService` | Linux | GNOME Keyring/KDE Wallet (planned) |
+| `EncryptedFile` | All | AES-256-GCM encrypted JSON file |
+| `InMemory` | All | Non-persistent, for testing |
+
+#### Usage
+
+```csharp
+public class CredentialService
+{
+    private readonly ICredentialStore _credentialStore;
+
+    public CredentialService(ICredentialStore credentialStore)
+    {
+        _credentialStore = credentialStore;
+    }
+
+    public async Task StoreTokenAsync(string userId, string accessToken, string refreshToken)
+    {
+        var credential = new SsoCredential
+        {
+            UserId = userId,
+            Type = CredentialType.AccessToken,
+            AccessToken = accessToken,
+            RefreshToken = refreshToken,
+            ExpiresAt = DateTimeOffset.UtcNow.AddHours(1),
+            DirectoryType = LdapDirectoryType.ActiveDirectory
+        };
+
+        await _credentialStore.StoreCredentialAsync($"token:{userId}", credential);
+    }
+
+    public async Task<string?> GetTokenAsync(string userId)
+    {
+        var credential = await _credentialStore.GetCredentialAsync($"token:{userId}");
+        return credential?.AccessToken;
+    }
+
+    public async Task RemoveTokenAsync(string userId)
+    {
+        await _credentialStore.RemoveCredentialAsync($"token:{userId}");
+    }
+
+    public async Task<IReadOnlyList<SsoCredential>> GetUserCredentialsAsync(string userId)
+    {
+        return await _credentialStore.GetUserCredentialsAsync(userId);
+    }
+
+    public async Task CleanupExpiredAsync()
+    {
+        var removed = await _credentialStore.CleanupExpiredAsync();
+        Console.WriteLine($"Removed {removed} expired credentials");
+    }
+}
+```
+
+#### Credential Store Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `Provider` | CredentialStoreProvider | Auto | Storage provider |
+| `ApplicationName` | string | "Toolbox" | Application identifier for credentials |
+| `FallbackStorePath` | string? | null | Path for encrypted file store |
+| `UseOsKeychain` | bool | true | Prefer OS-native credential storage |
+
+---
+
+### Automatic Token Refresh
+
+The token refresh service automatically refreshes tokens before they expire.
+
+#### Configuration
+
+```csharp
+services.AddSsoServices(sso =>
+{
+    sso.EnableAutoRefresh = true;
+    sso.RefreshThreshold = 0.8;          // Refresh at 80% of lifetime
+    sso.RefreshCheckInterval = TimeSpan.FromMinutes(1);
+    sso.MaxRefreshRetries = 3;
+    sso.RefreshRetryDelay = TimeSpan.FromSeconds(5);
+    sso.UseExponentialBackoff = true;
+});
+```
+
+#### Manual Refresh
+
+```csharp
+public class TokenService
+{
+    private readonly ITokenRefreshService _refreshService;
+    private readonly ISsoSessionManager _sessionManager;
+
+    public TokenService(ITokenRefreshService refreshService, ISsoSessionManager sessionManager)
+    {
+        _refreshService = refreshService;
+        _sessionManager = sessionManager;
+    }
+
+    public async Task<SsoSession?> RefreshNowAsync(string sessionId)
+    {
+        // Immediate refresh
+        return await _refreshService.RefreshNowAsync(sessionId);
+    }
+
+    public async Task<int> RefreshAllPendingAsync()
+    {
+        // Refresh all sessions that need it
+        return await _refreshService.RefreshAllPendingAsync();
+    }
+
+    public void CheckStatus()
+    {
+        Console.WriteLine($"Service running: {_refreshService.IsRunning}");
+        Console.WriteLine($"Registered sessions: {_refreshService.RegisteredSessionCount}");
+        Console.WriteLine($"Successful refreshes: {_refreshService.SuccessfulRefreshCount}");
+        Console.WriteLine($"Failed refreshes: {_refreshService.FailedRefreshCount}");
+        Console.WriteLine($"Last check: {_refreshService.LastCheckTime}");
+        Console.WriteLine($"Next check: {_refreshService.NextCheckTime}");
+    }
+}
+```
+
+#### Refresh Events
+
+```csharp
+public class RefreshEventHandler
+{
+    public RefreshEventHandler(ITokenRefreshService refreshService)
+    {
+        refreshService.RefreshNeeded += OnRefreshNeeded;
+        refreshService.RefreshCompleted += OnRefreshCompleted;
+        refreshService.RefreshFailed += OnRefreshFailed;
+    }
+
+    private void OnRefreshNeeded(object? sender, TokenRefreshNeededEventArgs e)
+    {
+        Console.WriteLine($"Refresh needed for {e.Session.SessionId}");
+        Console.WriteLine($"  Elapsed: {e.LifetimeElapsedPercent:P0}");
+        Console.WriteLine($"  Time to expiry: {e.TimeToExpiry}");
+    }
+
+    private void OnRefreshCompleted(object? sender, TokenRefreshCompletedEventArgs e)
+    {
+        Console.WriteLine($"Refresh completed for {e.SessionId}");
+        Console.WriteLine($"  New expiry: {e.NewExpiresAt}");
+        Console.WriteLine($"  Duration: {e.RefreshDuration.TotalMilliseconds}ms");
+    }
+
+    private void OnRefreshFailed(object? sender, TokenRefreshFailedEventArgs e)
+    {
+        Console.WriteLine($"Refresh failed for {e.SessionId}");
+        Console.WriteLine($"  Error: {e.Exception.Message}");
+        Console.WriteLine($"  Retry: {e.RetryAttempt}/{e.MaxRetries}");
+        Console.WriteLine($"  Will retry: {e.WillRetry}");
+    }
+}
+```
+
+### SSO Session Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `DefaultSessionDuration` | TimeSpan | 8 hours | Default session lifetime |
+| `MaxSessionDuration` | TimeSpan | 7 days | Maximum session lifetime |
+| `SlidingExpiration` | TimeSpan? | 30 min | Sliding expiration window |
+| `RefreshThreshold` | double | 0.8 | Refresh at % of lifetime |
+| `RefreshCheckInterval` | TimeSpan | 1 min | Background check interval |
+| `EnableAutoRefresh` | bool | true | Enable automatic refresh |
+| `PersistSessions` | bool | true | Persist sessions to store |
+| `MaxSessionsPerUser` | int | 5 | Max concurrent sessions |
+| `RevokeOldestOnMaxReached` | bool | true | Revoke oldest when max reached |
+| `EnforceDeviceBinding` | bool | false | Require same device |
+| `EnforceIpBinding` | bool | false | Require same IP address |
+
+---
+
 ## Creating Custom Services
 
 ### Synchronous Disposal
@@ -1448,6 +1843,11 @@ ToolboxMeter.RecordOperation("MyService", "CustomOp", elapsedMs);
 | `toolbox.filetransfer.errors.count` | Counter | File transfer errors |
 | `toolbox.mailing.sent.count` | Counter | Emails sent |
 | `toolbox.api.requests.count` | Counter | API requests |
+| `toolbox.sso.sessions.created` | Counter | SSO sessions created |
+| `toolbox.sso.sessions.expired` | Counter | SSO sessions expired |
+| `toolbox.sso.sessions.active` | UpDownCounter | Active SSO sessions |
+| `toolbox.sso.validations.count` | Counter | Session validations |
+| `toolbox.sso.refresh.count` | Counter | Token refreshes |
 
 ---
 
