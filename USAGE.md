@@ -1317,6 +1317,211 @@ The `LdapAuthenticationResult` contains:
 | `Token` | string? | OAuth token (Azure AD) |
 | `ExpiresAt` | DateTimeOffset? | Token expiration |
 
+### LDAP Management Operations
+
+All LDAP services (Active Directory, OpenLDAP, Apple Directory) support account management operations. Azure AD is read-only through Graph API.
+
+#### Account Management
+
+Enable, disable, and unlock user or computer accounts.
+
+```csharp
+// Enable an account
+var enableResult = await _ldap.EnableAccountAsync(
+    LdapAccountOptions.Create()
+        .ForUser("jdoe")
+        .WithObjectType(LdapObjectType.User));
+
+// Disable an account
+var disableResult = await _ldap.DisableAccountAsync(
+    LdapAccountOptions.Create()
+        .ForUserDn("CN=John Doe,OU=Users,DC=contoso,DC=com"));
+
+// Unlock a locked account
+var unlockResult = await _ldap.UnlockAccountAsync(
+    LdapAccountOptions.Create()
+        .ForUser("jdoe"));
+```
+
+#### Group Membership
+
+Add or remove members from groups.
+
+```csharp
+// Add user to group
+var addResult = await _ldap.AddToGroupAsync(
+    LdapGroupMembershipOptions.Create()
+        .ForGroup("IT-Department")
+        .WithMemberUsername("jdoe"));
+
+// Add multiple users to a group (batch)
+var batchAddResult = await _ldap.AddToGroupBatchAsync(
+    LdapGroupMembershipOptions.Create()
+        .ForGroup("Developers")
+        .WithMemberDns(new[] {
+            "CN=John Doe,OU=Users,DC=contoso,DC=com",
+            "CN=Jane Smith,OU=Users,DC=contoso,DC=com"
+        })
+        .ContinueOnErrors()); // Continue even if one fails
+
+// Remove user from group
+var removeResult = await _ldap.RemoveFromGroupAsync(
+    LdapGroupMembershipOptions.Create()
+        .ForGroupDn("CN=IT-Department,OU=Groups,DC=contoso,DC=com")
+        .WithMemberUsername("jdoe"));
+```
+
+#### Object Movement
+
+Move objects between organizational units (OUs).
+
+```csharp
+// Move user to another OU
+var moveResult = await _ldap.MoveObjectAsync(
+    LdapMoveOptions.Create()
+        .FromDn("CN=John Doe,OU=Users,DC=contoso,DC=com")
+        .ToContainer("OU=Contractors,DC=contoso,DC=com"));
+
+// Rename an object
+var renameResult = await _ldap.RenameObjectAsync(
+    "CN=Old Name,OU=Users,DC=contoso,DC=com",
+    "New Name");
+```
+
+#### Password Management
+
+Change and reset user passwords.
+
+```csharp
+// User-initiated password change (requires current password)
+var changeResult = await _ldap.ChangePasswordAsync(
+    LdapPasswordOptions.Create()
+        .ForUser("jdoe")
+        .WithCurrentPassword("OldP@ssw0rd")
+        .WithNewPassword("NewP@ssw0rd!"));
+
+// Administrative password reset (no current password needed)
+var resetResult = await _ldap.ResetPasswordAsync(
+    LdapPasswordOptions.Create()
+        .ForUser("jdoe")
+        .WithNewPassword("Temp0rary!")
+        .MustChangeAtNextLogon()    // Force password change
+        .UnlockAccountOnReset());   // Also unlock if locked
+
+// Force password change at next logon
+var forceResult = await _ldap.ForcePasswordChangeAtNextLogonAsync(
+    LdapAccountOptions.Create()
+        .ForUser("jdoe"));
+
+// Set password to never expire
+var neverExpireResult = await _ldap.SetPasswordNeverExpiresAsync(
+    LdapAccountOptions.Create()
+        .ForUser("serviceaccount"),
+    neverExpires: true);
+```
+
+#### Azure AD Management via Microsoft Graph
+
+Azure AD management uses Microsoft Graph API instead of LDAP. The same `ILdapService` interface works with Azure AD, but uses user IDs or UPNs instead of distinguished names.
+
+```csharp
+// Register Azure AD service
+services.AddAzureAd(options =>
+{
+    options.TenantId = "your-tenant-id";
+    options.ClientId = "your-client-id";
+    options.ClientSecret = "your-client-secret";
+});
+
+// Use by user principal name (UPN)
+var result = await _azureAd.EnableAccountAsync(
+    LdapAccountOptions.ForUser("john.doe@contoso.com"));
+
+// Or by Azure AD object ID
+var result2 = await _azureAd.DisableAccountAsync(
+    LdapAccountOptions.Create()
+        .WithDn("12345678-1234-1234-1234-123456789012"));  // Object ID as "DN"
+
+// Add user to Azure AD group
+var groupResult = await _azureAd.AddToGroupAsync(
+    LdapGroupMembershipOptions.Create()
+        .ForGroup("IT-Department")           // Group display name
+        .WithMemberUsername("john.doe@contoso.com"));
+
+// Reset password with force change at next sign-in
+var passwordResult = await _azureAd.ResetPasswordAsync(
+    LdapPasswordOptions.Create()
+        .ForUser("john.doe@contoso.com")
+        .WithNewPassword("Temp0rary123!")
+        .MustChangeAtNextLogon());
+```
+
+**Required Microsoft Graph Permissions:**
+
+| Operation | Application Permission | Delegated Permission |
+|-----------|------------------------|---------------------|
+| Enable/Disable Account | User.ReadWrite.All | User.ReadWrite |
+| Add/Remove from Group | GroupMember.ReadWrite.All | GroupMember.ReadWrite.All |
+| Reset Password | User.ReadWrite.All | - |
+| Force Password Change | User.ReadWrite.All | - |
+| Set Password Never Expires | User.ReadWrite.All | Directory.AccessAsUser.All |
+
+#### Management Result
+
+All management operations return `LdapManagementResult`:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `IsSuccess` | bool | Whether operation succeeded |
+| `Operation` | LdapManagementOperation | Type of operation performed |
+| `TargetDistinguishedName` | string? | DN of affected object |
+| `Details` | string? | Additional details or error message |
+| `ErrorCode` | int? | LDAP error code (if failed) |
+
+```csharp
+var result = await _ldap.EnableAccountAsync(options);
+if (result.IsSuccess)
+{
+    _logger.LogInformation("Enabled account: {Dn}", result.TargetDistinguishedName);
+}
+else
+{
+    _logger.LogError("Failed: {Details} (Error: {Code})",
+        result.Details, result.ErrorCode);
+}
+```
+
+#### Supported Operations by Directory Type
+
+| Operation | Active Directory | OpenLDAP | Apple Directory | Azure AD |
+|-----------|------------------|----------|-----------------|----------|
+| EnableAccount | ✅ | ✅ | ❌ | ✅ |
+| DisableAccount | ✅ | ✅ | ❌ | ✅ |
+| UnlockAccount | ✅ | ✅ | ❌ | ❌¹ |
+| AddToGroup | ✅ | ✅ | ✅ | ✅ |
+| RemoveFromGroup | ✅ | ✅ | ✅ | ✅ |
+| MoveObject | ✅ | ✅ | ❌ | ❌² |
+| RenameObject | ✅ | ✅ | ❌ | ❌² |
+| ChangePassword | ✅ | ✅ | ✅ | ❌³ |
+| ResetPassword | ✅ | ✅ | ✅ | ✅ |
+| ForcePasswordChange | ✅ | ✅ | ❌ | ✅ |
+| SetPasswordNeverExpires | ✅ | ❌ | ❌ | ✅ |
+
+**Azure AD Notes:**
+1. Azure AD uses Identity Protection for lockout management, not direct unlock
+2. Azure AD has no concept of OUs; use Administrative Units for delegation
+3. Password change requires delegated authentication flow (MSAL); use ResetPassword for admin resets
+
+Check supported operations programmatically:
+
+```csharp
+var supported = _ldap.GetSupportedManagementOperations();
+if (supported.Contains(LdapManagementOperation.EnableAccount))
+{
+    // Account enable/disable is supported
+}
+```
+
 ---
 
 ## SSO Services

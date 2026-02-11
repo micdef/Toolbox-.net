@@ -54,6 +54,9 @@ public static class TelemetryConstants
 
         /// <summary>Attribute name for disposal reasons.</summary>
         public const string DisposalReason = "toolbox.disposal.reason";
+
+        /// <summary>Attribute name for operation success.</summary>
+        public const string Success = "toolbox.operation.success";
     }
 
     /// <summary>
@@ -225,6 +228,9 @@ public static class TelemetryConstants
 
         /// <summary>Histogram for LDAP query duration.</summary>
         public const string QueryDuration = "toolbox.ldap.query.duration";
+
+        /// <summary>Counter for LDAP management operations.</summary>
+        public const string ManagementCount = "toolbox.ldap.management.count";
     }
 
     /// <summary>

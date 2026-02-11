@@ -1794,6 +1794,967 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
 
     #endregion
 
+    #region Account Management Implementation
+
+    /// <inheritdoc />
+    public LdapManagementResult EnableAccount(LdapAccountOptions options)
+    {
+        return EnableAccountAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> EnableAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.EnableAccount,
+                    "Object not found.");
+            }
+
+            // OpenLDAP with ppolicy overlay: remove pwdAccountLockedTime
+            var attr = new LdapAttribute("pwdAccountLockedTime");
+            var mod = new LdapModification(LdapModification.Delete, attr);
+
+            try
+            {
+                await Task.Run(() => _connection!.Modify(dn, mod), cancellationToken);
+            }
+            catch (LdapException ex) when (ex.ResultCode == LdapException.NoSuchAttribute)
+            {
+                _logger.LogDebug("Account not locked via pwdAccountLockedTime");
+            }
+
+            _logger.LogInformation("Enabled account: {DistinguishedName}", dn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "EnableAccount", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.EnableAccount,
+                dn,
+                "Account enabled successfully.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to enable account");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "EnableAccount", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.EnableAccount,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult DisableAccount(LdapAccountOptions options)
+    {
+        return DisableAccountAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> DisableAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.DisableAccount,
+                    "Object not found.");
+            }
+
+            // OpenLDAP with ppolicy overlay: set pwdAccountLockedTime
+            var lockedTime = "000001010000Z";
+            var attr = new LdapAttribute("pwdAccountLockedTime", lockedTime);
+            var mod = new LdapModification(LdapModification.Replace, attr);
+
+            await Task.Run(() => _connection!.Modify(dn, mod), cancellationToken);
+
+            _logger.LogInformation("Disabled account: {DistinguishedName}", dn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "DisableAccount", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.DisableAccount,
+                dn,
+                "Account disabled successfully.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to disable account");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "DisableAccount", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.DisableAccount,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult UnlockAccount(LdapAccountOptions options)
+    {
+        return UnlockAccountAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> UnlockAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.UnlockAccount,
+                    "Object not found.");
+            }
+
+            var attr = new LdapAttribute("pwdAccountLockedTime");
+            var mod = new LdapModification(LdapModification.Delete, attr);
+
+            try
+            {
+                await Task.Run(() => _connection!.Modify(dn, mod), cancellationToken);
+            }
+            catch (LdapException ex) when (ex.ResultCode == LdapException.NoSuchAttribute)
+            {
+                _logger.LogDebug("Account not locked");
+            }
+
+            _logger.LogInformation("Unlocked account: {DistinguishedName}", dn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "UnlockAccount", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.UnlockAccount,
+                dn,
+                "Account unlocked successfully.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to unlock account");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "UnlockAccount", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.UnlockAccount,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult SetAccountExpiration(LdapAccountOptions options)
+    {
+        return SetAccountExpirationAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> SetAccountExpirationAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.SetAccountExpiration,
+                    "Object not found.");
+            }
+
+            LdapModification mod;
+
+            if (options.ClearExpiration || options.ExpirationDate == null)
+            {
+                var attr = new LdapAttribute("shadowExpire");
+                mod = new LdapModification(LdapModification.Delete, attr);
+            }
+            else
+            {
+                var daysSinceEpoch = (int)(options.ExpirationDate.Value.ToUnixTimeSeconds() / 86400);
+                var attr = new LdapAttribute("shadowExpire", daysSinceEpoch.ToString());
+                mod = new LdapModification(LdapModification.Replace, attr);
+            }
+
+            await Task.Run(() => _connection!.Modify(dn, mod), cancellationToken);
+
+            var message = options.ClearExpiration
+                ? "Account expiration cleared."
+                : $"Account expiration set to {options.ExpirationDate:O}.";
+
+            _logger.LogInformation("Set account expiration for {DistinguishedName}: {Message}", dn, message);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "SetAccountExpiration", true);
+
+            return LdapManagementResult.Success(
+                options.ClearExpiration ? LdapManagementOperation.ClearAccountExpiration : LdapManagementOperation.SetAccountExpiration,
+                dn,
+                message);
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to set account expiration");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "SetAccountExpiration", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.SetAccountExpiration,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    #endregion
+
+    #region Group Membership Implementation
+
+    /// <inheritdoc />
+    public LdapManagementResult AddToGroup(LdapGroupMembershipOptions options)
+    {
+        return AddToGroupAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> AddToGroupAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var groupDn = await ResolveGroupDistinguishedNameAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(groupDn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.AddToGroup,
+                    "Group not found.");
+            }
+
+            var memberDn = await ResolveMemberDistinguishedNameAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(memberDn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.AddToGroup,
+                    "Member not found.");
+            }
+
+            var attr = new LdapAttribute("member", memberDn);
+            var mod = new LdapModification(LdapModification.Add, attr);
+
+            await Task.Run(() => _connection!.Modify(groupDn, mod), cancellationToken);
+
+            _logger.LogInformation("Added {MemberDn} to group {GroupDn}", memberDn, groupDn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "AddToGroup", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.AddToGroup,
+                groupDn,
+                $"Member {memberDn} added to group.");
+        }
+        catch (LdapException ex) when (ex.ResultCode == LdapException.AttributeOrValueExists)
+        {
+            _logger.LogDebug("Member already exists in group");
+            return LdapManagementResult.Success(
+                LdapManagementOperation.AddToGroup,
+                details: "Member already exists in group.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to add member to group");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "AddToGroup", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.AddToGroup,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapGroupMembershipBatchResult AddToGroupBatch(LdapGroupMembershipOptions options)
+    {
+        return AddToGroupBatchAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroupMembershipBatchResult> AddToGroupBatchAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+
+        var results = new List<LdapManagementResult>();
+        var memberDns = options.GetAllMemberDns().ToList();
+
+        foreach (var memberDn in memberDns)
+        {
+            var singleOptions = LdapGroupMembershipOptions.Create()
+                .ForGroupDn(options.GroupDistinguishedName ?? string.Empty)
+                .ForGroup(options.GroupName ?? string.Empty)
+                .WithMemberDn(memberDn);
+
+            var result = await AddToGroupAsync(singleOptions, cancellationToken);
+            results.Add(result);
+
+            if (!result.IsSuccess && !options.ContinueOnError)
+            {
+                break;
+            }
+        }
+
+        return new LdapGroupMembershipBatchResult
+        {
+            TotalCount = memberDns.Count,
+            SuccessCount = results.Count(r => r.IsSuccess),
+            FailureCount = results.Count(r => !r.IsSuccess),
+            Results = results
+        };
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult RemoveFromGroup(LdapGroupMembershipOptions options)
+    {
+        return RemoveFromGroupAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> RemoveFromGroupAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var groupDn = await ResolveGroupDistinguishedNameAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(groupDn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.RemoveFromGroup,
+                    "Group not found.");
+            }
+
+            var memberDn = await ResolveMemberDistinguishedNameAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(memberDn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.RemoveFromGroup,
+                    "Member not found.");
+            }
+
+            var attr = new LdapAttribute("member", memberDn);
+            var mod = new LdapModification(LdapModification.Delete, attr);
+
+            await Task.Run(() => _connection!.Modify(groupDn, mod), cancellationToken);
+
+            _logger.LogInformation("Removed {MemberDn} from group {GroupDn}", memberDn, groupDn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "RemoveFromGroup", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.RemoveFromGroup,
+                groupDn,
+                $"Member {memberDn} removed from group.");
+        }
+        catch (LdapException ex) when (ex.ResultCode == LdapException.NoSuchAttribute)
+        {
+            _logger.LogDebug("Member not found in group");
+            return LdapManagementResult.Success(
+                LdapManagementOperation.RemoveFromGroup,
+                details: "Member was not in group.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to remove member from group");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "RemoveFromGroup", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.RemoveFromGroup,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapGroupMembershipBatchResult RemoveFromGroupBatch(LdapGroupMembershipOptions options)
+    {
+        return RemoveFromGroupBatchAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroupMembershipBatchResult> RemoveFromGroupBatchAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+
+        var results = new List<LdapManagementResult>();
+        var memberDns = options.GetAllMemberDns().ToList();
+
+        foreach (var memberDn in memberDns)
+        {
+            var singleOptions = LdapGroupMembershipOptions.Create()
+                .ForGroupDn(options.GroupDistinguishedName ?? string.Empty)
+                .ForGroup(options.GroupName ?? string.Empty)
+                .WithMemberDn(memberDn);
+
+            var result = await RemoveFromGroupAsync(singleOptions, cancellationToken);
+            results.Add(result);
+
+            if (!result.IsSuccess && !options.ContinueOnError)
+            {
+                break;
+            }
+        }
+
+        return new LdapGroupMembershipBatchResult
+        {
+            TotalCount = memberDns.Count,
+            SuccessCount = results.Count(r => r.IsSuccess),
+            FailureCount = results.Count(r => !r.IsSuccess),
+            Results = results
+        };
+    }
+
+    #endregion
+
+    #region Object Movement Implementation
+
+    /// <inheritdoc />
+    public LdapManagementResult MoveObject(LdapMoveOptions options)
+    {
+        return MoveObjectAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> MoveObjectAsync(
+        LdapMoveOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var sourceDn = options.SourceDistinguishedName!;
+            var cnStart = sourceDn.IndexOf("cn=", StringComparison.OrdinalIgnoreCase);
+            if (cnStart < 0)
+            {
+                cnStart = sourceDn.IndexOf("uid=", StringComparison.OrdinalIgnoreCase);
+            }
+            var cnEnd = sourceDn.IndexOf(',', cnStart);
+            var currentRdn = sourceDn.Substring(cnStart, cnEnd - cnStart);
+
+            var newRdn = string.IsNullOrEmpty(options.NewCommonName)
+                ? currentRdn
+                : $"cn={EscapeLdapDnValue(options.NewCommonName)}";
+
+            await Task.Run(() => _connection!.Rename(
+                sourceDn,
+                newRdn,
+                options.TargetOrganizationalUnit,
+                options.DeleteOldRdn), cancellationToken);
+
+            _logger.LogInformation(
+                "Moved object from {SourceDn} to {TargetOu}",
+                sourceDn,
+                options.TargetOrganizationalUnit);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "MoveObject", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.MoveObject,
+                options.TargetDistinguishedName,
+                $"Object moved from {sourceDn} to {options.TargetDistinguishedName}.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to move object");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "MoveObject", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.MoveObject,
+                ex.Message,
+                ex.ResultCode,
+                options.SourceDistinguishedName);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult RenameObject(string distinguishedName, string newCommonName)
+    {
+        return RenameObjectAsync(distinguishedName, newCommonName).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> RenameObjectAsync(
+        string distinguishedName,
+        string newCommonName,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentException.ThrowIfNullOrEmpty(distinguishedName);
+        ArgumentException.ThrowIfNullOrEmpty(newCommonName);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+
+            var newRdn = $"cn={EscapeLdapDnValue(newCommonName)}";
+
+            await Task.Run(() => _connection!.Rename(
+                distinguishedName,
+                newRdn,
+                deleteOldRdn: true), cancellationToken);
+
+            _logger.LogInformation("Renamed object {Dn} to {NewCn}", distinguishedName, newCommonName);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "RenameObject", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.RenameObject,
+                distinguishedName,
+                $"Object renamed to {newCommonName}.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to rename object");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "RenameObject", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.RenameObject,
+                ex.Message,
+                ex.ResultCode,
+                distinguishedName);
+        }
+    }
+
+    #endregion
+
+    #region Password Management Implementation
+
+    /// <inheritdoc />
+    public LdapManagementResult ChangePassword(LdapPasswordOptions options)
+    {
+        return ChangePasswordAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> ChangePasswordAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.ValidateForChange();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        if (options.IsAdministrativeReset)
+        {
+            return await ResetPasswordAsync(options, cancellationToken);
+        }
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveUserDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.ChangePassword,
+                    "User not found.");
+            }
+
+            // OpenLDAP password change: delete old, add new
+            var mods = new[]
+            {
+                new LdapModification(LdapModification.Delete, new LdapAttribute("userPassword", options.CurrentPassword!)),
+                new LdapModification(LdapModification.Add, new LdapAttribute("userPassword", options.NewPassword!))
+            };
+
+            await Task.Run(() => _connection!.Modify(dn, mods), cancellationToken);
+
+            _logger.LogInformation("Changed password for user: {DistinguishedName}", dn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ChangePassword", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.ChangePassword,
+                dn,
+                "Password changed successfully.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to change password");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ChangePassword", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.ChangePassword,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult ResetPassword(LdapPasswordOptions options)
+    {
+        return ResetPasswordAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> ResetPasswordAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        if (string.IsNullOrEmpty(options.NewPassword))
+        {
+            throw new InvalidOperationException("NewPassword is required for password reset.");
+        }
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveUserDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.ResetPassword,
+                    "User not found.");
+            }
+
+            // Administrative reset - just replace the password
+            var passwordAttr = new LdapAttribute("userPassword", options.NewPassword);
+            var passwordMod = new LdapModification(LdapModification.Replace, passwordAttr);
+            await Task.Run(() => _connection!.Modify(dn, passwordMod), cancellationToken);
+
+            if (options.MustChangePasswordAtNextLogon)
+            {
+                await ForcePasswordChangeAtNextLogonInternalAsync(dn, cancellationToken);
+            }
+
+            if (options.UnlockAccount)
+            {
+                try
+                {
+                    var unlockAttr = new LdapAttribute("pwdAccountLockedTime");
+                    var unlockMod = new LdapModification(LdapModification.Delete, unlockAttr);
+                    await Task.Run(() => _connection!.Modify(dn, unlockMod), cancellationToken);
+                }
+                catch (LdapException) { /* Ignore if not locked */ }
+            }
+
+            _logger.LogInformation("Reset password for user: {DistinguishedName}", dn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ResetPassword", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.ResetPassword,
+                dn,
+                "Password reset successfully.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to reset password");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ResetPassword", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.ResetPassword,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult ForcePasswordChangeAtNextLogon(LdapAccountOptions options)
+    {
+        return ForcePasswordChangeAtNextLogonAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> ForcePasswordChangeAtNextLogonAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await EnsureConnectedAsync(cancellationToken);
+            var dn = await ResolveDistinguishedNameAsync(options, cancellationToken);
+
+            if (string.IsNullOrEmpty(dn))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.ForcePasswordChange,
+                    "User not found.");
+            }
+
+            await ForcePasswordChangeAtNextLogonInternalAsync(dn, cancellationToken);
+
+            _logger.LogInformation("Set force password change for user: {DistinguishedName}", dn);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ForcePasswordChange", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.ForcePasswordChange,
+                dn,
+                "User must change password at next logon.");
+        }
+        catch (LdapException ex)
+        {
+            _logger.LogError(ex, "Failed to set force password change");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ForcePasswordChange", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.ForcePasswordChange,
+                ex.Message,
+                ex.ResultCode);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult SetPasswordNeverExpires(LdapAccountOptions options, bool neverExpires = true)
+    {
+        return SetPasswordNeverExpiresAsync(options, neverExpires).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> SetPasswordNeverExpiresAsync(
+        LdapAccountOptions options,
+        bool neverExpires = true,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        // OpenLDAP handles password expiration differently via ppolicy overlay
+        // This is typically configured at the policy level, not per-user
+        return await Task.FromResult(LdapManagementResult.NotSupported(
+            LdapManagementOperation.SetPasswordNeverExpires,
+            LdapDirectoryType.OpenLdap));
+    }
+
+    #endregion
+
+    #region Management Capability Implementation
+
+    /// <inheritdoc />
+    public IReadOnlyList<LdapManagementOperation> GetSupportedManagementOperations()
+    {
+        return
+        [
+            LdapManagementOperation.EnableAccount,
+            LdapManagementOperation.DisableAccount,
+            LdapManagementOperation.UnlockAccount,
+            LdapManagementOperation.AddToGroup,
+            LdapManagementOperation.RemoveFromGroup,
+            LdapManagementOperation.MoveObject,
+            LdapManagementOperation.RenameObject,
+            LdapManagementOperation.ChangePassword,
+            LdapManagementOperation.ResetPassword,
+            LdapManagementOperation.ForcePasswordChange,
+            LdapManagementOperation.SetAccountExpiration,
+            LdapManagementOperation.ClearAccountExpiration
+        ];
+    }
+
+    #endregion
+
+    #region Management Helper Methods
+
+    private async Task<string?> ResolveDistinguishedNameAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken)
+    {
+        if (!string.IsNullOrEmpty(options.DistinguishedName))
+        {
+            return options.DistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.Username))
+        {
+            return null;
+        }
+
+        var filter = $"(uid={EscapeLdapFilter(options.Username)})";
+
+        var results = await Task.Run(
+            () => _connection!.Search(
+                _options.BaseDn,
+                LdapConnection.ScopeSub,
+                filter,
+                new[] { "dn" },
+                false),
+            cancellationToken);
+
+        return results.HasMore() ? results.Next().Dn : null;
+    }
+
+    private async Task<string?> ResolveUserDistinguishedNameAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken)
+    {
+        if (!string.IsNullOrEmpty(options.DistinguishedName))
+        {
+            return options.DistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.Username))
+        {
+            return null;
+        }
+
+        var filter = $"(uid={EscapeLdapFilter(options.Username)})";
+
+        var results = await Task.Run(
+            () => _connection!.Search(
+                _options.BaseDn,
+                LdapConnection.ScopeSub,
+                filter,
+                new[] { "dn" },
+                false),
+            cancellationToken);
+
+        return results.HasMore() ? results.Next().Dn : null;
+    }
+
+    private async Task<string?> ResolveGroupDistinguishedNameAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken)
+    {
+        if (!string.IsNullOrEmpty(options.GroupDistinguishedName))
+        {
+            return options.GroupDistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.GroupName))
+        {
+            return null;
+        }
+
+        var filter = $"(&(objectClass=groupOfNames)(cn={EscapeLdapFilter(options.GroupName)}))";
+
+        var results = await Task.Run(
+            () => _connection!.Search(
+                _options.BaseDn,
+                LdapConnection.ScopeSub,
+                filter,
+                new[] { "dn" },
+                false),
+            cancellationToken);
+
+        return results.HasMore() ? results.Next().Dn : null;
+    }
+
+    private async Task<string?> ResolveMemberDistinguishedNameAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken)
+    {
+        if (!string.IsNullOrEmpty(options.MemberDistinguishedName))
+        {
+            return options.MemberDistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.MemberUsername))
+        {
+            return null;
+        }
+
+        var filter = $"(uid={EscapeLdapFilter(options.MemberUsername)})";
+
+        var results = await Task.Run(
+            () => _connection!.Search(
+                _options.BaseDn,
+                LdapConnection.ScopeSub,
+                filter,
+                new[] { "dn" },
+                false),
+            cancellationToken);
+
+        return results.HasMore() ? results.Next().Dn : null;
+    }
+
+    private async Task ForcePasswordChangeAtNextLogonInternalAsync(
+        string distinguishedName,
+        CancellationToken cancellationToken)
+    {
+        // OpenLDAP with ppolicy: set pwdReset to TRUE
+        var attr = new LdapAttribute("pwdReset", "TRUE");
+        var mod = new LdapModification(LdapModification.Replace, attr);
+
+        await Task.Run(() => _connection!.Modify(distinguishedName, mod), cancellationToken);
+    }
+
+    private static string EscapeLdapDnValue(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return value;
+        }
+
+        return value
+            .Replace("\\", "\\\\")
+            .Replace(",", "\\,")
+            .Replace("+", "\\+")
+            .Replace("\"", "\\\"")
+            .Replace("<", "\\<")
+            .Replace(">", "\\>")
+            .Replace(";", "\\;")
+            .Replace("=", "\\=");
+    }
+
+    #endregion
+
     /// <inheritdoc />
     protected override async ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

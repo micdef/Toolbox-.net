@@ -168,6 +168,14 @@ public static class ToolboxMeter
             description: "Number of LDAP operation errors"),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
+    // Lazy initializer for LDAP management operation counter
+    private static readonly Lazy<Counter<long>> LazyLdapManagementCounter = new(
+        () => Instance.CreateCounter<long>(
+            TelemetryConstants.LdapMetrics.ManagementCount,
+            unit: "{operations}",
+            description: "Number of LDAP management operations"),
+        LazyThreadSafetyMode.ExecutionAndPublication);
+
     // Lazy initializer for LDAP query duration histogram
     private static readonly Lazy<Histogram<double>> LazyLdapQueryDuration = new(
         () => Instance.CreateHistogram<double>(
@@ -601,6 +609,24 @@ public static class ToolboxMeter
         };
 
         LazyLdapErrorCounter.Value.Add(1, tags);
+    }
+
+    /// <summary>
+    /// Records an LDAP management operation.
+    /// </summary>
+    /// <param name="serviceName">The name of the LDAP service.</param>
+    /// <param name="operationName">The management operation name.</param>
+    /// <param name="success">Whether the operation succeeded.</param>
+    public static void RecordLdapManagement(string serviceName, string operationName, bool success)
+    {
+        var tags = new TagList
+        {
+            { TelemetryConstants.Attributes.ServiceName, serviceName },
+            { TelemetryConstants.Attributes.OperationName, operationName },
+            { TelemetryConstants.Attributes.Success, success }
+        };
+
+        LazyLdapManagementCounter.Value.Add(1, tags);
     }
 
     /// <summary>

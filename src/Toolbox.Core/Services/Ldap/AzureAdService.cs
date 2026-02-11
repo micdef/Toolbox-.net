@@ -1787,6 +1787,798 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 
     #endregion
 
+    #region Account Management Implementation
+
+    /// <inheritdoc />
+    public LdapManagementResult EnableAccount(LdapAccountOptions options)
+    {
+        return EnableAccountAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> EnableAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            var userId = await ResolveUserIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.EnableAccount,
+                    "User not found in Azure AD.");
+            }
+
+            var updateUser = new User { AccountEnabled = true };
+            await _graphClient.Value.Users[userId].PatchAsync(updateUser, cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Enabled Azure AD account: {UserId}", userId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "EnableAccount", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.EnableAccount,
+                userId,
+                "Account enabled successfully.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to enable Azure AD account");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "EnableAccount", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.EnableAccount,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult DisableAccount(LdapAccountOptions options)
+    {
+        return DisableAccountAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> DisableAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            var userId = await ResolveUserIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.DisableAccount,
+                    "User not found in Azure AD.");
+            }
+
+            var updateUser = new User { AccountEnabled = false };
+            await _graphClient.Value.Users[userId].PatchAsync(updateUser, cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Disabled Azure AD account: {UserId}", userId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "DisableAccount", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.DisableAccount,
+                userId,
+                "Account disabled successfully.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to disable Azure AD account");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "DisableAccount", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.DisableAccount,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Azure AD does not have a direct account lock mechanism like Active Directory.
+    /// Account lockout is managed through Azure AD Identity Protection and sign-in risk policies.
+    /// </remarks>
+    public LdapManagementResult UnlockAccount(LdapAccountOptions options)
+    {
+        return LdapManagementResult.NotSupported(
+            LdapManagementOperation.UnlockAccount,
+            LdapDirectoryType.AzureActiveDirectory,
+            "Azure AD does not support direct account unlock. Use Azure AD Identity Protection for risk-based lockout management.");
+    }
+
+    /// <inheritdoc />
+    public Task<LdapManagementResult> UnlockAccountAsync(LdapAccountOptions options, CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(UnlockAccount(options));
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Azure AD does not support account expiration dates. Use Azure AD lifecycle workflows
+    /// or Conditional Access policies for time-based access control.
+    /// </remarks>
+    public LdapManagementResult SetAccountExpiration(LdapAccountOptions options)
+    {
+        return LdapManagementResult.NotSupported(
+            LdapManagementOperation.SetAccountExpiration,
+            LdapDirectoryType.AzureActiveDirectory,
+            "Azure AD does not support account expiration dates. Use lifecycle workflows or Conditional Access policies.");
+    }
+
+    /// <inheritdoc />
+    public Task<LdapManagementResult> SetAccountExpirationAsync(LdapAccountOptions options, CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(SetAccountExpiration(options));
+    }
+
+    #endregion
+
+    #region Group Membership Implementation
+
+    /// <inheritdoc />
+    public LdapManagementResult AddToGroup(LdapGroupMembershipOptions options)
+    {
+        return AddToGroupAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> AddToGroupAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            var groupId = await ResolveGroupIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(groupId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.AddToGroup,
+                    "Group not found in Azure AD.");
+            }
+
+            var memberId = await ResolveMemberIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(memberId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.AddToGroup,
+                    "Member not found in Azure AD.");
+            }
+
+            var memberReference = new ReferenceCreate
+            {
+                OdataId = $"https://graph.microsoft.com/v1.0/directoryObjects/{memberId}"
+            };
+            await _graphClient.Value.Groups[groupId].Members.Ref.PostAsync(memberReference, cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Added {MemberId} to Azure AD group {GroupId}", memberId, groupId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "AddToGroup", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.AddToGroup,
+                groupId,
+                "Member added to group successfully.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex) when (ex.ResponseStatusCode == 400 &&
+            ex.Error?.Message?.Contains("already exist", StringComparison.OrdinalIgnoreCase) == true)
+        {
+            return LdapManagementResult.Success(
+                LdapManagementOperation.AddToGroup,
+                details: "Member already exists in group.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to add member to Azure AD group");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "AddToGroup", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.AddToGroup,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapGroupMembershipBatchResult AddToGroupBatch(LdapGroupMembershipOptions options)
+    {
+        return AddToGroupBatchAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroupMembershipBatchResult> AddToGroupBatchAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+
+        var results = new List<LdapManagementResult>();
+        var memberIds = options.GetAllMemberDns().ToList(); // In Azure AD context, these are IDs or UPNs
+
+        foreach (var memberId in memberIds)
+        {
+            var singleOptions = LdapGroupMembershipOptions.Create()
+                .ForGroup(options.GroupName ?? string.Empty)
+                .ForGroupDn(options.GroupDistinguishedName ?? string.Empty)
+                .WithMemberDn(memberId);
+
+            var result = await AddToGroupAsync(singleOptions, cancellationToken);
+            results.Add(result);
+
+            if (!result.IsSuccess && !options.ContinueOnError)
+            {
+                break;
+            }
+        }
+
+        return new LdapGroupMembershipBatchResult
+        {
+            TotalCount = memberIds.Count,
+            SuccessCount = results.Count(r => r.IsSuccess),
+            FailureCount = results.Count(r => !r.IsSuccess),
+            Results = results
+        };
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult RemoveFromGroup(LdapGroupMembershipOptions options)
+    {
+        return RemoveFromGroupAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> RemoveFromGroupAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            var groupId = await ResolveGroupIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(groupId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.RemoveFromGroup,
+                    "Group not found in Azure AD.");
+            }
+
+            var memberId = await ResolveMemberIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(memberId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.RemoveFromGroup,
+                    "Member not found in Azure AD.");
+            }
+
+            await _graphClient.Value.Groups[groupId].Members[memberId].Ref.DeleteAsync(cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Removed {MemberId} from Azure AD group {GroupId}", memberId, groupId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "RemoveFromGroup", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.RemoveFromGroup,
+                groupId,
+                "Member removed from group successfully.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex) when (ex.ResponseStatusCode == 404)
+        {
+            return LdapManagementResult.Success(
+                LdapManagementOperation.RemoveFromGroup,
+                details: "Member was not in group.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to remove member from Azure AD group");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "RemoveFromGroup", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.RemoveFromGroup,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapGroupMembershipBatchResult RemoveFromGroupBatch(LdapGroupMembershipOptions options)
+    {
+        return RemoveFromGroupBatchAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapGroupMembershipBatchResult> RemoveFromGroupBatchAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+
+        var results = new List<LdapManagementResult>();
+        var memberIds = options.GetAllMemberDns().ToList();
+
+        foreach (var memberId in memberIds)
+        {
+            var singleOptions = LdapGroupMembershipOptions.Create()
+                .ForGroup(options.GroupName ?? string.Empty)
+                .ForGroupDn(options.GroupDistinguishedName ?? string.Empty)
+                .WithMemberDn(memberId);
+
+            var result = await RemoveFromGroupAsync(singleOptions, cancellationToken);
+            results.Add(result);
+
+            if (!result.IsSuccess && !options.ContinueOnError)
+            {
+                break;
+            }
+        }
+
+        return new LdapGroupMembershipBatchResult
+        {
+            TotalCount = memberIds.Count,
+            SuccessCount = results.Count(r => r.IsSuccess),
+            FailureCount = results.Count(r => !r.IsSuccess),
+            Results = results
+        };
+    }
+
+    #endregion
+
+    #region Object Movement Implementation
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Azure AD does not have Organizational Units (OUs) like Active Directory.
+    /// Object hierarchy is flat; use Administrative Units for delegated administration.
+    /// </remarks>
+    public LdapManagementResult MoveObject(LdapMoveOptions options)
+    {
+        return LdapManagementResult.NotSupported(
+            LdapManagementOperation.MoveObject,
+            LdapDirectoryType.AzureActiveDirectory,
+            "Azure AD does not have Organizational Units. Use Administrative Units for delegated administration.");
+    }
+
+    /// <inheritdoc />
+    public Task<LdapManagementResult> MoveObjectAsync(LdapMoveOptions options, CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(MoveObject(options));
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Azure AD users have a displayName property that can be updated, but the
+    /// userPrincipalName (equivalent to CN) cannot be freely renamed.
+    /// </remarks>
+    public LdapManagementResult RenameObject(string distinguishedName, string newCommonName)
+    {
+        return LdapManagementResult.NotSupported(
+            LdapManagementOperation.RenameObject,
+            LdapDirectoryType.AzureActiveDirectory,
+            "Azure AD does not support object rename. Use UpdateDisplayNameAsync to change the display name.");
+    }
+
+    /// <inheritdoc />
+    public Task<LdapManagementResult> RenameObjectAsync(string distinguishedName, string newCommonName, CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(RenameObject(distinguishedName, newCommonName));
+    }
+
+    #endregion
+
+    #region Password Management Implementation
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Azure AD user password change (with current password validation) requires
+    /// Microsoft Graph delegated permissions with user interaction (MSAL).
+    /// For admin-initiated password reset, use ResetPasswordAsync instead.
+    /// </remarks>
+    public LdapManagementResult ChangePassword(LdapPasswordOptions options)
+    {
+        return LdapManagementResult.NotSupported(
+            LdapManagementOperation.ChangePassword,
+            LdapDirectoryType.AzureActiveDirectory,
+            "User password change requires delegated authentication flow. Use ResetPasswordAsync for admin-initiated resets.");
+    }
+
+    /// <inheritdoc />
+    public Task<LdapManagementResult> ChangePasswordAsync(LdapPasswordOptions options, CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(ChangePassword(options));
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult ResetPassword(LdapPasswordOptions options)
+    {
+        return ResetPasswordAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Resets user password using Microsoft Graph API. Requires User.ReadWrite.All or
+    /// Directory.AccessAsUser.All permission. The new password must comply with tenant
+    /// password policies.
+    /// </remarks>
+    public async Task<LdapManagementResult> ResetPasswordAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        if (string.IsNullOrEmpty(options.NewPassword))
+        {
+            throw new InvalidOperationException("NewPassword is required for password reset.");
+        }
+
+        try
+        {
+            var userId = await ResolveUserIdFromPasswordOptionsAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.ResetPassword,
+                    "User not found in Azure AD.");
+            }
+
+            var passwordProfile = new PasswordProfile
+            {
+                Password = options.NewPassword,
+                ForceChangePasswordNextSignIn = options.MustChangePasswordAtNextLogon
+            };
+
+            var updateUser = new User { PasswordProfile = passwordProfile };
+            await _graphClient.Value.Users[userId].PatchAsync(updateUser, cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Reset password for Azure AD user: {UserId}", userId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ResetPassword", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.ResetPassword,
+                userId,
+                options.MustChangePasswordAtNextLogon
+                    ? "Password reset successfully. User must change password at next sign-in."
+                    : "Password reset successfully.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to reset Azure AD user password");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ResetPassword", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.ResetPassword,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult ForcePasswordChangeAtNextLogon(LdapAccountOptions options)
+    {
+        return ForcePasswordChangeAtNextLogonAsync(options).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    public async Task<LdapManagementResult> ForcePasswordChangeAtNextLogonAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            var userId = await ResolveUserIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.ForcePasswordChange,
+                    "User not found in Azure AD.");
+            }
+
+            var passwordProfile = new PasswordProfile
+            {
+                ForceChangePasswordNextSignIn = true
+            };
+
+            var updateUser = new User { PasswordProfile = passwordProfile };
+            await _graphClient.Value.Users[userId].PatchAsync(updateUser, cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Set force password change for Azure AD user: {UserId}", userId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ForcePasswordChange", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.ForcePasswordChange,
+                userId,
+                "User must change password at next sign-in.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to set force password change for Azure AD user");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "ForcePasswordChange", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.ForcePasswordChange,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    /// <inheritdoc />
+    public LdapManagementResult SetPasswordNeverExpires(LdapAccountOptions options, bool neverExpires = true)
+    {
+        return SetPasswordNeverExpiresAsync(options, neverExpires).GetAwaiter().GetResult();
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Sets the password policy for the user. Requires Directory.AccessAsUser.All or
+    /// User.ReadWrite.All permission. Note that tenant-level password policies may override
+    /// this setting.
+    /// </remarks>
+    public async Task<LdapManagementResult> SetPasswordNeverExpiresAsync(
+        LdapAccountOptions options,
+        bool neverExpires = true,
+        CancellationToken cancellationToken = default)
+    {
+        ThrowIfDisposed();
+        ArgumentNullException.ThrowIfNull(options);
+        options.Validate();
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            var userId = await ResolveUserIdAsync(options, cancellationToken);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return LdapManagementResult.Failure(
+                    LdapManagementOperation.SetPasswordNeverExpires,
+                    "User not found in Azure AD.");
+            }
+
+            // Set passwordPolicies to "DisablePasswordExpiration" or empty
+            var updateUser = new User
+            {
+                PasswordPolicies = neverExpires ? "DisablePasswordExpiration" : null
+            };
+            await _graphClient.Value.Users[userId].PatchAsync(updateUser, cancellationToken: cancellationToken);
+
+            _logger.LogInformation("Set password never expires to {NeverExpires} for Azure AD user: {UserId}",
+                neverExpires, userId);
+            ToolboxMeter.RecordLdapManagement(ServiceName, "SetPasswordNeverExpires", true);
+
+            return LdapManagementResult.Success(
+                LdapManagementOperation.SetPasswordNeverExpires,
+                userId,
+                neverExpires
+                    ? "Password set to never expire."
+                    : "Password expiration policy restored to tenant default.");
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogError(ex, "Failed to set password expiration policy for Azure AD user");
+            ToolboxMeter.RecordLdapManagement(ServiceName, "SetPasswordNeverExpires", false);
+            return LdapManagementResult.Failure(
+                LdapManagementOperation.SetPasswordNeverExpires,
+                ex.Error?.Message ?? ex.Message);
+        }
+    }
+
+    #endregion
+
+    #region Management Capability Implementation
+
+    /// <inheritdoc />
+    public IReadOnlyList<LdapManagementOperation> GetSupportedManagementOperations()
+    {
+        return
+        [
+            LdapManagementOperation.EnableAccount,
+            LdapManagementOperation.DisableAccount,
+            LdapManagementOperation.AddToGroup,
+            LdapManagementOperation.RemoveFromGroup,
+            LdapManagementOperation.ResetPassword,
+            LdapManagementOperation.ForcePasswordChange,
+            LdapManagementOperation.SetPasswordNeverExpires
+        ];
+    }
+
+    #endregion
+
+    #region Management Helper Methods
+
+    /// <summary>
+    /// Resolves a user ID from account options (by ID, UPN, or username).
+    /// </summary>
+    /// <param name="options">The account options containing user identifier.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The Azure AD user ID, or null if not found.</returns>
+    private async Task<string?> ResolveUserIdAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken)
+    {
+        // If DN is provided, assume it's the user ID (Azure AD object ID)
+        if (!string.IsNullOrEmpty(options.DistinguishedName))
+        {
+            return options.DistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.Username))
+        {
+            return null;
+        }
+
+        // Search by userPrincipalName or mailNickname
+        var escapedName = EscapeODataFilter(options.Username);
+        var filter = $"userPrincipalName eq '{escapedName}' or mailNickname eq '{escapedName}'";
+
+        try
+        {
+            var users = await _graphClient.Value.Users
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = filter;
+                    config.QueryParameters.Select = ["id"];
+                    config.QueryParameters.Top = 1;
+                }, cancellationToken);
+
+            return users?.Value?.FirstOrDefault()?.Id;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogWarning(ex, "Failed to resolve user ID for: {ObjectName}", options.Username);
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Resolves a user ID from password options (by ID, UPN, or username).
+    /// </summary>
+    /// <param name="options">The password options containing user identifier.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The Azure AD user ID, or null if not found.</returns>
+    private async Task<string?> ResolveUserIdFromPasswordOptionsAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken)
+    {
+        // If DN is provided, assume it's the user ID (Azure AD object ID)
+        if (!string.IsNullOrEmpty(options.DistinguishedName))
+        {
+            return options.DistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.Username))
+        {
+            return null;
+        }
+
+        // Search by userPrincipalName or mailNickname
+        var escapedName = EscapeODataFilter(options.Username);
+        var filter = $"userPrincipalName eq '{escapedName}' or mailNickname eq '{escapedName}'";
+
+        try
+        {
+            var users = await _graphClient.Value.Users
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = filter;
+                    config.QueryParameters.Select = ["id"];
+                    config.QueryParameters.Top = 1;
+                }, cancellationToken);
+
+            return users?.Value?.FirstOrDefault()?.Id;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogWarning(ex, "Failed to resolve user ID for: {Username}", options.Username);
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Resolves a group ID from group membership options (by ID or display name).
+    /// </summary>
+    /// <param name="options">The group membership options containing group identifier.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The Azure AD group ID, or null if not found.</returns>
+    private async Task<string?> ResolveGroupIdAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken)
+    {
+        // If GroupDistinguishedName is provided, assume it's the group ID
+        if (!string.IsNullOrEmpty(options.GroupDistinguishedName))
+        {
+            return options.GroupDistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.GroupName))
+        {
+            return null;
+        }
+
+        // Search by displayName
+        var escapedName = EscapeODataFilter(options.GroupName);
+        var filter = $"displayName eq '{escapedName}'";
+
+        try
+        {
+            var groups = await _graphClient.Value.Groups
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = filter;
+                    config.QueryParameters.Select = ["id"];
+                    config.QueryParameters.Top = 1;
+                }, cancellationToken);
+
+            return groups?.Value?.FirstOrDefault()?.Id;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogWarning(ex, "Failed to resolve group ID for: {GroupName}", options.GroupName);
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Resolves a member ID from group membership options (by ID, UPN, or username).
+    /// </summary>
+    /// <param name="options">The group membership options containing member identifier.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The Azure AD member (user/group) ID, or null if not found.</returns>
+    private async Task<string?> ResolveMemberIdAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken)
+    {
+        // If MemberDistinguishedName is provided, assume it's the member ID
+        if (!string.IsNullOrEmpty(options.MemberDistinguishedName))
+        {
+            return options.MemberDistinguishedName;
+        }
+
+        if (string.IsNullOrEmpty(options.MemberUsername))
+        {
+            return null;
+        }
+
+        // Search by userPrincipalName or mailNickname
+        var escapedName = EscapeODataFilter(options.MemberUsername);
+        var filter = $"userPrincipalName eq '{escapedName}' or mailNickname eq '{escapedName}'";
+
+        try
+        {
+            var users = await _graphClient.Value.Users
+                .GetAsync(config =>
+                {
+                    config.QueryParameters.Filter = filter;
+                    config.QueryParameters.Select = ["id"];
+                    config.QueryParameters.Top = 1;
+                }, cancellationToken);
+
+            return users?.Value?.FirstOrDefault()?.Id;
+        }
+        catch (Microsoft.Graph.Models.ODataErrors.ODataError ex)
+        {
+            _logger.LogWarning(ex, "Failed to resolve member ID for: {MemberUsername}", options.MemberUsername);
+            return null;
+        }
+    }
+
+    #endregion
+
     /// <inheritdoc />
     protected override ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {

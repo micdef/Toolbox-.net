@@ -784,4 +784,506 @@ public interface ILdapService : IInstrumentedService, IAsyncDisposableService
     IReadOnlyList<LdapAuthenticationMode> GetSupportedAuthenticationModes();
 
     #endregion
+
+    #region Account Management Methods
+
+    /// <summary>
+    /// Enables a user or computer account.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.EnableAccount(LdapAccountOptions.ForUser("jdoe"));
+    /// if (result.IsSuccess)
+    /// {
+    ///     Console.WriteLine("Account enabled successfully.");
+    /// }
+    /// </code>
+    /// </example>
+    LdapManagementResult EnableAccount(LdapAccountOptions options);
+
+    /// <summary>
+    /// Enables a user or computer account asynchronously.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> EnableAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Disables a user or computer account.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.DisableAccount(LdapAccountOptions.ForUser("jdoe"));
+    /// if (result.IsSuccess)
+    /// {
+    ///     Console.WriteLine("Account disabled successfully.");
+    /// }
+    /// </code>
+    /// </example>
+    LdapManagementResult DisableAccount(LdapAccountOptions options);
+
+    /// <summary>
+    /// Disables a user or computer account asynchronously.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> DisableAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Unlocks a locked user account.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.UnlockAccount(LdapAccountOptions.ForUser("jdoe"));
+    /// if (result.IsSuccess)
+    /// {
+    ///     Console.WriteLine("Account unlocked successfully.");
+    /// }
+    /// </code>
+    /// </example>
+    LdapManagementResult UnlockAccount(LdapAccountOptions options);
+
+    /// <summary>
+    /// Unlocks a locked user account asynchronously.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> UnlockAccountAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Sets the account expiration date.
+    /// </summary>
+    /// <param name="options">The account options with expiration date.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = LdapAccountOptions.ForUser("jdoe")
+    ///     .WithExpiration(DateTimeOffset.UtcNow.AddDays(90));
+    /// var result = ldapService.SetAccountExpiration(options);
+    /// </code>
+    /// </example>
+    LdapManagementResult SetAccountExpiration(LdapAccountOptions options);
+
+    /// <summary>
+    /// Sets the account expiration date asynchronously.
+    /// </summary>
+    /// <param name="options">The account options with expiration date.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> SetAccountExpirationAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Group Membership Methods
+
+    /// <summary>
+    /// Adds a member to a group.
+    /// </summary>
+    /// <param name="options">The group membership options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = LdapGroupMembershipOptions.Create()
+    ///     .ForGroup("Developers")
+    ///     .WithMember("jdoe");
+    /// var result = ldapService.AddToGroup(options);
+    /// </code>
+    /// </example>
+    LdapManagementResult AddToGroup(LdapGroupMembershipOptions options);
+
+    /// <summary>
+    /// Adds a member to a group asynchronously.
+    /// </summary>
+    /// <param name="options">The group membership options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> AddToGroupAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Adds multiple members to a group.
+    /// </summary>
+    /// <param name="options">The group membership options with multiple members.</param>
+    /// <returns>The batch result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = LdapGroupMembershipOptions.Create()
+    ///     .ForGroup("Developers")
+    ///     .WithMembers(userDn1, userDn2, userDn3)
+    ///     .WithContinueOnError();
+    /// var result = ldapService.AddToGroupBatch(options);
+    /// Console.WriteLine($"Success: {result.SuccessCount}, Failed: {result.FailureCount}");
+    /// </code>
+    /// </example>
+    LdapGroupMembershipBatchResult AddToGroupBatch(LdapGroupMembershipOptions options);
+
+    /// <summary>
+    /// Adds multiple members to a group asynchronously.
+    /// </summary>
+    /// <param name="options">The group membership options with multiple members.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the batch result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapGroupMembershipBatchResult> AddToGroupBatchAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Removes a member from a group.
+    /// </summary>
+    /// <param name="options">The group membership options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = LdapGroupMembershipOptions.Create()
+    ///     .ForGroup("Developers")
+    ///     .WithMember("jdoe");
+    /// var result = ldapService.RemoveFromGroup(options);
+    /// </code>
+    /// </example>
+    LdapManagementResult RemoveFromGroup(LdapGroupMembershipOptions options);
+
+    /// <summary>
+    /// Removes a member from a group asynchronously.
+    /// </summary>
+    /// <param name="options">The group membership options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> RemoveFromGroupAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Removes multiple members from a group.
+    /// </summary>
+    /// <param name="options">The group membership options with multiple members.</param>
+    /// <returns>The batch result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    LdapGroupMembershipBatchResult RemoveFromGroupBatch(LdapGroupMembershipOptions options);
+
+    /// <summary>
+    /// Removes multiple members from a group asynchronously.
+    /// </summary>
+    /// <param name="options">The group membership options with multiple members.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the batch result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapGroupMembershipBatchResult> RemoveFromGroupBatchAsync(
+        LdapGroupMembershipOptions options,
+        CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Object Movement Methods
+
+    /// <summary>
+    /// Moves an object to a different organizational unit.
+    /// </summary>
+    /// <param name="options">The move options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = LdapMoveOptions.Create()
+    ///     .FromDn("CN=John Doe,OU=Users,DC=example,DC=com")
+    ///     .ToOrganizationalUnit("OU=Contractors,DC=example,DC=com");
+    /// var result = ldapService.MoveObject(options);
+    /// </code>
+    /// </example>
+    LdapManagementResult MoveObject(LdapMoveOptions options);
+
+    /// <summary>
+    /// Moves an object to a different organizational unit asynchronously.
+    /// </summary>
+    /// <param name="options">The move options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> MoveObjectAsync(
+        LdapMoveOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Renames an object (changes its common name).
+    /// </summary>
+    /// <param name="distinguishedName">The current distinguished name of the object.</param>
+    /// <param name="newCommonName">The new common name.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when parameters are <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.RenameObject(
+    ///     "CN=John Doe,OU=Users,DC=example,DC=com",
+    ///     "John Smith");
+    /// </code>
+    /// </example>
+    LdapManagementResult RenameObject(string distinguishedName, string newCommonName);
+
+    /// <summary>
+    /// Renames an object asynchronously.
+    /// </summary>
+    /// <param name="distinguishedName">The current distinguished name of the object.</param>
+    /// <param name="newCommonName">The new common name.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when parameters are <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> RenameObjectAsync(
+        string distinguishedName,
+        string newCommonName,
+        CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Password Management Methods
+
+    /// <summary>
+    /// Changes a user's password (requires current password).
+    /// </summary>
+    /// <param name="options">The password options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var options = LdapPasswordOptions.Create()
+    ///     .ForUsername("jdoe")
+    ///     .WithPasswordChange("oldPassword123", "newPassword456");
+    /// var result = ldapService.ChangePassword(options);
+    /// </code>
+    /// </example>
+    LdapManagementResult ChangePassword(LdapPasswordOptions options);
+
+    /// <summary>
+    /// Changes a user's password asynchronously.
+    /// </summary>
+    /// <param name="options">The password options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> ChangePasswordAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Resets a user's password (administrative reset, no current password required).
+    /// </summary>
+    /// <param name="options">The password options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <remarks>
+    /// <para>
+    /// The service account must have sufficient privileges to reset passwords.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var options = LdapPasswordOptions.Create()
+    ///     .ForUsername("jdoe")
+    ///     .WithAdministrativeReset("newPassword456")
+    ///     .RequireChangeAtNextLogon();
+    /// var result = ldapService.ResetPassword(options);
+    /// </code>
+    /// </example>
+    LdapManagementResult ResetPassword(LdapPasswordOptions options);
+
+    /// <summary>
+    /// Resets a user's password asynchronously.
+    /// </summary>
+    /// <param name="options">The password options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> ResetPasswordAsync(
+        LdapPasswordOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Forces a user to change password at next logon.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.ForcePasswordChangeAtNextLogon(
+    ///     LdapAccountOptions.ForUser("jdoe"));
+    /// </code>
+    /// </example>
+    LdapManagementResult ForcePasswordChangeAtNextLogon(LdapAccountOptions options);
+
+    /// <summary>
+    /// Forces a user to change password at next logon asynchronously.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> ForcePasswordChangeAtNextLogonAsync(
+        LdapAccountOptions options,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Sets the password to never expire for a user.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <param name="neverExpires">Whether the password should never expire.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <example>
+    /// <code>
+    /// var result = ldapService.SetPasswordNeverExpires(
+    ///     LdapAccountOptions.ForUser("service-account"),
+    ///     neverExpires: true);
+    /// </code>
+    /// </example>
+    LdapManagementResult SetPasswordNeverExpires(LdapAccountOptions options, bool neverExpires = true);
+
+    /// <summary>
+    /// Sets the password to never expire for a user asynchronously.
+    /// </summary>
+    /// <param name="options">The account options.</param>
+    /// <param name="neverExpires">Whether the password should never expire.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the result of the operation.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="options"/> is <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the operation fails.</exception>
+    /// <exception cref="NotSupportedException">Thrown when the operation is not supported.</exception>
+    /// <exception cref="OperationCanceledException">Thrown when the operation is cancelled.</exception>
+    Task<LdapManagementResult> SetPasswordNeverExpiresAsync(
+        LdapAccountOptions options,
+        bool neverExpires = true,
+        CancellationToken cancellationToken = default);
+
+    #endregion
+
+    #region Management Capability Methods
+
+    /// <summary>
+    /// Gets the management operations supported by this provider.
+    /// </summary>
+    /// <returns>A read-only list of supported management operations.</returns>
+    /// <remarks>
+    /// <para>
+    /// Use this method to check which management operations are available
+    /// before attempting to perform them.
+    /// </para>
+    /// <para>
+    /// Typical supported operations by provider:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>Active Directory: All operations</description></item>
+    ///   <item><description>Azure AD: Limited (via Microsoft Graph API)</description></item>
+    ///   <item><description>OpenLDAP: Most operations (depends on schema)</description></item>
+    ///   <item><description>Apple Directory: Basic operations</description></item>
+    /// </list>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var operations = ldapService.GetSupportedManagementOperations();
+    /// if (operations.Contains(LdapManagementOperation.ChangePassword))
+    /// {
+    ///     // Can change passwords
+    /// }
+    /// </code>
+    /// </example>
+    IReadOnlyList<LdapManagementOperation> GetSupportedManagementOperations();
+
+    #endregion
 }

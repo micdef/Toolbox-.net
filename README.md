@@ -8,7 +8,7 @@ A .NET 10 library providing base services, telemetry, and dependency injection e
 - **File Transfer Services**: FTP, FTPS, and SFTP with batch operations
 - **Mailing Services**: SMTP with TLS/SSL, OAuth2, and attachment support
 - **API Services**: HTTP client with multiple authentication modes and retry policies
-- **LDAP Services**: Active Directory, Azure AD, OpenLDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL)
+- **LDAP Services**: Active Directory, Azure AD, OpenLDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL) and management operations (enable/disable accounts, group membership, password reset, object movement)
 - **SSO Services**: Single Sign-On session management, automatic token refresh, and secure credential storage (Windows Credential Manager, encrypted file)
 - **Disposable Services**: Thread-safe base classes for synchronous and asynchronous disposal
 - **OpenTelemetry Integration**: Built-in distributed tracing and metrics collection
