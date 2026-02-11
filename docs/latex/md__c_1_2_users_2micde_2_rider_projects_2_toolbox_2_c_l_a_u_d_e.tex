@@ -1,0 +1,201 @@
+\chapter{Directives du Projet Toolbox }
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e}{}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e}\index{Directives du Projet Toolbox@{Directives du Projet Toolbox}}
+\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md0}%
+\Hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md0}%
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md1}{}\doxysection{\texorpdfstring{Framework}{Framework}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\bfseries{Version}} :\+ .NET 10
+\item {\bfseries{Langage}} :\+ C\# 14.\+0
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md3}{}\doxysection{\texorpdfstring{Architecture des Services}{Architecture des Services}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md3}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Injection de Dépendances}{Injection de Dépendances}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Chaque service et classe doit être {\bfseries{injectable}} via le conteneur DI de .NET
+\item Utiliser les extensions {\ttfamily IService\+Collection} pour l\textquotesingle{}enregistrement
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Disposal}{Disposal}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Chaque service et classe doit implémenter {\bfseries{IDisposable}} et/\+ou {\bfseries{IAsync\+Disposable}}
+\item Utiliser les classes de base {\ttfamily Base\+Disposable\+Service} ou {\ttfamily Base\+Async\+Disposable\+Service}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Généricité}{Généricité}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Les services doivent être {\bfseries{aussi génériques que possible}}
+\item Favoriser la réutilisabilité et l\textquotesingle{}extensibilité
+\item Éviter les implémentations trop spécifiques
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md8}{}\doxysection{\texorpdfstring{Organisation par Catégorie}{Organisation par Catégorie}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Pour chaque catégorie de service :\+ {\bfseries{une seule interface}}
+\item L\textquotesingle{}interface définit le contrat commun pour tous les services de la catégorie
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{Catégories existantes}{Catégories existantes}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md9}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Catégorie  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Interface  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Services  \\
+Cryptography  &{\ttfamily ICryptography\+Service}  &Base64, AES, RSA  \\
+File\+Transfer  &{\ttfamily IFile\+Transfer\+Service}  &FTP, FTPS, SFTP  \\
+Mailing  &{\ttfamily IMailing\+Service}  &SMTP  \\
+Api  &{\ttfamily IApi\+Service}  &HTTP Client  \\
+Ldap  &{\ttfamily ILdap\+Service}  &Active\+Directory, Open\+Ldap, Azure\+Ad, Apple\+Directory  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md11}{}\doxysection{\texorpdfstring{Documentation Doxygen}{Documentation Doxygen}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md11}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{Exigences}{Exigences}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Documentation {\bfseries{complète}} pour chaque classe et service
+\item {\bfseries{Obligatoire}} pour toutes les parties, y compris privées :\+
+\begin{DoxyItemize}
+\item Membres privés
+\item Variables privées
+\item Fonctions privées
+\item Constructeurs
+\item Destructeurs
+\item Propriétés
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md13}{}\doxysubsection{\texorpdfstring{Format}{Format}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md13}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md15}{}\doxysection{\texorpdfstring{Télémétrie}{Télémétrie}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md15}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Open\+Telemetry}{Open\+Telemetry}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Utilisé dans {\bfseries{tout le projet}}
+\item Chaque opération doit avoir :\+
+\begin{DoxyItemize}
+\item {\bfseries{Tracing}} :\+ Activities pour le suivi distribué
+\item {\bfseries{Métriques}} :\+ Compteurs et histogrammes
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Métriques standards}{Métriques standards}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md17}
+
+\begin{DoxyItemize}
+\item {\ttfamily toolbox.\+operations.\+count} :\+ Nombre d\textquotesingle{}opérations
+\item {\ttfamily toolbox.\+operations.\+duration} :\+ Durée des opérations (ms)
+\item {\ttfamily toolbox.\+errors.\+count} :\+ Nombre d\textquotesingle{}erreurs
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md19}{}\doxysection{\texorpdfstring{Tests}{Tests}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md19}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md20}{}\doxysubsection{\texorpdfstring{Tests Unitaires}{Tests Unitaires}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Chaque service doit avoir des tests unitaires
+\item Couverture des cas nominaux et des cas d\textquotesingle{}erreur
+\item Utiliser des mocks pour les dépendances externes
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md21}{}\doxysubsection{\texorpdfstring{Tests de Non-\/\+Régression}{Tests de Non-\/\+Régression}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md21}
+
+\begin{DoxyItemize}
+\item Tests pour garantir la stabilité des fonctionnalités existantes
+\item Exécutés à chaque modification
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md22}{}\doxysubsection{\texorpdfstring{Framework}{Framework}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md22}
+
+\begin{DoxyItemize}
+\item x\+Unit pour les tests
+\item Moq ou NSubstitute pour les mocks
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md24}{}\doxysection{\texorpdfstring{Documentation du Projet}{Documentation du Projet}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md24}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md25}{}\doxysubsection{\texorpdfstring{Fichiers à maintenir}{Fichiers à maintenir}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md25}
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Fichier  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\ttfamily \doxylink{_r_e_a_d_m_e_8md}{README.\+md}}  &Présentation du projet, installation, quick start  \\
+{\ttfamily \doxylink{_u_s_a_g_e_8md}{USAGE.\+md}}  &Guide d\textquotesingle{}utilisation détaillé de chaque service  \\
+{\ttfamily .gitignore}  &Fichiers à ignorer pour Git (approprié .NET)  \\
+{\ttfamily \doxylink{_c_l_a_u_d_e_8md}{CLAUDE.\+md}}  &Ce fichier -\/ directives de développement  \\
+\end{DoxyTable}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md26}{}\doxysubsection{\texorpdfstring{Mise à jour}{Mise à jour}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md26}
+
+\begin{DoxyItemize}
+\item Ces fichiers doivent être {\bfseries{mis à jour}} à chaque création de service ou classe
+\item Le README doit refléter les fonctionnalités disponibles
+\item Le USAGE doit documenter l\textquotesingle{}utilisation de chaque nouveau service
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md28}{}\doxysection{\texorpdfstring{Structure du Projet}{Structure du Projet}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md28}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Toolbox/}
+\DoxyCodeLine{├──\ src/}
+\DoxyCodeLine{│\ \ \ └──\ Toolbox.Core/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Abstractions/Services/\ \ \ \#\ Interfaces\ (1\ par\ catégorie)}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Base/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Classes\ de\ base\ disposables}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Extensions/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Extensions\ DI}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Options/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Options\ de\ configuration}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Services/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Implémentations\ par\ catégorie}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Api/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Cryptography/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ FileTransfer/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Ldap/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ └──\ Mailing/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ └──\ Telemetry/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Infrastructure\ OpenTelemetry}
+\DoxyCodeLine{├──\ tests/}
+\DoxyCodeLine{│\ \ \ └──\ Toolbox.Tests/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Tests\ unitaires\ et\ de\ non-\/régression}
+\DoxyCodeLine{├──\ samples/}
+\DoxyCodeLine{│\ \ \ └──\ Toolbox.Sample/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Application\ exemple}
+\DoxyCodeLine{└──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documentation\ Doxygen\ générée}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md30}{}\doxysection{\texorpdfstring{Checklist pour Nouveau Service}{Checklist pour Nouveau Service}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md30}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Vérifier si l\textquotesingle{}interface de la catégorie existe, sinon la créer
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Implémenter le service en héritant de {\ttfamily Base\+Disposable\+Service} ou {\ttfamily Base\+Async\+Disposable\+Service}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Ajouter la documentation Doxygen complète (publique ET privée)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Ajouter le tracing Open\+Telemetry
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Ajouter les métriques Open\+Telemetry
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Créer l\textquotesingle{}extension DI pour l\textquotesingle{}enregistrement
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Écrire les tests unitaires
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Écrire les tests de non-\/régression
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Mettre à jour {\ttfamily \doxylink{_r_e_a_d_m_e_8md}{README.\+md}}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Mettre à jour {\ttfamily \doxylink{_u_s_a_g_e_8md}{USAGE.\+md}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md32}{}\doxysection{\texorpdfstring{Git et Commits}{Git et Commits}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md32}
+\hypertarget{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md33}{}\doxysubsection{\texorpdfstring{Messages de Commit}{Messages de Commit}}\label{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_autotoc_md33}
+
+\begin{DoxyItemize}
+\item Les messages doivent être {\bfseries{structurés en Markdown}}
+\item Contenir {\bfseries{toutes les actions effectuées}}
+\item Rester un {\bfseries{résumé concis}} 
+\end{DoxyItemize}

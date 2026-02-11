@@ -1,7 +1,13 @@
 var searchData=
 [
-  ['padding_20modes_0',['Padding Modes',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md31',1,'']]],
-  ['performance_1',['3. Record Metrics for Performance',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md67',1,'']]],
-  ['practices_2',['Best Practices',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md64',1,'']]],
-  ['project_20structure_3',['Project Structure',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md7',1,'']]]
+  ['object_20movement_0',['Object Movement',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md127',1,'']]],
+  ['of_20contents_1',['Table of Contents',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md47',1,'']]],
+  ['openldap_2',['OpenLDAP',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md105',1,'']]],
+  ['opentelemetry_3',['OpenTelemetry',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e.html#autotoc_md16',1,'']]],
+  ['opentelemetry_20integration_4',['OpenTelemetry Integration',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md154',1,'']]],
+  ['operations_5',['Operations',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md168',1,'4. Handle Cancellation in Async Operations'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md96',1,'Group and Computer Operations'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md124',1,'LDAP Management Operations']]],
+  ['operations_20by_20directory_20type_6',['Supported Operations by Directory Type',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md131',1,'']]],
+  ['options_7',['Options',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md76',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md82',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md89',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md97',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md103',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md108',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md113',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md160',1,'Configuration Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md142',1,'Credential Store Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md148',1,'SSO Session Options'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md117',1,'Usage with Options']]],
+  ['organisation_20par_20catégorie_8',['Organisation par Catégorie',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e.html#autotoc_md8',1,'']]],
+  ['otlp_20export_9',['OTLP Export',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md156',1,'']]]
 ];

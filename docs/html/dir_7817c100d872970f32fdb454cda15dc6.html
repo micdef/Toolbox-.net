@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Toolbox<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Toolbox
    </div>
    <div id="projectbrief">Toolbox .net 10</div>
   </td>
@@ -92,91 +92,120 @@ $(function(){initNavTree('dir_7817c100d872970f32fdb454cda15dc6.html','',''); });
   <div class="headertitle"><div class="title">Toolbox Directory Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-subdirs" class="groupheader"><a id="subdirs" name="subdirs"></a>
-Directories</h2></td></tr>
-<tr class="memitem:samples" id="r_samples"><td class="memItemLeft"><span class="iconfolder"><div class="folder-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="dir_b1be64d60e5a7cf8e8891c9e2303c399.html">samples</a></td></tr>
-<tr class="memitem:src" id="r_src"><td class="memItemLeft"><span class="iconfolder"><div class="folder-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="dir_6ac6fc6bb3b06b85fb096b7b9f65ee06.html">src</a></td></tr>
-<tr class="memitem:tests" id="r_tests"><td class="memItemLeft"><span class="iconfolder"><div class="folder-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="dir_eaaf9cb45e917ecc53bfca006a6d5728.html">tests</a></td></tr>
-</table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
 Toolbox</h1>
 <p>A .NET 10 library providing base services, telemetry, and dependency injection extensions.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 Features</h1>
 <ul>
+<li><b>Cryptography Services</b>: AES, RSA, and Base64 encoding/decoding</li>
+<li><b>File Transfer Services</b>: FTP, FTPS, and SFTP with batch operations</li>
+<li><b>Mailing Services</b>: SMTP with TLS/SSL, OAuth2, and attachment support</li>
+<li><b>API Services</b>: HTTP client with multiple authentication modes and retry policies</li>
+<li><b>LDAP Services</b>: Active Directory, Azure AD, OpenLDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL) and management operations (enable/disable accounts, group membership, password reset, object movement)</li>
+<li><b>SSO Services</b>: Single Sign-On session management, automatic token refresh, and secure credential storage (Windows Credential Manager, encrypted file)</li>
 <li><b>Disposable Services</b>: Thread-safe base classes for synchronous and asynchronous disposal</li>
 <li><b>OpenTelemetry Integration</b>: Built-in distributed tracing and metrics collection</li>
 <li><b>Dependency Injection</b>: Fluent extensions for easy service registration</li>
-<li><b>Comprehensive Documentation</b>: Full Doxygen documentation support</li>
+<li><b>Comprehensive Documentation</b>: Full Doxygen documentation (HTML, LaTeX, XML, DocBook, RTF, Man)</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
 Requirements</h1>
 <ul>
 <li>.NET 10.0 or later</li>
 <li>C# 14.0</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Installation</h1>
 <p>Add the project reference to your solution:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">ProjectReference</span> <span class="keyword">Include</span>=<span class="stringliteral">&quot;..\src\Toolbox.Core\Toolbox.Core.csproj&quot;</span> /&gt;</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
 Quick Start</h1>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
 <div class="line"> </div>
-<div class="line">var <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a> = Host.CreateApplicationBuilder(args);</div>
+<div class="line">var builder = Host.CreateApplicationBuilder(args);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Add Toolbox core services</span></div>
-<div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxCore(options =&gt;</div>
+<div class="line">builder.Services.AddToolboxCore(options =&gt;</div>
 <div class="line">{</div>
 <div class="line">    options.EnableDetailedTelemetry = <span class="keyword">true</span>;</div>
 <div class="line">});</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Add OpenTelemetry integration</span></div>
-<div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxOpenTelemetry(options =&gt;</div>
+<div class="line">builder.Services.AddToolboxOpenTelemetry(options =&gt;</div>
 <div class="line">{</div>
 <div class="line">    options.EnableTracing = <span class="keyword">true</span>;</div>
 <div class="line">    options.EnableMetrics = <span class="keyword">true</span>;</div>
 <div class="line">    options.EnableConsoleExport = <span class="keyword">true</span>;</div>
 <div class="line">});</div>
 <div class="line"> </div>
-<div class="line">var <a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a> = <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Build();</div>
-<div class="line"><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.Run();</div>
-<div class="ttc" id="a_program_8cs_html_a2f78352277081c620fd4cf92a5ce15e5"><div class="ttname"><a href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a></div><div class="ttdeci">var builder</div><div class="ttdef"><b>Definition</b> <a href="_program_8cs_source.html#l00011">Program.cs:11</a></div></div>
-<div class="ttc" id="a_program_8cs_html_a7b225fcb720e4d5ed2bbf60e28a25e6d"><div class="ttname"><a href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a></div><div class="ttdeci">var app</div><div class="ttdef"><b>Definition</b> <a href="_program_8cs_source.html#l00033">Program.cs:33</a></div></div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_extensions_html"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a></div><div class="ttdef"><b>Definition</b> <a href="_api_service_collection_extensions_8cs_source.html#l00014">ApiServiceCollectionExtensions.cs:14</a></div></div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<div class="line">var app = builder.Build();</div>
+<div class="line">app.Run();</div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 Documentation</h1>
 <ul>
-<li><a class="el" href="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html" title="Toolbox Usage Guide">Usage Guide</a> - Detailed usage instructions</li>
-<li><a href="docs/html/index.html">API Documentation</a> - Generated Doxygen documentation</li>
+<li><a class="el" href="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html" title="Toolbox Usage Guide">Usage Guide</a> - Detailed usage instructions and examples</li>
+<li><a href="docs/html/index.html">API Documentation (HTML)</a> - Web-based API reference</li>
+<li><a href="docs/latex/refman.pdf">API Documentation (PDF)</a> - PDF reference manual (requires LaTeX compilation)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+Available Documentation Formats</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Format  </th><th class="markdownTableHeadNone">Location  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">HTML  </td><td class="markdownTableBodyNone"><span class="tt">docs/html/</span>  </td><td class="markdownTableBodyNone">Web-based documentation  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LaTeX  </td><td class="markdownTableBodyNone"><span class="tt">docs/latex/</span>  </td><td class="markdownTableBodyNone">PDF generation source  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">XML  </td><td class="markdownTableBodyNone"><span class="tt">docs/xml/</span>  </td><td class="markdownTableBodyNone">Structured XML for tooling  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">DocBook  </td><td class="markdownTableBodyNone"><span class="tt">docs/docbook/</span>  </td><td class="markdownTableBodyNone">Technical documentation format  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">RTF  </td><td class="markdownTableBodyNone"><span class="tt">docs/rtf/</span>  </td><td class="markdownTableBodyNone">Rich Text Format  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Man  </td><td class="markdownTableBodyNone"><span class="tt">docs/man/</span>  </td><td class="markdownTableBodyNone">Unix manual pages  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
 Generating Documentation</h2>
 <div class="fragment"><div class="line">doxygen Doxyfile</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
 Project Structure</h1>
 <div class="fragment"><div class="line">Toolbox/</div>
 <div class="line">├── src/</div>
 <div class="line">│   └── Toolbox.Core/           # Core library</div>
-<div class="line">│       ├── Abstractions/       # Interfaces</div>
-<div class="line">│       ├── Base/               # Base classes</div>
-<div class="line">│       ├── Extensions/         # DI extensions</div>
-<div class="line">│       ├── Options/            # Configuration options</div>
+<div class="line">│       ├── Abstractions/       # Service interfaces</div>
+<div class="line">│       │   └── Services/       # ICryptographyService, IFileTransferService, etc.</div>
+<div class="line">│       ├── Base/               # Base classes for services</div>
+<div class="line">│       ├── Extensions/         # DI extension methods</div>
+<div class="line">│       ├── Options/            # Configuration options and DTOs</div>
+<div class="line">│       ├── Services/           # Service implementations</div>
+<div class="line">│       │   ├── Api/            # HTTP API service</div>
+<div class="line">│       │   ├── Cryptography/   # AES, RSA, Base64 services</div>
+<div class="line">│       │   ├── FileTransfer/   # FTP, SFTP services</div>
+<div class="line">│       │   ├── Ldap/           # Active Directory, Azure AD, OpenLDAP, Apple Directory</div>
+<div class="line">│       │   ├── Mailing/        # SMTP service</div>
+<div class="line">│       │   └── Sso/            # SSO session management, credential stores</div>
 <div class="line">│       └── Telemetry/          # OpenTelemetry infrastructure</div>
 <div class="line">├── tests/</div>
 <div class="line">│   └── Toolbox.Tests/          # Unit and integration tests</div>
 <div class="line">├── samples/</div>
 <div class="line">│   └── Toolbox.Sample/         # Sample application</div>
-<div class="line">└── docs/                       # Generated documentation</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<div class="line">└── docs/                       # Generated Doxygen documentation</div>
+<div class="line">    ├── html/                   # Web documentation</div>
+<div class="line">    ├── latex/                  # PDF source</div>
+<div class="line">    ├── xml/                    # Structured XML</div>
+<div class="line">    ├── docbook/                # DocBook format</div>
+<div class="line">    ├── rtf/                    # Rich Text Format</div>
+<div class="line">    └── man/                    # Unix manual pages</div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
 Building</h1>
 <div class="fragment"><div class="line">dotnet build</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
 Testing</h1>
 <div class="fragment"><div class="line">dotnet test</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
 License</h1>
 <p>This project is licensed under the MIT License. </p>
 </div></div><!-- contents -->

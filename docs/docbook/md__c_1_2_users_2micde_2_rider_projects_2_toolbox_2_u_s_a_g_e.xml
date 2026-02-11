@@ -5,10 +5,10 @@
 </title>
 <indexterm><primary>Toolbox Usage Guide</primary></indexterm>
 
-<para><anchor xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md11"/></para>
+<para><anchor xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md46"/></para>
 
-<para>This guide provides detailed instructions for using the <link linkend="_namespace_toolbox">Toolbox</link> library.</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md12">
+<para>This guide provides detailed instructions for using the Toolbox library.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md47">
 <title>Table of Contents</title>
 <para><orderedlist>
 <listitem>
@@ -34,6 +34,32 @@
 </listitem><listitem>
 <para>Mailing Services</para>
 </listitem><listitem>
+<para>API Services</para>
+</listitem><listitem>
+<para>LDAP Services<itemizedlist>
+<listitem>
+<para>Active Directory</para>
+</listitem><listitem>
+<para>Azure AD / Entra ID</para>
+</listitem><listitem>
+<para>OpenLDAP</para>
+</listitem><listitem>
+<para>Apple Directory</para>
+</listitem><listitem>
+<para>Advanced Authentication</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>SSO Services<itemizedlist>
+<listitem>
+<para>Session Management</para>
+</listitem><listitem>
+<para>Credential Storage</para>
+</listitem><listitem>
+<para>Automatic Token Refresh</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
 <para>Creating Custom Services</para>
 </listitem><listitem>
 <para>OpenTelemetry Integration</para>
@@ -44,10 +70,10 @@
 </listitem></orderedlist>
 </para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md13">
-<title>Getting Started</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md14">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md48">
+<title>Getting Started</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md49">
 <title>Basic Setup</title>
-<para>Add <link linkend="_namespace_toolbox">Toolbox</link> to your application:</para>
+<para>Add Toolbox to your application:</para>
 
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 
@@ -59,7 +85,7 @@ builder.Services.AddToolboxCore();
 var&#32;app&#32;=&#32;builder.Build();
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md15">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md50">
 <title>Configuration via appsettings.json</title>
 <para><literallayout><computeroutput>{
 &#32;&#32;&quot;Toolbox&quot;:&#32;{
@@ -86,11 +112,11 @@ builder.Services.AddToolboxOpenTelemetry(builder.Configuration);
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md17">
-<title>Cryptography Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md18">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md52">
+<title>Cryptography Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md53">
 <title>Base64 Encoding</title>
 <para>Base64 encoding/decoding service for text obfuscation (not encryption).</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md19">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md54">
 <title>Registration</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 using&#32;Toolbox.Core.Options;
@@ -109,7 +135,7 @@ services.AddBase64Cryptography(options&#32;=&gt;
 });
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md20">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md55">
 <title>Usage</title>
 <para><literallayout><computeroutput>public&#32;class&#32;MyService
 {
@@ -142,10 +168,10 @@ services.AddBase64Cryptography(options&#32;=&gt;
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md22">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md57">
 <title>AES Encryption</title>
 <para>Secure symmetric encryption using AES (CBC mode with PKCS7 padding).</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md23">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md58">
 <title>Registration</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 using&#32;Toolbox.Core.Options;
@@ -160,7 +186,7 @@ services.AddAesCryptography(key,&#32;iv);
 services.AddAesCryptography(AesKeySize.Aes256);
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md24">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md59">
 <title>Usage</title>
 <para><literallayout><computeroutput>public&#32;class&#32;SecureService
 {
@@ -184,7 +210,7 @@ services.AddAesCryptography(AesKeySize.Aes256);
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md25">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md60">
 <title>Key Generation</title>
 <para><literallayout><computeroutput>//&#32;Generate&#32;AES-128&#32;key
 var&#32;(key128,&#32;iv128)&#32;=&#32;AesCryptographyService.GenerateKey(AesKeySize.Aes128);
@@ -201,10 +227,10 @@ var&#32;(key256,&#32;iv256)&#32;=&#32;AesCryptographyService.GenerateKey(AesKeyS
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md27">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md62">
 <title>RSA Encryption</title>
 <para>Asymmetric encryption using RSA with various key sizes and padding modes.</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md28">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md63">
 <title>Registration</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 using&#32;Toolbox.Core.Options;
@@ -228,7 +254,7 @@ var&#32;cert&#32;=&#32;new&#32;X509Certificate2(&quot;certificate.pfx&quot;,&#32
 services.AddRsaCryptography(cert,&#32;RsaPaddingMode.OaepSha256);
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md29">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md64">
 <title>Usage</title>
 <para><literallayout><computeroutput>public&#32;class&#32;AsymmetricService
 {
@@ -252,7 +278,7 @@ services.AddRsaCryptography(cert,&#32;RsaPaddingMode.OaepSha256);
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md30">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md65">
 <title>Key Generation</title>
 <para><literallayout><computeroutput>//&#32;Generate&#32;key&#32;pair&#32;(bytes)
 var&#32;keyPair&#32;=&#32;RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);
@@ -272,7 +298,7 @@ var&#32;publicOnly&#32;=&#32;RsaCryptographyService.GenerateKeyPair(
 &#32;&#32;&#32;&#32;includePrivateKey:&#32;false);
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md31">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md66">
 <title>Padding Modes</title>
 <para><informaltable frame="all">
     <tgroup cols="2" align="left" colsep="1" rowsep="1">
@@ -327,11 +353,11 @@ var&#32;publicOnly&#32;=&#32;RsaCryptographyService.GenerateKeyPair(
 </section>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md33">
-<title>File Transfer Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md34">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md68">
+<title>File Transfer Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md69">
 <title>FTP/FTPS</title>
 <para>File transfer service for FTP and FTPS (FTP over TLS) protocols.</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md35">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md70">
 <title>Registration</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 using&#32;Toolbox.Core.Options;
@@ -360,7 +386,7 @@ services.AddFtpFileTransfer(options&#32;=&gt;
 services.AddFtpFileTransfer(configuration.GetSection(&quot;Ftp&quot;));
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md36">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md71">
 <title>Usage</title>
 <para><literallayout><computeroutput>public&#32;class&#32;FileService
 {
@@ -408,10 +434,10 @@ services.AddFtpFileTransfer(configuration.GetSection(&quot;Ftp&quot;));
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md38">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md73">
 <title>SFTP</title>
 <para>Secure file transfer over SSH (SFTP protocol).</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md39">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md74">
 <title>Registration</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 using&#32;Toolbox.Core.Options;
@@ -444,7 +470,7 @@ services.AddSftpFileTransfer(options&#32;=&gt;
 });
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md40">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md75">
 <title>Usage</title>
 <para><literallayout><computeroutput>public&#32;class&#32;SecureFileService
 {
@@ -473,7 +499,7 @@ services.AddSftpFileTransfer(options&#32;=&gt;
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md41">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md76">
 <title>Configuration Options</title>
 <para><informaltable frame="all">
     <tgroup cols="4" align="left" colsep="1" rowsep="1">
@@ -624,10 +650,10 @@ services.AddSftpFileTransfer(options&#32;=&gt;
 </section>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md43">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md78">
 <title>Mailing Services</title>
 <para>SMTP email sending service with TLS/SSL, OAuth2, and attachment support.</para>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md44">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md79">
 <title>Registration</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 using&#32;Toolbox.Core.Options;
@@ -665,7 +691,7 @@ services.AddSmtpMailing(options&#32;=&gt;
 services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md45">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md80">
 <title>Usage</title>
 <para><literallayout><computeroutput>public&#32;class&#32;NotificationService
 {
@@ -734,7 +760,7 @@ services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md46">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md81">
 <title>Email with Inline Images</title>
 <para><literallayout><computeroutput>var&#32;logoBytes&#32;=&#32;File.ReadAllBytes(&quot;logo.png&quot;);
 
@@ -760,7 +786,7 @@ var&#32;message&#32;=&#32;new&#32;EmailMessage
 await&#32;_mailing.SendMailAsync(message);
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md47">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md82">
 <title>Configuration Options</title>
 <para><informaltable frame="all">
     <tgroup cols="4" align="left" colsep="1" rowsep="1">
@@ -895,7 +921,7 @@ await&#32;_mailing.SendMailAsync(message);
 </informaltable>
 </para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md48">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md83">
 <title>Security Modes</title>
 <para><informaltable frame="all">
     <tgroup cols="3" align="left" colsep="1" rowsep="1">
@@ -962,8 +988,2615 @@ await&#32;_mailing.SendMailAsync(message);
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md50">
-<title>Creating Custom Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md51">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md85">
+<title>API Services</title>
+<para>HTTP API client service with multiple authentication modes and automatic retry.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md86">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Anonymous&#32;API
+services.AddHttpApiAnonymous(&quot;https://api.example.com&quot;);
+
+//&#32;Bearer&#32;token&#32;authentication
+services.AddHttpApiWithBearerToken(
+&#32;&#32;&#32;&#32;&quot;https://api.example.com&quot;,
+&#32;&#32;&#32;&#32;&quot;your-bearer-token&quot;);
+
+//&#32;Basic&#32;authentication
+services.AddHttpApiWithBasicAuth(
+&#32;&#32;&#32;&#32;&quot;https://api.example.com&quot;,
+&#32;&#32;&#32;&#32;&quot;username&quot;,
+&#32;&#32;&#32;&#32;&quot;password&quot;);
+
+//&#32;API&#32;key&#32;authentication&#32;(header)
+services.AddHttpApiWithApiKey(
+&#32;&#32;&#32;&#32;&quot;https://api.example.com&quot;,
+&#32;&#32;&#32;&#32;&quot;your-api-key&quot;,
+&#32;&#32;&#32;&#32;&quot;X-API-Key&quot;,
+&#32;&#32;&#32;&#32;ApiKeyLocation.Header);
+
+//&#32;API&#32;key&#32;authentication&#32;(query&#32;string)
+services.AddHttpApiWithApiKey(
+&#32;&#32;&#32;&#32;&quot;https://api.example.com&quot;,
+&#32;&#32;&#32;&#32;&quot;your-api-key&quot;,
+&#32;&#32;&#32;&#32;&quot;api_key&quot;,
+&#32;&#32;&#32;&#32;ApiKeyLocation.QueryString);
+
+//&#32;Client&#32;certificate&#32;authentication
+services.AddHttpApiWithCertificate(
+&#32;&#32;&#32;&#32;&quot;https://api.example.com&quot;,
+&#32;&#32;&#32;&#32;new&#32;X509Certificate2(&quot;client.pfx&quot;,&#32;&quot;password&quot;));
+
+//&#32;OAuth2&#32;client&#32;credentials
+services.AddHttpApiWithOAuth2(
+&#32;&#32;&#32;&#32;&quot;https://api.example.com&quot;,
+&#32;&#32;&#32;&#32;&quot;https://auth.example.com/oauth/token&quot;,
+&#32;&#32;&#32;&#32;&quot;client-id&quot;,
+&#32;&#32;&#32;&#32;&quot;client-secret&quot;,
+&#32;&#32;&#32;&#32;&quot;read&#32;write&quot;);
+
+//&#32;Full&#32;configuration
+services.AddHttpApi(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.BaseUrl&#32;=&#32;&quot;https://api.example.com&quot;;
+&#32;&#32;&#32;&#32;options.AuthenticationMode&#32;=&#32;ApiAuthenticationMode.BearerToken;
+&#32;&#32;&#32;&#32;options.BearerToken&#32;=&#32;&quot;your-token&quot;;
+&#32;&#32;&#32;&#32;options.Timeout&#32;=&#32;TimeSpan.FromSeconds(30);
+&#32;&#32;&#32;&#32;options.MaxRetries&#32;=&#32;3;
+&#32;&#32;&#32;&#32;options.UseExponentialBackoff&#32;=&#32;true;
+});
+
+//&#32;From&#32;configuration
+services.AddHttpApi(configuration.GetSection(&quot;Api&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md87">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;DataService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;IApiService&#32;_api;
+
+&#32;&#32;&#32;&#32;public&#32;DataService(IApiService&#32;api)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_api&#32;=&#32;api;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;User?&gt;&#32;GetUserAsync(int&#32;id)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Simple&#32;GET&#32;request
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Get($&quot;/users/{id}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;response&#32;=&#32;await&#32;_api.SendAsync(request);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;response.EnsureSuccess();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;response.Deserialize&lt;User&gt;();
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;User?&gt;&#32;CreateUserAsync(User&#32;user)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;POST&#32;with&#32;JSON&#32;body
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Post(&quot;/users&quot;,&#32;user);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_api.SendAsync&lt;User&gt;(request);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;UpdateUserAsync(int&#32;id,&#32;User&#32;user)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;PUT&#32;with&#32;JSON&#32;body
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Put($&quot;/users/{id}&quot;,&#32;user);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_api.SendAsync(request);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;PatchUserAsync(int&#32;id,&#32;object&#32;partialData)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;PATCH&#32;with&#32;JSON&#32;body
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Patch($&quot;/users/{id}&quot;,&#32;partialData);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_api.SendAsync(request);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;DeleteUserAsync(int&#32;id)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;DELETE&#32;request
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Delete($&quot;/users/{id}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_api.SendAsync(request);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md88">
+<title>Advanced Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;AdvancedApiService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;IApiService&#32;_api;
+
+&#32;&#32;&#32;&#32;public&#32;AdvancedApiService(IApiService&#32;api)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_api&#32;=&#32;api;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;SearchResult&gt;&#32;SearchAsync(string&#32;query,&#32;int&#32;page)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Request&#32;with&#32;query&#32;parameters&#32;and&#32;headers
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Get(&quot;/search&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithQuery(&quot;q&quot;,&#32;query)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithQuery(&quot;page&quot;,&#32;page.ToString())
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithHeader(&quot;X-Request-ID&quot;,&#32;Guid.NewGuid().ToString())
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithTimeout(TimeSpan.FromSeconds(60));
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;response&#32;=&#32;await&#32;_api.SendAsync(request);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(response.IsSuccess)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;response.Deserialize&lt;SearchResult&gt;()!;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(response.IsClientError)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;InvalidOperationException($&quot;Client&#32;error:&#32;{response.ReasonPhrase}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;HttpRequestException($&quot;Server&#32;error:&#32;{response.StatusCode}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;UploadFileAsync(byte[]&#32;fileData,&#32;string&#32;fileName)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Binary&#32;content
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Post(&quot;/upload&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.SetBinaryContent(fileData,&#32;&quot;application/octet-stream&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithHeader(&quot;X-File-Name&quot;,&#32;fileName);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_api.SendAsync(request);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;SubmitFormAsync(Dictionary&lt;string,&#32;string&gt;&#32;formData)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Form&#32;URL-encoded&#32;content
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;request&#32;=&#32;ApiRequest.Post(&quot;/form&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.SetFormContent(formData);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_api.SendAsync(request);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md89">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>BaseUrl</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Base URL for all requests  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>AuthenticationMode</computeroutput>  </para>
+</entry><entry>
+<para>ApiAuthenticationMode  </para>
+</entry><entry>
+<para>Anonymous  </para>
+</entry><entry>
+<para>Authentication method  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Timeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>30s  </para>
+</entry><entry>
+<para>Request timeout  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>MaxRetries</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>3  </para>
+</entry><entry>
+<para>Maximum retry attempts  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>RetryDelay</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>1s  </para>
+</entry><entry>
+<para>Delay between retries  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UseExponentialBackoff</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Use exponential backoff  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ValidateCertificate</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Validate SSL certificates  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>FollowRedirects</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Follow HTTP redirects  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>MaxRedirects</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>10  </para>
+</entry><entry>
+<para>Maximum redirects to follow  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UserAgent</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>&quot;Toolbox...&quot;  </para>
+</entry><entry>
+<para>Default User-Agent header  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md90">
+<title>Authentication Modes</title>
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Mode  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Anonymous</computeroutput>  </para>
+</entry><entry>
+<para>No authentication  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>BearerToken</computeroutput>  </para>
+</entry><entry>
+<para>Bearer token in Authorization header  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Basic</computeroutput>  </para>
+</entry><entry>
+<para>Basic authentication (username:password)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ApiKey</computeroutput>  </para>
+</entry><entry>
+<para>API key in header or query string  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Certificate</computeroutput>  </para>
+</entry><entry>
+<para>Client certificate authentication  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>OAuth2ClientCredentials</computeroutput>  </para>
+</entry><entry>
+<para>OAuth2 client credentials flow  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md92">
+<title>LDAP Services</title>
+<para>Directory services for querying users, groups, and computers from various LDAP providers.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md93">
+<title>Active Directory</title>
+<para>Windows Active Directory service using LDAP protocol.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md94">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Using&#32;current&#32;Windows&#32;credentials
+services.AddActiveDirectory(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Domain&#32;=&#32;&quot;corp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.UseCurrentCredentials&#32;=&#32;true;
+&#32;&#32;&#32;&#32;options.UseSsl&#32;=&#32;true;
+});
+
+//&#32;Using&#32;explicit&#32;credentials
+services.AddActiveDirectory(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Domain&#32;=&#32;&quot;corp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Server&#32;=&#32;&quot;dc01.corp.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;636;
+&#32;&#32;&#32;&#32;options.UseSsl&#32;=&#32;true;
+&#32;&#32;&#32;&#32;options.Username&#32;=&#32;&quot;CORP\\serviceaccount&quot;;
+&#32;&#32;&#32;&#32;options.Password&#32;=&#32;&quot;password&quot;;
+});
+
+//&#32;From&#32;configuration
+services.AddActiveDirectory(configuration.GetSection(&quot;Toolbox:Ldap:ActiveDirectory&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md95">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;UserService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ILdapService&#32;_ldap;
+
+&#32;&#32;&#32;&#32;public&#32;UserService(ILdapService&#32;ldap)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_ldap&#32;=&#32;ldap;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;LdapUser?&gt;&#32;FindUserAsync(string&#32;username)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;user&#32;=&#32;await&#32;_ldap.GetUserByUsernameAsync(username);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(user&#32;!=&#32;null)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Found:&#32;{user.DisplayName}&#32;({user.Email})&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Department:&#32;{user.Department}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;user;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;bool&gt;&#32;ValidateUserAsync(string&#32;username,&#32;string&#32;password)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_ldap.ValidateCredentialsAsync(username,&#32;password);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;PagedResult&lt;LdapUser&gt;&gt;&#32;SearchUsersAsync(string&#32;department)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;criteria&#32;=&#32;LdapSearchCriteria.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithDepartment(department)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.EnabledOnly();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_ldap.SearchUsersAsync(criteria,&#32;page:&#32;1,&#32;pageSize:&#32;25);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md96">
+<title>Group and Computer Operations</title>
+<para><literallayout><computeroutput>//&#32;Get&#32;group&#32;by&#32;name
+var&#32;group&#32;=&#32;await&#32;_ldap.GetGroupByNameAsync(&quot;Developers&quot;);
+
+//&#32;Get&#32;group&#32;members&#32;with&#32;pagination
+var&#32;members&#32;=&#32;await&#32;_ldap.GetGroupMembersAsync(&quot;CN=Developers,OU=Groups,DC=example,DC=com&quot;,&#32;page:&#32;1,&#32;pageSize:&#32;50);
+
+//&#32;Get&#32;computer&#32;by&#32;name
+var&#32;computer&#32;=&#32;await&#32;_ldap.GetComputerByNameAsync(&quot;SERVER01&quot;);
+
+//&#32;Search&#32;servers
+var&#32;criteria&#32;=&#32;LdapComputerSearchCriteria.Create()
+&#32;&#32;&#32;&#32;.WithOperatingSystem(&quot;Windows&#32;Server*&quot;)
+&#32;&#32;&#32;&#32;.EnabledOnly();
+var&#32;servers&#32;=&#32;await&#32;_ldap.SearchComputersAsync(criteria,&#32;page:&#32;1,&#32;pageSize:&#32;25);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md97">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Domain</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Fully qualified domain name  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Server</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Domain controller (auto-discovers if null)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Port</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>389  </para>
+</entry><entry>
+<para>LDAP port (636 for SSL)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>BaseDn</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Base DN for searches  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Username</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Bind username  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Password</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Bind password  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UseSsl</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Use SSL/TLS (LDAPS)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UseCurrentCredentials</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Use Windows integrated auth  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ValidateCertificate</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Validate SSL certificate  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ConnectionTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>30s  </para>
+</entry><entry>
+<para>Connection timeout  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>OperationTimeout</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>60s  </para>
+</entry><entry>
+<para>Operation timeout  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md99">
+<title>Azure AD / Entra ID</title>
+<para>Azure Active Directory service using Microsoft Graph API.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md100">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Client&#32;secret&#32;authentication
+services.AddAzureAd(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.TenantId&#32;=&#32;&quot;your-tenant-id&quot;;
+&#32;&#32;&#32;&#32;options.ClientId&#32;=&#32;&quot;your-client-id&quot;;
+&#32;&#32;&#32;&#32;options.ClientSecret&#32;=&#32;&quot;your-client-secret&quot;;
+&#32;&#32;&#32;&#32;options.AuthenticationMode&#32;=&#32;AzureAdAuthMode.ClientSecret;
+});
+
+//&#32;Managed&#32;identity&#32;(Azure-hosted&#32;apps)
+services.AddAzureAdWithManagedIdentity(
+&#32;&#32;&#32;&#32;tenantId:&#32;&quot;your-tenant-id&quot;,
+&#32;&#32;&#32;&#32;clientId:&#32;&quot;your-client-id&quot;);
+
+//&#32;Certificate&#32;authentication
+services.AddAzureAd(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.TenantId&#32;=&#32;&quot;your-tenant-id&quot;;
+&#32;&#32;&#32;&#32;options.ClientId&#32;=&#32;&quot;your-client-id&quot;;
+&#32;&#32;&#32;&#32;options.CertificatePath&#32;=&#32;&quot;/path/to/cert.pfx&quot;;
+&#32;&#32;&#32;&#32;options.CertificatePassword&#32;=&#32;&quot;password&quot;;
+&#32;&#32;&#32;&#32;options.AuthenticationMode&#32;=&#32;AzureAdAuthMode.Certificate;
+});
+
+//&#32;From&#32;configuration
+services.AddAzureAd(configuration.GetSection(&quot;Toolbox:Ldap:AzureAd&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md101">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;AzureUserService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ILdapService&#32;_azureAd;
+
+&#32;&#32;&#32;&#32;public&#32;AzureUserService(ILdapService&#32;azureAd)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_azureAd&#32;=&#32;azureAd;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;LdapUser?&gt;&#32;GetUserAsync(string&#32;email)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_azureAd.GetUserByEmailAsync(email);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;IEnumerable&lt;LdapUser&gt;&gt;&#32;SearchByDepartmentAsync(string&#32;department)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Azure&#32;AD&#32;uses&#32;OData&#32;filter&#32;syntax
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_azureAd.SearchUsersAsync($&quot;department&#32;eq&#32;&apos;{department}&apos;&quot;,&#32;maxResults:&#32;50);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;IEnumerable&lt;LdapGroup&gt;&gt;&#32;GetSecurityGroupsAsync()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_azureAd.SearchGroupsAsync(&quot;securityEnabled&#32;eq&#32;true&quot;,&#32;maxResults:&#32;100);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md102">
+<title>Important Notes</title>
+<para><itemizedlist>
+<listitem>
+<para>Azure AD does not support <computeroutput>ValidateCredentials()</computeroutput> - use Azure AD authentication flows instead</para>
+</listitem><listitem>
+<para>Search filters use OData syntax, not LDAP filter syntax</para>
+</listitem><listitem>
+<para>Computer queries return Azure AD joined devices</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md103">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>TenantId</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Azure AD tenant ID or domain  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ClientId</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Application (client) ID  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ClientSecret</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Client secret  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>AuthenticationMode</computeroutput>  </para>
+</entry><entry>
+<para>AzureAdAuthMode  </para>
+</entry><entry>
+<para>ClientSecret  </para>
+</entry><entry>
+<para>Authentication method  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UseManagedIdentity</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Use Azure Managed Identity  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>CertificatePath</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Path to certificate file  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>CertificateThumbprint</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Certificate thumbprint  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>GraphApiBaseUrl</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>v1.0 endpoint  </para>
+</entry><entry>
+<para>Microsoft Graph API URL  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md105">
+<title>OpenLDAP</title>
+<para>OpenLDAP or compatible Linux directory service.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md106">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Basic&#32;configuration
+services.AddOpenLdap(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;ldap.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;389;
+&#32;&#32;&#32;&#32;options.BaseDn&#32;=&#32;&quot;dc=example,dc=com&quot;;
+&#32;&#32;&#32;&#32;options.BindDn&#32;=&#32;&quot;cn=admin,dc=example,dc=com&quot;;
+&#32;&#32;&#32;&#32;options.BindPassword&#32;=&#32;&quot;secret&quot;;
+&#32;&#32;&#32;&#32;options.SecurityMode&#32;=&#32;LdapSecurityMode.StartTls;
+});
+
+//&#32;FreeIPA&#32;configuration
+services.AddOpenLdap(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;ipa.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;636;
+&#32;&#32;&#32;&#32;options.BaseDn&#32;=&#32;&quot;dc=example,dc=com&quot;;
+&#32;&#32;&#32;&#32;options.BindDn&#32;=&#32;&quot;uid=admin,cn=users,cn=accounts,dc=example,dc=com&quot;;
+&#32;&#32;&#32;&#32;options.BindPassword&#32;=&#32;&quot;secret&quot;;
+&#32;&#32;&#32;&#32;options.SecurityMode&#32;=&#32;LdapSecurityMode.Ssl;
+&#32;&#32;&#32;&#32;options.UserObjectClass&#32;=&#32;&quot;inetOrgPerson&quot;;
+&#32;&#32;&#32;&#32;options.GroupObjectClass&#32;=&#32;&quot;groupOfNames&quot;;
+});
+
+//&#32;From&#32;configuration
+services.AddOpenLdap(configuration.GetSection(&quot;Toolbox:Ldap:OpenLdap&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md107">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;LinuxUserService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ILdapService&#32;_ldap;
+
+&#32;&#32;&#32;&#32;public&#32;LinuxUserService(ILdapService&#32;ldap)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_ldap&#32;=&#32;ldap;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;LdapUser?&gt;&#32;GetUserAsync(string&#32;uid)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_ldap.GetUserByUsernameAsync(uid);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;bool&gt;&#32;AuthenticateAsync(string&#32;uid,&#32;string&#32;password)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_ldap.ValidateCredentialsAsync(uid,&#32;password);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md108">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Host</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>LDAP server hostname  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Port</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>389  </para>
+</entry><entry>
+<para>LDAP port  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>BaseDn</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Base DN for searches  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>BindDn</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Bind DN for authentication  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>BindPassword</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Bind password  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>SecurityMode</computeroutput>  </para>
+</entry><entry>
+<para>LdapSecurityMode  </para>
+</entry><entry>
+<para>None  </para>
+</entry><entry>
+<para>Security mode (None, Ssl, StartTls)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UserObjectClass</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>inetOrgPerson  </para>
+</entry><entry>
+<para>User object class  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>GroupObjectClass</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>groupOfNames  </para>
+</entry><entry>
+<para>Group object class  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UsernameAttribute</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>uid  </para>
+</entry><entry>
+<para>Username attribute  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md110">
+<title>Apple Directory</title>
+<para>Apple Open Directory service for macOS environments.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md111">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+services.AddAppleDirectory(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.Host&#32;=&#32;&quot;od.example.com&quot;;
+&#32;&#32;&#32;&#32;options.Port&#32;=&#32;389;
+&#32;&#32;&#32;&#32;options.BaseDn&#32;=&#32;&quot;dc=example,dc=com&quot;;
+&#32;&#32;&#32;&#32;options.BindDn&#32;=&#32;&quot;uid=admin,cn=users,dc=example,dc=com&quot;;
+&#32;&#32;&#32;&#32;options.BindPassword&#32;=&#32;&quot;secret&quot;;
+&#32;&#32;&#32;&#32;options.UseSsl&#32;=&#32;true;
+});
+
+//&#32;From&#32;configuration
+services.AddAppleDirectory(configuration.GetSection(&quot;Toolbox:Ldap:AppleDirectory&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md112">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;MacUserService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ILdapService&#32;_ldap;
+
+&#32;&#32;&#32;&#32;public&#32;MacUserService(ILdapService&#32;ldap)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_ldap&#32;=&#32;ldap;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;LdapUser?&gt;&#32;GetMacUserAsync(string&#32;uid)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_ldap.GetUserByUsernameAsync(uid);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;IEnumerable&lt;string&gt;&gt;&#32;GetUserGroupsAsync(string&#32;uid)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_ldap.GetUserGroupsAsync(uid);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md113">
+<title>Configuration Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Host</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Directory server hostname  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Port</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>389  </para>
+</entry><entry>
+<para>LDAP port  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>BaseDn</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>-  </para>
+</entry><entry>
+<para>Base DN  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>BindDn</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Bind DN  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>BindPassword</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Bind password  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UseSsl</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Use SSL  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UserObjectClass</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>apple-user  </para>
+</entry><entry>
+<para>Apple user object class  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>GroupObjectClass</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>apple-group  </para>
+</entry><entry>
+<para>Apple group object class  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UniqueIdAttribute</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>apple-generateduid  </para>
+</entry><entry>
+<para>Unique ID attribute  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md115">
+<title>Advanced Authentication</title>
+<para>All LDAP services support advanced authentication methods beyond simple username/password authentication.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md116">
+<title>Authentication Modes</title>
+<para><informaltable frame="all">
+    <tgroup cols="6" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+      <colspec colname='c5'/>
+      <colspec colname='c6'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Mode  </para>
+</entry><entry align='center'>
+<para>AD  </para>
+</entry><entry align='center'>
+<para>Azure AD  </para>
+</entry><entry align='center'>
+<para>OpenLDAP  </para>
+</entry><entry align='center'>
+<para>Apple  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Simple</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✓*  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry>
+<para>DN + Password  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Anonymous</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry>
+<para>No credentials  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Kerberos</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✓**  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry>
+<para>GSSAPI/SPNEGO  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Ntlm</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry>
+<para>NTLM legacy  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Negotiate</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry>
+<para>Auto Kerberos/NTLM  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>IntegratedWindows</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry>
+<para>Current Windows context  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Certificate</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✓**  </para>
+</entry><entry align='center'>
+<para>✓**  </para>
+</entry><entry>
+<para>X.509 client certificate  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>SaslPlain</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry align='center'>
+<para>✓  </para>
+</entry><entry>
+<para>SASL PLAIN  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>SaslExternal</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✓**  </para>
+</entry><entry align='center'>
+<para>✓**  </para>
+</entry><entry>
+<para>SASL EXTERNAL (certificate)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>SaslGssapi</computeroutput>  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry align='center'>
+<para>✓**  </para>
+</entry><entry align='center'>
+<para>✗  </para>
+</entry><entry>
+<para>SASL GSSAPI (Kerberos)  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Azure AD Simple maps to ROPC (Resource Owner Password Credentials) OAuth2 flow ** Limited support - may return failure with guidance</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md117">
+<title>Usage with Options</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Options;
+
+//&#32;Authenticate&#32;with&#32;options
+var&#32;authOptions&#32;=&#32;new&#32;LdapAuthenticationOptions
+{
+&#32;&#32;&#32;&#32;Mode&#32;=&#32;LdapAuthenticationMode.Simple,
+&#32;&#32;&#32;&#32;Username&#32;=&#32;&quot;john.doe&quot;,
+&#32;&#32;&#32;&#32;Password&#32;=&#32;&quot;password&quot;,
+&#32;&#32;&#32;&#32;IncludeGroups&#32;=&#32;true,
+&#32;&#32;&#32;&#32;IncludeClaims&#32;=&#32;true,
+&#32;&#32;&#32;&#32;Timeout&#32;=&#32;TimeSpan.FromSeconds(30)
+};
+
+var&#32;result&#32;=&#32;await&#32;ldapService.AuthenticateAsync(authOptions);
+
+if&#32;(result.IsAuthenticated)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Authenticated:&#32;{result.Username}&quot;);
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;DN:&#32;{result.UserDistinguishedName}&quot;);
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Groups:&#32;{string.Join(&quot;,&#32;&quot;,&#32;result.Groups&#32;??&#32;[])}&quot;);
+}
+else
+{
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Failed:&#32;{result.ErrorMessage}&#32;({result.ErrorCode})&quot;);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md118">
+<title>Kerberos Authentication (Active Directory)</title>
+<para><literallayout><computeroutput>//&#32;Using&#32;current&#32;Windows&#32;ticket&#32;(SSO)
+var&#32;result&#32;=&#32;await&#32;adService.AuthenticateWithKerberosAsync();
+
+//&#32;Using&#32;explicit&#32;credentials
+var&#32;authOptions&#32;=&#32;new&#32;LdapAuthenticationOptions
+{
+&#32;&#32;&#32;&#32;Mode&#32;=&#32;LdapAuthenticationMode.Kerberos,
+&#32;&#32;&#32;&#32;Username&#32;=&#32;&quot;john.doe@CORP.EXAMPLE.COM&quot;,
+&#32;&#32;&#32;&#32;Password&#32;=&#32;&quot;password&quot;,
+&#32;&#32;&#32;&#32;Domain&#32;=&#32;&quot;CORP&quot;
+};
+var&#32;result&#32;=&#32;await&#32;adService.AuthenticateAsync(authOptions);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md119">
+<title>Integrated Windows Authentication</title>
+<para><literallayout><computeroutput>//&#32;Uses&#32;the&#32;Windows&#32;identity&#32;of&#32;the&#32;current&#32;process
+var&#32;authOptions&#32;=&#32;new&#32;LdapAuthenticationOptions
+{
+&#32;&#32;&#32;&#32;Mode&#32;=&#32;LdapAuthenticationMode.IntegratedWindows
+};
+var&#32;result&#32;=&#32;await&#32;adService.AuthenticateAsync(authOptions);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md120">
+<title>Certificate Authentication</title>
+<para><literallayout><computeroutput>using&#32;System.Security.Cryptography.X509Certificates;
+
+//&#32;Using&#32;certificate&#32;object
+var&#32;cert&#32;=&#32;new&#32;X509Certificate2(&quot;client.pfx&quot;,&#32;&quot;password&quot;);
+var&#32;result&#32;=&#32;await&#32;ldapService.AuthenticateWithCertificateAsync(cert);
+
+//&#32;Using&#32;options&#32;with&#32;certificate&#32;path
+var&#32;authOptions&#32;=&#32;new&#32;LdapAuthenticationOptions
+{
+&#32;&#32;&#32;&#32;Mode&#32;=&#32;LdapAuthenticationMode.Certificate,
+&#32;&#32;&#32;&#32;CertificatePath&#32;=&#32;&quot;/path/to/client.pfx&quot;,
+&#32;&#32;&#32;&#32;CertificatePassword&#32;=&#32;&quot;password&quot;
+};
+var&#32;result&#32;=&#32;await&#32;ldapService.AuthenticateAsync(authOptions);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md121">
+<title>Azure AD Interactive Authentication</title>
+<para><literallayout><computeroutput>//&#32;Device&#32;code&#32;flow&#32;(for&#32;CLI&#32;apps)
+var&#32;result&#32;=&#32;await&#32;azureAdService.AuthenticateWithDeviceCodeAsync(async&#32;deviceCode&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Go&#32;to&#32;{deviceCode.VerificationUri}&quot;);
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Enter&#32;code:&#32;{deviceCode.UserCode}&quot;);
+});
+
+if&#32;(result.IsAuthenticated)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Token:&#32;{result.Token}&quot;);
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Expires:&#32;{result.ExpiresAt}&quot;);
+}
+
+//&#32;Interactive&#32;browser&#32;flow&#32;(for&#32;desktop&#32;apps)
+var&#32;result&#32;=&#32;await&#32;azureAdService.AuthenticateWithInteractiveBrowserAsync();
+
+//&#32;Username/Password&#32;(ROPC&#32;-&#32;not&#32;recommended)
+var&#32;result&#32;=&#32;await&#32;azureAdService.AuthenticateWithUsernamePasswordAsync(
+&#32;&#32;&#32;&#32;&quot;user@domain.com&quot;,
+&#32;&#32;&#32;&#32;&quot;password&quot;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md122">
+<title>Querying Supported Modes</title>
+<para><literallayout><computeroutput>//&#32;Get&#32;supported&#32;authentication&#32;modes&#32;for&#32;the&#32;service
+var&#32;supportedModes&#32;=&#32;ldapService.GetSupportedAuthenticationModes();
+
+foreach&#32;(var&#32;mode&#32;in&#32;supportedModes)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Supported:&#32;{mode}&quot;);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md123">
+<title>Authentication Result</title>
+<para>The <computeroutput>LdapAuthenticationResult</computeroutput> contains:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Property  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>IsAuthenticated</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>Whether authentication succeeded  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Username</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>Authenticated username  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UserDistinguishedName</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>User&apos;s DN  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>AuthenticationMode</computeroutput>  </para>
+</entry><entry>
+<para>LdapAuthenticationMode  </para>
+</entry><entry>
+<para>Mode used  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>DirectoryType</computeroutput>  </para>
+</entry><entry>
+<para>LdapDirectoryType  </para>
+</entry><entry>
+<para>Directory type  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ErrorMessage</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>Error description (if failed)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ErrorCode</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>LDAP error code  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Groups</computeroutput>  </para>
+</entry><entry>
+<para>IReadOnlyList&lt;string&gt;?  </para>
+</entry><entry>
+<para>User&apos;s groups (if requested)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Claims</computeroutput>  </para>
+</entry><entry>
+<para>IDictionary&lt;string, object&gt;?  </para>
+</entry><entry>
+<para>Additional claims  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>AuthenticatedAt</computeroutput>  </para>
+</entry><entry>
+<para>DateTimeOffset?  </para>
+</entry><entry>
+<para>Authentication timestamp  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Token</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>OAuth token (Azure AD)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ExpiresAt</computeroutput>  </para>
+</entry><entry>
+<para>DateTimeOffset?  </para>
+</entry><entry>
+<para>Token expiration  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md124">
+<title>LDAP Management Operations</title>
+<para>All LDAP services (Active Directory, OpenLDAP, Apple Directory) support account management operations. Azure AD is read-only through Graph API.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md125">
+<title>Account Management</title>
+<para>Enable, disable, and unlock user or computer accounts.</para>
+
+<para><literallayout><computeroutput>//&#32;Enable&#32;an&#32;account
+var&#32;enableResult&#32;=&#32;await&#32;_ldap.EnableAccountAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;jdoe&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithObjectType(LdapObjectType.User));
+
+//&#32;Disable&#32;an&#32;account
+var&#32;disableResult&#32;=&#32;await&#32;_ldap.DisableAccountAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUserDn(&quot;CN=John&#32;Doe,OU=Users,DC=contoso,DC=com&quot;));
+
+//&#32;Unlock&#32;a&#32;locked&#32;account
+var&#32;unlockResult&#32;=&#32;await&#32;_ldap.UnlockAccountAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;jdoe&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md126">
+<title>Group Membership</title>
+<para>Add or remove members from groups.</para>
+
+<para><literallayout><computeroutput>//&#32;Add&#32;user&#32;to&#32;group
+var&#32;addResult&#32;=&#32;await&#32;_ldap.AddToGroupAsync(
+&#32;&#32;&#32;&#32;LdapGroupMembershipOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForGroup(&quot;IT-Department&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMemberUsername(&quot;jdoe&quot;));
+
+//&#32;Add&#32;multiple&#32;users&#32;to&#32;a&#32;group&#32;(batch)
+var&#32;batchAddResult&#32;=&#32;await&#32;_ldap.AddToGroupBatchAsync(
+&#32;&#32;&#32;&#32;LdapGroupMembershipOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForGroup(&quot;Developers&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMemberDns(new[]&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;CN=John&#32;Doe,OU=Users,DC=contoso,DC=com&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;CN=Jane&#32;Smith,OU=Users,DC=contoso,DC=com&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;})
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ContinueOnErrors());&#32;//&#32;Continue&#32;even&#32;if&#32;one&#32;fails
+
+//&#32;Remove&#32;user&#32;from&#32;group
+var&#32;removeResult&#32;=&#32;await&#32;_ldap.RemoveFromGroupAsync(
+&#32;&#32;&#32;&#32;LdapGroupMembershipOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForGroupDn(&quot;CN=IT-Department,OU=Groups,DC=contoso,DC=com&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMemberUsername(&quot;jdoe&quot;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md127">
+<title>Object Movement</title>
+<para>Move objects between organizational units (OUs).</para>
+
+<para><literallayout><computeroutput>//&#32;Move&#32;user&#32;to&#32;another&#32;OU
+var&#32;moveResult&#32;=&#32;await&#32;_ldap.MoveObjectAsync(
+&#32;&#32;&#32;&#32;LdapMoveOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.FromDn(&quot;CN=John&#32;Doe,OU=Users,DC=contoso,DC=com&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ToContainer(&quot;OU=Contractors,DC=contoso,DC=com&quot;));
+
+//&#32;Rename&#32;an&#32;object
+var&#32;renameResult&#32;=&#32;await&#32;_ldap.RenameObjectAsync(
+&#32;&#32;&#32;&#32;&quot;CN=Old&#32;Name,OU=Users,DC=contoso,DC=com&quot;,
+&#32;&#32;&#32;&#32;&quot;New&#32;Name&quot;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md128">
+<title>Password Management</title>
+<para>Change and reset user passwords.</para>
+
+<para><literallayout><computeroutput>//&#32;User-initiated&#32;password&#32;change&#32;(requires&#32;current&#32;password)
+var&#32;changeResult&#32;=&#32;await&#32;_ldap.ChangePasswordAsync(
+&#32;&#32;&#32;&#32;LdapPasswordOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;jdoe&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithCurrentPassword(&quot;OldP@ssw0rd&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithNewPassword(&quot;NewP@ssw0rd!&quot;));
+
+//&#32;Administrative&#32;password&#32;reset&#32;(no&#32;current&#32;password&#32;needed)
+var&#32;resetResult&#32;=&#32;await&#32;_ldap.ResetPasswordAsync(
+&#32;&#32;&#32;&#32;LdapPasswordOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;jdoe&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithNewPassword(&quot;Temp0rary!&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.MustChangeAtNextLogon()&#32;&#32;&#32;&#32;//&#32;Force&#32;password&#32;change
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.UnlockAccountOnReset());&#32;&#32;&#32;//&#32;Also&#32;unlock&#32;if&#32;locked
+
+//&#32;Force&#32;password&#32;change&#32;at&#32;next&#32;logon
+var&#32;forceResult&#32;=&#32;await&#32;_ldap.ForcePasswordChangeAtNextLogonAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;jdoe&quot;));
+
+//&#32;Set&#32;password&#32;to&#32;never&#32;expire
+var&#32;neverExpireResult&#32;=&#32;await&#32;_ldap.SetPasswordNeverExpiresAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;serviceaccount&quot;),
+&#32;&#32;&#32;&#32;neverExpires:&#32;true);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md129">
+<title>Azure AD Management via Microsoft Graph</title>
+<para>Azure AD management uses Microsoft Graph API instead of LDAP. The same <computeroutput>ILdapService</computeroutput> interface works with Azure AD, but uses user IDs or UPNs instead of distinguished names.</para>
+
+<para><literallayout><computeroutput>//&#32;Register&#32;Azure&#32;AD&#32;service
+services.AddAzureAd(options&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;options.TenantId&#32;=&#32;&quot;your-tenant-id&quot;;
+&#32;&#32;&#32;&#32;options.ClientId&#32;=&#32;&quot;your-client-id&quot;;
+&#32;&#32;&#32;&#32;options.ClientSecret&#32;=&#32;&quot;your-client-secret&quot;;
+});
+
+//&#32;Use&#32;by&#32;user&#32;principal&#32;name&#32;(UPN)
+var&#32;result&#32;=&#32;await&#32;_azureAd.EnableAccountAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.ForUser(&quot;john.doe@contoso.com&quot;));
+
+//&#32;Or&#32;by&#32;Azure&#32;AD&#32;object&#32;ID
+var&#32;result2&#32;=&#32;await&#32;_azureAd.DisableAccountAsync(
+&#32;&#32;&#32;&#32;LdapAccountOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithDn(&quot;12345678-1234-1234-1234-123456789012&quot;));&#32;&#32;//&#32;Object&#32;ID&#32;as&#32;&quot;DN&quot;
+
+//&#32;Add&#32;user&#32;to&#32;Azure&#32;AD&#32;group
+var&#32;groupResult&#32;=&#32;await&#32;_azureAd.AddToGroupAsync(
+&#32;&#32;&#32;&#32;LdapGroupMembershipOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForGroup(&quot;IT-Department&quot;)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Group&#32;display&#32;name
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithMemberUsername(&quot;john.doe@contoso.com&quot;));
+
+//&#32;Reset&#32;password&#32;with&#32;force&#32;change&#32;at&#32;next&#32;sign-in
+var&#32;passwordResult&#32;=&#32;await&#32;_azureAd.ResetPasswordAsync(
+&#32;&#32;&#32;&#32;LdapPasswordOptions.Create()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.ForUser(&quot;john.doe@contoso.com&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.WithNewPassword(&quot;Temp0rary123!&quot;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.MustChangeAtNextLogon());
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Required Microsoft Graph Permissions:</emphasis></para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Operation  </para>
+</entry><entry>
+<para>Application Permission  </para>
+</entry><entry>
+<para>Delegated Permission  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Enable/Disable Account  </para>
+</entry><entry>
+<para>User.ReadWrite.All  </para>
+</entry><entry>
+<para>User.ReadWrite  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Add/Remove from Group  </para>
+</entry><entry>
+<para>GroupMember.ReadWrite.All  </para>
+</entry><entry>
+<para>GroupMember.ReadWrite.All  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Reset Password  </para>
+</entry><entry>
+<para>User.ReadWrite.All  </para>
+</entry><entry>
+<para>-  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Force Password Change  </para>
+</entry><entry>
+<para>User.ReadWrite.All  </para>
+</entry><entry>
+<para>-  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Set Password Never Expires  </para>
+</entry><entry>
+<para>User.ReadWrite.All  </para>
+</entry><entry>
+<para>Directory.AccessAsUser.All  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md130">
+<title>Management Result</title>
+<para>All management operations return <computeroutput>LdapManagementResult</computeroutput>:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Property  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>IsSuccess</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>Whether operation succeeded  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Operation</computeroutput>  </para>
+</entry><entry>
+<para>LdapManagementOperation  </para>
+</entry><entry>
+<para>Type of operation performed  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>TargetDistinguishedName</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>DN of affected object  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Details</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>Additional details or error message  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>ErrorCode</computeroutput>  </para>
+</entry><entry>
+<para>int?  </para>
+</entry><entry>
+<para>LDAP error code (if failed)  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><literallayout><computeroutput>var&#32;result&#32;=&#32;await&#32;_ldap.EnableAccountAsync(options);
+if&#32;(result.IsSuccess)
+{
+&#32;&#32;&#32;&#32;_logger.LogInformation(&quot;Enabled&#32;account:&#32;{Dn}&quot;,&#32;result.TargetDistinguishedName);
+}
+else
+{
+&#32;&#32;&#32;&#32;_logger.LogError(&quot;Failed:&#32;{Details}&#32;(Error:&#32;{Code})&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;result.Details,&#32;result.ErrorCode);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md131">
+<title>Supported Operations by Directory Type</title>
+<para><informaltable frame="all">
+    <tgroup cols="5" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+      <colspec colname='c5'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Operation  </para>
+</entry><entry>
+<para>Active Directory  </para>
+</entry><entry>
+<para>OpenLDAP  </para>
+</entry><entry>
+<para>Apple Directory  </para>
+</entry><entry>
+<para>Azure AD  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>EnableAccount  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>DisableAccount  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>UnlockAccount  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>❌¹  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>AddToGroup  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>RemoveFromGroup  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>MoveObject  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>❌²  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>RenameObject  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>❌²  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>ChangePassword  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌³  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>ResetPassword  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>ForcePasswordChange  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>SetPasswordNeverExpires  </para>
+</entry><entry>
+<para>✅  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>❌  </para>
+</entry><entry>
+<para>✅  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><emphasis role="bold">Azure AD Notes:</emphasis><orderedlist>
+<listitem>
+<para>Azure AD uses Identity Protection for lockout management, not direct unlock</para>
+</listitem><listitem>
+<para>Azure AD has no concept of OUs; use Administrative Units for delegation</para>
+</listitem><listitem>
+<para>Password change requires delegated authentication flow (MSAL); use ResetPassword for admin resets</para>
+</listitem></orderedlist>
+</para>
+
+<para>Check supported operations programmatically:</para>
+
+<para><literallayout><computeroutput>var&#32;supported&#32;=&#32;_ldap.GetSupportedManagementOperations();
+if&#32;(supported.Contains(LdapManagementOperation.EnableAccount))
+{
+&#32;&#32;&#32;&#32;//&#32;Account&#32;enable/disable&#32;is&#32;supported
+}
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md133">
+<title>SSO Services</title>
+<para>Single Sign-On services for session management, credential storage, and automatic token refresh.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md134">
+<title>Registration</title>
+<para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
+using&#32;Toolbox.Core.Options;
+
+//&#32;Basic&#32;SSO&#32;services
+services.AddSsoServices();
+
+//&#32;With&#32;custom&#32;configuration
+services.AddSsoServices(
+&#32;&#32;&#32;&#32;sso&#32;=&gt;
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sso.DefaultSessionDuration&#32;=&#32;TimeSpan.FromHours(8);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sso.MaxSessionDuration&#32;=&#32;TimeSpan.FromDays(7);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sso.EnableAutoRefresh&#32;=&#32;true;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sso.RefreshThreshold&#32;=&#32;0.8;&#32;//&#32;Refresh&#32;at&#32;80%&#32;of&#32;lifetime
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sso.MaxSessionsPerUser&#32;=&#32;5;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sso.PersistSessions&#32;=&#32;true;
+&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;credStore&#32;=&gt;
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;credStore.Provider&#32;=&#32;CredentialStoreProvider.Auto;&#32;//&#32;Auto-detect&#32;platform
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;credStore.ApplicationName&#32;=&#32;&quot;MyApp&quot;;
+&#32;&#32;&#32;&#32;});
+
+//&#32;From&#32;configuration
+services.AddSsoServices(configuration);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md135">
+<title>Session Management</title>
+<para><literallayout><computeroutput>public&#32;class&#32;AuthController
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ISsoSessionManager&#32;_sessionManager;
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ILdapService&#32;_ldapService;
+
+&#32;&#32;&#32;&#32;public&#32;AuthController(ISsoSessionManager&#32;sessionManager,&#32;ILdapService&#32;ldapService)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_sessionManager&#32;=&#32;sessionManager;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_ldapService&#32;=&#32;ldapService;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;SsoSession&gt;&#32;LoginAsync(string&#32;username,&#32;string&#32;password)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Authenticate&#32;with&#32;LDAP
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;authResult&#32;=&#32;await&#32;_ldapService.AuthenticateAsync(new&#32;LdapAuthenticationOptions
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Mode&#32;=&#32;LdapAuthenticationMode.Simple,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;username,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;password,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;IncludeGroups&#32;=&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(!authResult.IsAuthenticated)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;AuthenticationException(authResult.ErrorMessage);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Create&#32;SSO&#32;session
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_sessionManager.CreateSessionAsync(authResult,&#32;_ldapService);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;SsoSession&gt;&#32;LoginWithDeviceBindingAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string&#32;username,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string&#32;password,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string&#32;deviceId,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string&#32;ipAddress,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string&#32;userAgent)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;authResult&#32;=&#32;await&#32;_ldapService.AuthenticateAsync(new&#32;LdapAuthenticationOptions
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Mode&#32;=&#32;LdapAuthenticationMode.Simple,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Username&#32;=&#32;username,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Password&#32;=&#32;password
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(!authResult.IsAuthenticated)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;AuthenticationException(authResult.ErrorMessage);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Create&#32;session&#32;with&#32;device&#32;binding
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_sessionManager.CreateSessionAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;authResult,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_ldapService,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;deviceId,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ipAddress,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;userAgent);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;bool&gt;&#32;ValidateSessionAsync(string&#32;sessionId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result&#32;=&#32;await&#32;_sessionManager.ValidateSessionAsync(sessionId);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;result.IsValid;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;LogoutAsync(string&#32;sessionId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_sessionManager.RevokeSessionAsync(sessionId);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;LogoutAllDevicesAsync(string&#32;userId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_sessionManager.RevokeAllUserSessionsAsync(userId);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;LogoutOtherDevicesAsync(string&#32;userId,&#32;string&#32;currentSessionId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_sessionManager.RevokeOtherSessionsAsync(userId,&#32;currentSessionId);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md136">
+<title>Session Validation</title>
+<para><literallayout><computeroutput>public&#32;class&#32;SessionMiddleware
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ISsoSessionManager&#32;_sessionManager;
+
+&#32;&#32;&#32;&#32;public&#32;SessionMiddleware(ISsoSessionManager&#32;sessionManager)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_sessionManager&#32;=&#32;sessionManager;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;SsoSessionValidationResult&gt;&#32;ValidateAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string&#32;sessionId,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string?&#32;deviceId&#32;=&#32;null,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;string?&#32;ipAddress&#32;=&#32;null)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;result&#32;=&#32;await&#32;_sessionManager.ValidateSessionAsync(sessionId,&#32;deviceId,&#32;ipAddress);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(!result.IsValid)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;switch&#32;(result.FailureReason)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;case&#32;SsoValidationFailureReason.SessionNotFound:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Session&#32;doesn&apos;t&#32;exist
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;case&#32;SsoValidationFailureReason.SessionExpired:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Session&#32;has&#32;expired
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;case&#32;SsoValidationFailureReason.SessionRevoked:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Session&#32;was&#32;explicitly&#32;revoked
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;case&#32;SsoValidationFailureReason.DeviceMismatch:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Request&#32;from&#32;different&#32;device
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;case&#32;SsoValidationFailureReason.IpMismatch:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Request&#32;from&#32;different&#32;IP
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;result;
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md137">
+<title>Session Events</title>
+<para><literallayout><computeroutput>public&#32;class&#32;SessionEventHandler
+{
+&#32;&#32;&#32;&#32;public&#32;SessionEventHandler(ISsoSessionManager&#32;sessionManager)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessionManager.SessionCreated&#32;+=&#32;OnSessionCreated;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessionManager.SessionExpiring&#32;+=&#32;OnSessionExpiring;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessionManager.SessionRefreshed&#32;+=&#32;OnSessionRefreshed;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessionManager.SessionExpired&#32;+=&#32;OnSessionExpired;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sessionManager.SessionRevoked&#32;+=&#32;OnSessionRevoked;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnSessionCreated(object?&#32;sender,&#32;SsoSessionCreatedEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Session&#32;created:&#32;{e.Session.SessionId}&#32;for&#32;{e.Session.UserId}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnSessionExpiring(object?&#32;sender,&#32;SsoSessionExpiringEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Session&#32;expiring&#32;in&#32;{e.TimeToExpiry}:&#32;{e.Session.SessionId}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnSessionRefreshed(object?&#32;sender,&#32;SsoSessionRefreshedEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Session&#32;refreshed:&#32;{e.Session.SessionId},&#32;new&#32;expiry:&#32;{e.NewExpiresAt}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnSessionExpired(object?&#32;sender,&#32;SsoSessionExpiredEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Session&#32;expired:&#32;{e.SessionId}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnSessionRevoked(object?&#32;sender,&#32;SsoSessionRevokedEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Session&#32;revoked:&#32;{e.SessionId},&#32;reason:&#32;{e.Reason}&quot;);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md139">
+<title>Credential Storage</title>
+<para>Secure credential storage with platform-specific implementations.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md140">
+<title>Providers</title>
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Provider  </para>
+</entry><entry>
+<para>Platform  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Auto</computeroutput>  </para>
+</entry><entry>
+<para>All  </para>
+</entry><entry>
+<para>Auto-detect best provider  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>WindowsCredentialManager</computeroutput>  </para>
+</entry><entry>
+<para>Windows  </para>
+</entry><entry>
+<para>Windows Credential Manager with DPAPI  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>MacOsKeychain</computeroutput>  </para>
+</entry><entry>
+<para>macOS  </para>
+</entry><entry>
+<para>macOS Keychain Services (planned)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>LinuxSecretService</computeroutput>  </para>
+</entry><entry>
+<para>Linux  </para>
+</entry><entry>
+<para>GNOME Keyring/KDE Wallet (planned)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>EncryptedFile</computeroutput>  </para>
+</entry><entry>
+<para>All  </para>
+</entry><entry>
+<para>AES-256-GCM encrypted JSON file  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>InMemory</computeroutput>  </para>
+</entry><entry>
+<para>All  </para>
+</entry><entry>
+<para>Non-persistent, for testing  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md141">
+<title>Usage</title>
+<para><literallayout><computeroutput>public&#32;class&#32;CredentialService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ICredentialStore&#32;_credentialStore;
+
+&#32;&#32;&#32;&#32;public&#32;CredentialService(ICredentialStore&#32;credentialStore)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_credentialStore&#32;=&#32;credentialStore;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;StoreTokenAsync(string&#32;userId,&#32;string&#32;accessToken,&#32;string&#32;refreshToken)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;credential&#32;=&#32;new&#32;SsoCredential
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;UserId&#32;=&#32;userId,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Type&#32;=&#32;CredentialType.AccessToken,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AccessToken&#32;=&#32;accessToken,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;RefreshToken&#32;=&#32;refreshToken,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ExpiresAt&#32;=&#32;DateTimeOffset.UtcNow.AddHours(1),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DirectoryType&#32;=&#32;LdapDirectoryType.ActiveDirectory
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_credentialStore.StoreCredentialAsync($&quot;token:{userId}&quot;,&#32;credential);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;string?&gt;&#32;GetTokenAsync(string&#32;userId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;credential&#32;=&#32;await&#32;_credentialStore.GetCredentialAsync($&quot;token:{userId}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;credential?.AccessToken;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;RemoveTokenAsync(string&#32;userId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;await&#32;_credentialStore.RemoveCredentialAsync($&quot;token:{userId}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;IReadOnlyList&lt;SsoCredential&gt;&gt;&#32;GetUserCredentialsAsync(string&#32;userId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_credentialStore.GetUserCredentialsAsync(userId);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&#32;CleanupExpiredAsync()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;removed&#32;=&#32;await&#32;_credentialStore.CleanupExpiredAsync();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Removed&#32;{removed}&#32;expired&#32;credentials&quot;);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md142">
+<title>Credential Store Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Provider</computeroutput>  </para>
+</entry><entry>
+<para>CredentialStoreProvider  </para>
+</entry><entry>
+<para>Auto  </para>
+</entry><entry>
+<para>Storage provider  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>ApplicationName</computeroutput>  </para>
+</entry><entry>
+<para>string  </para>
+</entry><entry>
+<para>&quot;Toolbox&quot;  </para>
+</entry><entry>
+<para>Application identifier for credentials  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>FallbackStorePath</computeroutput>  </para>
+</entry><entry>
+<para>string?  </para>
+</entry><entry>
+<para>null  </para>
+</entry><entry>
+<para>Path for encrypted file store  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UseOsKeychain</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Prefer OS-native credential storage  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md144">
+<title>Automatic Token Refresh</title>
+<para>The token refresh service automatically refreshes tokens before they expire.</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md145">
+<title>Configuration</title>
+<para><literallayout><computeroutput>services.AddSsoServices(sso&#32;=&gt;
+{
+&#32;&#32;&#32;&#32;sso.EnableAutoRefresh&#32;=&#32;true;
+&#32;&#32;&#32;&#32;sso.RefreshThreshold&#32;=&#32;0.8;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Refresh&#32;at&#32;80%&#32;of&#32;lifetime
+&#32;&#32;&#32;&#32;sso.RefreshCheckInterval&#32;=&#32;TimeSpan.FromMinutes(1);
+&#32;&#32;&#32;&#32;sso.MaxRefreshRetries&#32;=&#32;3;
+&#32;&#32;&#32;&#32;sso.RefreshRetryDelay&#32;=&#32;TimeSpan.FromSeconds(5);
+&#32;&#32;&#32;&#32;sso.UseExponentialBackoff&#32;=&#32;true;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md146">
+<title>Manual Refresh</title>
+<para><literallayout><computeroutput>public&#32;class&#32;TokenService
+{
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ITokenRefreshService&#32;_refreshService;
+&#32;&#32;&#32;&#32;private&#32;readonly&#32;ISsoSessionManager&#32;_sessionManager;
+
+&#32;&#32;&#32;&#32;public&#32;TokenService(ITokenRefreshService&#32;refreshService,&#32;ISsoSessionManager&#32;sessionManager)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_refreshService&#32;=&#32;refreshService;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_sessionManager&#32;=&#32;sessionManager;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;SsoSession?&gt;&#32;RefreshNowAsync(string&#32;sessionId)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Immediate&#32;refresh
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_refreshService.RefreshNowAsync(sessionId);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;async&#32;Task&lt;int&gt;&#32;RefreshAllPendingAsync()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Refresh&#32;all&#32;sessions&#32;that&#32;need&#32;it
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;await&#32;_refreshService.RefreshAllPendingAsync();
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;void&#32;CheckStatus()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Service&#32;running:&#32;{_refreshService.IsRunning}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Registered&#32;sessions:&#32;{_refreshService.RegisteredSessionCount}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Successful&#32;refreshes:&#32;{_refreshService.SuccessfulRefreshCount}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Failed&#32;refreshes:&#32;{_refreshService.FailedRefreshCount}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Last&#32;check:&#32;{_refreshService.LastCheckTime}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Next&#32;check:&#32;{_refreshService.NextCheckTime}&quot;);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md147">
+<title>Refresh Events</title>
+<para><literallayout><computeroutput>public&#32;class&#32;RefreshEventHandler
+{
+&#32;&#32;&#32;&#32;public&#32;RefreshEventHandler(ITokenRefreshService&#32;refreshService)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;refreshService.RefreshNeeded&#32;+=&#32;OnRefreshNeeded;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;refreshService.RefreshCompleted&#32;+=&#32;OnRefreshCompleted;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;refreshService.RefreshFailed&#32;+=&#32;OnRefreshFailed;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnRefreshNeeded(object?&#32;sender,&#32;TokenRefreshNeededEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Refresh&#32;needed&#32;for&#32;{e.Session.SessionId}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;Elapsed:&#32;{e.LifetimeElapsedPercent:P0}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;Time&#32;to&#32;expiry:&#32;{e.TimeToExpiry}&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnRefreshCompleted(object?&#32;sender,&#32;TokenRefreshCompletedEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Refresh&#32;completed&#32;for&#32;{e.SessionId}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;New&#32;expiry:&#32;{e.NewExpiresAt}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;Duration:&#32;{e.RefreshDuration.TotalMilliseconds}ms&quot;);
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;private&#32;void&#32;OnRefreshFailed(object?&#32;sender,&#32;TokenRefreshFailedEventArgs&#32;e)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;Refresh&#32;failed&#32;for&#32;{e.SessionId}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;Error:&#32;{e.Exception.Message}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;Retry:&#32;{e.RetryAttempt}/{e.MaxRetries}&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Console.WriteLine($&quot;&#32;&#32;Will&#32;retry:&#32;{e.WillRetry}&quot;);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md148">
+<title>SSO Session Options</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Option  </para>
+</entry><entry>
+<para>Type  </para>
+</entry><entry>
+<para>Default  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>DefaultSessionDuration</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>8 hours  </para>
+</entry><entry>
+<para>Default session lifetime  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>MaxSessionDuration</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>7 days  </para>
+</entry><entry>
+<para>Maximum session lifetime  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>SlidingExpiration</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan?  </para>
+</entry><entry>
+<para>30 min  </para>
+</entry><entry>
+<para>Sliding expiration window  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>RefreshThreshold</computeroutput>  </para>
+</entry><entry>
+<para>double  </para>
+</entry><entry>
+<para>0.8  </para>
+</entry><entry>
+<para>Refresh at % of lifetime  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>RefreshCheckInterval</computeroutput>  </para>
+</entry><entry>
+<para>TimeSpan  </para>
+</entry><entry>
+<para>1 min  </para>
+</entry><entry>
+<para>Background check interval  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>EnableAutoRefresh</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Enable automatic refresh  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>PersistSessions</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Persist sessions to store  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>MaxSessionsPerUser</computeroutput>  </para>
+</entry><entry>
+<para>int  </para>
+</entry><entry>
+<para>5  </para>
+</entry><entry>
+<para>Max concurrent sessions  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>RevokeOldestOnMaxReached</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>true  </para>
+</entry><entry>
+<para>Revoke oldest when max reached  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>EnforceDeviceBinding</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Require same device  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>EnforceIpBinding</computeroutput>  </para>
+</entry><entry>
+<para>bool  </para>
+</entry><entry>
+<para>false  </para>
+</entry><entry>
+<para>Require same IP address  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md150">
+<title>Creating Custom Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md151">
 <title>Synchronous Disposal</title>
 <para>For services with synchronous cleanup:</para>
 
@@ -1002,7 +3635,7 @@ public&#32;class&#32;MyService&#32;:&#32;BaseDisposableService
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md52">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md152">
 <title>Asynchronous Disposal</title>
 <para>For services with async resources:</para>
 
@@ -1042,8 +3675,8 @@ public&#32;class&#32;MyAsyncService&#32;:&#32;BaseAsyncDisposableService
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md54">
-<title>OpenTelemetry Integration</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md55">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md154">
+<title>OpenTelemetry Integration</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md155">
 <title>Basic Tracing and Metrics</title>
 <para><literallayout><computeroutput>builder.Services.AddToolboxOpenTelemetry(options&#32;=&gt;
 {
@@ -1054,7 +3687,7 @@ public&#32;class&#32;MyAsyncService&#32;:&#32;BaseAsyncDisposableService
 });
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md56">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md156">
 <title>OTLP Export</title>
 <para><literallayout><computeroutput>builder.Services.AddToolboxOpenTelemetry(options&#32;=&gt;
 {
@@ -1062,7 +3695,7 @@ public&#32;class&#32;MyAsyncService&#32;:&#32;BaseAsyncDisposableService
 });
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md57">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md157">
 <title>Custom Instrumentation</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Telemetry;
 
@@ -1074,7 +3707,7 @@ activity?.SetTag(&quot;custom.tag&quot;,&#32;&quot;value&quot;);
 ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#32;elapsedMs);
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md58">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md158">
 <title>Available Metrics</title>
 <para><informaltable frame="all">
     <tgroup cols="3" align="left" colsep="1" rowsep="1">
@@ -1106,6 +3739,22 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 <para>Histogram  </para>
 </entry><entry>
 <para>Operation duration (ms)  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.disposals.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Service disposal events  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.instances.active</computeroutput>  </para>
+</entry><entry>
+<para>UpDownCounter  </para>
+</entry><entry>
+<para>Active service instances  </para>
 </entry></row>
       <row  class='markdownTableRowOdd'>
 <entry>
@@ -1155,6 +3804,70 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 </entry><entry>
 <para>File size (bytes)  </para>
 </entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.filetransfer.errors.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>File transfer errors  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.mailing.sent.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Emails sent  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.api.requests.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>API requests  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.sso.sessions.created</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>SSO sessions created  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.sso.sessions.expired</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>SSO sessions expired  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.sso.sessions.active</computeroutput>  </para>
+</entry><entry>
+<para>UpDownCounter  </para>
+</entry><entry>
+<para>Active SSO sessions  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toolbox.sso.validations.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Session validations  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toolbox.sso.refresh.count</computeroutput>  </para>
+</entry><entry>
+<para>Counter  </para>
+</entry><entry>
+<para>Token refreshes  </para>
+</entry></row>
     </tbody>
     </tgroup>
 </informaltable>
@@ -1165,8 +3878,8 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md60">
-<title>Configuration Options</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md61">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md160">
+<title>Configuration Options</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md161">
 <title>ToolboxOptions</title>
 <para><informaltable frame="all">
     <tgroup cols="4" align="left" colsep="1" rowsep="1">
@@ -1221,7 +3934,7 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 </informaltable>
 </para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md62">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md162">
 <title>ToolboxTelemetryOptions</title>
 <para><informaltable frame="all">
     <tgroup cols="4" align="left" colsep="1" rowsep="1">
@@ -1311,8 +4024,8 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 </para>
 </section>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md64">
-<title>Best Practices</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md65">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md164">
+<title>Best Practices</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md165">
 <title>1. Always Check Disposal State</title>
 <para><literallayout><computeroutput>public&#32;void&#32;DoWork()
 {
@@ -1321,7 +4034,7 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md66">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md166">
 <title>2. Use Activity Scopes for Tracing</title>
 <para><literallayout><computeroutput>public&#32;async&#32;Task&#32;DoWorkAsync()
 {
@@ -1330,14 +4043,14 @@ ToolboxMeter.RecordOperation(&quot;MyService&quot;,&#32;&quot;CustomOp&quot;,&#3
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md67">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md167">
 <title>3. Record Metrics for Performance</title>
 <para><literallayout><computeroutput>var&#32;sw&#32;=&#32;Stopwatch.StartNew();
 //&#32;...&#32;operation
 RecordOperation(&quot;OperationName&quot;,&#32;sw.ElapsedMilliseconds);
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md68">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md168">
 <title>4. Handle Cancellation in Async Operations</title>
 <para><literallayout><computeroutput>public&#32;async&#32;Task&#32;ProcessAsync(CancellationToken&#32;ct&#32;=&#32;default)
 {
@@ -1346,7 +4059,7 @@ RecordOperation(&quot;OperationName&quot;,&#32;sw.ElapsedMilliseconds);
 }
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md69">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md169">
 <title>5. Use Appropriate Service Lifetimes</title>
 <para><literallayout><computeroutput>//&#32;Singleton&#32;for&#32;stateless&#32;services
 services.AddSingleton&lt;ICryptographyService,&#32;AesCryptographyService&gt;();
@@ -1358,7 +4071,7 @@ services.AddScoped&lt;IFileTransferService,&#32;SftpFileTransferService&gt;();
 services.AddTransient&lt;IMailingService,&#32;SmtpMailingService&gt;();
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md70">
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e_1autotoc_md170">
 <title>6. Secure Credential Management</title>
 <para><literallayout><computeroutput>//&#32;Use&#32;configuration/secrets,&#32;not&#32;hardcoded&#32;values
 services.AddSmtpMailing(configuration.GetSection(&quot;Mailing&quot;));

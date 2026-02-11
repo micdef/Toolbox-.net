@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['scopes_20for_20tracing_0',['2. Use Activity Scopes for Tracing',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md66',1,'']]],
-  ['secure_20credential_20management_1',['6. Secure Credential Management',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md70',1,'']]],
-  ['security_20modes_2',['Security Modes',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md48',1,'']]],
-  ['service_20lifetimes_3',['5. Use Appropriate Service Lifetimes',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md69',1,'']]],
-  ['services_4',['Services',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md50',1,'Creating Custom Services'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md17',1,'Cryptography Services'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md33',1,'File Transfer Services'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md43',1,'Mailing Services']]],
-  ['setup_5',['Basic Setup',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md14',1,'']]],
-  ['sftp_6',['SFTP',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md38',1,'']]],
-  ['start_7',['Quick Start',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md4',1,'']]],
-  ['started_8',['Getting Started',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md13',1,'']]],
-  ['state_9',['1. Always Check Disposal State',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md65',1,'']]],
-  ['structure_10',['Project Structure',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md7',1,'']]],
-  ['synchronous_20disposal_11',['Synchronous Disposal',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md51',1,'']]]
+  ['régression_0',['Tests de Non-Régression',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e.html#autotoc_md21',1,'']]],
+  ['record_20metrics_20for_20performance_1',['3. Record Metrics for Performance',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md167',1,'']]],
+  ['refresh_2',['Refresh',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md144',1,'Automatic Token Refresh'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md146',1,'Manual Refresh']]],
+  ['refresh_20events_3',['Refresh Events',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md147',1,'']]],
+  ['registration_4',['Registration',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md54',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md58',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md63',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md70',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md74',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md79',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md86',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md94',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md100',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md106',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md111',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md134',1,'Registration']]],
+  ['requirements_5',['Requirements',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md36',1,'']]],
+  ['result_6',['Result',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md123',1,'Authentication Result'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md130',1,'Management Result']]],
+  ['rsa_20encryption_7',['RSA Encryption',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md62',1,'']]]
 ];

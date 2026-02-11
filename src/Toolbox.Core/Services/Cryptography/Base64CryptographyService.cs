@@ -29,13 +29,19 @@ namespace Toolbox.Core.Services.Cryptography;
 /// <seealso cref="Base64CryptographyOptions"/>
 public sealed class Base64CryptographyService : BaseAsyncDisposableService, ICryptographyService
 {
-    // The encoding table configuration
+    /// <summary>
+    /// The encoding table configuration for Base64 operations.
+    /// </summary>
     private readonly Base64EncodingTable _encodingTable;
 
-    // Whether to include padding in output
+    /// <summary>
+    /// Whether to include padding characters in the encoded output.
+    /// </summary>
     private readonly bool _includePadding;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<Base64CryptographyService> _logger;
 
     /// <summary>

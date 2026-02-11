@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="_c_l_a_u_d_e_8md" kind="file" language="Markdown">
+    <compoundname>CLAUDE.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Directives<sp/>du<sp/>Projet<sp/>Toolbox</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Framework</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Version**<sp/>:<sp/>.NET<sp/>10</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Langage**<sp/>:<sp/>C#<sp/>14.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Architecture<sp/>des<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Injection<sp/>de<sp/>Dépendances</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Chaque<sp/>service<sp/>et<sp/>classe<sp/>doit<sp/>être<sp/>**injectable**<sp/>via<sp/>le<sp/>conteneur<sp/>DI<sp/>de<sp/>.NET</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Utiliser<sp/>les<sp/>extensions<sp/>`IServiceCollection`<sp/>pour<sp/>l&apos;enregistrement</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Disposal</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Chaque<sp/>service<sp/>et<sp/>classe<sp/>doit<sp/>implémenter<sp/>**IDisposable**<sp/>et/ou<sp/>**IAsyncDisposable**</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Utiliser<sp/>les<sp/>classes<sp/>de<sp/>base<sp/>`BaseDisposableService`<sp/>ou<sp/>`BaseAsyncDisposableService`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Généricité</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Les<sp/>services<sp/>doivent<sp/>être<sp/>**aussi<sp/>génériques<sp/>que<sp/>possible**</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Favoriser<sp/>la<sp/>réutilisabilité<sp/>et<sp/>l&apos;extensibilité</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Éviter<sp/>les<sp/>implémentations<sp/>trop<sp/>spécifiques</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Organisation<sp/>par<sp/>Catégorie</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Pour<sp/>chaque<sp/>catégorie<sp/>de<sp/>service<sp/>:<sp/>**une<sp/>seule<sp/>interface**</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>L&apos;interface<sp/>définit<sp/>le<sp/>contrat<sp/>commun<sp/>pour<sp/>tous<sp/>les<sp/>services<sp/>de<sp/>la<sp/>catégorie</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Catégories<sp/>existantes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Catégorie<sp/>|<sp/>Interface<sp/>|<sp/>Services<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|-----------|-----------|----------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Cryptography<sp/>|<sp/>`ICryptographyService`<sp/>|<sp/>Base64,<sp/>AES,<sp/>RSA<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>FileTransfer<sp/>|<sp/>`IFileTransferService`<sp/>|<sp/>FTP,<sp/>FTPS,<sp/>SFTP<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Mailing<sp/>|<sp/>`IMailingService`<sp/>|<sp/>SMTP<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Api<sp/>|<sp/>`IApiService`<sp/>|<sp/>HTTP<sp/>Client<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Ldap<sp/>|<sp/>`ILdapService`<sp/>|<sp/>ActiveDirectory,<sp/>OpenLdap,<sp/>AzureAd,<sp/>AppleDirectory<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation<sp/>Doxygen</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Exigences</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Documentation<sp/>**complète**<sp/>pour<sp/>chaque<sp/>classe<sp/>et<sp/>service</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Obligatoire**<sp/>pour<sp/>toutes<sp/>les<sp/>parties,<sp/>y<sp/>compris<sp/>privées<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Membres<sp/>privés</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Variables<sp/>privées</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Fonctions<sp/>privées</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Constructeurs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Destructeurs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Propriétés</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Format</highlight></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;summary&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>Description<sp/>de<sp/>la<sp/>classe/méthode.</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;/summary&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;param<sp/>name=&quot;paramName&quot;&gt;Description<sp/>du<sp/>paramètre.&lt;/param&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;returns&gt;Description<sp/>du<sp/>retour.&lt;/returns&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;exception<sp/>cref=&quot;ExceptionType&quot;&gt;Condition<sp/>de<sp/>levée.&lt;/exception&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;remarks&gt;Remarques<sp/>additionnelles.&lt;/remarks&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;example&gt;</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>Exemple<sp/>d&apos;utilisation.</highlight></codeline>
+<codeline><highlight class="normal">///<sp/>&lt;/example&gt;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Télémétrie</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>OpenTelemetry</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Utilisé<sp/>dans<sp/>**tout<sp/>le<sp/>projet**</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Chaque<sp/>opération<sp/>doit<sp/>avoir<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>**Tracing**<sp/>:<sp/>Activities<sp/>pour<sp/>le<sp/>suivi<sp/>distribué</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>**Métriques**<sp/>:<sp/>Compteurs<sp/>et<sp/>histogrammes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Métriques<sp/>standards</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`toolbox.operations.count`<sp/>:<sp/>Nombre<sp/>d&apos;opérations</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`toolbox.operations.duration`<sp/>:<sp/>Durée<sp/>des<sp/>opérations<sp/>(ms)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`toolbox.errors.count`<sp/>:<sp/>Nombre<sp/>d&apos;erreurs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Tests<sp/>Unitaires</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Chaque<sp/>service<sp/>doit<sp/>avoir<sp/>des<sp/>tests<sp/>unitaires</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Couverture<sp/>des<sp/>cas<sp/>nominaux<sp/>et<sp/>des<sp/>cas<sp/>d&apos;erreur</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Utiliser<sp/>des<sp/>mocks<sp/>pour<sp/>les<sp/>dépendances<sp/>externes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Tests<sp/>de<sp/>Non-Régression</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Tests<sp/>pour<sp/>garantir<sp/>la<sp/>stabilité<sp/>des<sp/>fonctionnalités<sp/>existantes</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Exécutés<sp/>à<sp/>chaque<sp/>modification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Framework</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>xUnit<sp/>pour<sp/>les<sp/>tests</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Moq<sp/>ou<sp/>NSubstitute<sp/>pour<sp/>les<sp/>mocks</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation<sp/>du<sp/>Projet</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Fichiers<sp/>à<sp/>maintenir</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Fichier<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`README.md`<sp/>|<sp/>Présentation<sp/>du<sp/>projet,<sp/>installation,<sp/>quick<sp/>start<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`USAGE.md`<sp/>|<sp/>Guide<sp/>d&apos;utilisation<sp/>détaillé<sp/>de<sp/>chaque<sp/>service<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`.gitignore`<sp/>|<sp/>Fichiers<sp/>à<sp/>ignorer<sp/>pour<sp/>Git<sp/>(approprié<sp/>.NET)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`CLAUDE.md`<sp/>|<sp/>Ce<sp/>fichier<sp/>-<sp/>directives<sp/>de<sp/>développement<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Mise<sp/>à<sp/>jour</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Ces<sp/>fichiers<sp/>doivent<sp/>être<sp/>**mis<sp/>à<sp/>jour**<sp/>à<sp/>chaque<sp/>création<sp/>de<sp/>service<sp/>ou<sp/>classe</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Le<sp/>README<sp/>doit<sp/>refléter<sp/>les<sp/>fonctionnalités<sp/>disponibles</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Le<sp/>USAGE<sp/>doit<sp/>documenter<sp/>l&apos;utilisation<sp/>de<sp/>chaque<sp/>nouveau<sp/>service</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Structure<sp/>du<sp/>Projet</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Toolbox/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>src/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Core/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Abstractions/Services/<sp/><sp/><sp/>#<sp/>Interfaces<sp/>(1<sp/>par<sp/>catégorie)</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Base/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Classes<sp/>de<sp/>base<sp/>disposables</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Extensions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Extensions<sp/>DI</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Options/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Options<sp/>de<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Services/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Implémentations<sp/>par<sp/>catégorie</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Api/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Cryptography/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>FileTransfer/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Ldap/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>└──<sp/>Mailing/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>└──<sp/>Telemetry/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Infrastructure<sp/>OpenTelemetry</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>tests/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Tests/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Tests<sp/>unitaires<sp/>et<sp/>de<sp/>non-régression</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>samples/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Sample/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Application<sp/>exemple</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>docs/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Documentation<sp/>Doxygen<sp/>générée</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Checklist<sp/>pour<sp/>Nouveau<sp/>Service</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Vérifier<sp/>si<sp/>l&apos;interface<sp/>de<sp/>la<sp/>catégorie<sp/>existe,<sp/>sinon<sp/>la<sp/>créer</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Implémenter<sp/>le<sp/>service<sp/>en<sp/>héritant<sp/>de<sp/>`BaseDisposableService`<sp/>ou<sp/>`BaseAsyncDisposableService`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Ajouter<sp/>la<sp/>documentation<sp/>Doxygen<sp/>complète<sp/>(publique<sp/>ET<sp/>privée)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Ajouter<sp/>le<sp/>tracing<sp/>OpenTelemetry</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Ajouter<sp/>les<sp/>métriques<sp/>OpenTelemetry</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Créer<sp/>l&apos;extension<sp/>DI<sp/>pour<sp/>l&apos;enregistrement</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Écrire<sp/>les<sp/>tests<sp/>unitaires</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Écrire<sp/>les<sp/>tests<sp/>de<sp/>non-régression</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Mettre<sp/>à<sp/>jour<sp/>`README.md`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Mettre<sp/>à<sp/>jour<sp/>`USAGE.md`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Git<sp/>et<sp/>Commits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Messages<sp/>de<sp/>Commit</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Les<sp/>messages<sp/>doivent<sp/>être<sp/>**structurés<sp/>en<sp/>Markdown**</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Contenir<sp/>**toutes<sp/>les<sp/>actions<sp/>effectuées**</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rester<sp/>un<sp/>**résumé<sp/>concis**</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/CLAUDE.md"/>
+  </compounddef>
+</doxygen>

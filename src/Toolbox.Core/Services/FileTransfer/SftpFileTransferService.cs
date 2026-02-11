@@ -28,16 +28,24 @@ namespace Toolbox.Core.Services.FileTransfer;
 /// <seealso cref="IFileTransferService"/>
 public sealed class SftpFileTransferService : BaseAsyncDisposableService, IFileTransferService
 {
-    // The SFTP client instance
+    /// <summary>
+    /// The SFTP client instance for file transfer operations.
+    /// </summary>
     private readonly SftpClient _client;
 
-    // The service options
+    /// <summary>
+    /// The service configuration options.
+    /// </summary>
     private readonly FileTransferOptions _options;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<SftpFileTransferService> _logger;
 
-    // Lock for connection management
+    /// <summary>
+    /// Semaphore for thread-safe connection management.
+    /// </summary>
     private readonly SemaphoreSlim _connectionLock = new(1, 1);
 
     /// <summary>

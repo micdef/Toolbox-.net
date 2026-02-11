@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e" kind="page">
+    <compoundname>md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e</compoundname>
+    <title>Directives du Projet Toolbox</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md0"/></para>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md1">
+<title>Framework</title><para><itemizedlist>
+<listitem><para><bold>Version</bold> : .NET 10</para>
+</listitem><listitem><para><bold>Langage</bold> : C# 14.0</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md3">
+<title>Architecture des Services</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md4">
+<title>Injection de Dépendances</title><para><itemizedlist>
+<listitem><para>Chaque service et classe doit être <bold>injectable</bold> via le conteneur DI de .NET</para>
+</listitem><listitem><para>Utiliser les extensions <computeroutput>IServiceCollection</computeroutput> pour l&apos;enregistrement</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md5">
+<title>Disposal</title><para><itemizedlist>
+<listitem><para>Chaque service et classe doit implémenter <bold>IDisposable</bold> et/ou <bold>IAsyncDisposable</bold></para>
+</listitem><listitem><para>Utiliser les classes de base <computeroutput>BaseDisposableService</computeroutput> ou <computeroutput>BaseAsyncDisposableService</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md6">
+<title>Généricité</title><para><itemizedlist>
+<listitem><para>Les services doivent être <bold>aussi génériques que possible</bold></para>
+</listitem><listitem><para>Favoriser la réutilisabilité et l&apos;extensibilité</para>
+</listitem><listitem><para>Éviter les implémentations trop spécifiques</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md8">
+<title>Organisation par Catégorie</title><para><itemizedlist>
+<listitem><para>Pour chaque catégorie de service : <bold>une seule interface</bold></para>
+</listitem><listitem><para>L&apos;interface définit le contrat commun pour tous les services de la catégorie</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md9">
+<title>Catégories existantes</title><para><table rows="6" cols="3"><row>
+<entry thead="yes"><para>Catégorie  </para>
+</entry><entry thead="yes"><para>Interface  </para>
+</entry><entry thead="yes"><para>Services  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Cryptography  </para>
+</entry><entry thead="no"><para><computeroutput>ICryptographyService</computeroutput>  </para>
+</entry><entry thead="no"><para>Base64, AES, RSA  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>FileTransfer  </para>
+</entry><entry thead="no"><para><computeroutput>IFileTransferService</computeroutput>  </para>
+</entry><entry thead="no"><para>FTP, FTPS, SFTP  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Mailing  </para>
+</entry><entry thead="no"><para><computeroutput>IMailingService</computeroutput>  </para>
+</entry><entry thead="no"><para>SMTP  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Api  </para>
+</entry><entry thead="no"><para><computeroutput>IApiService</computeroutput>  </para>
+</entry><entry thead="no"><para>HTTP Client  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Ldap  </para>
+</entry><entry thead="no"><para><computeroutput>ILdapService</computeroutput>  </para>
+</entry><entry thead="no"><para>ActiveDirectory, OpenLdap, AzureAd, AppleDirectory  </para>
+</entry></row>
+</table>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md11">
+<title>Documentation Doxygen</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md12">
+<title>Exigences</title><para><itemizedlist>
+<listitem><para>Documentation <bold>complète</bold> pour chaque classe et service</para>
+</listitem><listitem><para><bold>Obligatoire</bold> pour toutes les parties, y compris privées :<itemizedlist>
+<listitem><para>Membres privés</para>
+</listitem><listitem><para>Variables privées</para>
+</listitem><listitem><para>Fonctions privées</para>
+</listitem><listitem><para>Constructeurs</para>
+</listitem><listitem><para>Destructeurs</para>
+</listitem><listitem><para>Propriétés</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md13">
+<title>Format</title><para><programlisting filename=".cs"><codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md15">
+<title>Télémétrie</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md16">
+<title>OpenTelemetry</title><para><itemizedlist>
+<listitem><para>Utilisé dans <bold>tout le projet</bold></para>
+</listitem><listitem><para>Chaque opération doit avoir :<itemizedlist>
+<listitem><para><bold>Tracing</bold> : Activities pour le suivi distribué</para>
+</listitem><listitem><para><bold>Métriques</bold> : Compteurs et histogrammes</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md17">
+<title>Métriques standards</title><para><itemizedlist>
+<listitem><para><computeroutput>toolbox.operations.count</computeroutput> : Nombre d&apos;opérations</para>
+</listitem><listitem><para><computeroutput>toolbox.operations.duration</computeroutput> : Durée des opérations (ms)</para>
+</listitem><listitem><para><computeroutput>toolbox.errors.count</computeroutput> : Nombre d&apos;erreurs</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md19">
+<title>Tests</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md20">
+<title>Tests Unitaires</title><para><itemizedlist>
+<listitem><para>Chaque service doit avoir des tests unitaires</para>
+</listitem><listitem><para>Couverture des cas nominaux et des cas d&apos;erreur</para>
+</listitem><listitem><para>Utiliser des mocks pour les dépendances externes</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md21">
+<title>Tests de Non-Régression</title><para><itemizedlist>
+<listitem><para>Tests pour garantir la stabilité des fonctionnalités existantes</para>
+</listitem><listitem><para>Exécutés à chaque modification</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md22">
+<title>Framework</title><para><itemizedlist>
+<listitem><para>xUnit pour les tests</para>
+</listitem><listitem><para>Moq ou NSubstitute pour les mocks</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md24">
+<title>Documentation du Projet</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md25">
+<title>Fichiers à maintenir</title><para><table rows="5" cols="2"><row>
+<entry thead="yes"><para>Fichier  </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="_r_e_a_d_m_e_8md" kindref="compound">README.md</ref></computeroutput>  </para>
+</entry><entry thead="no"><para>Présentation du projet, installation, quick start  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="_u_s_a_g_e_8md" kindref="compound">USAGE.md</ref></computeroutput>  </para>
+</entry><entry thead="no"><para>Guide d&apos;utilisation détaillé de chaque service  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>.gitignore</computeroutput>  </para>
+</entry><entry thead="no"><para>Fichiers à ignorer pour Git (approprié .NET)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="_c_l_a_u_d_e_8md" kindref="compound">CLAUDE.md</ref></computeroutput>  </para>
+</entry><entry thead="no"><para>Ce fichier - directives de développement  </para>
+</entry></row>
+</table>
+</para>
+</sect2>
+<sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md26">
+<title>Mise à jour</title><para><itemizedlist>
+<listitem><para>Ces fichiers doivent être <bold>mis à jour</bold> à chaque création de service ou classe</para>
+</listitem><listitem><para>Le README doit refléter les fonctionnalités disponibles</para>
+</listitem><listitem><para>Le USAGE doit documenter l&apos;utilisation de chaque nouveau service</para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md28">
+<title>Structure du Projet</title><para><programlisting><codeline><highlight class="normal">Toolbox/</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>src/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Core/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Abstractions/Services/<sp/><sp/><sp/>#<sp/>Interfaces<sp/>(1<sp/>par<sp/>catégorie)</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Base/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Classes<sp/>de<sp/>base<sp/>disposables</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Extensions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Extensions<sp/>DI</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Options/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Options<sp/>de<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Services/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Implémentations<sp/>par<sp/>catégorie</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Api/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Cryptography/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>FileTransfer/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Ldap/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>└──<sp/>Mailing/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>└──<sp/>Telemetry/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Infrastructure<sp/>OpenTelemetry</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>tests/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Tests/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Tests<sp/>unitaires<sp/>et<sp/>de<sp/>non-régression</highlight></codeline>
+<codeline><highlight class="normal">├──<sp/>samples/</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Sample/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Application<sp/>exemple</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>docs/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Documentation<sp/>Doxygen<sp/>générée</highlight></codeline>
+</programlisting></para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md30">
+<title>Checklist pour Nouveau Service</title><para><itemizedlist>
+<listitem override="unchecked"><para>Vérifier si l&apos;interface de la catégorie existe, sinon la créer</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Implémenter le service en héritant de <computeroutput>BaseDisposableService</computeroutput> ou <computeroutput>BaseAsyncDisposableService</computeroutput></para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Ajouter la documentation Doxygen complète (publique ET privée)</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Ajouter le tracing OpenTelemetry</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Ajouter les métriques OpenTelemetry</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Créer l&apos;extension DI pour l&apos;enregistrement</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Écrire les tests unitaires</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Écrire les tests de non-régression</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Mettre à jour <computeroutput><ref refid="_r_e_a_d_m_e_8md" kindref="compound">README.md</ref></computeroutput></para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked"><para>Mettre à jour <computeroutput><ref refid="_u_s_a_g_e_8md" kindref="compound">USAGE.md</ref></computeroutput></para>
+</listitem></itemizedlist>
+</para>
+<para><hruler/>
+</para>
+</sect1>
+<sect1 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md32">
+<title>Git et Commits</title><sect2 id="md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md33">
+<title>Messages de Commit</title><para><itemizedlist>
+<listitem><para>Les messages doivent être <bold>structurés en Markdown</bold></para>
+</listitem><listitem><para>Contenir <bold>toutes les actions effectuées</bold></para>
+</listitem><listitem><para>Rester un <bold>résumé concis</bold> </para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="C:/Users/micde/RiderProjects/Toolbox/CLAUDE.md"/>
+  </compounddef>
+</doxygen>

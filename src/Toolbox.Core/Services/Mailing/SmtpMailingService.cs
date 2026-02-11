@@ -34,19 +34,29 @@ namespace Toolbox.Core.Services.Mailing;
 /// <seealso cref="IMailingService"/>
 public sealed class SmtpMailingService : BaseAsyncDisposableService, IMailingService
 {
-    // The SMTP client instance
+    /// <summary>
+    /// The SMTP client instance for email operations.
+    /// </summary>
     private readonly SmtpClient _client;
 
-    // The service options
+    /// <summary>
+    /// The service configuration options.
+    /// </summary>
     private readonly MailingOptions _options;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<SmtpMailingService> _logger;
 
-    // Lock for connection management
+    /// <summary>
+    /// Semaphore for thread-safe connection management.
+    /// </summary>
     private readonly SemaphoreSlim _connectionLock = new(1, 1);
 
-    // Connection state
+    /// <summary>
+    /// Indicates whether the service is currently connected to the SMTP server.
+    /// </summary>
     private bool _isConnected;
 
     /// <summary>

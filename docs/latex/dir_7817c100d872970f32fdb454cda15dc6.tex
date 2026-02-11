@@ -1,31 +1,28 @@
 \doxysection{C:\+/\+\+Users/\+micde/\+\+Rider\+Projects/\+\+Toolbox Directory Reference}
 \hypertarget{dir_7817c100d872970f32fdb454cda15dc6}{}\label{dir_7817c100d872970f32fdb454cda15dc6}\index{C:/Users/micde/RiderProjects/Toolbox Directory Reference@{C:/Users/micde/RiderProjects/Toolbox Directory Reference}}
-\doxysubsubsection*{Directories}
-\begin{DoxyCompactItemize}
-\item 
-directory \doxymbox{\hyperlink{dir_b1be64d60e5a7cf8e8891c9e2303c399}{samples}}
-\item 
-directory \doxymbox{\hyperlink{dir_6ac6fc6bb3b06b85fb096b7b9f65ee06}{src}}
-\item 
-directory \doxymbox{\hyperlink{dir_eaaf9cb45e917ecc53bfca006a6d5728}{tests}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md0}{}\doxysubsection{\texorpdfstring{Toolbox}{Toolbox}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md0}
-A .NET 10 library providing base services, telemetry, and dependency injection extensions.\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md1}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md1}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md34}{}\doxysubsection{\texorpdfstring{Toolbox}{Toolbox}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md34}
+A .NET 10 library providing base services, telemetry, and dependency injection extensions.\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md35}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md35}
 
 \begin{DoxyItemize}
+\item {\bfseries{Cryptography Services}}:\+ AES, RSA, and Base64 encoding/\+decoding
+\item {\bfseries{File Transfer Services}}:\+ FTP, FTPS, and SFTP with batch operations
+\item {\bfseries{Mailing Services}}:\+ SMTP with TLS/\+\+SSL, OAuth2, and attachment support
+\item {\bfseries{API Services}}:\+ HTTP client with multiple authentication modes and retry policies
+\item {\bfseries{LDAP Services}}:\+ Active Directory, Azure AD, Open\+LDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL) and management operations (enable/\+disable accounts, group membership, password reset, object movement)
+\item {\bfseries{SSO Services}}:\+ Single Sign-\/\+On session management, automatic token refresh, and secure credential storage (Windows Credential Manager, encrypted file)
 \item {\bfseries{Disposable Services}}:\+ Thread-\/safe base classes for synchronous and asynchronous disposal
 \item {\bfseries{Open\+Telemetry Integration}}:\+ Built-\/in distributed tracing and metrics collection
 \item {\bfseries{Dependency Injection}}:\+ Fluent extensions for easy service registration
-\item {\bfseries{Comprehensive Documentation}}:\+ Full Doxygen documentation support
-\end{DoxyItemize}\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md2}{}\doxysubsection{\texorpdfstring{Requirements}{Requirements}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md2}
+\item {\bfseries{Comprehensive Documentation}}:\+ Full Doxygen documentation (HTML, La\+TeX, XML, Doc\+Book, RTF, Man)
+\end{DoxyItemize}\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md36}{}\doxysubsection{\texorpdfstring{Requirements}{Requirements}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md36}
 
 \begin{DoxyItemize}
 \item .NET 10.\+0 or later
 \item C\# 14.\+0
-\end{DoxyItemize}\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md3}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md3}
+\end{DoxyItemize}\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md37}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md37}
 Add the project reference to your solution:\+
 
 
@@ -33,71 +30,97 @@ Add the project reference to your solution:\+
 \DoxyCodeLine{<\textcolor{keywordtype}{ProjectReference}\ \textcolor{keyword}{Include}=\textcolor{stringliteral}{"{}..\(\backslash\)src\(\backslash\)Toolbox.Core\(\backslash\)Toolbox.Core.csproj"{}}\ />}
 
 \end{DoxyCode}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md4}{}\doxysubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md4}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md38}{}\doxysubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md38}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_toolbox_1_1_core_1_1_extensions}{Toolbox.Core.Extensions}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }Toolbox.Core.Extensions;}
 \DoxyCodeLine{}
-\DoxyCodeLine{var\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =\ Host.CreateApplicationBuilder(args);}
+\DoxyCodeLine{var\ builder\ =\ Host.CreateApplicationBuilder(args);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ Add\ Toolbox\ core\ services}}
-\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxCore(options\ =>}
+\DoxyCodeLine{builder.Services.AddToolboxCore(options\ =>}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ options.EnableDetailedTelemetry\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ Add\ OpenTelemetry\ integration}}
-\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddToolboxOpenTelemetry(options\ =>}
+\DoxyCodeLine{builder.Services.AddToolboxOpenTelemetry(options\ =>}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ options.EnableTracing\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ \ \ options.EnableMetrics\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ \ \ options.EnableConsoleExport\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\});}
 \DoxyCodeLine{}
-\DoxyCodeLine{var\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}\ =\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Build();}
-\DoxyCodeLine{\doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Run();}
+\DoxyCodeLine{var\ app\ =\ builder.Build();}
+\DoxyCodeLine{app.Run();}
 
 \end{DoxyCode}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md5}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md5}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md39}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md39}
 
 \begin{DoxyItemize}
-\item \doxysectlink{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e}{Usage Guide}{0} -\/ Detailed usage instructions
-\item \href{docs/html/index.html}{\texttt{API Documentation}} -\/ Generated Doxygen documentation
-\end{DoxyItemize}\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Generating Documentation}{Generating Documentation}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md6}
+\item \doxysectlink{md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e}{Usage Guide}{0} -\/ Detailed usage instructions and examples
+\item \href{docs/html/index.html}{\texttt{API Documentation (HTML)}} -\/ Web-\/based API reference
+\item \href{docs/latex/refman.pdf}{\texttt{API Documentation (PDF)}} -\/ PDF reference manual (requires La\+TeX compilation)
+\end{DoxyItemize}\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md40}{}\doxysubsubsection{\texorpdfstring{Available Documentation Formats}{Available Documentation Formats}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md40}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Format  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Location  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+HTML  &{\ttfamily docs/\+html/\+}  &Web-\/based documentation  \\
+La\+TeX  &{\ttfamily docs/\+latex/\+}  &PDF generation source  \\
+XML  &{\ttfamily docs/\+xml/\+}  &Structured XML for tooling  \\
+Doc\+Book  &{\ttfamily docs/\+docbook/\+}  &Technical documentation format  \\
+RTF  &{\ttfamily docs/\+rtf/\+}  &Rich Text Format  \\
+Man  &{\ttfamily docs/\+man/\+}  &Unix manual pages  \\
+\end{DoxyTable}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md41}{}\doxysubsubsection{\texorpdfstring{Generating Documentation}{Generating Documentation}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md41}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{doxygen\ Doxyfile}
 
 \end{DoxyCode}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md7}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md7}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md42}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md42}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Toolbox/}
 \DoxyCodeLine{├──\ src/}
 \DoxyCodeLine{│\ \ \ └──\ Toolbox.Core/\ \ \ \ \ \ \ \ \ \ \ \#\ Core\ library}
-\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Abstractions/\ \ \ \ \ \ \ \#\ Interfaces}
-\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Base/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Base\ classes}
-\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Extensions/\ \ \ \ \ \ \ \ \ \#\ DI\ extensions}
-\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Options/\ \ \ \ \ \ \ \ \ \ \ \ \#\ Configuration\ options}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Abstractions/\ \ \ \ \ \ \ \#\ Service\ interfaces}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ └──\ Services/\ \ \ \ \ \ \ \#\ ICryptographyService,\ IFileTransferService,\ etc.}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Base/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Base\ classes\ for\ services}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Extensions/\ \ \ \ \ \ \ \ \ \#\ DI\ extension\ methods}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Options/\ \ \ \ \ \ \ \ \ \ \ \ \#\ Configuration\ options\ and\ DTOs}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ Services/\ \ \ \ \ \ \ \ \ \ \ \#\ Service\ implementations}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Api/\ \ \ \ \ \ \ \ \ \ \ \ \#\ HTTP\ API\ service}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Cryptography/\ \ \ \#\ AES,\ RSA,\ Base64\ services}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ FileTransfer/\ \ \ \#\ FTP,\ SFTP\ services}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Ldap/\ \ \ \ \ \ \ \ \ \ \ \#\ Active\ Directory,\ Azure\ AD,\ OpenLDAP,\ Apple\ Directory}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ ├──\ Mailing/\ \ \ \ \ \ \ \ \#\ SMTP\ service}
+\DoxyCodeLine{│\ \ \ \ \ \ \ │\ \ \ └──\ Sso/\ \ \ \ \ \ \ \ \ \ \ \ \#\ SSO\ session\ management,\ credential\ stores}
 \DoxyCodeLine{│\ \ \ \ \ \ \ └──\ Telemetry/\ \ \ \ \ \ \ \ \ \ \#\ OpenTelemetry\ infrastructure}
 \DoxyCodeLine{├──\ tests/}
 \DoxyCodeLine{│\ \ \ └──\ Toolbox.Tests/\ \ \ \ \ \ \ \ \ \ \#\ Unit\ and\ integration\ tests}
 \DoxyCodeLine{├──\ samples/}
 \DoxyCodeLine{│\ \ \ └──\ Toolbox.Sample/\ \ \ \ \ \ \ \ \ \#\ Sample\ application}
-\DoxyCodeLine{└──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Generated\ documentation}
+\DoxyCodeLine{└──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Generated\ Doxygen\ documentation}
+\DoxyCodeLine{\ \ \ \ ├──\ html/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Web\ documentation}
+\DoxyCodeLine{\ \ \ \ ├──\ latex/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ PDF\ source}
+\DoxyCodeLine{\ \ \ \ ├──\ xml/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Structured\ XML}
+\DoxyCodeLine{\ \ \ \ ├──\ docbook/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ DocBook\ format}
+\DoxyCodeLine{\ \ \ \ ├──\ rtf/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Rich\ Text\ Format}
+\DoxyCodeLine{\ \ \ \ └──\ man/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Unix\ manual\ pages}
 
 \end{DoxyCode}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md8}{}\doxysubsection{\texorpdfstring{Building}{Building}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md8}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md43}{}\doxysubsection{\texorpdfstring{Building}{Building}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md43}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{dotnet\ build}
 
 \end{DoxyCode}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md9}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md9}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md44}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md44}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{dotnet\ test}
 
 \end{DoxyCode}
-\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md10}{}\doxysubsection{\texorpdfstring{License}{License}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md10}
+\hypertarget{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md45}{}\doxysubsection{\texorpdfstring{License}{License}}\label{dir_7817c100d872970f32fdb454cda15dc6_autotoc_md45}
 This project is licensed under the MIT License. 

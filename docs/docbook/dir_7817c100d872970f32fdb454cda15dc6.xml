@@ -2,38 +2,39 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_7817c100d872970f32fdb454cda15dc6" xml:lang="en-US">
 <title>C:/Users/micde/RiderProjects/Toolbox Directory Reference</title>
 <indexterm><primary>C:/Users/micde/RiderProjects/Toolbox Directory Reference</primary></indexterm>
-<simplesect>
-    <title>Directories    </title>
-        <itemizedlist>
-            <listitem><para>directory <link linkend="_dir_b1be64d60e5a7cf8e8891c9e2303c399">samples</link></para>
-</listitem>
-            <listitem><para>directory <link linkend="_dir_6ac6fc6bb3b06b85fb096b7b9f65ee06">src</link></para>
-</listitem>
-            <listitem><para>directory <link linkend="_dir_eaaf9cb45e917ecc53bfca006a6d5728">tests</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
 <section>
 <title>Detailed Description</title>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md0">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md34">
 <title>Toolbox</title>
 <para>A .NET 10 library providing base services, telemetry, and dependency injection extensions.</para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md1">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md35">
 <title>Features</title>
 <para><itemizedlist>
 <listitem>
+<para><emphasis role="bold">Cryptography Services</emphasis>: AES, RSA, and Base64 encoding/decoding</para>
+</listitem><listitem>
+<para><emphasis role="bold">File Transfer Services</emphasis>: FTP, FTPS, and SFTP with batch operations</para>
+</listitem><listitem>
+<para><emphasis role="bold">Mailing Services</emphasis>: SMTP with TLS/SSL, OAuth2, and attachment support</para>
+</listitem><listitem>
+<para><emphasis role="bold">API Services</emphasis>: HTTP client with multiple authentication modes and retry policies</para>
+</listitem><listitem>
+<para><emphasis role="bold">LDAP Services</emphasis>: Active Directory, Azure AD, OpenLDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL) and management operations (enable/disable accounts, group membership, password reset, object movement)</para>
+</listitem><listitem>
+<para><emphasis role="bold">SSO Services</emphasis>: Single Sign-On session management, automatic token refresh, and secure credential storage (Windows Credential Manager, encrypted file)</para>
+</listitem><listitem>
 <para><emphasis role="bold">Disposable Services</emphasis>: Thread-safe base classes for synchronous and asynchronous disposal</para>
 </listitem><listitem>
 <para><emphasis role="bold">OpenTelemetry Integration</emphasis>: Built-in distributed tracing and metrics collection</para>
 </listitem><listitem>
 <para><emphasis role="bold">Dependency Injection</emphasis>: Fluent extensions for easy service registration</para>
 </listitem><listitem>
-<para><emphasis role="bold">Comprehensive Documentation</emphasis>: Full Doxygen documentation support</para>
+<para><emphasis role="bold">Comprehensive Documentation</emphasis>: Full Doxygen documentation (HTML, LaTeX, XML, DocBook, RTF, Man)</para>
 </listitem></itemizedlist>
 </para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md2">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md36">
 <title>Requirements</title>
 <para><itemizedlist>
 <listitem>
@@ -43,14 +44,14 @@
 </listitem></itemizedlist>
 </para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md3">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md37">
 <title>Installation</title>
 <para>Add the project reference to your solution:</para>
 
 <para><literallayout><computeroutput>&lt;ProjectReference&#32;Include=&quot;..\src\Toolbox.Core\Toolbox.Core.csproj&quot;&#32;/&gt;
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md4">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md38">
 <title>Quick Start</title>
 <para><literallayout><computeroutput>using&#32;Toolbox.Core.Extensions;
 
@@ -74,49 +75,135 @@ var&#32;app&#32;=&#32;builder.Build();
 app.Run();
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md5">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md39">
 <title>Documentation</title>
 <para><itemizedlist>
 <listitem>
-<para><link linkend="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e">Usage Guide</link> - Detailed usage instructions</para>
+<para><link linkend="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e">Usage Guide</link> - Detailed usage instructions and examples</para>
 </listitem><listitem>
-<para><link xlink:href="docs/html/index.html">API Documentation</link> - Generated Doxygen documentation</para>
+<para><link xlink:href="docs/html/index.html">API Documentation (HTML)</link> - Web-based API reference</para>
+</listitem><listitem>
+<para><link xlink:href="docs/latex/refman.pdf">API Documentation (PDF)</link> - PDF reference manual (requires LaTeX compilation)</para>
 </listitem></itemizedlist>
 </para>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md6">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md40">
+<title>Available Documentation Formats</title>
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Format  </para>
+</entry><entry>
+<para>Location  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>HTML  </para>
+</entry><entry>
+<para><computeroutput>docs/html/</computeroutput>  </para>
+</entry><entry>
+<para>Web-based documentation  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>LaTeX  </para>
+</entry><entry>
+<para><computeroutput>docs/latex/</computeroutput>  </para>
+</entry><entry>
+<para>PDF generation source  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>XML  </para>
+</entry><entry>
+<para><computeroutput>docs/xml/</computeroutput>  </para>
+</entry><entry>
+<para>Structured XML for tooling  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>DocBook  </para>
+</entry><entry>
+<para><computeroutput>docs/docbook/</computeroutput>  </para>
+</entry><entry>
+<para>Technical documentation format  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>RTF  </para>
+</entry><entry>
+<para><computeroutput>docs/rtf/</computeroutput>  </para>
+</entry><entry>
+<para>Rich Text Format  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Man  </para>
+</entry><entry>
+<para><computeroutput>docs/man/</computeroutput>  </para>
+</entry><entry>
+<para>Unix manual pages  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md41">
 <title>Generating Documentation</title>
 <para><literallayout><computeroutput>doxygen&#32;Doxyfile
 </computeroutput></literallayout></para>
 </section>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md7">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md42">
 <title>Project Structure</title>
 <para><literallayout><computeroutput>Toolbox/
 ├──&#32;src/
 │&#32;&#32;&#32;└──&#32;Toolbox.Core/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Core&#32;library
-│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Abstractions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Interfaces
-│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Base/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Base&#32;classes
-│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Extensions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;DI&#32;extensions
-│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Options/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Configuration&#32;options
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Abstractions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Service&#32;interfaces
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;└──&#32;Services/&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;ICryptographyService,&#32;IFileTransferService,&#32;etc.
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Base/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Base&#32;classes&#32;for&#32;services
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Extensions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;DI&#32;extension&#32;methods
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Options/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Configuration&#32;options&#32;and&#32;DTOs
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Services/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Service&#32;implementations
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Api/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;HTTP&#32;API&#32;service
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Cryptography/&#32;&#32;&#32;#&#32;AES,&#32;RSA,&#32;Base64&#32;services
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;FileTransfer/&#32;&#32;&#32;#&#32;FTP,&#32;SFTP&#32;services
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Ldap/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Active&#32;Directory,&#32;Azure&#32;AD,&#32;OpenLDAP,&#32;Apple&#32;Directory
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Mailing/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;SMTP&#32;service
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;└──&#32;Sso/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;SSO&#32;session&#32;management,&#32;credential&#32;stores
 │&#32;&#32;&#32;&#32;&#32;&#32;&#32;└──&#32;Telemetry/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;OpenTelemetry&#32;infrastructure
 ├──&#32;tests/
 │&#32;&#32;&#32;└──&#32;Toolbox.Tests/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Unit&#32;and&#32;integration&#32;tests
 ├──&#32;samples/
 │&#32;&#32;&#32;└──&#32;Toolbox.Sample/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Sample&#32;application
-└──&#32;docs/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Generated&#32;documentation
+└──&#32;docs/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Generated&#32;Doxygen&#32;documentation
+&#32;&#32;&#32;&#32;├──&#32;html/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Web&#32;documentation
+&#32;&#32;&#32;&#32;├──&#32;latex/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;PDF&#32;source
+&#32;&#32;&#32;&#32;├──&#32;xml/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Structured&#32;XML
+&#32;&#32;&#32;&#32;├──&#32;docbook/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;DocBook&#32;format
+&#32;&#32;&#32;&#32;├──&#32;rtf/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Rich&#32;Text&#32;Format
+&#32;&#32;&#32;&#32;└──&#32;man/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Unix&#32;manual&#32;pages
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md8">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md43">
 <title>Building</title>
 <para><literallayout><computeroutput>dotnet&#32;build
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md9">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md44">
 <title>Testing</title>
 <para><literallayout><computeroutput>dotnet&#32;test
 </computeroutput></literallayout></para>
 </section>
-<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md10">
+<section xml:id="_dir_7817c100d872970f32fdb454cda15dc6_1autotoc_md45">
 <title>License</title>
 <para>This project is licensed under the MIT License. </para>
 </section>

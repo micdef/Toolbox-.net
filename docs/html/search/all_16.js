@@ -1,29 +1,5 @@
 var searchData=
 [
-  ['padding_20modes_0',['Padding Modes',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md31',1,'']]],
-  ['password_1',['Password',['../class_toolbox_1_1_core_1_1_options_1_1_api_options.html#a58e0a0c3c1f54b81fd8d8f406a684869',1,'Toolbox.Core.Options.ApiOptions.Password'],['../class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options.html#ab06f316edd65c9230b21a4855bd24948',1,'Toolbox.Core.Options.FileTransferOptions.Password'],['../class_toolbox_1_1_core_1_1_options_1_1_mailing_options.html#addde220b9b4243a94dbf9c6d5d5623e1',1,'Toolbox.Core.Options.MailingOptions.Password']]],
-  ['patch_2',['Patch',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#a7bd68f324636e566840020c0a6ac88e3',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['patch_3c_20t_20_3e_3',['Patch&lt; T &gt;',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#a300af8f887a6751cc77ac59dba56b587',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['patch_5fshouldcreatepatchrequest_4',['Patch_ShouldCreatePatchRequest',['../class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests.html#a23db8d15b2fd7272ecb05202445b0aac',1,'Toolbox::Tests::Unit::Options::ApiRequestTests']]],
-  ['performance_5',['3. Record Metrics for Performance',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md67',1,'']]],
-  ['pkcs1_6',['Pkcs1',['../namespace_toolbox_1_1_core_1_1_options.html#a37c881e3211938fcd305b625a9671448abc978a8cb9698bd801f2e77713c26387',1,'Toolbox::Core::Options']]],
-  ['plaintextbody_7',['PlainTextBody',['../class_toolbox_1_1_core_1_1_options_1_1_email_message.html#a667aa502ae68efb886b63e93b06a695b',1,'Toolbox::Core::Options::EmailMessage']]],
-  ['port_8',['Port',['../class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options.html#a970c1d03c039471cad314f80af179c04',1,'Toolbox.Core.Options.FileTransferOptions.Port'],['../class_toolbox_1_1_core_1_1_options_1_1_mailing_options.html#acea60967c6520c8c575a6dc81310fc0d',1,'Toolbox.Core.Options.MailingOptions.Port']]],
-  ['post_9',['Post',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#a3e3e1e01010dfda0201ac9344f485b6a',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['post_3c_20t_20_3e_10',['Post&lt; T &gt;',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#a2ea4daa4d8de703288c4f3c80d7c4ccf',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['post_5fshouldcreatepostrequest_11',['Post_ShouldCreatePostRequest',['../class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests.html#aaaabac086d44280bbc48601562490788',1,'Toolbox::Tests::Unit::Options::ApiRequestTests']]],
-  ['post_5fwithbody_5fshouldsetjsoncontent_12',['Post_WithBody_ShouldSetJsonContent',['../class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests.html#a5c560e400bc454836ecaa139bc6022b8',1,'Toolbox::Tests::Unit::Options::ApiRequestTests']]],
-  ['practices_13',['Best Practices',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md64',1,'']]],
-  ['priority_14',['Priority',['../class_toolbox_1_1_core_1_1_options_1_1_email_message.html#abfe1f4e9814f5b67aa2122fafef4804a',1,'Toolbox::Core::Options::EmailMessage']]],
-  ['privatekey_15',['PrivateKey',['../class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair.html#a2e05dabe536cf7b9a543b9bf84dc5104',1,'Toolbox::Core::Options::RsaKeyPair']]],
-  ['privatekeycontent_16',['PrivateKeyContent',['../class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options.html#ab94e3d4e8625bb6c1f327556d2212337',1,'Toolbox::Core::Options::FileTransferOptions']]],
-  ['privatekeypassphrase_17',['PrivateKeyPassphrase',['../class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options.html#af5d39a7a27cd05c27b717b4548f9c707',1,'Toolbox::Core::Options::FileTransferOptions']]],
-  ['privatekeypath_18',['PrivateKeyPath',['../class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options.html#a75bd8e0fb9ac0f1a306d584c21581ded',1,'Toolbox::Core::Options::FileTransferOptions']]],
-  ['program_2ecs_19',['Program.cs',['../_program_8cs.html',1,'']]],
-  ['project_20structure_20',['Project Structure',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md7',1,'']]],
-  ['protocol_21',['Protocol',['../class_toolbox_1_1_core_1_1_options_1_1_file_transfer_options.html#a300625ffc14d0f4b71421214ba75cd22',1,'Toolbox::Core::Options::FileTransferOptions']]],
-  ['publickey_22',['PublicKey',['../class_toolbox_1_1_core_1_1_options_1_1_rsa_key_pair.html#a8744b4471d6363247ac464c63f73f9a5',1,'Toolbox::Core::Options::RsaKeyPair']]],
-  ['put_23',['Put',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#ab09b7cc8b377bd225d976fa846631ce4',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['put_3c_20t_20_3e_24',['Put&lt; T &gt;',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#ad246e7b922cfe5fa71f2acf44f79592a',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['put_5fshouldcreateputrequest_25',['Put_ShouldCreatePutRequest',['../class_toolbox_1_1_tests_1_1_unit_1_1_options_1_1_api_request_tests.html#ac77e7c783fffddce49deda043eb8732c',1,'Toolbox::Tests::Unit::Options::ApiRequestTests']]]
+  ['querying_20supported_20modes_0',['Querying Supported Modes',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md122',1,'']]],
+  ['quick_20start_1',['Quick Start',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md38',1,'']]]
 ];

@@ -1,4 +1,4 @@
-.TH "C:/Users/micde/RiderProjects/Toolbox Directory Reference" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.TH "C:/Users/micde/RiderProjects/Toolbox Directory Reference" 3 "Toolbox" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,19 +6,6 @@ C:/Users/micde/RiderProjects/Toolbox Directory Reference
 .SH SYNOPSIS
 .br
 .PP
-.SS "Directories"
-
-.in +1c
-.ti -1c
-.RI "directory \fBsamples\fP"
-.br
-.ti -1c
-.RI "directory \fBsrc\fP"
-.br
-.ti -1c
-.RI "directory \fBtests\fP"
-.br
-.in -1c
 .SH "Detailed Description"
 .PP 
 
@@ -28,13 +15,25 @@ A \&.NET 10 library providing base services, telemetry, and dependency injection
 .SH "Features"
 .PP
 .IP "\(bu" 2
+\fBCryptography Services\fP: AES, RSA, and Base64 encoding/decoding
+.IP "\(bu" 2
+\fBFile Transfer Services\fP: FTP, FTPS, and SFTP with batch operations
+.IP "\(bu" 2
+\fBMailing Services\fP: SMTP with TLS/SSL, OAuth2, and attachment support
+.IP "\(bu" 2
+\fBAPI Services\fP: HTTP client with multiple authentication modes and retry policies
+.IP "\(bu" 2
+\fBLDAP Services\fP: Active Directory, Azure AD, OpenLDAP, and Apple Directory with advanced authentication (Kerberos, NTLM, Certificate, SASL) and management operations (enable/disable accounts, group membership, password reset, object movement)
+.IP "\(bu" 2
+\fBSSO Services\fP: Single Sign-On session management, automatic token refresh, and secure credential storage (Windows Credential Manager, encrypted file)
+.IP "\(bu" 2
 \fBDisposable Services\fP: Thread-safe base classes for synchronous and asynchronous disposal
 .IP "\(bu" 2
 \fBOpenTelemetry Integration\fP: Built-in distributed tracing and metrics collection
 .IP "\(bu" 2
 \fBDependency Injection\fP: Fluent extensions for easy service registration
 .IP "\(bu" 2
-\fBComprehensive Documentation\fP: Full Doxygen documentation support
+\fBComprehensive Documentation\fP: Full Doxygen documentation (HTML, LaTeX, XML, DocBook, RTF, Man)
 .PP
 .SH "Requirements"
 .PP
@@ -82,10 +81,14 @@ app\&.Run();
 .SH "Documentation"
 .PP
 .IP "\(bu" 2
-\fBUsage Guide\fP - Detailed usage instructions
+\fBUsage Guide\fP - Detailed usage instructions and examples
 .IP "\(bu" 2
-\fRAPI Documentation\fP - Generated Doxygen documentation
+\fRAPI Documentation (HTML)\fP - Web-based API reference
+.IP "\(bu" 2
+\fRAPI Documentation (PDF)\fP - PDF reference manual (requires LaTeX compilation)
 .PP
+.SS "Available Documentation Formats"
+Format  Location  Description  HTML  \fRdocs/html/\fP  Web-based documentation  LaTeX  \fRdocs/latex/\fP  PDF generation source  XML  \fRdocs/xml/\fP  Structured XML for tooling  DocBook  \fRdocs/docbook/\fP  Technical documentation format  RTF  \fRdocs/rtf/\fP  Rich Text Format  Man  \fRdocs/man/\fP  Unix manual pages  
 .SS "Generating Documentation"
 .PP
 .nf
@@ -99,16 +102,30 @@ doxygen Doxyfile
 Toolbox/
 ├── src/
 │   └── Toolbox\&.Core/           # Core library
-│       ├── Abstractions/       # Interfaces
-│       ├── Base/               # Base classes
-│       ├── Extensions/         # DI extensions
-│       ├── Options/            # Configuration options
+│       ├── Abstractions/       # Service interfaces
+│       │   └── Services/       # ICryptographyService, IFileTransferService, etc\&.
+│       ├── Base/               # Base classes for services
+│       ├── Extensions/         # DI extension methods
+│       ├── Options/            # Configuration options and DTOs
+│       ├── Services/           # Service implementations
+│       │   ├── Api/            # HTTP API service
+│       │   ├── Cryptography/   # AES, RSA, Base64 services
+│       │   ├── FileTransfer/   # FTP, SFTP services
+│       │   ├── Ldap/           # Active Directory, Azure AD, OpenLDAP, Apple Directory
+│       │   ├── Mailing/        # SMTP service
+│       │   └── Sso/            # SSO session management, credential stores
 │       └── Telemetry/          # OpenTelemetry infrastructure
 ├── tests/
 │   └── Toolbox\&.Tests/          # Unit and integration tests
 ├── samples/
 │   └── Toolbox\&.Sample/         # Sample application
-└── docs/                       # Generated documentation
+└── docs/                       # Generated Doxygen documentation
+    ├── html/                   # Web documentation
+    ├── latex/                  # PDF source
+    ├── xml/                    # Structured XML
+    ├── docbook/                # DocBook format
+    ├── rtf/                    # Rich Text Format
+    └── man/                    # Unix manual pages
 .fi
 .PP
 .SH "Building"

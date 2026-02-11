@@ -27,13 +27,19 @@ namespace Toolbox.Core.Services.Cryptography;
 /// <seealso cref="ICryptographyService"/>
 public sealed class AesCryptographyService : BaseAsyncDisposableService, ICryptographyService
 {
-    // The AES key
+    /// <summary>
+    /// The AES encryption key.
+    /// </summary>
     private readonly byte[] _key;
 
-    // The initialization vector
+    /// <summary>
+    /// The initialization vector for cipher block chaining.
+    /// </summary>
     private readonly byte[] _iv;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<AesCryptographyService> _logger;
 
     /// <summary>

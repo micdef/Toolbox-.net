@@ -36,10 +36,29 @@ namespace Toolbox.Core.Services.Ldap;
 /// <seealso cref="ILdapService"/>
 public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
 {
+    /// <summary>
+    /// The OpenLDAP configuration options.
+    /// </summary>
     private readonly OpenLdapOptions _options;
+
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<OpenLdapService> _logger;
+
+    /// <summary>
+    /// Semaphore for thread-safe connection management.
+    /// </summary>
     private readonly SemaphoreSlim _connectionLock = new(1, 1);
+
+    /// <summary>
+    /// The active LDAP connection to the OpenLDAP server.
+    /// </summary>
     private LdapConnection? _connection;
+
+    /// <summary>
+    /// Indicates whether the service is currently connected to the server.
+    /// </summary>
     private bool _isConnected;
 
     /// <summary>
@@ -438,6 +457,14 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Searches for users matching the specified LDAP filter with pagination.
+    /// </summary>
+    /// <param name="filter">The LDAP filter to apply.</param>
+    /// <param name="page">The page number (1-based).</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A paged result containing the matching users.</returns>
     private async Task<PagedResult<LdapUser>> SearchUsersPagedAsync(string filter, int page, int pageSize, CancellationToken cancellationToken)
     {
         var skip = (page - 1) * pageSize;
@@ -479,6 +506,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return PagedResult<LdapUser>.Create(pagedUsers, page, pageSize, totalCount);
     }
 
+    /// <summary>
+    /// Builds an LDAP filter string from the specified search criteria.
+    /// </summary>
+    /// <param name="criteria">The search criteria to convert to an LDAP filter.</param>
+    /// <returns>An LDAP filter string combining all specified criteria with AND logic.</returns>
     private string BuildLdapFilter(LdapSearchCriteria criteria)
     {
         var filters = new List<string>
@@ -543,6 +575,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return $"(&{string.Join("", filters)})";
     }
 
+    /// <summary>
+    /// Escapes special characters in a value for use in an LDAP filter, preserving wildcards.
+    /// </summary>
+    /// <param name="value">The value to escape.</param>
+    /// <returns>The escaped value with wildcards (*) preserved.</returns>
+    /// <remarks>
+    /// Unlike <see cref="EscapeLdapFilter"/>, this method does not escape the asterisk character,
+    /// allowing wildcard searches.
+    /// </remarks>
     private static string EscapeLdapFilterWithWildcard(string value)
     {
         return value
@@ -801,6 +842,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Searches for a single group matching the specified LDAP filter.
+    /// </summary>
+    /// <param name="filter">The LDAP filter to apply.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The matching group, or null if not found.</returns>
     private async Task<LdapGroup?> SearchSingleGroupAsync(string filter, CancellationToken cancellationToken)
     {
         var searchConstraints = new LdapSearchConstraints
@@ -835,6 +882,14 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Searches for groups matching the specified LDAP filter with pagination.
+    /// </summary>
+    /// <param name="filter">The LDAP filter to apply.</param>
+    /// <param name="page">The page number (1-based).</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A paged result containing the matching groups.</returns>
     private async Task<PagedResult<LdapGroup>> SearchGroupsPagedAsync(string filter, int page, int pageSize, CancellationToken cancellationToken)
     {
         var skip = (page - 1) * pageSize;
@@ -876,6 +931,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return PagedResult<LdapGroup>.Create(pagedGroups, page, pageSize, totalCount);
     }
 
+    /// <summary>
+    /// Builds an LDAP filter string from the specified group search criteria.
+    /// </summary>
+    /// <param name="criteria">The search criteria to convert to an LDAP filter.</param>
+    /// <returns>An LDAP filter string combining all specified criteria with AND logic.</returns>
     private string BuildGroupLdapFilter(LdapGroupSearchCriteria criteria)
     {
         var filters = new List<string>
@@ -917,6 +977,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return $"(&{string.Join("", filters)})";
     }
 
+    /// <summary>
+    /// Maps an LDAP entry to an LdapGroup object.
+    /// </summary>
+    /// <param name="entry">The LDAP entry from the search result.</param>
+    /// <returns>A populated LdapGroup object.</returns>
     private LdapGroup MapToLdapGroup(LdapEntry entry)
     {
         var group = new LdapGroup
@@ -938,6 +1003,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return group;
     }
 
+    /// <summary>
+    /// Gets the values of a multi-valued attribute from an LDAP entry.
+    /// </summary>
+    /// <param name="entry">The LDAP entry.</param>
+    /// <param name="attributeName">The name of the attribute to retrieve.</param>
+    /// <returns>A list of attribute values, or an empty list if the attribute is not present.</returns>
     private static IList<string> GetMultiValueAttribute(LdapEntry entry, string attributeName)
     {
         try
@@ -956,6 +1027,10 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Gets the list of group attributes to retrieve in search operations.
+    /// </summary>
+    /// <returns>An array of attribute names for group searches.</returns>
     private string[] GetGroupAttributes() =>
     [
         "entryUUID",
@@ -1216,6 +1291,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Searches for a single computer matching the specified LDAP filter.
+    /// </summary>
+    /// <param name="filter">The LDAP filter to apply.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The matching computer, or null if not found.</returns>
     private async Task<LdapComputer?> SearchSingleComputerAsync(string filter, CancellationToken cancellationToken)
     {
         var searchConstraints = new LdapSearchConstraints
@@ -1250,6 +1331,14 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Searches for computers matching the specified LDAP filter with pagination.
+    /// </summary>
+    /// <param name="filter">The LDAP filter to apply.</param>
+    /// <param name="page">The page number (1-based).</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A paged result containing the matching computers.</returns>
     private async Task<PagedResult<LdapComputer>> SearchComputersPagedAsync(string filter, int page, int pageSize, CancellationToken cancellationToken)
     {
         var skip = (page - 1) * pageSize;
@@ -1291,6 +1380,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return PagedResult<LdapComputer>.Create(pagedComputers, page, pageSize, totalCount);
     }
 
+    /// <summary>
+    /// Builds an LDAP filter string from the specified computer search criteria.
+    /// </summary>
+    /// <param name="criteria">The search criteria to convert to an LDAP filter.</param>
+    /// <returns>An LDAP filter string combining all specified criteria with AND logic.</returns>
     private string BuildComputerLdapFilter(LdapComputerSearchCriteria criteria)
     {
         var filters = new List<string>
@@ -1329,6 +1423,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return $"(&{string.Join("", filters)})";
     }
 
+    /// <summary>
+    /// Maps an LDAP entry to an LdapComputer object.
+    /// </summary>
+    /// <param name="entry">The LDAP entry from the search result.</param>
+    /// <returns>A populated LdapComputer object.</returns>
     private LdapComputer MapToLdapComputer(LdapEntry entry)
     {
         var ipAddresses = GetMultiValueAttribute(entry, "ipHostNumber");
@@ -1349,6 +1448,10 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return computer;
     }
 
+    /// <summary>
+    /// Gets the list of computer attributes to retrieve in search operations.
+    /// </summary>
+    /// <returns>An array of attribute names for computer searches.</returns>
     private string[] GetComputerAttributes() =>
     [
         "entryUUID",
@@ -1497,6 +1600,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         ];
     }
 
+    /// <summary>
+    /// Authenticates a user using simple bind (username/password).
+    /// </summary>
+    /// <param name="options">The authentication options containing credentials.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The authentication result indicating success or failure.</returns>
     private async Task<LdapAuthenticationResult> AuthenticateSimpleAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -1555,6 +1664,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Authenticates using anonymous bind.
+    /// </summary>
+    /// <param name="options">The authentication options.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The authentication result.</returns>
     private async Task<LdapAuthenticationResult> AuthenticateAnonymousAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -1574,6 +1689,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             LdapDirectoryType.OpenLdap);
     }
 
+    /// <summary>
+    /// Authenticates a user using SASL PLAIN mechanism.
+    /// </summary>
+    /// <param name="options">The authentication options containing credentials.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The authentication result indicating success or failure.</returns>
+    /// <remarks>
+    /// SASL PLAIN is similar to simple bind but uses the SASL framework.
+    /// </remarks>
     private async Task<LdapAuthenticationResult> AuthenticateSaslPlainAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -1633,6 +1757,16 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Authenticates using SASL EXTERNAL mechanism with client certificate.
+    /// </summary>
+    /// <param name="options">The authentication options containing the certificate.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The authentication result.</returns>
+    /// <remarks>
+    /// SASL EXTERNAL requires TLS client certificate authentication.
+    /// This is currently not fully supported by the Novell.Directory.Ldap library.
+    /// </remarks>
     private Task<LdapAuthenticationResult> AuthenticateSaslExternalAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -1662,6 +1796,16 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             LdapDirectoryType.OpenLdap));
     }
 
+    /// <summary>
+    /// Authenticates using SASL GSSAPI mechanism (Kerberos).
+    /// </summary>
+    /// <param name="options">The authentication options.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The authentication result.</returns>
+    /// <remarks>
+    /// SASL GSSAPI (Kerberos) requires Kerberos libraries.
+    /// This is currently not fully supported by the Novell.Directory.Ldap library.
+    /// </remarks>
     private Task<LdapAuthenticationResult> AuthenticateSaslGssapiAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -1682,6 +1826,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             LdapDirectoryType.OpenLdap));
     }
 
+    /// <summary>
+    /// Builds a distinguished name for binding from a username.
+    /// </summary>
+    /// <param name="username">The username to convert to a DN.</param>
+    /// <returns>The bind DN for the user.</returns>
+    /// <remarks>
+    /// If the username already contains an equals sign, it is assumed to be a DN and returned as-is.
+    /// Otherwise, a DN is constructed using the configured username attribute and base DN.
+    /// </remarks>
     private string BuildBindDn(string username)
     {
         // If username already looks like a DN, use it as-is
@@ -1694,6 +1847,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return $"{_options.UsernameAttribute}={EscapeLdapDn(username)},{_options.BaseDn}";
     }
 
+    /// <summary>
+    /// Escapes special characters in a value for use in a distinguished name.
+    /// </summary>
+    /// <param name="value">The value to escape.</param>
+    /// <returns>The escaped value safe for use in a DN.</returns>
     private static string EscapeLdapDn(string value)
     {
         return value
@@ -1706,6 +1864,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             .Replace(";", "\\;");
     }
 
+    /// <summary>
+    /// Extracts the username from an X.509 certificate subject.
+    /// </summary>
+    /// <param name="certificate">The certificate to extract the username from.</param>
+    /// <returns>The username extracted from CN or UID, or the full subject if neither is found.</returns>
     private static string ExtractUsernameFromCertificate(X509Certificate2 certificate)
     {
         var subject = certificate.Subject;
@@ -1725,6 +1888,13 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return subject;
     }
 
+    /// <summary>
+    /// Enriches an authentication result with additional user information.
+    /// </summary>
+    /// <param name="result">The initial authentication result.</param>
+    /// <param name="options">The authentication options specifying what information to include.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>An enriched authentication result with additional user data.</returns>
     private async Task<LdapAuthenticationResult> EnrichAuthenticationResultAsync(
         LdapAuthenticationResult result,
         LdapAuthenticationOptions options,
@@ -2612,6 +2782,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
 
     #region Management Helper Methods
 
+    /// <summary>
+    /// Resolves the distinguished name from account options.
+    /// </summary>
+    /// <param name="options">The account options containing either DN or username.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The distinguished name, or null if the account was not found.</returns>
     private async Task<string?> ResolveDistinguishedNameAsync(
         LdapAccountOptions options,
         CancellationToken cancellationToken)
@@ -2640,6 +2816,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return results.HasMore() ? results.Next().Dn : null;
     }
 
+    /// <summary>
+    /// Resolves the distinguished name from password options.
+    /// </summary>
+    /// <param name="options">The password options containing either DN or username.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The distinguished name, or null if the user was not found.</returns>
     private async Task<string?> ResolveUserDistinguishedNameAsync(
         LdapPasswordOptions options,
         CancellationToken cancellationToken)
@@ -2668,6 +2850,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return results.HasMore() ? results.Next().Dn : null;
     }
 
+    /// <summary>
+    /// Resolves the distinguished name of a group from group membership options.
+    /// </summary>
+    /// <param name="options">The group membership options containing either DN or group name.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The distinguished name, or null if the group was not found.</returns>
     private async Task<string?> ResolveGroupDistinguishedNameAsync(
         LdapGroupMembershipOptions options,
         CancellationToken cancellationToken)
@@ -2696,6 +2884,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return results.HasMore() ? results.Next().Dn : null;
     }
 
+    /// <summary>
+    /// Resolves the distinguished name of a member from group membership options.
+    /// </summary>
+    /// <param name="options">The group membership options containing either DN or member username.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The distinguished name, or null if the member was not found.</returns>
     private async Task<string?> ResolveMemberDistinguishedNameAsync(
         LdapGroupMembershipOptions options,
         CancellationToken cancellationToken)
@@ -2724,6 +2918,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return results.HasMore() ? results.Next().Dn : null;
     }
 
+    /// <summary>
+    /// Forces a user to change their password at next logon.
+    /// </summary>
+    /// <param name="distinguishedName">The distinguished name of the user.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    /// <remarks>
+    /// Sets the pwdReset attribute to TRUE to force password change.
+    /// </remarks>
     private async Task ForcePasswordChangeAtNextLogonInternalAsync(
         string distinguishedName,
         CancellationToken cancellationToken)
@@ -2735,6 +2938,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         await Task.Run(() => _connection!.Modify(distinguishedName, mod), cancellationToken);
     }
 
+    /// <summary>
+    /// Escapes special characters in a value for use in a distinguished name.
+    /// </summary>
+    /// <param name="value">The value to escape.</param>
+    /// <returns>The escaped value safe for use in a DN.</returns>
+    /// <remarks>
+    /// Escapes the following characters according to RFC 2253:
+    /// backslash, comma, plus, double quote, less than, greater than, semicolon, and equals.
+    /// </remarks>
     private static string EscapeLdapDnValue(string value)
     {
         if (string.IsNullOrEmpty(value))
@@ -2780,6 +2992,17 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         _connectionLock.Dispose();
     }
 
+    /// <summary>
+    /// Ensures that a connection to OpenLDAP is established.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when the connection fails.</exception>
+    /// <remarks>
+    /// This method uses a semaphore to ensure thread-safe connection establishment.
+    /// If already connected, returns immediately. Otherwise, establishes a new connection
+    /// using the configured options (host, port, SSL/TLS, bind credentials).
+    /// </remarks>
     private async Task EnsureConnectedAsync(CancellationToken cancellationToken)
     {
         if (_isConnected && _connection?.Connected == true)
@@ -2841,6 +3064,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Searches for a single user matching the specified LDAP filter.
+    /// </summary>
+    /// <param name="filter">The LDAP filter to apply.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The matching user, or null if not found.</returns>
     private async Task<LdapUser?> SearchSingleUserAsync(string filter, CancellationToken cancellationToken)
     {
         var searchConstraints = new LdapSearchConstraints
@@ -2875,6 +3104,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Maps an LDAP entry to an LdapUser object.
+    /// </summary>
+    /// <param name="entry">The LDAP entry from the search result.</param>
+    /// <returns>A populated LdapUser object.</returns>
+    /// <remarks>
+    /// Maps OpenLDAP attributes to LdapUser properties,
+    /// including contact information, organizational data, and custom attributes.
+    /// </remarks>
     private LdapUser MapToLdapUser(LdapEntry entry)
     {
         var user = new LdapUser
@@ -2915,6 +3153,12 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         return user;
     }
 
+    /// <summary>
+    /// Gets the string value of an attribute from an LDAP entry.
+    /// </summary>
+    /// <param name="entry">The LDAP entry.</param>
+    /// <param name="attributeName">The name of the attribute to retrieve.</param>
+    /// <returns>The attribute value as a string, or null if the attribute is not present.</returns>
     private static string? GetAttributeValue(LdapEntry entry, string attributeName)
     {
         try
@@ -2928,6 +3172,11 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Gets the list of groups that the user is a member of.
+    /// </summary>
+    /// <param name="entry">The LDAP entry containing the group membership attribute.</param>
+    /// <returns>A list of group identifiers, or an empty list if none.</returns>
     private IList<string> GetGroupMembership(LdapEntry entry)
     {
         try
@@ -2946,6 +3195,15 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Escapes special characters in a value for use in an LDAP filter.
+    /// </summary>
+    /// <param name="value">The value to escape.</param>
+    /// <returns>The escaped value safe for use in an LDAP filter.</returns>
+    /// <remarks>
+    /// Escapes the following characters according to RFC 4515:
+    /// backslash, asterisk, parentheses, and null character.
+    /// </remarks>
     private static string EscapeLdapFilter(string value)
     {
         return value
@@ -2956,6 +3214,14 @@ public sealed class OpenLdapService : BaseAsyncDisposableService, ILdapService
             .Replace("\0", "\\00");
     }
 
+    /// <summary>
+    /// Gets the list of user attributes to retrieve in search operations.
+    /// </summary>
+    /// <returns>An array of attribute names for user searches.</returns>
+    /// <remarks>
+    /// Returns OpenLDAP user attributes including identity,
+    /// contact information, organizational data, and configured custom attributes.
+    /// </remarks>
     private string[] GetUserAttributes()
     {
         var attrs = new List<string>

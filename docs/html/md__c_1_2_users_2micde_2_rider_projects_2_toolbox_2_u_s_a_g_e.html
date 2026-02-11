@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Toolbox<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Toolbox
    </div>
    <div id="projectbrief">Toolbox .net 10</div>
   </td>
@@ -92,9 +92,9 @@ $(function(){initNavTree('md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_
   <div class="headertitle"><div class="title">Toolbox Usage Guide </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md11"></a></p>
-<p>This guide provides detailed instructions for using the <a class="el" href="namespace_toolbox.html">Toolbox</a> library.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md46"></a></p>
+<p>This guide provides detailed instructions for using the Toolbox library.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
 Table of Contents</h1>
 <ol type="1">
 <li>Getting Started</li>
@@ -110,28 +110,40 @@ Table of Contents</h1>
 </ul>
 </li>
 <li>Mailing Services</li>
+<li>API Services</li>
+<li>LDAP Services<ul>
+<li>Active Directory</li>
+<li>Azure AD / Entra ID</li>
+<li>OpenLDAP</li>
+<li>Apple Directory</li>
+<li>Advanced Authentication</li>
+</ul>
+</li>
+<li>SSO Services<ul>
+<li>Session Management</li>
+<li>Credential Storage</li>
+<li>Automatic Token Refresh</li>
+</ul>
+</li>
 <li>Creating Custom Services</li>
 <li>OpenTelemetry Integration</li>
 <li>Configuration Options</li>
 <li>Best Practices</li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 Getting Started</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md49"></a>
 Basic Setup</h2>
-<p>Add <a class="el" href="namespace_toolbox.html">Toolbox</a> to your application:</p>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
+<p>Add Toolbox to your application:</p>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
 <div class="line"> </div>
-<div class="line">var <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a> = Host.CreateApplicationBuilder(args);</div>
+<div class="line">var builder = Host.CreateApplicationBuilder(args);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register Toolbox core services</span></div>
-<div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxCore();</div>
+<div class="line">builder.Services.AddToolboxCore();</div>
 <div class="line"> </div>
-<div class="line">var <a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a> = <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Build();</div>
-<div class="ttc" id="a_program_8cs_html_a2f78352277081c620fd4cf92a5ce15e5"><div class="ttname"><a href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a></div><div class="ttdeci">var builder</div><div class="ttdef"><b>Definition</b> <a href="_program_8cs_source.html#l00011">Program.cs:11</a></div></div>
-<div class="ttc" id="a_program_8cs_html_a7b225fcb720e4d5ed2bbf60e28a25e6d"><div class="ttname"><a href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a></div><div class="ttdeci">var app</div><div class="ttdef"><b>Definition</b> <a href="_program_8cs_source.html#l00033">Program.cs:33</a></div></div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_extensions_html"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a></div><div class="ttdef"><b>Definition</b> <a href="_api_service_collection_extensions_8cs_source.html#l00014">ApiServiceCollectionExtensions.cs:14</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+<div class="line">var app = builder.Build();</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
 Configuration via appsettings.json</h2>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;Toolbox&quot;: {</div>
@@ -147,34 +159,32 @@ Configuration via appsettings.json</h2>
 <div class="line">    &quot;ServiceVersion&quot;: &quot;1.0.0&quot;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><div class="fragment"><div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxCore(<a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Configuration);</div>
-<div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxOpenTelemetry(<a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Configuration);</div>
+</div><!-- fragment --><div class="fragment"><div class="line">builder.Services.AddToolboxCore(builder.Configuration);</div>
+<div class="line">builder.Services.AddToolboxOpenTelemetry(builder.Configuration);</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
 Cryptography Services</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md53"></a>
 Base64 Encoding</h2>
 <p>Base64 encoding/decoding service for text obfuscation (not encryption).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md54"></a>
 Registration</h3>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
-<div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Standard Base64</span></div>
 <div class="line">services.AddBase64Cryptography();</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// URL-safe Base64</span></div>
-<div class="line">services.AddBase64Cryptography(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</a>.UrlSafe);</div>
+<div class="line">services.AddBase64Cryptography(Base64EncodingTable.UrlSafe);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// With full options</span></div>
 <div class="line">services.AddBase64Cryptography(options =&gt;</div>
 <div class="line">{</div>
-<div class="line">    options.EncodingTable = <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#aae4ac17f23177c2ad802591f98604287">Base64EncodingTable</a>.UrlSafe;</div>
+<div class="line">    options.EncodingTable = Base64EncodingTable.UrlSafe;</div>
 <div class="line">    options.IncludePadding = <span class="keyword">false</span>;</div>
 <div class="line">});</div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a></div><div class="ttdef"><b>Definition</b> <a href="_aes_key_size_8cs_source.html#l00006">AesKeySize.cs:6</a></div></div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_aae4ac17f23177c2ad802591f98604287"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#aae4ac17f23177c2ad802591f98604287">Toolbox.Core.Options.Base64EncodingTable</a></div><div class="ttdeci">Base64EncodingTable</div><div class="ttdoc">Specifies the Base64 encoding table to use.</div><div class="ttdef"><b>Definition</b> <a href="_base64_encoding_table_8cs_source.html#l00015">Base64EncodingTable.cs:16</a></div></div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md55"></a>
 Usage</h3>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MyService</div>
 <div class="line">{</div>
@@ -201,24 +211,23 @@ Usage</h3>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md57"></a>
 AES Encryption</h2>
 <p>Secure symmetric encryption using AES (CBC mode with PKCS7 padding).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md58"></a>
 Registration</h3>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
-<div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Generate new key and IV</span></div>
-<div class="line">var (key, iv) = AesCryptographyService.GenerateKey(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a6d6346e53e425a00b206f68d826e3bea">AesKeySize</a>.Aes256);</div>
+<div class="line">var (key, iv) = AesCryptographyService.GenerateKey(AesKeySize.Aes256);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register with generated key</span></div>
 <div class="line">services.AddAesCryptography(key, iv);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Or with key size enum</span></div>
-<div class="line">services.AddAesCryptography(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a6d6346e53e425a00b206f68d826e3bea">AesKeySize</a>.Aes256);</div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_a6d6346e53e425a00b206f68d826e3bea"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#a6d6346e53e425a00b206f68d826e3bea">Toolbox.Core.Options.AesKeySize</a></div><div class="ttdeci">AesKeySize</div><div class="ttdoc">Specifies the AES key size in bits.</div><div class="ttdef"><b>Definition</b> <a href="_aes_key_size_8cs_source.html#l00015">AesKeySize.cs:16</a></div></div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+<div class="line">services.AddAesCryptography(AesKeySize.Aes256);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md59"></a>
 Usage</h3>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>SecureService</div>
 <div class="line">{</div>
@@ -240,45 +249,43 @@ Usage</h3>
 <div class="line">        <span class="keywordflow">return</span> encrypted;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md60"></a>
 Key Generation</h3>
 <div class="fragment"><div class="line"><span class="comment">// Generate AES-128 key</span></div>
-<div class="line">var (key128, iv128) = AesCryptographyService.GenerateKey(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a6d6346e53e425a00b206f68d826e3bea">AesKeySize</a>.Aes128);</div>
+<div class="line">var (key128, iv128) = AesCryptographyService.GenerateKey(AesKeySize.Aes128);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Generate AES-192 key</span></div>
-<div class="line">var (key192, iv192) = AesCryptographyService.GenerateKey(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a6d6346e53e425a00b206f68d826e3bea">AesKeySize</a>.Aes192);</div>
+<div class="line">var (key192, iv192) = AesCryptographyService.GenerateKey(AesKeySize.Aes192);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Generate AES-256 key (recommended)</span></div>
-<div class="line">var (key256, iv256) = AesCryptographyService.GenerateKey(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a6d6346e53e425a00b206f68d826e3bea">AesKeySize</a>.Aes256);</div>
+<div class="line">var (key256, iv256) = AesCryptographyService.GenerateKey(AesKeySize.Aes256);</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md62"></a>
 RSA Encryption</h2>
 <p>Asymmetric encryption using RSA with various key sizes and padding modes.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md63"></a>
 Registration</h3>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
-<div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Generate key pair</span></div>
-<div class="line">var keyPair = RsaCryptographyService.GenerateKeyPair(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a7c28c5d4278a7f74d61438430114917c">RsaKeySize</a>.Rsa2048);</div>
+<div class="line">var keyPair = RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register with full key pair (encrypt + decrypt)</span></div>
 <div class="line">services.AddRsaCryptography(</div>
 <div class="line">    keyPair.PublicKey!,</div>
-<div class="line">    <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a37c881e3211938fcd305b625a9671448">RsaPaddingMode</a>.OaepSha256,</div>
+<div class="line">    RsaPaddingMode.OaepSha256,</div>
 <div class="line">    keyPair.PrivateKey);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register with public key only (encrypt only)</span></div>
 <div class="line">services.AddRsaCryptography(</div>
 <div class="line">    keyPair.PublicKey!,</div>
-<div class="line">    <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a37c881e3211938fcd305b625a9671448">RsaPaddingMode</a>.OaepSha256);</div>
+<div class="line">    RsaPaddingMode.OaepSha256);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register with X.509 certificate</span></div>
 <div class="line">var cert = <span class="keyword">new</span> X509Certificate2(<span class="stringliteral">&quot;certificate.pfx&quot;</span>, <span class="stringliteral">&quot;password&quot;</span>);</div>
-<div class="line">services.AddRsaCryptography(cert, <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a37c881e3211938fcd305b625a9671448">RsaPaddingMode</a>.OaepSha256);</div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_a37c881e3211938fcd305b625a9671448"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#a37c881e3211938fcd305b625a9671448">Toolbox.Core.Options.RsaPaddingMode</a></div><div class="ttdeci">RsaPaddingMode</div><div class="ttdoc">Specifies the RSA encryption padding mode.</div><div class="ttdef"><b>Definition</b> <a href="_rsa_padding_mode_8cs_source.html#l00017">RsaPaddingMode.cs:18</a></div></div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_a7c28c5d4278a7f74d61438430114917c"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#a7c28c5d4278a7f74d61438430114917c">Toolbox.Core.Options.RsaKeySize</a></div><div class="ttdeci">RsaKeySize</div><div class="ttdoc">Specifies the RSA key size in bits.</div><div class="ttdef"><b>Definition</b> <a href="_rsa_key_size_8cs_source.html#l00020">RsaKeySize.cs:21</a></div></div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<div class="line">services.AddRsaCryptography(cert, RsaPaddingMode.OaepSha256);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md64"></a>
 Usage</h3>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>AsymmetricService</div>
 <div class="line">{</div>
@@ -300,25 +307,25 @@ Usage</h3>
 <div class="line">        <span class="keywordflow">return</span> (encrypted, decrypted);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md65"></a>
 Key Generation</h3>
 <div class="fragment"><div class="line"><span class="comment">// Generate key pair (bytes)</span></div>
-<div class="line">var keyPair = RsaCryptographyService.GenerateKeyPair(<a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a7c28c5d4278a7f74d61438430114917c">RsaKeySize</a>.Rsa2048);</div>
+<div class="line">var keyPair = RsaCryptographyService.GenerateKeyPair(RsaKeySize.Rsa2048);</div>
 <div class="line"><span class="keywordtype">byte</span>[] publicKey = keyPair.PublicKey!;</div>
 <div class="line"><span class="keywordtype">byte</span>[] privateKey = keyPair.PrivateKey!;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Generate self-signed certificate</span></div>
 <div class="line">var certKeyPair = RsaCryptographyService.GenerateCertificate(</div>
-<div class="line">    <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a7c28c5d4278a7f74d61438430114917c">RsaKeySize</a>.Rsa4096,</div>
+<div class="line">    RsaKeySize.Rsa4096,</div>
 <div class="line">    <span class="stringliteral">&quot;CN=MyApplication&quot;</span>,</div>
 <div class="line">    TimeSpan.FromDays(365));</div>
 <div class="line">X509Certificate2 certificate = certKeyPair.Certificate!;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Public key only (for sharing)</span></div>
 <div class="line">var publicOnly = RsaCryptographyService.GenerateKeyPair(</div>
-<div class="line">    <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a7c28c5d4278a7f74d61438430114917c">RsaKeySize</a>.Rsa2048,</div>
+<div class="line">    RsaKeySize.Rsa2048,</div>
 <div class="line">    includePrivateKey: <span class="keyword">false</span>);</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md66"></a>
 Padding Modes</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -335,15 +342,15 @@ Padding Modes</h3>
 <td class="markdownTableBodyNone"><span class="tt">OaepSha512</span>  </td><td class="markdownTableBodyNone">OAEP with SHA-512  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md68"></a>
 File Transfer Services</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md69"></a>
 FTP/FTPS</h2>
 <p>File transfer service for FTP and FTPS (FTP over TLS) protocols.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md70"></a>
 Registration</h3>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
-<div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Basic FTP</span></div>
 <div class="line">services.AddFtpFileTransfer(options =&gt;</div>
@@ -352,7 +359,7 @@ Registration</h3>
 <div class="line">    options.Port = 21;</div>
 <div class="line">    options.Username = <span class="stringliteral">&quot;user&quot;</span>;</div>
 <div class="line">    options.Password = <span class="stringliteral">&quot;password&quot;</span>;</div>
-<div class="line">    options.Protocol = <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</a>.Ftp;</div>
+<div class="line">    options.Protocol = FileTransferProtocol.Ftp;</div>
 <div class="line">});</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Secure FTPS</span></div>
@@ -362,13 +369,12 @@ Registration</h3>
 <div class="line">    options.Port = 21;</div>
 <div class="line">    options.Username = <span class="stringliteral">&quot;user&quot;</span>;</div>
 <div class="line">    options.Password = <span class="stringliteral">&quot;password&quot;</span>;</div>
-<div class="line">    options.Protocol = <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#aa64f23a5d7659cdbe89265ce2d23086c">FileTransferProtocol</a>.Ftps;</div>
+<div class="line">    options.Protocol = FileTransferProtocol.Ftps;</div>
 <div class="line">});</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// From configuration</span></div>
 <div class="line">services.AddFtpFileTransfer(configuration.GetSection(<span class="stringliteral">&quot;Ftp&quot;</span>));</div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_aa64f23a5d7659cdbe89265ce2d23086c"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#aa64f23a5d7659cdbe89265ce2d23086c">Toolbox.Core.Options.FileTransferProtocol</a></div><div class="ttdeci">FileTransferProtocol</div><div class="ttdoc">Specifies the file transfer protocol to use.</div><div class="ttdef"><b>Definition</b> <a href="_file_transfer_protocol_8cs_source.html#l00014">FileTransferProtocol.cs:15</a></div></div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md71"></a>
 Usage</h3>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>FileService</div>
 <div class="line">{</div>
@@ -410,13 +416,13 @@ Usage</h3>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md73"></a>
 SFTP</h2>
 <p>Secure file transfer over SSH (SFTP protocol).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md74"></a>
 Registration</h3>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
-<div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Password authentication</span></div>
 <div class="line">services.AddSftpFileTransfer(options =&gt;</div>
@@ -444,7 +450,7 @@ Registration</h3>
 <div class="line">    options.Username = <span class="stringliteral">&quot;user&quot;</span>;</div>
 <div class="line">    options.PrivateKeyContent = <span class="stringliteral">&quot;-----BEGIN RSA PRIVATE KEY-----\n...&quot;</span>;</div>
 <div class="line">});</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md75"></a>
 Usage</h3>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>SecureFileService</div>
 <div class="line">{</div>
@@ -471,7 +477,7 @@ Usage</h3>
 <div class="line">            cancellationToken: ct);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md76"></a>
 Configuration Options</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -502,23 +508,23 @@ Configuration Options</h3>
 <td class="markdownTableBodyNone"><span class="tt">AutoCreateDirectory</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Auto-create remote directories  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md78"></a>
 Mailing Services</h1>
 <p>SMTP email sending service with TLS/SSL, OAuth2, and attachment support.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md79"></a>
 Registration</h2>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_extensions.html">Toolbox.Core.Extensions</a>;</div>
-<div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_options.html">Toolbox.Core.Options</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Generic SMTP</span></div>
 <div class="line">services.AddSmtpMailing(options =&gt;</div>
 <div class="line">{</div>
 <div class="line">    options.Host = <span class="stringliteral">&quot;smtp.example.com&quot;</span>;</div>
 <div class="line">    options.Port = 587;</div>
-<div class="line">    options.SecurityMode = <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a0a1f76d9ade3c05f751b22ef05061453">SmtpSecurityMode</a>.StartTls;</div>
+<div class="line">    options.SecurityMode = SmtpSecurityMode.StartTls;</div>
 <div class="line">    options.Username = <span class="stringliteral">&quot;user@example.com&quot;</span>;</div>
 <div class="line">    options.Password = <span class="stringliteral">&quot;password&quot;</span>;</div>
-<div class="line">    options.DefaultFrom = <span class="keyword">new</span> <a class="code hl_function" href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</a>(<span class="stringliteral">&quot;noreply@example.com&quot;</span>, <span class="stringliteral">&quot;My App&quot;</span>);</div>
+<div class="line">    options.DefaultFrom = <span class="keyword">new</span> EmailAddress(<span class="stringliteral">&quot;noreply@example.com&quot;</span>, <span class="stringliteral">&quot;My App&quot;</span>);</div>
 <div class="line">});</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Gmail shortcut</span></div>
@@ -536,14 +542,12 @@ Registration</h2>
 <div class="line">{</div>
 <div class="line">    options.Host = <span class="stringliteral">&quot;mail.internal.local&quot;</span>;</div>
 <div class="line">    options.Port = 25;</div>
-<div class="line">    options.SecurityMode = <a class="code hl_enumeration" href="namespace_toolbox_1_1_core_1_1_options.html#a0a1f76d9ade3c05f751b22ef05061453">SmtpSecurityMode</a>.None;</div>
+<div class="line">    options.SecurityMode = SmtpSecurityMode.None;</div>
 <div class="line">});</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// From configuration</span></div>
 <div class="line">services.AddSmtpMailing(configuration.GetSection(<span class="stringliteral">&quot;Mailing&quot;</span>));</div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_a0a1f76d9ade3c05f751b22ef05061453"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#a0a1f76d9ade3c05f751b22ef05061453">Toolbox.Core.Options.SmtpSecurityMode</a></div><div class="ttdeci">SmtpSecurityMode</div><div class="ttdoc">Specifies the security mode for SMTP connections.</div><div class="ttdef"><b>Definition</b> <a href="_smtp_security_mode_8cs_source.html#l00017">SmtpSecurityMode.cs:18</a></div></div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_options_html_aaa73e3de1e09ba82a7b2435bba10d0d3"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">Toolbox.Core.Options.EmailAddress</a></div><div class="ttdeci">record EmailAddress(string Address, string? DisplayName=null)</div><div class="ttdoc">Represents an email address with an optional display name.</div><div class="ttdef"><b>Definition</b> <a href="_email_address_8cs_source.html#l00028">EmailAddress.cs:28</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md80"></a>
 Usage</h2>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>NotificationService</div>
 <div class="line">{</div>
@@ -556,13 +560,13 @@ Usage</h2>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">public</span> async Task SendWelcomeEmailAsync(<span class="keywordtype">string</span> userEmail, <span class="keywordtype">string</span> userName)</div>
 <div class="line">    {</div>
-<div class="line">        var message = <span class="keyword">new</span> <a class="code hl_class" href="class_toolbox_1_1_core_1_1_options_1_1_email_message.html">EmailMessage</a></div>
+<div class="line">        var message = <span class="keyword">new</span> EmailMessage</div>
 <div class="line">        {</div>
-<div class="line">            From = <span class="keyword">new</span> <a class="code hl_function" href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</a>(<span class="stringliteral">&quot;noreply@example.com&quot;</span>, <span class="stringliteral">&quot;My Application&quot;</span>),</div>
+<div class="line">            From = <span class="keyword">new</span> EmailAddress(<span class="stringliteral">&quot;noreply@example.com&quot;</span>, <span class="stringliteral">&quot;My Application&quot;</span>),</div>
 <div class="line">            Subject = <span class="stringliteral">&quot;Welcome to Our Service!&quot;</span>,</div>
 <div class="line">            Body = $<span class="stringliteral">&quot;&lt;h1&gt;Welcome, {userName}!&lt;/h1&gt;&lt;p&gt;Thank you for joining us.&lt;/p&gt;&quot;</span>,</div>
 <div class="line">            IsBodyHtml = <span class="keyword">true</span>,</div>
-<div class="line">            To = { <span class="keyword">new</span> <a class="code hl_function" href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</a>(userEmail, userName) }</div>
+<div class="line">            To = { <span class="keyword">new</span> EmailAddress(userEmail, userName) }</div>
 <div class="line">        };</div>
 <div class="line"> </div>
 <div class="line">        await _mailing.SendMailAsync(message);</div>
@@ -572,7 +576,7 @@ Usage</h2>
 <div class="line">    {</div>
 <div class="line">        var message = <span class="keyword">new</span> EmailMessage</div>
 <div class="line">        {</div>
-<div class="line">            From = <span class="keyword">new</span> <a class="code hl_function" href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</a>(<span class="stringliteral">&quot;reports@example.com&quot;</span>, <span class="stringliteral">&quot;Report System&quot;</span>),</div>
+<div class="line">            From = <span class="keyword">new</span> EmailAddress(<span class="stringliteral">&quot;reports@example.com&quot;</span>, <span class="stringliteral">&quot;Report System&quot;</span>),</div>
 <div class="line">            Subject = <span class="stringliteral">&quot;Monthly Report&quot;</span>,</div>
 <div class="line">            Body = <span class="stringliteral">&quot;Please find the monthly report attached.&quot;</span>,</div>
 <div class="line">            IsBodyHtml = <span class="keyword">false</span>,</div>
@@ -596,7 +600,7 @@ Usage</h2>
 <div class="line">        <span class="comment">// Email with BCC only (no visible recipients)</span></div>
 <div class="line">        var message = <span class="keyword">new</span> EmailMessage</div>
 <div class="line">        {</div>
-<div class="line">            From = <span class="keyword">new</span> <a class="code hl_function" href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</a>(<span class="stringliteral">&quot;newsletter@example.com&quot;</span>),</div>
+<div class="line">            From = <span class="keyword">new</span> EmailAddress(<span class="stringliteral">&quot;newsletter@example.com&quot;</span>),</div>
 <div class="line">            Subject = <span class="stringliteral">&quot;Newsletter&quot;</span>,</div>
 <div class="line">            Body = <span class="stringliteral">&quot;&lt;h1&gt;Monthly Newsletter&lt;/h1&gt;&quot;</span>,</div>
 <div class="line">            IsBodyHtml = <span class="keyword">true</span></div>
@@ -610,14 +614,13 @@ Usage</h2>
 <div class="line">        await _mailing.SendMailAsync(message);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_toolbox_1_1_core_1_1_options_1_1_email_message_html"><div class="ttname"><a href="class_toolbox_1_1_core_1_1_options_1_1_email_message.html">Toolbox.Core.Options.EmailMessage</a></div><div class="ttdoc">Represents an email message to be sent.</div><div class="ttdef"><b>Definition</b> <a href="_email_message_8cs_source.html#l00035">EmailMessage.cs:36</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md81"></a>
 Email with Inline Images</h2>
 <div class="fragment"><div class="line">var logoBytes = File.ReadAllBytes(<span class="stringliteral">&quot;logo.png&quot;</span>);</div>
 <div class="line"> </div>
-<div class="line">var message = <span class="keyword">new</span> <a class="code hl_class" href="class_toolbox_1_1_core_1_1_options_1_1_email_message.html">EmailMessage</a></div>
+<div class="line">var message = <span class="keyword">new</span> EmailMessage</div>
 <div class="line">{</div>
-<div class="line">    From = <span class="keyword">new</span> <a class="code hl_function" href="namespace_toolbox_1_1_core_1_1_options.html#aaa73e3de1e09ba82a7b2435bba10d0d3">EmailAddress</a>(<span class="stringliteral">&quot;noreply@example.com&quot;</span>),</div>
+<div class="line">    From = <span class="keyword">new</span> EmailAddress(<span class="stringliteral">&quot;noreply@example.com&quot;</span>),</div>
 <div class="line">    Subject = <span class="stringliteral">&quot;Email with Logo&quot;</span>,</div>
 <div class="line">    Body = <span class="stringliteral">@&quot;</span></div>
 <div class="line"><span class="stringliteral">        &lt;html&gt;</span></div>
@@ -630,14 +633,12 @@ Email with Inline Images</h2>
 <div class="line">    To = { <span class="stringliteral">&quot;recipient@example.com&quot;</span> },</div>
 <div class="line">    Attachments =</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_class" href="class_toolbox_1_1_core_1_1_options_1_1_email_attachment.html">EmailAttachment</a>.<a class="code hl_function" href="class_toolbox_1_1_core_1_1_options_1_1_email_attachment.html#a62b587e360cc79b519da2568a8b0f6f5">CreateInline</a>(logoBytes, <span class="stringliteral">&quot;logo.png&quot;</span>, <span class="stringliteral">&quot;company-logo&quot;</span>)</div>
+<div class="line">        EmailAttachment.CreateInline(logoBytes, <span class="stringliteral">&quot;logo.png&quot;</span>, <span class="stringliteral">&quot;company-logo&quot;</span>)</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">await _mailing.SendMailAsync(message);</div>
-<div class="ttc" id="aclass_toolbox_1_1_core_1_1_options_1_1_email_attachment_html"><div class="ttname"><a href="class_toolbox_1_1_core_1_1_options_1_1_email_attachment.html">Toolbox.Core.Options.EmailAttachment</a></div><div class="ttdoc">Represents an email attachment.</div><div class="ttdef"><b>Definition</b> <a href="_email_attachment_8cs_source.html#l00029">EmailAttachment.cs:30</a></div></div>
-<div class="ttc" id="aclass_toolbox_1_1_core_1_1_options_1_1_email_attachment_html_a62b587e360cc79b519da2568a8b0f6f5"><div class="ttname"><a href="class_toolbox_1_1_core_1_1_options_1_1_email_attachment.html#a62b587e360cc79b519da2568a8b0f6f5">Toolbox.Core.Options.EmailAttachment.CreateInline</a></div><div class="ttdeci">static EmailAttachment CreateInline(byte[] content, string fileName, string contentId, string? contentType=null)</div><div class="ttdoc">Creates an inline attachment for embedding in HTML.</div><div class="ttdef"><b>Definition</b> <a href="_email_attachment_8cs_source.html#l00136">EmailAttachment.cs:136</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md82"></a>
 Configuration Options</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -665,7 +666,7 @@ Configuration Options</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">DefaultReplyTo</span>  </td><td class="markdownTableBodyNone">EmailAddress?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Default reply-to address  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md83"></a>
 Security Modes</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -682,14 +683,1320 @@ Security Modes</h2>
 <td class="markdownTableBodyNone"><span class="tt">SslOnConnect</span>  </td><td class="markdownTableBodyNone">465  </td><td class="markdownTableBodyNone">Implicit SSL/TLS  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md85"></a>
+API Services</h1>
+<p>HTTP API client service with multiple authentication modes and automatic retry.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md86"></a>
+Registration</h2>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Anonymous API</span></div>
+<div class="line">services.AddHttpApiAnonymous(<span class="stringliteral">&quot;https://api.example.com&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Bearer token authentication</span></div>
+<div class="line">services.AddHttpApiWithBearerToken(</div>
+<div class="line">    <span class="stringliteral">&quot;https://api.example.com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;your-bearer-token&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Basic authentication</span></div>
+<div class="line">services.AddHttpApiWithBasicAuth(</div>
+<div class="line">    <span class="stringliteral">&quot;https://api.example.com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;username&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;password&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// API key authentication (header)</span></div>
+<div class="line">services.AddHttpApiWithApiKey(</div>
+<div class="line">    <span class="stringliteral">&quot;https://api.example.com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;your-api-key&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;X-API-Key&quot;</span>,</div>
+<div class="line">    ApiKeyLocation.Header);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// API key authentication (query string)</span></div>
+<div class="line">services.AddHttpApiWithApiKey(</div>
+<div class="line">    <span class="stringliteral">&quot;https://api.example.com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;your-api-key&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;api_key&quot;</span>,</div>
+<div class="line">    ApiKeyLocation.QueryString);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Client certificate authentication</span></div>
+<div class="line">services.AddHttpApiWithCertificate(</div>
+<div class="line">    <span class="stringliteral">&quot;https://api.example.com&quot;</span>,</div>
+<div class="line">    <span class="keyword">new</span> X509Certificate2(<span class="stringliteral">&quot;client.pfx&quot;</span>, <span class="stringliteral">&quot;password&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// OAuth2 client credentials</span></div>
+<div class="line">services.AddHttpApiWithOAuth2(</div>
+<div class="line">    <span class="stringliteral">&quot;https://api.example.com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;https://auth.example.com/oauth/token&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;client-id&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;client-secret&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;read write&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Full configuration</span></div>
+<div class="line">services.AddHttpApi(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.BaseUrl = <span class="stringliteral">&quot;https://api.example.com&quot;</span>;</div>
+<div class="line">    options.AuthenticationMode = ApiAuthenticationMode.BearerToken;</div>
+<div class="line">    options.BearerToken = <span class="stringliteral">&quot;your-token&quot;</span>;</div>
+<div class="line">    options.Timeout = TimeSpan.FromSeconds(30);</div>
+<div class="line">    options.MaxRetries = 3;</div>
+<div class="line">    options.UseExponentialBackoff = <span class="keyword">true</span>;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// From configuration</span></div>
+<div class="line">services.AddHttpApi(configuration.GetSection(<span class="stringliteral">&quot;Api&quot;</span>));</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md87"></a>
+Usage</h2>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>DataService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly IApiService _api;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> DataService(IApiService api)</div>
+<div class="line">    {</div>
+<div class="line">        _api = api;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;User?&gt; GetUserAsync(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Simple GET request</span></div>
+<div class="line">        var request = ApiRequest.Get($<span class="stringliteral">&quot;/users/{id}&quot;</span>);</div>
+<div class="line">        var response = await _api.SendAsync(request);</div>
+<div class="line"> </div>
+<div class="line">        response.EnsureSuccess();</div>
+<div class="line">        <span class="keywordflow">return</span> response.Deserialize&lt;User&gt;();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;User?&gt; CreateUserAsync(User user)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// POST with JSON body</span></div>
+<div class="line">        var request = ApiRequest.Post(<span class="stringliteral">&quot;/users&quot;</span>, user);</div>
+<div class="line">        <span class="keywordflow">return</span> await _api.SendAsync&lt;User&gt;(request);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task UpdateUserAsync(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, User user)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// PUT with JSON body</span></div>
+<div class="line">        var request = ApiRequest.Put($<span class="stringliteral">&quot;/users/{id}&quot;</span>, user);</div>
+<div class="line">        await _api.SendAsync(request);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task PatchUserAsync(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">object</span> partialData)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// PATCH with JSON body</span></div>
+<div class="line">        var request = ApiRequest.Patch($<span class="stringliteral">&quot;/users/{id}&quot;</span>, partialData);</div>
+<div class="line">        await _api.SendAsync(request);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task DeleteUserAsync(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// DELETE request</span></div>
+<div class="line">        var request = ApiRequest.Delete($<span class="stringliteral">&quot;/users/{id}&quot;</span>);</div>
+<div class="line">        await _api.SendAsync(request);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md88"></a>
+Advanced Usage</h2>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>AdvancedApiService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly IApiService _api;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> AdvancedApiService(IApiService api)</div>
+<div class="line">    {</div>
+<div class="line">        _api = api;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;SearchResult&gt; SearchAsync(<span class="keywordtype">string</span> query, <span class="keywordtype">int</span> page)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Request with query parameters and headers</span></div>
+<div class="line">        var request = ApiRequest.Get(<span class="stringliteral">&quot;/search&quot;</span>)</div>
+<div class="line">            .WithQuery(<span class="stringliteral">&quot;q&quot;</span>, query)</div>
+<div class="line">            .WithQuery(<span class="stringliteral">&quot;page&quot;</span>, page.ToString())</div>
+<div class="line">            .WithHeader(<span class="stringliteral">&quot;X-Request-ID&quot;</span>, Guid.NewGuid().ToString())</div>
+<div class="line">            .WithTimeout(TimeSpan.FromSeconds(60));</div>
+<div class="line"> </div>
+<div class="line">        var response = await _api.SendAsync(request);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (response.IsSuccess)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">return</span> response.Deserialize&lt;SearchResult&gt;()!;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (response.IsClientError)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidOperationException($<span class="stringliteral">&quot;Client error: {response.ReasonPhrase}&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">throw</span> <span class="keyword">new</span> HttpRequestException($<span class="stringliteral">&quot;Server error: {response.StatusCode}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task UploadFileAsync(<span class="keywordtype">byte</span>[] fileData, <span class="keywordtype">string</span> fileName)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Binary content</span></div>
+<div class="line">        var request = ApiRequest.Post(<span class="stringliteral">&quot;/upload&quot;</span>)</div>
+<div class="line">            .SetBinaryContent(fileData, <span class="stringliteral">&quot;application/octet-stream&quot;</span>)</div>
+<div class="line">            .WithHeader(<span class="stringliteral">&quot;X-File-Name&quot;</span>, fileName);</div>
+<div class="line"> </div>
+<div class="line">        await _api.SendAsync(request);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task SubmitFormAsync(Dictionary&lt;string, string&gt; formData)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Form URL-encoded content</span></div>
+<div class="line">        var request = ApiRequest.Post(<span class="stringliteral">&quot;/form&quot;</span>)</div>
+<div class="line">            .SetFormContent(formData);</div>
+<div class="line"> </div>
+<div class="line">        await _api.SendAsync(request);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md89"></a>
+Configuration Options</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">BaseUrl</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Base URL for all requests  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">AuthenticationMode</span>  </td><td class="markdownTableBodyNone">ApiAuthenticationMode  </td><td class="markdownTableBodyNone">Anonymous  </td><td class="markdownTableBodyNone">Authentication method  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Timeout</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">30s  </td><td class="markdownTableBodyNone">Request timeout  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">MaxRetries</span>  </td><td class="markdownTableBodyNone">int  </td><td class="markdownTableBodyNone">3  </td><td class="markdownTableBodyNone">Maximum retry attempts  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">RetryDelay</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">1s  </td><td class="markdownTableBodyNone">Delay between retries  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">UseExponentialBackoff</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Use exponential backoff  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ValidateCertificate</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Validate SSL certificates  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">FollowRedirects</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Follow HTTP redirects  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">MaxRedirects</span>  </td><td class="markdownTableBodyNone">int  </td><td class="markdownTableBodyNone">10  </td><td class="markdownTableBodyNone">Maximum redirects to follow  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">UserAgent</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">"Toolbox..."  </td><td class="markdownTableBodyNone">Default User-Agent header  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md90"></a>
+Authentication Modes</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Mode  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Anonymous</span>  </td><td class="markdownTableBodyNone">No authentication  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">BearerToken</span>  </td><td class="markdownTableBodyNone">Bearer token in Authorization header  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Basic</span>  </td><td class="markdownTableBodyNone">Basic authentication (username:password)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">ApiKey</span>  </td><td class="markdownTableBodyNone">API key in header or query string  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Certificate</span>  </td><td class="markdownTableBodyNone">Client certificate authentication  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">OAuth2ClientCredentials</span>  </td><td class="markdownTableBodyNone">OAuth2 client credentials flow  </td></tr>
+</table>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md92"></a>
+LDAP Services</h1>
+<p>Directory services for querying users, groups, and computers from various LDAP providers.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md93"></a>
+Active Directory</h2>
+<p>Windows Active Directory service using LDAP protocol.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md94"></a>
+Registration</h3>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Using current Windows credentials</span></div>
+<div class="line">services.AddActiveDirectory(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.Domain = <span class="stringliteral">&quot;corp.example.com&quot;</span>;</div>
+<div class="line">    options.UseCurrentCredentials = <span class="keyword">true</span>;</div>
+<div class="line">    options.UseSsl = <span class="keyword">true</span>;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Using explicit credentials</span></div>
+<div class="line">services.AddActiveDirectory(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.Domain = <span class="stringliteral">&quot;corp.example.com&quot;</span>;</div>
+<div class="line">    options.Server = <span class="stringliteral">&quot;dc01.corp.example.com&quot;</span>;</div>
+<div class="line">    options.Port = 636;</div>
+<div class="line">    options.UseSsl = <span class="keyword">true</span>;</div>
+<div class="line">    options.Username = <span class="stringliteral">&quot;CORP\\serviceaccount&quot;</span>;</div>
+<div class="line">    options.Password = <span class="stringliteral">&quot;password&quot;</span>;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// From configuration</span></div>
+<div class="line">services.AddActiveDirectory(configuration.GetSection(<span class="stringliteral">&quot;Toolbox:Ldap:ActiveDirectory&quot;</span>));</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md95"></a>
+Usage</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>UserService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ILdapService _ldap;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> UserService(ILdapService ldap)</div>
+<div class="line">    {</div>
+<div class="line">        _ldap = ldap;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;LdapUser?&gt; FindUserAsync(<span class="keywordtype">string</span> username)</div>
+<div class="line">    {</div>
+<div class="line">        var user = await _ldap.GetUserByUsernameAsync(username);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
+<div class="line">        {</div>
+<div class="line">            Console.WriteLine($<span class="stringliteral">&quot;Found: {user.DisplayName} ({user.Email})&quot;</span>);</div>
+<div class="line">            Console.WriteLine($<span class="stringliteral">&quot;Department: {user.Department}&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> user;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;bool&gt; ValidateUserAsync(<span class="keywordtype">string</span> username, <span class="keywordtype">string</span> password)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _ldap.ValidateCredentialsAsync(username, password);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;PagedResult&lt;LdapUser&gt;&gt; SearchUsersAsync(<span class="keywordtype">string</span> department)</div>
+<div class="line">    {</div>
+<div class="line">        var criteria = LdapSearchCriteria.Create()</div>
+<div class="line">            .WithDepartment(department)</div>
+<div class="line">            .EnabledOnly();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> await _ldap.SearchUsersAsync(criteria, page: 1, pageSize: 25);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md96"></a>
+Group and Computer Operations</h3>
+<div class="fragment"><div class="line"><span class="comment">// Get group by name</span></div>
+<div class="line">var group = await _ldap.GetGroupByNameAsync(<span class="stringliteral">&quot;Developers&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get group members with pagination</span></div>
+<div class="line">var members = await _ldap.GetGroupMembersAsync(<span class="stringliteral">&quot;CN=Developers,OU=Groups,DC=example,DC=com&quot;</span>, page: 1, pageSize: 50);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get computer by name</span></div>
+<div class="line">var computer = await _ldap.GetComputerByNameAsync(<span class="stringliteral">&quot;SERVER01&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Search servers</span></div>
+<div class="line">var criteria = LdapComputerSearchCriteria.Create()</div>
+<div class="line">    .WithOperatingSystem(<span class="stringliteral">&quot;Windows Server*&quot;</span>)</div>
+<div class="line">    .EnabledOnly();</div>
+<div class="line">var servers = await _ldap.SearchComputersAsync(criteria, page: 1, pageSize: 25);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md97"></a>
+Configuration Options</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Domain</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Fully qualified domain name  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Server</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Domain controller (auto-discovers if null)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Port</span>  </td><td class="markdownTableBodyNone">int  </td><td class="markdownTableBodyNone">389  </td><td class="markdownTableBodyNone">LDAP port (636 for SSL)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">BaseDn</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Base DN for searches  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Username</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Bind username  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Password</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Bind password  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UseSsl</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">false  </td><td class="markdownTableBodyNone">Use SSL/TLS (LDAPS)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">UseCurrentCredentials</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">false  </td><td class="markdownTableBodyNone">Use Windows integrated auth  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ValidateCertificate</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Validate SSL certificate  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">ConnectionTimeout</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">30s  </td><td class="markdownTableBodyNone">Connection timeout  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">OperationTimeout</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">60s  </td><td class="markdownTableBodyNone">Operation timeout  </td></tr>
+</table>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md99"></a>
+Azure AD / Entra ID</h2>
+<p>Azure Active Directory service using Microsoft Graph API.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md100"></a>
+Registration</h3>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Client secret authentication</span></div>
+<div class="line">services.AddAzureAd(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.TenantId = <span class="stringliteral">&quot;your-tenant-id&quot;</span>;</div>
+<div class="line">    options.ClientId = <span class="stringliteral">&quot;your-client-id&quot;</span>;</div>
+<div class="line">    options.ClientSecret = <span class="stringliteral">&quot;your-client-secret&quot;</span>;</div>
+<div class="line">    options.AuthenticationMode = AzureAdAuthMode.ClientSecret;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Managed identity (Azure-hosted apps)</span></div>
+<div class="line">services.AddAzureAdWithManagedIdentity(</div>
+<div class="line">    tenantId: <span class="stringliteral">&quot;your-tenant-id&quot;</span>,</div>
+<div class="line">    clientId: <span class="stringliteral">&quot;your-client-id&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Certificate authentication</span></div>
+<div class="line">services.AddAzureAd(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.TenantId = <span class="stringliteral">&quot;your-tenant-id&quot;</span>;</div>
+<div class="line">    options.ClientId = <span class="stringliteral">&quot;your-client-id&quot;</span>;</div>
+<div class="line">    options.CertificatePath = <span class="stringliteral">&quot;/path/to/cert.pfx&quot;</span>;</div>
+<div class="line">    options.CertificatePassword = <span class="stringliteral">&quot;password&quot;</span>;</div>
+<div class="line">    options.AuthenticationMode = AzureAdAuthMode.Certificate;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// From configuration</span></div>
+<div class="line">services.AddAzureAd(configuration.GetSection(<span class="stringliteral">&quot;Toolbox:Ldap:AzureAd&quot;</span>));</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md101"></a>
+Usage</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>AzureUserService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ILdapService _azureAd;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> AzureUserService(ILdapService azureAd)</div>
+<div class="line">    {</div>
+<div class="line">        _azureAd = azureAd;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;LdapUser?&gt; GetUserAsync(<span class="keywordtype">string</span> email)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _azureAd.GetUserByEmailAsync(email);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;IEnumerable&lt;LdapUser&gt;&gt; SearchByDepartmentAsync(<span class="keywordtype">string</span> department)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Azure AD uses OData filter syntax</span></div>
+<div class="line">        <span class="keywordflow">return</span> await _azureAd.SearchUsersAsync($<span class="stringliteral">&quot;department eq &#39;{department}&#39;&quot;</span>, maxResults: 50);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;IEnumerable&lt;LdapGroup&gt;&gt; GetSecurityGroupsAsync()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _azureAd.SearchGroupsAsync(<span class="stringliteral">&quot;securityEnabled eq true&quot;</span>, maxResults: 100);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
+Important Notes</h3>
+<ul>
+<li>Azure AD does not support <span class="tt">ValidateCredentials()</span> - use Azure AD authentication flows instead</li>
+<li>Search filters use OData syntax, not LDAP filter syntax</li>
+<li>Computer queries return Azure AD joined devices</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md103"></a>
+Configuration Options</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">TenantId</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Azure AD tenant ID or domain  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">ClientId</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Application (client) ID  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ClientSecret</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Client secret  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">AuthenticationMode</span>  </td><td class="markdownTableBodyNone">AzureAdAuthMode  </td><td class="markdownTableBodyNone">ClientSecret  </td><td class="markdownTableBodyNone">Authentication method  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UseManagedIdentity</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">false  </td><td class="markdownTableBodyNone">Use Azure Managed Identity  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">CertificatePath</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Path to certificate file  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">CertificateThumbprint</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Certificate thumbprint  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">GraphApiBaseUrl</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">v1.0 endpoint  </td><td class="markdownTableBodyNone">Microsoft Graph API URL  </td></tr>
+</table>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md105"></a>
+OpenLDAP</h2>
+<p>OpenLDAP or compatible Linux directory service.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
+Registration</h3>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Basic configuration</span></div>
+<div class="line">services.AddOpenLdap(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.Host = <span class="stringliteral">&quot;ldap.example.com&quot;</span>;</div>
+<div class="line">    options.Port = 389;</div>
+<div class="line">    options.BaseDn = <span class="stringliteral">&quot;dc=example,dc=com&quot;</span>;</div>
+<div class="line">    options.BindDn = <span class="stringliteral">&quot;cn=admin,dc=example,dc=com&quot;</span>;</div>
+<div class="line">    options.BindPassword = <span class="stringliteral">&quot;secret&quot;</span>;</div>
+<div class="line">    options.SecurityMode = LdapSecurityMode.StartTls;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// FreeIPA configuration</span></div>
+<div class="line">services.AddOpenLdap(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.Host = <span class="stringliteral">&quot;ipa.example.com&quot;</span>;</div>
+<div class="line">    options.Port = 636;</div>
+<div class="line">    options.BaseDn = <span class="stringliteral">&quot;dc=example,dc=com&quot;</span>;</div>
+<div class="line">    options.BindDn = <span class="stringliteral">&quot;uid=admin,cn=users,cn=accounts,dc=example,dc=com&quot;</span>;</div>
+<div class="line">    options.BindPassword = <span class="stringliteral">&quot;secret&quot;</span>;</div>
+<div class="line">    options.SecurityMode = LdapSecurityMode.Ssl;</div>
+<div class="line">    options.UserObjectClass = <span class="stringliteral">&quot;inetOrgPerson&quot;</span>;</div>
+<div class="line">    options.GroupObjectClass = <span class="stringliteral">&quot;groupOfNames&quot;</span>;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// From configuration</span></div>
+<div class="line">services.AddOpenLdap(configuration.GetSection(<span class="stringliteral">&quot;Toolbox:Ldap:OpenLdap&quot;</span>));</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md107"></a>
+Usage</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>LinuxUserService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ILdapService _ldap;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> LinuxUserService(ILdapService ldap)</div>
+<div class="line">    {</div>
+<div class="line">        _ldap = ldap;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;LdapUser?&gt; GetUserAsync(<span class="keywordtype">string</span> uid)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _ldap.GetUserByUsernameAsync(uid);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;bool&gt; AuthenticateAsync(<span class="keywordtype">string</span> uid, <span class="keywordtype">string</span> password)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _ldap.ValidateCredentialsAsync(uid, password);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
+Configuration Options</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Host</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">LDAP server hostname  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Port</span>  </td><td class="markdownTableBodyNone">int  </td><td class="markdownTableBodyNone">389  </td><td class="markdownTableBodyNone">LDAP port  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">BaseDn</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Base DN for searches  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">BindDn</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Bind DN for authentication  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">BindPassword</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Bind password  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">SecurityMode</span>  </td><td class="markdownTableBodyNone">LdapSecurityMode  </td><td class="markdownTableBodyNone">None  </td><td class="markdownTableBodyNone">Security mode (None, Ssl, StartTls)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UserObjectClass</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">inetOrgPerson  </td><td class="markdownTableBodyNone">User object class  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">GroupObjectClass</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">groupOfNames  </td><td class="markdownTableBodyNone">Group object class  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UsernameAttribute</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">uid  </td><td class="markdownTableBodyNone">Username attribute  </td></tr>
+</table>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
+Apple Directory</h2>
+<p>Apple Open Directory service for macOS environments.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
+Registration</h3>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line">services.AddAppleDirectory(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.Host = <span class="stringliteral">&quot;od.example.com&quot;</span>;</div>
+<div class="line">    options.Port = 389;</div>
+<div class="line">    options.BaseDn = <span class="stringliteral">&quot;dc=example,dc=com&quot;</span>;</div>
+<div class="line">    options.BindDn = <span class="stringliteral">&quot;uid=admin,cn=users,dc=example,dc=com&quot;</span>;</div>
+<div class="line">    options.BindPassword = <span class="stringliteral">&quot;secret&quot;</span>;</div>
+<div class="line">    options.UseSsl = <span class="keyword">true</span>;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// From configuration</span></div>
+<div class="line">services.AddAppleDirectory(configuration.GetSection(<span class="stringliteral">&quot;Toolbox:Ldap:AppleDirectory&quot;</span>));</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
+Usage</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MacUserService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ILdapService _ldap;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> MacUserService(ILdapService ldap)</div>
+<div class="line">    {</div>
+<div class="line">        _ldap = ldap;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;LdapUser?&gt; GetMacUserAsync(<span class="keywordtype">string</span> uid)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _ldap.GetUserByUsernameAsync(uid);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;IEnumerable&lt;string&gt;&gt; GetUserGroupsAsync(<span class="keywordtype">string</span> uid)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _ldap.GetUserGroupsAsync(uid);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
+Configuration Options</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Host</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Directory server hostname  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Port</span>  </td><td class="markdownTableBodyNone">int  </td><td class="markdownTableBodyNone">389  </td><td class="markdownTableBodyNone">LDAP port  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">BaseDn</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Base DN  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">BindDn</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Bind DN  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">BindPassword</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Bind password  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">UseSsl</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">false  </td><td class="markdownTableBodyNone">Use SSL  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UserObjectClass</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">apple-user  </td><td class="markdownTableBodyNone">Apple user object class  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">GroupObjectClass</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">apple-group  </td><td class="markdownTableBodyNone">Apple group object class  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UniqueIdAttribute</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">apple-generateduid  </td><td class="markdownTableBodyNone">Unique ID attribute  </td></tr>
+</table>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+Advanced Authentication</h2>
+<p>All LDAP services support advanced authentication methods beyond simple username/password authentication.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
+Authentication Modes</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Mode  </th><th class="markdownTableHeadCenter">AD  </th><th class="markdownTableHeadCenter">Azure AD  </th><th class="markdownTableHeadCenter">OpenLDAP  </th><th class="markdownTableHeadCenter">Apple  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Simple</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✓*  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyNone">DN + Password  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Anonymous</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyNone">No credentials  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Kerberos</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✓**  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyNone">GSSAPI/SPNEGO  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Ntlm</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyNone">NTLM legacy  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Negotiate</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyNone">Auto Kerberos/NTLM  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">IntegratedWindows</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyNone">Current Windows context  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Certificate</span>  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✓**  </td><td class="markdownTableBodyCenter">✓**  </td><td class="markdownTableBodyNone">X.509 client certificate  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">SaslPlain</span>  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyCenter">✓  </td><td class="markdownTableBodyNone">SASL PLAIN  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">SaslExternal</span>  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✓**  </td><td class="markdownTableBodyCenter">✓**  </td><td class="markdownTableBodyNone">SASL EXTERNAL (certificate)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">SaslGssapi</span>  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyCenter">✓**  </td><td class="markdownTableBodyCenter">✗  </td><td class="markdownTableBodyNone">SASL GSSAPI (Kerberos)  </td></tr>
+</table>
+<ul>
+<li>Azure AD Simple maps to ROPC (Resource Owner Password Credentials) OAuth2 flow ** Limited support - may return failure with guidance</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
+Usage with Options</h3>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Authenticate with options</span></div>
+<div class="line">var authOptions = <span class="keyword">new</span> LdapAuthenticationOptions</div>
+<div class="line">{</div>
+<div class="line">    Mode = LdapAuthenticationMode.Simple,</div>
+<div class="line">    Username = <span class="stringliteral">&quot;john.doe&quot;</span>,</div>
+<div class="line">    Password = <span class="stringliteral">&quot;password&quot;</span>,</div>
+<div class="line">    IncludeGroups = <span class="keyword">true</span>,</div>
+<div class="line">    IncludeClaims = <span class="keyword">true</span>,</div>
+<div class="line">    Timeout = TimeSpan.FromSeconds(30)</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">var result = await ldapService.AuthenticateAsync(authOptions);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (result.IsAuthenticated)</div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Authenticated: {result.Username}&quot;</span>);</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;DN: {result.UserDistinguishedName}&quot;</span>);</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Groups: {string.Join(&quot;</span>, <span class="stringliteral">&quot;, result.Groups ?? [])}&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordflow">else</span></div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Failed: {result.ErrorMessage} ({result.ErrorCode})&quot;</span>);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
+Kerberos Authentication (Active Directory)</h3>
+<div class="fragment"><div class="line"><span class="comment">// Using current Windows ticket (SSO)</span></div>
+<div class="line">var result = await adService.AuthenticateWithKerberosAsync();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Using explicit credentials</span></div>
+<div class="line">var authOptions = <span class="keyword">new</span> LdapAuthenticationOptions</div>
+<div class="line">{</div>
+<div class="line">    Mode = LdapAuthenticationMode.Kerberos,</div>
+<div class="line">    Username = <span class="stringliteral">&quot;john.doe@CORP.EXAMPLE.COM&quot;</span>,</div>
+<div class="line">    Password = <span class="stringliteral">&quot;password&quot;</span>,</div>
+<div class="line">    Domain = <span class="stringliteral">&quot;CORP&quot;</span></div>
+<div class="line">};</div>
+<div class="line">var result = await adService.AuthenticateAsync(authOptions);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
+Integrated Windows Authentication</h3>
+<div class="fragment"><div class="line"><span class="comment">// Uses the Windows identity of the current process</span></div>
+<div class="line">var authOptions = <span class="keyword">new</span> LdapAuthenticationOptions</div>
+<div class="line">{</div>
+<div class="line">    Mode = LdapAuthenticationMode.IntegratedWindows</div>
+<div class="line">};</div>
+<div class="line">var result = await adService.AuthenticateAsync(authOptions);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
+Certificate Authentication</h3>
+<div class="fragment"><div class="line"><span class="keyword">using </span>System.Security.Cryptography.X509Certificates;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Using certificate object</span></div>
+<div class="line">var cert = <span class="keyword">new</span> X509Certificate2(<span class="stringliteral">&quot;client.pfx&quot;</span>, <span class="stringliteral">&quot;password&quot;</span>);</div>
+<div class="line">var result = await ldapService.AuthenticateWithCertificateAsync(cert);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Using options with certificate path</span></div>
+<div class="line">var authOptions = <span class="keyword">new</span> LdapAuthenticationOptions</div>
+<div class="line">{</div>
+<div class="line">    Mode = LdapAuthenticationMode.Certificate,</div>
+<div class="line">    CertificatePath = <span class="stringliteral">&quot;/path/to/client.pfx&quot;</span>,</div>
+<div class="line">    CertificatePassword = <span class="stringliteral">&quot;password&quot;</span></div>
+<div class="line">};</div>
+<div class="line">var result = await ldapService.AuthenticateAsync(authOptions);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
+Azure AD Interactive Authentication</h3>
+<div class="fragment"><div class="line"><span class="comment">// Device code flow (for CLI apps)</span></div>
+<div class="line">var result = await azureAdService.AuthenticateWithDeviceCodeAsync(async deviceCode =&gt;</div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Go to {deviceCode.VerificationUri}&quot;</span>);</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Enter code: {deviceCode.UserCode}&quot;</span>);</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (result.IsAuthenticated)</div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Token: {result.Token}&quot;</span>);</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Expires: {result.ExpiresAt}&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Interactive browser flow (for desktop apps)</span></div>
+<div class="line">var result = await azureAdService.AuthenticateWithInteractiveBrowserAsync();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Username/Password (ROPC - not recommended)</span></div>
+<div class="line">var result = await azureAdService.AuthenticateWithUsernamePasswordAsync(</div>
+<div class="line">    <span class="stringliteral">&quot;user@domain.com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;password&quot;</span>);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
+Querying Supported Modes</h3>
+<div class="fragment"><div class="line"><span class="comment">// Get supported authentication modes for the service</span></div>
+<div class="line">var supportedModes = ldapService.GetSupportedAuthenticationModes();</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">foreach</span> (var mode <span class="keywordflow">in</span> supportedModes)</div>
+<div class="line">{</div>
+<div class="line">    Console.WriteLine($<span class="stringliteral">&quot;Supported: {mode}&quot;</span>);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
+Authentication Result</h3>
+<p>The <span class="tt">LdapAuthenticationResult</span> contains:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Property  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">IsAuthenticated</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">Whether authentication succeeded  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Username</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">Authenticated username  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">UserDistinguishedName</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">User's DN  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">AuthenticationMode</span>  </td><td class="markdownTableBodyNone">LdapAuthenticationMode  </td><td class="markdownTableBodyNone">Mode used  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">DirectoryType</span>  </td><td class="markdownTableBodyNone">LdapDirectoryType  </td><td class="markdownTableBodyNone">Directory type  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">ErrorMessage</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">Error description (if failed)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ErrorCode</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">LDAP error code  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Groups</span>  </td><td class="markdownTableBodyNone">IReadOnlyList&lt;string&gt;?  </td><td class="markdownTableBodyNone">User's groups (if requested)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Claims</span>  </td><td class="markdownTableBodyNone">IDictionary&lt;string, object&gt;?  </td><td class="markdownTableBodyNone">Additional claims  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">AuthenticatedAt</span>  </td><td class="markdownTableBodyNone">DateTimeOffset?  </td><td class="markdownTableBodyNone">Authentication timestamp  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Token</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">OAuth token (Azure AD)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">ExpiresAt</span>  </td><td class="markdownTableBodyNone">DateTimeOffset?  </td><td class="markdownTableBodyNone">Token expiration  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
+LDAP Management Operations</h2>
+<p>All LDAP services (Active Directory, OpenLDAP, Apple Directory) support account management operations. Azure AD is read-only through Graph API.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
+Account Management</h3>
+<p>Enable, disable, and unlock user or computer accounts.</p>
+<div class="fragment"><div class="line"><span class="comment">// Enable an account</span></div>
+<div class="line">var enableResult = await _ldap.EnableAccountAsync(</div>
+<div class="line">    LdapAccountOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;jdoe&quot;</span>)</div>
+<div class="line">        .WithObjectType(LdapObjectType.User));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Disable an account</span></div>
+<div class="line">var disableResult = await _ldap.DisableAccountAsync(</div>
+<div class="line">    LdapAccountOptions.Create()</div>
+<div class="line">        .ForUserDn(<span class="stringliteral">&quot;CN=John Doe,OU=Users,DC=contoso,DC=com&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Unlock a locked account</span></div>
+<div class="line">var unlockResult = await _ldap.UnlockAccountAsync(</div>
+<div class="line">    LdapAccountOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;jdoe&quot;</span>));</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md126"></a>
+Group Membership</h3>
+<p>Add or remove members from groups.</p>
+<div class="fragment"><div class="line"><span class="comment">// Add user to group</span></div>
+<div class="line">var addResult = await _ldap.AddToGroupAsync(</div>
+<div class="line">    LdapGroupMembershipOptions.Create()</div>
+<div class="line">        .ForGroup(<span class="stringliteral">&quot;IT-Department&quot;</span>)</div>
+<div class="line">        .WithMemberUsername(<span class="stringliteral">&quot;jdoe&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add multiple users to a group (batch)</span></div>
+<div class="line">var batchAddResult = await _ldap.AddToGroupBatchAsync(</div>
+<div class="line">    LdapGroupMembershipOptions.Create()</div>
+<div class="line">        .ForGroup(<span class="stringliteral">&quot;Developers&quot;</span>)</div>
+<div class="line">        .WithMemberDns(<span class="keyword">new</span>[] {</div>
+<div class="line">            <span class="stringliteral">&quot;CN=John Doe,OU=Users,DC=contoso,DC=com&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;CN=Jane Smith,OU=Users,DC=contoso,DC=com&quot;</span></div>
+<div class="line">        })</div>
+<div class="line">        .ContinueOnErrors()); <span class="comment">// Continue even if one fails</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Remove user from group</span></div>
+<div class="line">var removeResult = await _ldap.RemoveFromGroupAsync(</div>
+<div class="line">    LdapGroupMembershipOptions.Create()</div>
+<div class="line">        .ForGroupDn(<span class="stringliteral">&quot;CN=IT-Department,OU=Groups,DC=contoso,DC=com&quot;</span>)</div>
+<div class="line">        .WithMemberUsername(<span class="stringliteral">&quot;jdoe&quot;</span>));</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
+Object Movement</h3>
+<p>Move objects between organizational units (OUs).</p>
+<div class="fragment"><div class="line"><span class="comment">// Move user to another OU</span></div>
+<div class="line">var moveResult = await _ldap.MoveObjectAsync(</div>
+<div class="line">    LdapMoveOptions.Create()</div>
+<div class="line">        .FromDn(<span class="stringliteral">&quot;CN=John Doe,OU=Users,DC=contoso,DC=com&quot;</span>)</div>
+<div class="line">        .ToContainer(<span class="stringliteral">&quot;OU=Contractors,DC=contoso,DC=com&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Rename an object</span></div>
+<div class="line">var renameResult = await _ldap.RenameObjectAsync(</div>
+<div class="line">    <span class="stringliteral">&quot;CN=Old Name,OU=Users,DC=contoso,DC=com&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;New Name&quot;</span>);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md128"></a>
+Password Management</h3>
+<p>Change and reset user passwords.</p>
+<div class="fragment"><div class="line"><span class="comment">// User-initiated password change (requires current password)</span></div>
+<div class="line">var changeResult = await _ldap.ChangePasswordAsync(</div>
+<div class="line">    LdapPasswordOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;jdoe&quot;</span>)</div>
+<div class="line">        .WithCurrentPassword(<span class="stringliteral">&quot;OldP@ssw0rd&quot;</span>)</div>
+<div class="line">        .WithNewPassword(<span class="stringliteral">&quot;NewP@ssw0rd!&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Administrative password reset (no current password needed)</span></div>
+<div class="line">var resetResult = await _ldap.ResetPasswordAsync(</div>
+<div class="line">    LdapPasswordOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;jdoe&quot;</span>)</div>
+<div class="line">        .WithNewPassword(<span class="stringliteral">&quot;Temp0rary!&quot;</span>)</div>
+<div class="line">        .MustChangeAtNextLogon()    <span class="comment">// Force password change</span></div>
+<div class="line">        .UnlockAccountOnReset());   <span class="comment">// Also unlock if locked</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Force password change at next logon</span></div>
+<div class="line">var forceResult = await _ldap.ForcePasswordChangeAtNextLogonAsync(</div>
+<div class="line">    LdapAccountOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;jdoe&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set password to never expire</span></div>
+<div class="line">var neverExpireResult = await _ldap.SetPasswordNeverExpiresAsync(</div>
+<div class="line">    LdapAccountOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;serviceaccount&quot;</span>),</div>
+<div class="line">    neverExpires: <span class="keyword">true</span>);</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md129"></a>
+Azure AD Management via Microsoft Graph</h3>
+<p>Azure AD management uses Microsoft Graph API instead of LDAP. The same <span class="tt">ILdapService</span> interface works with Azure AD, but uses user IDs or UPNs instead of distinguished names.</p>
+<div class="fragment"><div class="line"><span class="comment">// Register Azure AD service</span></div>
+<div class="line">services.AddAzureAd(options =&gt;</div>
+<div class="line">{</div>
+<div class="line">    options.TenantId = <span class="stringliteral">&quot;your-tenant-id&quot;</span>;</div>
+<div class="line">    options.ClientId = <span class="stringliteral">&quot;your-client-id&quot;</span>;</div>
+<div class="line">    options.ClientSecret = <span class="stringliteral">&quot;your-client-secret&quot;</span>;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use by user principal name (UPN)</span></div>
+<div class="line">var result = await _azureAd.EnableAccountAsync(</div>
+<div class="line">    LdapAccountOptions.ForUser(<span class="stringliteral">&quot;john.doe@contoso.com&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Or by Azure AD object ID</span></div>
+<div class="line">var result2 = await _azureAd.DisableAccountAsync(</div>
+<div class="line">    LdapAccountOptions.Create()</div>
+<div class="line">        .WithDn(<span class="stringliteral">&quot;12345678-1234-1234-1234-123456789012&quot;</span>));  <span class="comment">// Object ID as &quot;DN&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add user to Azure AD group</span></div>
+<div class="line">var groupResult = await _azureAd.AddToGroupAsync(</div>
+<div class="line">    LdapGroupMembershipOptions.Create()</div>
+<div class="line">        .ForGroup(<span class="stringliteral">&quot;IT-Department&quot;</span>)           <span class="comment">// Group display name</span></div>
+<div class="line">        .WithMemberUsername(<span class="stringliteral">&quot;john.doe@contoso.com&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Reset password with force change at next sign-in</span></div>
+<div class="line">var passwordResult = await _azureAd.ResetPasswordAsync(</div>
+<div class="line">    LdapPasswordOptions.Create()</div>
+<div class="line">        .ForUser(<span class="stringliteral">&quot;john.doe@contoso.com&quot;</span>)</div>
+<div class="line">        .WithNewPassword(<span class="stringliteral">&quot;Temp0rary123!&quot;</span>)</div>
+<div class="line">        .MustChangeAtNextLogon());</div>
+</div><!-- fragment --><p><b>Required Microsoft Graph Permissions:</b></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Operation  </th><th class="markdownTableHeadNone">Application Permission  </th><th class="markdownTableHeadNone">Delegated Permission  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Enable/Disable Account  </td><td class="markdownTableBodyNone">User.ReadWrite.All  </td><td class="markdownTableBodyNone">User.ReadWrite  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Add/Remove from Group  </td><td class="markdownTableBodyNone">GroupMember.ReadWrite.All  </td><td class="markdownTableBodyNone">GroupMember.ReadWrite.All  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Reset Password  </td><td class="markdownTableBodyNone">User.ReadWrite.All  </td><td class="markdownTableBodyNone">-  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Force Password Change  </td><td class="markdownTableBodyNone">User.ReadWrite.All  </td><td class="markdownTableBodyNone">-  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Set Password Never Expires  </td><td class="markdownTableBodyNone">User.ReadWrite.All  </td><td class="markdownTableBodyNone">Directory.AccessAsUser.All  </td></tr>
+</table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md130"></a>
+Management Result</h3>
+<p>All management operations return <span class="tt">LdapManagementResult</span>:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Property  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">IsSuccess</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">Whether operation succeeded  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Operation</span>  </td><td class="markdownTableBodyNone">LdapManagementOperation  </td><td class="markdownTableBodyNone">Type of operation performed  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">TargetDistinguishedName</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">DN of affected object  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Details</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">Additional details or error message  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ErrorCode</span>  </td><td class="markdownTableBodyNone">int?  </td><td class="markdownTableBodyNone">LDAP error code (if failed)  </td></tr>
+</table>
+<div class="fragment"><div class="line">var result = await _ldap.EnableAccountAsync(options);</div>
+<div class="line"><span class="keywordflow">if</span> (result.IsSuccess)</div>
+<div class="line">{</div>
+<div class="line">    _logger.LogInformation(<span class="stringliteral">&quot;Enabled account: {Dn}&quot;</span>, result.TargetDistinguishedName);</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordflow">else</span></div>
+<div class="line">{</div>
+<div class="line">    _logger.LogError(<span class="stringliteral">&quot;Failed: {Details} (Error: {Code})&quot;</span>,</div>
+<div class="line">        result.Details, result.ErrorCode);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
+Supported Operations by Directory Type</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Operation  </th><th class="markdownTableHeadNone">Active Directory  </th><th class="markdownTableHeadNone">OpenLDAP  </th><th class="markdownTableHeadNone">Apple Directory  </th><th class="markdownTableHeadNone">Azure AD  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">EnableAccount  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">DisableAccount  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">UnlockAccount  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">❌¹  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">AddToGroup  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">RemoveFromGroup  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">MoveObject  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">❌²  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">RenameObject  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">❌²  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">ChangePassword  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌³  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">ResetPassword  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">ForcePasswordChange  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">SetPasswordNeverExpires  </td><td class="markdownTableBodyNone">✅  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">❌  </td><td class="markdownTableBodyNone">✅  </td></tr>
+</table>
+<p><b>Azure AD Notes:</b></p><ol type="1">
+<li>Azure AD uses Identity Protection for lockout management, not direct unlock</li>
+<li>Azure AD has no concept of OUs; use Administrative Units for delegation</li>
+<li>Password change requires delegated authentication flow (MSAL); use ResetPassword for admin resets</li>
+</ol>
+<p>Check supported operations programmatically:</p>
+<div class="fragment"><div class="line">var supported = _ldap.GetSupportedManagementOperations();</div>
+<div class="line"><span class="keywordflow">if</span> (supported.Contains(LdapManagementOperation.EnableAccount))</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Account enable/disable is supported</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md133"></a>
+SSO Services</h1>
+<p>Single Sign-On services for session management, credential storage, and automatic token refresh.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md134"></a>
+Registration</h2>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Extensions;</div>
+<div class="line"><span class="keyword">using </span>Toolbox.Core.Options;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Basic SSO services</span></div>
+<div class="line">services.AddSsoServices();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// With custom configuration</span></div>
+<div class="line">services.AddSsoServices(</div>
+<div class="line">    sso =&gt;</div>
+<div class="line">    {</div>
+<div class="line">        sso.DefaultSessionDuration = TimeSpan.FromHours(8);</div>
+<div class="line">        sso.MaxSessionDuration = TimeSpan.FromDays(7);</div>
+<div class="line">        sso.EnableAutoRefresh = <span class="keyword">true</span>;</div>
+<div class="line">        sso.RefreshThreshold = 0.8; <span class="comment">// Refresh at 80% of lifetime</span></div>
+<div class="line">        sso.MaxSessionsPerUser = 5;</div>
+<div class="line">        sso.PersistSessions = <span class="keyword">true</span>;</div>
+<div class="line">    },</div>
+<div class="line">    credStore =&gt;</div>
+<div class="line">    {</div>
+<div class="line">        credStore.Provider = CredentialStoreProvider.Auto; <span class="comment">// Auto-detect platform</span></div>
+<div class="line">        credStore.ApplicationName = <span class="stringliteral">&quot;MyApp&quot;</span>;</div>
+<div class="line">    });</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// From configuration</span></div>
+<div class="line">services.AddSsoServices(configuration);</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
+Session Management</h2>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>AuthController</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ISsoSessionManager _sessionManager;</div>
+<div class="line">    <span class="keyword">private</span> readonly ILdapService _ldapService;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> AuthController(ISsoSessionManager sessionManager, ILdapService ldapService)</div>
+<div class="line">    {</div>
+<div class="line">        _sessionManager = sessionManager;</div>
+<div class="line">        _ldapService = ldapService;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;SsoSession&gt; LoginAsync(<span class="keywordtype">string</span> username, <span class="keywordtype">string</span> password)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Authenticate with LDAP</span></div>
+<div class="line">        var authResult = await _ldapService.AuthenticateAsync(<span class="keyword">new</span> LdapAuthenticationOptions</div>
+<div class="line">        {</div>
+<div class="line">            Mode = LdapAuthenticationMode.Simple,</div>
+<div class="line">            Username = username,</div>
+<div class="line">            Password = password,</div>
+<div class="line">            IncludeGroups = <span class="keyword">true</span></div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (!authResult.IsAuthenticated)</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> AuthenticationException(authResult.ErrorMessage);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Create SSO session</span></div>
+<div class="line">        <span class="keywordflow">return</span> await _sessionManager.CreateSessionAsync(authResult, _ldapService);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;SsoSession&gt; LoginWithDeviceBindingAsync(</div>
+<div class="line">        <span class="keywordtype">string</span> username,</div>
+<div class="line">        <span class="keywordtype">string</span> password,</div>
+<div class="line">        <span class="keywordtype">string</span> deviceId,</div>
+<div class="line">        <span class="keywordtype">string</span> ipAddress,</div>
+<div class="line">        <span class="keywordtype">string</span> userAgent)</div>
+<div class="line">    {</div>
+<div class="line">        var authResult = await _ldapService.AuthenticateAsync(<span class="keyword">new</span> LdapAuthenticationOptions</div>
+<div class="line">        {</div>
+<div class="line">            Mode = LdapAuthenticationMode.Simple,</div>
+<div class="line">            Username = username,</div>
+<div class="line">            Password = password</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (!authResult.IsAuthenticated)</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> AuthenticationException(authResult.ErrorMessage);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Create session with device binding</span></div>
+<div class="line">        <span class="keywordflow">return</span> await _sessionManager.CreateSessionAsync(</div>
+<div class="line">            authResult,</div>
+<div class="line">            _ldapService,</div>
+<div class="line">            deviceId,</div>
+<div class="line">            ipAddress,</div>
+<div class="line">            userAgent);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;bool&gt; ValidateSessionAsync(<span class="keywordtype">string</span> sessionId)</div>
+<div class="line">    {</div>
+<div class="line">        var result = await _sessionManager.ValidateSessionAsync(sessionId);</div>
+<div class="line">        <span class="keywordflow">return</span> result.IsValid;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task LogoutAsync(<span class="keywordtype">string</span> sessionId)</div>
+<div class="line">    {</div>
+<div class="line">        await _sessionManager.RevokeSessionAsync(sessionId);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task LogoutAllDevicesAsync(<span class="keywordtype">string</span> userId)</div>
+<div class="line">    {</div>
+<div class="line">        await _sessionManager.RevokeAllUserSessionsAsync(userId);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task LogoutOtherDevicesAsync(<span class="keywordtype">string</span> userId, <span class="keywordtype">string</span> currentSessionId)</div>
+<div class="line">    {</div>
+<div class="line">        await _sessionManager.RevokeOtherSessionsAsync(userId, currentSessionId);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md136"></a>
+Session Validation</h2>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>SessionMiddleware</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ISsoSessionManager _sessionManager;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> SessionMiddleware(ISsoSessionManager sessionManager)</div>
+<div class="line">    {</div>
+<div class="line">        _sessionManager = sessionManager;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;SsoSessionValidationResult&gt; ValidateAsync(</div>
+<div class="line">        <span class="keywordtype">string</span> sessionId,</div>
+<div class="line">        <span class="keywordtype">string</span>? deviceId = <span class="keyword">null</span>,</div>
+<div class="line">        <span class="keywordtype">string</span>? ipAddress = <span class="keyword">null</span>)</div>
+<div class="line">    {</div>
+<div class="line">        var result = await _sessionManager.ValidateSessionAsync(sessionId, deviceId, ipAddress);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (!result.IsValid)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">switch</span> (result.FailureReason)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">case</span> SsoValidationFailureReason.SessionNotFound:</div>
+<div class="line">                    <span class="comment">// Session doesn&#39;t exist</span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">case</span> SsoValidationFailureReason.SessionExpired:</div>
+<div class="line">                    <span class="comment">// Session has expired</span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">case</span> SsoValidationFailureReason.SessionRevoked:</div>
+<div class="line">                    <span class="comment">// Session was explicitly revoked</span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">case</span> SsoValidationFailureReason.DeviceMismatch:</div>
+<div class="line">                    <span class="comment">// Request from different device</span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">case</span> SsoValidationFailureReason.IpMismatch:</div>
+<div class="line">                    <span class="comment">// Request from different IP</span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> result;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
+Session Events</h2>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>SessionEventHandler</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> SessionEventHandler(ISsoSessionManager sessionManager)</div>
+<div class="line">    {</div>
+<div class="line">        sessionManager.SessionCreated += OnSessionCreated;</div>
+<div class="line">        sessionManager.SessionExpiring += OnSessionExpiring;</div>
+<div class="line">        sessionManager.SessionRefreshed += OnSessionRefreshed;</div>
+<div class="line">        sessionManager.SessionExpired += OnSessionExpired;</div>
+<div class="line">        sessionManager.SessionRevoked += OnSessionRevoked;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnSessionCreated(<span class="keywordtype">object</span>? sender, SsoSessionCreatedEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Session created: {e.Session.SessionId} for {e.Session.UserId}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnSessionExpiring(<span class="keywordtype">object</span>? sender, SsoSessionExpiringEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Session expiring in {e.TimeToExpiry}: {e.Session.SessionId}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnSessionRefreshed(<span class="keywordtype">object</span>? sender, SsoSessionRefreshedEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Session refreshed: {e.Session.SessionId}, new expiry: {e.NewExpiresAt}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnSessionExpired(<span class="keywordtype">object</span>? sender, SsoSessionExpiredEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Session expired: {e.SessionId}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnSessionRevoked(<span class="keywordtype">object</span>? sender, SsoSessionRevokedEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Session revoked: {e.SessionId}, reason: {e.Reason}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
+Credential Storage</h2>
+<p>Secure credential storage with platform-specific implementations.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
+Providers</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Provider  </th><th class="markdownTableHeadNone">Platform  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Auto</span>  </td><td class="markdownTableBodyNone">All  </td><td class="markdownTableBodyNone">Auto-detect best provider  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">WindowsCredentialManager</span>  </td><td class="markdownTableBodyNone">Windows  </td><td class="markdownTableBodyNone">Windows Credential Manager with DPAPI  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">MacOsKeychain</span>  </td><td class="markdownTableBodyNone">macOS  </td><td class="markdownTableBodyNone">macOS Keychain Services (planned)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">LinuxSecretService</span>  </td><td class="markdownTableBodyNone">Linux  </td><td class="markdownTableBodyNone">GNOME Keyring/KDE Wallet (planned)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">EncryptedFile</span>  </td><td class="markdownTableBodyNone">All  </td><td class="markdownTableBodyNone">AES-256-GCM encrypted JSON file  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">InMemory</span>  </td><td class="markdownTableBodyNone">All  </td><td class="markdownTableBodyNone">Non-persistent, for testing  </td></tr>
+</table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
+Usage</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>CredentialService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ICredentialStore _credentialStore;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> CredentialService(ICredentialStore credentialStore)</div>
+<div class="line">    {</div>
+<div class="line">        _credentialStore = credentialStore;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task StoreTokenAsync(<span class="keywordtype">string</span> userId, <span class="keywordtype">string</span> accessToken, <span class="keywordtype">string</span> refreshToken)</div>
+<div class="line">    {</div>
+<div class="line">        var credential = <span class="keyword">new</span> SsoCredential</div>
+<div class="line">        {</div>
+<div class="line">            UserId = userId,</div>
+<div class="line">            Type = CredentialType.AccessToken,</div>
+<div class="line">            AccessToken = accessToken,</div>
+<div class="line">            RefreshToken = refreshToken,</div>
+<div class="line">            ExpiresAt = DateTimeOffset.UtcNow.AddHours(1),</div>
+<div class="line">            DirectoryType = LdapDirectoryType.ActiveDirectory</div>
+<div class="line">        };</div>
+<div class="line"> </div>
+<div class="line">        await _credentialStore.StoreCredentialAsync($<span class="stringliteral">&quot;token:{userId}&quot;</span>, credential);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;string?&gt; GetTokenAsync(<span class="keywordtype">string</span> userId)</div>
+<div class="line">    {</div>
+<div class="line">        var credential = await _credentialStore.GetCredentialAsync($<span class="stringliteral">&quot;token:{userId}&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> credential?.AccessToken;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task RemoveTokenAsync(<span class="keywordtype">string</span> userId)</div>
+<div class="line">    {</div>
+<div class="line">        await _credentialStore.RemoveCredentialAsync($<span class="stringliteral">&quot;token:{userId}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;IReadOnlyList&lt;SsoCredential&gt;&gt; GetUserCredentialsAsync(<span class="keywordtype">string</span> userId)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> await _credentialStore.GetUserCredentialsAsync(userId);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task CleanupExpiredAsync()</div>
+<div class="line">    {</div>
+<div class="line">        var removed = await _credentialStore.CleanupExpiredAsync();</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Removed {removed} expired credentials&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
+Credential Store Options</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Provider</span>  </td><td class="markdownTableBodyNone">CredentialStoreProvider  </td><td class="markdownTableBodyNone">Auto  </td><td class="markdownTableBodyNone">Storage provider  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">ApplicationName</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">"Toolbox"  </td><td class="markdownTableBodyNone">Application identifier for credentials  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">FallbackStorePath</span>  </td><td class="markdownTableBodyNone">string?  </td><td class="markdownTableBodyNone">null  </td><td class="markdownTableBodyNone">Path for encrypted file store  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">UseOsKeychain</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Prefer OS-native credential storage  </td></tr>
+</table>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
+Automatic Token Refresh</h2>
+<p>The token refresh service automatically refreshes tokens before they expire.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+Configuration</h3>
+<div class="fragment"><div class="line">services.AddSsoServices(sso =&gt;</div>
+<div class="line">{</div>
+<div class="line">    sso.EnableAutoRefresh = <span class="keyword">true</span>;</div>
+<div class="line">    sso.RefreshThreshold = 0.8;          <span class="comment">// Refresh at 80% of lifetime</span></div>
+<div class="line">    sso.RefreshCheckInterval = TimeSpan.FromMinutes(1);</div>
+<div class="line">    sso.MaxRefreshRetries = 3;</div>
+<div class="line">    sso.RefreshRetryDelay = TimeSpan.FromSeconds(5);</div>
+<div class="line">    sso.UseExponentialBackoff = <span class="keyword">true</span>;</div>
+<div class="line">});</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
+Manual Refresh</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>TokenService</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">private</span> readonly ITokenRefreshService _refreshService;</div>
+<div class="line">    <span class="keyword">private</span> readonly ISsoSessionManager _sessionManager;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> TokenService(ITokenRefreshService refreshService, ISsoSessionManager sessionManager)</div>
+<div class="line">    {</div>
+<div class="line">        _refreshService = refreshService;</div>
+<div class="line">        _sessionManager = sessionManager;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;SsoSession?&gt; RefreshNowAsync(<span class="keywordtype">string</span> sessionId)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Immediate refresh</span></div>
+<div class="line">        <span class="keywordflow">return</span> await _refreshService.RefreshNowAsync(sessionId);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> async Task&lt;int&gt; RefreshAllPendingAsync()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Refresh all sessions that need it</span></div>
+<div class="line">        <span class="keywordflow">return</span> await _refreshService.RefreshAllPendingAsync();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> CheckStatus()</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Service running: {_refreshService.IsRunning}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Registered sessions: {_refreshService.RegisteredSessionCount}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Successful refreshes: {_refreshService.SuccessfulRefreshCount}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Failed refreshes: {_refreshService.FailedRefreshCount}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Last check: {_refreshService.LastCheckTime}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Next check: {_refreshService.NextCheckTime}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
+Refresh Events</h3>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>RefreshEventHandler</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> RefreshEventHandler(ITokenRefreshService refreshService)</div>
+<div class="line">    {</div>
+<div class="line">        refreshService.RefreshNeeded += OnRefreshNeeded;</div>
+<div class="line">        refreshService.RefreshCompleted += OnRefreshCompleted;</div>
+<div class="line">        refreshService.RefreshFailed += OnRefreshFailed;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnRefreshNeeded(<span class="keywordtype">object</span>? sender, TokenRefreshNeededEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Refresh needed for {e.Session.SessionId}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  Elapsed: {e.LifetimeElapsedPercent:P0}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  Time to expiry: {e.TimeToExpiry}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnRefreshCompleted(<span class="keywordtype">object</span>? sender, TokenRefreshCompletedEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Refresh completed for {e.SessionId}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  New expiry: {e.NewExpiresAt}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  Duration: {e.RefreshDuration.TotalMilliseconds}ms&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> OnRefreshFailed(<span class="keywordtype">object</span>? sender, TokenRefreshFailedEventArgs e)</div>
+<div class="line">    {</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;Refresh failed for {e.SessionId}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  Error: {e.Exception.Message}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  Retry: {e.RetryAttempt}/{e.MaxRetries}&quot;</span>);</div>
+<div class="line">        Console.WriteLine($<span class="stringliteral">&quot;  Will retry: {e.WillRetry}&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
+SSO Session Options</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Default  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">DefaultSessionDuration</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">8 hours  </td><td class="markdownTableBodyNone">Default session lifetime  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">MaxSessionDuration</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">7 days  </td><td class="markdownTableBodyNone">Maximum session lifetime  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">SlidingExpiration</span>  </td><td class="markdownTableBodyNone">TimeSpan?  </td><td class="markdownTableBodyNone">30 min  </td><td class="markdownTableBodyNone">Sliding expiration window  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">RefreshThreshold</span>  </td><td class="markdownTableBodyNone">double  </td><td class="markdownTableBodyNone">0.8  </td><td class="markdownTableBodyNone">Refresh at % of lifetime  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">RefreshCheckInterval</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">1 min  </td><td class="markdownTableBodyNone">Background check interval  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">EnableAutoRefresh</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Enable automatic refresh  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">PersistSessions</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Persist sessions to store  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">MaxSessionsPerUser</span>  </td><td class="markdownTableBodyNone">int  </td><td class="markdownTableBodyNone">5  </td><td class="markdownTableBodyNone">Max concurrent sessions  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">RevokeOldestOnMaxReached</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">true  </td><td class="markdownTableBodyNone">Revoke oldest when max reached  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">EnforceDeviceBinding</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">false  </td><td class="markdownTableBodyNone">Require same device  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">EnforceIpBinding</span>  </td><td class="markdownTableBodyNone">bool  </td><td class="markdownTableBodyNone">false  </td><td class="markdownTableBodyNone">Require same IP address  </td></tr>
+</table>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
 Creating Custom Services</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md51"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
 Synchronous Disposal</h2>
 <p>For services with synchronous cleanup:</p>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_base.html">Toolbox.Core.Base</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Base;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MyService : <a class="code hl_class" href="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service.html">BaseDisposableService</a></div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MyService : BaseDisposableService</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">private</span> readonly SomeResource _resource;</div>
 <div class="line"> </div>
@@ -720,14 +2027,12 @@ Synchronous Disposal</h2>
 <div class="line">        base.Dispose(disposing);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_toolbox_1_1_core_1_1_base_1_1_base_disposable_service_html"><div class="ttname"><a href="class_toolbox_1_1_core_1_1_base_1_1_base_disposable_service.html">Toolbox.Core.Base.BaseDisposableService</a></div><div class="ttdoc">Abstract base class providing a thread-safe implementation of the dispose pattern with integrated tel...</div><div class="ttdef"><b>Definition</b> <a href="_base_disposable_service_8cs_source.html#l00027">BaseDisposableService.cs:28</a></div></div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_base_html"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_base.html">Toolbox.Core.Base</a></div><div class="ttdef"><b>Definition</b> <a href="_base_async_disposable_service_8cs_source.html#l00009">BaseAsyncDisposableService.cs:9</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md152"></a>
 Asynchronous Disposal</h2>
 <p>For services with async resources:</p>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_base.html">Toolbox.Core.Base</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Base;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MyAsyncService : <a class="code hl_class" href="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service.html">BaseAsyncDisposableService</a></div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MyAsyncService : BaseAsyncDisposableService</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">private</span> readonly Stream _stream;</div>
 <div class="line"> </div>
@@ -754,28 +2059,27 @@ Asynchronous Disposal</h2>
 <div class="line">        await _stream.DisposeAsync();</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service_html"><div class="ttname"><a href="class_toolbox_1_1_core_1_1_base_1_1_base_async_disposable_service.html">Toolbox.Core.Base.BaseAsyncDisposableService</a></div><div class="ttdoc">Abstract base class providing asynchronous disposal with cancellation support and integrated telemetr...</div><div class="ttdef"><b>Definition</b> <a href="_base_async_disposable_service_8cs_source.html#l00028">BaseAsyncDisposableService.cs:29</a></div></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md54"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
 OpenTelemetry Integration</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md55"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
 Basic Tracing and Metrics</h2>
-<div class="fragment"><div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxOpenTelemetry(options =&gt;</div>
+<div class="fragment"><div class="line">builder.Services.AddToolboxOpenTelemetry(options =&gt;</div>
 <div class="line">{</div>
 <div class="line">    options.EnableTracing = <span class="keyword">true</span>;</div>
 <div class="line">    options.EnableMetrics = <span class="keyword">true</span>;</div>
 <div class="line">    options.ServiceName = <span class="stringliteral">&quot;MyApplication&quot;</span>;</div>
 <div class="line">    options.ServiceVersion = <span class="stringliteral">&quot;1.0.0&quot;</span>;</div>
 <div class="line">});</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md56"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
 OTLP Export</h2>
-<div class="fragment"><div class="line"><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddToolboxOpenTelemetry(options =&gt;</div>
+<div class="fragment"><div class="line">builder.Services.AddToolboxOpenTelemetry(options =&gt;</div>
 <div class="line">{</div>
 <div class="line">    options.OtlpEndpoint = <span class="stringliteral">&quot;http://localhost:4317&quot;</span>;</div>
 <div class="line">});</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md57"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
 Custom Instrumentation</h2>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="namespace_toolbox_1_1_core_1_1_telemetry.html">Toolbox.Core.Telemetry</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using </span>Toolbox.Core.Telemetry;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Start a custom activity</span></div>
 <div class="line"><span class="keyword">using </span>var activity = ToolboxActivitySource.StartActivity(<span class="stringliteral">&quot;CustomOperation&quot;</span>);</div>
@@ -783,8 +2087,7 @@ Custom Instrumentation</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Record metrics</span></div>
 <div class="line">ToolboxMeter.RecordOperation(<span class="stringliteral">&quot;MyService&quot;</span>, <span class="stringliteral">&quot;CustomOp&quot;</span>, elapsedMs);</div>
-<div class="ttc" id="anamespace_toolbox_1_1_core_1_1_telemetry_html"><div class="ttname"><a href="namespace_toolbox_1_1_core_1_1_telemetry.html">Toolbox.Core.Telemetry</a></div><div class="ttdef"><b>Definition</b> <a href="_telemetry_constants_8cs_source.html#l00006">TelemetryConstants.cs:6</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md58"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md158"></a>
 Available Metrics</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -793,6 +2096,10 @@ Available Metrics</h2>
 <td class="markdownTableBodyNone"><span class="tt">toolbox.operations.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">Total operations  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">toolbox.operations.duration</span>  </td><td class="markdownTableBodyNone">Histogram  </td><td class="markdownTableBodyNone">Operation duration (ms)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.disposals.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">Service disposal events  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.instances.active</span>  </td><td class="markdownTableBodyNone">UpDownCounter  </td><td class="markdownTableBodyNone">Active service instances  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">toolbox.crypto.encrypt.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">Encryption operations  </td></tr>
 <tr class="markdownTableRowEven">
@@ -805,11 +2112,27 @@ Available Metrics</h2>
 <td class="markdownTableBodyNone"><span class="tt">toolbox.filetransfer.download.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">File downloads  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">toolbox.filetransfer.size</span>  </td><td class="markdownTableBodyNone">Histogram  </td><td class="markdownTableBodyNone">File size (bytes)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.filetransfer.errors.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">File transfer errors  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.mailing.sent.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">Emails sent  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.api.requests.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">API requests  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.sso.sessions.created</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">SSO sessions created  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.sso.sessions.expired</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">SSO sessions expired  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.sso.sessions.active</span>  </td><td class="markdownTableBodyNone">UpDownCounter  </td><td class="markdownTableBodyNone">Active SSO sessions  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.sso.validations.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">Session validations  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">toolbox.sso.refresh.count</span>  </td><td class="markdownTableBodyNone">Counter  </td><td class="markdownTableBodyNone">Token refreshes  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md60"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md160"></a>
 Configuration Options</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md61"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
 ToolboxOptions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -821,7 +2144,7 @@ ToolboxOptions</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">AsyncDisposalTimeout</span>  </td><td class="markdownTableBodyNone">TimeSpan  </td><td class="markdownTableBodyNone">30s  </td><td class="markdownTableBodyNone">Timeout for async disposal  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md62"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
 ToolboxTelemetryOptions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -840,35 +2163,35 @@ ToolboxTelemetryOptions</h2>
 <td class="markdownTableBodyNone"><span class="tt">ServiceVersion</span>  </td><td class="markdownTableBodyNone">string  </td><td class="markdownTableBodyNone">"1.0.0"  </td><td class="markdownTableBodyNone">Service version  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md64"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md164"></a>
 Best Practices</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md65"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md165"></a>
 1. Always Check Disposal State</h2>
 <div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keywordtype">void</span> DoWork()</div>
 <div class="line">{</div>
 <div class="line">    ThrowIfDisposed();  <span class="comment">// Call this first</span></div>
 <div class="line">    <span class="comment">// ... rest of method</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md66"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
 2. Use Activity Scopes for Tracing</h2>
 <div class="fragment"><div class="line"><span class="keyword">public</span> async Task DoWorkAsync()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">using </span>var activity = StartActivity();</div>
 <div class="line">    <span class="comment">// Activity automatically ends when scope exits</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md67"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
 3. Record Metrics for Performance</h2>
 <div class="fragment"><div class="line">var sw = Stopwatch.StartNew();</div>
 <div class="line"><span class="comment">// ... operation</span></div>
 <div class="line">RecordOperation(<span class="stringliteral">&quot;OperationName&quot;</span>, sw.ElapsedMilliseconds);</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md68"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md168"></a>
 4. Handle Cancellation in Async Operations</h2>
 <div class="fragment"><div class="line"><span class="keyword">public</span> async Task ProcessAsync(CancellationToken ct = <span class="keywordflow">default</span>)</div>
 <div class="line">{</div>
 <div class="line">    ct.ThrowIfCancellationRequested();</div>
 <div class="line">    await _service.DoWorkAsync(ct);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md69"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md169"></a>
 5. Use Appropriate Service Lifetimes</h2>
 <div class="fragment"><div class="line"><span class="comment">// Singleton for stateless services</span></div>
 <div class="line">services.AddSingleton&lt;ICryptographyService, AesCryptographyService&gt;();</div>
@@ -878,7 +2201,7 @@ Best Practices</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Transient for lightweight services</span></div>
 <div class="line">services.AddTransient&lt;IMailingService, SmtpMailingService&gt;();</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md70"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md170"></a>
 6. Secure Credential Management</h2>
 <div class="fragment"><div class="line"><span class="comment">// Use configuration/secrets, not hardcoded values</span></div>
 <div class="line">services.AddSmtpMailing(configuration.GetSection(<span class="stringliteral">&quot;Mailing&quot;</span>));</div>

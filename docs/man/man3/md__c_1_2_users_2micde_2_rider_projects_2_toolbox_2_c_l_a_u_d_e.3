@@ -1,0 +1,225 @@
+.TH "md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e" 3 "Toolbox" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e \- Directives du Projet Toolbox 
+.PP
+
+.SH "Framework"
+.PP
+.IP "\(bu" 2
+\fBVersion\fP : \&.NET 10
+.IP "\(bu" 2
+\fBLangage\fP : C# 14\&.0
+.PP
+
+.PP
+.PP
+.SH "Architecture des Services"
+.PP
+.SS "Injection de Dépendances"
+.IP "\(bu" 2
+Chaque service et classe doit être \fBinjectable\fP via le conteneur DI de \&.NET
+.IP "\(bu" 2
+Utiliser les extensions \fRIServiceCollection\fP pour l'enregistrement
+.PP
+.SS "Disposal"
+.IP "\(bu" 2
+Chaque service et classe doit implémenter \fBIDisposable\fP et/ou \fBIAsyncDisposable\fP
+.IP "\(bu" 2
+Utiliser les classes de base \fRBaseDisposableService\fP ou \fRBaseAsyncDisposableService\fP
+.PP
+.SS "Généricité"
+.IP "\(bu" 2
+Les services doivent être \fBaussi génériques que possible\fP
+.IP "\(bu" 2
+Favoriser la réutilisabilité et l'extensibilité
+.IP "\(bu" 2
+Éviter les implémentations trop spécifiques
+.PP
+
+.PP
+.PP
+.SH "Organisation par Catégorie"
+.PP
+.IP "\(bu" 2
+Pour chaque catégorie de service : \fBune seule interface\fP
+.IP "\(bu" 2
+L'interface définit le contrat commun pour tous les services de la catégorie
+.PP
+.SS "Catégories existantes"
+Catégorie  Interface  Services  Cryptography  \fRICryptographyService\fP  Base64, AES, RSA  FileTransfer  \fRIFileTransferService\fP  FTP, FTPS, SFTP  Mailing  \fRIMailingService\fP  SMTP  Api  \fRIApiService\fP  HTTP Client  Ldap  \fRILdapService\fP  ActiveDirectory, OpenLdap, AzureAd, AppleDirectory  
+
+.PP
+.PP
+.SH "Documentation Doxygen"
+.PP
+.SS "Exigences"
+.IP "\(bu" 2
+Documentation \fBcomplète\fP pour chaque classe et service
+.IP "\(bu" 2
+\fBObligatoire\fP pour toutes les parties, y compris privées :
+.IP "  \(bu" 4
+Membres privés
+.IP "  \(bu" 4
+Variables privées
+.IP "  \(bu" 4
+Fonctions privées
+.IP "  \(bu" 4
+Constructeurs
+.IP "  \(bu" 4
+Destructeurs
+.IP "  \(bu" 4
+Propriétés
+.PP
+
+.PP
+.SS "Format"
+.PP
+.nf
+
+
+.fi
+.PP
+
+.PP
+.PP
+.SH "Télémétrie"
+.PP
+.SS "OpenTelemetry"
+.IP "\(bu" 2
+Utilisé dans \fBtout le projet\fP
+.IP "\(bu" 2
+Chaque opération doit avoir :
+.IP "  \(bu" 4
+\fBTracing\fP : Activities pour le suivi distribué
+.IP "  \(bu" 4
+\fBMétriques\fP : Compteurs et histogrammes
+.PP
+
+.PP
+.SS "Métriques standards"
+.IP "\(bu" 2
+\fRtoolbox\&.operations\&.count\fP : Nombre d'opérations
+.IP "\(bu" 2
+\fRtoolbox\&.operations\&.duration\fP : Durée des opérations (ms)
+.IP "\(bu" 2
+\fRtoolbox\&.errors\&.count\fP : Nombre d'erreurs
+.PP
+
+.PP
+.PP
+.SH "Tests"
+.PP
+.SS "Tests Unitaires"
+.IP "\(bu" 2
+Chaque service doit avoir des tests unitaires
+.IP "\(bu" 2
+Couverture des cas nominaux et des cas d'erreur
+.IP "\(bu" 2
+Utiliser des mocks pour les dépendances externes
+.PP
+.SS "Tests de Non-Régression"
+.IP "\(bu" 2
+Tests pour garantir la stabilité des fonctionnalités existantes
+.IP "\(bu" 2
+Exécutés à chaque modification
+.PP
+.SS "Framework"
+.IP "\(bu" 2
+xUnit pour les tests
+.IP "\(bu" 2
+Moq ou NSubstitute pour les mocks
+.PP
+
+.PP
+.PP
+.SH "Documentation du Projet"
+.PP
+.SS "Fichiers à maintenir"
+Fichier  Description  \fR\fBREADME\&.md\fP\fP  Présentation du projet, installation, quick start  \fR\fBUSAGE\&.md\fP\fP  Guide d'utilisation détaillé de chaque service  \fR\&.gitignore\fP  Fichiers à ignorer pour Git (approprié \&.NET)  \fR\fBCLAUDE\&.md\fP\fP  Ce fichier - directives de développement  
+.SS "Mise à jour"
+.IP "\(bu" 2
+Ces fichiers doivent être \fBmis à jour\fP à chaque création de service ou classe
+.IP "\(bu" 2
+Le README doit refléter les fonctionnalités disponibles
+.IP "\(bu" 2
+Le USAGE doit documenter l'utilisation de chaque nouveau service
+.PP
+
+.PP
+.PP
+.SH "Structure du Projet"
+.PP
+.PP
+.nf
+Toolbox/
+├── src/
+│   └── Toolbox\&.Core/
+│       ├── Abstractions/Services/   # Interfaces (1 par catégorie)
+│       ├── Base/                    # Classes de base disposables
+│       ├── Extensions/              # Extensions DI
+│       ├── Options/                 # Options de configuration
+│       ├── Services/                # Implémentations par catégorie
+│       │   ├── Api/
+│       │   ├── Cryptography/
+│       │   ├── FileTransfer/
+│       │   ├── Ldap/
+│       │   └── Mailing/
+│       └── Telemetry/               # Infrastructure OpenTelemetry
+├── tests/
+│   └── Toolbox\&.Tests/               # Tests unitaires et de non\-régression
+├── samples/
+│   └── Toolbox\&.Sample/              # Application exemple
+└── docs/                            # Documentation Doxygen générée
+.fi
+.PP
+
+.PP
+.PP
+.SH "Checklist pour Nouveau Service"
+.PP
+.IP "[ ]" 4
+Vérifier si l'interface de la catégorie existe, sinon la créer
+.PP
+.IP "[ ]" 4
+Implémenter le service en héritant de \fRBaseDisposableService\fP ou \fRBaseAsyncDisposableService\fP
+.PP
+.IP "[ ]" 4
+Ajouter la documentation Doxygen complète (publique ET privée)
+.PP
+.IP "[ ]" 4
+Ajouter le tracing OpenTelemetry
+.PP
+.IP "[ ]" 4
+Ajouter les métriques OpenTelemetry
+.PP
+.IP "[ ]" 4
+Créer l'extension DI pour l'enregistrement
+.PP
+.IP "[ ]" 4
+Écrire les tests unitaires
+.PP
+.IP "[ ]" 4
+Écrire les tests de non-régression
+.PP
+.IP "[ ]" 4
+Mettre à jour \fR\fBREADME\&.md\fP\fP
+.PP
+.IP "[ ]" 4
+Mettre à jour \fR\fBUSAGE\&.md\fP\fP
+.PP
+
+.PP
+.PP
+.SH "Git et Commits"
+.PP
+.SS "Messages de Commit"
+.IP "\(bu" 2
+Les messages doivent être \fBstructurés en Markdown\fP
+.IP "\(bu" 2
+Contenir \fBtoutes les actions effectuées\fP
+.IP "\(bu" 2
+Rester un \fBrésumé concis\fP 
+.PP
+

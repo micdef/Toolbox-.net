@@ -27,19 +27,29 @@ namespace Toolbox.Core.Services.FileTransfer;
 /// <seealso cref="IFileTransferService"/>
 public sealed class FtpFileTransferService : BaseAsyncDisposableService, IFileTransferService
 {
-    // The FTP client instance
+    /// <summary>
+    /// The FTP client instance for file transfer operations.
+    /// </summary>
     private readonly AsyncFtpClient _client;
 
-    // The service options
+    /// <summary>
+    /// The service configuration options.
+    /// </summary>
     private readonly FileTransferOptions _options;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<FtpFileTransferService> _logger;
 
-    // Connection state
+    /// <summary>
+    /// Indicates whether the service is currently connected to the server.
+    /// </summary>
     private bool _isConnected;
 
-    // Lock for connection management
+    /// <summary>
+    /// Semaphore for thread-safe connection management.
+    /// </summary>
     private readonly SemaphoreSlim _connectionLock = new(1, 1);
 
     /// <summary>

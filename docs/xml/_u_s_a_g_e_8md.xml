@@ -22,10 +22,21 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[FTP/FTPS](#ftpftps)</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[SFTP](#sftp)</highlight></codeline>
 <codeline><highlight class="normal">4.<sp/>[Mailing<sp/>Services](#mailing-services)</highlight></codeline>
-<codeline><highlight class="normal">5.<sp/>[Creating<sp/>Custom<sp/>Services](#creating-custom-services)</highlight></codeline>
-<codeline><highlight class="normal">6.<sp/>[OpenTelemetry<sp/>Integration](#opentelemetry-integration)</highlight></codeline>
-<codeline><highlight class="normal">7.<sp/>[Configuration<sp/>Options](#configuration-options)</highlight></codeline>
-<codeline><highlight class="normal">8.<sp/>[Best<sp/>Practices](#best-practices)</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>[API<sp/>Services](#api-services)</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/>[LDAP<sp/>Services](#ldap-services)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Active<sp/>Directory](#active-directory)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Azure<sp/>AD<sp/>/<sp/>Entra<sp/>ID](#azure-ad--entra-id)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[OpenLDAP](#openldap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Apple<sp/>Directory](#apple-directory)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Advanced<sp/>Authentication](#advanced-authentication)</highlight></codeline>
+<codeline><highlight class="normal">7.<sp/>[SSO<sp/>Services](#sso-services)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Session<sp/>Management](#session-management)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Credential<sp/>Storage](#credential-storage)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>[Automatic<sp/>Token<sp/>Refresh](#automatic-token-refresh)</highlight></codeline>
+<codeline><highlight class="normal">8.<sp/>[Creating<sp/>Custom<sp/>Services](#creating-custom-services)</highlight></codeline>
+<codeline><highlight class="normal">9.<sp/>[OpenTelemetry<sp/>Integration](#opentelemetry-integration)</highlight></codeline>
+<codeline><highlight class="normal">10.<sp/>[Configuration<sp/>Options](#configuration-options)</highlight></codeline>
+<codeline><highlight class="normal">11.<sp/>[Best<sp/>Practices](#best-practices)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Getting<sp/>Started</highlight></codeline>
 <codeline></codeline>
@@ -611,6 +622,1308 @@
 <codeline></codeline>
 <codeline><highlight class="normal">---</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">##<sp/>API<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">HTTP<sp/>API<sp/>client<sp/>service<sp/>with<sp/>multiple<sp/>authentication<sp/>modes<sp/>and<sp/>automatic<sp/>retry.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Anonymous<sp/>API</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiAnonymous(&quot;https://api.example.com&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Bearer<sp/>token<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiWithBearerToken(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://api.example.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;your-bearer-token&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Basic<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiWithBasicAuth(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://api.example.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;username&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;password&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>API<sp/>key<sp/>authentication<sp/>(header)</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiWithApiKey(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://api.example.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;your-api-key&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;X-API-Key&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ApiKeyLocation.Header);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>API<sp/>key<sp/>authentication<sp/>(query<sp/>string)</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiWithApiKey(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://api.example.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;your-api-key&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;api_key&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ApiKeyLocation.QueryString);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Client<sp/>certificate<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiWithCertificate(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://api.example.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>new<sp/>X509Certificate2(&quot;client.pfx&quot;,<sp/>&quot;password&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>OAuth2<sp/>client<sp/>credentials</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApiWithOAuth2(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://api.example.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;https://auth.example.com/oauth/token&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;client-id&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;client-secret&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;read<sp/>write&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Full<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApi(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BaseUrl<sp/>=<sp/>&quot;https://api.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.AuthenticationMode<sp/>=<sp/>ApiAuthenticationMode.BearerToken;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BearerToken<sp/>=<sp/>&quot;your-token&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Timeout<sp/>=<sp/>TimeSpan.FromSeconds(30);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.MaxRetries<sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.UseExponentialBackoff<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddHttpApi(configuration.GetSection(&quot;Api&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>DataService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>IApiService<sp/>_api;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>DataService(IApiService<sp/>api)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_api<sp/>=<sp/>api;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;User?&gt;<sp/>GetUserAsync(int<sp/>id)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Simple<sp/>GET<sp/>request</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Get($&quot;/users/{id}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>response<sp/>=<sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>response.EnsureSuccess();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>response.Deserialize&lt;User&gt;();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;User?&gt;<sp/>CreateUserAsync(User<sp/>user)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>POST<sp/>with<sp/>JSON<sp/>body</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Post(&quot;/users&quot;,<sp/>user);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_api.SendAsync&lt;User&gt;(request);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>UpdateUserAsync(int<sp/>id,<sp/>User<sp/>user)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>PUT<sp/>with<sp/>JSON<sp/>body</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Put($&quot;/users/{id}&quot;,<sp/>user);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>PatchUserAsync(int<sp/>id,<sp/>object<sp/>partialData)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>PATCH<sp/>with<sp/>JSON<sp/>body</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Patch($&quot;/users/{id}&quot;,<sp/>partialData);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>DeleteUserAsync(int<sp/>id)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>DELETE<sp/>request</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Delete($&quot;/users/{id}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Advanced<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>AdvancedApiService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>IApiService<sp/>_api;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>AdvancedApiService(IApiService<sp/>api)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_api<sp/>=<sp/>api;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;SearchResult&gt;<sp/>SearchAsync(string<sp/>query,<sp/>int<sp/>page)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Request<sp/>with<sp/>query<sp/>parameters<sp/>and<sp/>headers</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Get(&quot;/search&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithQuery(&quot;q&quot;,<sp/>query)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithQuery(&quot;page&quot;,<sp/>page.ToString())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithHeader(&quot;X-Request-ID&quot;,<sp/>Guid.NewGuid().ToString())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithTimeout(TimeSpan.FromSeconds(60));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>response<sp/>=<sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(response.IsSuccess)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>response.Deserialize&lt;SearchResult&gt;()!;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(response.IsClientError)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>InvalidOperationException($&quot;Client<sp/>error:<sp/>{response.ReasonPhrase}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>HttpRequestException($&quot;Server<sp/>error:<sp/>{response.StatusCode}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>UploadFileAsync(byte[]<sp/>fileData,<sp/>string<sp/>fileName)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Binary<sp/>content</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Post(&quot;/upload&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.SetBinaryContent(fileData,<sp/>&quot;application/octet-stream&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithHeader(&quot;X-File-Name&quot;,<sp/>fileName);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>SubmitFormAsync(Dictionary&lt;string,<sp/>string&gt;<sp/>formData)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Form<sp/>URL-encoded<sp/>content</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>request<sp/>=<sp/>ApiRequest.Post(&quot;/form&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.SetFormContent(formData);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_api.SendAsync(request);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BaseUrl`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Base<sp/>URL<sp/>for<sp/>all<sp/>requests<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`AuthenticationMode`<sp/>|<sp/>ApiAuthenticationMode<sp/>|<sp/>Anonymous<sp/>|<sp/>Authentication<sp/>method<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Timeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>30s<sp/>|<sp/>Request<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`MaxRetries`<sp/>|<sp/>int<sp/>|<sp/>3<sp/>|<sp/>Maximum<sp/>retry<sp/>attempts<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`RetryDelay`<sp/>|<sp/>TimeSpan<sp/>|<sp/>1s<sp/>|<sp/>Delay<sp/>between<sp/>retries<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UseExponentialBackoff`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Use<sp/>exponential<sp/>backoff<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ValidateCertificate`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Validate<sp/>SSL<sp/>certificates<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`FollowRedirects`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Follow<sp/>HTTP<sp/>redirects<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`MaxRedirects`<sp/>|<sp/>int<sp/>|<sp/>10<sp/>|<sp/>Maximum<sp/>redirects<sp/>to<sp/>follow<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UserAgent`<sp/>|<sp/>string<sp/>|<sp/>&quot;Toolbox...&quot;<sp/>|<sp/>Default<sp/>User-Agent<sp/>header<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Authentication<sp/>Modes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Mode<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Anonymous`<sp/>|<sp/>No<sp/>authentication<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BearerToken`<sp/>|<sp/>Bearer<sp/>token<sp/>in<sp/>Authorization<sp/>header<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Basic`<sp/>|<sp/>Basic<sp/>authentication<sp/>(username:password)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ApiKey`<sp/>|<sp/>API<sp/>key<sp/>in<sp/>header<sp/>or<sp/>query<sp/>string<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Certificate`<sp/>|<sp/>Client<sp/>certificate<sp/>authentication<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OAuth2ClientCredentials`<sp/>|<sp/>OAuth2<sp/>client<sp/>credentials<sp/>flow<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>LDAP<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Directory<sp/>services<sp/>for<sp/>querying<sp/>users,<sp/>groups,<sp/>and<sp/>computers<sp/>from<sp/>various<sp/>LDAP<sp/>providers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Active<sp/>Directory</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Windows<sp/>Active<sp/>Directory<sp/>service<sp/>using<sp/>LDAP<sp/>protocol.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Using<sp/>current<sp/>Windows<sp/>credentials</highlight></codeline>
+<codeline><highlight class="normal">services.AddActiveDirectory(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Domain<sp/>=<sp/>&quot;corp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.UseCurrentCredentials<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.UseSsl<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Using<sp/>explicit<sp/>credentials</highlight></codeline>
+<codeline><highlight class="normal">services.AddActiveDirectory(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Domain<sp/>=<sp/>&quot;corp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Server<sp/>=<sp/>&quot;dc01.corp.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>636;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.UseSsl<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Username<sp/>=<sp/>&quot;CORP\\serviceaccount&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Password<sp/>=<sp/>&quot;password&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddActiveDirectory(configuration.GetSection(&quot;Toolbox:Ldap:ActiveDirectory&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>UserService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ILdapService<sp/>_ldap;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>UserService(ILdapService<sp/>ldap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ldap<sp/>=<sp/>ldap;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;LdapUser?&gt;<sp/>FindUserAsync(string<sp/>username)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>user<sp/>=<sp/>await<sp/>_ldap.GetUserByUsernameAsync(username);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(user<sp/>!=<sp/>null)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Found:<sp/>{user.DisplayName}<sp/>({user.Email})&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Department:<sp/>{user.Department}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>user;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;bool&gt;<sp/>ValidateUserAsync(string<sp/>username,<sp/>string<sp/>password)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_ldap.ValidateCredentialsAsync(username,<sp/>password);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;PagedResult&lt;LdapUser&gt;&gt;<sp/>SearchUsersAsync(string<sp/>department)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>criteria<sp/>=<sp/>LdapSearchCriteria.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithDepartment(department)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.EnabledOnly();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_ldap.SearchUsersAsync(criteria,<sp/>page:<sp/>1,<sp/>pageSize:<sp/>25);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Group<sp/>and<sp/>Computer<sp/>Operations</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Get<sp/>group<sp/>by<sp/>name</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>group<sp/>=<sp/>await<sp/>_ldap.GetGroupByNameAsync(&quot;Developers&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Get<sp/>group<sp/>members<sp/>with<sp/>pagination</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>members<sp/>=<sp/>await<sp/>_ldap.GetGroupMembersAsync(&quot;CN=Developers,OU=Groups,DC=example,DC=com&quot;,<sp/>page:<sp/>1,<sp/>pageSize:<sp/>50);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Get<sp/>computer<sp/>by<sp/>name</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>computer<sp/>=<sp/>await<sp/>_ldap.GetComputerByNameAsync(&quot;SERVER01&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Search<sp/>servers</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>criteria<sp/>=<sp/>LdapComputerSearchCriteria.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.WithOperatingSystem(&quot;Windows<sp/>Server*&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.EnabledOnly();</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>servers<sp/>=<sp/>await<sp/>_ldap.SearchComputersAsync(criteria,<sp/>page:<sp/>1,<sp/>pageSize:<sp/>25);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Domain`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Fully<sp/>qualified<sp/>domain<sp/>name<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Server`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Domain<sp/>controller<sp/>(auto-discovers<sp/>if<sp/>null)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Port`<sp/>|<sp/>int<sp/>|<sp/>389<sp/>|<sp/>LDAP<sp/>port<sp/>(636<sp/>for<sp/>SSL)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BaseDn`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Base<sp/>DN<sp/>for<sp/>searches<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Username`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Bind<sp/>username<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Password`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Bind<sp/>password<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UseSsl`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Use<sp/>SSL/TLS<sp/>(LDAPS)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UseCurrentCredentials`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Use<sp/>Windows<sp/>integrated<sp/>auth<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ValidateCertificate`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Validate<sp/>SSL<sp/>certificate<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ConnectionTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>30s<sp/>|<sp/>Connection<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`OperationTimeout`<sp/>|<sp/>TimeSpan<sp/>|<sp/>60s<sp/>|<sp/>Operation<sp/>timeout<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Azure<sp/>AD<sp/>/<sp/>Entra<sp/>ID</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Azure<sp/>Active<sp/>Directory<sp/>service<sp/>using<sp/>Microsoft<sp/>Graph<sp/>API.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Client<sp/>secret<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddAzureAd(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.TenantId<sp/>=<sp/>&quot;your-tenant-id&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ClientId<sp/>=<sp/>&quot;your-client-id&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ClientSecret<sp/>=<sp/>&quot;your-client-secret&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.AuthenticationMode<sp/>=<sp/>AzureAdAuthMode.ClientSecret;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Managed<sp/>identity<sp/>(Azure-hosted<sp/>apps)</highlight></codeline>
+<codeline><highlight class="normal">services.AddAzureAdWithManagedIdentity(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tenantId:<sp/>&quot;your-tenant-id&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>clientId:<sp/>&quot;your-client-id&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Certificate<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">services.AddAzureAd(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.TenantId<sp/>=<sp/>&quot;your-tenant-id&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ClientId<sp/>=<sp/>&quot;your-client-id&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.CertificatePath<sp/>=<sp/>&quot;/path/to/cert.pfx&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.CertificatePassword<sp/>=<sp/>&quot;password&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.AuthenticationMode<sp/>=<sp/>AzureAdAuthMode.Certificate;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddAzureAd(configuration.GetSection(&quot;Toolbox:Ldap:AzureAd&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>AzureUserService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ILdapService<sp/>_azureAd;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>AzureUserService(ILdapService<sp/>azureAd)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_azureAd<sp/>=<sp/>azureAd;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;LdapUser?&gt;<sp/>GetUserAsync(string<sp/>email)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_azureAd.GetUserByEmailAsync(email);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;IEnumerable&lt;LdapUser&gt;&gt;<sp/>SearchByDepartmentAsync(string<sp/>department)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Azure<sp/>AD<sp/>uses<sp/>OData<sp/>filter<sp/>syntax</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_azureAd.SearchUsersAsync($&quot;department<sp/>eq<sp/>&apos;{department}&apos;&quot;,<sp/>maxResults:<sp/>50);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;IEnumerable&lt;LdapGroup&gt;&gt;<sp/>GetSecurityGroupsAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_azureAd.SearchGroupsAsync(&quot;securityEnabled<sp/>eq<sp/>true&quot;,<sp/>maxResults:<sp/>100);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Important<sp/>Notes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Azure<sp/>AD<sp/>does<sp/>not<sp/>support<sp/>`ValidateCredentials()`<sp/>-<sp/>use<sp/>Azure<sp/>AD<sp/>authentication<sp/>flows<sp/>instead</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Search<sp/>filters<sp/>use<sp/>OData<sp/>syntax,<sp/>not<sp/>LDAP<sp/>filter<sp/>syntax</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Computer<sp/>queries<sp/>return<sp/>Azure<sp/>AD<sp/>joined<sp/>devices</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`TenantId`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Azure<sp/>AD<sp/>tenant<sp/>ID<sp/>or<sp/>domain<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ClientId`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Application<sp/>(client)<sp/>ID<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ClientSecret`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Client<sp/>secret<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`AuthenticationMode`<sp/>|<sp/>AzureAdAuthMode<sp/>|<sp/>ClientSecret<sp/>|<sp/>Authentication<sp/>method<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UseManagedIdentity`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Use<sp/>Azure<sp/>Managed<sp/>Identity<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`CertificatePath`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Path<sp/>to<sp/>certificate<sp/>file<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`CertificateThumbprint`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Certificate<sp/>thumbprint<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`GraphApiBaseUrl`<sp/>|<sp/>string<sp/>|<sp/>v1.0<sp/>endpoint<sp/>|<sp/>Microsoft<sp/>Graph<sp/>API<sp/>URL<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>OpenLDAP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenLDAP<sp/>or<sp/>compatible<sp/>Linux<sp/>directory<sp/>service.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Basic<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddOpenLdap(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;ldap.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>389;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BaseDn<sp/>=<sp/>&quot;dc=example,dc=com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BindDn<sp/>=<sp/>&quot;cn=admin,dc=example,dc=com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BindPassword<sp/>=<sp/>&quot;secret&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/>LdapSecurityMode.StartTls;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>FreeIPA<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddOpenLdap(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;ipa.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>636;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BaseDn<sp/>=<sp/>&quot;dc=example,dc=com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BindDn<sp/>=<sp/>&quot;uid=admin,cn=users,cn=accounts,dc=example,dc=com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BindPassword<sp/>=<sp/>&quot;secret&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.SecurityMode<sp/>=<sp/>LdapSecurityMode.Ssl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.UserObjectClass<sp/>=<sp/>&quot;inetOrgPerson&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.GroupObjectClass<sp/>=<sp/>&quot;groupOfNames&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddOpenLdap(configuration.GetSection(&quot;Toolbox:Ldap:OpenLdap&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>LinuxUserService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ILdapService<sp/>_ldap;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>LinuxUserService(ILdapService<sp/>ldap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ldap<sp/>=<sp/>ldap;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;LdapUser?&gt;<sp/>GetUserAsync(string<sp/>uid)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_ldap.GetUserByUsernameAsync(uid);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;bool&gt;<sp/>AuthenticateAsync(string<sp/>uid,<sp/>string<sp/>password)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_ldap.ValidateCredentialsAsync(uid,<sp/>password);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Host`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>LDAP<sp/>server<sp/>hostname<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Port`<sp/>|<sp/>int<sp/>|<sp/>389<sp/>|<sp/>LDAP<sp/>port<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BaseDn`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Base<sp/>DN<sp/>for<sp/>searches<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BindDn`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Bind<sp/>DN<sp/>for<sp/>authentication<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BindPassword`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Bind<sp/>password<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SecurityMode`<sp/>|<sp/>LdapSecurityMode<sp/>|<sp/>None<sp/>|<sp/>Security<sp/>mode<sp/>(None,<sp/>Ssl,<sp/>StartTls)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UserObjectClass`<sp/>|<sp/>string<sp/>|<sp/>inetOrgPerson<sp/>|<sp/>User<sp/>object<sp/>class<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`GroupObjectClass`<sp/>|<sp/>string<sp/>|<sp/>groupOfNames<sp/>|<sp/>Group<sp/>object<sp/>class<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UsernameAttribute`<sp/>|<sp/>string<sp/>|<sp/>uid<sp/>|<sp/>Username<sp/>attribute<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Apple<sp/>Directory</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Apple<sp/>Open<sp/>Directory<sp/>service<sp/>for<sp/>macOS<sp/>environments.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">services.AddAppleDirectory(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Host<sp/>=<sp/>&quot;od.example.com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.Port<sp/>=<sp/>389;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BaseDn<sp/>=<sp/>&quot;dc=example,dc=com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BindDn<sp/>=<sp/>&quot;uid=admin,cn=users,dc=example,dc=com&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.BindPassword<sp/>=<sp/>&quot;secret&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.UseSsl<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddAppleDirectory(configuration.GetSection(&quot;Toolbox:Ldap:AppleDirectory&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>MacUserService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ILdapService<sp/>_ldap;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>MacUserService(ILdapService<sp/>ldap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ldap<sp/>=<sp/>ldap;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;LdapUser?&gt;<sp/>GetMacUserAsync(string<sp/>uid)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_ldap.GetUserByUsernameAsync(uid);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;IEnumerable&lt;string&gt;&gt;<sp/>GetUserGroupsAsync(string<sp/>uid)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_ldap.GetUserGroupsAsync(uid);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Configuration<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Host`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Directory<sp/>server<sp/>hostname<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Port`<sp/>|<sp/>int<sp/>|<sp/>389<sp/>|<sp/>LDAP<sp/>port<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BaseDn`<sp/>|<sp/>string<sp/>|<sp/>-<sp/>|<sp/>Base<sp/>DN<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BindDn`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Bind<sp/>DN<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`BindPassword`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Bind<sp/>password<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UseSsl`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Use<sp/>SSL<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UserObjectClass`<sp/>|<sp/>string<sp/>|<sp/>apple-user<sp/>|<sp/>Apple<sp/>user<sp/>object<sp/>class<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`GroupObjectClass`<sp/>|<sp/>string<sp/>|<sp/>apple-group<sp/>|<sp/>Apple<sp/>group<sp/>object<sp/>class<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UniqueIdAttribute`<sp/>|<sp/>string<sp/>|<sp/>apple-generateduid<sp/>|<sp/>Unique<sp/>ID<sp/>attribute<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Advanced<sp/>Authentication</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>LDAP<sp/>services<sp/>support<sp/>advanced<sp/>authentication<sp/>methods<sp/>beyond<sp/>simple<sp/>username/password<sp/>authentication.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Authentication<sp/>Modes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Mode<sp/>|<sp/>AD<sp/>|<sp/>Azure<sp/>AD<sp/>|<sp/>OpenLDAP<sp/>|<sp/>Apple<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------|:--:|:--------:|:--------:|:-----:|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Simple`<sp/>|<sp/>✓<sp/>|<sp/>✓*<sp/>|<sp/>✓<sp/>|<sp/>✓<sp/>|<sp/>DN<sp/>+<sp/>Password<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Anonymous`<sp/>|<sp/>✓<sp/>|<sp/>✗<sp/>|<sp/>✓<sp/>|<sp/>✓<sp/>|<sp/>No<sp/>credentials<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Kerberos`<sp/>|<sp/>✓<sp/>|<sp/>✗<sp/>|<sp/>✓**<sp/>|<sp/>✗<sp/>|<sp/>GSSAPI/SPNEGO<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Ntlm`<sp/>|<sp/>✓<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>NTLM<sp/>legacy<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Negotiate`<sp/>|<sp/>✓<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>Auto<sp/>Kerberos/NTLM<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`IntegratedWindows`<sp/>|<sp/>✓<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>Current<sp/>Windows<sp/>context<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Certificate`<sp/>|<sp/>✓<sp/>|<sp/>✓<sp/>|<sp/>✓**<sp/>|<sp/>✓**<sp/>|<sp/>X.509<sp/>client<sp/>certificate<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SaslPlain`<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>✓<sp/>|<sp/>✓<sp/>|<sp/>SASL<sp/>PLAIN<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SaslExternal`<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>✓**<sp/>|<sp/>✓**<sp/>|<sp/>SASL<sp/>EXTERNAL<sp/>(certificate)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SaslGssapi`<sp/>|<sp/>✗<sp/>|<sp/>✗<sp/>|<sp/>✓**<sp/>|<sp/>✗<sp/>|<sp/>SASL<sp/>GSSAPI<sp/>(Kerberos)<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">\*<sp/>Azure<sp/>AD<sp/>Simple<sp/>maps<sp/>to<sp/>ROPC<sp/>(Resource<sp/>Owner<sp/>Password<sp/>Credentials)<sp/>OAuth2<sp/>flow</highlight></codeline>
+<codeline><highlight class="normal">\*\*<sp/>Limited<sp/>support<sp/>-<sp/>may<sp/>return<sp/>failure<sp/>with<sp/>guidance</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage<sp/>with<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Authenticate<sp/>with<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>authOptions<sp/>=<sp/>new<sp/>LdapAuthenticationOptions</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Mode<sp/>=<sp/>LdapAuthenticationMode.Simple,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Username<sp/>=<sp/>&quot;john.doe&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Password<sp/>=<sp/>&quot;password&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IncludeGroups<sp/>=<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IncludeClaims<sp/>=<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Timeout<sp/>=<sp/>TimeSpan.FromSeconds(30)</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>ldapService.AuthenticateAsync(authOptions);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result.IsAuthenticated)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Authenticated:<sp/>{result.Username}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;DN:<sp/>{result.UserDistinguishedName}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Groups:<sp/>{string.Join(&quot;,<sp/>&quot;,<sp/>result.Groups<sp/>??<sp/>[])}&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">else</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Failed:<sp/>{result.ErrorMessage}<sp/>({result.ErrorCode})&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Kerberos<sp/>Authentication<sp/>(Active<sp/>Directory)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Using<sp/>current<sp/>Windows<sp/>ticket<sp/>(SSO)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>adService.AuthenticateWithKerberosAsync();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Using<sp/>explicit<sp/>credentials</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>authOptions<sp/>=<sp/>new<sp/>LdapAuthenticationOptions</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Mode<sp/>=<sp/>LdapAuthenticationMode.Kerberos,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Username<sp/>=<sp/>&quot;john.doe@CORP.EXAMPLE.COM&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Password<sp/>=<sp/>&quot;password&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Domain<sp/>=<sp/>&quot;CORP&quot;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>adService.AuthenticateAsync(authOptions);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Integrated<sp/>Windows<sp/>Authentication</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Uses<sp/>the<sp/>Windows<sp/>identity<sp/>of<sp/>the<sp/>current<sp/>process</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>authOptions<sp/>=<sp/>new<sp/>LdapAuthenticationOptions</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Mode<sp/>=<sp/>LdapAuthenticationMode.IntegratedWindows</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>adService.AuthenticateAsync(authOptions);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Certificate<sp/>Authentication</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>System.Security.Cryptography.X509Certificates;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Using<sp/>certificate<sp/>object</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>cert<sp/>=<sp/>new<sp/>X509Certificate2(&quot;client.pfx&quot;,<sp/>&quot;password&quot;);</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>ldapService.AuthenticateWithCertificateAsync(cert);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Using<sp/>options<sp/>with<sp/>certificate<sp/>path</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>authOptions<sp/>=<sp/>new<sp/>LdapAuthenticationOptions</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Mode<sp/>=<sp/>LdapAuthenticationMode.Certificate,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CertificatePath<sp/>=<sp/>&quot;/path/to/client.pfx&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CertificatePassword<sp/>=<sp/>&quot;password&quot;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>ldapService.AuthenticateAsync(authOptions);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Azure<sp/>AD<sp/>Interactive<sp/>Authentication</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Device<sp/>code<sp/>flow<sp/>(for<sp/>CLI<sp/>apps)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>azureAdService.AuthenticateWithDeviceCodeAsync(async<sp/>deviceCode<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Go<sp/>to<sp/>{deviceCode.VerificationUri}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Enter<sp/>code:<sp/>{deviceCode.UserCode}&quot;);</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result.IsAuthenticated)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Token:<sp/>{result.Token}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Expires:<sp/>{result.ExpiresAt}&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Interactive<sp/>browser<sp/>flow<sp/>(for<sp/>desktop<sp/>apps)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>azureAdService.AuthenticateWithInteractiveBrowserAsync();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Username/Password<sp/>(ROPC<sp/>-<sp/>not<sp/>recommended)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>azureAdService.AuthenticateWithUsernamePasswordAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;user@domain.com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;password&quot;);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Querying<sp/>Supported<sp/>Modes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Get<sp/>supported<sp/>authentication<sp/>modes<sp/>for<sp/>the<sp/>service</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>supportedModes<sp/>=<sp/>ldapService.GetSupportedAuthenticationModes();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">foreach<sp/>(var<sp/>mode<sp/>in<sp/>supportedModes)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Supported:<sp/>{mode}&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Authentication<sp/>Result</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`LdapAuthenticationResult`<sp/>contains:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Property<sp/>|<sp/>Type<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|----------|------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`IsAuthenticated`<sp/>|<sp/>bool<sp/>|<sp/>Whether<sp/>authentication<sp/>succeeded<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Username`<sp/>|<sp/>string?<sp/>|<sp/>Authenticated<sp/>username<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UserDistinguishedName`<sp/>|<sp/>string?<sp/>|<sp/>User&apos;s<sp/>DN<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`AuthenticationMode`<sp/>|<sp/>LdapAuthenticationMode<sp/>|<sp/>Mode<sp/>used<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`DirectoryType`<sp/>|<sp/>LdapDirectoryType<sp/>|<sp/>Directory<sp/>type<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ErrorMessage`<sp/>|<sp/>string?<sp/>|<sp/>Error<sp/>description<sp/>(if<sp/>failed)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ErrorCode`<sp/>|<sp/>string?<sp/>|<sp/>LDAP<sp/>error<sp/>code<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Groups`<sp/>|<sp/>IReadOnlyList&lt;string&gt;?<sp/>|<sp/>User&apos;s<sp/>groups<sp/>(if<sp/>requested)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Claims`<sp/>|<sp/>IDictionary&lt;string,<sp/>object&gt;?<sp/>|<sp/>Additional<sp/>claims<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`AuthenticatedAt`<sp/>|<sp/>DateTimeOffset?<sp/>|<sp/>Authentication<sp/>timestamp<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Token`<sp/>|<sp/>string?<sp/>|<sp/>OAuth<sp/>token<sp/>(Azure<sp/>AD)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ExpiresAt`<sp/>|<sp/>DateTimeOffset?<sp/>|<sp/>Token<sp/>expiration<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>LDAP<sp/>Management<sp/>Operations</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>LDAP<sp/>services<sp/>(Active<sp/>Directory,<sp/>OpenLDAP,<sp/>Apple<sp/>Directory)<sp/>support<sp/>account<sp/>management<sp/>operations.<sp/>Azure<sp/>AD<sp/>is<sp/>read-only<sp/>through<sp/>Graph<sp/>API.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Account<sp/>Management</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Enable,<sp/>disable,<sp/>and<sp/>unlock<sp/>user<sp/>or<sp/>computer<sp/>accounts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Enable<sp/>an<sp/>account</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>enableResult<sp/>=<sp/>await<sp/>_ldap.EnableAccountAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;jdoe&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithObjectType(LdapObjectType.User));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Disable<sp/>an<sp/>account</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>disableResult<sp/>=<sp/>await<sp/>_ldap.DisableAccountAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUserDn(&quot;CN=John<sp/>Doe,OU=Users,DC=contoso,DC=com&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Unlock<sp/>a<sp/>locked<sp/>account</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>unlockResult<sp/>=<sp/>await<sp/>_ldap.UnlockAccountAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;jdoe&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Group<sp/>Membership</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Add<sp/>or<sp/>remove<sp/>members<sp/>from<sp/>groups.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Add<sp/>user<sp/>to<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>addResult<sp/>=<sp/>await<sp/>_ldap.AddToGroupAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapGroupMembershipOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForGroup(&quot;IT-Department&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithMemberUsername(&quot;jdoe&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Add<sp/>multiple<sp/>users<sp/>to<sp/>a<sp/>group<sp/>(batch)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>batchAddResult<sp/>=<sp/>await<sp/>_ldap.AddToGroupBatchAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapGroupMembershipOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForGroup(&quot;Developers&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithMemberDns(new[]<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;CN=John<sp/>Doe,OU=Users,DC=contoso,DC=com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;CN=Jane<sp/>Smith,OU=Users,DC=contoso,DC=com&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ContinueOnErrors());<sp/>//<sp/>Continue<sp/>even<sp/>if<sp/>one<sp/>fails</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Remove<sp/>user<sp/>from<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>removeResult<sp/>=<sp/>await<sp/>_ldap.RemoveFromGroupAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapGroupMembershipOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForGroupDn(&quot;CN=IT-Department,OU=Groups,DC=contoso,DC=com&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithMemberUsername(&quot;jdoe&quot;));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Object<sp/>Movement</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Move<sp/>objects<sp/>between<sp/>organizational<sp/>units<sp/>(OUs).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Move<sp/>user<sp/>to<sp/>another<sp/>OU</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>moveResult<sp/>=<sp/>await<sp/>_ldap.MoveObjectAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapMoveOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.FromDn(&quot;CN=John<sp/>Doe,OU=Users,DC=contoso,DC=com&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ToContainer(&quot;OU=Contractors,DC=contoso,DC=com&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Rename<sp/>an<sp/>object</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>renameResult<sp/>=<sp/>await<sp/>_ldap.RenameObjectAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;CN=Old<sp/>Name,OU=Users,DC=contoso,DC=com&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;New<sp/>Name&quot;);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Password<sp/>Management</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Change<sp/>and<sp/>reset<sp/>user<sp/>passwords.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>User-initiated<sp/>password<sp/>change<sp/>(requires<sp/>current<sp/>password)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>changeResult<sp/>=<sp/>await<sp/>_ldap.ChangePasswordAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapPasswordOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;jdoe&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithCurrentPassword(&quot;OldP@ssw0rd&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithNewPassword(&quot;NewP@ssw0rd!&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Administrative<sp/>password<sp/>reset<sp/>(no<sp/>current<sp/>password<sp/>needed)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>resetResult<sp/>=<sp/>await<sp/>_ldap.ResetPasswordAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapPasswordOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;jdoe&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithNewPassword(&quot;Temp0rary!&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.MustChangeAtNextLogon()<sp/><sp/><sp/><sp/>//<sp/>Force<sp/>password<sp/>change</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.UnlockAccountOnReset());<sp/><sp/><sp/>//<sp/>Also<sp/>unlock<sp/>if<sp/>locked</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Force<sp/>password<sp/>change<sp/>at<sp/>next<sp/>logon</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>forceResult<sp/>=<sp/>await<sp/>_ldap.ForcePasswordChangeAtNextLogonAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;jdoe&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Set<sp/>password<sp/>to<sp/>never<sp/>expire</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>neverExpireResult<sp/>=<sp/>await<sp/>_ldap.SetPasswordNeverExpiresAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;serviceaccount&quot;),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>neverExpires:<sp/>true);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Azure<sp/>AD<sp/>Management<sp/>via<sp/>Microsoft<sp/>Graph</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Azure<sp/>AD<sp/>management<sp/>uses<sp/>Microsoft<sp/>Graph<sp/>API<sp/>instead<sp/>of<sp/>LDAP.<sp/>The<sp/>same<sp/>`ILdapService`<sp/>interface<sp/>works<sp/>with<sp/>Azure<sp/>AD,<sp/>but<sp/>uses<sp/>user<sp/>IDs<sp/>or<sp/>UPNs<sp/>instead<sp/>of<sp/>distinguished<sp/>names.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Register<sp/>Azure<sp/>AD<sp/>service</highlight></codeline>
+<codeline><highlight class="normal">services.AddAzureAd(options<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.TenantId<sp/>=<sp/>&quot;your-tenant-id&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ClientId<sp/>=<sp/>&quot;your-client-id&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>options.ClientSecret<sp/>=<sp/>&quot;your-client-secret&quot;;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Use<sp/>by<sp/>user<sp/>principal<sp/>name<sp/>(UPN)</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>_azureAd.EnableAccountAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.ForUser(&quot;john.doe@contoso.com&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Or<sp/>by<sp/>Azure<sp/>AD<sp/>object<sp/>ID</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result2<sp/>=<sp/>await<sp/>_azureAd.DisableAccountAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapAccountOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithDn(&quot;12345678-1234-1234-1234-123456789012&quot;));<sp/><sp/>//<sp/>Object<sp/>ID<sp/>as<sp/>&quot;DN&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Add<sp/>user<sp/>to<sp/>Azure<sp/>AD<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>groupResult<sp/>=<sp/>await<sp/>_azureAd.AddToGroupAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapGroupMembershipOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForGroup(&quot;IT-Department&quot;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Group<sp/>display<sp/>name</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithMemberUsername(&quot;john.doe@contoso.com&quot;));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Reset<sp/>password<sp/>with<sp/>force<sp/>change<sp/>at<sp/>next<sp/>sign-in</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>passwordResult<sp/>=<sp/>await<sp/>_azureAd.ResetPasswordAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>LdapPasswordOptions.Create()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ForUser(&quot;john.doe@contoso.com&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithNewPassword(&quot;Temp0rary123!&quot;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.MustChangeAtNextLogon());</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Required<sp/>Microsoft<sp/>Graph<sp/>Permissions:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Operation<sp/>|<sp/>Application<sp/>Permission<sp/>|<sp/>Delegated<sp/>Permission<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|-----------|------------------------|---------------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Enable/Disable<sp/>Account<sp/>|<sp/>User.ReadWrite.All<sp/>|<sp/>User.ReadWrite<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Add/Remove<sp/>from<sp/>Group<sp/>|<sp/>GroupMember.ReadWrite.All<sp/>|<sp/>GroupMember.ReadWrite.All<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Reset<sp/>Password<sp/>|<sp/>User.ReadWrite.All<sp/>|<sp/>-<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Force<sp/>Password<sp/>Change<sp/>|<sp/>User.ReadWrite.All<sp/>|<sp/>-<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Set<sp/>Password<sp/>Never<sp/>Expires<sp/>|<sp/>User.ReadWrite.All<sp/>|<sp/>Directory.AccessAsUser.All<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Management<sp/>Result</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>management<sp/>operations<sp/>return<sp/>`LdapManagementResult`:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Property<sp/>|<sp/>Type<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|----------|------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`IsSuccess`<sp/>|<sp/>bool<sp/>|<sp/>Whether<sp/>operation<sp/>succeeded<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Operation`<sp/>|<sp/>LdapManagementOperation<sp/>|<sp/>Type<sp/>of<sp/>operation<sp/>performed<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`TargetDistinguishedName`<sp/>|<sp/>string?<sp/>|<sp/>DN<sp/>of<sp/>affected<sp/>object<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Details`<sp/>|<sp/>string?<sp/>|<sp/>Additional<sp/>details<sp/>or<sp/>error<sp/>message<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ErrorCode`<sp/>|<sp/>int?<sp/>|<sp/>LDAP<sp/>error<sp/>code<sp/>(if<sp/>failed)<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>result<sp/>=<sp/>await<sp/>_ldap.EnableAccountAsync(options);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(result.IsSuccess)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>_logger.LogInformation(&quot;Enabled<sp/>account:<sp/>{Dn}&quot;,<sp/>result.TargetDistinguishedName);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">else</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>_logger.LogError(&quot;Failed:<sp/>{Details}<sp/>(Error:<sp/>{Code})&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.Details,<sp/>result.ErrorCode);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Supported<sp/>Operations<sp/>by<sp/>Directory<sp/>Type</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Operation<sp/>|<sp/>Active<sp/>Directory<sp/>|<sp/>OpenLDAP<sp/>|<sp/>Apple<sp/>Directory<sp/>|<sp/>Azure<sp/>AD<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|-----------|------------------|----------|-----------------|----------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>EnableAccount<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>DisableAccount<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>UnlockAccount<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>❌¹<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>AddToGroup<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>RemoveFromGroup<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>MoveObject<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>❌²<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>RenameObject<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>❌²<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>ChangePassword<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌³<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>ResetPassword<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>ForcePasswordChange<sp/>|<sp/>✅<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>SetPasswordNeverExpires<sp/>|<sp/>✅<sp/>|<sp/>❌<sp/>|<sp/>❌<sp/>|<sp/>✅<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Azure<sp/>AD<sp/>Notes:**</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Azure<sp/>AD<sp/>uses<sp/>Identity<sp/>Protection<sp/>for<sp/>lockout<sp/>management,<sp/>not<sp/>direct<sp/>unlock</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Azure<sp/>AD<sp/>has<sp/>no<sp/>concept<sp/>of<sp/>OUs;<sp/>use<sp/>Administrative<sp/>Units<sp/>for<sp/>delegation</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Password<sp/>change<sp/>requires<sp/>delegated<sp/>authentication<sp/>flow<sp/>(MSAL);<sp/>use<sp/>ResetPassword<sp/>for<sp/>admin<sp/>resets</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Check<sp/>supported<sp/>operations<sp/>programmatically:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">var<sp/>supported<sp/>=<sp/>_ldap.GetSupportedManagementOperations();</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(supported.Contains(LdapManagementOperation.EnableAccount))</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Account<sp/>enable/disable<sp/>is<sp/>supported</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>SSO<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Single<sp/>Sign-On<sp/>services<sp/>for<sp/>session<sp/>management,<sp/>credential<sp/>storage,<sp/>and<sp/>automatic<sp/>token<sp/>refresh.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Registration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Extensions;</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>Toolbox.Core.Options;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Basic<sp/>SSO<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">services.AddSsoServices();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>With<sp/>custom<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddSsoServices(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sso.DefaultSessionDuration<sp/>=<sp/>TimeSpan.FromHours(8);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sso.MaxSessionDuration<sp/>=<sp/>TimeSpan.FromDays(7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sso.EnableAutoRefresh<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sso.RefreshThreshold<sp/>=<sp/>0.8;<sp/>//<sp/>Refresh<sp/>at<sp/>80%<sp/>of<sp/>lifetime</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sso.MaxSessionsPerUser<sp/>=<sp/>5;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sso.PersistSessions<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>credStore<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>credStore.Provider<sp/>=<sp/>CredentialStoreProvider.Auto;<sp/>//<sp/>Auto-detect<sp/>platform</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>credStore.ApplicationName<sp/>=<sp/>&quot;MyApp&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">services.AddSsoServices(configuration);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Session<sp/>Management</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>AuthController</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ISsoSessionManager<sp/>_sessionManager;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ILdapService<sp/>_ldapService;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>AuthController(ISsoSessionManager<sp/>sessionManager,<sp/>ILdapService<sp/>ldapService)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sessionManager<sp/>=<sp/>sessionManager;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ldapService<sp/>=<sp/>ldapService;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;SsoSession&gt;<sp/>LoginAsync(string<sp/>username,<sp/>string<sp/>password)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Authenticate<sp/>with<sp/>LDAP</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>authResult<sp/>=<sp/>await<sp/>_ldapService.AuthenticateAsync(new<sp/>LdapAuthenticationOptions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mode<sp/>=<sp/>LdapAuthenticationMode.Simple,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Username<sp/>=<sp/>username,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Password<sp/>=<sp/>password,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IncludeGroups<sp/>=<sp/>true</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!authResult.IsAuthenticated)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>AuthenticationException(authResult.ErrorMessage);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Create<sp/>SSO<sp/>session</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_sessionManager.CreateSessionAsync(authResult,<sp/>_ldapService);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;SsoSession&gt;<sp/>LoginWithDeviceBindingAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>username,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>password,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>deviceId,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>ipAddress,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>userAgent)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>authResult<sp/>=<sp/>await<sp/>_ldapService.AuthenticateAsync(new<sp/>LdapAuthenticationOptions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mode<sp/>=<sp/>LdapAuthenticationMode.Simple,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Username<sp/>=<sp/>username,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Password<sp/>=<sp/>password</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!authResult.IsAuthenticated)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>AuthenticationException(authResult.ErrorMessage);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Create<sp/>session<sp/>with<sp/>device<sp/>binding</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_sessionManager.CreateSessionAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>authResult,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_ldapService,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>deviceId,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipAddress,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>userAgent);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;bool&gt;<sp/>ValidateSessionAsync(string<sp/>sessionId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>result<sp/>=<sp/>await<sp/>_sessionManager.ValidateSessionAsync(sessionId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>result.IsValid;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>LogoutAsync(string<sp/>sessionId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sessionManager.RevokeSessionAsync(sessionId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>LogoutAllDevicesAsync(string<sp/>userId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sessionManager.RevokeAllUserSessionsAsync(userId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>LogoutOtherDevicesAsync(string<sp/>userId,<sp/>string<sp/>currentSessionId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_sessionManager.RevokeOtherSessionsAsync(userId,<sp/>currentSessionId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Session<sp/>Validation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>SessionMiddleware</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ISsoSessionManager<sp/>_sessionManager;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>SessionMiddleware(ISsoSessionManager<sp/>sessionManager)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sessionManager<sp/>=<sp/>sessionManager;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;SsoSessionValidationResult&gt;<sp/>ValidateAsync(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>sessionId,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string?<sp/>deviceId<sp/>=<sp/>null,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string?<sp/>ipAddress<sp/>=<sp/>null)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>result<sp/>=<sp/>await<sp/>_sessionManager.ValidateSessionAsync(sessionId,<sp/>deviceId,<sp/>ipAddress);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!result.IsValid)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(result.FailureReason)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>SsoValidationFailureReason.SessionNotFound:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Session<sp/>doesn&apos;t<sp/>exist</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>SsoValidationFailureReason.SessionExpired:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Session<sp/>has<sp/>expired</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>SsoValidationFailureReason.SessionRevoked:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Session<sp/>was<sp/>explicitly<sp/>revoked</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>SsoValidationFailureReason.DeviceMismatch:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Request<sp/>from<sp/>different<sp/>device</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>SsoValidationFailureReason.IpMismatch:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Request<sp/>from<sp/>different<sp/>IP</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>result;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Session<sp/>Events</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>SessionEventHandler</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>SessionEventHandler(ISsoSessionManager<sp/>sessionManager)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sessionManager.SessionCreated<sp/>+=<sp/>OnSessionCreated;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sessionManager.SessionExpiring<sp/>+=<sp/>OnSessionExpiring;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sessionManager.SessionRefreshed<sp/>+=<sp/>OnSessionRefreshed;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sessionManager.SessionExpired<sp/>+=<sp/>OnSessionExpired;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sessionManager.SessionRevoked<sp/>+=<sp/>OnSessionRevoked;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnSessionCreated(object?<sp/>sender,<sp/>SsoSessionCreatedEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Session<sp/>created:<sp/>{e.Session.SessionId}<sp/>for<sp/>{e.Session.UserId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnSessionExpiring(object?<sp/>sender,<sp/>SsoSessionExpiringEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Session<sp/>expiring<sp/>in<sp/>{e.TimeToExpiry}:<sp/>{e.Session.SessionId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnSessionRefreshed(object?<sp/>sender,<sp/>SsoSessionRefreshedEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Session<sp/>refreshed:<sp/>{e.Session.SessionId},<sp/>new<sp/>expiry:<sp/>{e.NewExpiresAt}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnSessionExpired(object?<sp/>sender,<sp/>SsoSessionExpiredEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Session<sp/>expired:<sp/>{e.SessionId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnSessionRevoked(object?<sp/>sender,<sp/>SsoSessionRevokedEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Session<sp/>revoked:<sp/>{e.SessionId},<sp/>reason:<sp/>{e.Reason}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Credential<sp/>Storage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Secure<sp/>credential<sp/>storage<sp/>with<sp/>platform-specific<sp/>implementations.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Providers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Provider<sp/>|<sp/>Platform<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|----------|----------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Auto`<sp/>|<sp/>All<sp/>|<sp/>Auto-detect<sp/>best<sp/>provider<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`WindowsCredentialManager`<sp/>|<sp/>Windows<sp/>|<sp/>Windows<sp/>Credential<sp/>Manager<sp/>with<sp/>DPAPI<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`MacOsKeychain`<sp/>|<sp/>macOS<sp/>|<sp/>macOS<sp/>Keychain<sp/>Services<sp/>(planned)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`LinuxSecretService`<sp/>|<sp/>Linux<sp/>|<sp/>GNOME<sp/>Keyring/KDE<sp/>Wallet<sp/>(planned)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EncryptedFile`<sp/>|<sp/>All<sp/>|<sp/>AES-256-GCM<sp/>encrypted<sp/>JSON<sp/>file<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`InMemory`<sp/>|<sp/>All<sp/>|<sp/>Non-persistent,<sp/>for<sp/>testing<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>CredentialService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ICredentialStore<sp/>_credentialStore;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>CredentialService(ICredentialStore<sp/>credentialStore)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_credentialStore<sp/>=<sp/>credentialStore;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>StoreTokenAsync(string<sp/>userId,<sp/>string<sp/>accessToken,<sp/>string<sp/>refreshToken)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>credential<sp/>=<sp/>new<sp/>SsoCredential</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UserId<sp/>=<sp/>userId,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Type<sp/>=<sp/>CredentialType.AccessToken,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AccessToken<sp/>=<sp/>accessToken,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RefreshToken<sp/>=<sp/>refreshToken,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ExpiresAt<sp/>=<sp/>DateTimeOffset.UtcNow.AddHours(1),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DirectoryType<sp/>=<sp/>LdapDirectoryType.ActiveDirectory</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_credentialStore.StoreCredentialAsync($&quot;token:{userId}&quot;,<sp/>credential);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;string?&gt;<sp/>GetTokenAsync(string<sp/>userId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>credential<sp/>=<sp/>await<sp/>_credentialStore.GetCredentialAsync($&quot;token:{userId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>credential?.AccessToken;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>RemoveTokenAsync(string<sp/>userId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>_credentialStore.RemoveCredentialAsync($&quot;token:{userId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;IReadOnlyList&lt;SsoCredential&gt;&gt;<sp/>GetUserCredentialsAsync(string<sp/>userId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_credentialStore.GetUserCredentialsAsync(userId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task<sp/>CleanupExpiredAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>removed<sp/>=<sp/>await<sp/>_credentialStore.CleanupExpiredAsync();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Removed<sp/>{removed}<sp/>expired<sp/>credentials&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Credential<sp/>Store<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`Provider`<sp/>|<sp/>CredentialStoreProvider<sp/>|<sp/>Auto<sp/>|<sp/>Storage<sp/>provider<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ApplicationName`<sp/>|<sp/>string<sp/>|<sp/>&quot;Toolbox&quot;<sp/>|<sp/>Application<sp/>identifier<sp/>for<sp/>credentials<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`FallbackStorePath`<sp/>|<sp/>string?<sp/>|<sp/>null<sp/>|<sp/>Path<sp/>for<sp/>encrypted<sp/>file<sp/>store<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`UseOsKeychain`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Prefer<sp/>OS-native<sp/>credential<sp/>storage<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Automatic<sp/>Token<sp/>Refresh</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>token<sp/>refresh<sp/>service<sp/>automatically<sp/>refreshes<sp/>tokens<sp/>before<sp/>they<sp/>expire.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">services.AddSsoServices(sso<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso.EnableAutoRefresh<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso.RefreshThreshold<sp/>=<sp/>0.8;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Refresh<sp/>at<sp/>80%<sp/>of<sp/>lifetime</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso.RefreshCheckInterval<sp/>=<sp/>TimeSpan.FromMinutes(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso.MaxRefreshRetries<sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso.RefreshRetryDelay<sp/>=<sp/>TimeSpan.FromSeconds(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sso.UseExponentialBackoff<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Manual<sp/>Refresh</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>TokenService</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ITokenRefreshService<sp/>_refreshService;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>readonly<sp/>ISsoSessionManager<sp/>_sessionManager;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>TokenService(ITokenRefreshService<sp/>refreshService,<sp/>ISsoSessionManager<sp/>sessionManager)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_refreshService<sp/>=<sp/>refreshService;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sessionManager<sp/>=<sp/>sessionManager;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;SsoSession?&gt;<sp/>RefreshNowAsync(string<sp/>sessionId)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Immediate<sp/>refresh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_refreshService.RefreshNowAsync(sessionId);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>async<sp/>Task&lt;int&gt;<sp/>RefreshAllPendingAsync()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Refresh<sp/>all<sp/>sessions<sp/>that<sp/>need<sp/>it</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>_refreshService.RefreshAllPendingAsync();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>void<sp/>CheckStatus()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Service<sp/>running:<sp/>{_refreshService.IsRunning}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Registered<sp/>sessions:<sp/>{_refreshService.RegisteredSessionCount}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Successful<sp/>refreshes:<sp/>{_refreshService.SuccessfulRefreshCount}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Failed<sp/>refreshes:<sp/>{_refreshService.FailedRefreshCount}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Last<sp/>check:<sp/>{_refreshService.LastCheckTime}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Next<sp/>check:<sp/>{_refreshService.NextCheckTime}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Refresh<sp/>Events</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```csharp</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>class<sp/>RefreshEventHandler</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>RefreshEventHandler(ITokenRefreshService<sp/>refreshService)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>refreshService.RefreshNeeded<sp/>+=<sp/>OnRefreshNeeded;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>refreshService.RefreshCompleted<sp/>+=<sp/>OnRefreshCompleted;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>refreshService.RefreshFailed<sp/>+=<sp/>OnRefreshFailed;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnRefreshNeeded(object?<sp/>sender,<sp/>TokenRefreshNeededEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Refresh<sp/>needed<sp/>for<sp/>{e.Session.SessionId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>Elapsed:<sp/>{e.LifetimeElapsedPercent:P0}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>Time<sp/>to<sp/>expiry:<sp/>{e.TimeToExpiry}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnRefreshCompleted(object?<sp/>sender,<sp/>TokenRefreshCompletedEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Refresh<sp/>completed<sp/>for<sp/>{e.SessionId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>New<sp/>expiry:<sp/>{e.NewExpiresAt}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>Duration:<sp/>{e.RefreshDuration.TotalMilliseconds}ms&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>void<sp/>OnRefreshFailed(object?<sp/>sender,<sp/>TokenRefreshFailedEventArgs<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;Refresh<sp/>failed<sp/>for<sp/>{e.SessionId}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>Error:<sp/>{e.Exception.Message}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>Retry:<sp/>{e.RetryAttempt}/{e.MaxRetries}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Console.WriteLine($&quot;<sp/><sp/>Will<sp/>retry:<sp/>{e.WillRetry}&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SSO<sp/>Session<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Option<sp/>|<sp/>Type<sp/>|<sp/>Default<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|------|---------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`DefaultSessionDuration`<sp/>|<sp/>TimeSpan<sp/>|<sp/>8<sp/>hours<sp/>|<sp/>Default<sp/>session<sp/>lifetime<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`MaxSessionDuration`<sp/>|<sp/>TimeSpan<sp/>|<sp/>7<sp/>days<sp/>|<sp/>Maximum<sp/>session<sp/>lifetime<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SlidingExpiration`<sp/>|<sp/>TimeSpan?<sp/>|<sp/>30<sp/>min<sp/>|<sp/>Sliding<sp/>expiration<sp/>window<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`RefreshThreshold`<sp/>|<sp/>double<sp/>|<sp/>0.8<sp/>|<sp/>Refresh<sp/>at<sp/>%<sp/>of<sp/>lifetime<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`RefreshCheckInterval`<sp/>|<sp/>TimeSpan<sp/>|<sp/>1<sp/>min<sp/>|<sp/>Background<sp/>check<sp/>interval<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnableAutoRefresh`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Enable<sp/>automatic<sp/>refresh<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`PersistSessions`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Persist<sp/>sessions<sp/>to<sp/>store<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`MaxSessionsPerUser`<sp/>|<sp/>int<sp/>|<sp/>5<sp/>|<sp/>Max<sp/>concurrent<sp/>sessions<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`RevokeOldestOnMaxReached`<sp/>|<sp/>bool<sp/>|<sp/>true<sp/>|<sp/>Revoke<sp/>oldest<sp/>when<sp/>max<sp/>reached<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnforceDeviceBinding`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Require<sp/>same<sp/>device<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnforceIpBinding`<sp/>|<sp/>bool<sp/>|<sp/>false<sp/>|<sp/>Require<sp/>same<sp/>IP<sp/>address<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Creating<sp/>Custom<sp/>Services</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Synchronous<sp/>Disposal</highlight></codeline>
@@ -733,12 +2046,22 @@
 <codeline><highlight class="normal">|--------|------|-------------|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.operations.count`<sp/>|<sp/>Counter<sp/>|<sp/>Total<sp/>operations<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.operations.duration`<sp/>|<sp/>Histogram<sp/>|<sp/>Operation<sp/>duration<sp/>(ms)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.disposals.count`<sp/>|<sp/>Counter<sp/>|<sp/>Service<sp/>disposal<sp/>events<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.instances.active`<sp/>|<sp/>UpDownCounter<sp/>|<sp/>Active<sp/>service<sp/>instances<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.crypto.encrypt.count`<sp/>|<sp/>Counter<sp/>|<sp/>Encryption<sp/>operations<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.crypto.decrypt.count`<sp/>|<sp/>Counter<sp/>|<sp/>Decryption<sp/>operations<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.crypto.data.size`<sp/>|<sp/>Histogram<sp/>|<sp/>Data<sp/>size<sp/>(bytes)<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.upload.count`<sp/>|<sp/>Counter<sp/>|<sp/>File<sp/>uploads<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.download.count`<sp/>|<sp/>Counter<sp/>|<sp/>File<sp/>downloads<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.size`<sp/>|<sp/>Histogram<sp/>|<sp/>File<sp/>size<sp/>(bytes)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.filetransfer.errors.count`<sp/>|<sp/>Counter<sp/>|<sp/>File<sp/>transfer<sp/>errors<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.mailing.sent.count`<sp/>|<sp/>Counter<sp/>|<sp/>Emails<sp/>sent<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.api.requests.count`<sp/>|<sp/>Counter<sp/>|<sp/>API<sp/>requests<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.sso.sessions.created`<sp/>|<sp/>Counter<sp/>|<sp/>SSO<sp/>sessions<sp/>created<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.sso.sessions.expired`<sp/>|<sp/>Counter<sp/>|<sp/>SSO<sp/>sessions<sp/>expired<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.sso.sessions.active`<sp/>|<sp/>UpDownCounter<sp/>|<sp/>Active<sp/>SSO<sp/>sessions<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.sso.validations.count`<sp/>|<sp/>Counter<sp/>|<sp/>Session<sp/>validations<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`toolbox.sso.refresh.count`<sp/>|<sp/>Counter<sp/>|<sp/>Token<sp/>refreshes<sp/>|</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">---</highlight></codeline>
 <codeline></codeline>

@@ -41,8 +41,32 @@ namespace Toolbox.Core.Services.Ldap;
 /// <seealso cref="ILdapService"/>
 public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 {
+    /// <summary>
+    /// The Azure AD configuration options.
+    /// </summary>
+    /// <remarks>
+    /// Contains tenant ID, client ID, authentication mode, and other settings
+    /// required for Microsoft Graph API authentication.
+    /// </remarks>
     private readonly AzureAdOptions _options;
+
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
+    /// <remarks>
+    /// Used for logging debug information, warnings, and errors
+    /// related to Azure AD operations.
+    /// </remarks>
     private readonly ILogger<AzureAdService> _logger;
+
+    /// <summary>
+    /// Lazy-initialized Microsoft Graph client for Azure AD operations.
+    /// </summary>
+    /// <remarks>
+    /// The client is created on first access to defer authentication
+    /// until it is actually needed. Uses the configured authentication
+    /// mode (client secret, certificate, or managed identity).
+    /// </remarks>
     private readonly Lazy<GraphServiceClient> _graphClient;
 
     /// <summary>
@@ -383,6 +407,19 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Fetches users from Azure AD with pagination support.
+    /// </summary>
+    /// <param name="filter">Optional OData filter to apply to the query.</param>
+    /// <param name="page">The page number to retrieve (1-based).</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A paged result containing the users for the requested page.</returns>
+    /// <remarks>
+    /// Microsoft Graph API does not support $skip for pagination, so this method
+    /// fetches results in batches and applies pagination in memory. For large
+    /// result sets, this may have performance implications.
+    /// </remarks>
     private async Task<PagedResult<LdapUser>> FetchUsersPagedAsync(string? filter, int page, int pageSize, CancellationToken cancellationToken)
     {
         // Microsoft Graph doesn't support $skip, so we need to iterate through pages
@@ -506,6 +543,20 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Builds an OData filter string from user search criteria.
+    /// </summary>
+    /// <param name="criteria">The search criteria containing filter parameters.</param>
+    /// <returns>An OData filter string for the Microsoft Graph API.</returns>
+    /// <remarks>
+    /// <para>
+    /// Supports filtering by username, display name, first name, last name, email,
+    /// department, job title, company, city, country, and account enabled status.
+    /// </para>
+    /// <para>
+    /// Wildcard patterns (using *) are converted to OData startsWith() functions.
+    /// </para>
+    /// </remarks>
     private static string BuildODataFilter(LdapSearchCriteria criteria)
     {
         var filters = new List<string>();
@@ -835,6 +886,18 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Fetches groups from Azure AD with pagination support.
+    /// </summary>
+    /// <param name="filter">Optional OData filter to apply to the query.</param>
+    /// <param name="page">The page number to retrieve (1-based).</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A paged result containing the groups for the requested page.</returns>
+    /// <remarks>
+    /// Similar to user pagination, this method fetches results in batches
+    /// and applies pagination in memory due to Microsoft Graph API limitations.
+    /// </remarks>
     private async Task<PagedResult<LdapGroup>> FetchGroupsPagedAsync(string? filter, int page, int pageSize, CancellationToken cancellationToken)
     {
         var skip = (page - 1) * pageSize;
@@ -879,6 +942,20 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         return PagedResult<LdapGroup>.Create(pagedGroups, page, pageSize, totalCount);
     }
 
+    /// <summary>
+    /// Builds an OData filter string from group search criteria.
+    /// </summary>
+    /// <param name="criteria">The search criteria containing filter parameters.</param>
+    /// <returns>An OData filter string for the Microsoft Graph API.</returns>
+    /// <remarks>
+    /// <para>
+    /// Supports filtering by name, display name, description, email,
+    /// security group status, and mail-enabled status.
+    /// </para>
+    /// <para>
+    /// Wildcard patterns (using *) are converted to OData startsWith() functions.
+    /// </para>
+    /// </remarks>
     private static string BuildGroupODataFilter(LdapGroupSearchCriteria criteria)
     {
         var filters = new List<string>();
@@ -941,6 +1018,22 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         return string.Join(" and ", filters);
     }
 
+    /// <summary>
+    /// Maps a Microsoft Graph Group object to an LdapGroup domain object.
+    /// </summary>
+    /// <param name="graphGroup">The Microsoft Graph Group object to map.</param>
+    /// <returns>An LdapGroup object populated with the group's properties.</returns>
+    /// <remarks>
+    /// <para>
+    /// Determines the group type based on the groupTypes collection and
+    /// security/mail enabled flags:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>Unified: Microsoft 365 group</description></item>
+    ///   <item><description>Security: Security group without mail</description></item>
+    ///   <item><description>MailEnabled: Distribution list or mail-enabled security group</description></item>
+    /// </list>
+    /// </remarks>
     private static LdapGroup MapToLdapGroup(Group graphGroup)
     {
         var groupTypes = graphGroup.GroupTypes ?? [];
@@ -966,6 +1059,14 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         };
     }
 
+    /// <summary>
+    /// Gets the array of properties to select when querying groups.
+    /// </summary>
+    /// <returns>An array of property names for the OData $select clause.</returns>
+    /// <remarks>
+    /// Limiting the selected properties improves query performance
+    /// by reducing the amount of data transferred from the Graph API.
+    /// </remarks>
     private static string[] GetGroupSelectProperties() =>
     [
         "id",
@@ -1195,6 +1296,18 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Fetches devices from Azure AD with pagination support.
+    /// </summary>
+    /// <param name="filter">Optional OData filter to apply to the query.</param>
+    /// <param name="page">The page number to retrieve (1-based).</param>
+    /// <param name="pageSize">The number of items per page.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A paged result containing the devices for the requested page.</returns>
+    /// <remarks>
+    /// Similar to user and group pagination, this method fetches results in batches
+    /// and applies pagination in memory due to Microsoft Graph API limitations.
+    /// </remarks>
     private async Task<PagedResult<LdapComputer>> FetchDevicesPagedAsync(string? filter, int page, int pageSize, CancellationToken cancellationToken)
     {
         var skip = (page - 1) * pageSize;
@@ -1239,6 +1352,20 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         return PagedResult<LdapComputer>.Create(pagedDevices, page, pageSize, totalCount);
     }
 
+    /// <summary>
+    /// Builds an OData filter string from device/computer search criteria.
+    /// </summary>
+    /// <param name="criteria">The search criteria containing filter parameters.</param>
+    /// <returns>An OData filter string for the Microsoft Graph API.</returns>
+    /// <remarks>
+    /// <para>
+    /// Supports filtering by name, display name, operating system, OS version,
+    /// enabled status, managed status, compliant status, and trust type.
+    /// </para>
+    /// <para>
+    /// Wildcard patterns (using *) are converted to OData startsWith() functions.
+    /// </para>
+    /// </remarks>
     private static string BuildDeviceODataFilter(LdapComputerSearchCriteria criteria)
     {
         var filters = new List<string>();
@@ -1319,6 +1446,16 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         return string.Join(" and ", filters);
     }
 
+    /// <summary>
+    /// Maps a Microsoft Graph Device object to an LdapComputer domain object.
+    /// </summary>
+    /// <param name="graphDevice">The Microsoft Graph Device object to map.</param>
+    /// <returns>An LdapComputer object populated with the device's properties.</returns>
+    /// <remarks>
+    /// Maps Azure AD device properties to the generic LdapComputer model,
+    /// including device ID, display name, operating system information,
+    /// and management/compliance status.
+    /// </remarks>
     private static LdapComputer MapToLdapComputer(Device graphDevice)
     {
         return new LdapComputer
@@ -1337,6 +1474,14 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         };
     }
 
+    /// <summary>
+    /// Gets the array of properties to select when querying devices.
+    /// </summary>
+    /// <returns>An array of property names for the OData $select clause.</returns>
+    /// <remarks>
+    /// Limiting the selected properties improves query performance
+    /// by reducing the amount of data transferred from the Graph API.
+    /// </remarks>
     private static string[] GetDeviceSelectProperties() =>
     [
         "id",
@@ -1728,6 +1873,16 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Authenticates using the Resource Owner Password Credentials (ROPC) flow.
+    /// </summary>
+    /// <param name="options">The authentication options containing username and password.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result.</returns>
+    /// <remarks>
+    /// This is a wrapper method that delegates to <see cref="AuthenticateWithUsernamePasswordAsync"/>.
+    /// ROPC is a legacy flow and is not recommended for production use as it does not support MFA.
+    /// </remarks>
     private async Task<LdapAuthenticationResult> AuthenticateWithRopcAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -1738,6 +1893,23 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
             cancellationToken);
     }
 
+    /// <summary>
+    /// Authenticates using a client certificate.
+    /// </summary>
+    /// <param name="options">The authentication options containing the certificate.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A task containing the authentication result.</returns>
+    /// <remarks>
+    /// <para>
+    /// Uses the certificate from the authentication options to create a
+    /// <see cref="ClientCertificateCredential"/> for Azure AD authentication.
+    /// </para>
+    /// <para>
+    /// This is a service principal authentication flow and does not
+    /// retrieve user information (no /me endpoint access).
+    /// </para>
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">Thrown when no certificate is provided.</exception>
     private async Task<LdapAuthenticationResult> AuthenticateWithCertificateInternalAsync(
         LdapAuthenticationOptions options,
         CancellationToken cancellationToken)
@@ -2579,13 +2751,42 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
 
     #endregion
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Disposes of managed resources asynchronously.
+    /// </summary>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A <see cref="ValueTask"/> representing the asynchronous dispose operation.</returns>
+    /// <remarks>
+    /// The <see cref="GraphServiceClient"/> does not require explicit disposal,
+    /// so this method completes immediately.
+    /// </remarks>
     protected override ValueTask DisposeAsyncCore(CancellationToken cancellationToken)
     {
         // GraphServiceClient doesn't need explicit disposal
         return ValueTask.CompletedTask;
     }
 
+    /// <summary>
+    /// Creates and configures a Microsoft Graph client with the appropriate authentication.
+    /// </summary>
+    /// <returns>A configured <see cref="GraphServiceClient"/> instance.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when no valid authentication method is configured.
+    /// </exception>
+    /// <remarks>
+    /// <para>
+    /// Creates the Graph client using one of the following authentication modes
+    /// based on the service configuration:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>Client secret authentication</description></item>
+    ///   <item><description>Certificate-based authentication</description></item>
+    ///   <item><description>Managed identity authentication</description></item>
+    /// </list>
+    /// <para>
+    /// Records telemetry metrics for connection success or failure.
+    /// </para>
+    /// </remarks>
     private GraphServiceClient CreateGraphClient()
     {
         try
@@ -2617,6 +2818,26 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         }
     }
 
+    /// <summary>
+    /// Creates a certificate-based credential for Azure AD authentication.
+    /// </summary>
+    /// <returns>A <see cref="ClientCertificateCredential"/> configured with the certificate.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the certificate cannot be found using the provided thumbprint or path.
+    /// </exception>
+    /// <remarks>
+    /// <para>
+    /// Loads the certificate from one of two sources:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>Certificate store (using thumbprint)</description></item>
+    ///   <item><description>File system (using certificate path and optional password)</description></item>
+    /// </list>
+    /// <para>
+    /// Uses the non-obsolete <see cref="X509CertificateLoader"/> API for loading
+    /// PKCS#12 files from disk.
+    /// </para>
+    /// </remarks>
     private ClientCertificateCredential CreateCertificateCredential()
     {
         X509Certificate2? certificate = null;
@@ -2651,6 +2872,23 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         return new ClientCertificateCredential(_options.TenantId, _options.ClientId, certificate);
     }
 
+    /// <summary>
+    /// Maps a Microsoft Graph User object to an LdapUser domain object.
+    /// </summary>
+    /// <param name="graphUser">The Microsoft Graph User object to map.</param>
+    /// <returns>An LdapUser object populated with the user's properties.</returns>
+    /// <remarks>
+    /// <para>
+    /// Maps Azure AD user properties to the generic LdapUser model, including:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>Identity: ID, username, UPN, display name</description></item>
+    ///   <item><description>Contact: Email, mobile phone, business phones</description></item>
+    ///   <item><description>Organization: Job title, department, office</description></item>
+    ///   <item><description>Address: Street, city, state, postal code, country</description></item>
+    ///   <item><description>Status: Account enabled, created date</description></item>
+    /// </list>
+    /// </remarks>
     private static LdapUser MapToLdapUser(User graphUser)
     {
         return new LdapUser
@@ -2678,6 +2916,15 @@ public sealed class AzureAdService : BaseAsyncDisposableService, ILdapService
         };
     }
 
+    /// <summary>
+    /// Escapes special characters in a string for use in OData filter expressions.
+    /// </summary>
+    /// <param name="value">The string value to escape.</param>
+    /// <returns>The escaped string safe for use in OData filters.</returns>
+    /// <remarks>
+    /// Currently escapes single quotes by doubling them, which is the standard
+    /// OData escaping mechanism for string literals.
+    /// </remarks>
     private static string EscapeODataFilter(string value)
     {
         // Escape single quotes by doubling them

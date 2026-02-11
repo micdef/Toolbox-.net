@@ -31,16 +31,24 @@ namespace Toolbox.Core.Services.Cryptography;
 /// <seealso cref="ICryptographyService"/>
 public sealed class RsaCryptographyService : BaseAsyncDisposableService, ICryptographyService
 {
-    // The RSA instance for cryptographic operations
+    /// <summary>
+    /// The RSA instance for cryptographic operations.
+    /// </summary>
     private readonly RSA _rsa;
 
-    // The padding mode to use
+    /// <summary>
+    /// The padding mode to use for encryption and decryption.
+    /// </summary>
     private readonly RSAEncryptionPadding _padding;
 
-    // Flag indicating if private key is available
+    /// <summary>
+    /// Flag indicating if private key is available for decryption.
+    /// </summary>
     private readonly bool _hasPrivateKey;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<RsaCryptographyService> _logger;
 
     /// <summary>

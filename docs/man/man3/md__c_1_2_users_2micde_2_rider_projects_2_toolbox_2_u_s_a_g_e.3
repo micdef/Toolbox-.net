@@ -1,4 +1,4 @@
-.TH "md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e" 3 "Version 1.0" "Toolbox" \" -*- nroff -*-
+.TH "md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e" 3 "Toolbox" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,7 +7,7 @@ md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e \- Toolbox Usage G
 
 
 .PP
-This guide provides detailed instructions for using the \fBToolbox\fP library\&.
+This guide provides detailed instructions for using the Toolbox library\&.
 .SH "Table of Contents"
 .PP
 .IP "1." 4
@@ -33,18 +33,44 @@ This guide provides detailed instructions for using the \fBToolbox\fP library\&.
 .IP "4." 4
 \fBMailing Services\fP
 .IP "5." 4
-\fBCreating Custom Services\fP
+\fBAPI Services\fP
 .IP "6." 4
-\fBOpenTelemetry Integration\fP
+\fBLDAP Services\fP
+.IP "  \(bu" 4
+\fBActive Directory\fP
+.IP "  \(bu" 4
+\fBAzure AD / Entra ID\fP
+.IP "  \(bu" 4
+\fBOpenLDAP\fP
+.IP "  \(bu" 4
+\fBApple Directory\fP
+.IP "  \(bu" 4
+\fBAdvanced Authentication\fP
+.PP
+
 .IP "7." 4
-\fBConfiguration Options\fP
+\fBSSO Services\fP
+.IP "  \(bu" 4
+\fBSession Management\fP
+.IP "  \(bu" 4
+\fBCredential Storage\fP
+.IP "  \(bu" 4
+\fBAutomatic Token Refresh\fP
+.PP
+
 .IP "8." 4
+\fBCreating Custom Services\fP
+.IP "9." 4
+\fBOpenTelemetry Integration\fP
+.IP "10." 4
+\fBConfiguration Options\fP
+.IP "11." 4
 \fBBest Practices\fP
 .PP
 .SH "Getting Started"
 .PP
 .SS "Basic Setup"
-Add \fBToolbox\fP to your application:
+Add Toolbox to your application:
 
 .PP
 .PP
@@ -580,6 +606,1166 @@ Mode  Port  Description  \fRAuto\fP  -  Automatic detection  \fRNone\fP  25  No 
 
 .PP
 .PP
+.SH "API Services"
+.PP
+HTTP API client service with multiple authentication modes and automatic retry\&.
+.SS "Registration"
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+using Toolbox\&.Core\&.Options;
+
+// Anonymous API
+services\&.AddHttpApiAnonymous("https://api\&.example\&.com");
+
+// Bearer token authentication
+services\&.AddHttpApiWithBearerToken(
+    "https://api\&.example\&.com",
+    "your\-bearer\-token");
+
+// Basic authentication
+services\&.AddHttpApiWithBasicAuth(
+    "https://api\&.example\&.com",
+    "username",
+    "password");
+
+// API key authentication (header)
+services\&.AddHttpApiWithApiKey(
+    "https://api\&.example\&.com",
+    "your\-api\-key",
+    "X\-API\-Key",
+    ApiKeyLocation\&.Header);
+
+// API key authentication (query string)
+services\&.AddHttpApiWithApiKey(
+    "https://api\&.example\&.com",
+    "your\-api\-key",
+    "api_key",
+    ApiKeyLocation\&.QueryString);
+
+// Client certificate authentication
+services\&.AddHttpApiWithCertificate(
+    "https://api\&.example\&.com",
+    new X509Certificate2("client\&.pfx", "password"));
+
+// OAuth2 client credentials
+services\&.AddHttpApiWithOAuth2(
+    "https://api\&.example\&.com",
+    "https://auth\&.example\&.com/oauth/token",
+    "client\-id",
+    "client\-secret",
+    "read write");
+
+// Full configuration
+services\&.AddHttpApi(options =>
+{
+    options\&.BaseUrl = "https://api\&.example\&.com";
+    options\&.AuthenticationMode = ApiAuthenticationMode\&.BearerToken;
+    options\&.BearerToken = "your\-token";
+    options\&.Timeout = TimeSpan\&.FromSeconds(30);
+    options\&.MaxRetries = 3;
+    options\&.UseExponentialBackoff = true;
+});
+
+// From configuration
+services\&.AddHttpApi(configuration\&.GetSection("Api"));
+.fi
+.PP
+.SS "Usage"
+.PP
+.nf
+public class DataService
+{
+    private readonly IApiService _api;
+
+    public DataService(IApiService api)
+    {
+        _api = api;
+    }
+
+    public async Task<User?> GetUserAsync(int id)
+    {
+        // Simple GET request
+        var request = ApiRequest\&.Get($"/users/{id}");
+        var response = await _api\&.SendAsync(request);
+
+        response\&.EnsureSuccess();
+        return response\&.Deserialize<User>();
+    }
+
+    public async Task<User?> CreateUserAsync(User user)
+    {
+        // POST with JSON body
+        var request = ApiRequest\&.Post("/users", user);
+        return await _api\&.SendAsync<User>(request);
+    }
+
+    public async Task UpdateUserAsync(int id, User user)
+    {
+        // PUT with JSON body
+        var request = ApiRequest\&.Put($"/users/{id}", user);
+        await _api\&.SendAsync(request);
+    }
+
+    public async Task PatchUserAsync(int id, object partialData)
+    {
+        // PATCH with JSON body
+        var request = ApiRequest\&.Patch($"/users/{id}", partialData);
+        await _api\&.SendAsync(request);
+    }
+
+    public async Task DeleteUserAsync(int id)
+    {
+        // DELETE request
+        var request = ApiRequest\&.Delete($"/users/{id}");
+        await _api\&.SendAsync(request);
+    }
+}
+.fi
+.PP
+.SS "Advanced Usage"
+.PP
+.nf
+public class AdvancedApiService
+{
+    private readonly IApiService _api;
+
+    public AdvancedApiService(IApiService api)
+    {
+        _api = api;
+    }
+
+    public async Task<SearchResult> SearchAsync(string query, int page)
+    {
+        // Request with query parameters and headers
+        var request = ApiRequest\&.Get("/search")
+            \&.WithQuery("q", query)
+            \&.WithQuery("page", page\&.ToString())
+            \&.WithHeader("X\-Request\-ID", Guid\&.NewGuid()\&.ToString())
+            \&.WithTimeout(TimeSpan\&.FromSeconds(60));
+
+        var response = await _api\&.SendAsync(request);
+
+        if (response\&.IsSuccess)
+        {
+            return response\&.Deserialize<SearchResult>()!;
+        }
+
+        if (response\&.IsClientError)
+        {
+            throw new InvalidOperationException($"Client error: {response\&.ReasonPhrase}");
+        }
+
+        throw new HttpRequestException($"Server error: {response\&.StatusCode}");
+    }
+
+    public async Task UploadFileAsync(byte[] fileData, string fileName)
+    {
+        // Binary content
+        var request = ApiRequest\&.Post("/upload")
+            \&.SetBinaryContent(fileData, "application/octet\-stream")
+            \&.WithHeader("X\-File\-Name", fileName);
+
+        await _api\&.SendAsync(request);
+    }
+
+    public async Task SubmitFormAsync(Dictionary<string, string> formData)
+    {
+        // Form URL\-encoded content
+        var request = ApiRequest\&.Post("/form")
+            \&.SetFormContent(formData);
+
+        await _api\&.SendAsync(request);
+    }
+}
+.fi
+.PP
+.SS "Configuration Options"
+Option  Type  Default  Description  \fRBaseUrl\fP  string?  null  Base URL for all requests  \fRAuthenticationMode\fP  ApiAuthenticationMode  Anonymous  Authentication method  \fRTimeout\fP  TimeSpan  30s  Request timeout  \fRMaxRetries\fP  int  3  Maximum retry attempts  \fRRetryDelay\fP  TimeSpan  1s  Delay between retries  \fRUseExponentialBackoff\fP  bool  true  Use exponential backoff  \fRValidateCertificate\fP  bool  true  Validate SSL certificates  \fRFollowRedirects\fP  bool  true  Follow HTTP redirects  \fRMaxRedirects\fP  int  10  Maximum redirects to follow  \fRUserAgent\fP  string  "Toolbox\&.\&.\&."  Default User-Agent header  
+.SS "Authentication Modes"
+Mode  Description  \fRAnonymous\fP  No authentication  \fRBearerToken\fP  Bearer token in Authorization header  \fRBasic\fP  Basic authentication (username:password)  \fRApiKey\fP  API key in header or query string  \fRCertificate\fP  Client certificate authentication  \fROAuth2ClientCredentials\fP  OAuth2 client credentials flow  
+
+.PP
+.PP
+.SH "LDAP Services"
+.PP
+Directory services for querying users, groups, and computers from various LDAP providers\&.
+.SS "Active Directory"
+Windows Active Directory service using LDAP protocol\&.
+.SS "Registration"
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+using Toolbox\&.Core\&.Options;
+
+// Using current Windows credentials
+services\&.AddActiveDirectory(options =>
+{
+    options\&.Domain = "corp\&.example\&.com";
+    options\&.UseCurrentCredentials = true;
+    options\&.UseSsl = true;
+});
+
+// Using explicit credentials
+services\&.AddActiveDirectory(options =>
+{
+    options\&.Domain = "corp\&.example\&.com";
+    options\&.Server = "dc01\&.corp\&.example\&.com";
+    options\&.Port = 636;
+    options\&.UseSsl = true;
+    options\&.Username = "CORP\\\\serviceaccount";
+    options\&.Password = "password";
+});
+
+// From configuration
+services\&.AddActiveDirectory(configuration\&.GetSection("Toolbox:Ldap:ActiveDirectory"));
+.fi
+.PP
+.SS "Usage"
+.PP
+.nf
+public class UserService
+{
+    private readonly ILdapService _ldap;
+
+    public UserService(ILdapService ldap)
+    {
+        _ldap = ldap;
+    }
+
+    public async Task<LdapUser?> FindUserAsync(string username)
+    {
+        var user = await _ldap\&.GetUserByUsernameAsync(username);
+
+        if (user != null)
+        {
+            Console\&.WriteLine($"Found: {user\&.DisplayName} ({user\&.Email})");
+            Console\&.WriteLine($"Department: {user\&.Department}");
+        }
+
+        return user;
+    }
+
+    public async Task<bool> ValidateUserAsync(string username, string password)
+    {
+        return await _ldap\&.ValidateCredentialsAsync(username, password);
+    }
+
+    public async Task<PagedResult<LdapUser>> SearchUsersAsync(string department)
+    {
+        var criteria = LdapSearchCriteria\&.Create()
+            \&.WithDepartment(department)
+            \&.EnabledOnly();
+
+        return await _ldap\&.SearchUsersAsync(criteria, page: 1, pageSize: 25);
+    }
+}
+.fi
+.PP
+.SS "Group and Computer Operations"
+.PP
+.nf
+// Get group by name
+var group = await _ldap\&.GetGroupByNameAsync("Developers");
+
+// Get group members with pagination
+var members = await _ldap\&.GetGroupMembersAsync("CN=Developers,OU=Groups,DC=example,DC=com", page: 1, pageSize: 50);
+
+// Get computer by name
+var computer = await _ldap\&.GetComputerByNameAsync("SERVER01");
+
+// Search servers
+var criteria = LdapComputerSearchCriteria\&.Create()
+    \&.WithOperatingSystem("Windows Server*")
+    \&.EnabledOnly();
+var servers = await _ldap\&.SearchComputersAsync(criteria, page: 1, pageSize: 25);
+.fi
+.PP
+.SS "Configuration Options"
+Option  Type  Default  Description  \fRDomain\fP  string  -  Fully qualified domain name  \fRServer\fP  string?  null  Domain controller (auto-discovers if null)  \fRPort\fP  int  389  LDAP port (636 for SSL)  \fRBaseDn\fP  string?  null  Base DN for searches  \fRUsername\fP  string?  null  Bind username  \fRPassword\fP  string?  null  Bind password  \fRUseSsl\fP  bool  false  Use SSL/TLS (LDAPS)  \fRUseCurrentCredentials\fP  bool  false  Use Windows integrated auth  \fRValidateCertificate\fP  bool  true  Validate SSL certificate  \fRConnectionTimeout\fP  TimeSpan  30s  Connection timeout  \fROperationTimeout\fP  TimeSpan  60s  Operation timeout  
+
+.PP
+.PP
+.SS "Azure AD / Entra ID"
+Azure Active Directory service using Microsoft Graph API\&.
+.SS "Registration"
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+using Toolbox\&.Core\&.Options;
+
+// Client secret authentication
+services\&.AddAzureAd(options =>
+{
+    options\&.TenantId = "your\-tenant\-id";
+    options\&.ClientId = "your\-client\-id";
+    options\&.ClientSecret = "your\-client\-secret";
+    options\&.AuthenticationMode = AzureAdAuthMode\&.ClientSecret;
+});
+
+// Managed identity (Azure\-hosted apps)
+services\&.AddAzureAdWithManagedIdentity(
+    tenantId: "your\-tenant\-id",
+    clientId: "your\-client\-id");
+
+// Certificate authentication
+services\&.AddAzureAd(options =>
+{
+    options\&.TenantId = "your\-tenant\-id";
+    options\&.ClientId = "your\-client\-id";
+    options\&.CertificatePath = "/path/to/cert\&.pfx";
+    options\&.CertificatePassword = "password";
+    options\&.AuthenticationMode = AzureAdAuthMode\&.Certificate;
+});
+
+// From configuration
+services\&.AddAzureAd(configuration\&.GetSection("Toolbox:Ldap:AzureAd"));
+.fi
+.PP
+.SS "Usage"
+.PP
+.nf
+public class AzureUserService
+{
+    private readonly ILdapService _azureAd;
+
+    public AzureUserService(ILdapService azureAd)
+    {
+        _azureAd = azureAd;
+    }
+
+    public async Task<LdapUser?> GetUserAsync(string email)
+    {
+        return await _azureAd\&.GetUserByEmailAsync(email);
+    }
+
+    public async Task<IEnumerable<LdapUser>> SearchByDepartmentAsync(string department)
+    {
+        // Azure AD uses OData filter syntax
+        return await _azureAd\&.SearchUsersAsync($"department eq '{department}'", maxResults: 50);
+    }
+
+    public async Task<IEnumerable<LdapGroup>> GetSecurityGroupsAsync()
+    {
+        return await _azureAd\&.SearchGroupsAsync("securityEnabled eq true", maxResults: 100);
+    }
+}
+.fi
+.PP
+.SS "Important Notes"
+.IP "\(bu" 2
+Azure AD does not support \fRValidateCredentials()\fP - use Azure AD authentication flows instead
+.IP "\(bu" 2
+Search filters use OData syntax, not LDAP filter syntax
+.IP "\(bu" 2
+Computer queries return Azure AD joined devices
+.PP
+.SS "Configuration Options"
+Option  Type  Default  Description  \fRTenantId\fP  string  -  Azure AD tenant ID or domain  \fRClientId\fP  string  -  Application (client) ID  \fRClientSecret\fP  string?  null  Client secret  \fRAuthenticationMode\fP  AzureAdAuthMode  ClientSecret  Authentication method  \fRUseManagedIdentity\fP  bool  false  Use Azure Managed Identity  \fRCertificatePath\fP  string?  null  Path to certificate file  \fRCertificateThumbprint\fP  string?  null  Certificate thumbprint  \fRGraphApiBaseUrl\fP  string  v1\&.0 endpoint  Microsoft Graph API URL  
+
+.PP
+.PP
+.SS "OpenLDAP"
+OpenLDAP or compatible Linux directory service\&.
+.SS "Registration"
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+using Toolbox\&.Core\&.Options;
+
+// Basic configuration
+services\&.AddOpenLdap(options =>
+{
+    options\&.Host = "ldap\&.example\&.com";
+    options\&.Port = 389;
+    options\&.BaseDn = "dc=example,dc=com";
+    options\&.BindDn = "cn=admin,dc=example,dc=com";
+    options\&.BindPassword = "secret";
+    options\&.SecurityMode = LdapSecurityMode\&.StartTls;
+});
+
+// FreeIPA configuration
+services\&.AddOpenLdap(options =>
+{
+    options\&.Host = "ipa\&.example\&.com";
+    options\&.Port = 636;
+    options\&.BaseDn = "dc=example,dc=com";
+    options\&.BindDn = "uid=admin,cn=users,cn=accounts,dc=example,dc=com";
+    options\&.BindPassword = "secret";
+    options\&.SecurityMode = LdapSecurityMode\&.Ssl;
+    options\&.UserObjectClass = "inetOrgPerson";
+    options\&.GroupObjectClass = "groupOfNames";
+});
+
+// From configuration
+services\&.AddOpenLdap(configuration\&.GetSection("Toolbox:Ldap:OpenLdap"));
+.fi
+.PP
+.SS "Usage"
+.PP
+.nf
+public class LinuxUserService
+{
+    private readonly ILdapService _ldap;
+
+    public LinuxUserService(ILdapService ldap)
+    {
+        _ldap = ldap;
+    }
+
+    public async Task<LdapUser?> GetUserAsync(string uid)
+    {
+        return await _ldap\&.GetUserByUsernameAsync(uid);
+    }
+
+    public async Task<bool> AuthenticateAsync(string uid, string password)
+    {
+        return await _ldap\&.ValidateCredentialsAsync(uid, password);
+    }
+}
+.fi
+.PP
+.SS "Configuration Options"
+Option  Type  Default  Description  \fRHost\fP  string  -  LDAP server hostname  \fRPort\fP  int  389  LDAP port  \fRBaseDn\fP  string  -  Base DN for searches  \fRBindDn\fP  string?  null  Bind DN for authentication  \fRBindPassword\fP  string?  null  Bind password  \fRSecurityMode\fP  LdapSecurityMode  None  Security mode (None, Ssl, StartTls)  \fRUserObjectClass\fP  string  inetOrgPerson  User object class  \fRGroupObjectClass\fP  string  groupOfNames  Group object class  \fRUsernameAttribute\fP  string  uid  Username attribute  
+
+.PP
+.PP
+.SS "Apple Directory"
+Apple Open Directory service for macOS environments\&.
+.SS "Registration"
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+using Toolbox\&.Core\&.Options;
+
+services\&.AddAppleDirectory(options =>
+{
+    options\&.Host = "od\&.example\&.com";
+    options\&.Port = 389;
+    options\&.BaseDn = "dc=example,dc=com";
+    options\&.BindDn = "uid=admin,cn=users,dc=example,dc=com";
+    options\&.BindPassword = "secret";
+    options\&.UseSsl = true;
+});
+
+// From configuration
+services\&.AddAppleDirectory(configuration\&.GetSection("Toolbox:Ldap:AppleDirectory"));
+.fi
+.PP
+.SS "Usage"
+.PP
+.nf
+public class MacUserService
+{
+    private readonly ILdapService _ldap;
+
+    public MacUserService(ILdapService ldap)
+    {
+        _ldap = ldap;
+    }
+
+    public async Task<LdapUser?> GetMacUserAsync(string uid)
+    {
+        return await _ldap\&.GetUserByUsernameAsync(uid);
+    }
+
+    public async Task<IEnumerable<string>> GetUserGroupsAsync(string uid)
+    {
+        return await _ldap\&.GetUserGroupsAsync(uid);
+    }
+}
+.fi
+.PP
+.SS "Configuration Options"
+Option  Type  Default  Description  \fRHost\fP  string  -  Directory server hostname  \fRPort\fP  int  389  LDAP port  \fRBaseDn\fP  string  -  Base DN  \fRBindDn\fP  string?  null  Bind DN  \fRBindPassword\fP  string?  null  Bind password  \fRUseSsl\fP  bool  false  Use SSL  \fRUserObjectClass\fP  string  apple-user  Apple user object class  \fRGroupObjectClass\fP  string  apple-group  Apple group object class  \fRUniqueIdAttribute\fP  string  apple-generateduid  Unique ID attribute  
+
+.PP
+.PP
+.SS "Advanced Authentication"
+All LDAP services support advanced authentication methods beyond simple username/password authentication\&.
+.SS "Authentication Modes"
+Mode  AD  Azure AD  OpenLDAP  Apple  Description  \fRSimple\fP  ✓  ✓*  ✓  ✓  DN + Password  \fRAnonymous\fP  ✓  ✗  ✓  ✓  No credentials  \fRKerberos\fP  ✓  ✗  ✓**  ✗  GSSAPI/SPNEGO  \fRNtlm\fP  ✓  ✗  ✗  ✗  NTLM legacy  \fRNegotiate\fP  ✓  ✗  ✗  ✗  Auto Kerberos/NTLM  \fRIntegratedWindows\fP  ✓  ✗  ✗  ✗  Current Windows context  \fRCertificate\fP  ✓  ✓  ✓**  ✓**  X\&.509 client certificate  \fRSaslPlain\fP  ✗  ✗  ✓  ✓  SASL PLAIN  \fRSaslExternal\fP  ✗  ✗  ✓**  ✓**  SASL EXTERNAL (certificate)  \fRSaslGssapi\fP  ✗  ✗  ✓**  ✗  SASL GSSAPI (Kerberos)  
+
+.PP
+.IP "\(bu" 2
+Azure AD Simple maps to ROPC (Resource Owner Password Credentials) OAuth2 flow ** Limited support - may return failure with guidance
+.PP
+.SS "Usage with Options"
+.PP
+.nf
+using Toolbox\&.Core\&.Options;
+
+// Authenticate with options
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode\&.Simple,
+    Username = "john\&.doe",
+    Password = "password",
+    IncludeGroups = true,
+    IncludeClaims = true,
+    Timeout = TimeSpan\&.FromSeconds(30)
+};
+
+var result = await ldapService\&.AuthenticateAsync(authOptions);
+
+if (result\&.IsAuthenticated)
+{
+    Console\&.WriteLine($"Authenticated: {result\&.Username}");
+    Console\&.WriteLine($"DN: {result\&.UserDistinguishedName}");
+    Console\&.WriteLine($"Groups: {string\&.Join(", ", result\&.Groups ?? [])}");
+}
+else
+{
+    Console\&.WriteLine($"Failed: {result\&.ErrorMessage} ({result\&.ErrorCode})");
+}
+.fi
+.PP
+.SS "Kerberos Authentication (Active Directory)"
+.PP
+.nf
+// Using current Windows ticket (SSO)
+var result = await adService\&.AuthenticateWithKerberosAsync();
+
+// Using explicit credentials
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode\&.Kerberos,
+    Username = "john\&.doe@CORP\&.EXAMPLE\&.COM",
+    Password = "password",
+    Domain = "CORP"
+};
+var result = await adService\&.AuthenticateAsync(authOptions);
+.fi
+.PP
+.SS "Integrated Windows Authentication"
+.PP
+.nf
+// Uses the Windows identity of the current process
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode\&.IntegratedWindows
+};
+var result = await adService\&.AuthenticateAsync(authOptions);
+.fi
+.PP
+.SS "Certificate Authentication"
+.PP
+.nf
+using System\&.Security\&.Cryptography\&.X509Certificates;
+
+// Using certificate object
+var cert = new X509Certificate2("client\&.pfx", "password");
+var result = await ldapService\&.AuthenticateWithCertificateAsync(cert);
+
+// Using options with certificate path
+var authOptions = new LdapAuthenticationOptions
+{
+    Mode = LdapAuthenticationMode\&.Certificate,
+    CertificatePath = "/path/to/client\&.pfx",
+    CertificatePassword = "password"
+};
+var result = await ldapService\&.AuthenticateAsync(authOptions);
+.fi
+.PP
+.SS "Azure AD Interactive Authentication"
+.PP
+.nf
+// Device code flow (for CLI apps)
+var result = await azureAdService\&.AuthenticateWithDeviceCodeAsync(async deviceCode =>
+{
+    Console\&.WriteLine($"Go to {deviceCode\&.VerificationUri}");
+    Console\&.WriteLine($"Enter code: {deviceCode\&.UserCode}");
+});
+
+if (result\&.IsAuthenticated)
+{
+    Console\&.WriteLine($"Token: {result\&.Token}");
+    Console\&.WriteLine($"Expires: {result\&.ExpiresAt}");
+}
+
+// Interactive browser flow (for desktop apps)
+var result = await azureAdService\&.AuthenticateWithInteractiveBrowserAsync();
+
+// Username/Password (ROPC \- not recommended)
+var result = await azureAdService\&.AuthenticateWithUsernamePasswordAsync(
+    "user@domain\&.com",
+    "password");
+.fi
+.PP
+.SS "Querying Supported Modes"
+.PP
+.nf
+// Get supported authentication modes for the service
+var supportedModes = ldapService\&.GetSupportedAuthenticationModes();
+
+foreach (var mode in supportedModes)
+{
+    Console\&.WriteLine($"Supported: {mode}");
+}
+.fi
+.PP
+.SS "Authentication Result"
+The \fRLdapAuthenticationResult\fP contains:
+
+.PP
+Property  Type  Description  \fRIsAuthenticated\fP  bool  Whether authentication succeeded  \fRUsername\fP  string?  Authenticated username  \fRUserDistinguishedName\fP  string?  User's DN  \fRAuthenticationMode\fP  LdapAuthenticationMode  Mode used  \fRDirectoryType\fP  LdapDirectoryType  Directory type  \fRErrorMessage\fP  string?  Error description (if failed)  \fRErrorCode\fP  string?  LDAP error code  \fRGroups\fP  IReadOnlyList<string>?  User's groups (if requested)  \fRClaims\fP  IDictionary<string, object>?  Additional claims  \fRAuthenticatedAt\fP  DateTimeOffset?  Authentication timestamp  \fRToken\fP  string?  OAuth token (Azure AD)  \fRExpiresAt\fP  DateTimeOffset?  Token expiration  
+.SS "LDAP Management Operations"
+All LDAP services (Active Directory, OpenLDAP, Apple Directory) support account management operations\&. Azure AD is read-only through Graph API\&.
+.SS "Account Management"
+Enable, disable, and unlock user or computer accounts\&.
+
+.PP
+.PP
+.nf
+// Enable an account
+var enableResult = await _ldap\&.EnableAccountAsync(
+    LdapAccountOptions\&.Create()
+        \&.ForUser("jdoe")
+        \&.WithObjectType(LdapObjectType\&.User));
+
+// Disable an account
+var disableResult = await _ldap\&.DisableAccountAsync(
+    LdapAccountOptions\&.Create()
+        \&.ForUserDn("CN=John Doe,OU=Users,DC=contoso,DC=com"));
+
+// Unlock a locked account
+var unlockResult = await _ldap\&.UnlockAccountAsync(
+    LdapAccountOptions\&.Create()
+        \&.ForUser("jdoe"));
+.fi
+.PP
+.SS "Group Membership"
+Add or remove members from groups\&.
+
+.PP
+.PP
+.nf
+// Add user to group
+var addResult = await _ldap\&.AddToGroupAsync(
+    LdapGroupMembershipOptions\&.Create()
+        \&.ForGroup("IT\-Department")
+        \&.WithMemberUsername("jdoe"));
+
+// Add multiple users to a group (batch)
+var batchAddResult = await _ldap\&.AddToGroupBatchAsync(
+    LdapGroupMembershipOptions\&.Create()
+        \&.ForGroup("Developers")
+        \&.WithMemberDns(new[] {
+            "CN=John Doe,OU=Users,DC=contoso,DC=com",
+            "CN=Jane Smith,OU=Users,DC=contoso,DC=com"
+        })
+        \&.ContinueOnErrors()); // Continue even if one fails
+
+// Remove user from group
+var removeResult = await _ldap\&.RemoveFromGroupAsync(
+    LdapGroupMembershipOptions\&.Create()
+        \&.ForGroupDn("CN=IT\-Department,OU=Groups,DC=contoso,DC=com")
+        \&.WithMemberUsername("jdoe"));
+.fi
+.PP
+.SS "Object Movement"
+Move objects between organizational units (OUs)\&.
+
+.PP
+.PP
+.nf
+// Move user to another OU
+var moveResult = await _ldap\&.MoveObjectAsync(
+    LdapMoveOptions\&.Create()
+        \&.FromDn("CN=John Doe,OU=Users,DC=contoso,DC=com")
+        \&.ToContainer("OU=Contractors,DC=contoso,DC=com"));
+
+// Rename an object
+var renameResult = await _ldap\&.RenameObjectAsync(
+    "CN=Old Name,OU=Users,DC=contoso,DC=com",
+    "New Name");
+.fi
+.PP
+.SS "Password Management"
+Change and reset user passwords\&.
+
+.PP
+.PP
+.nf
+// User\-initiated password change (requires current password)
+var changeResult = await _ldap\&.ChangePasswordAsync(
+    LdapPasswordOptions\&.Create()
+        \&.ForUser("jdoe")
+        \&.WithCurrentPassword("OldP@ssw0rd")
+        \&.WithNewPassword("NewP@ssw0rd!"));
+
+// Administrative password reset (no current password needed)
+var resetResult = await _ldap\&.ResetPasswordAsync(
+    LdapPasswordOptions\&.Create()
+        \&.ForUser("jdoe")
+        \&.WithNewPassword("Temp0rary!")
+        \&.MustChangeAtNextLogon()    // Force password change
+        \&.UnlockAccountOnReset());   // Also unlock if locked
+
+// Force password change at next logon
+var forceResult = await _ldap\&.ForcePasswordChangeAtNextLogonAsync(
+    LdapAccountOptions\&.Create()
+        \&.ForUser("jdoe"));
+
+// Set password to never expire
+var neverExpireResult = await _ldap\&.SetPasswordNeverExpiresAsync(
+    LdapAccountOptions\&.Create()
+        \&.ForUser("serviceaccount"),
+    neverExpires: true);
+.fi
+.PP
+.SS "Azure AD Management via Microsoft Graph"
+Azure AD management uses Microsoft Graph API instead of LDAP\&. The same \fRILdapService\fP interface works with Azure AD, but uses user IDs or UPNs instead of distinguished names\&.
+
+.PP
+.PP
+.nf
+// Register Azure AD service
+services\&.AddAzureAd(options =>
+{
+    options\&.TenantId = "your\-tenant\-id";
+    options\&.ClientId = "your\-client\-id";
+    options\&.ClientSecret = "your\-client\-secret";
+});
+
+// Use by user principal name (UPN)
+var result = await _azureAd\&.EnableAccountAsync(
+    LdapAccountOptions\&.ForUser("john\&.doe@contoso\&.com"));
+
+// Or by Azure AD object ID
+var result2 = await _azureAd\&.DisableAccountAsync(
+    LdapAccountOptions\&.Create()
+        \&.WithDn("12345678\-1234\-1234\-1234\-123456789012"));  // Object ID as "DN"
+
+// Add user to Azure AD group
+var groupResult = await _azureAd\&.AddToGroupAsync(
+    LdapGroupMembershipOptions\&.Create()
+        \&.ForGroup("IT\-Department")           // Group display name
+        \&.WithMemberUsername("john\&.doe@contoso\&.com"));
+
+// Reset password with force change at next sign\-in
+var passwordResult = await _azureAd\&.ResetPasswordAsync(
+    LdapPasswordOptions\&.Create()
+        \&.ForUser("john\&.doe@contoso\&.com")
+        \&.WithNewPassword("Temp0rary123!")
+        \&.MustChangeAtNextLogon());
+.fi
+.PP
+
+.PP
+\fBRequired Microsoft Graph Permissions:\fP
+
+.PP
+Operation  Application Permission  Delegated Permission  Enable/Disable Account  User\&.ReadWrite\&.All  User\&.ReadWrite  Add/Remove from Group  GroupMember\&.ReadWrite\&.All  GroupMember\&.ReadWrite\&.All  Reset Password  User\&.ReadWrite\&.All  -  Force Password Change  User\&.ReadWrite\&.All  -  Set Password Never Expires  User\&.ReadWrite\&.All  Directory\&.AccessAsUser\&.All  
+.SS "Management Result"
+All management operations return \fRLdapManagementResult\fP:
+
+.PP
+Property  Type  Description  \fRIsSuccess\fP  bool  Whether operation succeeded  \fROperation\fP  LdapManagementOperation  Type of operation performed  \fRTargetDistinguishedName\fP  string?  DN of affected object  \fRDetails\fP  string?  Additional details or error message  \fRErrorCode\fP  int?  LDAP error code (if failed)  
+
+.PP
+.PP
+.nf
+var result = await _ldap\&.EnableAccountAsync(options);
+if (result\&.IsSuccess)
+{
+    _logger\&.LogInformation("Enabled account: {Dn}", result\&.TargetDistinguishedName);
+}
+else
+{
+    _logger\&.LogError("Failed: {Details} (Error: {Code})",
+        result\&.Details, result\&.ErrorCode);
+}
+.fi
+.PP
+.SS "Supported Operations by Directory Type"
+Operation  Active Directory  OpenLDAP  Apple Directory  Azure AD  EnableAccount  ✅  ✅  ❌  ✅  DisableAccount  ✅  ✅  ❌  ✅  UnlockAccount  ✅  ✅  ❌  ❌¹  AddToGroup  ✅  ✅  ✅  ✅  RemoveFromGroup  ✅  ✅  ✅  ✅  MoveObject  ✅  ✅  ❌  ❌²  RenameObject  ✅  ✅  ❌  ❌²  ChangePassword  ✅  ✅  ✅  ❌³  ResetPassword  ✅  ✅  ✅  ✅  ForcePasswordChange  ✅  ✅  ❌  ✅  SetPasswordNeverExpires  ✅  ❌  ❌  ✅  
+
+.PP
+\fBAzure AD Notes:\fP
+.IP "1." 4
+Azure AD uses Identity Protection for lockout management, not direct unlock
+.IP "2." 4
+Azure AD has no concept of OUs; use Administrative Units for delegation
+.IP "3." 4
+Password change requires delegated authentication flow (MSAL); use ResetPassword for admin resets
+.PP
+
+.PP
+Check supported operations programmatically:
+
+.PP
+.PP
+.nf
+var supported = _ldap\&.GetSupportedManagementOperations();
+if (supported\&.Contains(LdapManagementOperation\&.EnableAccount))
+{
+    // Account enable/disable is supported
+}
+.fi
+.PP
+
+.PP
+.PP
+.SH "SSO Services"
+.PP
+Single Sign-On services for session management, credential storage, and automatic token refresh\&.
+.SS "Registration"
+.PP
+.nf
+using Toolbox\&.Core\&.Extensions;
+using Toolbox\&.Core\&.Options;
+
+// Basic SSO services
+services\&.AddSsoServices();
+
+// With custom configuration
+services\&.AddSsoServices(
+    sso =>
+    {
+        sso\&.DefaultSessionDuration = TimeSpan\&.FromHours(8);
+        sso\&.MaxSessionDuration = TimeSpan\&.FromDays(7);
+        sso\&.EnableAutoRefresh = true;
+        sso\&.RefreshThreshold = 0\&.8; // Refresh at 80% of lifetime
+        sso\&.MaxSessionsPerUser = 5;
+        sso\&.PersistSessions = true;
+    },
+    credStore =>
+    {
+        credStore\&.Provider = CredentialStoreProvider\&.Auto; // Auto\-detect platform
+        credStore\&.ApplicationName = "MyApp";
+    });
+
+// From configuration
+services\&.AddSsoServices(configuration);
+.fi
+.PP
+.SS "Session Management"
+.PP
+.nf
+public class AuthController
+{
+    private readonly ISsoSessionManager _sessionManager;
+    private readonly ILdapService _ldapService;
+
+    public AuthController(ISsoSessionManager sessionManager, ILdapService ldapService)
+    {
+        _sessionManager = sessionManager;
+        _ldapService = ldapService;
+    }
+
+    public async Task<SsoSession> LoginAsync(string username, string password)
+    {
+        // Authenticate with LDAP
+        var authResult = await _ldapService\&.AuthenticateAsync(new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode\&.Simple,
+            Username = username,
+            Password = password,
+            IncludeGroups = true
+        });
+
+        if (!authResult\&.IsAuthenticated)
+            throw new AuthenticationException(authResult\&.ErrorMessage);
+
+        // Create SSO session
+        return await _sessionManager\&.CreateSessionAsync(authResult, _ldapService);
+    }
+
+    public async Task<SsoSession> LoginWithDeviceBindingAsync(
+        string username,
+        string password,
+        string deviceId,
+        string ipAddress,
+        string userAgent)
+    {
+        var authResult = await _ldapService\&.AuthenticateAsync(new LdapAuthenticationOptions
+        {
+            Mode = LdapAuthenticationMode\&.Simple,
+            Username = username,
+            Password = password
+        });
+
+        if (!authResult\&.IsAuthenticated)
+            throw new AuthenticationException(authResult\&.ErrorMessage);
+
+        // Create session with device binding
+        return await _sessionManager\&.CreateSessionAsync(
+            authResult,
+            _ldapService,
+            deviceId,
+            ipAddress,
+            userAgent);
+    }
+
+    public async Task<bool> ValidateSessionAsync(string sessionId)
+    {
+        var result = await _sessionManager\&.ValidateSessionAsync(sessionId);
+        return result\&.IsValid;
+    }
+
+    public async Task LogoutAsync(string sessionId)
+    {
+        await _sessionManager\&.RevokeSessionAsync(sessionId);
+    }
+
+    public async Task LogoutAllDevicesAsync(string userId)
+    {
+        await _sessionManager\&.RevokeAllUserSessionsAsync(userId);
+    }
+
+    public async Task LogoutOtherDevicesAsync(string userId, string currentSessionId)
+    {
+        await _sessionManager\&.RevokeOtherSessionsAsync(userId, currentSessionId);
+    }
+}
+.fi
+.PP
+.SS "Session Validation"
+.PP
+.nf
+public class SessionMiddleware
+{
+    private readonly ISsoSessionManager _sessionManager;
+
+    public SessionMiddleware(ISsoSessionManager sessionManager)
+    {
+        _sessionManager = sessionManager;
+    }
+
+    public async Task<SsoSessionValidationResult> ValidateAsync(
+        string sessionId,
+        string? deviceId = null,
+        string? ipAddress = null)
+    {
+        var result = await _sessionManager\&.ValidateSessionAsync(sessionId, deviceId, ipAddress);
+
+        if (!result\&.IsValid)
+        {
+            switch (result\&.FailureReason)
+            {
+                case SsoValidationFailureReason\&.SessionNotFound:
+                    // Session doesn't exist
+                    break;
+                case SsoValidationFailureReason\&.SessionExpired:
+                    // Session has expired
+                    break;
+                case SsoValidationFailureReason\&.SessionRevoked:
+                    // Session was explicitly revoked
+                    break;
+                case SsoValidationFailureReason\&.DeviceMismatch:
+                    // Request from different device
+                    break;
+                case SsoValidationFailureReason\&.IpMismatch:
+                    // Request from different IP
+                    break;
+            }
+        }
+
+        return result;
+    }
+}
+.fi
+.PP
+.SS "Session Events"
+.PP
+.nf
+public class SessionEventHandler
+{
+    public SessionEventHandler(ISsoSessionManager sessionManager)
+    {
+        sessionManager\&.SessionCreated += OnSessionCreated;
+        sessionManager\&.SessionExpiring += OnSessionExpiring;
+        sessionManager\&.SessionRefreshed += OnSessionRefreshed;
+        sessionManager\&.SessionExpired += OnSessionExpired;
+        sessionManager\&.SessionRevoked += OnSessionRevoked;
+    }
+
+    private void OnSessionCreated(object? sender, SsoSessionCreatedEventArgs e)
+    {
+        Console\&.WriteLine($"Session created: {e\&.Session\&.SessionId} for {e\&.Session\&.UserId}");
+    }
+
+    private void OnSessionExpiring(object? sender, SsoSessionExpiringEventArgs e)
+    {
+        Console\&.WriteLine($"Session expiring in {e\&.TimeToExpiry}: {e\&.Session\&.SessionId}");
+    }
+
+    private void OnSessionRefreshed(object? sender, SsoSessionRefreshedEventArgs e)
+    {
+        Console\&.WriteLine($"Session refreshed: {e\&.Session\&.SessionId}, new expiry: {e\&.NewExpiresAt}");
+    }
+
+    private void OnSessionExpired(object? sender, SsoSessionExpiredEventArgs e)
+    {
+        Console\&.WriteLine($"Session expired: {e\&.SessionId}");
+    }
+
+    private void OnSessionRevoked(object? sender, SsoSessionRevokedEventArgs e)
+    {
+        Console\&.WriteLine($"Session revoked: {e\&.SessionId}, reason: {e\&.Reason}");
+    }
+}
+.fi
+.PP
+
+.PP
+.PP
+.SS "Credential Storage"
+Secure credential storage with platform-specific implementations\&.
+.SS "Providers"
+Provider  Platform  Description  \fRAuto\fP  All  Auto-detect best provider  \fRWindowsCredentialManager\fP  Windows  Windows Credential Manager with DPAPI  \fRMacOsKeychain\fP  macOS  macOS Keychain Services (planned)  \fRLinuxSecretService\fP  Linux  GNOME Keyring/KDE Wallet (planned)  \fREncryptedFile\fP  All  AES-256-GCM encrypted JSON file  \fRInMemory\fP  All  Non-persistent, for testing  
+.SS "Usage"
+.PP
+.nf
+public class CredentialService
+{
+    private readonly ICredentialStore _credentialStore;
+
+    public CredentialService(ICredentialStore credentialStore)
+    {
+        _credentialStore = credentialStore;
+    }
+
+    public async Task StoreTokenAsync(string userId, string accessToken, string refreshToken)
+    {
+        var credential = new SsoCredential
+        {
+            UserId = userId,
+            Type = CredentialType\&.AccessToken,
+            AccessToken = accessToken,
+            RefreshToken = refreshToken,
+            ExpiresAt = DateTimeOffset\&.UtcNow\&.AddHours(1),
+            DirectoryType = LdapDirectoryType\&.ActiveDirectory
+        };
+
+        await _credentialStore\&.StoreCredentialAsync($"token:{userId}", credential);
+    }
+
+    public async Task<string?> GetTokenAsync(string userId)
+    {
+        var credential = await _credentialStore\&.GetCredentialAsync($"token:{userId}");
+        return credential?\&.AccessToken;
+    }
+
+    public async Task RemoveTokenAsync(string userId)
+    {
+        await _credentialStore\&.RemoveCredentialAsync($"token:{userId}");
+    }
+
+    public async Task<IReadOnlyList<SsoCredential>> GetUserCredentialsAsync(string userId)
+    {
+        return await _credentialStore\&.GetUserCredentialsAsync(userId);
+    }
+
+    public async Task CleanupExpiredAsync()
+    {
+        var removed = await _credentialStore\&.CleanupExpiredAsync();
+        Console\&.WriteLine($"Removed {removed} expired credentials");
+    }
+}
+.fi
+.PP
+.SS "Credential Store Options"
+Option  Type  Default  Description  \fRProvider\fP  CredentialStoreProvider  Auto  Storage provider  \fRApplicationName\fP  string  "Toolbox"  Application identifier for credentials  \fRFallbackStorePath\fP  string?  null  Path for encrypted file store  \fRUseOsKeychain\fP  bool  true  Prefer OS-native credential storage  
+
+.PP
+.PP
+.SS "Automatic Token Refresh"
+The token refresh service automatically refreshes tokens before they expire\&.
+.SS "Configuration"
+.PP
+.nf
+services\&.AddSsoServices(sso =>
+{
+    sso\&.EnableAutoRefresh = true;
+    sso\&.RefreshThreshold = 0\&.8;          // Refresh at 80% of lifetime
+    sso\&.RefreshCheckInterval = TimeSpan\&.FromMinutes(1);
+    sso\&.MaxRefreshRetries = 3;
+    sso\&.RefreshRetryDelay = TimeSpan\&.FromSeconds(5);
+    sso\&.UseExponentialBackoff = true;
+});
+.fi
+.PP
+.SS "Manual Refresh"
+.PP
+.nf
+public class TokenService
+{
+    private readonly ITokenRefreshService _refreshService;
+    private readonly ISsoSessionManager _sessionManager;
+
+    public TokenService(ITokenRefreshService refreshService, ISsoSessionManager sessionManager)
+    {
+        _refreshService = refreshService;
+        _sessionManager = sessionManager;
+    }
+
+    public async Task<SsoSession?> RefreshNowAsync(string sessionId)
+    {
+        // Immediate refresh
+        return await _refreshService\&.RefreshNowAsync(sessionId);
+    }
+
+    public async Task<int> RefreshAllPendingAsync()
+    {
+        // Refresh all sessions that need it
+        return await _refreshService\&.RefreshAllPendingAsync();
+    }
+
+    public void CheckStatus()
+    {
+        Console\&.WriteLine($"Service running: {_refreshService\&.IsRunning}");
+        Console\&.WriteLine($"Registered sessions: {_refreshService\&.RegisteredSessionCount}");
+        Console\&.WriteLine($"Successful refreshes: {_refreshService\&.SuccessfulRefreshCount}");
+        Console\&.WriteLine($"Failed refreshes: {_refreshService\&.FailedRefreshCount}");
+        Console\&.WriteLine($"Last check: {_refreshService\&.LastCheckTime}");
+        Console\&.WriteLine($"Next check: {_refreshService\&.NextCheckTime}");
+    }
+}
+.fi
+.PP
+.SS "Refresh Events"
+.PP
+.nf
+public class RefreshEventHandler
+{
+    public RefreshEventHandler(ITokenRefreshService refreshService)
+    {
+        refreshService\&.RefreshNeeded += OnRefreshNeeded;
+        refreshService\&.RefreshCompleted += OnRefreshCompleted;
+        refreshService\&.RefreshFailed += OnRefreshFailed;
+    }
+
+    private void OnRefreshNeeded(object? sender, TokenRefreshNeededEventArgs e)
+    {
+        Console\&.WriteLine($"Refresh needed for {e\&.Session\&.SessionId}");
+        Console\&.WriteLine($"  Elapsed: {e\&.LifetimeElapsedPercent:P0}");
+        Console\&.WriteLine($"  Time to expiry: {e\&.TimeToExpiry}");
+    }
+
+    private void OnRefreshCompleted(object? sender, TokenRefreshCompletedEventArgs e)
+    {
+        Console\&.WriteLine($"Refresh completed for {e\&.SessionId}");
+        Console\&.WriteLine($"  New expiry: {e\&.NewExpiresAt}");
+        Console\&.WriteLine($"  Duration: {e\&.RefreshDuration\&.TotalMilliseconds}ms");
+    }
+
+    private void OnRefreshFailed(object? sender, TokenRefreshFailedEventArgs e)
+    {
+        Console\&.WriteLine($"Refresh failed for {e\&.SessionId}");
+        Console\&.WriteLine($"  Error: {e\&.Exception\&.Message}");
+        Console\&.WriteLine($"  Retry: {e\&.RetryAttempt}/{e\&.MaxRetries}");
+        Console\&.WriteLine($"  Will retry: {e\&.WillRetry}");
+    }
+}
+.fi
+.PP
+.SS "SSO Session Options"
+Option  Type  Default  Description  \fRDefaultSessionDuration\fP  TimeSpan  8 hours  Default session lifetime  \fRMaxSessionDuration\fP  TimeSpan  7 days  Maximum session lifetime  \fRSlidingExpiration\fP  TimeSpan?  30 min  Sliding expiration window  \fRRefreshThreshold\fP  double  0\&.8  Refresh at % of lifetime  \fRRefreshCheckInterval\fP  TimeSpan  1 min  Background check interval  \fREnableAutoRefresh\fP  bool  true  Enable automatic refresh  \fRPersistSessions\fP  bool  true  Persist sessions to store  \fRMaxSessionsPerUser\fP  int  5  Max concurrent sessions  \fRRevokeOldestOnMaxReached\fP  bool  true  Revoke oldest when max reached  \fREnforceDeviceBinding\fP  bool  false  Require same device  \fREnforceIpBinding\fP  bool  false  Require same IP address  
+
+.PP
+.PP
 .SH "Creating Custom Services"
 .PP
 .SS "Synchronous Disposal"
@@ -700,7 +1886,7 @@ ToolboxMeter\&.RecordOperation("MyService", "CustomOp", elapsedMs);
 .fi
 .PP
 .SS "Available Metrics"
-Metric  Type  Description  \fRtoolbox\&.operations\&.count\fP  Counter  Total operations  \fRtoolbox\&.operations\&.duration\fP  Histogram  Operation duration (ms)  \fRtoolbox\&.crypto\&.encrypt\&.count\fP  Counter  Encryption operations  \fRtoolbox\&.crypto\&.decrypt\&.count\fP  Counter  Decryption operations  \fRtoolbox\&.crypto\&.data\&.size\fP  Histogram  Data size (bytes)  \fRtoolbox\&.filetransfer\&.upload\&.count\fP  Counter  File uploads  \fRtoolbox\&.filetransfer\&.download\&.count\fP  Counter  File downloads  \fRtoolbox\&.filetransfer\&.size\fP  Histogram  File size (bytes)  
+Metric  Type  Description  \fRtoolbox\&.operations\&.count\fP  Counter  Total operations  \fRtoolbox\&.operations\&.duration\fP  Histogram  Operation duration (ms)  \fRtoolbox\&.disposals\&.count\fP  Counter  Service disposal events  \fRtoolbox\&.instances\&.active\fP  UpDownCounter  Active service instances  \fRtoolbox\&.crypto\&.encrypt\&.count\fP  Counter  Encryption operations  \fRtoolbox\&.crypto\&.decrypt\&.count\fP  Counter  Decryption operations  \fRtoolbox\&.crypto\&.data\&.size\fP  Histogram  Data size (bytes)  \fRtoolbox\&.filetransfer\&.upload\&.count\fP  Counter  File uploads  \fRtoolbox\&.filetransfer\&.download\&.count\fP  Counter  File downloads  \fRtoolbox\&.filetransfer\&.size\fP  Histogram  File size (bytes)  \fRtoolbox\&.filetransfer\&.errors\&.count\fP  Counter  File transfer errors  \fRtoolbox\&.mailing\&.sent\&.count\fP  Counter  Emails sent  \fRtoolbox\&.api\&.requests\&.count\fP  Counter  API requests  \fRtoolbox\&.sso\&.sessions\&.created\fP  Counter  SSO sessions created  \fRtoolbox\&.sso\&.sessions\&.expired\fP  Counter  SSO sessions expired  \fRtoolbox\&.sso\&.sessions\&.active\fP  UpDownCounter  Active SSO sessions  \fRtoolbox\&.sso\&.validations\&.count\fP  Counter  Session validations  \fRtoolbox\&.sso\&.refresh\&.count\fP  Counter  Token refreshes  
 
 .PP
 .PP

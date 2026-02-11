@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e" xml:lang="en-US">
+<title>
+<para>Directives du Projet Toolbox </para>
+</title>
+<indexterm><primary>Directives du Projet Toolbox</primary></indexterm>
+
+<para><anchor xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md0"/></para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md1">
+<title>Framework</title>
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">Version</emphasis> : .NET 10</para>
+</listitem><listitem>
+<para><emphasis role="bold">Langage</emphasis> : C# 14.0</para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md3">
+<title>Architecture des Services</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md4">
+<title>Injection de Dépendances</title>
+<para><itemizedlist>
+<listitem>
+<para>Chaque service et classe doit être <emphasis role="bold">injectable</emphasis> via le conteneur DI de .NET</para>
+</listitem><listitem>
+<para>Utiliser les extensions <computeroutput>IServiceCollection</computeroutput> pour l&apos;enregistrement</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md5">
+<title>Disposal</title>
+<para><itemizedlist>
+<listitem>
+<para>Chaque service et classe doit implémenter <emphasis role="bold">IDisposable</emphasis> et/ou <emphasis role="bold">IAsyncDisposable</emphasis></para>
+</listitem><listitem>
+<para>Utiliser les classes de base <computeroutput>BaseDisposableService</computeroutput> ou <computeroutput>BaseAsyncDisposableService</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md6">
+<title>Généricité</title>
+<para><itemizedlist>
+<listitem>
+<para>Les services doivent être <emphasis role="bold">aussi génériques que possible</emphasis></para>
+</listitem><listitem>
+<para>Favoriser la réutilisabilité et l&apos;extensibilité</para>
+</listitem><listitem>
+<para>Éviter les implémentations trop spécifiques</para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md8">
+<title>Organisation par Catégorie</title>
+<para><itemizedlist>
+<listitem>
+<para>Pour chaque catégorie de service : <emphasis role="bold">une seule interface</emphasis></para>
+</listitem><listitem>
+<para>L&apos;interface définit le contrat commun pour tous les services de la catégorie</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md9">
+<title>Catégories existantes</title>
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Catégorie  </para>
+</entry><entry>
+<para>Interface  </para>
+</entry><entry>
+<para>Services  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Cryptography  </para>
+</entry><entry>
+<para><computeroutput>ICryptographyService</computeroutput>  </para>
+</entry><entry>
+<para>Base64, AES, RSA  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>FileTransfer  </para>
+</entry><entry>
+<para><computeroutput>IFileTransferService</computeroutput>  </para>
+</entry><entry>
+<para>FTP, FTPS, SFTP  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Mailing  </para>
+</entry><entry>
+<para><computeroutput>IMailingService</computeroutput>  </para>
+</entry><entry>
+<para>SMTP  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Api  </para>
+</entry><entry>
+<para><computeroutput>IApiService</computeroutput>  </para>
+</entry><entry>
+<para>HTTP Client  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Ldap  </para>
+</entry><entry>
+<para><computeroutput>ILdapService</computeroutput>  </para>
+</entry><entry>
+<para>ActiveDirectory, OpenLdap, AzureAd, AppleDirectory  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md11">
+<title>Documentation Doxygen</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md12">
+<title>Exigences</title>
+<para><itemizedlist>
+<listitem>
+<para>Documentation <emphasis role="bold">complète</emphasis> pour chaque classe et service</para>
+</listitem><listitem>
+<para><emphasis role="bold">Obligatoire</emphasis> pour toutes les parties, y compris privées :<itemizedlist>
+<listitem>
+<para>Membres privés</para>
+</listitem><listitem>
+<para>Variables privées</para>
+</listitem><listitem>
+<para>Fonctions privées</para>
+</listitem><listitem>
+<para>Constructeurs</para>
+</listitem><listitem>
+<para>Destructeurs</para>
+</listitem><listitem>
+<para>Propriétés</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md13">
+<title>Format</title>
+<para><literallayout><computeroutput>///&#32;&lt;summary&gt;
+///&#32;Description&#32;de&#32;la&#32;classe/méthode.
+///&#32;&lt;/summary&gt;
+///&#32;&lt;param&#32;name=&quot;paramName&quot;&gt;Description&#32;du&#32;paramètre.&lt;/param&gt;
+///&#32;&lt;returns&gt;Description&#32;du&#32;retour.&lt;/returns&gt;
+///&#32;&lt;exception&#32;cref=&quot;ExceptionType&quot;&gt;Condition&#32;de&#32;levée.&lt;/exception&gt;
+///&#32;&lt;remarks&gt;Remarques&#32;additionnelles.&lt;/remarks&gt;
+///&#32;&lt;example&gt;
+///&#32;Exemple&#32;d&apos;utilisation.
+///&#32;&lt;/example&gt;
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md15">
+<title>Télémétrie</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md16">
+<title>OpenTelemetry</title>
+<para><itemizedlist>
+<listitem>
+<para>Utilisé dans <emphasis role="bold">tout le projet</emphasis></para>
+</listitem><listitem>
+<para>Chaque opération doit avoir :<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Tracing</emphasis> : Activities pour le suivi distribué</para>
+</listitem><listitem>
+<para><emphasis role="bold">Métriques</emphasis> : Compteurs et histogrammes</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md17">
+<title>Métriques standards</title>
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>toolbox.operations.count</computeroutput> : Nombre d&apos;opérations</para>
+</listitem><listitem>
+<para><computeroutput>toolbox.operations.duration</computeroutput> : Durée des opérations (ms)</para>
+</listitem><listitem>
+<para><computeroutput>toolbox.errors.count</computeroutput> : Nombre d&apos;erreurs</para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md19">
+<title>Tests</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md20">
+<title>Tests Unitaires</title>
+<para><itemizedlist>
+<listitem>
+<para>Chaque service doit avoir des tests unitaires</para>
+</listitem><listitem>
+<para>Couverture des cas nominaux et des cas d&apos;erreur</para>
+</listitem><listitem>
+<para>Utiliser des mocks pour les dépendances externes</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md21">
+<title>Tests de Non-Régression</title>
+<para><itemizedlist>
+<listitem>
+<para>Tests pour garantir la stabilité des fonctionnalités existantes</para>
+</listitem><listitem>
+<para>Exécutés à chaque modification</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md22">
+<title>Framework</title>
+<para><itemizedlist>
+<listitem>
+<para>xUnit pour les tests</para>
+</listitem><listitem>
+<para>Moq ou NSubstitute pour les mocks</para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md24">
+<title>Documentation du Projet</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md25">
+<title>Fichiers à maintenir</title>
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Fichier  </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput><link linkend="__r_e_a_d_m_e_8md">README.md</link></computeroutput>  </para>
+</entry><entry>
+<para>Présentation du projet, installation, quick start  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput><link linkend="__u_s_a_g_e_8md">USAGE.md</link></computeroutput>  </para>
+</entry><entry>
+<para>Guide d&apos;utilisation détaillé de chaque service  </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>.gitignore</computeroutput>  </para>
+</entry><entry>
+<para>Fichiers à ignorer pour Git (approprié .NET)  </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput><link linkend="__c_l_a_u_d_e_8md">CLAUDE.md</link></computeroutput>  </para>
+</entry><entry>
+<para>Ce fichier - directives de développement  </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md26">
+<title>Mise à jour</title>
+<para><itemizedlist>
+<listitem>
+<para>Ces fichiers doivent être <emphasis role="bold">mis à jour</emphasis> à chaque création de service ou classe</para>
+</listitem><listitem>
+<para>Le README doit refléter les fonctionnalités disponibles</para>
+</listitem><listitem>
+<para>Le USAGE doit documenter l&apos;utilisation de chaque nouveau service</para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md28">
+<title>Structure du Projet</title>
+<para><literallayout><computeroutput>Toolbox/
+├──&#32;src/
+│&#32;&#32;&#32;└──&#32;Toolbox.Core/
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Abstractions/Services/&#32;&#32;&#32;#&#32;Interfaces&#32;(1&#32;par&#32;catégorie)
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Base/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Classes&#32;de&#32;base&#32;disposables
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Extensions/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Extensions&#32;DI
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Options/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Options&#32;de&#32;configuration
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;├──&#32;Services/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Implémentations&#32;par&#32;catégorie
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Api/
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Cryptography/
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;FileTransfer/
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;├──&#32;Ldap/
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;│&#32;&#32;&#32;└──&#32;Mailing/
+│&#32;&#32;&#32;&#32;&#32;&#32;&#32;└──&#32;Telemetry/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Infrastructure&#32;OpenTelemetry
+├──&#32;tests/
+│&#32;&#32;&#32;└──&#32;Toolbox.Tests/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Tests&#32;unitaires&#32;et&#32;de&#32;non-régression
+├──&#32;samples/
+│&#32;&#32;&#32;└──&#32;Toolbox.Sample/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Application&#32;exemple
+└──&#32;docs/&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Documentation&#32;Doxygen&#32;générée
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md30">
+<title>Checklist pour Nouveau Service</title>
+<para><itemizedlist>
+<listitem override="unchecked">
+<para>Vérifier si l&apos;interface de la catégorie existe, sinon la créer</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Implémenter le service en héritant de <computeroutput>BaseDisposableService</computeroutput> ou <computeroutput>BaseAsyncDisposableService</computeroutput></para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Ajouter la documentation Doxygen complète (publique ET privée)</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Ajouter le tracing OpenTelemetry</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Ajouter les métriques OpenTelemetry</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Créer l&apos;extension DI pour l&apos;enregistrement</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Écrire les tests unitaires</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Écrire les tests de non-régression</para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Mettre à jour <computeroutput><link linkend="__r_e_a_d_m_e_8md">README.md</link></computeroutput></para>
+</listitem></itemizedlist>
+<itemizedlist>
+<listitem override="unchecked">
+<para>Mettre à jour <computeroutput><link linkend="__u_s_a_g_e_8md">USAGE.md</link></computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md32">
+<title>Git et Commits</title><section xml:id="_md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e_1autotoc_md33">
+<title>Messages de Commit</title>
+<para><itemizedlist>
+<listitem>
+<para>Les messages doivent être <emphasis role="bold">structurés en Markdown</emphasis></para>
+</listitem><listitem>
+<para>Contenir <emphasis role="bold">toutes les actions effectuées</emphasis></para>
+</listitem><listitem>
+<para>Rester un <emphasis role="bold">résumé concis</emphasis> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+</section>

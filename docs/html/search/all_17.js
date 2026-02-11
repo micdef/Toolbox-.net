@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['queryparameters_0',['QueryParameters',['../class_toolbox_1_1_core_1_1_options_1_1_api_request.html#ae2398a82589a5b98dc9d2f0595ecddcd',1,'Toolbox::Core::Options::ApiRequest']]],
-  ['querystring_1',['QueryString',['../namespace_toolbox_1_1_core_1_1_options.html#a5fee6f0e4a878865f082011a3248da30a3b2017ef103f7fd579b93e93e5a59477',1,'Toolbox::Core::Options']]],
-  ['quick_20start_2',['Quick Start',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md4',1,'']]]
+  ['régression_0',['Tests de Non-Régression',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_c_l_a_u_d_e.html#autotoc_md21',1,'']]],
+  ['readme_2emd_1',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['record_20metrics_20for_20performance_2',['3. Record Metrics for Performance',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md167',1,'']]],
+  ['refresh_3',['Refresh',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md144',1,'Automatic Token Refresh'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md146',1,'Manual Refresh']]],
+  ['refresh_20events_4',['Refresh Events',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md147',1,'']]],
+  ['registration_5',['Registration',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md54',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md58',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md63',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md70',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md74',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md79',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md86',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md94',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md100',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md106',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md111',1,'Registration'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md134',1,'Registration']]],
+  ['requirements_6',['Requirements',['../dir_7817c100d872970f32fdb454cda15dc6.html#autotoc_md36',1,'']]],
+  ['result_7',['Result',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md123',1,'Authentication Result'],['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md130',1,'Management Result']]],
+  ['rsa_20encryption_8',['RSA Encryption',['../md__c_1_2_users_2micde_2_rider_projects_2_toolbox_2_u_s_a_g_e.html#autotoc_md62',1,'']]]
 ];

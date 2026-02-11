@@ -13,10 +13,16 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Features</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Cryptography<sp/>Services**:<sp/>AES,<sp/>RSA,<sp/>and<sp/>Base64<sp/>encoding/decoding</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**File<sp/>Transfer<sp/>Services**:<sp/>FTP,<sp/>FTPS,<sp/>and<sp/>SFTP<sp/>with<sp/>batch<sp/>operations</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Mailing<sp/>Services**:<sp/>SMTP<sp/>with<sp/>TLS/SSL,<sp/>OAuth2,<sp/>and<sp/>attachment<sp/>support</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**API<sp/>Services**:<sp/>HTTP<sp/>client<sp/>with<sp/>multiple<sp/>authentication<sp/>modes<sp/>and<sp/>retry<sp/>policies</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**LDAP<sp/>Services**:<sp/>Active<sp/>Directory,<sp/>Azure<sp/>AD,<sp/>OpenLDAP,<sp/>and<sp/>Apple<sp/>Directory<sp/>with<sp/>advanced<sp/>authentication<sp/>(Kerberos,<sp/>NTLM,<sp/>Certificate,<sp/>SASL)<sp/>and<sp/>management<sp/>operations<sp/>(enable/disable<sp/>accounts,<sp/>group<sp/>membership,<sp/>password<sp/>reset,<sp/>object<sp/>movement)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**SSO<sp/>Services**:<sp/>Single<sp/>Sign-On<sp/>session<sp/>management,<sp/>automatic<sp/>token<sp/>refresh,<sp/>and<sp/>secure<sp/>credential<sp/>storage<sp/>(Windows<sp/>Credential<sp/>Manager,<sp/>encrypted<sp/>file)</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>**Disposable<sp/>Services**:<sp/>Thread-safe<sp/>base<sp/>classes<sp/>for<sp/>synchronous<sp/>and<sp/>asynchronous<sp/>disposal</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>**OpenTelemetry<sp/>Integration**:<sp/>Built-in<sp/>distributed<sp/>tracing<sp/>and<sp/>metrics<sp/>collection</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>**Dependency<sp/>Injection**:<sp/>Fluent<sp/>extensions<sp/>for<sp/>easy<sp/>service<sp/>registration</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>**Comprehensive<sp/>Documentation**:<sp/>Full<sp/>Doxygen<sp/>documentation<sp/>support</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Comprehensive<sp/>Documentation**:<sp/>Full<sp/>Doxygen<sp/>documentation<sp/>(HTML,<sp/>LaTeX,<sp/>XML,<sp/>DocBook,<sp/>RTF,<sp/>Man)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Requirements</highlight></codeline>
 <codeline></codeline>
@@ -58,8 +64,20 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>[Usage<sp/>Guide](USAGE.md)<sp/>-<sp/>Detailed<sp/>usage<sp/>instructions</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>[API<sp/>Documentation](docs/html/index.html)<sp/>-<sp/>Generated<sp/>Doxygen<sp/>documentation</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[Usage<sp/>Guide](USAGE.md)<sp/>-<sp/>Detailed<sp/>usage<sp/>instructions<sp/>and<sp/>examples</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[API<sp/>Documentation<sp/>(HTML)](docs/html/index.html)<sp/>-<sp/>Web-based<sp/>API<sp/>reference</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[API<sp/>Documentation<sp/>(PDF)](docs/latex/refman.pdf)<sp/>-<sp/>PDF<sp/>reference<sp/>manual<sp/>(requires<sp/>LaTeX<sp/>compilation)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Available<sp/>Documentation<sp/>Formats</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Format<sp/>|<sp/>Location<sp/>|<sp/>Description<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|--------|----------|-------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>HTML<sp/>|<sp/>`docs/html/`<sp/>|<sp/>Web-based<sp/>documentation<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>LaTeX<sp/>|<sp/>`docs/latex/`<sp/>|<sp/>PDF<sp/>generation<sp/>source<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>XML<sp/>|<sp/>`docs/xml/`<sp/>|<sp/>Structured<sp/>XML<sp/>for<sp/>tooling<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>DocBook<sp/>|<sp/>`docs/docbook/`<sp/>|<sp/>Technical<sp/>documentation<sp/>format<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>RTF<sp/>|<sp/>`docs/rtf/`<sp/>|<sp/>Rich<sp/>Text<sp/>Format<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Man<sp/>|<sp/>`docs/man/`<sp/>|<sp/>Unix<sp/>manual<sp/>pages<sp/>|</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Generating<sp/>Documentation</highlight></codeline>
 <codeline></codeline>
@@ -73,16 +91,30 @@
 <codeline><highlight class="normal">Toolbox/</highlight></codeline>
 <codeline><highlight class="normal">├──<sp/>src/</highlight></codeline>
 <codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Core/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Core<sp/>library</highlight></codeline>
-<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Abstractions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Interfaces</highlight></codeline>
-<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Base/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Base<sp/>classes</highlight></codeline>
-<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Extensions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>DI<sp/>extensions</highlight></codeline>
-<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Options/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Configuration<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Abstractions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Service<sp/>interfaces</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>└──<sp/>Services/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>ICryptographyService,<sp/>IFileTransferService,<sp/>etc.</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Base/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Base<sp/>classes<sp/>for<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Extensions/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>DI<sp/>extension<sp/>methods</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Options/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Configuration<sp/>options<sp/>and<sp/>DTOs</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>├──<sp/>Services/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Service<sp/>implementations</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Api/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>HTTP<sp/>API<sp/>service</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Cryptography/<sp/><sp/><sp/>#<sp/>AES,<sp/>RSA,<sp/>Base64<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>FileTransfer/<sp/><sp/><sp/>#<sp/>FTP,<sp/>SFTP<sp/>services</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Ldap/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Active<sp/>Directory,<sp/>Azure<sp/>AD,<sp/>OpenLDAP,<sp/>Apple<sp/>Directory</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>├──<sp/>Mailing/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>SMTP<sp/>service</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│<sp/><sp/><sp/>└──<sp/>Sso/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>SSO<sp/>session<sp/>management,<sp/>credential<sp/>stores</highlight></codeline>
 <codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>└──<sp/>Telemetry/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>OpenTelemetry<sp/>infrastructure</highlight></codeline>
 <codeline><highlight class="normal">├──<sp/>tests/</highlight></codeline>
 <codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Tests/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Unit<sp/>and<sp/>integration<sp/>tests</highlight></codeline>
 <codeline><highlight class="normal">├──<sp/>samples/</highlight></codeline>
 <codeline><highlight class="normal">│<sp/><sp/><sp/>└──<sp/>Toolbox.Sample/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Sample<sp/>application</highlight></codeline>
-<codeline><highlight class="normal">└──<sp/>docs/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Generated<sp/>documentation</highlight></codeline>
+<codeline><highlight class="normal">└──<sp/>docs/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Generated<sp/>Doxygen<sp/>documentation</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>html/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Web<sp/>documentation</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>latex/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>PDF<sp/>source</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>xml/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Structured<sp/>XML</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>docbook/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>DocBook<sp/>format</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>├──<sp/>rtf/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Rich<sp/>Text<sp/>Format</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>└──<sp/>man/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>Unix<sp/>manual<sp/>pages</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Building</highlight></codeline>

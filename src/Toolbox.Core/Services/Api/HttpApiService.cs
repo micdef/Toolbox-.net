@@ -33,21 +33,39 @@ namespace Toolbox.Core.Services.Api;
 /// <seealso cref="IApiService"/>
 public sealed class HttpApiService : BaseAsyncDisposableService, IApiService
 {
-    // The HTTP client instance
+    /// <summary>
+    /// The HTTP client instance for API requests.
+    /// </summary>
     private readonly HttpClient _httpClient;
 
-    // The service options
+    /// <summary>
+    /// The service configuration options.
+    /// </summary>
     private readonly ApiOptions _options;
 
-    // The logger instance
+    /// <summary>
+    /// The logger instance for diagnostic output.
+    /// </summary>
     private readonly ILogger<HttpApiService> _logger;
 
-    // OAuth2 token cache
+    /// <summary>
+    /// Cached OAuth2 access token.
+    /// </summary>
     private string? _oauth2Token;
+
+    /// <summary>
+    /// Expiry time of the cached OAuth2 token.
+    /// </summary>
     private DateTime _oauth2TokenExpiry = DateTime.MinValue;
+
+    /// <summary>
+    /// Semaphore for thread-safe OAuth2 token refresh.
+    /// </summary>
     private readonly SemaphoreSlim _oauth2Lock = new(1, 1);
 
-    // Whether we own the HttpClient
+    /// <summary>
+    /// Indicates whether this service owns the HttpClient and should dispose it.
+    /// </summary>
     private readonly bool _ownsHttpClient;
 
     /// <summary>
